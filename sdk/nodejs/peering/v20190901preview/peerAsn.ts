@@ -92,9 +92,7 @@ export class PeerAsn extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeerAsn" }, { type: "azure-native:peering/v20190801preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20210601:PeerAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeerAsn.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getManagementGroupSubscription(args: GetManagementGroupSubscript
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:management/v20200501:getManagementGroupSubscription", {
         "groupId": args.groupId,
         "subscriptionId": args.subscriptionId,

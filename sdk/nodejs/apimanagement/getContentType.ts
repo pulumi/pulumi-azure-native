@@ -13,9 +13,7 @@ export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement:getContentType", {
         "contentTypeId": args.contentTypeId,
         "resourceGroupName": args.resourceGroupName,

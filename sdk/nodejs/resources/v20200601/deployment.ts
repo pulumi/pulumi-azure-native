@@ -87,9 +87,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:resources:Deployment" }, { type: "azure-native:resources/v20151101:Deployment" }, { type: "azure-native:resources/v20160201:Deployment" }, { type: "azure-native:resources/v20160701:Deployment" }, { type: "azure-native:resources/v20160901:Deployment" }, { type: "azure-native:resources/v20170510:Deployment" }, { type: "azure-native:resources/v20180201:Deployment" }, { type: "azure-native:resources/v20180501:Deployment" }, { type: "azure-native:resources/v20190301:Deployment" }, { type: "azure-native:resources/v20190501:Deployment" }, { type: "azure-native:resources/v20190510:Deployment" }, { type: "azure-native:resources/v20190701:Deployment" }, { type: "azure-native:resources/v20190801:Deployment" }, { type: "azure-native:resources/v20191001:Deployment" }, { type: "azure-native:resources/v20200801:Deployment" }, { type: "azure-native:resources/v20201001:Deployment" }, { type: "azure-native:resources/v20210101:Deployment" }, { type: "azure-native:resources/v20210401:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents Amazon Web Services S3 data connector.
         /// </summary>
         public static Task<GetAwsS3DataConnectorResult> InvokeAsync(GetAwsS3DataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20210901preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20210901preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Amazon Web Services S3 data connector.
         /// </summary>
         public static Output<GetAwsS3DataConnectorResult> Invoke(GetAwsS3DataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20210901preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20210901preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

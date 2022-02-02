@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetPrivateLinkHubResult> InvokeAsync(GetPrivateLinkHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// A privateLinkHub
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetPrivateLinkHubResult> Invoke(GetPrivateLinkHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkHubResult>("azure-native:synapse:getPrivateLinkHub", args ?? new GetPrivateLinkHubInvokeArgs(), options.WithDefaults());
     }
 
 

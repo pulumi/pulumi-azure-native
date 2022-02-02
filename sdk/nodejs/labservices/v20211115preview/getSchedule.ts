@@ -13,9 +13,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices/v20211115preview:getSchedule", {
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,

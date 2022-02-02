@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// Represents the PersonalPreferences for the user
         /// </summary>
         public static Task<GetGlobalUserPersonalPreferencesResult> InvokeAsync(GetGlobalUserPersonalPreferencesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the PersonalPreferences for the user
         /// </summary>
         public static Output<GetGlobalUserPersonalPreferencesResult> Invoke(GetGlobalUserPersonalPreferencesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesInvokeArgs(), options.WithDefaults());
     }
 
 

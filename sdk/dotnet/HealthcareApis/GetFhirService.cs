@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Fhir Service
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
         /// Action rule object containing target scope, conditions and suppression logic
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action rule object containing target scope, conditions and suppression logic
         /// </summary>
         public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());
     }
 
 

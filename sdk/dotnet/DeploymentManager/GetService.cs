@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource representation of a service in a service topology.
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:deploymentmanager:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

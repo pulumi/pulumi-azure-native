@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetKustoDatabaseDataSetMappingResult> InvokeAsync(GetKustoDatabaseDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Kusto database data set mapping
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

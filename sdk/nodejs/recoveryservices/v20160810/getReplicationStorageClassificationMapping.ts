@@ -13,9 +13,7 @@ export function getReplicationStorageClassificationMapping(args: GetReplicationS
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices/v20160810:getReplicationStorageClassificationMapping", {
         "fabricName": args.fabricName,
         "resourceGroupName": args.resourceGroupName,

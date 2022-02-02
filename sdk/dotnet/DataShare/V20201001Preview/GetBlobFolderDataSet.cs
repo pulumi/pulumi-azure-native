@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// An Azure storage blob folder data set.
         /// </summary>
         public static Task<GetBlobFolderDataSetResult> InvokeAsync(GetBlobFolderDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetResult>("azure-native:datashare/v20201001preview:getBlobFolderDataSet", args ?? new GetBlobFolderDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobFolderDataSetResult>("azure-native:datashare/v20201001preview:getBlobFolderDataSet", args ?? new GetBlobFolderDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure storage blob folder data set.
         /// </summary>
         public static Output<GetBlobFolderDataSetResult> Invoke(GetBlobFolderDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobFolderDataSetResult>("azure-native:datashare/v20201001preview:getBlobFolderDataSet", args ?? new GetBlobFolderDataSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobFolderDataSetResult>("azure-native:datashare/v20201001preview:getBlobFolderDataSet", args ?? new GetBlobFolderDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

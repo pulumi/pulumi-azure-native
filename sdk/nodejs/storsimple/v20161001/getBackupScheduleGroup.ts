@@ -13,9 +13,7 @@ export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getBackupScheduleGroup", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,

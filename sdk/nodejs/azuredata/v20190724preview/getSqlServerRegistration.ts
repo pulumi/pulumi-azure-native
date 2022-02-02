@@ -13,9 +13,7 @@ export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azuredata/v20190724preview:getSqlServerRegistration", {
         "resourceGroupName": args.resourceGroupName,
         "sqlServerRegistrationName": args.sqlServerRegistrationName,

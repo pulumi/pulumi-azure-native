@@ -94,9 +94,7 @@ export class StorageDomain extends pulumi.CustomResource {
             resourceInputs["storageAccountCredentialIds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(StorageDomain.__pulumiType, name, resourceInputs, opts);
     }
 }

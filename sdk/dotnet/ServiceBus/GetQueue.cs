@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceBus
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of queue Resource.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

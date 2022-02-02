@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// details of synchronization
         /// </summary>
         public static Task<ListShareSubscriptionSynchronizationDetailsResult> InvokeAsync(ListShareSubscriptionSynchronizationDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20201001preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20201001preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// details of synchronization
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationDetailsResult> Invoke(ListShareSubscriptionSynchronizationDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20201001preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationDetailsResult>("azure-native:datashare/v20201001preview:listShareSubscriptionSynchronizationDetails", args ?? new ListShareSubscriptionSynchronizationDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

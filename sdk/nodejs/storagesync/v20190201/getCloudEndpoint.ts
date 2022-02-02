@@ -12,9 +12,7 @@ export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storagesync/v20190201:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,
         "resourceGroupName": args.resourceGroupName,

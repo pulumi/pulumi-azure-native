@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Relay
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace resource.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:relay:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

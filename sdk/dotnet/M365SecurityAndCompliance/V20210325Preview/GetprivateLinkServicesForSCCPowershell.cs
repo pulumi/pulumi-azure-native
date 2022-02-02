@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The description of the service.
         /// </summary>
         public static Task<GetprivateLinkServicesForSCCPowershellResult> InvokeAsync(GetprivateLinkServicesForSCCPowershellArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetprivateLinkServicesForSCCPowershellResult> Invoke(GetprivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForSCCPowershell", args ?? new GetprivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());
     }
 
 

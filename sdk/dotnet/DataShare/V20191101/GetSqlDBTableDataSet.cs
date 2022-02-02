@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// A SQL DB table data set.
         /// </summary>
         public static Task<GetSqlDBTableDataSetResult> InvokeAsync(GetSqlDBTableDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetResult>("azure-native:datashare/v20191101:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetResult>("azure-native:datashare/v20191101:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DB table data set.
         /// </summary>
         public static Output<GetSqlDBTableDataSetResult> Invoke(GetSqlDBTableDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetResult>("azure-native:datashare/v20191101:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetResult>("azure-native:datashare/v20191101:getSqlDBTableDataSet", args ?? new GetSqlDBTableDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

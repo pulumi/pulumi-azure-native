@@ -85,9 +85,7 @@ export class IntegrationRuntime extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:IntegrationRuntime" }, { type: "azure-native:synapse/v20190601preview:IntegrationRuntime" }, { type: "azure-native:synapse/v20210301:IntegrationRuntime" }, { type: "azure-native:synapse/v20210401preview:IntegrationRuntime" }, { type: "azure-native:synapse/v20210501:IntegrationRuntime" }, { type: "azure-native:synapse/v20210601:IntegrationRuntime" }, { type: "azure-native:synapse/v20210601preview:IntegrationRuntime" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationRuntime.__pulumiType, name, resourceInputs, opts);

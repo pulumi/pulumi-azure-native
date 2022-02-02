@@ -13,9 +13,7 @@ export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getNetworkSecurityPerimeter", {
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,
         "resourceGroupName": args.resourceGroupName,

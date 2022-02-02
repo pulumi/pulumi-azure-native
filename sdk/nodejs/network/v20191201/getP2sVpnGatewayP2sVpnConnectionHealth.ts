@@ -13,9 +13,7 @@ export function getP2sVpnGatewayP2sVpnConnectionHealth(args: GetP2sVpnGatewayP2s
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191201:getP2sVpnGatewayP2sVpnConnectionHealth", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
         /// Appliances definition.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Appliances definition.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20211031preview:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

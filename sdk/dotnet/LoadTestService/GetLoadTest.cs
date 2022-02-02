@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LoadTestService
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.LoadTestService
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetLoadTestResult> InvokeAsync(GetLoadTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// LoadTest details
         /// API Version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
     }
 
 

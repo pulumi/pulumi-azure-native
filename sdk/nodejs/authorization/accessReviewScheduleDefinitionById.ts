@@ -231,9 +231,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userPrincipalName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessReviewScheduleDefinitionById.__pulumiType, name, resourceInputs, opts);

@@ -121,9 +121,7 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["unknown"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTarget.__pulumiType, name, resourceInputs, opts);

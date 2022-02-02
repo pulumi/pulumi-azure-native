@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppApplicationSettingsSlotResult> InvokeAsync(ListWebAppApplicationSettingsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsSlotResult>("azure-native:web:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppApplicationSettingsSlotResult>("azure-native:web:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppApplicationSettingsSlotResult> Invoke(ListWebAppApplicationSettingsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppApplicationSettingsSlotResult>("azure-native:web:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppApplicationSettingsSlotResult>("azure-native:web:listWebAppApplicationSettingsSlot", args ?? new ListWebAppApplicationSettingsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

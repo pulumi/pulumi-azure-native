@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SignalRService.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview
         /// Describes a Shared Private Link Resource
         /// </summary>
         public static Task<GetSignalRSharedPrivateLinkResourceResult> InvokeAsync(GetSignalRSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice/v20210601preview:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice/v20210601preview:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Shared Private Link Resource
         /// </summary>
         public static Output<GetSignalRSharedPrivateLinkResourceResult> Invoke(GetSignalRSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice/v20210601preview:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSignalRSharedPrivateLinkResourceResult>("azure-native:signalrservice/v20210601preview:getSignalRSharedPrivateLinkResource", args ?? new GetSignalRSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

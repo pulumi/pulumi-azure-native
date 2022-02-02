@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// NamedValue details.
         /// </summary>
         public static Task<GetNamedValueResult> InvokeAsync(GetNamedValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20201201:getNamedValue", args ?? new GetNamedValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamedValueResult>("azure-native:apimanagement/v20201201:getNamedValue", args ?? new GetNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// NamedValue details.
         /// </summary>
         public static Output<GetNamedValueResult> Invoke(GetNamedValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement/v20201201:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamedValueResult>("azure-native:apimanagement/v20201201:getNamedValue", args ?? new GetNamedValueInvokeArgs(), options.WithDefaults());
     }
 
 

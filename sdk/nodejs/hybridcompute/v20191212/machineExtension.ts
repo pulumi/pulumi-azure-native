@@ -129,9 +129,7 @@ export class MachineExtension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:MachineExtension" }, { type: "azure-native:hybridcompute/v20190802preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200730preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20200802:MachineExtension" }, { type: "azure-native:hybridcompute/v20200815preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210128preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210325preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210422preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210517preview:MachineExtension" }, { type: "azure-native:hybridcompute/v20210520:MachineExtension" }, { type: "azure-native:hybridcompute/v20210610preview:MachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineExtension.__pulumiType, name, resourceInputs, opts);

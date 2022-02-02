@@ -13,9 +13,7 @@ export function listPartnerContentCallbackUrl(args: ListPartnerContentCallbackUr
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20160601:listPartnerContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,
         "keyType": args.keyType,

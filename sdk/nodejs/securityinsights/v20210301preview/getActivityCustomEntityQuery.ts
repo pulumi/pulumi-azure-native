@@ -13,9 +13,7 @@ export function getActivityCustomEntityQuery(args: GetActivityCustomEntityQueryA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", {
         "entityQueryId": args.entityQueryId,
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

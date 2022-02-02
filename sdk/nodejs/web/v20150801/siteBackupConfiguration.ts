@@ -114,9 +114,7 @@ export class SiteBackupConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteBackupConfiguration" }, { type: "azure-native:web/v20160801:SiteBackupConfiguration" }, { type: "azure-native:web/v20180201:SiteBackupConfiguration" }, { type: "azure-native:web/v20181101:SiteBackupConfiguration" }, { type: "azure-native:web/v20190801:SiteBackupConfiguration" }, { type: "azure-native:web/v20200601:SiteBackupConfiguration" }, { type: "azure-native:web/v20200901:SiteBackupConfiguration" }, { type: "azure-native:web/v20201001:SiteBackupConfiguration" }, { type: "azure-native:web/v20201201:SiteBackupConfiguration" }, { type: "azure-native:web/v20210101:SiteBackupConfiguration" }, { type: "azure-native:web/v20210115:SiteBackupConfiguration" }, { type: "azure-native:web/v20210201:SiteBackupConfiguration" }, { type: "azure-native:web/v20210301:SiteBackupConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteBackupConfiguration.__pulumiType, name, resourceInputs, opts);

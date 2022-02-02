@@ -14,9 +14,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:vmwarecloudsimple:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineName": args.virtualMachineName,

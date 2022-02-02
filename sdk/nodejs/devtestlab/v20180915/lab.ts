@@ -199,9 +199,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["vaultName"] = undefined /*out*/;
             resourceInputs["vmCreationResourceGroup"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Lab" }, { type: "azure-native:devtestlab/v20150521preview:Lab" }, { type: "azure-native:devtestlab/v20160515:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);

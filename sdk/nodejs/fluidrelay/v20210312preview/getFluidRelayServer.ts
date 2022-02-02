@@ -13,9 +13,7 @@ export function getFluidRelayServer(args: GetFluidRelayServerArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:fluidrelay/v20210312preview:getFluidRelayServer", {
         "name": args.name,
         "resourceGroup": args.resourceGroup,

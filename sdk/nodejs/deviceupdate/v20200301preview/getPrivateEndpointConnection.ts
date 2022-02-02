@@ -13,9 +13,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20200301preview:getPrivateEndpointConnection", {
         "accountName": args.accountName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

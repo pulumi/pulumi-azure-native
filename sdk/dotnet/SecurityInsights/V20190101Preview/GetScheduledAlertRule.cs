@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents scheduled alert rule.
         /// </summary>
         public static Task<GetScheduledAlertRuleResult> InvokeAsync(GetScheduledAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAlertRuleResult>("azure-native:securityinsights/v20190101preview:getScheduledAlertRule", args ?? new GetScheduledAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledAlertRuleResult>("azure-native:securityinsights/v20190101preview:getScheduledAlertRule", args ?? new GetScheduledAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents scheduled alert rule.
         /// </summary>
         public static Output<GetScheduledAlertRuleResult> Invoke(GetScheduledAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights/v20190101preview:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledAlertRuleResult>("azure-native:securityinsights/v20190101preview:getScheduledAlertRule", args ?? new GetScheduledAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

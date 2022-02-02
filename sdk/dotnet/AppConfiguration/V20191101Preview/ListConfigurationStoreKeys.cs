@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppConfiguration.V20191101Preview
         /// The result of a request to list API keys.
         /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20191101preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20191101preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The result of a request to list API keys.
         /// </summary>
         public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20191101preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20191101preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());
     }
 
 

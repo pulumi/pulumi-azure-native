@@ -13,9 +13,7 @@ export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:customerinsights/v20170101:getRelationship", {
         "hubName": args.hubName,
         "relationshipName": args.relationshipName,

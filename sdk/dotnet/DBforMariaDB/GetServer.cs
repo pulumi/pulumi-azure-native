@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMariaDB
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a server.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

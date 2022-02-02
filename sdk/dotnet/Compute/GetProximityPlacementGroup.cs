@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Compute
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the proximity placement group.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetProximityPlacementGroupResult> Invoke(GetProximityPlacementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

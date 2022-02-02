@@ -13,9 +13,7 @@ export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestackhci/v20210101preview:getArcSetting", {
         "arcSettingName": args.arcSettingName,
         "clusterName": args.clusterName,

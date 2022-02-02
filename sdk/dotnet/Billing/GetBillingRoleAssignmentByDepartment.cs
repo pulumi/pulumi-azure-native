@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Billing
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Billing
         /// API Version: 2019-10-01-preview.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByDepartmentResult> InvokeAsync(GetBillingRoleAssignmentByDepartmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The role assignment
         /// API Version: 2019-10-01-preview.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByDepartmentResult> Invoke(GetBillingRoleAssignmentByDepartmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByDepartmentResult>("azure-native:billing:getBillingRoleAssignmentByDepartment", args ?? new GetBillingRoleAssignmentByDepartmentInvokeArgs(), options.WithDefaults());
     }
 
 

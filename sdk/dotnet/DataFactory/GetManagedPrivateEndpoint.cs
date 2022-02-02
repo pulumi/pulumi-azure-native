@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataFactory
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed private endpoint resource type.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:datafactory:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

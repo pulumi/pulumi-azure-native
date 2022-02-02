@@ -201,9 +201,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validityInYears"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceCertificateOrder.__pulumiType, name, resourceInputs, opts);

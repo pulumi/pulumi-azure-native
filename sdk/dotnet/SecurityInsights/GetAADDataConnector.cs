@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetAADDataConnectorResult> InvokeAsync(GetAADDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents AAD (Azure Active Directory) data connector.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getProviderInstance(args: GetProviderInstanceArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hanaonazure:getProviderInstance", {
         "providerInstanceName": args.providerInstanceName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
         /// An addon resource
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs/v20200717preview:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs/v20200717preview:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// An addon resource
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20200717preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20200717preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

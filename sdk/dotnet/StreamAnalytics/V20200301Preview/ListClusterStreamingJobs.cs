@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
         /// A list of streaming jobs. Populated by a List operation.
         /// </summary>
         public static Task<ListClusterStreamingJobsResult> InvokeAsync(ListClusterStreamingJobsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsArgs(), options.WithDefaults());
 
         /// <summary>
         /// A list of streaming jobs. Populated by a List operation.
         /// </summary>
         public static Output<ListClusterStreamingJobsResult> Invoke(ListClusterStreamingJobsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301preview:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithDefaults());
     }
 
 

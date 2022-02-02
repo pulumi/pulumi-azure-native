@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridCompute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HybridCompute
         /// API Version: 2020-08-02.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a hybrid machine.
         /// API Version: 2020-08-02.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
     }
 
 

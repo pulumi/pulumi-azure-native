@@ -156,9 +156,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["stateComment"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Subscription" }, { type: "azure-native:apimanagement/v20160707:Subscription" }, { type: "azure-native:apimanagement/v20161010:Subscription" }, { type: "azure-native:apimanagement/v20170301:Subscription" }, { type: "azure-native:apimanagement/v20180101:Subscription" }, { type: "azure-native:apimanagement/v20180601preview:Subscription" }, { type: "azure-native:apimanagement/v20191201:Subscription" }, { type: "azure-native:apimanagement/v20191201preview:Subscription" }, { type: "azure-native:apimanagement/v20200601preview:Subscription" }, { type: "azure-native:apimanagement/v20201201:Subscription" }, { type: "azure-native:apimanagement/v20210101preview:Subscription" }, { type: "azure-native:apimanagement/v20210401preview:Subscription" }, { type: "azure-native:apimanagement/v20210801:Subscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subscription.__pulumiType, name, resourceInputs, opts);

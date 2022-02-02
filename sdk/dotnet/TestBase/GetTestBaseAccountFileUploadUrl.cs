@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TestBase
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TestBase
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Task<GetTestBaseAccountFileUploadUrlResult> InvokeAsync(GetTestBaseAccountFileUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The URL response
         /// API Version: 2020-12-16-preview.
         /// </summary>
         public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

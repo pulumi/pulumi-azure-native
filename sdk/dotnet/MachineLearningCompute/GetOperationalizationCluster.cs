@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningCompute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningCompute
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Task<GetOperationalizationClusterResult> InvokeAsync(GetOperationalizationClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of an Azure ML Operationalization Cluster resource.
         /// API Version: 2017-08-01-preview.
         /// </summary>
         public static Output<GetOperationalizationClusterResult> Invoke(GetOperationalizationClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOperationalizationClusterResult>("azure-native:machinelearningcompute:getOperationalizationCluster", args ?? new GetOperationalizationClusterInvokeArgs(), options.WithDefaults());
     }
 
 

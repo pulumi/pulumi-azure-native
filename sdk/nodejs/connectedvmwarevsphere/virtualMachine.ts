@@ -236,9 +236,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["vCenterId"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);

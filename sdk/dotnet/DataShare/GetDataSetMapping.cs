@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -18,14 +17,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetDataSetMappingResult> InvokeAsync(GetDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A data set mapping data transfer object.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetDataSetMappingResult> Invoke(GetDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataSetMappingResult>("azure-native:datashare:getDataSetMapping", args ?? new GetDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

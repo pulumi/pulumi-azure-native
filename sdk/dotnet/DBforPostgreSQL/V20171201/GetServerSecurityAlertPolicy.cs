@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
         /// A server security alert policy.
         /// </summary>
         public static Task<GetServerSecurityAlertPolicyResult> InvokeAsync(GetServerSecurityAlertPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql/v20171201:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql/v20171201:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A server security alert policy.
         /// </summary>
         public static Output<GetServerSecurityAlertPolicyResult> Invoke(GetServerSecurityAlertPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql/v20171201:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerSecurityAlertPolicyResult>("azure-native:dbforpostgresql/v20171201:getServerSecurityAlertPolicy", args ?? new GetServerSecurityAlertPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

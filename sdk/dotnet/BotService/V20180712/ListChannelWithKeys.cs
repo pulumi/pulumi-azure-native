@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService.V20180712
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.BotService.V20180712
         /// Bot channel resource definition
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20180712:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20180712:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Bot channel resource definition
         /// </summary>
         public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20180712:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20180712:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerService
         /// API Version: 2019-04-30.
         /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// OpenShift Managed cluster.
         /// API Version: 2019-04-30.
         /// </summary>
         public static Output<GetOpenShiftManagedClusterResult> Invoke(GetOpenShiftManagedClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

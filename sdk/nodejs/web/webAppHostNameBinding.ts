@@ -130,9 +130,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualIP"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebAppHostNameBinding" }, { type: "azure-native:web/v20160801:WebAppHostNameBinding" }, { type: "azure-native:web/v20180201:WebAppHostNameBinding" }, { type: "azure-native:web/v20181101:WebAppHostNameBinding" }, { type: "azure-native:web/v20190801:WebAppHostNameBinding" }, { type: "azure-native:web/v20200601:WebAppHostNameBinding" }, { type: "azure-native:web/v20200901:WebAppHostNameBinding" }, { type: "azure-native:web/v20201001:WebAppHostNameBinding" }, { type: "azure-native:web/v20201201:WebAppHostNameBinding" }, { type: "azure-native:web/v20210101:WebAppHostNameBinding" }, { type: "azure-native:web/v20210115:WebAppHostNameBinding" }, { type: "azure-native:web/v20210201:WebAppHostNameBinding" }, { type: "azure-native:web/v20210301:WebAppHostNameBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHostNameBinding.__pulumiType, name, resourceInputs, opts);

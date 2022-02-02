@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
         /// Profile of a lab user.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:devtestlab/v20160515:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:devtestlab/v20160515:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Profile of a lab user.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:devtestlab/v20160515:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:devtestlab/v20160515:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

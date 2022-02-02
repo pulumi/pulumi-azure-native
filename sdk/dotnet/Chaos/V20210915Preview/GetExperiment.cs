@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Chaos.V20210915Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
         /// Model that represents a Experiment resource.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Model that represents a Experiment resource.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos/v20210915preview:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
     }
 
 

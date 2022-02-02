@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         /// Capture metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Task<GetMetricsSourceTagRuleResult> InvokeAsync(GetMetricsSourceTagRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceTagRuleResult>("azure-native:logz/v20220101preview:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMetricsSourceTagRuleResult>("azure-native:logz/v20220101preview:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capture metrics of Azure resources based on ARM tags.
         /// </summary>
         public static Output<GetMetricsSourceTagRuleResult> Invoke(GetMetricsSourceTagRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMetricsSourceTagRuleResult>("azure-native:logz/v20220101preview:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMetricsSourceTagRuleResult>("azure-native:logz/v20220101preview:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

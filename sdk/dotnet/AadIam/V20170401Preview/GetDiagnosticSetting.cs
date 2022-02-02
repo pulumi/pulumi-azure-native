@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AadIam.V20170401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AadIam.V20170401Preview
         /// The diagnostic setting resource.
         /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:aadiam/v20170401preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:aadiam/v20170401preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The diagnostic setting resource.
         /// </summary>
         public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:aadiam/v20170401preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:aadiam/v20170401preview:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

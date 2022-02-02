@@ -17,8 +17,8 @@ require (
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.20.0
-	github.com/pulumi/pulumi/sdk/v3 v3.20.0
+	github.com/pulumi/pulumi/pkg/v3 v3.23.2
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.7.0
@@ -48,7 +48,6 @@ require (
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/form3tech-oss/jwt-go v3.2.2+incompatible // indirect
 	github.com/go-openapi/jsonpointer v0.19.3 // indirect
-	github.com/gofrs/flock v0.7.1 // indirect
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
 	github.com/gogo/protobuf v1.3.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect

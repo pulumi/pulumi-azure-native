@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Data connector
         /// </summary>
         public static Task<GetDataConnectorResult> InvokeAsync(GetDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights/v20210901preview:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectorResult>("azure-native:securityinsights/v20210901preview:getDataConnector", args ?? new GetDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data connector
         /// </summary>
         public static Output<GetDataConnectorResult> Invoke(GetDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:securityinsights/v20210901preview:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:securityinsights/v20210901preview:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

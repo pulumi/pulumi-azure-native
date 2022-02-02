@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2016-06-01.
         /// </summary>
         public static Task<GetConnectionGatewayResult> InvokeAsync(GetConnectionGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// The gateway definition
         /// API Version: 2016-06-01.
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

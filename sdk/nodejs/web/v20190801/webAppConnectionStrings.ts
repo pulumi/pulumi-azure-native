@@ -80,9 +80,7 @@ export class WebAppConnectionStrings extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppConnectionStrings" }, { type: "azure-native:web/v20150801:WebAppConnectionStrings" }, { type: "azure-native:web/v20160801:WebAppConnectionStrings" }, { type: "azure-native:web/v20180201:WebAppConnectionStrings" }, { type: "azure-native:web/v20181101:WebAppConnectionStrings" }, { type: "azure-native:web/v20200601:WebAppConnectionStrings" }, { type: "azure-native:web/v20200901:WebAppConnectionStrings" }, { type: "azure-native:web/v20201001:WebAppConnectionStrings" }, { type: "azure-native:web/v20201201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210101:WebAppConnectionStrings" }, { type: "azure-native:web/v20210115:WebAppConnectionStrings" }, { type: "azure-native:web/v20210201:WebAppConnectionStrings" }, { type: "azure-native:web/v20210301:WebAppConnectionStrings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppConnectionStrings.__pulumiType, name, resourceInputs, opts);

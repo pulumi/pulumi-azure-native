@@ -13,9 +13,7 @@ export function getAzurePowerShellScript(args: GetAzurePowerShellScriptArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20191001preview:getAzurePowerShellScript", {
         "resourceGroupName": args.resourceGroupName,
         "scriptName": args.scriptName,

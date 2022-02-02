@@ -13,9 +13,7 @@ export function listUpgradableVersionDetails(args: ListUpgradableVersionDetailsA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:elastic:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.KeyVault.V20211001
         /// Resource information with extended details.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault/v20211001:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault/v20211001:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information with extended details.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault/v20211001:getVault", args ?? new GetVaultInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault/v20211001:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// An Application Insights web test definition.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/v20150501:getWebTest", args ?? new GetWebTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights/v20150501:getWebTest", args ?? new GetWebTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights web test definition.
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20150501:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20150501:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
     }
 
 

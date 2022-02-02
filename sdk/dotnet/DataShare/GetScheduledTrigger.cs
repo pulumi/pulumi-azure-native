@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetScheduledTriggerResult> InvokeAsync(GetScheduledTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A type of trigger based on schedule
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetScheduledTriggerResult> Invoke(GetScheduledTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledTriggerResult>("azure-native:datashare:getScheduledTrigger", args ?? new GetScheduledTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

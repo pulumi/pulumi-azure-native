@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20171201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20171201
         /// Describes a virtual machine scale set virtual machine.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a virtual machine scale set virtual machine.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute/v20171201:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());
     }
 
 

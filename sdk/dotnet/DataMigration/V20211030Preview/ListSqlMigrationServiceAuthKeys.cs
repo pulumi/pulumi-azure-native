@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration.V20211030Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataMigration.V20211030Preview
         /// An authentication key.
         /// </summary>
         public static Task<ListSqlMigrationServiceAuthKeysResult> InvokeAsync(ListSqlMigrationServiceAuthKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// An authentication key.
         /// </summary>
         public static Output<ListSqlMigrationServiceAuthKeysResult> Invoke(ListSqlMigrationServiceAuthKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20211030preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithDefaults());
     }
 
 

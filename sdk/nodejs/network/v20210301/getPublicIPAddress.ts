@@ -13,9 +13,7 @@ export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210301:getPublicIPAddress", {
         "expand": args.expand,
         "publicIpAddressName": args.publicIpAddressName,

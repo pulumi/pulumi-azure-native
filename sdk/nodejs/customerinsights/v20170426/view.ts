@@ -113,9 +113,7 @@ export class View extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
             resourceInputs["viewName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:View" }, { type: "azure-native:customerinsights/v20170101:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(View.__pulumiType, name, resourceInputs, opts);

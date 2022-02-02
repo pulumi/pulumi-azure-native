@@ -13,9 +13,7 @@ export function getIntegrationRuntimeObjectMetadatum(args: GetIntegrationRuntime
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210401preview:getIntegrationRuntimeObjectMetadatum", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "metadataPath": args.metadataPath,

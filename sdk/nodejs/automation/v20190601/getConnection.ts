@@ -13,9 +13,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getConnection", {
         "automationAccountName": args.automationAccountName,
         "connectionName": args.connectionName,

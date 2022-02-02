@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceBus
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Alias(Disaster Recovery configuration) operation
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:servicebus:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
     }
 
 

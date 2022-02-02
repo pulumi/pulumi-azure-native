@@ -12,9 +12,7 @@ export function getSensitivityLabel(args: GetSensitivityLabelArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20170301preview:getSensitivityLabel", {
         "columnName": args.columnName,
         "databaseName": args.databaseName,

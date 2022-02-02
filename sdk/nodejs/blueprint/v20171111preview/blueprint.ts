@@ -117,9 +117,7 @@ export class Blueprint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["versions"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Blueprint.__pulumiType, name, resourceInputs, opts);
     }
 }

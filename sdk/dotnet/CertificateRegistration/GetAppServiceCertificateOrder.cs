@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CertificateRegistration
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderResult> InvokeAsync(GetAppServiceCertificateOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderArgs(), options.WithDefaults());
 
         /// <summary>
         /// SSL certificate purchase order.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderResult> Invoke(GetAppServiceCertificateOrderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderResult>("azure-native:certificateregistration:getAppServiceCertificateOrder", args ?? new GetAppServiceCertificateOrderInvokeArgs(), options.WithDefaults());
     }
 
 

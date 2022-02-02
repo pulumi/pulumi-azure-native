@@ -13,9 +13,7 @@ export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicelinker/v20211101preview:listLinkerConfigurations", {
         "linkerName": args.linkerName,
         "resourceUri": args.resourceUri,

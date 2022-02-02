@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200801
         /// Private dns zone group resource.
         /// </summary>
         public static Task<GetPrivateDnsZoneGroupResult> InvokeAsync(GetPrivateDnsZoneGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsZoneGroupResult>("azure-native:network/v20200801:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateDnsZoneGroupResult>("azure-native:network/v20200801:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Private dns zone group resource.
         /// </summary>
         public static Output<GetPrivateDnsZoneGroupResult> Invoke(GetPrivateDnsZoneGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateDnsZoneGroupResult>("azure-native:network/v20200801:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateDnsZoneGroupResult>("azure-native:network/v20200801:getPrivateDnsZoneGroup", args ?? new GetPrivateDnsZoneGroupInvokeArgs(), options.WithDefaults());
     }
 
 

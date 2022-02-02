@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20211015
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Task<GetTableResourceTableResult> InvokeAsync(GetTableResourceTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/v20211015:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResourceTableResult>("azure-native:documentdb/v20211015:getTableResourceTable", args ?? new GetTableResourceTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Table.
         /// </summary>
         public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20211015:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20211015:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Automation
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetDscNodeConfigurationResult> InvokeAsync(GetDscNodeConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the dsc node configuration.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetDscNodeConfigurationResult> Invoke(GetDscNodeConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDscNodeConfigurationResult>("azure-native:automation:getDscNodeConfiguration", args ?? new GetDscNodeConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

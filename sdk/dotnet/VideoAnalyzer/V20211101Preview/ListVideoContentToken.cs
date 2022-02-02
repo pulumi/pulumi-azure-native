@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// "Video content token grants access to the video content URLs."
         /// </summary>
         public static Task<ListVideoContentTokenResult> InvokeAsync(ListVideoContentTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// "Video content token grants access to the video content URLs."
         /// </summary>
         public static Output<ListVideoContentTokenResult> Invoke(ListVideoContentTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListVideoContentTokenResult>("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", args ?? new ListVideoContentTokenInvokeArgs(), options.WithDefaults());
     }
 
 

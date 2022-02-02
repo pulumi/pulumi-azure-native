@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListStorageAccountKeysResult> InvokeAsync(ListStorageAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListStorageAccountKeysResult> Invoke(ListStorageAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountKeysResult>("azure-native:machinelearningservices:listStorageAccountKeys", args ?? new ListStorageAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

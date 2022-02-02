@@ -13,9 +13,7 @@ export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20190601:getModule", {
         "automationAccountName": args.automationAccountName,
         "moduleName": args.moduleName,

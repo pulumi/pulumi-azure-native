@@ -12,9 +12,7 @@ export function getRegisteredPrefix(args: GetRegisteredPrefixArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20200401:getRegisteredPrefix", {
         "peeringName": args.peeringName,
         "registeredPrefixName": args.registeredPrefixName,

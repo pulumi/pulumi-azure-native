@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// A list of Network Manager Deployment Status
         /// </summary>
         public static Task<ListNetworkManagerDeploymentStatusResult> InvokeAsync(ListNetworkManagerDeploymentStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// A list of Network Manager Deployment Status
         /// </summary>
         public static Output<ListNetworkManagerDeploymentStatusResult> Invoke(ListNetworkManagerDeploymentStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListNetworkManagerDeploymentStatusResult>("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusInvokeArgs(), options.WithDefaults());
     }
 
 

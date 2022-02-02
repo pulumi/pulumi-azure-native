@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
         /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20170228preview:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20170228preview:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
         /// </summary>
         public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20170228preview:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20170228preview:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

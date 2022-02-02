@@ -140,9 +140,7 @@ export class SiteDeployment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteDeployment" }, { type: "azure-native:web/v20160801:SiteDeployment" }, { type: "azure-native:web/v20180201:SiteDeployment" }, { type: "azure-native:web/v20181101:SiteDeployment" }, { type: "azure-native:web/v20190801:SiteDeployment" }, { type: "azure-native:web/v20200601:SiteDeployment" }, { type: "azure-native:web/v20200901:SiteDeployment" }, { type: "azure-native:web/v20201001:SiteDeployment" }, { type: "azure-native:web/v20201201:SiteDeployment" }, { type: "azure-native:web/v20210101:SiteDeployment" }, { type: "azure-native:web/v20210115:SiteDeployment" }, { type: "azure-native:web/v20210201:SiteDeployment" }, { type: "azure-native:web/v20210301:SiteDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteDeployment.__pulumiType, name, resourceInputs, opts);

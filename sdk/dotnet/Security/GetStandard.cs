@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Task<GetStandardResult> InvokeAsync(GetStandardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure-native:security:getStandard", args ?? new GetStandardArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure-native:security:getStandard", args ?? new GetStandardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security Standard on a resource
         /// API Version: 2021-08-01-preview.
         /// </summary>
         public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure-native:security:getStandard", args ?? new GetStandardInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure-native:security:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());
     }
 
 

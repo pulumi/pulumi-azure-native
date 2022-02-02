@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// Represents an instance of a DNC controller.
         /// </summary>
         public static Task<GetControllerDetailsResult> InvokeAsync(GetControllerDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a DNC controller.
         /// </summary>
         public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

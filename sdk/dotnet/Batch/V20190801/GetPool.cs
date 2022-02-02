@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch.V20190801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Batch.V20190801
         /// Contains information about a pool.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch/v20190801:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:batch/v20190801:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about a pool.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20190801:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20190801:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

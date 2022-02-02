@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20201031
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201031
         /// DigitalTwinsInstance endpoint resource.
         /// </summary>
         public static Task<GetDigitalTwinsEndpointResult> InvokeAsync(GetDigitalTwinsEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// DigitalTwinsInstance endpoint resource.
         /// </summary>
         public static Output<GetDigitalTwinsEndpointResult> Invoke(GetDigitalTwinsEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDigitalTwinsEndpointResult>("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", args ?? new GetDigitalTwinsEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

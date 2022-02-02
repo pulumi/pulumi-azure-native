@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// Customer subscription.
         /// </summary>
         public static Task<GetCustomerSubscriptionResult> InvokeAsync(GetCustomerSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomerSubscriptionResult>("azure-native:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer subscription.
         /// </summary>
         public static Output<GetCustomerSubscriptionResult> Invoke(GetCustomerSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomerSubscriptionResult>("azure-native:azurestack/v20200601preview:getCustomerSubscription", args ?? new GetCustomerSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

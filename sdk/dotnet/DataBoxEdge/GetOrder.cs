@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithDefaults());
 
         /// <summary>
         /// The order details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
     }
 
 

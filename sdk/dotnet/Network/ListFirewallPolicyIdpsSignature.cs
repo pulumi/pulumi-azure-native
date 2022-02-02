@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-05-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignatureResult> InvokeAsync(ListFirewallPolicyIdpsSignatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Query result
         /// API Version: 2021-05-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignatureResult> Invoke(ListFirewallPolicyIdpsSignatureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithDefaults());
     }
 
 

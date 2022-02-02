@@ -13,9 +13,7 @@ export function getBlueprint(args: GetBlueprintArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getBlueprint", {
         "blueprintName": args.blueprintName,
         "managementGroupName": args.managementGroupName,

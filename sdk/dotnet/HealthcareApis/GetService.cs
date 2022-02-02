@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// API Version: 2021-01-11.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// API Version: 2021-01-11.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

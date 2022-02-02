@@ -106,9 +106,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Pipeline" }, { type: "azure-native:datafactory/v20180601:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pipeline.__pulumiType, name, resourceInputs, opts);

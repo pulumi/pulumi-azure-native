@@ -13,9 +13,7 @@ export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20170601preview:listRegistryCredentials", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

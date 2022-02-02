@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Maintenance
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Maintenance
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetConfigurationAssignmentParentResult> InvokeAsync(GetConfigurationAssignmentParentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration Assignment
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetConfigurationAssignmentParentResult> Invoke(GetConfigurationAssignmentParentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentParentResult>("azure-native:maintenance:getConfigurationAssignmentParent", args ?? new GetConfigurationAssignmentParentInvokeArgs(), options.WithDefaults());
     }
 
 

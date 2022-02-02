@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetPipelineRunResult> InvokeAsync(GetPipelineRunArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a pipeline run for a container registry.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());
     }
 
 

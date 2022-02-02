@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20200501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// The lock information.
         /// </summary>
         public static Task<GetManagementLockAtResourceGroupLevelResult> InvokeAsync(GetManagementLockAtResourceGroupLevelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The lock information.
         /// </summary>
         public static Output<GetManagementLockAtResourceGroupLevelResult> Invoke(GetManagementLockAtResourceGroupLevelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementLockAtResourceGroupLevelResult>("azure-native:authorization/v20200501:getManagementLockAtResourceGroupLevel", args ?? new GetManagementLockAtResourceGroupLevelInvokeArgs(), options.WithDefaults());
     }
 
 

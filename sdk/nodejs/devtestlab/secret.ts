@@ -103,9 +103,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20160515:Secret" }, { type: "azure-native:devtestlab/v20180915:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);

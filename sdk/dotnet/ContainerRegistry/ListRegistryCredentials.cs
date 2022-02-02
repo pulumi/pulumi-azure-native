@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListRegistryCredentialsResult> InvokeAsync(ListRegistryCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response from the ListCredentials operation.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<ListRegistryCredentialsResult> Invoke(ListRegistryCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListRegistryCredentialsResult>("azure-native:containerregistry:listRegistryCredentials", args ?? new ListRegistryCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

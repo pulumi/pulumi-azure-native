@@ -13,9 +13,7 @@ export function listAccountSas(args: ListAccountSasArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maps/v20211201preview:listAccountSas", {
         "accountName": args.accountName,
         "expiry": args.expiry,

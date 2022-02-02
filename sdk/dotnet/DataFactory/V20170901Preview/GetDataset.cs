@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// Dataset resource type.
         /// </summary>
         public static Task<GetDatasetResult> InvokeAsync(GetDatasetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dataset resource type.
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("azure-native:datafactory/v20170901preview:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

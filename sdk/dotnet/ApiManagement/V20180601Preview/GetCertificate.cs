@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         /// Certificate details.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement/v20180601preview:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement/v20180601preview:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Certificate details.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement/v20180601preview:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement/v20180601preview:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

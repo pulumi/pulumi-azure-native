@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Datadog
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Datadog
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A SQL DB Table data set mapping.
         /// </summary>
         public static Task<GetSqlDBTableDataSetMappingResult> InvokeAsync(GetSqlDBTableDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlDBTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL DB Table data set mapping.
         /// </summary>
         public static Output<GetSqlDBTableDataSetMappingResult> Invoke(GetSqlDBTableDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlDBTableDataSetMappingResult>("azure-native:datashare/v20181101preview:getSqlDBTableDataSetMapping", args ?? new GetSqlDBTableDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20200801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// Linked storage accounts top level resource container.
         /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked storage accounts top level resource container.
         /// </summary>
         public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights/v20200801:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

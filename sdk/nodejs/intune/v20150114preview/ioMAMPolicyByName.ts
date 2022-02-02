@@ -140,9 +140,7 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
             resourceInputs["touchId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:intune:IoMAMPolicyByName" }, { type: "azure-native:intune/v20150114privatepreview:IoMAMPolicyByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoMAMPolicyByName.__pulumiType, name, resourceInputs, opts);

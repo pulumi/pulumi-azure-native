@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// Network watcher in a resource group.
         /// </summary>
         public static Task<GetNetworkWatcherResult> InvokeAsync(GetNetworkWatcherArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network/v20210501:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkWatcherResult>("azure-native:network/v20210501:getNetworkWatcher", args ?? new GetNetworkWatcherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network watcher in a resource group.
         /// </summary>
         public static Output<GetNetworkWatcherResult> Invoke(GetNetworkWatcherInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network/v20210501:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkWatcherResult>("azure-native:network/v20210501:getNetworkWatcher", args ?? new GetNetworkWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

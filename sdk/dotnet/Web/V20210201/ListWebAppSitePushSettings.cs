@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// Push settings for the App.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsResult> InvokeAsync(ListWebAppSitePushSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-native:web/v20210201:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-native:web/v20210201:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Push settings for the App.
         /// </summary>
         public static Output<ListWebAppSitePushSettingsResult> Invoke(ListWebAppSitePushSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsResult>("azure-native:web/v20210201:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsResult>("azure-native:web/v20210201:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

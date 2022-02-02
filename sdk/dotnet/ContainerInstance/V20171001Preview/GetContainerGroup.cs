@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerInstance.V20171001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171001Preview
         /// A container group.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance/v20171001preview:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance/v20171001preview:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A container group.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20171001preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20171001preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

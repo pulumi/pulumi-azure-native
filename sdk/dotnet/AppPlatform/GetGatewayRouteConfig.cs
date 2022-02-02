@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetGatewayRouteConfigResult> InvokeAsync(GetGatewayRouteConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteConfigResult>("azure-native:appplatform:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayRouteConfigResult>("azure-native:appplatform:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Spring Cloud Gateway route config resource
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetGatewayRouteConfigResult> Invoke(GetGatewayRouteConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayRouteConfigResult>("azure-native:appplatform:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayRouteConfigResult>("azure-native:appplatform:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigInvokeArgs(), options.WithDefaults());
     }
 
 

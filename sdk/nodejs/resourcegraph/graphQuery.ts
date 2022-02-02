@@ -111,9 +111,7 @@ export class GraphQuery extends pulumi.CustomResource {
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:resourcegraph/v20180901preview:GraphQuery" }, { type: "azure-native:resourcegraph/v20200401preview:GraphQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphQuery.__pulumiType, name, resourceInputs, opts);

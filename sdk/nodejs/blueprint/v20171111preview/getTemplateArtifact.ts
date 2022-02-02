@@ -13,9 +13,7 @@ export function getTemplateArtifact(args: GetTemplateArtifactArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20171111preview:getTemplateArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

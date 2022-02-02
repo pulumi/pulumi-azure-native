@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetLongTermRetentionPolicyResult> InvokeAsync(GetLongTermRetentionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A long term retention policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetLongTermRetentionPolicyResult> Invoke(GetLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLongTermRetentionPolicyResult>("azure-native:sql:getLongTermRetentionPolicy", args ?? new GetLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

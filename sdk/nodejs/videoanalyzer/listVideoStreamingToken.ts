@@ -13,9 +13,7 @@ export function listVideoStreamingToken(args: ListVideoStreamingTokenArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:videoanalyzer:listVideoStreamingToken", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

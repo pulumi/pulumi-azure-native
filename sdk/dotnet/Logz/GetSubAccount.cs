@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetSubAccountResult> InvokeAsync(GetSubAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -243,9 +243,7 @@ export class SiteAuthSettings extends pulumi.CustomResource {
             resourceInputs["twitterConsumerSecret"] = undefined /*out*/;
             resourceInputs["unauthenticatedClientAction"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAuthSettings" }, { type: "azure-native:web/v20160801:SiteAuthSettings" }, { type: "azure-native:web/v20180201:SiteAuthSettings" }, { type: "azure-native:web/v20181101:SiteAuthSettings" }, { type: "azure-native:web/v20190801:SiteAuthSettings" }, { type: "azure-native:web/v20200601:SiteAuthSettings" }, { type: "azure-native:web/v20200901:SiteAuthSettings" }, { type: "azure-native:web/v20201001:SiteAuthSettings" }, { type: "azure-native:web/v20201201:SiteAuthSettings" }, { type: "azure-native:web/v20210101:SiteAuthSettings" }, { type: "azure-native:web/v20210115:SiteAuthSettings" }, { type: "azure-native:web/v20210201:SiteAuthSettings" }, { type: "azure-native:web/v20210301:SiteAuthSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteAuthSettings.__pulumiType, name, resourceInputs, opts);

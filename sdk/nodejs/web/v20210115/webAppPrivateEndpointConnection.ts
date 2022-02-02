@@ -96,9 +96,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20190801:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200601:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20200901:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201001:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnection" }, { type: "azure-native:web/v20210301:WebAppPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);

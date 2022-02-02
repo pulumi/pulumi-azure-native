@@ -172,9 +172,7 @@ export class ShareSubscription extends pulumi.CustomResource {
             resourceInputs["userEmail"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-native:datashare/v20201001preview:ShareSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ShareSubscription.__pulumiType, name, resourceInputs, opts);

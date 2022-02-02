@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EdgeOrder.V20211201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// The list of configurations.
         /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of configurations.
         /// </summary>
         public static Output<ListConfigurationsResult> Invoke(ListConfigurationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListConfigurationsResult>("azure-native:edgeorder/v20211201:listConfigurations", args ?? new ListConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

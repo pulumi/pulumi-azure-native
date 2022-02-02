@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetFusionAlertRuleResult> InvokeAsync(GetFusionAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFusionAlertRuleResult>("azure-native:securityinsights:getFusionAlertRule", args ?? new GetFusionAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFusionAlertRuleResult>("azure-native:securityinsights:getFusionAlertRule", args ?? new GetFusionAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Fusion alert rule.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetFusionAlertRuleResult> Invoke(GetFusionAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFusionAlertRuleResult>("azure-native:securityinsights:getFusionAlertRule", args ?? new GetFusionAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFusionAlertRuleResult>("azure-native:securityinsights:getFusionAlertRule", args ?? new GetFusionAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

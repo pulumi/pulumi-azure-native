@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// ApiRelease details.
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20201201:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20201201:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// ApiRelease details.
         /// </summary>
         public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement/v20201201:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement/v20201201:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithDefaults());
     }
 
 

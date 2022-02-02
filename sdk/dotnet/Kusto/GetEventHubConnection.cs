@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Kusto
         /// API Version: 2018-09-07-preview.
         /// </summary>
         public static Task<GetEventHubConnectionResult> InvokeAsync(GetEventHubConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-native:kusto:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubConnectionResult>("azure-native:kusto:getEventHubConnection", args ?? new GetEventHubConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an event hub connection.
         /// API Version: 2018-09-07-preview.
         /// </summary>
         public static Output<GetEventHubConnectionResult> Invoke(GetEventHubConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubConnectionResult>("azure-native:kusto:getEventHubConnection", args ?? new GetEventHubConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubConnectionResult>("azure-native:kusto:getEventHubConnection", args ?? new GetEventHubConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

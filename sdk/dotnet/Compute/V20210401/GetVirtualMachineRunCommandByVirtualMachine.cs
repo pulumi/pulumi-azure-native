@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20210401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20210401
         /// Describes a Virtual Machine run command.
         /// </summary>
         public static Task<GetVirtualMachineRunCommandByVirtualMachineResult> InvokeAsync(GetVirtualMachineRunCommandByVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20210401:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20210401:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine run command.
         /// </summary>
         public static Output<GetVirtualMachineRunCommandByVirtualMachineResult> Invoke(GetVirtualMachineRunCommandByVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20210401:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineRunCommandByVirtualMachineResult>("azure-native:compute/v20210401:getVirtualMachineRunCommandByVirtualMachine", args ?? new GetVirtualMachineRunCommandByVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2020-03-20.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// A cluster resource
         /// API Version: 2020-03-20.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:avs:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

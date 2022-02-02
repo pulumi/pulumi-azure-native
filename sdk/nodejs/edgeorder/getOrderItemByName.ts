@@ -14,9 +14,7 @@ export function getOrderItemByName(args: GetOrderItemByNameArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:edgeorder:getOrderItemByName", {
         "expand": args.expand,
         "orderItemName": args.orderItemName,

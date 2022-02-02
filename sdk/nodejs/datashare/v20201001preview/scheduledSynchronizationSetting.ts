@@ -126,9 +126,7 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20191101:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20200901:ScheduledSynchronizationSetting" }, { type: "azure-native:datashare/v20210801:ScheduledSynchronizationSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledSynchronizationSetting.__pulumiType, name, resourceInputs, opts);

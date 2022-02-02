@@ -148,9 +148,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["timeoutInSeconds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20211101:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);

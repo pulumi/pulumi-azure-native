@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DocumentDB
         /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetCassandraResourceCassandraTableResult> InvokeAsync(GetCassandraResourceCassandraTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraTableResult>("azure-native:documentdb:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraResourceCassandraTableResult>("azure-native:documentdb:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Cassandra table.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Output<GetCassandraResourceCassandraTableResult> Invoke(GetCassandraResourceCassandraTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraTableResult>("azure-native:documentdb:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraTableResult>("azure-native:documentdb:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableInvokeArgs(), options.WithDefaults());
     }
 
 

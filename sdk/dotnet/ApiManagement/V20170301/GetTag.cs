@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         /// Tag Contract details.
         /// </summary>
         public static Task<GetTagResult> InvokeAsync(GetTagArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-native:apimanagement/v20170301:getTag", args ?? new GetTagArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagResult>("azure-native:apimanagement/v20170301:getTag", args ?? new GetTagArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tag Contract details.
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("azure-native:apimanagement/v20170301:getTag", args ?? new GetTagInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTagResult>("azure-native:apimanagement/v20170301:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 

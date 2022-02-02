@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:devtestlab:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

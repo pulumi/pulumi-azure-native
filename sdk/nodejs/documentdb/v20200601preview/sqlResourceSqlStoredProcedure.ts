@@ -106,9 +106,7 @@ export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlStoredProcedure" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlResourceSqlStoredProcedure.__pulumiType, name, resourceInputs, opts);

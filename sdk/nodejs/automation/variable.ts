@@ -103,9 +103,7 @@ export class Variable extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Variable" }, { type: "azure-native:automation/v20190601:Variable" }, { type: "azure-native:automation/v20200113preview:Variable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Variable.__pulumiType, name, resourceInputs, opts);

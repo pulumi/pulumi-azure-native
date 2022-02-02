@@ -13,9 +13,7 @@ export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

@@ -116,9 +116,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             resourceInputs["statistics"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:ReadWriteDatabase" }, { type: "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190121:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190515:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200614:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200918:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210827:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadWriteDatabase.__pulumiType, name, resourceInputs, opts);

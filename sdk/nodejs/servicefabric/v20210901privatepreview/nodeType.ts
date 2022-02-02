@@ -223,9 +223,7 @@ export class NodeType extends pulumi.CustomResource {
             resourceInputs["vmSecrets"] = undefined /*out*/;
             resourceInputs["vmSize"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:NodeType" }, { type: "azure-native:servicefabric/v20200101preview:NodeType" }, { type: "azure-native:servicefabric/v20210101preview:NodeType" }, { type: "azure-native:servicefabric/v20210501:NodeType" }, { type: "azure-native:servicefabric/v20210701preview:NodeType" }, { type: "azure-native:servicefabric/v20211101preview:NodeType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NodeType.__pulumiType, name, resourceInputs, opts);

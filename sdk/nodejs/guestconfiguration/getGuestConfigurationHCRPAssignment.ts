@@ -14,9 +14,7 @@ export function getGuestConfigurationHCRPAssignment(args: GetGuestConfigurationH
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "machineName": args.machineName,

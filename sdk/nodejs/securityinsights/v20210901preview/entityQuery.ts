@@ -96,9 +96,7 @@ export class EntityQuery extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:EntityQuery" }, { type: "azure-native:securityinsights/v20210301preview:EntityQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EntityQuery.__pulumiType, name, resourceInputs, opts);

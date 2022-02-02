@@ -107,9 +107,7 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190801:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20201201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudEdgeManagementRole.__pulumiType, name, resourceInputs, opts);

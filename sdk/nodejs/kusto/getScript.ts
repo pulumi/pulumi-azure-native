@@ -14,9 +14,7 @@ export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto:getScript", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// Security Partner Provider resource.
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/v20200501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network/v20200501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Security Partner Provider resource.
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20200501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20200501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
     }
 
 

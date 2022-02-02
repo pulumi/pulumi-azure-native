@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Compute
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetExtensionResult> InvokeAsync(GetVirtualMachineScaleSetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine Scale Set Extension.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetExtensionResult> Invoke(GetVirtualMachineScaleSetExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetExtensionResult>("azure-native:compute:getVirtualMachineScaleSetExtension", args ?? new GetVirtualMachineScaleSetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

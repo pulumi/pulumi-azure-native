@@ -13,9 +13,7 @@ export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20210601:getAccountFilter", {
         "accountName": args.accountName,
         "filterName": args.filterName,

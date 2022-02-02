@@ -93,9 +93,7 @@ export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.Custo
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSite" }, { type: "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteUserProvidedFunctionAppForStaticSite.__pulumiType, name, resourceInputs, opts);

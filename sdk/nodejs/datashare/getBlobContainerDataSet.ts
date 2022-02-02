@@ -14,9 +14,7 @@ export function getBlobContainerDataSet(args: GetBlobContainerDataSetArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare:getBlobContainerDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

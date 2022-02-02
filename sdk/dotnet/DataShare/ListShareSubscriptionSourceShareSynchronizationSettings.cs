@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<ListShareSubscriptionSourceShareSynchronizationSettingsResult> InvokeAsync(ListShareSubscriptionSourceShareSynchronizationSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List response for get source share Synchronization settings
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<ListShareSubscriptionSourceShareSynchronizationSettingsResult> Invoke(ListShareSubscriptionSourceShareSynchronizationSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSourceShareSynchronizationSettingsResult>("azure-native:datashare:listShareSubscriptionSourceShareSynchronizationSettings", args ?? new ListShareSubscriptionSourceShareSynchronizationSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

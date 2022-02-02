@@ -88,9 +88,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstancePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);

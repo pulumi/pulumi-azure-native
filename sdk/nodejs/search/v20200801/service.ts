@@ -150,9 +150,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:search:Service" }, { type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);

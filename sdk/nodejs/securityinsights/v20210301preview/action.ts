@@ -109,9 +109,7 @@ export class Action extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Action" }, { type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Action.__pulumiType, name, resourceInputs, opts);

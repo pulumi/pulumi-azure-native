@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Task<GetComponentLinkedStorageAccountResult> InvokeAsync(GetComponentLinkedStorageAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentLinkedStorageAccountResult>("azure-native:insights:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component linked storage accounts
         /// API Version: 2020-03-01-preview.
         /// </summary>
         public static Output<GetComponentLinkedStorageAccountResult> Invoke(GetComponentLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

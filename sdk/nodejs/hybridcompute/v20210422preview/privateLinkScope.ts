@@ -90,9 +90,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210325preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210517preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210520:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210610preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);

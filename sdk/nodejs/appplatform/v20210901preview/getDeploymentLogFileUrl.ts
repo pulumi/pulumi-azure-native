@@ -12,9 +12,7 @@ export function getDeploymentLogFileUrl(args: GetDeploymentLogFileUrlArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20210901preview:getDeploymentLogFileUrl", {
         "appName": args.appName,
         "deploymentName": args.deploymentName,

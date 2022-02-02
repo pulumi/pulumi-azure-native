@@ -12,9 +12,7 @@ export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:servicefabric/v20200301:getApplicationType", {
         "applicationTypeName": args.applicationTypeName,
         "clusterName": args.clusterName,

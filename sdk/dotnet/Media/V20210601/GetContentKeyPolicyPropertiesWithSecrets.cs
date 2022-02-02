@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// The properties of the Content Key Policy.
         /// </summary>
         public static Task<GetContentKeyPolicyPropertiesWithSecretsResult> InvokeAsync(GetContentKeyPolicyPropertiesWithSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20210601:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20210601:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of the Content Key Policy.
         /// </summary>
         public static Output<GetContentKeyPolicyPropertiesWithSecretsResult> Invoke(GetContentKeyPolicyPropertiesWithSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20210601:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyPropertiesWithSecretsResult>("azure-native:media/v20210601:getContentKeyPolicyPropertiesWithSecrets", args ?? new GetContentKeyPolicyPropertiesWithSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

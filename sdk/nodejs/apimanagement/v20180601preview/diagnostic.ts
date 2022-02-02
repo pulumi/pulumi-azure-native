@@ -109,9 +109,7 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["sampling"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Diagnostic" }, { type: "azure-native:apimanagement/v20170301:Diagnostic" }, { type: "azure-native:apimanagement/v20180101:Diagnostic" }, { type: "azure-native:apimanagement/v20190101:Diagnostic" }, { type: "azure-native:apimanagement/v20191201:Diagnostic" }, { type: "azure-native:apimanagement/v20191201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20200601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20201201:Diagnostic" }, { type: "azure-native:apimanagement/v20210101preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210401preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210801:Diagnostic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Diagnostic.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// Trigger resource type.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger resource type.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20170901preview:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

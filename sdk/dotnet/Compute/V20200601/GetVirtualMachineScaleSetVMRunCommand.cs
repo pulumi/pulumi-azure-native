@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20200601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20200601
         /// Describes a Virtual Machine run command.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMRunCommandResult> InvokeAsync(GetVirtualMachineScaleSetVMRunCommandArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Virtual Machine run command.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMRunCommandResult> Invoke(GetVirtualMachineScaleSetVMRunCommandInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMRunCommandResult>("azure-native:compute/v20200601:getVirtualMachineScaleSetVMRunCommand", args ?? new GetVirtualMachineScaleSetVMRunCommandInvokeArgs(), options.WithDefaults());
     }
 
 

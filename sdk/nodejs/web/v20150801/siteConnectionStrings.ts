@@ -93,9 +93,7 @@ export class SiteConnectionStrings extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteConnectionStrings" }, { type: "azure-native:web/v20160801:SiteConnectionStrings" }, { type: "azure-native:web/v20180201:SiteConnectionStrings" }, { type: "azure-native:web/v20181101:SiteConnectionStrings" }, { type: "azure-native:web/v20190801:SiteConnectionStrings" }, { type: "azure-native:web/v20200601:SiteConnectionStrings" }, { type: "azure-native:web/v20200901:SiteConnectionStrings" }, { type: "azure-native:web/v20201001:SiteConnectionStrings" }, { type: "azure-native:web/v20201201:SiteConnectionStrings" }, { type: "azure-native:web/v20210101:SiteConnectionStrings" }, { type: "azure-native:web/v20210115:SiteConnectionStrings" }, { type: "azure-native:web/v20210201:SiteConnectionStrings" }, { type: "azure-native:web/v20210301:SiteConnectionStrings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteConnectionStrings.__pulumiType, name, resourceInputs, opts);

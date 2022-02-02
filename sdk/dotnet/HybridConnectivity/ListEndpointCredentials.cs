@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridConnectivity
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// API Version: 2021-10-06-preview.
         /// </summary>
         public static Task<ListEndpointCredentialsResult> InvokeAsync(ListEndpointCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The endpoint access for the target resource.
         /// API Version: 2021-10-06-preview.
         /// </summary>
         public static Output<ListEndpointCredentialsResult> Invoke(ListEndpointCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

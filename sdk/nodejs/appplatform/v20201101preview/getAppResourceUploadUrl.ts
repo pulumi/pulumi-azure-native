@@ -12,9 +12,7 @@ export function getAppResourceUploadUrl(args: GetAppResourceUploadUrlArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20201101preview:getAppResourceUploadUrl", {
         "appName": args.appName,
         "resourceGroupName": args.resourceGroupName,

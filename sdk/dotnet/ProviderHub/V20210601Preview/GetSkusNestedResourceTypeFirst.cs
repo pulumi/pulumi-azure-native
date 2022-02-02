@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
     public static class GetSkusNestedResourceTypeFirst
     {
         public static Task<GetSkusNestedResourceTypeFirstResult> InvokeAsync(GetSkusNestedResourceTypeFirstArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20210601preview:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20210601preview:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstArgs(), options.WithDefaults());
 
         public static Output<GetSkusNestedResourceTypeFirstResult> Invoke(GetSkusNestedResourceTypeFirstInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20210601preview:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSkusNestedResourceTypeFirstResult>("azure-native:providerhub/v20210601preview:getSkusNestedResourceTypeFirst", args ?? new GetSkusNestedResourceTypeFirstInvokeArgs(), options.WithDefaults());
     }
 
 

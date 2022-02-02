@@ -71,9 +71,7 @@ export class SupportPlanType extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:addons:SupportPlanType" }, { type: "azure-native:addons/v20170515:SupportPlanType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SupportPlanType.__pulumiType, name, resourceInputs, opts);

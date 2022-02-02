@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// The Scope Connections resource
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network/v20210501preview:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network/v20210501preview:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Scope Connections resource
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20210501preview:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20210501preview:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

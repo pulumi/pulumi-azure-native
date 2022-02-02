@@ -98,9 +98,7 @@ export class IscsiTarget extends pulumi.CustomResource {
             resourceInputs["tpgs"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storagepool/v20200315preview:IscsiTarget" }, { type: "azure-native:storagepool/v20210401preview:IscsiTarget" }, { type: "azure-native:storagepool/v20210801:IscsiTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IscsiTarget.__pulumiType, name, resourceInputs, opts);

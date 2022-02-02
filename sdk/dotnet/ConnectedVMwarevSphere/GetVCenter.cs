@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetVCenterResult> InvokeAsync(GetVCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the vCenter.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
     }
 
 

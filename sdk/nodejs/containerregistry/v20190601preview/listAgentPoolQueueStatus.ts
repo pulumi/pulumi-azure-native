@@ -12,9 +12,7 @@ export function listAgentPoolQueueStatus(args: ListAgentPoolQueueStatusArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,
         "registryName": args.registryName,

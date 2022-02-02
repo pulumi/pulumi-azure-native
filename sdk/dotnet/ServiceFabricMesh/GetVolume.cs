@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This type describes a volume resource.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

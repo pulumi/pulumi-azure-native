@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         /// Information about a partner registration.
         /// </summary>
         public static Task<GetPartnerRegistrationResult> InvokeAsync(GetPartnerRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid/v20210601preview:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerRegistrationResult>("azure-native:eventgrid/v20210601preview:getPartnerRegistration", args ?? new GetPartnerRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about a partner registration.
         /// </summary>
         public static Output<GetPartnerRegistrationResult> Invoke(GetPartnerRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid/v20210601preview:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerRegistrationResult>("azure-native:eventgrid/v20210601preview:getPartnerRegistration", args ?? new GetPartnerRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

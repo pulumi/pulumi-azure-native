@@ -100,9 +100,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["role"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20180101preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20211101:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
         /// An export resource.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -120,9 +120,7 @@ export class BlobStorageAccountDataSet extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:BlobStorageAccountDataSet" }, { type: "azure-native:datashare/v20181101preview:BlobStorageAccountDataSet" }, { type: "azure-native:datashare/v20191101:BlobStorageAccountDataSet" }, { type: "azure-native:datashare/v20200901:BlobStorageAccountDataSet" }, { type: "azure-native:datashare/v20210801:BlobStorageAccountDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobStorageAccountDataSet.__pulumiType, name, resourceInputs, opts);

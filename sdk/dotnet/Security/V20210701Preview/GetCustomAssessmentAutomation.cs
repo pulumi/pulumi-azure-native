@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
         /// Custom Assessment Automation
         /// </summary>
         public static Task<GetCustomAssessmentAutomationResult> InvokeAsync(GetCustomAssessmentAutomationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom Assessment Automation
         /// </summary>
         public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security/v20210701preview:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

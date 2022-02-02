@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base class for backup policy. Workload-specific backup policies are derived from this class.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetProtectionPolicyResult> Invoke(GetProtectionPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

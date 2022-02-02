@@ -103,9 +103,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20171115:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20180815preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20200515:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20210331preview:ReferenceDataSet" }, { type: "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReferenceDataSet.__pulumiType, name, resourceInputs, opts);

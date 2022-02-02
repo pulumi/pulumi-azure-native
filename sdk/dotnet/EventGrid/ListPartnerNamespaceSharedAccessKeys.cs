@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.EventGrid
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<ListPartnerNamespaceSharedAccessKeysResult> InvokeAsync(ListPartnerNamespaceSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shared access keys of the partner namespace.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<ListPartnerNamespaceSharedAccessKeysResult> Invoke(ListPartnerNamespaceSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListPartnerNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args ?? new ListPartnerNamespaceSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

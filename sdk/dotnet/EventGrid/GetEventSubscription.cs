@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.EventGrid
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Subscription
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

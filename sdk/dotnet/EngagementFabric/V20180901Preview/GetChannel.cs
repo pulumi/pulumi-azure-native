@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// The EngagementFabric channel
         /// </summary>
         public static Task<GetChannelResult> InvokeAsync(GetChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// The EngagementFabric channel
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

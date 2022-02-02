@@ -12,9 +12,7 @@ export function getAndroidMAMPolicyByName(args: GetAndroidMAMPolicyByNameArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:intune/v20150114privatepreview:getAndroidMAMPolicyByName", {
         "hostName": args.hostName,
         "policyName": args.policyName,

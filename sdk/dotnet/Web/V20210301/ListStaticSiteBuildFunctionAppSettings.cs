@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210301
         /// String dictionary resource.
         /// </summary>
         public static Task<ListStaticSiteBuildFunctionAppSettingsResult> InvokeAsync(ListStaticSiteBuildFunctionAppSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20210301:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20210301:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
         /// </summary>
         public static Output<ListStaticSiteBuildFunctionAppSettingsResult> Invoke(ListStaticSiteBuildFunctionAppSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20210301:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteBuildFunctionAppSettingsResult>("azure-native:web/v20210301:listStaticSiteBuildFunctionAppSettings", args ?? new ListStaticSiteBuildFunctionAppSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// The Role Assignment resource format.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:customerinsights/v20170426:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:customerinsights/v20170426:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Role Assignment resource format.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:customerinsights/v20170426:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:customerinsights/v20170426:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         /// Application Configuration Service resource
         /// </summary>
         public static Task<GetConfigurationServiceResult> InvokeAsync(GetConfigurationServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform/v20220101preview:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform/v20220101preview:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Application Configuration Service resource
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20220101preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20220101preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

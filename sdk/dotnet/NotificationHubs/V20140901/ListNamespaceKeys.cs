@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20140901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20140901
         /// Namespace/NotificationHub Connection String
         /// </summary>
         public static Task<ListNamespaceKeysResult> InvokeAsync(ListNamespaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/NotificationHub Connection String
         /// </summary>
         public static Output<ListNamespaceKeysResult> Invoke(ListNamespaceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListNamespaceKeysResult>("azure-native:notificationhubs/v20140901:listNamespaceKeys", args ?? new ListNamespaceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

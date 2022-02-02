@@ -86,9 +86,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform:Deployment" }, { type: "azure-native:appplatform/v20200701:Deployment" }, { type: "azure-native:appplatform/v20201101preview:Deployment" }, { type: "azure-native:appplatform/v20210601preview:Deployment" }, { type: "azure-native:appplatform/v20210901preview:Deployment" }, { type: "azure-native:appplatform/v20220101preview:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, resourceInputs, opts);

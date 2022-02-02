@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         /// A Log Analytics QueryPack-Query definition.
         /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Log Analytics QueryPack-Query definition.
         /// </summary>
         public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());
     }
 
 

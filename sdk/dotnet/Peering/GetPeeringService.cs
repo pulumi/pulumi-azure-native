@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Peering
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetPeeringServiceResult> InvokeAsync(GetPeeringServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Peering Service
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());
     }
 
 

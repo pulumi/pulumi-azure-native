@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.KeyVault.V20200401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview
         /// Resource information with extended details.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault/v20200401preview:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault/v20200401preview:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information with extended details.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20200401preview:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20200401preview:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
     }
 
 

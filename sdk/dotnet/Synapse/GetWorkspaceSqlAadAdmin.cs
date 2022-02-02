@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetWorkspaceSqlAadAdminResult> InvokeAsync(GetWorkspaceSqlAadAdminArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-native:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceSqlAadAdminResult>("azure-native:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workspace active directory administrator
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetWorkspaceSqlAadAdminResult> Invoke(GetWorkspaceSqlAadAdminInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceSqlAadAdminResult>("azure-native:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceSqlAadAdminResult>("azure-native:synapse:getWorkspaceSqlAadAdmin", args ?? new GetWorkspaceSqlAadAdminInvokeArgs(), options.WithDefaults());
     }
 
 

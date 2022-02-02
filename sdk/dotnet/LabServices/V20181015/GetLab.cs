@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// Represents a lab.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a lab.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

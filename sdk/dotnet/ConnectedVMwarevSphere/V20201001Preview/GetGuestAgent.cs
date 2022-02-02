@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Defines the GuestAgent.
         /// </summary>
         public static Task<GetGuestAgentResult> InvokeAsync(GetGuestAgentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20201001preview:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20201001preview:getGuestAgent", args ?? new GetGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the GuestAgent.
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20201001preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:connectedvmwarevsphere/v20201001preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
     }
 
 

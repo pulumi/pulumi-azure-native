@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetServerAzureADOnlyAuthenticationResult> InvokeAsync(GetServerAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Active Directory only authentication.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetServerAzureADOnlyAuthenticationResult> Invoke(GetServerAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerAzureADOnlyAuthenticationResult>("azure-native:sql:getServerAzureADOnlyAuthentication", args ?? new GetServerAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.BotService.V20200602
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.BotService.V20200602
         /// Bot channel resource definition
         /// </summary>
         public static Task<GetBotConnectionResult> InvokeAsync(GetBotConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBotConnectionResult>("azure-native:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Bot channel resource definition
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20200602:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

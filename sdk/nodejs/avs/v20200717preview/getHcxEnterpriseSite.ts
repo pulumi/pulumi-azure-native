@@ -12,9 +12,7 @@ export function getHcxEnterpriseSite(args: GetHcxEnterpriseSiteArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20200717preview:getHcxEnterpriseSite", {
         "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,
         "privateCloudName": args.privateCloudName,

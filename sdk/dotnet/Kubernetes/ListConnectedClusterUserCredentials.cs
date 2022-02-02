@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kubernetes
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Kubernetes
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<ListConnectedClusterUserCredentialsResult> InvokeAsync(ListConnectedClusterUserCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialsResult>("azure-native:kubernetes:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListConnectedClusterUserCredentialsResult>("azure-native:kubernetes:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of credential result response.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<ListConnectedClusterUserCredentialsResult> Invoke(ListConnectedClusterUserCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialsResult>("azure-native:kubernetes:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListConnectedClusterUserCredentialsResult>("azure-native:kubernetes:listConnectedClusterUserCredentials", args ?? new ListConnectedClusterUserCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

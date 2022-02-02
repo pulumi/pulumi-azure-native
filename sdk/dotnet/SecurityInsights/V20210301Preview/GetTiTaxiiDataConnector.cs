@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
         /// </summary>
         public static Task<GetTiTaxiiDataConnectorResult> InvokeAsync(GetTiTaxiiDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTiTaxiiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector", args ?? new GetTiTaxiiDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTiTaxiiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector", args ?? new GetTiTaxiiDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
         /// </summary>
         public static Output<GetTiTaxiiDataConnectorResult> Invoke(GetTiTaxiiDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTiTaxiiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector", args ?? new GetTiTaxiiDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTiTaxiiDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector", args ?? new GetTiTaxiiDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

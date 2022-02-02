@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights.V20200801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// Datasources under OMS Workspace.
         /// </summary>
         public static Task<GetDataSourceResult> InvokeAsync(GetDataSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights/v20200801:getDataSource", args ?? new GetDataSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataSourceResult>("azure-native:operationalinsights/v20200801:getDataSource", args ?? new GetDataSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Datasources under OMS Workspace.
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights/v20200801:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("azure-native:operationalinsights/v20200801:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 

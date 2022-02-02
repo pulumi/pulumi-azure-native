@@ -13,9 +13,7 @@ export function getConfigurationProfilePreference(args: GetConfigurationProfileP
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automanage/v20200630preview:getConfigurationProfilePreference", {
         "configurationProfilePreferenceName": args.configurationProfilePreferenceName,
         "resourceGroupName": args.resourceGroupName,

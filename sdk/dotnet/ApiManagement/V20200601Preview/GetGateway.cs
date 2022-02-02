@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// Gateway details.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway details.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement/v20200601preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

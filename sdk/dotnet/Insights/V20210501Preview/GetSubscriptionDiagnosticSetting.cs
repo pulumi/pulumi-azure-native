@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// The subscription diagnostic setting resource.
         /// </summary>
         public static Task<GetSubscriptionDiagnosticSettingResult> InvokeAsync(GetSubscriptionDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The subscription diagnostic setting resource.
         /// </summary>
         public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

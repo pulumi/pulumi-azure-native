@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Represents a relation between two resources
         /// </summary>
         public static Task<GetIncidentRelationResult> InvokeAsync(GetIncidentRelationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights/v20210301preview:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIncidentRelationResult>("azure-native:securityinsights/v20210301preview:getIncidentRelation", args ?? new GetIncidentRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a relation between two resources
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20210301preview:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20210301preview:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
     }
 
 

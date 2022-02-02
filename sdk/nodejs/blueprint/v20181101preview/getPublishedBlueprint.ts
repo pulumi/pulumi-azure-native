@@ -13,9 +13,7 @@ export function getPublishedBlueprint(args: GetPublishedBlueprintArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint/v20181101preview:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,
         "resourceScope": args.resourceScope,

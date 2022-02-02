@@ -105,9 +105,7 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210601preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20210701preview:SqlManagedInstance" }, { type: "azure-native:azurearcdata/v20211101:SqlManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlManagedInstance.__pulumiType, name, resourceInputs, opts);

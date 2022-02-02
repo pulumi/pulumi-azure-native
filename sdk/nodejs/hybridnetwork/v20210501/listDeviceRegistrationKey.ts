@@ -12,9 +12,7 @@ export function listDeviceRegistrationKey(args: ListDeviceRegistrationKeyArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridnetwork/v20210501:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,
         "resourceGroupName": args.resourceGroupName,

@@ -106,9 +106,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
             resourceInputs["versionQueryName"] = undefined /*out*/;
             resourceInputs["versioningScheme"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20201201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20210101preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20210401preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20210801:ApiVersionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiVersionSet.__pulumiType, name, resourceInputs, opts);

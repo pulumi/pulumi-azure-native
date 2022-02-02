@@ -163,9 +163,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Schedule" }, { type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);

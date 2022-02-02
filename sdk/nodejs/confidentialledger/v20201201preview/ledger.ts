@@ -90,9 +90,7 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger:Ledger" }, { type: "azure-native:confidentialledger/v20210513preview:Ledger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ledger.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20200601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20200601
         /// Function information.
         /// </summary>
         public static Task<GetWebAppInstanceFunctionSlotResult> InvokeAsync(GetWebAppInstanceFunctionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppInstanceFunctionSlotResult>("azure-native:web/v20200601:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppInstanceFunctionSlotResult>("azure-native:web/v20200601:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Function information.
         /// </summary>
         public static Output<GetWebAppInstanceFunctionSlotResult> Invoke(GetWebAppInstanceFunctionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppInstanceFunctionSlotResult>("azure-native:web/v20200601:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppInstanceFunctionSlotResult>("azure-native:web/v20200601:getWebAppInstanceFunctionSlot", args ?? new GetWebAppInstanceFunctionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

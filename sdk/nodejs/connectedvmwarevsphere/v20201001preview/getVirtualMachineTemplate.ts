@@ -13,9 +13,7 @@ export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,
         "virtualMachineTemplateName": args.virtualMachineTemplateName,

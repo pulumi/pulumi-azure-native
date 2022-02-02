@@ -12,9 +12,7 @@ export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getDiagnostic", {
         "diagnosticId": args.diagnosticId,
         "resourceGroupName": args.resourceGroupName,

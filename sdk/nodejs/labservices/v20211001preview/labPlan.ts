@@ -132,9 +132,7 @@ export class LabPlan extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:labservices:LabPlan" }, { type: "azure-native:labservices/v20211115preview:LabPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabPlan.__pulumiType, name, resourceInputs, opts);

@@ -93,9 +93,7 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPublicCertificate" }, { type: "azure-native:web/v20180201:WebAppPublicCertificate" }, { type: "azure-native:web/v20181101:WebAppPublicCertificate" }, { type: "azure-native:web/v20190801:WebAppPublicCertificate" }, { type: "azure-native:web/v20200601:WebAppPublicCertificate" }, { type: "azure-native:web/v20200901:WebAppPublicCertificate" }, { type: "azure-native:web/v20201001:WebAppPublicCertificate" }, { type: "azure-native:web/v20201201:WebAppPublicCertificate" }, { type: "azure-native:web/v20210101:WebAppPublicCertificate" }, { type: "azure-native:web/v20210115:WebAppPublicCertificate" }, { type: "azure-native:web/v20210201:WebAppPublicCertificate" }, { type: "azure-native:web/v20210301:WebAppPublicCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPublicCertificate.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirr
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs:getWorkloadNetworkPortMirroring", {
         "portMirroringId": args.portMirroringId,
         "privateCloudName": args.privateCloudName,

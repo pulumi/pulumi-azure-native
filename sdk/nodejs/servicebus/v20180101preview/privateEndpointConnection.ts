@@ -88,9 +88,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210101preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:servicebus/v20211101:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);

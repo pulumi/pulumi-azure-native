@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20181101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// Source control configuration for an app.
         /// </summary>
         public static Task<GetWebAppSourceControlSlotResult> InvokeAsync(GetWebAppSourceControlSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-native:web/v20181101:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlSlotResult>("azure-native:web/v20181101:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Source control configuration for an app.
         /// </summary>
         public static Output<GetWebAppSourceControlSlotResult> Invoke(GetWebAppSourceControlSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlSlotResult>("azure-native:web/v20181101:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlSlotResult>("azure-native:web/v20181101:getWebAppSourceControlSlot", args ?? new GetWebAppSourceControlSlotInvokeArgs(), options.WithDefaults());
     }
 
 

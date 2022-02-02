@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Compute
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetLogAnalyticExportRequestRateByIntervalResult> InvokeAsync(GetLogAnalyticExportRequestRateByIntervalArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalArgs(), options.WithDefaults());
 
         /// <summary>
         /// LogAnalytics operation status response
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetLogAnalyticExportRequestRateByIntervalResult> Invoke(GetLogAnalyticExportRequestRateByIntervalInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLogAnalyticExportRequestRateByIntervalResult>("azure-native:compute:getLogAnalyticExportRequestRateByInterval", args ?? new GetLogAnalyticExportRequestRateByIntervalInvokeArgs(), options.WithDefaults());
     }
 
 

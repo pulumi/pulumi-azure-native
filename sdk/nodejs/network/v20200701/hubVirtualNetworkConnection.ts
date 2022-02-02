@@ -107,9 +107,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
             resourceInputs["routingConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200501:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200601:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20200801:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20201101:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210201:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210301:HubVirtualNetworkConnection" }, { type: "azure-native:network/v20210501:HubVirtualNetworkConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HubVirtualNetworkConnection.__pulumiType, name, resourceInputs, opts);

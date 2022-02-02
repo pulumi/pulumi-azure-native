@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// Tag Contract details.
         /// </summary>
         public static Task<GetTagByOperationResult> InvokeAsync(GetTagByOperationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByOperationResult>("azure-native:apimanagement/v20200601preview:getTagByOperation", args ?? new GetTagByOperationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTagByOperationResult>("azure-native:apimanagement/v20200601preview:getTagByOperation", args ?? new GetTagByOperationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tag Contract details.
         /// </summary>
         public static Output<GetTagByOperationResult> Invoke(GetTagByOperationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTagByOperationResult>("azure-native:apimanagement/v20200601preview:getTagByOperation", args ?? new GetTagByOperationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTagByOperationResult>("azure-native:apimanagement/v20200601preview:getTagByOperation", args ?? new GetTagByOperationInvokeArgs(), options.WithDefaults());
     }
 
 

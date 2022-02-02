@@ -13,9 +13,7 @@ export function getCassandraCluster(args: GetCassandraClusterArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20211015preview:getCassandraCluster", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20210125
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20210125
         /// Guest configuration assignment is an association between a machine and guest configuration.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentResult> InvokeAsync(GetGuestConfigurationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Guest configuration assignment is an association between a machine and guest configuration.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentResult> Invoke(GetGuestConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentResult>("azure-native:guestconfiguration/v20210125:getGuestConfigurationAssignment", args ?? new GetGuestConfigurationAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

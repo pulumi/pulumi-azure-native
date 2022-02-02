@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Confluent.V20200301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Confluent.V20200301Preview
         /// Organization resource.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent/v20200301preview:getOrganization", args ?? new GetOrganizationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent/v20200301preview:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Organization resource.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20200301preview:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20200301preview:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

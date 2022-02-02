@@ -12,9 +12,7 @@ export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datalakeanalytics/v20161101:getComputePolicy", {
         "accountName": args.accountName,
         "computePolicyName": args.computePolicyName,

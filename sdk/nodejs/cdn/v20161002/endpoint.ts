@@ -163,9 +163,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190415:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-native:cdn/v20210601:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);

@@ -101,9 +101,7 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationToken"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210101:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210301:StaticSiteCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteCustomDomain.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20201101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// A DDoS custom policy in a resource group.
         /// </summary>
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-native:network/v20201101:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-native:network/v20201101:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A DDoS custom policy in a resource group.
         /// </summary>
         public static Output<GetDdosCustomPolicyResult> Invoke(GetDdosCustomPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network/v20201101:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network/v20201101:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

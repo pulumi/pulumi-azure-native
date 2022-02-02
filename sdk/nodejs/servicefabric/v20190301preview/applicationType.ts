@@ -93,9 +93,7 @@ export class ApplicationType extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:ApplicationType" }, { type: "azure-native:servicefabric/v20170701preview:ApplicationType" }, { type: "azure-native:servicefabric/v20190301:ApplicationType" }, { type: "azure-native:servicefabric/v20190601preview:ApplicationType" }, { type: "azure-native:servicefabric/v20191101preview:ApplicationType" }, { type: "azure-native:servicefabric/v20200301:ApplicationType" }, { type: "azure-native:servicefabric/v20201201preview:ApplicationType" }, { type: "azure-native:servicefabric/v20210601:ApplicationType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationType.__pulumiType, name, resourceInputs, opts);

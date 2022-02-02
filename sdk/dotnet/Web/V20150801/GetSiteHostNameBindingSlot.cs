@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// A host name binding object
         /// </summary>
         public static Task<GetSiteHostNameBindingSlotResult> InvokeAsync(GetSiteHostNameBindingSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// A host name binding object
         /// </summary>
         public static Output<GetSiteHostNameBindingSlotResult> Invoke(GetSiteHostNameBindingSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingSlotResult>("azure-native:web/v20150801:getSiteHostNameBindingSlot", args ?? new GetSiteHostNameBindingSlotInvokeArgs(), options.WithDefaults());
     }
 
 

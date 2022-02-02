@@ -12,9 +12,7 @@ export function getManagementLock(args: GetManagementLockArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20150101:getManagementLock", {
         "lockName": args.lockName,
     }, opts);

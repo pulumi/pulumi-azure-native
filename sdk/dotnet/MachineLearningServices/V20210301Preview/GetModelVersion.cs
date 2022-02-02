@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetModelVersionResult> InvokeAsync(GetModelVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices/v20210301preview:getModelVersion", args ?? new GetModelVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetModelVersionResult>("azure-native:machinelearningservices/v20210301preview:getModelVersion", args ?? new GetModelVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetModelVersionResult> Invoke(GetModelVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices/v20210301preview:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetModelVersionResult>("azure-native:machinelearningservices/v20210301preview:getModelVersion", args ?? new GetModelVersionInvokeArgs(), options.WithDefaults());
     }
 
 

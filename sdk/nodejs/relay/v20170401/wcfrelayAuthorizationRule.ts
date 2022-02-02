@@ -83,9 +83,7 @@ export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["rights"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:relay:WCFRelayAuthorizationRule" }, { type: "azure-native:relay/v20160701:WCFRelayAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelayAuthorizationRule.__pulumiType, name, resourceInputs, opts);

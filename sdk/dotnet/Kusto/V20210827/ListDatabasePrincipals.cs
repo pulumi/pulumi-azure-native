@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210827
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Task<ListDatabasePrincipalsResult> InvokeAsync(ListDatabasePrincipalsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20210827:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDatabasePrincipalsResult>("azure-native:kusto/v20210827:listDatabasePrincipals", args ?? new ListDatabasePrincipalsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list Kusto database principals operation response.
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20210827:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20210827:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMach
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20201201:getVirtualMachineRunCommandByVirtualMachine", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

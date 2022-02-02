@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// The Get Insights result operation response.
         /// </summary>
         public static Task<GetEntityInsightsResult> InvokeAsync(GetEntityInsightsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityInsightsResult>("azure-native:securityinsights/v20210901preview:getEntityInsights", args ?? new GetEntityInsightsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityInsightsResult>("azure-native:securityinsights/v20210901preview:getEntityInsights", args ?? new GetEntityInsightsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Insights result operation response.
         /// </summary>
         public static Output<GetEntityInsightsResult> Invoke(GetEntityInsightsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityInsightsResult>("azure-native:securityinsights/v20210901preview:getEntityInsights", args ?? new GetEntityInsightsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEntityInsightsResult>("azure-native:securityinsights/v20210901preview:getEntityInsights", args ?? new GetEntityInsightsInvokeArgs(), options.WithDefaults());
     }
 
 

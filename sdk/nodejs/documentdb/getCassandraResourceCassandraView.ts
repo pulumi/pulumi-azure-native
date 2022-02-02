@@ -14,9 +14,7 @@ export function getCassandraResourceCassandraView(args: GetCassandraResourceCass
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getCassandraResourceCassandraView", {
         "accountName": args.accountName,
         "keyspaceName": args.keyspaceName,

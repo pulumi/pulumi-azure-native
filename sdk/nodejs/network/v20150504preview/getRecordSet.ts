@@ -13,9 +13,7 @@ export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20150504preview:getRecordSet", {
         "recordType": args.recordType,
         "relativeRecordSetName": args.relativeRecordSetName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetInvitationResult> InvokeAsync(GetInvitationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Invitation data transfer object.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetInvitationResult> Invoke(GetInvitationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithDefaults());
     }
 
 

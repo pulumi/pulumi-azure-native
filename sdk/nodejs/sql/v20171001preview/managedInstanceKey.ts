@@ -93,9 +93,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceKey.__pulumiType, name, resourceInputs, opts);

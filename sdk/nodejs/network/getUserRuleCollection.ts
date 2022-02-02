@@ -14,9 +14,7 @@ export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getUserRuleCollection", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

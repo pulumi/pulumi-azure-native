@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppAuthSettingsResult> InvokeAsync(ListWebAppAuthSettingsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration settings for the Azure App Service Authentication / Authorization feature.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppAuthSettingsResult> Invoke(ListWebAppAuthSettingsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsResult>("azure-native:web:listWebAppAuthSettings", args ?? new ListWebAppAuthSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

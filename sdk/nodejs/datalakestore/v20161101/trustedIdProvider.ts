@@ -78,9 +78,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datalakestore:TrustedIdProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrustedIdProvider.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function listTransactionNodeApiKeys(args: ListTransactionNodeApiKeysArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blockchain/v20180601preview:listTransactionNodeApiKeys", {
         "blockchainMemberName": args.blockchainMemberName,
         "resourceGroupName": args.resourceGroupName,

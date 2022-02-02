@@ -12,9 +12,7 @@ export function listRegistryBuildSourceUploadUrl(args: ListRegistryBuildSourceUp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20190601preview:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

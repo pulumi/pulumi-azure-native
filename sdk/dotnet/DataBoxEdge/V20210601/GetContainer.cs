@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/v20210601:getContainer", args ?? new GetContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge/v20210601:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20210601:getContainer", args ?? new GetContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20210601:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
 

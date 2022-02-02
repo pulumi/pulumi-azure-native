@@ -12,9 +12,7 @@ export function getManagerDevicePublicEncryptionKey(args: GetManagerDevicePublic
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20170601:getManagerDevicePublicEncryptionKey", {
         "deviceName": args.deviceName,
         "managerName": args.managerName,

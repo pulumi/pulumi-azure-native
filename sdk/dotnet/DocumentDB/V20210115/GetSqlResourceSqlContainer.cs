@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
         /// An Azure Cosmos DB container.
         /// </summary>
         public static Task<GetSqlResourceSqlContainerResult> InvokeAsync(GetSqlResourceSqlContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlContainerResult>("azure-native:documentdb/v20210115:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlContainerResult>("azure-native:documentdb/v20210115:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB container.
         /// </summary>
         public static Output<GetSqlResourceSqlContainerResult> Invoke(GetSqlResourceSqlContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlContainerResult>("azure-native:documentdb/v20210115:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlContainerResult>("azure-native:documentdb/v20210115:getSqlResourceSqlContainer", args ?? new GetSqlResourceSqlContainerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Represents a SourceControl in Azure Security Insights.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights/v20210301preview:getSourceControl", args ?? new GetSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights/v20210301preview:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a SourceControl in Azure Security Insights.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights/v20210301preview:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights/v20210301preview:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

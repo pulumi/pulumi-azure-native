@@ -102,9 +102,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["serverRole"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cache:LinkedServer" }, { type: "azure-native:cache/v20170201:LinkedServer" }, { type: "azure-native:cache/v20171001:LinkedServer" }, { type: "azure-native:cache/v20190701:LinkedServer" }, { type: "azure-native:cache/v20200601:LinkedServer" }, { type: "azure-native:cache/v20201201:LinkedServer" }, { type: "azure-native:cache/v20210601:LinkedServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedServer.__pulumiType, name, resourceInputs, opts);

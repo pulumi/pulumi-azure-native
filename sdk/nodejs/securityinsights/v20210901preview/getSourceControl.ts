@@ -13,9 +13,7 @@ export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights/v20210901preview:getSourceControl", {
         "resourceGroupName": args.resourceGroupName,
         "sourceControlId": args.sourceControlId,

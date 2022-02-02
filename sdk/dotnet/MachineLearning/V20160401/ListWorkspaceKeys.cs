@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearning.V20160401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20160401
         /// Workspace authorization keys for a workspace.
         /// </summary>
         public static Task<ListWorkspaceKeysResult> InvokeAsync(ListWorkspaceKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workspace authorization keys for a workspace.
         /// </summary>
         public static Output<ListWorkspaceKeysResult> Invoke(ListWorkspaceKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceKeysResult>("azure-native:machinelearning/v20160401:listWorkspaceKeys", args ?? new ListWorkspaceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20170301preview:getAvailabilityGroupListener", {
         "availabilityGroupListenerName": args.availabilityGroupListenerName,
         "resourceGroupName": args.resourceGroupName,

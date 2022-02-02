@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Kubernetes role.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());
     }
 
 

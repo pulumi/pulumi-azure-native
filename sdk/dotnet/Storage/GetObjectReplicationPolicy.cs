@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

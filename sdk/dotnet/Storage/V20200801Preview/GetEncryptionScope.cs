@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20200801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
         /// The Encryption Scope resource.
         /// </summary>
         public static Task<GetEncryptionScopeResult> InvokeAsync(GetEncryptionScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:storage/v20200801preview:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionScopeResult>("azure-native:storage/v20200801preview:getEncryptionScope", args ?? new GetEncryptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Encryption Scope resource.
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage/v20200801preview:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage/v20200801preview:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,9 +14,7 @@ export function getEventSubscriptionDeliveryAttributes(args: GetEventSubscriptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:getEventSubscriptionDeliveryAttributes", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "scope": args.scope,

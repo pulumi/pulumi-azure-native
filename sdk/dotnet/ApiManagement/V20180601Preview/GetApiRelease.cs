@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
         /// Api Release details.
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20180601preview:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement/v20180601preview:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Api Release details.
         /// </summary>
         public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement/v20180601preview:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement/v20180601preview:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithDefaults());
     }
 
 

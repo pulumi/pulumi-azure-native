@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// A domain specific resource identifier.
         /// </summary>
         public static Task<GetWebAppDomainOwnershipIdentifierSlotResult> InvokeAsync(GetWebAppDomainOwnershipIdentifierSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210115:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210115:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// A domain specific resource identifier.
         /// </summary>
         public static Output<GetWebAppDomainOwnershipIdentifierSlotResult> Invoke(GetWebAppDomainOwnershipIdentifierSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210115:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppDomainOwnershipIdentifierSlotResult>("azure-native:web/v20210115:getWebAppDomainOwnershipIdentifierSlot", args ?? new GetWebAppDomainOwnershipIdentifierSlotInvokeArgs(), options.WithDefaults());
     }
 
 

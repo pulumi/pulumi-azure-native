@@ -12,9 +12,7 @@ export function getCredential(args: GetCredentialArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20151031:getCredential", {
         "automationAccountName": args.automationAccountName,
         "credentialName": args.credentialName,

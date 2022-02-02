@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedIdentity.V20181130
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20181130
         /// Describes an identity resource.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes an identity resource.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity/v20181130:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

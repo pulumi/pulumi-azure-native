@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// Defines the security configuration
         /// </summary>
         public static Task<GetSecurityUserConfigurationResult> InvokeAsync(GetSecurityUserConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserConfigurationResult>("azure-native:network/v20210501preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserConfigurationResult>("azure-native:network/v20210501preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the security configuration
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network/v20210501preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network/v20210501preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

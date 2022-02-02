@@ -12,9 +12,7 @@ export function getGlobalSchema(args: GetGlobalSchemaArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getGlobalSchema", {
         "resourceGroupName": args.resourceGroupName,
         "schemaId": args.schemaId,

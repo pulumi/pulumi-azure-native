@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20180601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Linked service resource type.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked service resource type.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
     }
 
 

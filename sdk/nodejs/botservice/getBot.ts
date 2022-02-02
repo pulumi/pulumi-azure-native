@@ -14,9 +14,7 @@ export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:botservice:getBot", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

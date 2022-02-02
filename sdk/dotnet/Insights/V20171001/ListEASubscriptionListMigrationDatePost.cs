@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Insights.V20171001
         /// Subscription migrate date information properties
         /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithDefaults());
     }
 
 

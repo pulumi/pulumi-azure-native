@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:media/v20180330preview:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

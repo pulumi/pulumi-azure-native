@@ -121,9 +121,7 @@ export class IoTRole extends pulumi.CustomResource {
             resourceInputs["shareMappings"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTRole" }, { type: "azure-native:databoxedge/v20190301:IoTRole" }, { type: "azure-native:databoxedge/v20190701:IoTRole" }, { type: "azure-native:databoxedge/v20200501preview:IoTRole" }, { type: "azure-native:databoxedge/v20200901:IoTRole" }, { type: "azure-native:databoxedge/v20200901preview:IoTRole" }, { type: "azure-native:databoxedge/v20201201:IoTRole" }, { type: "azure-native:databoxedge/v20210201:IoTRole" }, { type: "azure-native:databoxedge/v20210201preview:IoTRole" }, { type: "azure-native:databoxedge/v20210601:IoTRole" }, { type: "azure-native:databoxedge/v20210601preview:IoTRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTRole.__pulumiType, name, resourceInputs, opts);

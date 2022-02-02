@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20200101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20200101
         /// Action for alert rule.
         /// </summary>
         public static Task<GetActionResult> InvokeAsync(GetActionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-native:securityinsights/v20200101:getAction", args ?? new GetActionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionResult>("azure-native:securityinsights/v20200101:getAction", args ?? new GetActionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action for alert rule.
         /// </summary>
         public static Output<GetActionResult> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionResult>("azure-native:securityinsights/v20200101:getAction", args ?? new GetActionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionResult>("azure-native:securityinsights/v20200101:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListAssetStreamingLocatorsResult> InvokeAsync(ListAssetStreamingLocatorsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-native:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetStreamingLocatorsResult>("azure-native:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Streaming Locators associated with this Asset.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<ListAssetStreamingLocatorsResult> Invoke(ListAssetStreamingLocatorsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAssetStreamingLocatorsResult>("azure-native:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListAssetStreamingLocatorsResult>("azure-native:media:listAssetStreamingLocators", args ?? new ListAssetStreamingLocatorsInvokeArgs(), options.WithDefaults());
     }
 
 

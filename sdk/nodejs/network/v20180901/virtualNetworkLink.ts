@@ -112,9 +112,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             resourceInputs["virtualNetwork"] = undefined /*out*/;
             resourceInputs["virtualNetworkLinkState"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkLink" }, { type: "azure-native:network/v20200101:VirtualNetworkLink" }, { type: "azure-native:network/v20200601:VirtualNetworkLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkLink.__pulumiType, name, resourceInputs, opts);

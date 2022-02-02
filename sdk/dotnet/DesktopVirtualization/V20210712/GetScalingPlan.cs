@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210712
         /// Represents a scaling plan definition.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a scaling plan definition.
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20210712:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,9 +12,7 @@ export function getDisasterRecoveryConfiguration(args: GetDisasterRecoveryConfig
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getDisasterRecoveryConfiguration", {
         "disasterRecoveryConfigurationName": args.disasterRecoveryConfigurationName,
         "resourceGroupName": args.resourceGroupName,

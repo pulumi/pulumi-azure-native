@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210301
         /// Differentiated Services Code Point configuration for any given network interface
         /// </summary>
         public static Task<GetDscpConfigurationResult> InvokeAsync(GetDscpConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network/v20210301:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDscpConfigurationResult>("azure-native:network/v20210301:getDscpConfiguration", args ?? new GetDscpConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Differentiated Services Code Point configuration for any given network interface
         /// </summary>
         public static Output<GetDscpConfigurationResult> Invoke(GetDscpConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network/v20210301:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDscpConfigurationResult>("azure-native:network/v20210301:getDscpConfiguration", args ?? new GetDscpConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

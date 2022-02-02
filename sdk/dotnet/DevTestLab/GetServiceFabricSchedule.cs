@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<GetServiceFabricScheduleResult> InvokeAsync(GetServiceFabricScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricScheduleResult>("azure-native:devtestlab:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceFabricScheduleResult>("azure-native:devtestlab:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A schedule.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<GetServiceFabricScheduleResult> Invoke(GetServiceFabricScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricScheduleResult>("azure-native:devtestlab:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceFabricScheduleResult>("azure-native:devtestlab:getServiceFabricSchedule", args ?? new GetServiceFabricScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

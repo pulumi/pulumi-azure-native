@@ -13,9 +13,7 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory/v20180601:getPrivateEndpointConnection", {
         "factoryName": args.factoryName,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

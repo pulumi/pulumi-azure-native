@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// Workspace connection.
         /// </summary>
         public static Task<GetWorkspaceConnectionResult> InvokeAsync(GetWorkspaceConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceConnectionResult>("azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection", args ?? new GetWorkspaceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workspace connection.
         /// </summary>
         public static Output<GetWorkspaceConnectionResult> Invoke(GetWorkspaceConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceConnectionResult>("azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection", args ?? new GetWorkspaceConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceConnectionResult>("azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection", args ?? new GetWorkspaceConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

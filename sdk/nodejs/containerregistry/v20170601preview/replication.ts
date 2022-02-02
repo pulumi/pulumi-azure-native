@@ -94,9 +94,7 @@ export class Replication extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Replication" }, { type: "azure-native:containerregistry/v20171001:Replication" }, { type: "azure-native:containerregistry/v20190501:Replication" }, { type: "azure-native:containerregistry/v20191201preview:Replication" }, { type: "azure-native:containerregistry/v20201101preview:Replication" }, { type: "azure-native:containerregistry/v20210601preview:Replication" }, { type: "azure-native:containerregistry/v20210801preview:Replication" }, { type: "azure-native:containerregistry/v20210901:Replication" }, { type: "azure-native:containerregistry/v20211201preview:Replication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Replication.__pulumiType, name, resourceInputs, opts);

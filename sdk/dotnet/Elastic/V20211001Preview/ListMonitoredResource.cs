@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitoredResourceResult> InvokeAsync(ListMonitoredResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic/v20211001preview:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic/v20211001preview:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20211001preview:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20211001preview:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
     }
 
 

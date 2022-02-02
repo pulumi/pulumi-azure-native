@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
         /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
         /// </summary>
         public static Task<GetLabPlanResult> InvokeAsync(GetLabPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
         /// </summary>
         public static Output<GetLabPlanResult> Invoke(GetLabPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLabPlanResult>("azure-native:labservices/v20211001preview:getLabPlan", args ?? new GetLabPlanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function listBuildStepBuildArguments(args: ListBuildStepBuildArgumentsArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:listBuildStepBuildArguments", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

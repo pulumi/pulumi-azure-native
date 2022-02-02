@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20181201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20181201
         /// ExpressRoute gateway resource.
         /// </summary>
         public static Task<GetExpressRouteGatewayResult> InvokeAsync(GetExpressRouteGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network/v20181201:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network/v20181201:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoute gateway resource.
         /// </summary>
         public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network/v20181201:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network/v20181201:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

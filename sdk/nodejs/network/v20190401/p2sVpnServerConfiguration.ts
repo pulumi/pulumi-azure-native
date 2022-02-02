@@ -131,9 +131,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["vpnClientIpsecPolicies"] = undefined /*out*/;
             resourceInputs["vpnProtocols"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181001:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181101:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190701:P2sVpnServerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(P2sVpnServerConfiguration.__pulumiType, name, resourceInputs, opts);

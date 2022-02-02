@@ -108,9 +108,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20211001:RemediationAtResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemediationAtResourceGroup.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// A Disk.
         /// </summary>
         public static Task<GetDiskResult> InvokeAsync(GetDiskArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Disk.
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -90,9 +90,7 @@ export class MediaService extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:media:MediaService" }, { type: "azure-native:media/v20180330preview:MediaService" }, { type: "azure-native:media/v20180601preview:MediaService" }, { type: "azure-native:media/v20180701:MediaService" }, { type: "azure-native:media/v20200501:MediaService" }, { type: "azure-native:media/v20210501:MediaService" }, { type: "azure-native:media/v20210601:MediaService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MediaService.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Represents Activity entity query.
         /// </summary>
         public static Task<GetActivityCustomEntityQueryResult> InvokeAsync(GetActivityCustomEntityQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Activity entity query.
         /// </summary>
         public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
     }
 
 

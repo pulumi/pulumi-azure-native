@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// A cloud link resource
         /// </summary>
         public static Task<GetCloudLinkResult> InvokeAsync(GetCloudLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs/v20210601:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCloudLinkResult>("azure-native:avs/v20210601:getCloudLink", args ?? new GetCloudLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// A cloud link resource
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs/v20210601:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs/v20210601:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());
     }
 
 

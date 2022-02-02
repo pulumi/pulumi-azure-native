@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20211101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20211101
         /// Single Namespace item in List or Get Operation
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub/v20211101:getNamespace", args ?? new GetNamespaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub/v20211101:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single Namespace item in List or Get Operation
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub/v20211101:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub/v20211101:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

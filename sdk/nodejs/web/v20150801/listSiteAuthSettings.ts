@@ -12,9 +12,7 @@ export function listSiteAuthSettings(args: ListSiteAuthSettingsArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteAuthSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

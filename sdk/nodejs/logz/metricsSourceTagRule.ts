@@ -87,9 +87,7 @@ export class MetricsSourceTagRule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logz/v20220101preview:MetricsSourceTagRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricsSourceTagRule.__pulumiType, name, resourceInputs, opts);

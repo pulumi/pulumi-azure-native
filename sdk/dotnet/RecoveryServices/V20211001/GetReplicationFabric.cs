@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
         /// Fabric definition.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fabric definition.
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20211001:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
     }
 
 

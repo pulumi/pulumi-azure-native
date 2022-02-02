@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// Distributed availability group between box and Sql Managed Instance.
         /// </summary>
         public static Task<GetDistributedAvailabilityGroupResult> InvokeAsync(GetDistributedAvailabilityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20210501preview:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20210501preview:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Distributed availability group between box and Sql Managed Instance.
         /// </summary>
         public static Output<GetDistributedAvailabilityGroupResult> Invoke(GetDistributedAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20210501preview:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDistributedAvailabilityGroupResult>("azure-native:sql/v20210501preview:getDistributedAvailabilityGroup", args ?? new GetDistributedAvailabilityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

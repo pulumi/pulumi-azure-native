@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
         /// IoT Addon.
         /// </summary>
         public static Task<GetIoTAddonResult> InvokeAsync(GetIoTAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge/v20201201:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIoTAddonResult>("azure-native:databoxedge/v20201201:getIoTAddon", args ?? new GetIoTAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Addon.
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20201201:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20201201:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
     }
 
 

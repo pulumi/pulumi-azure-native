@@ -93,9 +93,7 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20180110:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20180710:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210210:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210301:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210401:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210601:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210701:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20210801:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20211001:ReplicationMigrationItem" }, { type: "azure-native:recoveryservices/v20211201:ReplicationMigrationItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationMigrationItem.__pulumiType, name, resourceInputs, opts);

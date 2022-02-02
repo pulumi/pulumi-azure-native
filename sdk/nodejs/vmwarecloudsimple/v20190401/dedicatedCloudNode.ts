@@ -181,9 +181,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmwareClusterName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple:DedicatedCloudNode" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedCloudNode.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         /// DC Access code in the case of Self Managed Shipping.
         /// </summary>
         public static Task<ListOrderDCAccessCodeResult> InvokeAsync(ListOrderDCAccessCodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20200901:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20200901:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// DC Access code in the case of Self Managed Shipping.
         /// </summary>
         public static Output<ListOrderDCAccessCodeResult> Invoke(ListOrderDCAccessCodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20200901:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20200901:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeInvokeArgs(), options.WithDefaults());
     }
 
 

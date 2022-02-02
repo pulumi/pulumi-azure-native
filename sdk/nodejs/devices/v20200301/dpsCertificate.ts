@@ -84,9 +84,7 @@ export class DpsCertificate extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devices:DpsCertificate" }, { type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DpsCertificate.__pulumiType, name, resourceInputs, opts);

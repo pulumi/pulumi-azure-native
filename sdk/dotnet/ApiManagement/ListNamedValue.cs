@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListNamedValueResult> InvokeAsync(ListNamedValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithDefaults());
     }
 
 

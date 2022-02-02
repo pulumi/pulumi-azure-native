@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180301
         /// Class representing a Traffic Manager endpoint.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network/v20180301:getEndpoint", args ?? new GetEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network/v20180301:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Traffic Manager endpoint.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:network/v20180301:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:network/v20180301:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

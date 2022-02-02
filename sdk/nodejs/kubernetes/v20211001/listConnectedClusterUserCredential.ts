@@ -13,9 +13,7 @@ export function listConnectedClusterUserCredential(args: ListConnectedClusterUse
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kubernetes/v20211001:listConnectedClusterUserCredential", {
         "authenticationMethod": args.authenticationMethod,
         "clientProxy": args.clientProxy,

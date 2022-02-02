@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetVideoAnalyzerResult> InvokeAsync(GetVideoAnalyzerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Video Analyzer account.
         /// API Version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:labservices:getGlobalUserOperationStatus", {
         "operationUrl": args.operationUrl,
         "userName": args.userName,

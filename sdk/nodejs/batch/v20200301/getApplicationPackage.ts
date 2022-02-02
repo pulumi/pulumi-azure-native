@@ -12,9 +12,7 @@ export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:batch/v20200301:getApplicationPackage", {
         "accountName": args.accountName,
         "applicationName": args.applicationName,

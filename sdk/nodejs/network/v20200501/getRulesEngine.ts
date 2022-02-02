@@ -13,9 +13,7 @@ export function getRulesEngine(args: GetRulesEngineArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200501:getRulesEngine", {
         "frontDoorName": args.frontDoorName,
         "resourceGroupName": args.resourceGroupName,

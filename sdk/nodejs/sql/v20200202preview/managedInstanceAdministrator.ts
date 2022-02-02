@@ -103,9 +103,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20170301preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceAdministrator.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2020-07-01.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Test keys payload
         /// API Version: 2020-07-01.
         /// </summary>
         public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithDefaults());
     }
 
 

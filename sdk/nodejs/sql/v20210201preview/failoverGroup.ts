@@ -124,9 +124,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:FailoverGroup" }, { type: "azure-native:sql/v20150501preview:FailoverGroup" }, { type: "azure-native:sql/v20200202preview:FailoverGroup" }, { type: "azure-native:sql/v20200801preview:FailoverGroup" }, { type: "azure-native:sql/v20201101preview:FailoverGroup" }, { type: "azure-native:sql/v20210501preview:FailoverGroup" }, { type: "azure-native:sql/v20210801preview:FailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FailoverGroup.__pulumiType, name, resourceInputs, opts);

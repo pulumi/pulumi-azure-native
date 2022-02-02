@@ -13,9 +13,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devops/v20200713preview:getPipeline", {
         "pipelineName": args.pipelineName,
         "resourceGroupName": args.resourceGroupName,

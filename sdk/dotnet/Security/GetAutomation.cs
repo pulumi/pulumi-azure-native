@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The security automation resource.
         /// API Version: 2019-01-01-preview.
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getSubscriptionFeatureRegistration(args: GetSubscriptionFeatureR
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:features/v20210701:getSubscriptionFeatureRegistration", {
         "featureName": args.featureName,
         "providerNamespace": args.providerNamespace,

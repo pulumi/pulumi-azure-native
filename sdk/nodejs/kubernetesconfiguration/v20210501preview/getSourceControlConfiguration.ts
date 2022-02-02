@@ -13,9 +13,7 @@ export function getSourceControlConfiguration(args: GetSourceControlConfiguratio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kubernetesconfiguration/v20210501preview:getSourceControlConfiguration", {
         "clusterName": args.clusterName,
         "clusterResourceName": args.clusterResourceName,

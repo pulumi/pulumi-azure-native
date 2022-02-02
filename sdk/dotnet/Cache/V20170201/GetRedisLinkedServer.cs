@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache.V20170201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cache.V20170201
         /// Response to put/get linked server (with properties) for Redis cache.
         /// </summary>
         public static Task<GetRedisLinkedServerResult> InvokeAsync(GetRedisLinkedServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response to put/get linked server (with properties) for Redis cache.
         /// </summary>
         public static Output<GetRedisLinkedServerResult> Invoke(GetRedisLinkedServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRedisLinkedServerResult>("azure-native:cache/v20170201:getRedisLinkedServer", args ?? new GetRedisLinkedServerInvokeArgs(), options.WithDefaults());
     }
 
 

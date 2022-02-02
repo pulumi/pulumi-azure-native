@@ -13,9 +13,7 @@ export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:avs/v20211201:getDatastore", {
         "clusterName": args.clusterName,
         "datastoreName": args.datastoreName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// This type describes a secret resource.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:servicefabricmesh/v20180901preview:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:servicefabricmesh/v20180901preview:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// This type describes a secret resource.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:servicefabricmesh/v20180901preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:servicefabricmesh/v20180901preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

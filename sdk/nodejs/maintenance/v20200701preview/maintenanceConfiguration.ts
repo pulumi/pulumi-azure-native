@@ -132,9 +132,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["visibility"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:maintenance:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210501:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);

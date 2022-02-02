@@ -13,9 +13,7 @@ export function getComponentCurrentBillingFeature(args: GetComponentCurrentBilli
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20150501:getComponentCurrentBillingFeature", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

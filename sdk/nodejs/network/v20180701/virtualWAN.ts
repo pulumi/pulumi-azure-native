@@ -106,9 +106,7 @@ export class VirtualWAN extends pulumi.CustomResource {
             resourceInputs["virtualHubs"] = undefined /*out*/;
             resourceInputs["vpnSites"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualWAN" }, { type: "azure-native:network/v20180401:VirtualWAN" }, { type: "azure-native:network/v20180601:VirtualWAN" }, { type: "azure-native:network/v20180801:VirtualWAN" }, { type: "azure-native:network/v20181001:VirtualWAN" }, { type: "azure-native:network/v20181101:VirtualWAN" }, { type: "azure-native:network/v20181201:VirtualWAN" }, { type: "azure-native:network/v20190201:VirtualWAN" }, { type: "azure-native:network/v20190401:VirtualWAN" }, { type: "azure-native:network/v20190601:VirtualWAN" }, { type: "azure-native:network/v20190701:VirtualWAN" }, { type: "azure-native:network/v20190801:VirtualWAN" }, { type: "azure-native:network/v20190901:VirtualWAN" }, { type: "azure-native:network/v20191101:VirtualWAN" }, { type: "azure-native:network/v20191201:VirtualWAN" }, { type: "azure-native:network/v20200301:VirtualWAN" }, { type: "azure-native:network/v20200401:VirtualWAN" }, { type: "azure-native:network/v20200501:VirtualWAN" }, { type: "azure-native:network/v20200601:VirtualWAN" }, { type: "azure-native:network/v20200701:VirtualWAN" }, { type: "azure-native:network/v20200801:VirtualWAN" }, { type: "azure-native:network/v20201101:VirtualWAN" }, { type: "azure-native:network/v20210201:VirtualWAN" }, { type: "azure-native:network/v20210301:VirtualWAN" }, { type: "azure-native:network/v20210501:VirtualWAN" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualWAN.__pulumiType, name, resourceInputs, opts);

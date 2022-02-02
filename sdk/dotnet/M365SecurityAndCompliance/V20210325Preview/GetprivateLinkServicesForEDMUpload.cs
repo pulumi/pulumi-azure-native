@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The description of the service.
         /// </summary>
         public static Task<GetprivateLinkServicesForEDMUploadResult> InvokeAsync(GetprivateLinkServicesForEDMUploadArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetprivateLinkServicesForEDMUploadResult> Invoke(GetprivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance/v20210325preview:getprivateLinkServicesForEDMUpload", args ?? new GetprivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
     }
 
 

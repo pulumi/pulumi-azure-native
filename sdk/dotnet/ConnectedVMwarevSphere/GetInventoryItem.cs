@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetInventoryItemResult> InvokeAsync(GetInventoryItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the inventory item.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:connectedvmwarevsphere:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
     }
 
 

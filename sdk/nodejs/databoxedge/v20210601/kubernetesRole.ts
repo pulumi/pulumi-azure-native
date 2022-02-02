@@ -133,9 +133,7 @@ export class KubernetesRole extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:KubernetesRole" }, { type: "azure-native:databoxedge/v20190301:KubernetesRole" }, { type: "azure-native:databoxedge/v20190701:KubernetesRole" }, { type: "azure-native:databoxedge/v20190801:KubernetesRole" }, { type: "azure-native:databoxedge/v20200501preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20201201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601preview:KubernetesRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubernetesRole.__pulumiType, name, resourceInputs, opts);

@@ -12,9 +12,7 @@ export function listWebPubSubKeys(args: ListWebPubSubKeysArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:webpubsub/v20210401preview:listWebPubSubKeys", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

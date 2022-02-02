@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20191101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         /// States and configurations of Cost Analysis.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement/v20191101:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement/v20191101:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// States and configurations of Cost Analysis.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement/v20191101:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement/v20191101:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -10,9 +10,7 @@ export function getSubAccount(args: GetSubAccountArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz/v20220101preview:getSubAccount", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,

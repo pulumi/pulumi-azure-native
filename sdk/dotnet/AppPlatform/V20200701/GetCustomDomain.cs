@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
         /// Custom domain resource payload.
         /// </summary>
         public static Task<GetCustomDomainResult> InvokeAsync(GetCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform/v20200701:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomDomainResult>("azure-native:appplatform/v20200701:getCustomDomain", args ?? new GetCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom domain resource payload.
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform/v20200701:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:appplatform/v20200701:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

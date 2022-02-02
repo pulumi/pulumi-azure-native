@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetDatabaseBlobAuditingPolicyResult> InvokeAsync(GetDatabaseBlobAuditingPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A database blob auditing policy.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetDatabaseBlobAuditingPolicyResult> Invoke(GetDatabaseBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseBlobAuditingPolicyResult>("azure-native:sql:getDatabaseBlobAuditingPolicy", args ?? new GetDatabaseBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

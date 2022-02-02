@@ -12,9 +12,7 @@ export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:maintenance/v20180601preview:getMaintenanceConfiguration", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

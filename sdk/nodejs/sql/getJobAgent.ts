@@ -14,9 +14,7 @@ export function getJobAgent(args: GetJobAgentArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getJobAgent", {
         "jobAgentName": args.jobAgentName,
         "resourceGroupName": args.resourceGroupName,

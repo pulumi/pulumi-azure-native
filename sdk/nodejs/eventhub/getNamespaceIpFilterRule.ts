@@ -13,9 +13,7 @@ export function getNamespaceIpFilterRule(args: GetNamespaceIpFilterRuleArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventhub:getNamespaceIpFilterRule", {
         "ipFilterRuleName": args.ipFilterRuleName,
         "namespaceName": args.namespaceName,

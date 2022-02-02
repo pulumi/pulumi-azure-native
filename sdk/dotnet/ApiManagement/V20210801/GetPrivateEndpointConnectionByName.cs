@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByNameResult> InvokeAsync(GetPrivateEndpointConnectionByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement/v20210801:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement/v20210801:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByNameResult> Invoke(GetPrivateEndpointConnectionByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement/v20210801:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByNameResult>("azure-native:apimanagement/v20210801:getPrivateEndpointConnectionByName", args ?? new GetPrivateEndpointConnectionByNameInvokeArgs(), options.WithDefaults());
     }
 
 

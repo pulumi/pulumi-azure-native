@@ -120,9 +120,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["upgradeStatus"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210501:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);

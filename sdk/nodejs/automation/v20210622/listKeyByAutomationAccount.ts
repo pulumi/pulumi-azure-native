@@ -10,9 +10,7 @@ export function listKeyByAutomationAccount(args: ListKeyByAutomationAccountArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:automation/v20210622:listKeyByAutomationAccount", {
         "automationAccountName": args.automationAccountName,
         "resourceGroupName": args.resourceGroupName,

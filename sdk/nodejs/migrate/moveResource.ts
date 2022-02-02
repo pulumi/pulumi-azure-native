@@ -77,9 +77,7 @@ export class MoveResource extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001preview:MoveResource" }, { type: "azure-native:migrate/v20210101:MoveResource" }, { type: "azure-native:migrate/v20210801:MoveResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MoveResource.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20170601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// The backup policy.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The backup policy.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:storsimple/v20170601:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

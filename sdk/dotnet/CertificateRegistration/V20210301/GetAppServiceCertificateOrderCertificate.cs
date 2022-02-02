@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CertificateRegistration.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20210301
         /// Key Vault container ARM resource for a certificate that is purchased through Azure.
         /// </summary>
         public static Task<GetAppServiceCertificateOrderCertificateResult> InvokeAsync(GetAppServiceCertificateOrderCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210301:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210301:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Key Vault container ARM resource for a certificate that is purchased through Azure.
         /// </summary>
         public static Output<GetAppServiceCertificateOrderCertificateResult> Invoke(GetAppServiceCertificateOrderCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210301:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAppServiceCertificateOrderCertificateResult>("azure-native:certificateregistration/v20210301:getAppServiceCertificateOrderCertificate", args ?? new GetAppServiceCertificateOrderCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

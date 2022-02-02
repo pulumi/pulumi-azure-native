@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DeploymentManager
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetArtifactSourceResult> InvokeAsync(GetArtifactSourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource that defines the source location where the artifacts are located.
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:deploymentmanager:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
     }
 
 

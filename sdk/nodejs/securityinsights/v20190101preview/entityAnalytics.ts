@@ -95,9 +95,7 @@ export class EntityAnalytics extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210301preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210901preview:EntityAnalytics" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EntityAnalytics.__pulumiType, name, resourceInputs, opts);

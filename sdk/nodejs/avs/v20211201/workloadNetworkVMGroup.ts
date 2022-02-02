@@ -99,9 +99,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkVMGroup" }, { type: "azure-native:avs/v20210601:WorkloadNetworkVMGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkVMGroup.__pulumiType, name, resourceInputs, opts);

@@ -9,9 +9,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getQueue", {
         "accountName": args.accountName,
         "queueName": args.queueName,

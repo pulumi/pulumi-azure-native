@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2019-12-01.
         /// </summary>
         public static Task<ListTenantAccessGitSecretsResult> InvokeAsync(ListTenantAccessGitSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessGitSecretsResult>("azure-native:apimanagement:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTenantAccessGitSecretsResult>("azure-native:apimanagement:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Tenant access information contract of the API Management service.
         /// API Version: 2019-12-01.
         /// </summary>
         public static Output<ListTenantAccessGitSecretsResult> Invoke(ListTenantAccessGitSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTenantAccessGitSecretsResult>("azure-native:apimanagement:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListTenantAccessGitSecretsResult>("azure-native:apimanagement:listTenantAccessGitSecrets", args ?? new ListTenantAccessGitSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

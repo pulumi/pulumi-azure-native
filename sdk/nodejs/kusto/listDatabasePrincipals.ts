@@ -14,9 +14,7 @@ export function listDatabasePrincipals(args: ListDatabasePrincipalsArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto:listDatabasePrincipals", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

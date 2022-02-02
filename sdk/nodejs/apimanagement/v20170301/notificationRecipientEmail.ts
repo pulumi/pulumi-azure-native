@@ -78,9 +78,7 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientEmail" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRecipientEmail.__pulumiType, name, resourceInputs, opts);

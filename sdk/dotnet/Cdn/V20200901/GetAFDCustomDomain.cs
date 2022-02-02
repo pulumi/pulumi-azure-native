@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn/v20200901:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn/v20200901:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn/v20200901:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn/v20200901:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20191212
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20191212
         /// An Azure Cosmos DB trigger.
         /// </summary>
         public static Task<GetSqlResourceSqlTriggerResult> InvokeAsync(GetSqlResourceSqlTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20191212:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20191212:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB trigger.
         /// </summary>
         public static Output<GetSqlResourceSqlTriggerResult> Invoke(GetSqlResourceSqlTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20191212:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20191212:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

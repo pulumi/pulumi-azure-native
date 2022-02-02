@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Peering
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Peering
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetConnectionMonitorTestResult> InvokeAsync(GetConnectionMonitorTestArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Connection Monitor Test class.
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
     }
 
 

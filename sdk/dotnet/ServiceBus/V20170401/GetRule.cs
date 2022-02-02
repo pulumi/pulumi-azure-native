@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
         /// Description of Rule Resource.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus/v20170401:getRule", args ?? new GetRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("azure-native:servicebus/v20170401:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of Rule Resource.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus/v20170401:getRule", args ?? new GetRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus/v20170401:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 

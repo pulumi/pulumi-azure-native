@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// A host name binding object
         /// </summary>
         public static Task<GetSiteHostNameBindingResult> InvokeAsync(GetSiteHostNameBindingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A host name binding object
         /// </summary>
         public static Output<GetSiteHostNameBindingResult> Invoke(GetSiteHostNameBindingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSiteHostNameBindingResult>("azure-native:web/v20150801:getSiteHostNameBinding", args ?? new GetSiteHostNameBindingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,9 +14,7 @@ export function getConnectivityConfiguration(args: GetConnectivityConfigurationA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getConnectivityConfiguration", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blueprint
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetBlueprintResult> InvokeAsync(GetBlueprintArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Blueprint definition.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetBlueprintResult> Invoke(GetBlueprintInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithDefaults());
     }
 
 

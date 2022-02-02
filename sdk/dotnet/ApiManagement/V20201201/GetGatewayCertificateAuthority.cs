@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// Gateway certificate authority details.
         /// </summary>
         public static Task<GetGatewayCertificateAuthorityResult> InvokeAsync(GetGatewayCertificateAuthorityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway certificate authority details.
         /// </summary>
         public static Output<GetGatewayCertificateAuthorityResult> Invoke(GetGatewayCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayCertificateAuthorityResult>("azure-native:apimanagement/v20201201:getGatewayCertificateAuthority", args ?? new GetGatewayCertificateAuthorityInvokeArgs(), options.WithDefaults());
     }
 
 

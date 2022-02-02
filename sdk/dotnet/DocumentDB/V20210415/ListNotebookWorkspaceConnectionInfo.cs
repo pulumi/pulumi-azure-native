@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20210415
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415
         /// The connection info for the given notebook workspace
         /// </summary>
         public static Task<ListNotebookWorkspaceConnectionInfoResult> InvokeAsync(ListNotebookWorkspaceConnectionInfoArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210415:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210415:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// The connection info for the given notebook workspace
         /// </summary>
         public static Output<ListNotebookWorkspaceConnectionInfoResult> Invoke(ListNotebookWorkspaceConnectionInfoInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210415:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListNotebookWorkspaceConnectionInfoResult>("azure-native:documentdb/v20210415:listNotebookWorkspaceConnectionInfo", args ?? new ListNotebookWorkspaceConnectionInfoInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityinsights:getScheduledAlertRule", {
         "resourceGroupName": args.resourceGroupName,
         "ruleId": args.ruleId,

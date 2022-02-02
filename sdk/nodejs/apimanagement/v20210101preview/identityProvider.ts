@@ -130,9 +130,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["signupPolicyName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:IdentityProvider" }, { type: "azure-native:apimanagement/v20160707:IdentityProvider" }, { type: "azure-native:apimanagement/v20161010:IdentityProvider" }, { type: "azure-native:apimanagement/v20170301:IdentityProvider" }, { type: "azure-native:apimanagement/v20180101:IdentityProvider" }, { type: "azure-native:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20190101:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20200601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20201201:IdentityProvider" }, { type: "azure-native:apimanagement/v20210401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210801:IdentityProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IdentityProvider.__pulumiType, name, resourceInputs, opts);

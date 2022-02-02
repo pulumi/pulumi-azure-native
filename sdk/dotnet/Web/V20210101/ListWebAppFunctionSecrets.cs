@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// Function secrets.
         /// </summary>
         public static Task<ListWebAppFunctionSecretsResult> InvokeAsync(ListWebAppFunctionSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-native:web/v20210101:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionSecretsResult>("azure-native:web/v20210101:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Function secrets.
         /// </summary>
         public static Output<ListWebAppFunctionSecretsResult> Invoke(ListWebAppFunctionSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web/v20210101:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web/v20210101:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

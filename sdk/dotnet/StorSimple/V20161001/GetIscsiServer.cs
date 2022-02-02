@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The iSCSI server.
         /// </summary>
         public static Task<GetIscsiServerResult> InvokeAsync(GetIscsiServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The iSCSI server.
         /// </summary>
         public static Output<GetIscsiServerResult> Invoke(GetIscsiServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIscsiServerResult>("azure-native:storsimple/v20161001:getIscsiServer", args ?? new GetIscsiServerInvokeArgs(), options.WithDefaults());
     }
 
 

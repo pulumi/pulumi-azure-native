@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Virtual Network information contract.
         /// </summary>
         public static Task<GetWebAppVnetConnectionSlotResult> InvokeAsync(GetWebAppVnetConnectionSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20210115:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20210115:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Network information contract.
         /// </summary>
         public static Output<GetWebAppVnetConnectionSlotResult> Invoke(GetWebAppVnetConnectionSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20210115:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppVnetConnectionSlotResult>("azure-native:web/v20210115:getWebAppVnetConnectionSlot", args ?? new GetWebAppVnetConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

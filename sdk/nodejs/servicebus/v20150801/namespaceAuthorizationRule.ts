@@ -85,9 +85,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             resourceInputs["rights"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);

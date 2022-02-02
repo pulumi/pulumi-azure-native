@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// Pipeline resource type.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:datafactory/v20170901preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:datafactory/v20170901preview:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Pipeline resource type.
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:datafactory/v20170901preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:datafactory/v20170901preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

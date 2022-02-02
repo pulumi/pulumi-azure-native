@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceBus
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<ListDisasterRecoveryConfigKeysResult> InvokeAsync(ListDisasterRecoveryConfigKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Namespace/ServiceBus Connection String
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<ListDisasterRecoveryConfigKeysResult> Invoke(ListDisasterRecoveryConfigKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDisasterRecoveryConfigKeysResult>("azure-native:servicebus:listDisasterRecoveryConfigKeys", args ?? new ListDisasterRecoveryConfigKeysInvokeArgs(), options.WithDefaults());
     }
 
 

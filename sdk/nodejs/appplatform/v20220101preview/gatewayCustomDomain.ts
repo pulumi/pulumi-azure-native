@@ -86,9 +86,7 @@ export class GatewayCustomDomain extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform:GatewayCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayCustomDomain.__pulumiType, name, resourceInputs, opts);

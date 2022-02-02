@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
         /// An object that represents an import pipeline for a container registry.
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry/v20210801preview:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry/v20210801preview:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents an import pipeline for a container registry.
         /// </summary>
         public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry/v20210801preview:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry/v20210801preview:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

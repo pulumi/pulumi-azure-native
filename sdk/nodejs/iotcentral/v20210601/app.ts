@@ -123,9 +123,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["template"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:iotcentral:App" }, { type: "azure-native:iotcentral/v20170701privatepreview:App" }, { type: "azure-native:iotcentral/v20180901:App" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(App.__pulumiType, name, resourceInputs, opts);

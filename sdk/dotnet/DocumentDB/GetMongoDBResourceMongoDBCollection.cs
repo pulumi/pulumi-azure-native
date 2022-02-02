@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DocumentDB
         /// API Version: 2021-03-15.
         /// </summary>
         public static Task<GetMongoDBResourceMongoDBCollectionResult> InvokeAsync(GetMongoDBResourceMongoDBCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB MongoDB collection.
         /// API Version: 2021-03-15.
         /// </summary>
         public static Output<GetMongoDBResourceMongoDBCollectionResult> Invoke(GetMongoDBResourceMongoDBCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoDBCollectionResult>("azure-native:documentdb:getMongoDBResourceMongoDBCollection", args ?? new GetMongoDBResourceMongoDBCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

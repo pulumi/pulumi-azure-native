@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ExtendedLocation
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// API Version: 2021-03-15-preview.
         /// </summary>
         public static Task<GetCustomLocationResult> InvokeAsync(GetCustomLocationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Custom Locations definition.
         /// API Version: 2021-03-15-preview.
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
     }
 
 

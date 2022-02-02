@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20211001
         /// A private endpoint connection to an azure resource
         /// </summary>
         public static Task<GetWebPubSubPrivateEndpointConnectionResult> InvokeAsync(GetWebPubSubPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A private endpoint connection to an azure resource
         /// </summary>
         public static Output<GetWebPubSubPrivateEndpointConnectionResult> Invoke(GetWebPubSubPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubPrivateEndpointConnectionResult>("azure-native:webpubsub/v20211001:getWebPubSubPrivateEndpointConnection", args ?? new GetWebPubSubPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

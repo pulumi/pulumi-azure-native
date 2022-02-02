@@ -146,9 +146,7 @@ export class DscpConfiguration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:DscpConfiguration" }, { type: "azure-native:network/v20200701:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-native:network/v20201101:DscpConfiguration" }, { type: "azure-native:network/v20210201:DscpConfiguration" }, { type: "azure-native:network/v20210301:DscpConfiguration" }, { type: "azure-native:network/v20210501:DscpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DscpConfiguration.__pulumiType, name, resourceInputs, opts);

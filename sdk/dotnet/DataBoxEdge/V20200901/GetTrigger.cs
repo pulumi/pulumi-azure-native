@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
         /// Trigger details.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20200901:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge/v20200901:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger details.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20200901:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:databoxedge/v20200901:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

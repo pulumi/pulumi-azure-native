@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
         /// A SqlServerInstance.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SqlServerInstance.
         /// </summary>
         public static Output<GetSqlServerInstanceResult> Invoke(GetSqlServerInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceResult>("azure-native:azurearcdata/v20210701preview:getSqlServerInstance", args ?? new GetSqlServerInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

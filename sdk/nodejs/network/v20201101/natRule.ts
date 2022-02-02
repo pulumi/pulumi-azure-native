@@ -119,9 +119,7 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:NatRule" }, { type: "azure-native:network/v20200801:NatRule" }, { type: "azure-native:network/v20210201:NatRule" }, { type: "azure-native:network/v20210301:NatRule" }, { type: "azure-native:network/v20210501:NatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NatRule.__pulumiType, name, resourceInputs, opts);

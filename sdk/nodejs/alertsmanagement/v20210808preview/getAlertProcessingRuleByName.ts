@@ -13,9 +13,7 @@ export function getAlertProcessingRuleByName(args: GetAlertProcessingRuleByNameA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20210808preview:getAlertProcessingRuleByName", {
         "alertProcessingRuleName": args.alertProcessingRuleName,
         "resourceGroupName": args.resourceGroupName,

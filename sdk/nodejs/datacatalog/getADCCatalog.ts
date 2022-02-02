@@ -14,9 +14,7 @@ export function getADCCatalog(args: GetADCCatalogArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datacatalog:getADCCatalog", {
         "catalogName": args.catalogName,
         "resourceGroupName": args.resourceGroupName,

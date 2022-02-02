@@ -91,9 +91,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Schema" }, { type: "azure-native:apimanagement/v20210801:Schema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);

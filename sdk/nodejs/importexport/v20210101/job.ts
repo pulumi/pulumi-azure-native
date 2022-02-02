@@ -96,9 +96,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:importexport:Job" }, { type: "azure-native:importexport/v20161101:Job" }, { type: "azure-native:importexport/v20200801:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, resourceInputs, opts);

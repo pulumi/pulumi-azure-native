@@ -13,9 +13,7 @@ export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:digitaltwins/v20201031:getDigitalTwinsEndpoint", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

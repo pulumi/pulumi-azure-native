@@ -137,9 +137,7 @@ export class Query extends pulumi.CustomResource {
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190901preview:Query" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Query.__pulumiType, name, resourceInputs, opts);

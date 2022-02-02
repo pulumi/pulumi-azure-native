@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210801
         /// The Storage Account Local User keys.
         /// </summary>
         public static Task<ListLocalUserKeysResult> InvokeAsync(ListLocalUserKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage/v20210801:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLocalUserKeysResult>("azure-native:storage/v20210801:listLocalUserKeys", args ?? new ListLocalUserKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Storage Account Local User keys.
         /// </summary>
         public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage/v20210801:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage/v20210801:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());
     }
 
 

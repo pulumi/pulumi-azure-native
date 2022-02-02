@@ -14,9 +14,7 @@ export function listActiveSecurityAdminRule(args: ListActiveSecurityAdminRuleArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listActiveSecurityAdminRule", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

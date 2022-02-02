@@ -13,9 +13,7 @@ export function listNetworkManagerEffectiveSecurityAdminRules(args: ListNetworkM
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501preview:listNetworkManagerEffectiveSecurityAdminRules", {
         "resourceGroupName": args.resourceGroupName,
         "skipToken": args.skipToken,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataFactory
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataFactory
         /// API Version: 2018-06-01.
         /// </summary>
         public static Task<GetFactoryGitHubAccessTokenResult> InvokeAsync(GetFactoryGitHubAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get GitHub access token response definition.
         /// API Version: 2018-06-01.
         /// </summary>
         public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getEncryptionProtector(args: GetEncryptionProtectorArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getEncryptionProtector", {
         "encryptionProtectorName": args.encryptionProtectorName,
         "resourceGroupName": args.resourceGroupName,

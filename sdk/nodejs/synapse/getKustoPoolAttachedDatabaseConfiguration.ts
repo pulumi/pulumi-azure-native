@@ -14,9 +14,7 @@ export function getKustoPoolAttachedDatabaseConfiguration(args: GetKustoPoolAtta
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration", {
         "attachedDatabaseConfigurationName": args.attachedDatabaseConfigurationName,
         "kustoPoolName": args.kustoPoolName,

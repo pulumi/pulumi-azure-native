@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Aad
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Aad
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Domain service.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
     }
 
 

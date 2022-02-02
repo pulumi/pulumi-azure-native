@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualHub Resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
     }
 
 

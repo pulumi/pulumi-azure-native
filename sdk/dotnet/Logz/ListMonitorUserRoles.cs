@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logz
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logz
         /// API Version: 2020-10-01.
         /// </summary>
         public static Task<ListMonitorUserRolesResult> InvokeAsync(ListMonitorUserRolesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for list of user's role for Logz.io account.
         /// API Version: 2020-10-01.
         /// </summary>
         public static Output<ListMonitorUserRolesResult> Invoke(ListMonitorUserRolesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorUserRolesResult>("azure-native:logz:listMonitorUserRoles", args ?? new ListMonitorUserRolesInvokeArgs(), options.WithDefaults());
     }
 
 

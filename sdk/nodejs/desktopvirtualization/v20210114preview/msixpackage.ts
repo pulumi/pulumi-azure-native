@@ -136,9 +136,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSIXPackage.__pulumiType, name, resourceInputs, opts);

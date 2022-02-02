@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20190601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20190601
         /// Machine Learning compute object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetMachineLearningComputeResult> InvokeAsync(GetMachineLearningComputeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-native:machinelearningservices/v20190601:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineLearningComputeResult>("azure-native:machinelearningservices/v20190601:getMachineLearningCompute", args ?? new GetMachineLearningComputeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning compute object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetMachineLearningComputeResult> Invoke(GetMachineLearningComputeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningComputeResult>("azure-native:machinelearningservices/v20190601:getMachineLearningCompute", args ?? new GetMachineLearningComputeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMachineLearningComputeResult>("azure-native:machinelearningservices/v20190601:getMachineLearningCompute", args ?? new GetMachineLearningComputeInvokeArgs(), options.WithDefaults());
     }
 
 

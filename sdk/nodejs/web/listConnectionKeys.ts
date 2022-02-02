@@ -12,9 +12,7 @@ export function listConnectionKeys(args: ListConnectionKeysArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web:listConnectionKeys", {
         "connectionName": args.connectionName,
         "id": args.id,

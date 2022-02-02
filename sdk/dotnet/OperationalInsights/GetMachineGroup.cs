@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationalInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetMachineGroupResult> InvokeAsync(GetMachineGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineGroupResult>("azure-native:operationalinsights:getMachineGroup", args ?? new GetMachineGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A user-defined logical grouping of machines.
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetMachineGroupResult> Invoke(GetMachineGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithDefaults());
     }
 
 

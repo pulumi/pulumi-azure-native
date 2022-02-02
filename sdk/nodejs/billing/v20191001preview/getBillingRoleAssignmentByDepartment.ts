@@ -12,9 +12,7 @@ export function getBillingRoleAssignmentByDepartment(args: GetBillingRoleAssignm
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:billing/v20191001preview:getBillingRoleAssignmentByDepartment", {
         "billingAccountName": args.billingAccountName,
         "billingRoleAssignmentName": args.billingRoleAssignmentName,

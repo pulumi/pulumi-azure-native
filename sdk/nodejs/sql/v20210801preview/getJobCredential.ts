@@ -12,9 +12,7 @@ export function getJobCredential(args: GetJobCredentialArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getJobCredential", {
         "credentialName": args.credentialName,
         "jobAgentName": args.jobAgentName,

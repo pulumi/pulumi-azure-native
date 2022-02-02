@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20181101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// Web Job Information.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web/v20181101:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web/v20181101:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Web Job Information.
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web/v20181101:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web/v20181101:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

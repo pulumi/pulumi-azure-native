@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetOnlineEndpointResult> InvokeAsync(GetOnlineEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetOnlineEndpointResult> Invoke(GetOnlineEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineEndpointResult>("azure-native:machinelearningservices:getOnlineEndpoint", args ?? new GetOnlineEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

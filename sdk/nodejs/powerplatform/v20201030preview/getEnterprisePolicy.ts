@@ -13,9 +13,7 @@ export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,
         "resourceGroupName": args.resourceGroupName,

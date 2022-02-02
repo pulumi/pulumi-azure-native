@@ -236,9 +236,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:Database" }, { type: "azure-native:sql/v20170301preview:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-native:sql/v20201101preview:Database" }, { type: "azure-native:sql/v20210201preview:Database" }, { type: "azure-native:sql/v20210501preview:Database" }, { type: "azure-native:sql/v20210801preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);

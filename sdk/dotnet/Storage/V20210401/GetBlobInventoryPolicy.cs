@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210401
         /// The storage account blob inventory policy.
         /// </summary>
         public static Task<GetBlobInventoryPolicyResult> InvokeAsync(GetBlobInventoryPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/v20210401:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobInventoryPolicyResult>("azure-native:storage/v20210401:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The storage account blob inventory policy.
         /// </summary>
         public static Output<GetBlobInventoryPolicyResult> Invoke(GetBlobInventoryPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage/v20210401:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobInventoryPolicyResult>("azure-native:storage/v20210401:getBlobInventoryPolicy", args ?? new GetBlobInventoryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

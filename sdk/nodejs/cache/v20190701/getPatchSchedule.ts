@@ -13,9 +13,7 @@ export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20190701:getPatchSchedule", {
         "default": args.default,
         "name": args.name,

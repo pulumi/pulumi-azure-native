@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<ListBatchEndpointKeysResult> InvokeAsync(ListBatchEndpointKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Keys for endpoint authentication.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<ListBatchEndpointKeysResult> Invoke(ListBatchEndpointKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListBatchEndpointKeysResult>("azure-native:machinelearningservices:listBatchEndpointKeys", args ?? new ListBatchEndpointKeysInvokeArgs(), options.WithDefaults());
     }
 
 

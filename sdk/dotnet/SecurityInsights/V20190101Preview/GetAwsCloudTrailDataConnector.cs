@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents Amazon Web Services CloudTrail data connector.
         /// </summary>
         public static Task<GetAwsCloudTrailDataConnectorResult> InvokeAsync(GetAwsCloudTrailDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Amazon Web Services CloudTrail data connector.
         /// </summary>
         public static Output<GetAwsCloudTrailDataConnectorResult> Invoke(GetAwsCloudTrailDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAwsCloudTrailDataConnectorResult>("azure-native:securityinsights/v20190101preview:getAwsCloudTrailDataConnector", args ?? new GetAwsCloudTrailDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

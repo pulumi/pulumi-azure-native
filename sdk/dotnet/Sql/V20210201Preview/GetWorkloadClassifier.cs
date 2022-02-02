@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// Workload classifier operations for a data warehouse
         /// </summary>
         public static Task<GetWorkloadClassifierResult> InvokeAsync(GetWorkloadClassifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-native:sql/v20210201preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadClassifierResult>("azure-native:sql/v20210201preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload classifier operations for a data warehouse
         /// </summary>
         public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20210201preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20210201preview:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithDefaults());
     }
 
 

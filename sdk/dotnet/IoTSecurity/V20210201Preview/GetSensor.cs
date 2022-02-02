@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
         /// IoT sensor model
         /// </summary>
         public static Task<GetSensorResult> InvokeAsync(GetSensorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSensorResult>("azure-native:iotsecurity/v20210201preview:getSensor", args ?? new GetSensorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSensorResult>("azure-native:iotsecurity/v20210201preview:getSensor", args ?? new GetSensorArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT sensor model
         /// </summary>
         public static Output<GetSensorResult> Invoke(GetSensorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSensorResult>("azure-native:iotsecurity/v20210201preview:getSensor", args ?? new GetSensorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSensorResult>("azure-native:iotsecurity/v20210201preview:getSensor", args ?? new GetSensorInvokeArgs(), options.WithDefaults());
     }
 
 

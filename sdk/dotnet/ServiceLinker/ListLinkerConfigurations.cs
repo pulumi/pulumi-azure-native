@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceLinker
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Task<ListLinkerConfigurationsResult> InvokeAsync(ListLinkerConfigurationsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configurations for source resource, include appSettings, connectionString and serviceBindings
         /// API Version: 2021-11-01-preview.
         /// </summary>
         public static Output<ListLinkerConfigurationsResult> Invoke(ListLinkerConfigurationsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListLinkerConfigurationsResult>("azure-native:servicelinker:listLinkerConfigurations", args ?? new ListLinkerConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

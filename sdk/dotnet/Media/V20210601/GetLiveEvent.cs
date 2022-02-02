@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// The live event.
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media/v20210601:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media/v20210601:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithDefaults());
 
         /// <summary>
         /// The live event.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media/v20210601:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media/v20210601:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());
     }
 
 

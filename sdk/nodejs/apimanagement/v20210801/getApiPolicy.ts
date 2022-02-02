@@ -12,9 +12,7 @@ export function getApiPolicy(args: GetApiPolicyArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getApiPolicy", {
         "apiId": args.apiId,
         "format": args.format,

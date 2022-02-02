@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// Response for list BGP peer status API service call.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayBgpPeerStatusResult> InvokeAsync(GetVirtualNetworkGatewayBgpPeerStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20200601:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20200601:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for list BGP peer status API service call.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayBgpPeerStatusResult> Invoke(GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20200601:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayBgpPeerStatusResult>("azure-native:network/v20200601:getVirtualNetworkGatewayBgpPeerStatus", args ?? new GetVirtualNetworkGatewayBgpPeerStatusInvokeArgs(), options.WithDefaults());
     }
 
 

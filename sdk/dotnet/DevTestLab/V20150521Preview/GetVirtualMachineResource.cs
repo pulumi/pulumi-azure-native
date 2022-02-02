@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A virtual machine.
         /// </summary>
         public static Task<GetVirtualMachineResourceResult> InvokeAsync(GetVirtualMachineResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A virtual machine.
         /// </summary>
         public static Output<GetVirtualMachineResourceResult> Invoke(GetVirtualMachineResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResourceResult>("azure-native:devtestlab/v20150521preview:getVirtualMachineResource", args ?? new GetVirtualMachineResourceInvokeArgs(), options.WithDefaults());
     }
 
 

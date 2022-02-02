@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration.V20210301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210301
         /// Collection of domain name identifiers.
         /// </summary>
         public static Task<ListDomainRecommendationsResult> InvokeAsync(ListDomainRecommendationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/v20210301:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListDomainRecommendationsResult>("azure-native:domainregistration/v20210301:listDomainRecommendations", args ?? new ListDomainRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of domain name identifiers.
         /// </summary>
         public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20210301:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20210301:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

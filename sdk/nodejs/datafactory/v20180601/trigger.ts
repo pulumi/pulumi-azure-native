@@ -85,9 +85,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Trigger" }, { type: "azure-native:datafactory/v20170901preview:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);

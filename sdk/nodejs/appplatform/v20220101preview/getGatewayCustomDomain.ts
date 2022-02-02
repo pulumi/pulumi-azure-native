@@ -13,9 +13,7 @@ export function getGatewayCustomDomain(args: GetGatewayCustomDomainArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getGatewayCustomDomain", {
         "domainName": args.domainName,
         "gatewayName": args.gatewayName,

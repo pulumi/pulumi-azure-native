@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20170701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20170701
         /// Base class for backup ProtectionIntent.
         /// </summary>
         public static Task<GetProtectionIntentResult> InvokeAsync(GetProtectionIntentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20170701:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionIntentResult>("azure-native:recoveryservices/v20170701:getProtectionIntent", args ?? new GetProtectionIntentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Base class for backup ProtectionIntent.
         /// </summary>
         public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20170701:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20170701:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());
     }
 
 

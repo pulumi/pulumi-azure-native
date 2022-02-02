@@ -106,9 +106,7 @@ export class Registration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack:Registration" }, { type: "azure-native:azurestack/v20160101:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registration.__pulumiType, name, resourceInputs, opts);

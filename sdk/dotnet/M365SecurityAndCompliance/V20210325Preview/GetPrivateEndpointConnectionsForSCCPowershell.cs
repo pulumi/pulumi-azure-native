@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForSCCPowershellResult> InvokeAsync(GetPrivateEndpointConnectionsForSCCPowershellArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForSCCPowershellResult> Invoke(GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForSCCPowershellResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForSCCPowershell", args ?? new GetPrivateEndpointConnectionsForSCCPowershellInvokeArgs(), options.WithDefaults());
     }
 
 

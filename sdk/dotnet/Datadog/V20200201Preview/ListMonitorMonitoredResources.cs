@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Datadog.V20200201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitorMonitoredResourcesResult> InvokeAsync(ListMonitorMonitoredResourcesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorMonitoredResourcesResult>("azure-native:datadog/v20200201preview:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorMonitoredResourcesResult>("azure-native:datadog/v20200201preview:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:datadog/v20200201preview:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:datadog/v20200201preview:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

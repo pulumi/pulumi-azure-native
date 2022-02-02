@@ -14,9 +14,7 @@ export function listStreamingLocatorContentKeys(args: ListStreamingLocatorConten
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

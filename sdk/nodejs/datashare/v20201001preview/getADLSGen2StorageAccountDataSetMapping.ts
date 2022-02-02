@@ -13,9 +13,7 @@ export function getADLSGen2StorageAccountDataSetMapping(args: GetADLSGen2Storage
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", {
         "accountName": args.accountName,
         "dataSetMappingName": args.dataSetMappingName,

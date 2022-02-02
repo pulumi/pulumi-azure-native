@@ -13,9 +13,7 @@ export function getReportByDepartment(args: GetReportByDepartmentArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:costmanagement/v20180801preview:getReportByDepartment", {
         "departmentId": args.departmentId,
         "reportName": args.reportName,

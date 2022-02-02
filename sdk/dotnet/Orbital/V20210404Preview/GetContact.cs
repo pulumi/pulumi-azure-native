@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Orbital.V20210404Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// Customer creates a contact resource for a spacecraft resource.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital/v20210404preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
     }
 
 

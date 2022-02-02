@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// Linked service.
         /// </summary>
         public static Task<GetLinkedServiceResult> InvokeAsync(GetLinkedServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked service.
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:machinelearningservices/v20200901preview:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
     }
 
 

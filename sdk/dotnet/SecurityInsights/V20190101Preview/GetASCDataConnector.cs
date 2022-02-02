@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents ASC (Azure Security Center) data connector.
         /// </summary>
         public static Task<GetASCDataConnectorResult> InvokeAsync(GetASCDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetASCDataConnectorResult>("azure-native:securityinsights/v20190101preview:getASCDataConnector", args ?? new GetASCDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetASCDataConnectorResult>("azure-native:securityinsights/v20190101preview:getASCDataConnector", args ?? new GetASCDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents ASC (Azure Security Center) data connector.
         /// </summary>
         public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights/v20190101preview:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights/v20190101preview:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

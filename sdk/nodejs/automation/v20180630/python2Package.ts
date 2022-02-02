@@ -157,9 +157,7 @@ export class Python2Package extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }, { type: "azure-native:automation/v20200113preview:Python2Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Python2Package.__pulumiType, name, resourceInputs, opts);

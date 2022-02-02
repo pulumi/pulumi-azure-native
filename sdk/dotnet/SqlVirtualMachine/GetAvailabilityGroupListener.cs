@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Task<GetAvailabilityGroupListenerResult> InvokeAsync(GetAvailabilityGroupListenerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL Server availability group listener.
         /// API Version: 2017-03-01-preview.
         /// </summary>
         public static Output<GetAvailabilityGroupListenerResult> Invoke(GetAvailabilityGroupListenerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAvailabilityGroupListenerResult>("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", args ?? new GetAvailabilityGroupListenerInvokeArgs(), options.WithDefaults());
     }
 
 

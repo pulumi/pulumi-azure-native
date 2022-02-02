@@ -13,9 +13,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20160601:getMap", {
         "integrationAccountName": args.integrationAccountName,
         "mapName": args.mapName,

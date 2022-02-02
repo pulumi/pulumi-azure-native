@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.LabServices
         /// API Version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserOperationBatchStatusResult> InvokeAsync(GetGlobalUserOperationBatchStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Status Details of the long running operation for an environment
         /// API Version: 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserOperationBatchStatusResult> Invoke(GetGlobalUserOperationBatchStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalUserOperationBatchStatusResult>("azure-native:labservices:getGlobalUserOperationBatchStatus", args ?? new GetGlobalUserOperationBatchStatusInvokeArgs(), options.WithDefaults());
     }
 
 

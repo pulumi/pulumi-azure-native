@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListAssetContainerSasResult> InvokeAsync(ListAssetContainerSasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Asset Storage container SAS URLs.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AlertsManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// API Version: 2019-05-05-preview.
         /// </summary>
         public static Task<GetActionRuleByNameResult> InvokeAsync(GetActionRuleByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action rule object containing target scope, conditions and suppression logic
         /// API Version: 2019-05-05-preview.
         /// </summary>
         public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());
     }
 
 

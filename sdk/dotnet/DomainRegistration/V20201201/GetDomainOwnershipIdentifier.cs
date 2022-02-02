@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DomainRegistration.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201201
         /// Domain ownership Identifier.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration/v20201201:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration/v20201201:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Domain ownership Identifier.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration/v20201201:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration/v20201201:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,9 +14,7 @@ export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:databoxedge:getBandwidthSchedule", {
         "deviceName": args.deviceName,
         "name": args.name,

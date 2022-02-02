@@ -13,9 +13,7 @@ export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20210601preview:getScopeMap", {
         "registryName": args.registryName,
         "resourceGroupName": args.resourceGroupName,

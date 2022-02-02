@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
         /// The file server.
         /// </summary>
         public static Task<GetFileServerResult> InvokeAsync(GetFileServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The file server.
         /// </summary>
         public static Output<GetFileServerResult> Invoke(GetFileServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFileServerResult>("azure-native:storsimple/v20161001:getFileServer", args ?? new GetFileServerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.WebPubSub
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represent a resource.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithDefaults());
     }
 
 

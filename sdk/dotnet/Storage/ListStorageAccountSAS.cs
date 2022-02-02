@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Storage
         /// API Version: 2021-02-01.
         /// </summary>
         public static Task<ListStorageAccountSASResult> InvokeAsync(ListStorageAccountSASArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASArgs(), options.WithDefaults());
 
         /// <summary>
         /// The List SAS credentials operation response.
         /// API Version: 2021-02-01.
         /// </summary>
         public static Output<ListStorageAccountSASResult> Invoke(ListStorageAccountSASInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStorageAccountSASResult>("azure-native:storage:listStorageAccountSAS", args ?? new ListStorageAccountSASInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -84,9 +84,7 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:resources/v20180501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190301:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190501:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190510:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190701:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20190801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20191001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200601:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20200801:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20201001:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210101:DeploymentAtSubscriptionScope" }, { type: "azure-native:resources/v20210401:DeploymentAtSubscriptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeploymentAtSubscriptionScope.__pulumiType, name, resourceInputs, opts);

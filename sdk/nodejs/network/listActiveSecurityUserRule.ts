@@ -14,9 +14,7 @@ export function listActiveSecurityUserRule(args: ListActiveSecurityUserRuleArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listActiveSecurityUserRule", {
         "networkManagerName": args.networkManagerName,
         "regions": args.regions,

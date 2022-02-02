@@ -79,9 +79,7 @@ export class WebAppApplicationSettings extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppApplicationSettings" }, { type: "azure-native:web/v20150801:WebAppApplicationSettings" }, { type: "azure-native:web/v20160801:WebAppApplicationSettings" }, { type: "azure-native:web/v20180201:WebAppApplicationSettings" }, { type: "azure-native:web/v20181101:WebAppApplicationSettings" }, { type: "azure-native:web/v20190801:WebAppApplicationSettings" }, { type: "azure-native:web/v20200901:WebAppApplicationSettings" }, { type: "azure-native:web/v20201001:WebAppApplicationSettings" }, { type: "azure-native:web/v20201201:WebAppApplicationSettings" }, { type: "azure-native:web/v20210101:WebAppApplicationSettings" }, { type: "azure-native:web/v20210115:WebAppApplicationSettings" }, { type: "azure-native:web/v20210201:WebAppApplicationSettings" }, { type: "azure-native:web/v20210301:WebAppApplicationSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppApplicationSettings.__pulumiType, name, resourceInputs, opts);

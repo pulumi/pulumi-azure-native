@@ -59,9 +59,7 @@ export class UserSettings extends pulumi.CustomResource {
         } else {
             resourceInputs["properties"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:portal:UserSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserSettings.__pulumiType, name, resourceInputs, opts);

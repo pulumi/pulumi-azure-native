@@ -90,9 +90,7 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppMetadataSlot" }, { type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20160801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210101:WebAppMetadataSlot" }, { type: "azure-native:web/v20210115:WebAppMetadataSlot" }, { type: "azure-native:web/v20210201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210301:WebAppMetadataSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppMetadataSlot.__pulumiType, name, resourceInputs, opts);

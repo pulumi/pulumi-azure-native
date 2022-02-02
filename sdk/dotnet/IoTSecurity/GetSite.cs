@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.IoTSecurity
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.IoTSecurity
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetSiteResult> InvokeAsync(GetSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT site model
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:iotsecurity:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

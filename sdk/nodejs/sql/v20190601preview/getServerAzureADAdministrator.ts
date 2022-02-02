@@ -12,9 +12,7 @@ export function getServerAzureADAdministrator(args: GetServerAzureADAdministrato
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20190601preview:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,
         "resourceGroupName": args.resourceGroupName,

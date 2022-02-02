@@ -12,9 +12,7 @@ export function getPolicyDefinition(args: GetPolicyDefinitionArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20180301:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,
     }, opts);

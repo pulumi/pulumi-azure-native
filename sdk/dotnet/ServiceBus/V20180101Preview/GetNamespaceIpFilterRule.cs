@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// Single item in a List or Get IpFilterRules operation
         /// </summary>
         public static Task<GetNamespaceIpFilterRuleResult> InvokeAsync(GetNamespaceIpFilterRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in a List or Get IpFilterRules operation
         /// </summary>
         public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithDefaults());
     }
 
 

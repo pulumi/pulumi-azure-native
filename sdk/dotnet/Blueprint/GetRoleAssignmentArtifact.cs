@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blueprint
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetRoleAssignmentArtifactResult> InvokeAsync(GetRoleAssignmentArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Blueprint artifact that applies a Role assignment.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetRoleAssignmentArtifactResult> Invoke(GetRoleAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

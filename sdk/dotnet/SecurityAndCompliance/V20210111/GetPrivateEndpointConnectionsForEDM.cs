@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsForEDMResult> InvokeAsync(GetPrivateEndpointConnectionsForEDMArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsForEDMResult> Invoke(GetPrivateEndpointConnectionsForEDMInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsForEDMResult>("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForEDM", args ?? new GetPrivateEndpointConnectionsForEDMInvokeArgs(), options.WithDefaults());
     }
 
 

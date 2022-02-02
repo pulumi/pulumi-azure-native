@@ -98,9 +98,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20201001:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20201201:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210101:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210201:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210210:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210301:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210401:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210601:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210701:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20210801:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20211001:ProtectionContainer" }, { type: "azure-native:recoveryservices/v20211201:ProtectionContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectionContainer.__pulumiType, name, resourceInputs, opts);

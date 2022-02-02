@@ -13,9 +13,7 @@ export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getChapSetting", {
         "chapUserName": args.chapUserName,
         "deviceName": args.deviceName,

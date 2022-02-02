@@ -13,9 +13,7 @@ export function getBlobFolderDataSet(args: GetBlobFolderDataSetArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20201001preview:getBlobFolderDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthBot.V20201020
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
         /// Bot resource definition
         /// </summary>
         public static Task<GetgetbotResult> InvokeAsync(GetgetbotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Bot resource definition
         /// </summary>
         public static Output<GetgetbotResult> Invoke(GetgetbotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetgetbotResult>("azure-native:healthbot/v20201020:getgetbot", args ?? new GetgetbotInvokeArgs(), options.WithDefaults());
     }
 
 

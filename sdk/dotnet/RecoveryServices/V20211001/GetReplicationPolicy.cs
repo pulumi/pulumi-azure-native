@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001
         /// Protection profile details.
         /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-native:recoveryservices/v20211001:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure-native:recoveryservices/v20211001:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Protection profile details.
         /// </summary>
         public static Output<GetReplicationPolicyResult> Invoke(GetReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure-native:recoveryservices/v20211001:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure-native:recoveryservices/v20211001:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

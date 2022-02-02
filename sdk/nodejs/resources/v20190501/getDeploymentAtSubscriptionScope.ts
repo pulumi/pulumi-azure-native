@@ -13,9 +13,7 @@ export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscripti
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20190501:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,
     }, opts);

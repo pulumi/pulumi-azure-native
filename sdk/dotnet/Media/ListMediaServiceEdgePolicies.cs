@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Media
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

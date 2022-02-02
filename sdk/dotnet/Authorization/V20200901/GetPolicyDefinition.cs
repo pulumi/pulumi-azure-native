@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20200901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20200901
         /// The policy definition.
         /// </summary>
         public static Task<GetPolicyDefinitionResult> InvokeAsync(GetPolicyDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azure-native:authorization/v20200901:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionResult>("azure-native:authorization/v20200901:getPolicyDefinition", args ?? new GetPolicyDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy definition.
         /// </summary>
         public static Output<GetPolicyDefinitionResult> Invoke(GetPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionResult>("azure-native:authorization/v20200901:getPolicyDefinition", args ?? new GetPolicyDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionResult>("azure-native:authorization/v20200901:getPolicyDefinition", args ?? new GetPolicyDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

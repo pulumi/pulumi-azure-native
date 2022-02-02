@@ -101,9 +101,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueComment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssueComment.__pulumiType, name, resourceInputs, opts);

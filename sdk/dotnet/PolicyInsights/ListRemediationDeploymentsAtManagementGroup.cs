@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtManagementGroupResult> InvokeAsync(ListRemediationDeploymentsAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of deployments for a remediation.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtManagementGroupResult> Invoke(ListRemediationDeploymentsAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtManagementGroupResult>("azure-native:policyinsights:listRemediationDeploymentsAtManagementGroup", args ?? new ListRemediationDeploymentsAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

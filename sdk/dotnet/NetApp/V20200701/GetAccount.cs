@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp.V20200701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.NetApp.V20200701
         /// NetApp account resource
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/v20200701:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp/v20200701:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// NetApp account resource
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20200701:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20200701:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getBinding(args: GetBindingArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20201101preview:getBinding", {
         "appName": args.appName,
         "bindingName": args.bindingName,

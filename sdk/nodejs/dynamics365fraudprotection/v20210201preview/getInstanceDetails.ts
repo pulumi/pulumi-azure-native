@@ -13,9 +13,7 @@ export function getInstanceDetails(args: GetInstanceDetailsArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", {
         "instanceName": args.instanceName,
         "resourceGroupName": args.resourceGroupName,

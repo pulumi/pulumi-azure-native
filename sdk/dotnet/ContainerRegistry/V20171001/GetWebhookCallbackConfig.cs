@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20171001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20171001
         /// The configuration of service URI and custom headers for the webhook.
         /// </summary>
         public static Task<GetWebhookCallbackConfigResult> InvokeAsync(GetWebhookCallbackConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// The configuration of service URI and custom headers for the webhook.
         /// </summary>
         public static Output<GetWebhookCallbackConfigResult> Invoke(GetWebhookCallbackConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebhookCallbackConfigResult>("azure-native:containerregistry/v20171001:getWebhookCallbackConfig", args ?? new GetWebhookCallbackConfigInvokeArgs(), options.WithDefaults());
     }
 
 

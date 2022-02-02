@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// API Version: 2020-05-15.
         /// </summary>
         public static Task<GetGen2EnvironmentResult> InvokeAsync(GetGen2EnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen2 environments do not have set data retention limits.
         /// API Version: 2020-05-15.
         /// </summary>
         public static Output<GetGen2EnvironmentResult> Invoke(GetGen2EnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGen2EnvironmentResult>("azure-native:timeseriesinsights:getGen2Environment", args ?? new GetGen2EnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

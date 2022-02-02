@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents Microsoft Threat Intelligence data connector.
         /// </summary>
         public static Task<GetMSTIDataConnectorResult> InvokeAsync(GetMSTIDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Microsoft Threat Intelligence data connector.
         /// </summary>
         public static Output<GetMSTIDataConnectorResult> Invoke(GetMSTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMSTIDataConnectorResult>("azure-native:securityinsights/v20190101preview:getMSTIDataConnector", args ?? new GetMSTIDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

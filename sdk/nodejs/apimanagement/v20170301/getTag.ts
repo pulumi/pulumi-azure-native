@@ -12,9 +12,7 @@ export function getTag(args: GetTagArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20170301:getTag", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

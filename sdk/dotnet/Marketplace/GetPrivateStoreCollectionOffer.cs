@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Marketplace
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Marketplace
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetPrivateStoreCollectionOfferResult> InvokeAsync(GetPrivateStoreCollectionOfferArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferArgs(), options.WithDefaults());
 
         /// <summary>
         /// The privateStore offer data structure.
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetPrivateStoreCollectionOfferResult> Invoke(GetPrivateStoreCollectionOfferInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionOfferResult>("azure-native:marketplace:getPrivateStoreCollectionOffer", args ?? new GetPrivateStoreCollectionOfferInvokeArgs(), options.WithDefaults());
     }
 
 

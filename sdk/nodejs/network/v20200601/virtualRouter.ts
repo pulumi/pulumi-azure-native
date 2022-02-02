@@ -121,9 +121,7 @@ export class VirtualRouter extends pulumi.CustomResource {
             resourceInputs["virtualRouterAsn"] = undefined /*out*/;
             resourceInputs["virtualRouterIps"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualRouter" }, { type: "azure-native:network/v20190701:VirtualRouter" }, { type: "azure-native:network/v20190801:VirtualRouter" }, { type: "azure-native:network/v20190901:VirtualRouter" }, { type: "azure-native:network/v20191101:VirtualRouter" }, { type: "azure-native:network/v20191201:VirtualRouter" }, { type: "azure-native:network/v20200301:VirtualRouter" }, { type: "azure-native:network/v20200401:VirtualRouter" }, { type: "azure-native:network/v20200501:VirtualRouter" }, { type: "azure-native:network/v20200701:VirtualRouter" }, { type: "azure-native:network/v20200801:VirtualRouter" }, { type: "azure-native:network/v20201101:VirtualRouter" }, { type: "azure-native:network/v20210201:VirtualRouter" }, { type: "azure-native:network/v20210301:VirtualRouter" }, { type: "azure-native:network/v20210501:VirtualRouter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualRouter.__pulumiType, name, resourceInputs, opts);

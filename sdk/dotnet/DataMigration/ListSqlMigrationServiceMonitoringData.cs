@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataMigration
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataMigration
         /// API Version: 2021-10-30-preview.
         /// </summary>
         public static Task<ListSqlMigrationServiceMonitoringDataResult> InvokeAsync(ListSqlMigrationServiceMonitoringDataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Integration Runtime Monitoring Data.
         /// API Version: 2021-10-30-preview.
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());
     }
 
 

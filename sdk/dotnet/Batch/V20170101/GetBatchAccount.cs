@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Batch.V20170101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Batch.V20170101
         /// Contains information about an Azure Batch account.
         /// </summary>
         public static Task<GetBatchAccountResult> InvokeAsync(GetBatchAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contains information about an Azure Batch account.
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20170101:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
     }
 
 

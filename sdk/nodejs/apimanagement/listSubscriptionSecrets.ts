@@ -13,9 +13,7 @@ export function listSubscriptionSecrets(args: ListSubscriptionSecretsArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement:listSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// An Application Insights private workbook definition.
         /// </summary>
         public static Task<GetMyWorkbookResult> InvokeAsync(GetMyWorkbookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights/v20150501:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMyWorkbookResult>("azure-native:insights/v20150501:getMyWorkbook", args ?? new GetMyWorkbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights private workbook definition.
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20150501:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20150501:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getManagedInstanceAdministrator(args: GetManagedInstanceAdminist
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getManagedInstanceAdministrator", {
         "administratorName": args.administratorName,
         "managedInstanceName": args.managedInstanceName,

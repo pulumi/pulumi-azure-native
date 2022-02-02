@@ -12,9 +12,7 @@ export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20140401:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,
         "resourceGroupName": args.resourceGroupName,

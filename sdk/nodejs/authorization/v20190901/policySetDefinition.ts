@@ -107,9 +107,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinition" }, { type: "azure-native:authorization/v20170601preview:PolicySetDefinition" }, { type: "azure-native:authorization/v20180301:PolicySetDefinition" }, { type: "azure-native:authorization/v20180501:PolicySetDefinition" }, { type: "azure-native:authorization/v20190101:PolicySetDefinition" }, { type: "azure-native:authorization/v20190601:PolicySetDefinition" }, { type: "azure-native:authorization/v20200301:PolicySetDefinition" }, { type: "azure-native:authorization/v20200901:PolicySetDefinition" }, { type: "azure-native:authorization/v20210601:PolicySetDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinition.__pulumiType, name, resourceInputs, opts);

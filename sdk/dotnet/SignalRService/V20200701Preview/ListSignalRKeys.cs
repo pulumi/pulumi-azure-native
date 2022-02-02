@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SignalRService.V20200701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// A class represents the access keys of the resource.
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20200701preview:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
     }
 
 

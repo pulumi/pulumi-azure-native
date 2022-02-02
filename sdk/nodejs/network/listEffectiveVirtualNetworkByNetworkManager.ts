@@ -14,9 +14,7 @@ export function listEffectiveVirtualNetworkByNetworkManager(args: ListEffectiveV
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:listEffectiveVirtualNetworkByNetworkManager", {
         "conditionalMembers": args.conditionalMembers,
         "networkManagerName": args.networkManagerName,

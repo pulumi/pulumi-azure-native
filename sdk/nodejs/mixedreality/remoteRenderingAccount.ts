@@ -127,9 +127,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemoteRenderingAccount.__pulumiType, name, resourceInputs, opts);

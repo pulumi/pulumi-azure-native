@@ -13,9 +13,7 @@ export function getVirtualWan(args: GetVirtualWanArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20191201:getVirtualWan", {
         "resourceGroupName": args.resourceGroupName,
         "virtualWANName": args.virtualWANName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListWorkspaceNotebookAccessTokenResult> InvokeAsync(ListWorkspaceNotebookAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListWorkspaceNotebookAccessTokenResult> Invoke(ListWorkspaceNotebookAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookAccessTokenResult>("azure-native:machinelearningservices:listWorkspaceNotebookAccessToken", args ?? new ListWorkspaceNotebookAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

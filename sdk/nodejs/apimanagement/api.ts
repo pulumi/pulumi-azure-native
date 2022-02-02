@@ -186,9 +186,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["subscriptionRequired"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:Api" }, { type: "azure-native:apimanagement/v20161010:Api" }, { type: "azure-native:apimanagement/v20170301:Api" }, { type: "azure-native:apimanagement/v20180101:Api" }, { type: "azure-native:apimanagement/v20180601preview:Api" }, { type: "azure-native:apimanagement/v20190101:Api" }, { type: "azure-native:apimanagement/v20191201:Api" }, { type: "azure-native:apimanagement/v20191201preview:Api" }, { type: "azure-native:apimanagement/v20200601preview:Api" }, { type: "azure-native:apimanagement/v20201201:Api" }, { type: "azure-native:apimanagement/v20210101preview:Api" }, { type: "azure-native:apimanagement/v20210401preview:Api" }, { type: "azure-native:apimanagement/v20210801:Api" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Api.__pulumiType, name, resourceInputs, opts);

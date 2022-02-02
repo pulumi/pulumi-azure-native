@@ -13,9 +13,7 @@ export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerservice/v20170131:getContainerService", {
         "containerServiceName": args.containerServiceName,
         "resourceGroupName": args.resourceGroupName,

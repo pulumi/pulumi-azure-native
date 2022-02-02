@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20210701Preview
         /// Access Review Schedule Definition.
         /// </summary>
         public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20210701preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20210701preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access Review Schedule Definition.
         /// </summary>
         public static Output<GetAccessReviewScheduleDefinitionByIdResult> Invoke(GetAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20210701preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20210701preview:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
     }
 
 

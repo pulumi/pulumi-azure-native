@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network security rule.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
     }
 
 

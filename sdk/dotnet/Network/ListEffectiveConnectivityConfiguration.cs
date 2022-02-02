@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListEffectiveConnectivityConfigurationResult> InvokeAsync(ListEffectiveConnectivityConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveConnectivityConfigurationResult>("azure-native:network:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list networkManagerEffectiveConnectivityConfiguration. It contains a list of groups and a skiptoken to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

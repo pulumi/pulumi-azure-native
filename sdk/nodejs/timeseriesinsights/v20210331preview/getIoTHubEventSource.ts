@@ -13,9 +13,7 @@ export function getIoTHubEventSource(args: GetIoTHubEventSourceArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:timeseriesinsights/v20210331preview:getIoTHubEventSource", {
         "environmentName": args.environmentName,
         "eventSourceName": args.eventSourceName,

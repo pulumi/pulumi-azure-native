@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210801
         /// Resource information, as returned by the resource provider.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices/v20210801:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:recoveryservices/v20210801:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource information, as returned by the resource provider.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices/v20210801:getVault", args ?? new GetVaultInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices/v20210801:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

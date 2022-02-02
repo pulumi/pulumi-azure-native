@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20180501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20180501
         /// The policy set definition.
         /// </summary>
         public static Task<GetPolicySetDefinitionAtManagementGroupResult> InvokeAsync(GetPolicySetDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20180501:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20180501:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The policy set definition.
         /// </summary>
         public static Output<GetPolicySetDefinitionAtManagementGroupResult> Invoke(GetPolicySetDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20180501:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionAtManagementGroupResult>("azure-native:authorization/v20180501:getPolicySetDefinitionAtManagementGroup", args ?? new GetPolicySetDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

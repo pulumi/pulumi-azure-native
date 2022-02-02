@@ -13,9 +13,7 @@ export function getEnvironmentSpecificationVersion(args: GetEnvironmentSpecifica
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

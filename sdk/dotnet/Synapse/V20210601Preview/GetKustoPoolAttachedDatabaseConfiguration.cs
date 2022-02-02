@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Class representing an attached database configuration.
         /// </summary>
         public static Task<GetKustoPoolAttachedDatabaseConfigurationResult> InvokeAsync(GetKustoPoolAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an attached database configuration.
         /// </summary>
         public static Output<GetKustoPoolAttachedDatabaseConfigurationResult> Invoke(GetKustoPoolAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolAttachedDatabaseConfigurationResult>("azure-native:synapse/v20210601preview:getKustoPoolAttachedDatabaseConfiguration", args ?? new GetKustoPoolAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

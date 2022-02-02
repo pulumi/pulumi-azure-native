@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         /// The container for solution.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The container for solution.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:operationsmanagement/v20151101preview:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
     }
 
 

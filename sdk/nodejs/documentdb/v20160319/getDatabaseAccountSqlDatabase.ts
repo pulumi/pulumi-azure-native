@@ -12,9 +12,7 @@ export function getDatabaseAccountSqlDatabase(args: GetDatabaseAccountSqlDatabas
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20160319:getDatabaseAccountSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

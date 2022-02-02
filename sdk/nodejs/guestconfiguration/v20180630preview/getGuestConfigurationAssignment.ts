@@ -13,9 +13,7 @@ export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssig
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:guestconfiguration/v20180630preview:getGuestConfigurationAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,
         "resourceGroupName": args.resourceGroupName,

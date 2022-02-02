@@ -125,9 +125,7 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDWTableDataSet.__pulumiType, name, resourceInputs, opts);

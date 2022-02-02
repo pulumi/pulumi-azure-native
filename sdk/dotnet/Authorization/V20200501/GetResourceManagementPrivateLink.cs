@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20200501
 {
     public static class GetResourceManagementPrivateLink
     {
         public static Task<GetResourceManagementPrivateLinkResult> InvokeAsync(GetResourceManagementPrivateLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkArgs(), options.WithDefaults());
 
         public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
     }
 
 

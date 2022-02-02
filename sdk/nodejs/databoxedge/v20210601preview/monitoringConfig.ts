@@ -88,9 +88,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901preview:MonitoringConfig" }, { type: "azure-native:databoxedge/v20201201:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210201:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210201preview:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210601:MonitoringConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MonitoringConfig.__pulumiType, name, resourceInputs, opts);

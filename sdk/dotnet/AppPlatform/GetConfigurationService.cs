@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AppPlatform
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetConfigurationServiceResult> InvokeAsync(GetConfigurationServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Application Configuration Service resource
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

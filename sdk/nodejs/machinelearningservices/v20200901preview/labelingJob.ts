@@ -82,9 +82,7 @@ export class LabelingJob extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:LabelingJob" }, { type: "azure-native:machinelearningservices/v20210301preview:LabelingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabelingJob.__pulumiType, name, resourceInputs, opts);

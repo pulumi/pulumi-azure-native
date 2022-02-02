@@ -103,9 +103,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:BastionHost" }, { type: "azure-native:network/v20190401:BastionHost" }, { type: "azure-native:network/v20190601:BastionHost" }, { type: "azure-native:network/v20190701:BastionHost" }, { type: "azure-native:network/v20190801:BastionHost" }, { type: "azure-native:network/v20190901:BastionHost" }, { type: "azure-native:network/v20191101:BastionHost" }, { type: "azure-native:network/v20191201:BastionHost" }, { type: "azure-native:network/v20200301:BastionHost" }, { type: "azure-native:network/v20200401:BastionHost" }, { type: "azure-native:network/v20200501:BastionHost" }, { type: "azure-native:network/v20200601:BastionHost" }, { type: "azure-native:network/v20200701:BastionHost" }, { type: "azure-native:network/v20200801:BastionHost" }, { type: "azure-native:network/v20210201:BastionHost" }, { type: "azure-native:network/v20210301:BastionHost" }, { type: "azure-native:network/v20210501:BastionHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BastionHost.__pulumiType, name, resourceInputs, opts);

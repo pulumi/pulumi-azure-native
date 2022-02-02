@@ -106,9 +106,7 @@ export class EncryptionScope extends pulumi.CustomResource {
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storage:EncryptionScope" }, { type: "azure-native:storage/v20190601:EncryptionScope" }, { type: "azure-native:storage/v20200801preview:EncryptionScope" }, { type: "azure-native:storage/v20210201:EncryptionScope" }, { type: "azure-native:storage/v20210401:EncryptionScope" }, { type: "azure-native:storage/v20210601:EncryptionScope" }, { type: "azure-native:storage/v20210801:EncryptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionScope.__pulumiType, name, resourceInputs, opts);

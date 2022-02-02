@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// Content type contract details.
         /// </summary>
         public static Task<GetContentTypeResult> InvokeAsync(GetContentTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Content type contract details.
         /// </summary>
         public static Output<GetContentTypeResult> Invoke(GetContentTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement/v20210101preview:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

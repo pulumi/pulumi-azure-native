@@ -12,9 +12,7 @@ export function getWorkspaceConnection(args: GetWorkspaceConnectionArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20200901preview:getWorkspaceConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

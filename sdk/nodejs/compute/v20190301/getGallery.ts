@@ -13,9 +13,7 @@ export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): P
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20190301:getGallery", {
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,

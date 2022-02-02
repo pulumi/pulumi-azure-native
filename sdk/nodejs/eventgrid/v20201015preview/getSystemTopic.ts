@@ -13,9 +13,7 @@ export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20201015preview:getSystemTopic", {
         "resourceGroupName": args.resourceGroupName,
         "systemTopicName": args.systemTopicName,

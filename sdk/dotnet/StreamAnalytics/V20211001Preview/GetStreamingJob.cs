@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         /// A streaming job object, containing all information associated with the named streaming job.
         /// </summary>
         public static Task<GetStreamingJobResult> InvokeAsync(GetStreamingJobArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics/v20211001preview:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingJobResult>("azure-native:streamanalytics/v20211001preview:getStreamingJob", args ?? new GetStreamingJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// A streaming job object, containing all information associated with the named streaming job.
         /// </summary>
         public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics/v20211001preview:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics/v20211001preview:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithDefaults());
     }
 
 

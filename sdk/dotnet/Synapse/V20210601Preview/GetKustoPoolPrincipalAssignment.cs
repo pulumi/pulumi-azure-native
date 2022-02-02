@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Class representing a cluster principal assignment.
         /// </summary>
         public static Task<GetKustoPoolPrincipalAssignmentResult> InvokeAsync(GetKustoPoolPrincipalAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a cluster principal assignment.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

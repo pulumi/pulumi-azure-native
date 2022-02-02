@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         /// Event Channel.
         /// </summary>
         public static Task<GetEventChannelResult> InvokeAsync(GetEventChannelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Event Channel.
         /// </summary>
         public static Output<GetEventChannelResult> Invoke(GetEventChannelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid/v20210601preview:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithDefaults());
     }
 
 

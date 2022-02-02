@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Aad
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Aad
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetOuContainerResult> InvokeAsync(GetOuContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource for OuContainer.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());
     }
 
 

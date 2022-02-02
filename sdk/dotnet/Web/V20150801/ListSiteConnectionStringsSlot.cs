@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// String dictionary resource
         /// </summary>
         public static Task<ListSiteConnectionStringsSlotResult> InvokeAsync(ListSiteConnectionStringsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource
         /// </summary>
         public static Output<ListSiteConnectionStringsSlotResult> Invoke(ListSiteConnectionStringsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteConnectionStringsSlotResult>("azure-native:web/v20150801:listSiteConnectionStringsSlot", args ?? new ListSiteConnectionStringsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

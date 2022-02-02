@@ -12,9 +12,7 @@ export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:listStorageAccountKeys", {
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,

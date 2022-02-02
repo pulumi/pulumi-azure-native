@@ -14,9 +14,7 @@ export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnec
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", {
         "accountName": args.accountName,
         "privateEndpointConnectionProxyId": args.privateEndpointConnectionProxyId,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// Database, Server or Elastic Pool Advisor.
         /// </summary>
         public static Task<GetServerAdvisorResult> InvokeAsync(GetServerAdvisorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdvisorResult>("azure-native:sql/v20201101preview:getServerAdvisor", args ?? new GetServerAdvisorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdvisorResult>("azure-native:sql/v20201101preview:getServerAdvisor", args ?? new GetServerAdvisorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Database, Server or Elastic Pool Advisor.
         /// </summary>
         public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql/v20201101preview:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql/v20201101preview:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithDefaults());
     }
 
 

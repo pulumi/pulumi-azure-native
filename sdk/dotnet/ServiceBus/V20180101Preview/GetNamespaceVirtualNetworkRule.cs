@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// Single item in a List or Get VirtualNetworkRules operation
         /// </summary>
         public static Task<GetNamespaceVirtualNetworkRuleResult> InvokeAsync(GetNamespaceVirtualNetworkRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in a List or Get VirtualNetworkRules operation
         /// </summary>
         public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
     }
 
 

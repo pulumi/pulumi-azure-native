@@ -13,9 +13,7 @@ export function getApiPortal(args: GetApiPortalArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getApiPortal", {
         "apiPortalName": args.apiPortalName,
         "resourceGroupName": args.resourceGroupName,

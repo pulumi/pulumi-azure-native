@@ -83,9 +83,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-native:apimanagement/v20201201:Gateway" }, { type: "azure-native:apimanagement/v20210101preview:Gateway" }, { type: "azure-native:apimanagement/v20210401preview:Gateway" }, { type: "azure-native:apimanagement/v20210801:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gateway.__pulumiType, name, resourceInputs, opts);

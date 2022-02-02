@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
     public static class GetIntegrationAccountPartner
     {
         public static Task<GetIntegrationAccountPartnerResult> InvokeAsync(GetIntegrationAccountPartnerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountPartnerResult>("azure-native:logic/v20150801preview:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountPartnerResult>("azure-native:logic/v20150801preview:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerArgs(), options.WithDefaults());
 
         public static Output<GetIntegrationAccountPartnerResult> Invoke(GetIntegrationAccountPartnerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountPartnerResult>("azure-native:logic/v20150801preview:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountPartnerResult>("azure-native:logic/v20150801preview:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
         /// The description of Dicom Service
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis/v20210601preview:getDicomService", args ?? new GetDicomServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis/v20210601preview:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Dicom Service
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis/v20210601preview:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis/v20210601preview:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
     }
 
 

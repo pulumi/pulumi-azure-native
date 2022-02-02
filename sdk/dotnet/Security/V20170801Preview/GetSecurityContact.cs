@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20170801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// Contact details for security issues
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Contact details for security issues
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
     }
 
 

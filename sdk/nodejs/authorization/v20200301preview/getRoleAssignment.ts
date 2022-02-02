@@ -12,9 +12,7 @@ export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20200301preview:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,
         "scope": args.scope,

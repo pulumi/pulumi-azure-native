@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Arc Addon.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
     }
 
 

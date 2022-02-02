@@ -96,9 +96,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:Snapshot" }, { type: "azure-native:containerservice/v20210901:Snapshot" }, { type: "azure-native:containerservice/v20211001:Snapshot" }, { type: "azure-native:containerservice/v20211101preview:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);

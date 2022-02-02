@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         /// KPack Builder resource
         /// </summary>
         public static Task<GetBuildServiceBuilderResult> InvokeAsync(GetBuildServiceBuilderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuilderResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuilderResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderArgs(), options.WithDefaults());
 
         /// <summary>
         /// KPack Builder resource
         /// </summary>
         public static Output<GetBuildServiceBuilderResult> Invoke(GetBuildServiceBuilderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuilderResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuilderResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderInvokeArgs(), options.WithDefaults());
     }
 
 

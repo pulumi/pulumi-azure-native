@@ -117,9 +117,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["userEmail"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Account" }, { type: "azure-native:datashare/v20181101preview:Account" }, { type: "azure-native:datashare/v20191101:Account" }, { type: "azure-native:datashare/v20200901:Account" }, { type: "azure-native:datashare/v20210801:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);

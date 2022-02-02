@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// The network group resource
         /// </summary>
         public static Task<GetNetworkGroupResult> InvokeAsync(GetNetworkGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The network group resource
         /// </summary>
         public static Output<GetNetworkGroupResult> Invoke(GetNetworkGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

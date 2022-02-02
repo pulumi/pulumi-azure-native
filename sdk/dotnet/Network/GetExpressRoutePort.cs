@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoutePort resource definition.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
     }
 
 

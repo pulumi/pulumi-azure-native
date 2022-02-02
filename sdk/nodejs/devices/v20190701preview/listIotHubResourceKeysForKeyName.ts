@@ -12,9 +12,7 @@ export function listIotHubResourceKeysForKeyName(args: ListIotHubResourceKeysFor
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:devices/v20190701preview:listIotHubResourceKeysForKeyName", {
         "keyName": args.keyName,
         "resourceGroupName": args.resourceGroupName,

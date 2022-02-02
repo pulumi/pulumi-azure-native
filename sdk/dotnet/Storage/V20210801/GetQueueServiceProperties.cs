@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210801
         /// The properties of a storage account’s Queue service.
         /// </summary>
         public static Task<GetQueueServicePropertiesResult> InvokeAsync(GetQueueServicePropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210801:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueServicePropertiesResult>("azure-native:storage/v20210801:getQueueServiceProperties", args ?? new GetQueueServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a storage account’s Queue service.
         /// </summary>
         public static Output<GetQueueServicePropertiesResult> Invoke(GetQueueServicePropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210801:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQueueServicePropertiesResult>("azure-native:storage/v20210801:getQueueServiceProperties", args ?? new GetQueueServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

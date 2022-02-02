@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ManagedNetwork
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetManagedNetworkGroupResult> InvokeAsync(GetManagedNetworkGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkGroupResult>("azure-native:managednetwork:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedNetworkGroupResult>("azure-native:managednetwork:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Managed Network Group resource
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetManagedNetworkGroupResult> Invoke(GetManagedNetworkGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkGroupResult>("azure-native:managednetwork:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedNetworkGroupResult>("azure-native:managednetwork:getManagedNetworkGroup", args ?? new GetManagedNetworkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

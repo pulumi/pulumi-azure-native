@@ -130,9 +130,7 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
             resourceInputs["userAuthenticationType"] = undefined /*out*/;
             resourceInputs["userEmailAddress"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BillingRoleAssignmentByDepartment.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Source control configuration for an app.
         /// </summary>
         public static Task<GetWebAppSourceControlResult> InvokeAsync(GetWebAppSourceControlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web/v20210115:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSourceControlResult>("azure-native:web/v20210115:getWebAppSourceControl", args ?? new GetWebAppSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Source control configuration for an app.
         /// </summary>
         public static Output<GetWebAppSourceControlResult> Invoke(GetWebAppSourceControlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web/v20210115:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web/v20210115:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

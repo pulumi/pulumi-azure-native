@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20210701Preview
         /// An Azure Monitor PrivateLinkScope definition.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights/v20210701preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights/v20210701preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Monitor PrivateLinkScope definition.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights/v20210701preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights/v20210701preview:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
     }
 
 

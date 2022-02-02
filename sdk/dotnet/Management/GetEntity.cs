@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Management
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes the result of the request to view entities.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 

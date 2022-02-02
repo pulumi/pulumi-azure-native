@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2014-04-01.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigurationResult> InvokeAsync(GetDisasterRecoveryConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a disaster recovery configuration.
         /// API Version: 2014-04-01.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigurationResult> Invoke(GetDisasterRecoveryConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigurationResult>("azure-native:sql:getDisasterRecoveryConfiguration", args ?? new GetDisasterRecoveryConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

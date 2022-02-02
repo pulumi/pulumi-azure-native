@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> InvokeAsync(GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs(), options.WithDefaults());
 
         /// <summary>
         /// Static Site User Provided Function App ARM resource.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> Invoke(GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function listShareSubscriptionSynchronizationDetails(args: ListShareSubsc
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20181101preview:listShareSubscriptionSynchronizationDetails", {
         "accountName": args.accountName,
         "filter": args.filter,

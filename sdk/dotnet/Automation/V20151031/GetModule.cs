@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20151031
         /// Definition of the module type.
         /// </summary>
         public static Task<GetModuleResult> InvokeAsync(GetModuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/v20151031:getModule", args ?? new GetModuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetModuleResult>("azure-native:automation/v20151031:getModule", args ?? new GetModuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the module type.
         /// </summary>
         public static Output<GetModuleResult> Invoke(GetModuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation/v20151031:getModule", args ?? new GetModuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetModuleResult>("azure-native:automation/v20151031:getModule", args ?? new GetModuleInvokeArgs(), options.WithDefaults());
     }
 
 

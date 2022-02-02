@@ -14,9 +14,7 @@ export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getSecurityUserConfiguration", {
         "configurationName": args.configurationName,
         "networkManagerName": args.networkManagerName,

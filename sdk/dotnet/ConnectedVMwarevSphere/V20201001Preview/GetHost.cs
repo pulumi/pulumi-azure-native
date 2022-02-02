@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
         /// Define the host.
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHost", args ?? new GetHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the host.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHost", args ?? new GetHostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere/v20201001preview:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
     }
 
 

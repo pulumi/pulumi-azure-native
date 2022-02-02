@@ -12,9 +12,7 @@ export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentD
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210501:getSqlPoolTransparentDataEncryption", {
         "resourceGroupName": args.resourceGroupName,
         "sqlPoolName": args.sqlPoolName,

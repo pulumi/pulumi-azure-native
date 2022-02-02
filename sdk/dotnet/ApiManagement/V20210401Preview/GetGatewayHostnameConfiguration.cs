@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// Gateway hostname configuration details.
         /// </summary>
         public static Task<GetGatewayHostnameConfigurationResult> InvokeAsync(GetGatewayHostnameConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20210401preview:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20210401preview:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway hostname configuration details.
         /// </summary>
         public static Output<GetGatewayHostnameConfigurationResult> Invoke(GetGatewayHostnameConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20210401preview:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayHostnameConfigurationResult>("azure-native:apimanagement/v20210401preview:getGatewayHostnameConfiguration", args ?? new GetGatewayHostnameConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

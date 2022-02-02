@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetResourceTypeRegistrationResult> InvokeAsync(GetResourceTypeRegistrationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetResourceTypeRegistrationResult> Invoke(GetResourceTypeRegistrationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourceTypeRegistrationResult>("azure-native:providerhub:getResourceTypeRegistration", args ?? new GetResourceTypeRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

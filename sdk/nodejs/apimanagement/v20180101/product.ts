@@ -115,9 +115,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["terms"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Product" }, { type: "azure-native:apimanagement/v20160707:Product" }, { type: "azure-native:apimanagement/v20161010:Product" }, { type: "azure-native:apimanagement/v20170301:Product" }, { type: "azure-native:apimanagement/v20180601preview:Product" }, { type: "azure-native:apimanagement/v20190101:Product" }, { type: "azure-native:apimanagement/v20191201:Product" }, { type: "azure-native:apimanagement/v20191201preview:Product" }, { type: "azure-native:apimanagement/v20200601preview:Product" }, { type: "azure-native:apimanagement/v20201201:Product" }, { type: "azure-native:apimanagement/v20210101preview:Product" }, { type: "azure-native:apimanagement/v20210401preview:Product" }, { type: "azure-native:apimanagement/v20210801:Product" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Product.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SerialConsole.V20180501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         /// Represents the serial port of the parent resource.
         /// </summary>
         public static Task<GetSerialPortResult> InvokeAsync(GetSerialPortArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the serial port of the parent resource.
         /// </summary>
         public static Output<GetSerialPortResult> Invoke(GetSerialPortInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithDefaults());
     }
 
 

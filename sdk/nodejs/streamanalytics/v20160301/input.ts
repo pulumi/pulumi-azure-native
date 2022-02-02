@@ -76,9 +76,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Input" }, { type: "azure-native:streamanalytics/v20170401preview:Input" }, { type: "azure-native:streamanalytics/v20200301:Input" }, { type: "azure-native:streamanalytics/v20211001preview:Input" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Input.__pulumiType, name, resourceInputs, opts);

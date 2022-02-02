@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SoftwarePlan
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SoftwarePlan
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetHybridUseBenefitResult> InvokeAsync(GetHybridUseBenefitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridUseBenefitResult>("azure-native:softwareplan:getHybridUseBenefit", args ?? new GetHybridUseBenefitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response on GET of a hybrid use benefit
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetHybridUseBenefitResult> Invoke(GetHybridUseBenefitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHybridUseBenefitResult>("azure-native:softwareplan:getHybridUseBenefit", args ?? new GetHybridUseBenefitInvokeArgs(), options.WithDefaults());
     }
 
 

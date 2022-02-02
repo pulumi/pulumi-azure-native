@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// Represents an image from the Azure Marketplace
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an image from the Azure Marketplace
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:labservices/v20181015:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
     }
 
 

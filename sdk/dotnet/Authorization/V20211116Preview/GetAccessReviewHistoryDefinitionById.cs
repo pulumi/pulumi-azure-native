@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20211116Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
         /// Access Review History Definition.
         /// </summary>
         public static Task<GetAccessReviewHistoryDefinitionByIdResult> InvokeAsync(GetAccessReviewHistoryDefinitionByIdArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access Review History Definition.
         /// </summary>
         public static Output<GetAccessReviewHistoryDefinitionByIdResult> Invoke(GetAccessReviewHistoryDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccessReviewHistoryDefinitionByIdResult>("azure-native:authorization/v20211116preview:getAccessReviewHistoryDefinitionById", args ?? new GetAccessReviewHistoryDefinitionByIdInvokeArgs(), options.WithDefaults());
     }
 
 

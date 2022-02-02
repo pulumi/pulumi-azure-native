@@ -148,9 +148,7 @@ export class StandardEnvironment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:StandardEnvironment" }, { type: "azure-native:timeseriesinsights/v20170228preview:StandardEnvironment" }, { type: "azure-native:timeseriesinsights/v20171115:StandardEnvironment" }, { type: "azure-native:timeseriesinsights/v20200515:StandardEnvironment" }, { type: "azure-native:timeseriesinsights/v20210331preview:StandardEnvironment" }, { type: "azure-native:timeseriesinsights/v20210630preview:StandardEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StandardEnvironment.__pulumiType, name, resourceInputs, opts);

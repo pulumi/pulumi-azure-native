@@ -12,9 +12,7 @@ export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210401preview:getApiRelease", {
         "apiId": args.apiId,
         "releaseId": args.releaseId,

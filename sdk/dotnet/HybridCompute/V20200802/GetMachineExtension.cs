@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridCompute.V20200802
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.HybridCompute.V20200802
         /// Describes a Machine Extension.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute/v20200802:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute/v20200802:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Machine Extension.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute/v20200802:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute/v20200802:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

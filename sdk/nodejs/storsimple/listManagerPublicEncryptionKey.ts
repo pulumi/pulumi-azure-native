@@ -13,9 +13,7 @@ export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryption
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple:listManagerPublicEncryptionKey", {
         "managerName": args.managerName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// Represents an instance of a Dedicated Capacity resource.
         /// </summary>
         public static Task<GetCapacityDetailsResult> InvokeAsync(GetCapacityDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an instance of a Dedicated Capacity resource.
         /// </summary>
         public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

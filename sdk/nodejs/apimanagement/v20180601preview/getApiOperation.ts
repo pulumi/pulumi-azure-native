@@ -13,9 +13,7 @@ export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getApiOperation", {
         "apiId": args.apiId,
         "operationId": args.operationId,

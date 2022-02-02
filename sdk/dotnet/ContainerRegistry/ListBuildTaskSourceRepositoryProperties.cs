@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Task<ListBuildTaskSourceRepositoryPropertiesResult> InvokeAsync(ListBuildTaskSourceRepositoryPropertiesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of the source code repository.
         /// API Version: 2018-02-01-preview.
         /// </summary>
         public static Output<ListBuildTaskSourceRepositoryPropertiesResult> Invoke(ListBuildTaskSourceRepositoryPropertiesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListBuildTaskSourceRepositoryPropertiesResult>("azure-native:containerregistry:listBuildTaskSourceRepositoryProperties", args ?? new ListBuildTaskSourceRepositoryPropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -88,9 +88,7 @@ export class ModelVersion extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ModelVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelVersion.__pulumiType, name, resourceInputs, opts);

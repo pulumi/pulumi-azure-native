@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150504Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20150504Preview
         /// Describes a DNS record set (a collection of DNS records with the same name and type).
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network/v20150504preview:getRecordSet", args ?? new GetRecordSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network/v20150504preview:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a DNS record set (a collection of DNS records with the same name and type).
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network/v20150504preview:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network/v20150504preview:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

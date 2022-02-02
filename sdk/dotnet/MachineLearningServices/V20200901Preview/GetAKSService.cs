@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Task<GetAKSServiceResult> InvokeAsync(GetAKSServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAKSServiceResult>("azure-native:machinelearningservices/v20200901preview:getAKSService", args ?? new GetAKSServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAKSServiceResult>("azure-native:machinelearningservices/v20200901preview:getAKSService", args ?? new GetAKSServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Machine Learning service object wrapped into ARM resource envelope.
         /// </summary>
         public static Output<GetAKSServiceResult> Invoke(GetAKSServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAKSServiceResult>("azure-native:machinelearningservices/v20200901preview:getAKSService", args ?? new GetAKSServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAKSServiceResult>("azure-native:machinelearningservices/v20200901preview:getAKSService", args ?? new GetAKSServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -123,9 +123,7 @@ export class Controller extends pulumi.CustomResource {
             resourceInputs["targetContainerHostResourceId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devspaces/v20190401:Controller" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Controller.__pulumiType, name, resourceInputs, opts);

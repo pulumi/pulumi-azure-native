@@ -13,9 +13,7 @@ export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20210801:getUserSharedAccessToken", {
         "expiry": args.expiry,
         "keyType": args.keyType,

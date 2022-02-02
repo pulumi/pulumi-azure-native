@@ -87,9 +87,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:peering:RegisteredAsn" }, { type: "azure-native:peering/v20200401:RegisteredAsn" }, { type: "azure-native:peering/v20201001:RegisteredAsn" }, { type: "azure-native:peering/v20210101:RegisteredAsn" }, { type: "azure-native:peering/v20210601:RegisteredAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegisteredAsn.__pulumiType, name, resourceInputs, opts);

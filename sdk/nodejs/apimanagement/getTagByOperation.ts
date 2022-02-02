@@ -13,9 +13,7 @@ export function getTagByOperation(args: GetTagByOperationArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement:getTagByOperation", {
         "apiId": args.apiId,
         "operationId": args.operationId,

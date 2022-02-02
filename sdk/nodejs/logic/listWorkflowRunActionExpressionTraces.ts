@@ -14,9 +14,7 @@ export function listWorkflowRunActionExpressionTraces(args: ListWorkflowRunActio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic:listWorkflowRunActionExpressionTraces", {
         "actionName": args.actionName,
         "resourceGroupName": args.resourceGroupName,

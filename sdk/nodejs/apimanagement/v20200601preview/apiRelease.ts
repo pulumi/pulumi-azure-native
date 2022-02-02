@@ -96,9 +96,7 @@ export class ApiRelease extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedDateTime"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiRelease" }, { type: "azure-native:apimanagement/v20170301:ApiRelease" }, { type: "azure-native:apimanagement/v20180101:ApiRelease" }, { type: "azure-native:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20190101:ApiRelease" }, { type: "azure-native:apimanagement/v20191201:ApiRelease" }, { type: "azure-native:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20201201:ApiRelease" }, { type: "azure-native:apimanagement/v20210101preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210401preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210801:ApiRelease" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiRelease.__pulumiType, name, resourceInputs, opts);

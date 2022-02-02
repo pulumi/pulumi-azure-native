@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents MicrosoftSecurityIncidentCreation rule.
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MicrosoftSecurityIncidentCreation rule.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

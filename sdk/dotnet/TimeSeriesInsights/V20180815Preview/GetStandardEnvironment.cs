@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
         /// </summary>
         public static Task<GetStandardEnvironmentResult> InvokeAsync(GetStandardEnvironmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
         /// </summary>
         public static Output<GetStandardEnvironmentResult> Invoke(GetStandardEnvironmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStandardEnvironmentResult>("azure-native:timeseriesinsights/v20180815preview:getStandardEnvironment", args ?? new GetStandardEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

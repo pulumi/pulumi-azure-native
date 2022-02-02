@@ -109,9 +109,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:DdosCustomPolicy" }, { type: "azure-native:network/v20181101:DdosCustomPolicy" }, { type: "azure-native:network/v20181201:DdosCustomPolicy" }, { type: "azure-native:network/v20190201:DdosCustomPolicy" }, { type: "azure-native:network/v20190401:DdosCustomPolicy" }, { type: "azure-native:network/v20190601:DdosCustomPolicy" }, { type: "azure-native:network/v20190701:DdosCustomPolicy" }, { type: "azure-native:network/v20190801:DdosCustomPolicy" }, { type: "azure-native:network/v20190901:DdosCustomPolicy" }, { type: "azure-native:network/v20191101:DdosCustomPolicy" }, { type: "azure-native:network/v20200301:DdosCustomPolicy" }, { type: "azure-native:network/v20200401:DdosCustomPolicy" }, { type: "azure-native:network/v20200501:DdosCustomPolicy" }, { type: "azure-native:network/v20200601:DdosCustomPolicy" }, { type: "azure-native:network/v20200701:DdosCustomPolicy" }, { type: "azure-native:network/v20200801:DdosCustomPolicy" }, { type: "azure-native:network/v20201101:DdosCustomPolicy" }, { type: "azure-native:network/v20210201:DdosCustomPolicy" }, { type: "azure-native:network/v20210301:DdosCustomPolicy" }, { type: "azure-native:network/v20210501:DdosCustomPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DdosCustomPolicy.__pulumiType, name, resourceInputs, opts);

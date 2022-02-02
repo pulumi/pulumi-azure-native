@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// Settings with single toggle.
         /// </summary>
         public static Task<GetAnomaliesResult> InvokeAsync(GetAnomaliesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights/v20210301preview:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAnomaliesResult>("azure-native:securityinsights/v20210301preview:getAnomalies", args ?? new GetAnomaliesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings with single toggle.
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights/v20210301preview:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights/v20210301preview:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
     }
 
 

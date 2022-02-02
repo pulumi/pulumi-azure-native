@@ -76,9 +76,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:search:SharedPrivateLinkResource" }, { type: "azure-native:search/v20200801preview:SharedPrivateLinkResource" }, { type: "azure-native:search/v20210401preview:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);

@@ -130,9 +130,7 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
             resourceInputs["serviceBusSuffix"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppHybridConnectionSlot" }, { type: "azure-native:web/v20210301:WebAppHybridConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppHybridConnectionSlot.__pulumiType, name, resourceInputs, opts);

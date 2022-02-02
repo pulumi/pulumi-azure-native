@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2018-05-01.
         /// </summary>
         public static Task<GetDnsResourceReferenceByTarResourcesResult> InvokeAsync(GetDnsResourceReferenceByTarResourcesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the properties of the Dns Resource Reference Result.
         /// API Version: 2018-05-01.
         /// </summary>
         public static Output<GetDnsResourceReferenceByTarResourcesResult> Invoke(GetDnsResourceReferenceByTarResourcesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDnsResourceReferenceByTarResourcesResult>("azure-native:network:getDnsResourceReferenceByTarResources", args ?? new GetDnsResourceReferenceByTarResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

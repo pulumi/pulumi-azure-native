@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// A blob storage account data set mapping.
         /// </summary>
         public static Task<GetBlobStorageAccountDataSetMappingResult> InvokeAsync(GetBlobStorageAccountDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobStorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", args ?? new GetBlobStorageAccountDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobStorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", args ?? new GetBlobStorageAccountDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A blob storage account data set mapping.
         /// </summary>
         public static Output<GetBlobStorageAccountDataSetMappingResult> Invoke(GetBlobStorageAccountDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", args ?? new GetBlobStorageAccountDataSetMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", args ?? new GetBlobStorageAccountDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

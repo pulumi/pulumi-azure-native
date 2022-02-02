@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200501
         /// The IpGroups resource information.
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-native:network/v20200501:getIpGroup", args ?? new GetIpGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure-native:network/v20200501:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// The IpGroups resource information.
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network/v20200501:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network/v20200501:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
     }
 
 

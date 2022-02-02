@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20211001
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         /// The remediation definition.
         /// </summary>
         public static Task<GetRemediationAtResourceResult> InvokeAsync(GetRemediationAtResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-native:policyinsights/v20211001:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRemediationAtResourceResult>("azure-native:policyinsights/v20211001:getRemediationAtResource", args ?? new GetRemediationAtResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The remediation definition.
         /// </summary>
         public static Output<GetRemediationAtResourceResult> Invoke(GetRemediationAtResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights/v20211001:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights/v20211001:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithDefaults());
     }
 
 

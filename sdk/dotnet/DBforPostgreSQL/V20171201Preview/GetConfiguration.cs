@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
         /// Represents a Configuration.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql/v20171201preview:getConfiguration", args ?? new GetConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql/v20171201preview:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Configuration.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql/v20171201preview:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql/v20171201preview:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

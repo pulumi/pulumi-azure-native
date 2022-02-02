@@ -12,9 +12,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20180201:getEndpoint", {
         "endpointName": args.endpointName,
         "endpointType": args.endpointType,

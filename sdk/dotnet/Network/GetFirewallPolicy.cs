@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetFirewallPolicyResult> InvokeAsync(GetFirewallPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// FirewallPolicy Resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetFirewallPolicyResult> Invoke(GetFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyResult>("azure-native:network:getFirewallPolicy", args ?? new GetFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

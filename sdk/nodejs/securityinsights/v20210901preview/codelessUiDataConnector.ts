@@ -98,9 +98,7 @@ export class CodelessUiDataConnector extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessUiDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodelessUiDataConnector.__pulumiType, name, resourceInputs, opts);

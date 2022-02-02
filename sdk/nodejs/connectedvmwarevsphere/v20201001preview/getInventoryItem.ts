@@ -13,9 +13,7 @@ export function getInventoryItem(args: GetInventoryItemArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,
         "resourceGroupName": args.resourceGroupName,

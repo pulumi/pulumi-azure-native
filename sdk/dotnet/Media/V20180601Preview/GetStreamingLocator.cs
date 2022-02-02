@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
         /// A Streaming Locator resource
         /// </summary>
         public static Task<GetStreamingLocatorResult> InvokeAsync(GetStreamingLocatorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media/v20180601preview:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStreamingLocatorResult>("azure-native:media/v20180601preview:getStreamingLocator", args ?? new GetStreamingLocatorArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Streaming Locator resource
         /// </summary>
         public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media/v20180601preview:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media/v20180601preview:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());
     }
 
 

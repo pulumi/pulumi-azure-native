@@ -12,9 +12,7 @@ export function getDistributedAvailabilityGroup(args: GetDistributedAvailability
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getDistributedAvailabilityGroup", {
         "distributedAvailabilityGroupName": args.distributedAvailabilityGroupName,
         "managedInstanceName": args.managedInstanceName,

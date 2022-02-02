@@ -12,9 +12,7 @@ export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:saas/v20180301beta:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,
     }, opts);

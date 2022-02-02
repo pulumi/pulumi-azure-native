@@ -102,9 +102,7 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ReportConfigByResourceGroupName.__pulumiType, name, resourceInputs, opts);
     }
 }

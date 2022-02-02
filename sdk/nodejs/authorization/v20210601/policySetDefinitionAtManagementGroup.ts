@@ -117,9 +117,7 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinitionAtManagementGroup.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AnalysisServices.V20170714
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170714
         /// Status of gateway is live
         /// </summary>
         public static Task<ListServerGatewayStatusResult> InvokeAsync(ListServerGatewayStatusArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Status of gateway is live
         /// </summary>
         public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170714:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithDefaults());
     }
 
 

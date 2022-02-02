@@ -12,9 +12,7 @@ export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeC
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:synapse/v20210601preview:getIntegrationRuntimeConnectionInfo", {
         "integrationRuntimeName": args.integrationRuntimeName,
         "resourceGroupName": args.resourceGroupName,

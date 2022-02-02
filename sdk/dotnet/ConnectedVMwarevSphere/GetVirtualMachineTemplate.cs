@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineTemplateResult> InvokeAsync(GetVirtualMachineTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the virtualMachineTemplate.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineTemplateResult> Invoke(GetVirtualMachineTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineTemplateResult>("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args ?? new GetVirtualMachineTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

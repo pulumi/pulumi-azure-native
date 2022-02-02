@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20151031
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20151031
         /// Definition of the automation account type.
         /// </summary>
         public static Task<GetAutomationAccountResult> InvokeAsync(GetAutomationAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationAccountResult>("azure-native:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the automation account type.
         /// </summary>
         public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation/v20151031:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithDefaults());
     }
 
 

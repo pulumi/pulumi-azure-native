@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Elastic.V20211001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Elastic.V20211001Preview
         /// Stack Versions that this version can upgrade to
         /// </summary>
         public static Task<ListUpgradableVersionDetailsResult> InvokeAsync(ListUpgradableVersionDetailsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Stack Versions that this version can upgrade to
         /// </summary>
         public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20211001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

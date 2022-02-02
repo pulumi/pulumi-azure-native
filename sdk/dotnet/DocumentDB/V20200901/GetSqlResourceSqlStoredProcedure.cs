@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20200901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20200901
         /// An Azure Cosmos DB storedProcedure.
         /// </summary>
         public static Task<GetSqlResourceSqlStoredProcedureResult> InvokeAsync(GetSqlResourceSqlStoredProcedureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20200901:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20200901:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB storedProcedure.
         /// </summary>
         public static Output<GetSqlResourceSqlStoredProcedureResult> Invoke(GetSqlResourceSqlStoredProcedureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20200901:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20200901:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureInvokeArgs(), options.WithDefaults());
     }
 
 

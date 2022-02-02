@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
         /// Represents a Watchlist Item in Azure Security Insights.
         /// </summary>
         public static Task<GetWatchlistItemResult> InvokeAsync(GetWatchlistItemArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistItemResult>("azure-native:securityinsights/v20210401:getWatchlistItem", args ?? new GetWatchlistItemArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistItemResult>("azure-native:securityinsights/v20210401:getWatchlistItem", args ?? new GetWatchlistItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Watchlist Item in Azure Security Insights.
         /// </summary>
         public static Output<GetWatchlistItemResult> Invoke(GetWatchlistItemInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights/v20210401:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights/v20210401:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithDefaults());
     }
 
 

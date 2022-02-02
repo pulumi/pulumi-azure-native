@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Devices.V20180122
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Devices.V20180122
         /// Description of the shared access key.
         /// </summary>
         public static Task<ListIotDpsResourceKeysForKeyNameResult> InvokeAsync(ListIotDpsResourceKeysForKeyNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20180122:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20180122:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of the shared access key.
         /// </summary>
         public static Output<ListIotDpsResourceKeysForKeyNameResult> Invoke(ListIotDpsResourceKeysForKeyNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20180122:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListIotDpsResourceKeysForKeyNameResult>("azure-native:devices/v20180122:listIotDpsResourceKeysForKeyName", args ?? new ListIotDpsResourceKeysForKeyNameInvokeArgs(), options.WithDefaults());
     }
 
 

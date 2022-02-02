@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Subscription
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Subscription
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Subscription Information with the alias.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

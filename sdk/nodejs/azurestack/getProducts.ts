@@ -14,9 +14,7 @@ export function getProducts(args: GetProductsArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack:getProducts", {
         "productName": args.productName,
         "registrationName": args.registrationName,

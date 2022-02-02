@@ -14,9 +14,7 @@ export function getDataVersion(args: GetDataVersionArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getDataVersion", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

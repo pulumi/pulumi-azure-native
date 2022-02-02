@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20191201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20191201
         /// VpnConnection Resource.
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network/v20191201:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network/v20191201:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnConnection Resource.
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network/v20191201:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network/v20191201:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

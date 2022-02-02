@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The management group diagnostic setting resource.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

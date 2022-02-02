@@ -90,9 +90,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleByName.__pulumiType, name, resourceInputs, opts);

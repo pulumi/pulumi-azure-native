@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         /// A report resource.
         /// </summary>
         public static Task<GetReportByBillingAccountResult> InvokeAsync(GetReportByBillingAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// A report resource.
         /// </summary>
         public static Output<GetReportByBillingAccountResult> Invoke(GetReportByBillingAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportByBillingAccountResult>("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReportByBillingAccountResult>("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", args ?? new GetReportByBillingAccountInvokeArgs(), options.WithDefaults());
     }
 
 

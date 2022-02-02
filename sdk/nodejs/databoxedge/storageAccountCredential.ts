@@ -133,9 +133,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190701:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20190801:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20201201:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210201:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210601:StorageAccountCredential" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccountCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccountCredential.__pulumiType, name, resourceInputs, opts);

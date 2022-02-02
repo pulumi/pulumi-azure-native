@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
         /// A Blob data set mapping.
         /// </summary>
         public static Task<GetBlobDataSetMappingResult> InvokeAsync(GetBlobDataSetMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Blob data set mapping.
         /// </summary>
         public static Output<GetBlobDataSetMappingResult> Invoke(GetBlobDataSetMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetMappingResult>("azure-native:datashare/v20181101preview:getBlobDataSetMapping", args ?? new GetBlobDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

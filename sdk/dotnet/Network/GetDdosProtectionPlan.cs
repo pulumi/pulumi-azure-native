@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// A DDoS protection plan in a resource group.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetDdosProtectionPlanResult> Invoke(GetDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanInvokeArgs(), options.WithDefaults());
     }
 
 

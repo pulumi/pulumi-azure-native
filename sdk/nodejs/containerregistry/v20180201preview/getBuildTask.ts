@@ -13,9 +13,7 @@ export function getBuildTask(args: GetBuildTaskArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerregistry/v20180201preview:getBuildTask", {
         "buildTaskName": args.buildTaskName,
         "registryName": args.registryName,

@@ -12,9 +12,7 @@ export function listStaticSiteFunctionAppSettings(args: ListStaticSiteFunctionAp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210115:listStaticSiteFunctionAppSettings", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

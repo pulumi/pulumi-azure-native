@@ -93,9 +93,7 @@ export class PowerBIResource extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:powerbi:PowerBIResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PowerBIResource.__pulumiType, name, resourceInputs, opts);

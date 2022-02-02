@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2020-01-01.
         /// </summary>
         public static Task<GetMicrosoftSecurityIncidentCreationAlertRuleResult> InvokeAsync(GetMicrosoftSecurityIncidentCreationAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MicrosoftSecurityIncidentCreation rule.
         /// API Version: 2020-01-01.
         /// </summary>
         public static Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> Invoke(GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMicrosoftSecurityIncidentCreationAlertRuleResult>("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", args ?? new GetMicrosoftSecurityIncidentCreationAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

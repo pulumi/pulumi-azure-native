@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
         /// Class representing a Kusto cluster.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Kusto cluster.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto/v20170907privatepreview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

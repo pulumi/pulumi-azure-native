@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevOps.V20190701Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
         /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
         /// </summary>
         public static Task<GetPipelineResult> InvokeAsync(GetPipelineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPipelineResult>("azure-native:devops/v20190701preview:getPipeline", args ?? new GetPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:devops/v20190701preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:devops/v20190701preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

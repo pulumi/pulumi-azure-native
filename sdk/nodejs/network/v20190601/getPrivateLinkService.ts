@@ -13,9 +13,7 @@ export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20190601:getPrivateLinkService", {
         "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,

@@ -13,9 +13,7 @@ export function getPrivateEndpointConnectionControllerPrivateEndpointConnection(
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:migrate/v20200501:getPrivateEndpointConnectionControllerPrivateEndpointConnection", {
         "migrateProjectName": args.migrateProjectName,
         "peConnectionName": args.peConnectionName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
         /// A SQL virtual machine.
         /// </summary>
         public static Task<GetSqlVirtualMachineResult> InvokeAsync(GetSqlVirtualMachineArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// A SQL virtual machine.
         /// </summary>
         public static Output<GetSqlVirtualMachineResult> Invoke(GetSqlVirtualMachineInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlVirtualMachineResult>("azure-native:sqlvirtualmachine/v20170301preview:getSqlVirtualMachine", args ?? new GetSqlVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

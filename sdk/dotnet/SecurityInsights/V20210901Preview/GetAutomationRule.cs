@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents an automation rule.
         /// </summary>
         public static Task<GetAutomationRuleResult> InvokeAsync(GetAutomationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights/v20210901preview:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAutomationRuleResult>("azure-native:securityinsights/v20210901preview:getAutomationRule", args ?? new GetAutomationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents an automation rule.
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20210901preview:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20210901preview:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

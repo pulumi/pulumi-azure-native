@@ -13,9 +13,7 @@ export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:alertsmanagement/v20181102privatepreview:getActionRuleByName", {
         "actionRuleName": args.actionRuleName,
         "resourceGroup": args.resourceGroup,

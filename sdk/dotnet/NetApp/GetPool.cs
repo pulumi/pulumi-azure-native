@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.NetApp
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.NetApp
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Capacity pool resource
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

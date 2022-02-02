@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// Collection of backup items.
         /// </summary>
         public static Task<ListWebAppSiteBackupsSlotResult> InvokeAsync(ListWebAppSiteBackupsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsSlotResult>("azure-native:web/v20210101:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSiteBackupsSlotResult>("azure-native:web/v20210101:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of backup items.
         /// </summary>
         public static Output<ListWebAppSiteBackupsSlotResult> Invoke(ListWebAppSiteBackupsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppSiteBackupsSlotResult>("azure-native:web/v20210101:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppSiteBackupsSlotResult>("azure-native:web/v20210101:listWebAppSiteBackupsSlot", args ?? new ListWebAppSiteBackupsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

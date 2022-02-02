@@ -13,9 +13,7 @@ export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubsc
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20210601preview:getPartnerTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,
         "partnerTopicName": args.partnerTopicName,

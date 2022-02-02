@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// Integration runtime resource type.
         /// </summary>
         public static Task<GetIntegrationRuntimeResult> InvokeAsync(GetIntegrationRuntimeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Integration runtime resource type.
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:synapse/v20210601:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
     }
 
 

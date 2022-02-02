@@ -162,9 +162,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControlConfiguration.__pulumiType, name, resourceInputs, opts);

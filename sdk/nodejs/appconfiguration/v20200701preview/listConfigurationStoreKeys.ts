@@ -13,9 +13,7 @@ export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appconfiguration/v20200701preview:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,
         "resourceGroupName": args.resourceGroupName,

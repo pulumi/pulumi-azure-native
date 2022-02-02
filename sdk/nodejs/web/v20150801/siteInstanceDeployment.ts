@@ -144,9 +144,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SiteInstanceDeployment.__pulumiType, name, resourceInputs, opts);
     }
 }

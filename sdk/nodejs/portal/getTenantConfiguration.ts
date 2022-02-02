@@ -13,9 +13,7 @@ export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:portal:getTenantConfiguration", {
         "configurationName": args.configurationName,
     }, opts);

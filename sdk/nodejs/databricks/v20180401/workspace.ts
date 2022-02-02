@@ -153,9 +153,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = undefined /*out*/;
             resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databricks:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);

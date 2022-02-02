@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20191201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20191201
         /// Service Endpoint policy definitions.
         /// </summary>
         public static Task<GetServiceEndpointPolicyDefinitionResult> InvokeAsync(GetServiceEndpointPolicyDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/v20191201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/v20191201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Service Endpoint policy definitions.
         /// </summary>
         public static Output<GetServiceEndpointPolicyDefinitionResult> Invoke(GetServiceEndpointPolicyDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/v20191201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointPolicyDefinitionResult>("azure-native:network/v20191201:getServiceEndpointPolicyDefinition", args ?? new GetServiceEndpointPolicyDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,9 +12,7 @@ export function listNotebookWorkspaceConnectionInfo(args: ListNotebookWorkspaceC
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20211015preview:listNotebookWorkspaceConnectionInfo", {
         "accountName": args.accountName,
         "notebookWorkspaceName": args.notebookWorkspaceName,

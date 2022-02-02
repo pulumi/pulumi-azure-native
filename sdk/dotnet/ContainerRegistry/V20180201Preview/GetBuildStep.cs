@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
         /// Build step resource properties
         /// </summary>
         public static Task<GetBuildStepResult> InvokeAsync(GetBuildStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// Build step resource properties
         /// </summary>
         public static Output<GetBuildStepResult> Invoke(GetBuildStepInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBuildStepResult>("azure-native:containerregistry/v20180201preview:getBuildStep", args ?? new GetBuildStepInvokeArgs(), options.WithDefaults());
     }
 
 

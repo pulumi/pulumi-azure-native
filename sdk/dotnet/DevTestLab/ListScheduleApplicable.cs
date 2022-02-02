@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DevTestLab
         /// API Version: 2018-09-15.
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of a list operation.
         /// API Version: 2018-09-15.
         /// </summary>
         public static Output<ListScheduleApplicableResult> Invoke(ListScheduleApplicableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableInvokeArgs(), options.WithDefaults());
     }
 
 

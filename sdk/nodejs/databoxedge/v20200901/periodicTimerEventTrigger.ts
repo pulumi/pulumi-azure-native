@@ -109,9 +109,7 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PeriodicTimerEventTrigger.__pulumiType, name, resourceInputs, opts);

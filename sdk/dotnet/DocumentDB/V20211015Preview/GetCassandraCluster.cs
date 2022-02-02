@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
         /// Representation of a managed Cassandra cluster.
         /// </summary>
         public static Task<GetCassandraClusterResult> InvokeAsync(GetCassandraClusterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb/v20211015preview:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCassandraClusterResult>("azure-native:documentdb/v20211015preview:getCassandraCluster", args ?? new GetCassandraClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Representation of a managed Cassandra cluster.
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb/v20211015preview:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb/v20211015preview:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());
     }
 
 

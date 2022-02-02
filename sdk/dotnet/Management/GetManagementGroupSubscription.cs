@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Management
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Management
         /// API Version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The details of subscription under management group.
         /// API Version: 2020-05-01.
         /// </summary>
         public static Output<GetManagementGroupSubscriptionResult> Invoke(GetManagementGroupSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

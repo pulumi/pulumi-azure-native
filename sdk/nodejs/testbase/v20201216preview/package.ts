@@ -184,9 +184,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["validationResults"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:testbase:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, resourceInputs, opts);

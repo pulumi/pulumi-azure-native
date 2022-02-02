@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountSchemaResult> InvokeAsync(GetIntegrationAccountSchemaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account schema.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

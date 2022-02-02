@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20210303Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20210303Preview
         /// The response to a diagnostic services token query.
         /// </summary>
         public static Task<GetDiagnosticServiceTokenReadWriteResult> InvokeAsync(GetDiagnosticServiceTokenReadWriteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response to a diagnostic services token query.
         /// </summary>
         public static Output<GetDiagnosticServiceTokenReadWriteResult> Invoke(GetDiagnosticServiceTokenReadWriteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteInvokeArgs(), options.WithDefaults());
     }
 
 

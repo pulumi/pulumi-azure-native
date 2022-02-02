@@ -118,9 +118,7 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:relay:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WCFRelay.__pulumiType, name, resourceInputs, opts);

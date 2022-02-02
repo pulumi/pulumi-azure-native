@@ -13,9 +13,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20210601:getConfiguration", {
         "configurationName": args.configurationName,
         "resourceGroupName": args.resourceGroupName,

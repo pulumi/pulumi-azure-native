@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2019-06-01.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An action group resource.
         /// API Version: 2019-06-01.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

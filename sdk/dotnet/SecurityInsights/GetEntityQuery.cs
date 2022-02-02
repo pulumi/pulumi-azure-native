@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights
 {
@@ -18,14 +17,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetEntityQueryResult> InvokeAsync(GetEntityQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEntityQueryResult>("azure-native:securityinsights:getEntityQuery", args ?? new GetEntityQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specific entity query.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetEntityQueryResult> Invoke(GetEntityQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEntityQueryResult>("azure-native:securityinsights:getEntityQuery", args ?? new GetEntityQueryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEntityQueryResult>("azure-native:securityinsights:getEntityQuery", args ?? new GetEntityQueryInvokeArgs(), options.WithDefaults());
     }
 
 

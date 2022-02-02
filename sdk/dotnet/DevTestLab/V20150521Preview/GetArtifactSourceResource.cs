@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// Properties of an artifact source.
         /// </summary>
         public static Task<GetArtifactSourceResourceResult> InvokeAsync(GetArtifactSourceResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResourceResult>("azure-native:devtestlab/v20150521preview:getArtifactSourceResource", args ?? new GetArtifactSourceResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetArtifactSourceResourceResult>("azure-native:devtestlab/v20150521preview:getArtifactSourceResource", args ?? new GetArtifactSourceResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of an artifact source.
         /// </summary>
         public static Output<GetArtifactSourceResourceResult> Invoke(GetArtifactSourceResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResourceResult>("azure-native:devtestlab/v20150521preview:getArtifactSourceResource", args ?? new GetArtifactSourceResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResourceResult>("azure-native:devtestlab/v20150521preview:getArtifactSourceResource", args ?? new GetArtifactSourceResourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// The integration account map.
         /// </summary>
         public static Task<GetMapResult> InvokeAsync(GetMapArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account map.
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 

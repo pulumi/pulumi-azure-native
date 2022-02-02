@@ -13,9 +13,7 @@ export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resources/v20210401:getTagAtScope", {
         "scope": args.scope,
     }, opts);

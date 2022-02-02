@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         /// Shared access keys of the Topic
         /// </summary>
         public static Task<ListTopicSharedAccessKeysResult> InvokeAsync(ListTopicSharedAccessKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20201015preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20201015preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shared access keys of the Topic
         /// </summary>
         public static Output<ListTopicSharedAccessKeysResult> Invoke(ListTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20201015preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListTopicSharedAccessKeysResult>("azure-native:eventgrid/v20201015preview:listTopicSharedAccessKeys", args ?? new ListTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

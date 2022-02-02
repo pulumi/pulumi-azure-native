@@ -12,9 +12,7 @@ export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOp
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cdn/v20191231:getProfileSupportedOptimizationTypes", {
         "profileName": args.profileName,
         "resourceGroupName": args.resourceGroupName,

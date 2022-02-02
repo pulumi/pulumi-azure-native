@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents MLBehaviorAnalytics alert rule.
         /// </summary>
         public static Task<GetMLBehaviorAnalyticsAlertRuleResult> InvokeAsync(GetMLBehaviorAnalyticsAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MLBehaviorAnalytics alert rule.
         /// </summary>
         public static Output<GetMLBehaviorAnalyticsAlertRuleResult> Invoke(GetMLBehaviorAnalyticsAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20210901preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

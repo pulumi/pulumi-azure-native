@@ -13,9 +13,7 @@ export function getDataController(args: GetDataControllerArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurearcdata/v20210801:getDataController", {
         "dataControllerName": args.dataControllerName,
         "resourceGroupName": args.resourceGroupName,

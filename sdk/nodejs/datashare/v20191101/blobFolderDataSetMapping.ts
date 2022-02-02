@@ -149,9 +149,7 @@ export class BlobFolderDataSetMapping extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:BlobFolderDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:BlobFolderDataSetMapping" }, { type: "azure-native:datashare/v20200901:BlobFolderDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobFolderDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobFolderDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobFolderDataSetMapping.__pulumiType, name, resourceInputs, opts);

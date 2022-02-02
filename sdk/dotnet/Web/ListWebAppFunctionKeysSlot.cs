@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListWebAppFunctionKeysSlotResult> InvokeAsync(ListWebAppFunctionKeysSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysSlotResult>("azure-native:web:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWebAppFunctionKeysSlotResult>("azure-native:web:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// String dictionary resource.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListWebAppFunctionKeysSlotResult> Invoke(ListWebAppFunctionKeysSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionKeysSlotResult>("azure-native:web:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionKeysSlotResult>("azure-native:web:listWebAppFunctionKeysSlot", args ?? new ListWebAppFunctionKeysSlotInvokeArgs(), options.WithDefaults());
     }
 
 

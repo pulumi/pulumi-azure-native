@@ -14,9 +14,7 @@ export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnect
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getHubVirtualNetworkConnection", {
         "connectionName": args.connectionName,
         "resourceGroupName": args.resourceGroupName,

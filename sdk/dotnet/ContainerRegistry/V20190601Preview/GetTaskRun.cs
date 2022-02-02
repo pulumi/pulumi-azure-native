@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// The task run will have the information of request and result of a run.
         /// </summary>
         public static Task<GetTaskRunResult> InvokeAsync(GetTaskRunArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunArgs(), options.WithDefaults());
 
         /// <summary>
         /// The task run that has the ARM resource and properties. 
         /// The task run will have the information of request and result of a run.
         /// </summary>
         public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithDefaults());
     }
 
 

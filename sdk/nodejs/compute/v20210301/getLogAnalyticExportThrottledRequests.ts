@@ -13,9 +13,7 @@ export function getLogAnalyticExportThrottledRequests(args: GetLogAnalyticExport
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:compute/v20210301:getLogAnalyticExportThrottledRequests", {
         "blobContainerSasUri": args.blobContainerSasUri,
         "fromTime": args.fromTime,

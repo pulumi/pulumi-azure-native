@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Relay
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Relay
         /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetHybridConnectionAuthorizationRuleResult> Invoke(GetHybridConnectionAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

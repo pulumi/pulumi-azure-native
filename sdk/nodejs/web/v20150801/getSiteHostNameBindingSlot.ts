@@ -12,9 +12,7 @@ export function getSiteHostNameBindingSlot(args: GetSiteHostNameBindingSlotArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:getSiteHostNameBindingSlot", {
         "hostName": args.hostName,
         "name": args.name,

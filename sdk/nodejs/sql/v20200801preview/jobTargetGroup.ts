@@ -83,9 +83,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-native:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql/v20210201preview:JobTargetGroup" }, { type: "azure-native:sql/v20210501preview:JobTargetGroup" }, { type: "azure-native:sql/v20210801preview:JobTargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobTargetGroup.__pulumiType, name, resourceInputs, opts);

@@ -13,9 +13,7 @@ export function getMachineGroup(args: GetMachineGroupArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
         "endTime": args.endTime,
         "machineGroupName": args.machineGroupName,

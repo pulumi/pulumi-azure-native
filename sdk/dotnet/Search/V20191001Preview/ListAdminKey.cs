@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Search.V20191001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Search.V20191001Preview
         /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
         /// </summary>
         public static Task<ListAdminKeyResult> InvokeAsync(ListAdminKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20191001preview:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAdminKeyResult>("azure-native:search/v20191001preview:listAdminKey", args ?? new ListAdminKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20191001preview:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20191001preview:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync.V20200301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
         /// Registered Server resource.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync/v20200301:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync/v20200301:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Registered Server resource.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync/v20200301:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync/v20200301:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
     }
 
 

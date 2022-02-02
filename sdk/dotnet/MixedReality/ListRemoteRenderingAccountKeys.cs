@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MixedReality
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<ListRemoteRenderingAccountKeysResult> InvokeAsync(ListRemoteRenderingAccountKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Developer Keys of account
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<ListRemoteRenderingAccountKeysResult> Invoke(ListRemoteRenderingAccountKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListRemoteRenderingAccountKeysResult>("azure-native:mixedreality:listRemoteRenderingAccountKeys", args ?? new ListRemoteRenderingAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

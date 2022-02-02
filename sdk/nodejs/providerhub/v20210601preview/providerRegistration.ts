@@ -68,9 +68,7 @@ export class ProviderRegistration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:ProviderRegistration" }, { type: "azure-native:providerhub/v20201120:ProviderRegistration" }, { type: "azure-native:providerhub/v20210501preview:ProviderRegistration" }, { type: "azure-native:providerhub/v20210901preview:ProviderRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderRegistration.__pulumiType, name, resourceInputs, opts);

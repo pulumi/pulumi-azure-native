@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20191201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20191201
         /// Specifies information about the gallery Application Version that you want to create or update.
         /// </summary>
         public static Task<GetGalleryApplicationVersionResult> InvokeAsync(GetGalleryApplicationVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-native:compute/v20191201:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationVersionResult>("azure-native:compute/v20191201:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the gallery Application Version that you want to create or update.
         /// </summary>
         public static Output<GetGalleryApplicationVersionResult> Invoke(GetGalleryApplicationVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute/v20191201:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute/v20191201:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20180201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20180201
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Task<ListAppServicePlanHybridConnectionKeysResult> InvokeAsync(ListAppServicePlanHybridConnectionKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20180201:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20180201:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
         /// </summary>
         public static Output<ListAppServicePlanHybridConnectionKeysResult> Invoke(ListAppServicePlanHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20180201:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListAppServicePlanHybridConnectionKeysResult>("azure-native:web/v20180201:listAppServicePlanHybridConnectionKeys", args ?? new ListAppServicePlanHybridConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListRegistryBuildSourceUploadUrlResult> InvokeAsync(ListRegistryBuildSourceUploadUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The properties of a response to source upload request.
         /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListRegistryBuildSourceUploadUrlResult> Invoke(ListRegistryBuildSourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListRegistryBuildSourceUploadUrlResult>("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", args ?? new ListRegistryBuildSourceUploadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

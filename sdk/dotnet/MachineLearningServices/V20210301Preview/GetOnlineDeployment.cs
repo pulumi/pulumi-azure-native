@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     public static class GetOnlineDeployment
     {
         public static Task<GetOnlineDeploymentResult> InvokeAsync(GetOnlineDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentArgs(), options.WithDefaults());
 
         public static Output<GetOnlineDeploymentResult> Invoke(GetOnlineDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeployment", args ?? new GetOnlineDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

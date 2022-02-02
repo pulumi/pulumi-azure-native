@@ -12,9 +12,7 @@ export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssig
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb/v20210401preview:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

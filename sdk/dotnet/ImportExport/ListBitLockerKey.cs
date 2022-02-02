@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ImportExport
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ImportExport
         /// API Version: 2020-08-01.
         /// </summary>
         public static Task<ListBitLockerKeyResult> InvokeAsync(ListBitLockerKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// GetBitLockerKeys response
         /// API Version: 2020-08-01.
         /// </summary>
         public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

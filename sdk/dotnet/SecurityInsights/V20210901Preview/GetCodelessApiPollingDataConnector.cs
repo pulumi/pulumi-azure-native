@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents Codeless API Polling data connector.
         /// </summary>
         public static Task<GetCodelessApiPollingDataConnectorResult> InvokeAsync(GetCodelessApiPollingDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20210901preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20210901preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Codeless API Polling data connector.
         /// </summary>
         public static Output<GetCodelessApiPollingDataConnectorResult> Invoke(GetCodelessApiPollingDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20210901preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20210901preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

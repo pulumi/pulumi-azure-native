@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20201201
         /// A workspace key
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse/v20201201:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:synapse/v20201201:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A workspace key
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse/v20201201:getKey", args ?? new GetKeyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse/v20201201:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

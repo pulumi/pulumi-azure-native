@@ -13,9 +13,7 @@ export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20200815preview:getPrivateLinkScope", {
         "resourceGroupName": args.resourceGroupName,
         "scopeName": args.scopeName,

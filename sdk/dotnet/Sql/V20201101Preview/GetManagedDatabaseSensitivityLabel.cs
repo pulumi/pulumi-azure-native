@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
         /// A sensitivity label.
         /// </summary>
         public static Task<GetManagedDatabaseSensitivityLabelResult> InvokeAsync(GetManagedDatabaseSensitivityLabelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20201101preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20201101preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelArgs(), options.WithDefaults());
 
         /// <summary>
         /// A sensitivity label.
         /// </summary>
         public static Output<GetManagedDatabaseSensitivityLabelResult> Invoke(GetManagedDatabaseSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20201101preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseSensitivityLabelResult>("azure-native:sql/v20201101preview:getManagedDatabaseSensitivityLabel", args ?? new GetManagedDatabaseSensitivityLabelInvokeArgs(), options.WithDefaults());
     }
 
 

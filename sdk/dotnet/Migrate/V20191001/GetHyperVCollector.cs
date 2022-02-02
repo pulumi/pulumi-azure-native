@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate.V20191001
 {
     public static class GetHyperVCollector
     {
         public static Task<GetHyperVCollectorResult> InvokeAsync(GetHyperVCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-native:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHyperVCollectorResult>("azure-native:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorArgs(), options.WithDefaults());
 
         public static Output<GetHyperVCollectorResult> Invoke(GetHyperVCollectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHyperVCollectorResult>("azure-native:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHyperVCollectorResult>("azure-native:migrate/v20191001:getHyperVCollector", args ?? new GetHyperVCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

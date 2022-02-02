@@ -14,9 +14,7 @@ export function getMongoDBResourceMongoUserDefinition(args: GetMongoDBResourceMo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getMongoDBResourceMongoUserDefinition", {
         "accountName": args.accountName,
         "mongoUserDefinitionId": args.mongoUserDefinitionId,

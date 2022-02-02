@@ -13,9 +13,7 @@ export function getPrivateEndpointConnectionsAdtAPI(args: GetPrivateEndpointConn
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsAdtAPI", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,
         "resourceGroupName": args.resourceGroupName,

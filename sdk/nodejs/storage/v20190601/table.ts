@@ -74,9 +74,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:storage:Table" }, { type: "azure-native:storage/v20200801preview:Table" }, { type: "azure-native:storage/v20210101:Table" }, { type: "azure-native:storage/v20210201:Table" }, { type: "azure-native:storage/v20210401:Table" }, { type: "azure-native:storage/v20210601:Table" }, { type: "azure-native:storage/v20210801:Table" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);

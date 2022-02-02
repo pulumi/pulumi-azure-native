@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CostManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CostManagement
         /// API Version: 2018-08-01-preview.
         /// </summary>
         public static Task<GetReportByDepartmentResult> InvokeAsync(GetReportByDepartmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// A report resource.
         /// API Version: 2018-08-01-preview.
         /// </summary>
         public static Output<GetReportByDepartmentResult> Invoke(GetReportByDepartmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReportByDepartmentResult>("azure-native:costmanagement:getReportByDepartment", args ?? new GetReportByDepartmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20161201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20161201
         /// Information about packet capture session.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about packet capture session.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20161201:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
     }
 
 

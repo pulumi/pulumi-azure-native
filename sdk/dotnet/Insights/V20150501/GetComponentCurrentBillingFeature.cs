@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20150501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// An Application Insights component billing features
         /// </summary>
         public static Task<GetComponentCurrentBillingFeatureResult> InvokeAsync(GetComponentCurrentBillingFeatureArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights/v20150501:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetComponentCurrentBillingFeatureResult>("azure-native:insights/v20150501:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Application Insights component billing features
         /// </summary>
         public static Output<GetComponentCurrentBillingFeatureResult> Invoke(GetComponentCurrentBillingFeatureInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetComponentCurrentBillingFeatureResult>("azure-native:insights/v20150501:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetComponentCurrentBillingFeatureResult>("azure-native:insights/v20150501:getComponentCurrentBillingFeature", args ?? new GetComponentCurrentBillingFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -112,9 +112,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);

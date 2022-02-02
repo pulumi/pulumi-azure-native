@@ -15,9 +15,7 @@ export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:blueprint:getArtifact", {
         "artifactName": args.artifactName,
         "blueprintName": args.blueprintName,

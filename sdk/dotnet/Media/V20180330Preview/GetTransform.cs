@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180330Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
         /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
         /// </summary>
         public static Task<GetTransformResult> InvokeAsync(GetTransformArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media/v20180330preview:getTransform", args ?? new GetTransformArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransformResult>("azure-native:media/v20180330preview:getTransform", args ?? new GetTransformArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media/v20180330preview:getTransform", args ?? new GetTransformInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media/v20180330preview:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
     }
 
 

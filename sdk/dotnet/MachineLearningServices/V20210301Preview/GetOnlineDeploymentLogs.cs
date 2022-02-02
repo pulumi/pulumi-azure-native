@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     public static class GetOnlineDeploymentLogs
     {
         public static Task<GetOnlineDeploymentLogsResult> InvokeAsync(GetOnlineDeploymentLogsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsArgs(), options.WithDefaults());
 
         public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20210301preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
     }
 
 

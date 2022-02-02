@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Resources.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Resources.V20210301Preview
         /// Template Spec object.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources/v20210301preview:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources/v20210301preview:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithDefaults());
 
         /// <summary>
         /// Template Spec object.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20210301preview:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20210301preview:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
     }
 
 

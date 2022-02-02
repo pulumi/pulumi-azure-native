@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetSecretValueResult> InvokeAsync(GetSecretValueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
         /// API Version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());
     }
 
 

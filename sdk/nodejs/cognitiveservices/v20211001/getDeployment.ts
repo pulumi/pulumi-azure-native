@@ -13,9 +13,7 @@ export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cognitiveservices/v20211001:getDeployment", {
         "accountName": args.accountName,
         "deploymentName": args.deploymentName,

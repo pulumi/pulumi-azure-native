@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// Virtual Appliance Site resource.
         /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-native:network/v20210201:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-native:network/v20210201:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Appliance Site resource.
         /// </summary>
         public static Output<GetVirtualHubBgpConnectionResult> Invoke(GetVirtualHubBgpConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubBgpConnectionResult>("azure-native:network/v20210201:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubBgpConnectionResult>("azure-native:network/v20210201:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

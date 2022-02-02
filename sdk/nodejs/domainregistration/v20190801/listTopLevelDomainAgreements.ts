@@ -13,9 +13,7 @@ export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsA
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:domainregistration/v20190801:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,
         "includePrivacy": args.includePrivacy,

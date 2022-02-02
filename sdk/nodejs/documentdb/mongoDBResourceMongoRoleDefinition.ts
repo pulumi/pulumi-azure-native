@@ -95,9 +95,7 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
             resourceInputs["roles"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoDBResourceMongoRoleDefinition.__pulumiType, name, resourceInputs, opts);

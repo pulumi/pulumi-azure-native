@@ -12,9 +12,7 @@ export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20200601:getWebAppPremierAddOn", {
         "name": args.name,
         "premierAddOnName": args.premierAddOnName,

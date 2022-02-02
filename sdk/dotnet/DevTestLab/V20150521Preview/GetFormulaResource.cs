@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
         /// A formula.
         /// </summary>
         public static Task<GetFormulaResourceResult> InvokeAsync(GetFormulaResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// A formula.
         /// </summary>
         public static Output<GetFormulaResourceResult> Invoke(GetFormulaResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFormulaResourceResult>("azure-native:devtestlab/v20150521preview:getFormulaResource", args ?? new GetFormulaResourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:notificationhubs/v20170401:getNamespace", {
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,

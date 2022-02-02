@@ -13,9 +13,7 @@ export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCross
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20210501:getExpressRouteCrossConnectionPeering", {
         "crossConnectionName": args.crossConnectionName,
         "peeringName": args.peeringName,

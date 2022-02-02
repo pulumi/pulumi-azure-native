@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
         /// Represents order item contract
         /// </summary>
         public static Task<GetOrderItemByNameResult> InvokeAsync(GetOrderItemByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents order item contract
         /// </summary>
         public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder/v20201201preview:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithDefaults());
     }
 
 

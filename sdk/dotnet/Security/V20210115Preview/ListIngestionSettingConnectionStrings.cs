@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20210115Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20210115Preview
         /// Connection string for ingesting security data and logs
         /// </summary>
         public static Task<ListIngestionSettingConnectionStringsResult> InvokeAsync(ListIngestionSettingConnectionStringsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Connection string for ingesting security data and logs
         /// </summary>
         public static Output<ListIngestionSettingConnectionStringsResult> Invoke(ListIngestionSettingConnectionStringsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListIngestionSettingConnectionStringsResult>("azure-native:security/v20210115preview:listIngestionSettingConnectionStrings", args ?? new ListIngestionSettingConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

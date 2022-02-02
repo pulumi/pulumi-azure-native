@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.HybridNetwork
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkuPreviewResult> InvokeAsync(GetVendorSkuPreviewArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer subscription which can use a sku.
         /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());
     }
 
 

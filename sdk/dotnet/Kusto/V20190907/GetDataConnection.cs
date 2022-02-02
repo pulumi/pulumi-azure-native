@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20190907
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.Kusto.V20190907
         /// Class representing an data connection.
         /// </summary>
         public static Task<GetDataConnectionResult> InvokeAsync(GetDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataConnectionResult>("azure-native:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an data connection.
         /// </summary>
         public static Output<GetDataConnectionResult> Invoke(GetDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataConnectionResult>("azure-native:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataConnectionResult>("azure-native:kusto/v20190907:getDataConnection", args ?? new GetDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

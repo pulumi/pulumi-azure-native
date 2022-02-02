@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200801Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         /// A managed database resource.
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql/v20200801preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql/v20200801preview:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// A managed database resource.
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20200801preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20200801preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

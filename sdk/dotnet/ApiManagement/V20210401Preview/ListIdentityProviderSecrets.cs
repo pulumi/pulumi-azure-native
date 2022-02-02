@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Task<ListIdentityProviderSecretsResult> InvokeAsync(ListIdentityProviderSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20210401preview:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20210401preview:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Client or app secret used in IdentityProviders, Aad, OpenID or OAuth.
         /// </summary>
         public static Output<ListIdentityProviderSecretsResult> Invoke(ListIdentityProviderSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20210401preview:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20210401preview:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

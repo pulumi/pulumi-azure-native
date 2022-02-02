@@ -12,9 +12,7 @@ export function getTagDescription(args: GetTagDescriptionArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180601preview:getTagDescription", {
         "apiId": args.apiId,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceAdministratorResult> InvokeAsync(GetManagedInstanceAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL managed instance administrator.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceAdministratorResult> Invoke(GetManagedInstanceAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAdministratorResult>("azure-native:sql:getManagedInstanceAdministrator", args ?? new GetManagedInstanceAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

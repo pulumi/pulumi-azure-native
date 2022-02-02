@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.PolicyInsights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAttestationAtResourceGroupResult> InvokeAsync(GetAttestationAtResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// An attestation resource.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetAttestationAtResourceGroupResult> Invoke(GetAttestationAtResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceGroupResult>("azure-native:policyinsights:getAttestationAtResourceGroup", args ?? new GetAttestationAtResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

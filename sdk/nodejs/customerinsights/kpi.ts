@@ -199,9 +199,7 @@ export class Kpi extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["unit"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170101:Kpi" }, { type: "azure-native:customerinsights/v20170426:Kpi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Kpi.__pulumiType, name, resourceInputs, opts);

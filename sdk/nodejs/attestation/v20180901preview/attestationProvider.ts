@@ -100,9 +100,7 @@ export class AttestationProvider extends pulumi.CustomResource {
             resourceInputs["trustModel"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:attestation:AttestationProvider" }, { type: "azure-native:attestation/v20201001:AttestationProvider" }, { type: "azure-native:attestation/v20210601preview:AttestationProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationProvider.__pulumiType, name, resourceInputs, opts);

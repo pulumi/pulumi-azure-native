@@ -101,9 +101,7 @@ export class MECRole extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:MECRole" }, { type: "azure-native:databoxedge/v20190701:MECRole" }, { type: "azure-native:databoxedge/v20190801:MECRole" }, { type: "azure-native:databoxedge/v20200501preview:MECRole" }, { type: "azure-native:databoxedge/v20200901:MECRole" }, { type: "azure-native:databoxedge/v20200901preview:MECRole" }, { type: "azure-native:databoxedge/v20201201:MECRole" }, { type: "azure-native:databoxedge/v20210201:MECRole" }, { type: "azure-native:databoxedge/v20210201preview:MECRole" }, { type: "azure-native:databoxedge/v20210601:MECRole" }, { type: "azure-native:databoxedge/v20210601preview:MECRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MECRole.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// The integration account agreement.
         /// </summary>
         public static Task<GetAgreementResult> InvokeAsync(GetAgreementArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementArgs(), options.WithDefaults());
 
         /// <summary>
         /// The integration account agreement.
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
     }
 
 

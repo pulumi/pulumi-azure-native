@@ -92,9 +92,7 @@ export class SiteMetadata extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteMetadata" }, { type: "azure-native:web/v20160801:SiteMetadata" }, { type: "azure-native:web/v20180201:SiteMetadata" }, { type: "azure-native:web/v20181101:SiteMetadata" }, { type: "azure-native:web/v20190801:SiteMetadata" }, { type: "azure-native:web/v20200601:SiteMetadata" }, { type: "azure-native:web/v20200901:SiteMetadata" }, { type: "azure-native:web/v20201001:SiteMetadata" }, { type: "azure-native:web/v20201201:SiteMetadata" }, { type: "azure-native:web/v20210101:SiteMetadata" }, { type: "azure-native:web/v20210115:SiteMetadata" }, { type: "azure-native:web/v20210201:SiteMetadata" }, { type: "azure-native:web/v20210301:SiteMetadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteMetadata.__pulumiType, name, resourceInputs, opts);

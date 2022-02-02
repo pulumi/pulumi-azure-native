@@ -12,9 +12,7 @@ export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storsimple/v20161001:getIscsiDisk", {
         "deviceName": args.deviceName,
         "diskName": args.diskName,

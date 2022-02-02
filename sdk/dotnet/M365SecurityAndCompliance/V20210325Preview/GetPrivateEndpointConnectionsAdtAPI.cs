@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionsAdtAPIResult> InvokeAsync(GetPrivateEndpointConnectionsAdtAPIArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsAdtAPIResult> Invoke(GetPrivateEndpointConnectionsAdtAPIInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsAdtAPIResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsAdtAPI", args ?? new GetPrivateEndpointConnectionsAdtAPIInvokeArgs(), options.WithDefaults());
     }
 
 

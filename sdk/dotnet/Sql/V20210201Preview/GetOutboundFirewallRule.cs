@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
         /// An Azure SQL DB Server Outbound Firewall Rule.
         /// </summary>
         public static Task<GetOutboundFirewallRuleResult> InvokeAsync(GetOutboundFirewallRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetOutboundFirewallRuleResult>("azure-native:sql/v20210201preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetOutboundFirewallRuleResult>("azure-native:sql/v20210201preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL DB Server Outbound Firewall Rule.
         /// </summary>
         public static Output<GetOutboundFirewallRuleResult> Invoke(GetOutboundFirewallRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetOutboundFirewallRuleResult>("azure-native:sql/v20210201preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetOutboundFirewallRuleResult>("azure-native:sql/v20210201preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

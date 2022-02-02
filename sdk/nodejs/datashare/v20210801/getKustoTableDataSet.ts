@@ -13,9 +13,7 @@ export function getKustoTableDataSet(args: GetKustoTableDataSetArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datashare/v20210801:getKustoTableDataSet", {
         "accountName": args.accountName,
         "dataSetName": args.dataSetName,

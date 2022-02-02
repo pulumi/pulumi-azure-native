@@ -90,9 +90,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["routingPolicies"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);

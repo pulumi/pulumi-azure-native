@@ -14,9 +14,7 @@ export function getManagedPrivateEndpoint(args: GetManagedPrivateEndpointArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:datafactory:getManagedPrivateEndpoint", {
         "factoryName": args.factoryName,
         "managedPrivateEndpointName": args.managedPrivateEndpointName,

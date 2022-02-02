@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
         /// Role Addon
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge/v20200901preview:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:databoxedge/v20200901preview:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Role Addon
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:databoxedge/v20200901preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:databoxedge/v20200901preview:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

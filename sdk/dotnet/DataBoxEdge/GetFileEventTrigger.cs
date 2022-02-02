@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetFileEventTriggerResult> InvokeAsync(GetFileEventTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Trigger details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

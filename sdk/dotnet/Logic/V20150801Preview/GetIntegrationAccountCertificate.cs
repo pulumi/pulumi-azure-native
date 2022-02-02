@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
     public static class GetIntegrationAccountCertificate
     {
         public static Task<GetIntegrationAccountCertificateResult> InvokeAsync(GetIntegrationAccountCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountCertificateResult>("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateArgs(), options.WithDefaults());
 
         public static Output<GetIntegrationAccountCertificateResult> Invoke(GetIntegrationAccountCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountCertificateResult>("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountCertificateResult>("azure-native:logic/v20150801preview:getIntegrationAccountCertificate", args ?? new GetIntegrationAccountCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

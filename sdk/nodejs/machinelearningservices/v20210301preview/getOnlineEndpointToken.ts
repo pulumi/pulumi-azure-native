@@ -12,9 +12,7 @@ export function getOnlineEndpointToken(args: GetOnlineEndpointTokenArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:machinelearningservices/v20210301preview:getOnlineEndpointToken", {
         "endpointName": args.endpointName,
         "resourceGroupName": args.resourceGroupName,

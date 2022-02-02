@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
         /// Represents MCAS (Microsoft Cloud App Security) data connector.
         /// </summary>
         public static Task<GetMCASDataConnectorResult> InvokeAsync(GetMCASDataConnectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights/v20210901preview:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMCASDataConnectorResult>("azure-native:securityinsights/v20210901preview:getMCASDataConnector", args ?? new GetMCASDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents MCAS (Microsoft Cloud App Security) data connector.
         /// </summary>
         public static Output<GetMCASDataConnectorResult> Invoke(GetMCASDataConnectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights/v20210901preview:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMCASDataConnectorResult>("azure-native:securityinsights/v20210901preview:getMCASDataConnector", args ?? new GetMCASDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

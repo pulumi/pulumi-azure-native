@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Configuration of Azure web site
         /// </summary>
         public static Task<GetSiteLogsConfigResult> InvokeAsync(GetSiteLogsConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration of Azure web site
         /// </summary>
         public static Output<GetSiteLogsConfigResult> Invoke(GetSiteLogsConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSiteLogsConfigResult>("azure-native:web/v20150801:getSiteLogsConfig", args ?? new GetSiteLogsConfigInvokeArgs(), options.WithDefaults());
     }
 
 

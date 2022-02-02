@@ -123,9 +123,7 @@ export class JobStep extends pulumi.CustomResource {
             resourceInputs["targetGroup"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:JobStep" }, { type: "azure-native:sql/v20200202preview:JobStep" }, { type: "azure-native:sql/v20200801preview:JobStep" }, { type: "azure-native:sql/v20201101preview:JobStep" }, { type: "azure-native:sql/v20210201preview:JobStep" }, { type: "azure-native:sql/v20210501preview:JobStep" }, { type: "azure-native:sql/v20210801preview:JobStep" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobStep.__pulumiType, name, resourceInputs, opts);

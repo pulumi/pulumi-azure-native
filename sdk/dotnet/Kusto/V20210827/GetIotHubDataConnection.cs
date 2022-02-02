@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto.V20210827
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Kusto.V20210827
         /// Class representing an iot hub data connection.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an iot hub data connection.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto/v20210827:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

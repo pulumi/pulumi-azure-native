@@ -98,9 +98,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210201:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210210:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210401:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210601:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210801:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20211001:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20211201:ProtectionIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectionIntent.__pulumiType, name, resourceInputs, opts);

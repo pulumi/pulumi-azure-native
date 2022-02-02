@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetSqlPoolWorkloadClassifierResult> InvokeAsync(GetSqlPoolWorkloadClassifierArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierArgs(), options.WithDefaults());
 
         /// <summary>
         /// Workload classifier operations for a data warehouse
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetSqlPoolWorkloadClassifierResult> Invoke(GetSqlPoolWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSqlPoolWorkloadClassifierResult>("azure-native:synapse:getSqlPoolWorkloadClassifier", args ?? new GetSqlPoolWorkloadClassifierInvokeArgs(), options.WithDefaults());
     }
 
 

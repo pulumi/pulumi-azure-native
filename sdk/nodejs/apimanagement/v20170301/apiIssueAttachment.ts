@@ -104,9 +104,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             resourceInputs["title"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueAttachment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssueAttachment.__pulumiType, name, resourceInputs, opts);

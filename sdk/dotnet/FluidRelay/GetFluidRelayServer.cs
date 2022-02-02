@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.FluidRelay
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.FluidRelay
         /// API Version: 2021-03-12-preview.
         /// </summary>
         public static Task<GetFluidRelayServerResult> InvokeAsync(GetFluidRelayServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A FluidRelay Server.
         /// API Version: 2021-03-12-preview.
         /// </summary>
         public static Output<GetFluidRelayServerResult> Invoke(GetFluidRelayServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerResult>("azure-native:fluidrelay:getFluidRelayServer", args ?? new GetFluidRelayServerInvokeArgs(), options.WithDefaults());
     }
 
 

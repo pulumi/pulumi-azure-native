@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
         /// An Azure SQL instance pool.
         /// </summary>
         public static Task<GetInstancePoolResult> InvokeAsync(GetInstancePoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL instance pool.
         /// </summary>
         public static Output<GetInstancePoolResult> Invoke(GetInstancePoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetInstancePoolResult>("azure-native:sql/v20180601preview:getInstancePool", args ?? new GetInstancePoolInvokeArgs(), options.WithDefaults());
     }
 
 

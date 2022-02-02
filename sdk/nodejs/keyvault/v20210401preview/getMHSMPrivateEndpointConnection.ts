@@ -13,9 +13,7 @@ export function getMHSMPrivateEndpointConnection(args: GetMHSMPrivateEndpointCon
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:keyvault/v20210401preview:getMHSMPrivateEndpointConnection", {
         "name": args.name,
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

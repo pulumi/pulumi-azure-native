@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitPeeringResult> InvokeAsync(GetExpressRouteCircuitPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Peering in an ExpressRouteCircuit resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitPeeringResult> Invoke(GetExpressRouteCircuitPeeringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitPeeringResult>("azure-native:network:getExpressRouteCircuitPeering", args ?? new GetExpressRouteCircuitPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

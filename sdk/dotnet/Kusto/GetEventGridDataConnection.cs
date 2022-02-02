@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Kusto
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetEventGridDataConnectionResult> InvokeAsync(GetEventGridDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an Event Grid data connection.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210101
         /// String list resource.
         /// </summary>
         public static Task<ListStaticSiteConfiguredRolesResult> InvokeAsync(ListStaticSiteConfiguredRolesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210101:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210101:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesArgs(), options.WithDefaults());
 
         /// <summary>
         /// String list resource.
         /// </summary>
         public static Output<ListStaticSiteConfiguredRolesResult> Invoke(ListStaticSiteConfiguredRolesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210101:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteConfiguredRolesResult>("azure-native:web/v20210101:listStaticSiteConfiguredRoles", args ?? new ListStaticSiteConfiguredRolesInvokeArgs(), options.WithDefaults());
     }
 
 

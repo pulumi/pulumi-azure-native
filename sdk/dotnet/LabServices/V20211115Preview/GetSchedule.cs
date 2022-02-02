@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20211115Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20211115Preview
         /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices/v20211115preview:getSchedule", args ?? new GetScheduleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices/v20211115preview:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices/v20211115preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices/v20211115preview:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

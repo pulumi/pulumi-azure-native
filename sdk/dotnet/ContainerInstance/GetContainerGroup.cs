@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerInstance
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// A container group.
         /// API Version: 2021-03-01.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

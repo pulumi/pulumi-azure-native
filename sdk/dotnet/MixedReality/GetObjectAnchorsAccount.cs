@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MixedReality
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.MixedReality
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Task<GetObjectAnchorsAccountResult> InvokeAsync(GetObjectAnchorsAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// ObjectAnchorsAccount Response.
         /// API Version: 2021-03-01-preview.
         /// </summary>
         public static Output<GetObjectAnchorsAccountResult> Invoke(GetObjectAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetObjectAnchorsAccountResult>("azure-native:mixedreality:getObjectAnchorsAccount", args ?? new GetObjectAnchorsAccountInvokeArgs(), options.WithDefaults());
     }
 
 

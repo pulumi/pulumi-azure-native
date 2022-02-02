@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
         /// Issue Comment Contract details.
         /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement/v20170301:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement/v20170301:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Issue Comment Contract details.
         /// </summary>
         public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement/v20170301:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement/v20170301:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cdn.V20200901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// Friendly Secret name mapping to the any Secret or secret related information.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly Secret name mapping to the any Secret or secret related information.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20200901:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

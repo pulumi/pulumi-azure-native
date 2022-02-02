@@ -87,9 +87,7 @@ export class SecurityContact extends pulumi.CustomResource {
             resourceInputs["phone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:SecurityContact" }, { type: "azure-native:security/v20200101preview:SecurityContact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityContact.__pulumiType, name, resourceInputs, opts);

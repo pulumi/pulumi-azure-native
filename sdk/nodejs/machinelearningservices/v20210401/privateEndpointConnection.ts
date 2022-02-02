@@ -121,9 +121,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200101:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200301:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200401:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200601:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200801:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20210101:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection" }, { type: "azure-native:machinelearningservices/v20220101preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);

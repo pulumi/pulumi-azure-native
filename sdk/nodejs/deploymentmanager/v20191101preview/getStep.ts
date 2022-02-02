@@ -13,9 +13,7 @@ export function getStep(args: GetStepArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deploymentmanager/v20191101preview:getStep", {
         "resourceGroupName": args.resourceGroupName,
         "stepName": args.stepName,

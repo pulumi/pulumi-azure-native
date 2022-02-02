@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// Virtual Router Peering resource.
         /// </summary>
         public static Task<GetVirtualRouterPeeringResult> InvokeAsync(GetVirtualRouterPeeringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-native:network/v20210201:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterPeeringResult>("azure-native:network/v20210201:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Virtual Router Peering resource.
         /// </summary>
         public static Output<GetVirtualRouterPeeringResult> Invoke(GetVirtualRouterPeeringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterPeeringResult>("azure-native:network/v20210201:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterPeeringResult>("azure-native:network/v20210201:getVirtualRouterPeering", args ?? new GetVirtualRouterPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

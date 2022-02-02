@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20191201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20191201
         /// Specifies information about the Dedicated host.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute/v20191201:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute/v20191201:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the Dedicated host.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute/v20191201:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute/v20191201:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
     }
 
 

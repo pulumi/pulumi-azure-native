@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EdgeOrder.V20211201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// Address Resource.
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Address Resource.
         /// </summary>
         public static Output<GetAddressByNameResult> Invoke(GetAddressByNameInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder/v20211201:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithDefaults());
     }
 
 

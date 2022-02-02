@@ -13,9 +13,7 @@ export function getMetricsSource(args: GetMetricsSourceArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logz:getMetricsSource", {
         "metricsSourceName": args.metricsSourceName,
         "monitorName": args.monitorName,

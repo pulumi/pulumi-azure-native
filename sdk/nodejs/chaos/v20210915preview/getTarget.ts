@@ -13,9 +13,7 @@ export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:chaos/v20210915preview:getTarget", {
         "parentProviderNamespace": args.parentProviderNamespace,
         "parentResourceName": args.parentResourceName,

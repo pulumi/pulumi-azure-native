@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetApiManagementServiceSsoTokenResult> InvokeAsync(GetApiManagementServiceSsoTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of the GetSsoToken operation.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetApiManagementServiceSsoTokenResult> Invoke(GetApiManagementServiceSsoTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithDefaults());
     }
 
 

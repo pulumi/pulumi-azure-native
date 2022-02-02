@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
         /// An object that represents a webhook for a container registry.
         /// </summary>
         public static Task<GetWebhookResult> InvokeAsync(GetWebhookArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20201101preview:getWebhook", args ?? new GetWebhookArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebhookResult>("azure-native:containerregistry/v20201101preview:getWebhook", args ?? new GetWebhookArgs(), options.WithDefaults());
 
         /// <summary>
         /// An object that represents a webhook for a container registry.
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20201101preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20201101preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

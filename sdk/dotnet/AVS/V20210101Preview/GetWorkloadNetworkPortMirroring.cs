@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         /// NSX Port Mirroring
         /// </summary>
         public static Task<GetWorkloadNetworkPortMirroringResult> InvokeAsync(GetWorkloadNetworkPortMirroringArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX Port Mirroring
         /// </summary>
         public static Output<GetWorkloadNetworkPortMirroringResult> Invoke(GetWorkloadNetworkPortMirroringInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPortMirroringResult>("azure-native:avs/v20210101preview:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringInvokeArgs(), options.WithDefaults());
     }
 
 

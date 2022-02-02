@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security.V20190801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Security.V20190801
         /// IoT Security solution configuration and resource information.
         /// </summary>
         public static Task<GetIotSecuritySolutionResult> InvokeAsync(GetIotSecuritySolutionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// IoT Security solution configuration and resource information.
         /// </summary>
         public static Output<GetIotSecuritySolutionResult> Invoke(GetIotSecuritySolutionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIotSecuritySolutionResult>("azure-native:security/v20190801:getIotSecuritySolution", args ?? new GetIotSecuritySolutionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200601
         /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
         /// </summary>
         public static Task<GetPrivateRecordSetResult> InvokeAsync(GetPrivateRecordSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateRecordSetResult>("azure-native:network/v20200601:getPrivateRecordSet", args ?? new GetPrivateRecordSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateRecordSetResult>("azure-native:network/v20200601:getPrivateRecordSet", args ?? new GetPrivateRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
         /// </summary>
         public static Output<GetPrivateRecordSetResult> Invoke(GetPrivateRecordSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateRecordSetResult>("azure-native:network/v20200601:getPrivateRecordSet", args ?? new GetPrivateRecordSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateRecordSetResult>("azure-native:network/v20200601:getPrivateRecordSet", args ?? new GetPrivateRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

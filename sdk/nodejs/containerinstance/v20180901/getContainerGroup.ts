@@ -13,9 +13,7 @@ export function getContainerGroup(args: GetContainerGroupArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:containerinstance/v20180901:getContainerGroup", {
         "containerGroupName": args.containerGroupName,
         "resourceGroupName": args.resourceGroupName,

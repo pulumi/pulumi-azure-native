@@ -14,9 +14,7 @@ export function listApplianceClusterUserCredential(args: ListApplianceClusterUse
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:resourceconnector:listApplianceClusterUserCredential", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

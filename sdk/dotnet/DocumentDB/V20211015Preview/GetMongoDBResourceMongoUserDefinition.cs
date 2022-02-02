@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
         /// An Azure Cosmos DB User Definition
         /// </summary>
         public static Task<GetMongoDBResourceMongoUserDefinitionResult> InvokeAsync(GetMongoDBResourceMongoUserDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb/v20211015preview:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb/v20211015preview:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB User Definition
         /// </summary>
         public static Output<GetMongoDBResourceMongoUserDefinitionResult> Invoke(GetMongoDBResourceMongoUserDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb/v20211015preview:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMongoDBResourceMongoUserDefinitionResult>("azure-native:documentdb/v20211015preview:getMongoDBResourceMongoUserDefinition", args ?? new GetMongoDBResourceMongoUserDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20211201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20211201
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
         /// </summary>
         public static Task<GetPlacementPolicyResult> InvokeAsync(GetPlacementPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs/v20211201:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs/v20211201:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// A vSphere Distributed Resource Scheduler (DRS) placement policy
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20211201:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20211201:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

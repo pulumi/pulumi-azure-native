@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListWorkflowVersionTriggerCallbackUrlResult> InvokeAsync(ListWorkflowVersionTriggerCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The workflow trigger callback URL.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<ListWorkflowVersionTriggerCallbackUrlResult> Invoke(ListWorkflowVersionTriggerCallbackUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowVersionTriggerCallbackUrlResult>("azure-native:logic:listWorkflowVersionTriggerCallbackUrl", args ?? new ListWorkflowVersionTriggerCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

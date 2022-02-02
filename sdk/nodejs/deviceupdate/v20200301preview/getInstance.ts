@@ -13,9 +13,7 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:deviceupdate/v20200301preview:getInstance", {
         "accountName": args.accountName,
         "instanceName": args.instanceName,

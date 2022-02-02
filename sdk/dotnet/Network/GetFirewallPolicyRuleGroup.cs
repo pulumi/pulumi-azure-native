@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-04-01.
         /// </summary>
         public static Task<GetFirewallPolicyRuleGroupResult> InvokeAsync(GetFirewallPolicyRuleGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFirewallPolicyRuleGroupResult>("azure-native:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Rule Group resource.
         /// API Version: 2020-04-01.
         /// </summary>
         public static Output<GetFirewallPolicyRuleGroupResult> Invoke(GetFirewallPolicyRuleGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleGroupResult>("azure-native:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleGroupResult>("azure-native:network:getFirewallPolicyRuleGroup", args ?? new GetFirewallPolicyRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

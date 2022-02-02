@@ -79,9 +79,7 @@ export class WorkspaceSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:security:WorkspaceSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceSetting.__pulumiType, name, resourceInputs, opts);

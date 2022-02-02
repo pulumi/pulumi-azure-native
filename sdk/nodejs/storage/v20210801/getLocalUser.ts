@@ -13,9 +13,7 @@ export function getLocalUser(args: GetLocalUserArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210801:getLocalUser", {
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,

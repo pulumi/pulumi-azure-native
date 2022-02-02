@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SaaS.V20180301Beta
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SaaS.V20180301Beta
         /// the ISV access token result response.
         /// </summary>
         public static Task<ListSaasResourceAccessTokenResult> InvokeAsync(ListSaasResourceAccessTokenArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// the ISV access token result response.
         /// </summary>
         public static Output<ListSaasResourceAccessTokenResult> Invoke(ListSaasResourceAccessTokenInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSaasResourceAccessTokenResult>("azure-native:saas/v20180301beta:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

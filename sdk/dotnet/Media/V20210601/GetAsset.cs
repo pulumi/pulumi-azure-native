@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// An Asset.
         /// </summary>
         public static Task<GetAssetResult> InvokeAsync(GetAssetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20210601:getAsset", args ?? new GetAssetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetResult>("azure-native:media/v20210601:getAsset", args ?? new GetAssetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Asset.
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20210601:getAsset", args ?? new GetAssetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20210601:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

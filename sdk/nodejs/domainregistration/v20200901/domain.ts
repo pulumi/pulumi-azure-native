@@ -198,9 +198,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["targetDnsType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:Domain" }, { type: "azure-native:domainregistration/v20150401:Domain" }, { type: "azure-native:domainregistration/v20180201:Domain" }, { type: "azure-native:domainregistration/v20190801:Domain" }, { type: "azure-native:domainregistration/v20200601:Domain" }, { type: "azure-native:domainregistration/v20201001:Domain" }, { type: "azure-native:domainregistration/v20201201:Domain" }, { type: "azure-native:domainregistration/v20210101:Domain" }, { type: "azure-native:domainregistration/v20210115:Domain" }, { type: "azure-native:domainregistration/v20210201:Domain" }, { type: "azure-native:domainregistration/v20210301:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);

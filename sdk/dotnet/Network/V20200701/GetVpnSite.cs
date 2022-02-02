@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20200701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20200701
         /// VpnSite Resource.
         /// </summary>
         public static Task<GetVpnSiteResult> InvokeAsync(GetVpnSiteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnSiteResult>("azure-native:network/v20200701:getVpnSite", args ?? new GetVpnSiteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVpnSiteResult>("azure-native:network/v20200701:getVpnSite", args ?? new GetVpnSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnSite Resource.
         /// </summary>
         public static Output<GetVpnSiteResult> Invoke(GetVpnSiteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVpnSiteResult>("azure-native:network/v20200701:getVpnSite", args ?? new GetVpnSiteInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVpnSiteResult>("azure-native:network/v20200701:getVpnSite", args ?? new GetVpnSiteInvokeArgs(), options.WithDefaults());
     }
 
 

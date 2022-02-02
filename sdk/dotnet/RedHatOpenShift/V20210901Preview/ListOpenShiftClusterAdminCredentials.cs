@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20210901Preview
         /// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
         /// </summary>
         public static Task<ListOpenShiftClusterAdminCredentialsResult> InvokeAsync(ListOpenShiftClusterAdminCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
         /// </summary>
         public static Output<ListOpenShiftClusterAdminCredentialsResult> Invoke(ListOpenShiftClusterAdminCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterAdminCredentialsResult>("azure-native:redhatopenshift/v20210901preview:listOpenShiftClusterAdminCredentials", args ?? new ListOpenShiftClusterAdminCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

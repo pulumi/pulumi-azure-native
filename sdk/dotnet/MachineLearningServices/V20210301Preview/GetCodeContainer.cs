@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Task<GetCodeContainerResult> InvokeAsync(GetCodeContainerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// </summary>
         public static Output<GetCodeContainerResult> Invoke(GetCodeContainerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCodeContainerResult>("azure-native:machinelearningservices/v20210301preview:getCodeContainer", args ?? new GetCodeContainerInvokeArgs(), options.WithDefaults());
     }
 
 

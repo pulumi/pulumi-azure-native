@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -18,14 +17,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetAdminRuleResult> InvokeAsync(GetAdminRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Network base admin rule.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

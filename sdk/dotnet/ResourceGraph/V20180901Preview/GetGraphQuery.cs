@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
         /// Graph Query entity definition.
         /// </summary>
         public static Task<GetGraphQueryResult> InvokeAsync(GetGraphQueryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Graph Query entity definition.
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
     }
 
 

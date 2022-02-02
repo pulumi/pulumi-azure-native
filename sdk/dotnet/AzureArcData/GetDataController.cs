@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureArcData
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AzureArcData
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetDataControllerResult> InvokeAsync(GetDataControllerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Data controller resource
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
     }
 
 

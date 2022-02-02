@@ -113,9 +113,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyAssignment" }, { type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20160401:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-native:authorization/v20200901:PolicyAssignment" }, { type: "azure-native:authorization/v20210601:PolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyAssignment.__pulumiType, name, resourceInputs, opts);

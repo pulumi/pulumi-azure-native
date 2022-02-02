@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
         /// Represents the response of a service unit resource.
         /// </summary>
         public static Task<GetServiceUnitResult> InvokeAsync(GetServiceUnitArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager/v20191101preview:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceUnitResult>("azure-native:deploymentmanager/v20191101preview:getServiceUnit", args ?? new GetServiceUnitArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents the response of a service unit resource.
         /// </summary>
         public static Output<GetServiceUnitResult> Invoke(GetServiceUnitInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceUnitResult>("azure-native:deploymentmanager/v20191101preview:getServiceUnit", args ?? new GetServiceUnitInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceUnitResult>("azure-native:deploymentmanager/v20191101preview:getServiceUnit", args ?? new GetServiceUnitInvokeArgs(), options.WithDefaults());
     }
 
 

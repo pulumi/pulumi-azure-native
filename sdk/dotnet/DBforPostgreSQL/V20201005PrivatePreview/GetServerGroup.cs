@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
         /// Represents a server group for create.
         /// </summary>
         public static Task<GetServerGroupResult> InvokeAsync(GetServerGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a server group for create.
         /// </summary>
         public static Output<GetServerGroupResult> Invoke(GetServerGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerGroupResult>("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", args ?? new GetServerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

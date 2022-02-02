@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// The description of the service.
         /// </summary>
         public static Task<GetprivateLinkServicesForM365ComplianceCenterResult> InvokeAsync(GetprivateLinkServicesForM365ComplianceCenterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of the service.
         /// </summary>
         public static Output<GetprivateLinkServicesForM365ComplianceCenterResult> Invoke(GetprivateLinkServicesForM365ComplianceCenterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetprivateLinkServicesForM365ComplianceCenterResult>("azure-native:securityandcompliance/v20210308:getprivateLinkServicesForM365ComplianceCenter", args ?? new GetprivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,9 +13,7 @@ export function getStaticSite(args: GetStaticSiteArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20210301:getStaticSite", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

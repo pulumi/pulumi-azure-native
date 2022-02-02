@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CognitiveServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// API Version: 2021-10-01.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Cognitive Services account commitment plan.
         /// API Version: 2021-10-01.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
     }
 
 

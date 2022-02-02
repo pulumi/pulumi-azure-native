@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// Access policies help define the authentication rules, and control access to specific video resources.
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Access policies help define the authentication rules, and control access to specific video resources.
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:videoanalyzer/v20211101preview:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

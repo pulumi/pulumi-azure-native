@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20160601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// The workflow trigger callback URL.
         /// </summary>
         public static Task<ListPartnerContentCallbackUrlResult> InvokeAsync(ListPartnerContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerContentCallbackUrlResult>("azure-native:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListPartnerContentCallbackUrlResult>("azure-native:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The workflow trigger callback URL.
         /// </summary>
         public static Output<ListPartnerContentCallbackUrlResult> Invoke(ListPartnerContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListPartnerContentCallbackUrlResult>("azure-native:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListPartnerContentCallbackUrlResult>("azure-native:logic/v20160601:listPartnerContentCallbackUrl", args ?? new ListPartnerContentCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

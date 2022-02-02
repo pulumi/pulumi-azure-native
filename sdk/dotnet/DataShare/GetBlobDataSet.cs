@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataShare
         /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetBlobDataSetResult> InvokeAsync(GetBlobDataSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure storage blob data set.
         /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetBlobDataSetResult> Invoke(GetBlobDataSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

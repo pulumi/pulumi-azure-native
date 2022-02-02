@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20210115
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         /// </summary>
         public static Task<GetWebAppSwiftVirtualNetworkConnectionResult> InvokeAsync(GetWebAppSwiftVirtualNetworkConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web/v20210115:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web/v20210115:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
         /// </summary>
         public static Output<GetWebAppSwiftVirtualNetworkConnectionResult> Invoke(GetWebAppSwiftVirtualNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web/v20210115:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebAppSwiftVirtualNetworkConnectionResult>("azure-native:web/v20210115:getWebAppSwiftVirtualNetworkConnection", args ?? new GetWebAppSwiftVirtualNetworkConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

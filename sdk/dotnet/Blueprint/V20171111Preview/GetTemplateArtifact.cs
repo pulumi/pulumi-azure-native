@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
         /// Blueprint artifact deploys Azure resource manager template.
         /// </summary>
         public static Task<GetTemplateArtifactResult> InvokeAsync(GetTemplateArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint/v20171111preview:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint/v20171111preview:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Blueprint artifact deploys Azure resource manager template.
         /// </summary>
         public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint/v20171111preview:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint/v20171111preview:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

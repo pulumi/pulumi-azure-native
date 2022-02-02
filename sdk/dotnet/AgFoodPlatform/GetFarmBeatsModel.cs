@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AgFoodPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Task<GetFarmBeatsModelResult> InvokeAsync(GetFarmBeatsModelArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelArgs(), options.WithDefaults());
 
         /// <summary>
         /// FarmBeats ARM Resource.
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Output<GetFarmBeatsModelResult> Invoke(GetFarmBeatsModelInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetFarmBeatsModelResult>("azure-native:agfoodplatform:getFarmBeatsModel", args ?? new GetFarmBeatsModelInvokeArgs(), options.WithDefaults());
     }
 
 

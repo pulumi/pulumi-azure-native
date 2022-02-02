@@ -13,9 +13,7 @@ export function getBlobInventoryPolicy(args: GetBlobInventoryPolicyArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:storage/v20210101:getBlobInventoryPolicy", {
         "accountName": args.accountName,
         "blobInventoryPolicyName": args.blobInventoryPolicyName,

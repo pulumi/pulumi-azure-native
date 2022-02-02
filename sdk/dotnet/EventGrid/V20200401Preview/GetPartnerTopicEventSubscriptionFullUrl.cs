@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventGrid.V20200401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Task<GetPartnerTopicEventSubscriptionFullUrlResult> InvokeAsync(GetPartnerTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20200401preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20200401preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Full endpoint url of an event subscription
         /// </summary>
         public static Output<GetPartnerTopicEventSubscriptionFullUrlResult> Invoke(GetPartnerTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20200401preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPartnerTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid/v20200401preview:getPartnerTopicEventSubscriptionFullUrl", args ?? new GetPartnerTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());
     }
 
 

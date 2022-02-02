@@ -13,9 +13,7 @@ export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:connectedvmwarevsphere/v20201001preview:getGuestAgent", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

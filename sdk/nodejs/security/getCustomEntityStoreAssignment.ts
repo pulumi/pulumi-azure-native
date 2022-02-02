@@ -14,9 +14,7 @@ export function getCustomEntityStoreAssignment(args: GetCustomEntityStoreAssignm
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:security:getCustomEntityStoreAssignment", {
         "customEntityStoreAssignmentName": args.customEntityStoreAssignmentName,
         "resourceGroupName": args.resourceGroupName,

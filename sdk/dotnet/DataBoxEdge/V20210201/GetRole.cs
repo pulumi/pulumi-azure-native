@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// Compute role.
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge/v20210201:getRole", args ?? new GetRoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("azure-native:databoxedge/v20210201:getRole", args ?? new GetRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Compute role.
         /// </summary>
         public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:databoxedge/v20210201:getRole", args ?? new GetRoleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("azure-native:databoxedge/v20210201:getRole", args ?? new GetRoleInvokeArgs(), options.WithDefaults());
     }
 
 

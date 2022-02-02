@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20210101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20210101
         /// Properties of the table, including Id, resource name, resource type.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210101:getTable", args ?? new GetTableArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage/v20210101:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Properties of the table, including Id, resource name, resource type.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20210101:getTable", args ?? new GetTableInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20210101:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

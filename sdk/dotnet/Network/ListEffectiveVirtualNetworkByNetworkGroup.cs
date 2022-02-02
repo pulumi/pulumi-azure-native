@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<ListEffectiveVirtualNetworkByNetworkGroupResult> InvokeAsync(ListEffectiveVirtualNetworkByNetworkGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Result of the request to list Effective Virtual Network. It contains a list of groups and a URL link to get the next set of results.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<ListEffectiveVirtualNetworkByNetworkGroupResult> Invoke(ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkGroupResult>("azure-native:network:listEffectiveVirtualNetworkByNetworkGroup", args ?? new ListEffectiveVirtualNetworkByNetworkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

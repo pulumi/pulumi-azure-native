@@ -114,9 +114,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceArmPath"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210309preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210401preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210712:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210903preview:ApplicationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);

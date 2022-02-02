@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DocumentDB
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DocumentDB
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetGraphResourceGraphResult> InvokeAsync(GetGraphResourceGraphArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure Cosmos DB Graph resource.
         /// API Version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());
     }
 
 

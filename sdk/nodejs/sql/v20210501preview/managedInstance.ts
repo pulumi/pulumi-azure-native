@@ -241,9 +241,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["vCores"] = undefined /*out*/;
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstance" }, { type: "azure-native:sql/v20150501preview:ManagedInstance" }, { type: "azure-native:sql/v20180601preview:ManagedInstance" }, { type: "azure-native:sql/v20200202preview:ManagedInstance" }, { type: "azure-native:sql/v20200801preview:ManagedInstance" }, { type: "azure-native:sql/v20201101preview:ManagedInstance" }, { type: "azure-native:sql/v20210201preview:ManagedInstance" }, { type: "azure-native:sql/v20210801preview:ManagedInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstance.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Network
         /// API Version: 2020-11-01.
         /// </summary>
         public static Task<GetPublicIPPrefixResult> InvokeAsync(GetPublicIPPrefixArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Public IP prefix resource.
         /// API Version: 2020-11-01.
         /// </summary>
         public static Output<GetPublicIPPrefixResult> Invoke(GetPublicIPPrefixInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIPPrefixResult>("azure-native:network:getPublicIPPrefix", args ?? new GetPublicIPPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

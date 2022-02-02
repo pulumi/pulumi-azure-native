@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<ListKustoPoolLanguageExtensionsResult> InvokeAsync(ListKustoPoolLanguageExtensionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The list of language extension objects.
         /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Output<ListKustoPoolLanguageExtensionsResult> Invoke(ListKustoPoolLanguageExtensionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListKustoPoolLanguageExtensionsResult>("azure-native:synapse:listKustoPoolLanguageExtensions", args ?? new ListKustoPoolLanguageExtensionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Cache
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Cache
         /// API Version: 2020-06-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response to put/get linked server (with properties) for Redis cache.
         /// API Version: 2020-06-01.
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());
     }
 
 

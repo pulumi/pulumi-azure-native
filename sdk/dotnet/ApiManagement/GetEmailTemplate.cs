@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetEmailTemplateResult> InvokeAsync(GetEmailTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Email Template details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

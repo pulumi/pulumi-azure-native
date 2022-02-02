@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20180701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20180701
         /// Class of response for listContentKeys action
         /// </summary>
         public static Task<ListStreamingLocatorContentKeysResult> InvokeAsync(ListStreamingLocatorContentKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-native:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStreamingLocatorContentKeysResult>("azure-native:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class of response for listContentKeys action
         /// </summary>
         public static Output<ListStreamingLocatorContentKeysResult> Invoke(ListStreamingLocatorContentKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorContentKeysResult>("azure-native:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStreamingLocatorContentKeysResult>("azure-native:media/v20180701:listStreamingLocatorContentKeys", args ?? new ListStreamingLocatorContentKeysInvokeArgs(), options.WithDefaults());
     }
 
 

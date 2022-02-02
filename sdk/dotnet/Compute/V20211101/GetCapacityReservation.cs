@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Compute.V20211101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Compute.V20211101
         /// Specifies information about the capacity reservation.
         /// </summary>
         public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute/v20211101:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute/v20211101:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies information about the capacity reservation.
         /// </summary>
         public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute/v20211101:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute/v20211101:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
     }
 
 

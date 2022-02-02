@@ -13,9 +13,7 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:authorization/v20180101preview:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,

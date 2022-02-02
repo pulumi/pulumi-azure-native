@@ -13,9 +13,7 @@ export function listTopicSharedAccessKeys(args: ListTopicSharedAccessKeysArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid:listTopicSharedAccessKeys", {
         "resourceGroupName": args.resourceGroupName,
         "topicName": args.topicName,

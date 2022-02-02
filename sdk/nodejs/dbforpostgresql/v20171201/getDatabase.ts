@@ -12,9 +12,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20171201:getDatabase", {
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,

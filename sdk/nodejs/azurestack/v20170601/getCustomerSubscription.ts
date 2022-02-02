@@ -12,9 +12,7 @@ export function getCustomerSubscription(args: GetCustomerSubscriptionArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azurestack/v20170601:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,
         "registrationName": args.registrationName,

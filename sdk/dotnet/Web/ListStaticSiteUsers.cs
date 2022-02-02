@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Web
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<ListStaticSiteUsersResult> InvokeAsync(ListStaticSiteUsersArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Collection of static site custom users.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<ListStaticSiteUsersResult> Invoke(ListStaticSiteUsersInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListStaticSiteUsersResult>("azure-native:web:listStaticSiteUsers", args ?? new ListStaticSiteUsersInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,9 +12,7 @@ export function listSiteAuthSettingsSlot(args: ListSiteAuthSettingsSlotArgs, opt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20150801:listSiteAuthSettingsSlot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

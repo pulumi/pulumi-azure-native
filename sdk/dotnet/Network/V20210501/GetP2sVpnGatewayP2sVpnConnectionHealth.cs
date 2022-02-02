@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210501
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// P2SVpnGateway Resource.
         /// </summary>
         public static Task<GetP2sVpnGatewayP2sVpnConnectionHealthResult> InvokeAsync(GetP2sVpnGatewayP2sVpnConnectionHealthArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network/v20210501:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network/v20210501:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthArgs(), options.WithDefaults());
 
         /// <summary>
         /// P2SVpnGateway Resource.
         /// </summary>
         public static Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> Invoke(GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network/v20210501:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayP2sVpnConnectionHealthResult>("azure-native:network/v20210501:getP2sVpnGatewayP2sVpnConnectionHealth", args ?? new GetP2sVpnGatewayP2sVpnConnectionHealthInvokeArgs(), options.WithDefaults());
     }
 
 

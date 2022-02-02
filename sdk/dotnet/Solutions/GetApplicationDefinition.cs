@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Solutions
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Solutions
         /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Information about managed application definition.
         /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

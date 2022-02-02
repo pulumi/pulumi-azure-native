@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Represents Threat Intelligence alert rule.
         /// </summary>
         public static Task<GetThreatIntelligenceAlertRuleResult> InvokeAsync(GetThreatIntelligenceAlertRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents Threat Intelligence alert rule.
         /// </summary>
         public static Output<GetThreatIntelligenceAlertRuleResult> Invoke(GetThreatIntelligenceAlertRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20190101preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

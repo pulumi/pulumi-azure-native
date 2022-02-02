@@ -12,9 +12,7 @@ export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.Invok
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:cache/v20210801:listDatabaseKeys", {
         "clusterName": args.clusterName,
         "databaseName": args.databaseName,

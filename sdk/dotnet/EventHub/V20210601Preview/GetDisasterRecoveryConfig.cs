@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.EventHub.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         /// Single item in List or Get Alias(Disaster Recovery configuration) operation
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20210601preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20210601preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Single item in List or Get Alias(Disaster Recovery configuration) operation
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20210601preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:eventhub/v20210601preview:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
     }
 
 

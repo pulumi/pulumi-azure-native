@@ -13,9 +13,7 @@ export function getManagementConfiguration(args: GetManagementConfigurationArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,
         "resourceGroupName": args.resourceGroupName,

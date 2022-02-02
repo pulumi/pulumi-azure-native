@@ -120,9 +120,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["users"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseAccountSqlDatabase.__pulumiType, name, resourceInputs, opts);

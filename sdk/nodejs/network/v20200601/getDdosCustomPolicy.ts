@@ -13,9 +13,7 @@ export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network/v20200601:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,
         "resourceGroupName": args.resourceGroupName,

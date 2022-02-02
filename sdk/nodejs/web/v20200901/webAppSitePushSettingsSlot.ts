@@ -114,9 +114,7 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
             resourceInputs["tagsRequiringAuth"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20160801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20180201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20181101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20190801:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20200601:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201001:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20201201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210101:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210115:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210201:WebAppSitePushSettingsSlot" }, { type: "azure-native:web/v20210301:WebAppSitePushSettingsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitePushSettingsSlot.__pulumiType, name, resourceInputs, opts);

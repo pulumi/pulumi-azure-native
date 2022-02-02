@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Web.V20150801
         /// Backup description
         /// </summary>
         public static Task<ListSiteBackupStatusSecretsSlotResult> InvokeAsync(ListSiteBackupStatusSecretsSlotArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Backup description
         /// </summary>
         public static Output<ListSiteBackupStatusSecretsSlotResult> Invoke(ListSiteBackupStatusSecretsSlotInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSiteBackupStatusSecretsSlotResult>("azure-native:web/v20150801:listSiteBackupStatusSecretsSlot", args ?? new ListSiteBackupStatusSecretsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

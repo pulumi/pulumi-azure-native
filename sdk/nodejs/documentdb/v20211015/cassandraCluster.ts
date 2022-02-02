@@ -90,9 +90,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:CassandraCluster" }, { type: "azure-native:documentdb/v20210301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210401preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210701preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211015preview:CassandraCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraCluster.__pulumiType, name, resourceInputs, opts);

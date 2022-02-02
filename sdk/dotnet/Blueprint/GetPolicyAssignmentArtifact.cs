@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blueprint
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetPolicyAssignmentArtifactResult> InvokeAsync(GetPolicyAssignmentArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Blueprint artifact that applies a Policy assignment.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

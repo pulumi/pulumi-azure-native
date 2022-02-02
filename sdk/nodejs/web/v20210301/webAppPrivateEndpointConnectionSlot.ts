@@ -100,9 +100,7 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPrivateEndpointConnectionSlot.__pulumiType, name, resourceInputs, opts);

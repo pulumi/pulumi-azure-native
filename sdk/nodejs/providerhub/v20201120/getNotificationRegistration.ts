@@ -13,9 +13,7 @@ export function getNotificationRegistration(args: GetNotificationRegistrationArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:providerhub/v20201120:getNotificationRegistration", {
         "notificationRegistrationName": args.notificationRegistrationName,
         "providerNamespace": args.providerNamespace,

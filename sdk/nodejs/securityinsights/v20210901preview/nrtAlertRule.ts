@@ -194,9 +194,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
             resourceInputs["templateVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NrtAlertRule.__pulumiType, name, resourceInputs, opts);

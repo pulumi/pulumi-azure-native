@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights.V20200210Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Insights.V20200210Preview
         /// Test result.
         /// </summary>
         public static Task<GetTestResultFileResult> InvokeAsync(GetTestResultFileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Test result.
         /// </summary>
         public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AgFoodPlatform
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Extension resource.
         /// API Version: 2020-05-12-preview.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:agfoodplatform:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

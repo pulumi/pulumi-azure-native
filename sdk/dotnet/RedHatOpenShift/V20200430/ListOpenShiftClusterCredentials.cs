@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
         /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// OpenShiftClusterCredentials represents an OpenShift cluster's credentials
         /// </summary>
         public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift/v20200430:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

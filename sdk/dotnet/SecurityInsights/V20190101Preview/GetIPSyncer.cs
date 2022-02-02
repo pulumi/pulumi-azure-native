@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// Settings with single toggle.
         /// </summary>
         public static Task<GetIPSyncerResult> InvokeAsync(GetIPSyncerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings with single toggle.
         /// </summary>
         public static Output<GetIPSyncerResult> Invoke(GetIPSyncerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());
     }
 
 

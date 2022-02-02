@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.LabServices.V20181015
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// The response model from the GetRegionalAvailability action
         /// </summary>
         public static Task<GetLabAccountRegionalAvailabilityResult> InvokeAsync(GetLabAccountRegionalAvailabilityArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response model from the GetRegionalAvailability action
         /// </summary>
         public static Output<GetLabAccountRegionalAvailabilityResult> Invoke(GetLabAccountRegionalAvailabilityInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLabAccountRegionalAvailabilityResult>("azure-native:labservices/v20181015:getLabAccountRegionalAvailability", args ?? new GetLabAccountRegionalAvailabilityInvokeArgs(), options.WithDefaults());
     }
 
 

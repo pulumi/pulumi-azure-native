@@ -14,9 +14,7 @@ export function getIpAllocation(args: GetIpAllocationArgs, opts?: pulumi.InvokeO
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getIpAllocation", {
         "expand": args.expand,
         "ipAllocationName": args.ipAllocationName,

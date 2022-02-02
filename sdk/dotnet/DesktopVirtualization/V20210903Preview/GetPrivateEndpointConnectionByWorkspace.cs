@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByWorkspaceResult> InvokeAsync(GetPrivateEndpointConnectionByWorkspaceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization/v20210903preview:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

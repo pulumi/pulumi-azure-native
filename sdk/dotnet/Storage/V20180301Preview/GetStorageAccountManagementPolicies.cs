@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20180301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Task<GetStorageAccountManagementPoliciesResult> InvokeAsync(GetStorageAccountManagementPoliciesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountManagementPoliciesResult>("azure-native:storage/v20180301preview:getStorageAccountManagementPolicies", args ?? new GetStorageAccountManagementPoliciesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountManagementPoliciesResult>("azure-native:storage/v20180301preview:getStorageAccountManagementPolicies", args ?? new GetStorageAccountManagementPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Output<GetStorageAccountManagementPoliciesResult> Invoke(GetStorageAccountManagementPoliciesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountManagementPoliciesResult>("azure-native:storage/v20180301preview:getStorageAccountManagementPolicies", args ?? new GetStorageAccountManagementPoliciesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageAccountManagementPoliciesResult>("azure-native:storage/v20180301preview:getStorageAccountManagementPolicies", args ?? new GetStorageAccountManagementPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

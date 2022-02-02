@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AVS
         /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetWorkloadNetworkPublicIPResult> InvokeAsync(GetWorkloadNetworkPublicIPArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithDefaults());
 
         /// <summary>
         /// NSX Public IP Block
         /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.RecoveryServices
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// API Version: 2018-07-10.
         /// </summary>
         public static Task<GetReplicationRecoveryServicesProviderResult> InvokeAsync(GetReplicationRecoveryServicesProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provider details.
         /// API Version: 2018-07-10.
         /// </summary>
         public static Output<GetReplicationRecoveryServicesProviderResult> Invoke(GetReplicationRecoveryServicesProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderInvokeArgs(), options.WithDefaults());
     }
 
 

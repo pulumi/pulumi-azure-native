@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforMySQL
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// A virtual network rule.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformysql:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
     }
 
 

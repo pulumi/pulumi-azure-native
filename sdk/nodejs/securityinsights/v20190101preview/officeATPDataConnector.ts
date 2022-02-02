@@ -105,9 +105,7 @@ export class OfficeATPDataConnector extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeATPDataConnector.__pulumiType, name, resourceInputs, opts);

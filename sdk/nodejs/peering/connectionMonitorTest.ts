@@ -112,9 +112,7 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
             resourceInputs["testFrequencyInSec"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210601:ConnectionMonitorTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectionMonitorTest.__pulumiType, name, resourceInputs, opts);

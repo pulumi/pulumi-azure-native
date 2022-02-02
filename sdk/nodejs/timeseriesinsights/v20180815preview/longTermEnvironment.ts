@@ -151,9 +151,7 @@ export class LongTermEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["warmStoreConfiguration"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20171115:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20200515:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LongTermEnvironment.__pulumiType, name, resourceInputs, opts);

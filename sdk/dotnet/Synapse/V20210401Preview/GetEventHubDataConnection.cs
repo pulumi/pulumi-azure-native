@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// Class representing an event hub data connection.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:synapse/v20210401preview:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:synapse/v20210401preview:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an event hub data connection.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:synapse/v20210401preview:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:synapse/v20210401preview:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

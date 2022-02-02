@@ -13,9 +13,7 @@ export function getGeoBackupPolicy(args: GetGeoBackupPolicyArgs, opts?: pulumi.I
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql:getGeoBackupPolicy", {
         "databaseName": args.databaseName,
         "geoBackupPolicyName": args.geoBackupPolicyName,

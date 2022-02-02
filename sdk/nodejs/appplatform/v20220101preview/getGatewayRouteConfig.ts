@@ -13,9 +13,7 @@ export function getGatewayRouteConfig(args: GetGatewayRouteConfigArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:appplatform/v20220101preview:getGatewayRouteConfig", {
         "gatewayName": args.gatewayName,
         "resourceGroupName": args.resourceGroupName,

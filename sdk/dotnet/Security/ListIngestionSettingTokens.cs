@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Security
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Security
         /// API Version: 2021-01-15-preview.
         /// </summary>
         public static Task<ListIngestionSettingTokensResult> InvokeAsync(ListIngestionSettingTokensArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configures how to correlate scan data and logs with resources associated with the subscription.
         /// API Version: 2021-01-15-preview.
         /// </summary>
         public static Output<ListIngestionSettingTokensResult> Invoke(ListIngestionSettingTokensInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensInvokeArgs(), options.WithDefaults());
     }
 
 

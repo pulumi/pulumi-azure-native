@@ -12,9 +12,7 @@ export function listWebAppSyncFunctionTriggers(args: ListWebAppSyncFunctionTrigg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:web/v20201201:listWebAppSyncFunctionTriggers", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

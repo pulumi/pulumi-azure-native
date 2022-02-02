@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// Server communication link.
         /// </summary>
         public static Task<GetServerCommunicationLinkResult> InvokeAsync(GetServerCommunicationLinkArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Server communication link.
         /// </summary>
         public static Output<GetServerCommunicationLinkResult> Invoke(GetServerCommunicationLinkInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerCommunicationLinkResult>("azure-native:sql/v20140401:getServerCommunicationLink", args ?? new GetServerCommunicationLinkInvokeArgs(), options.WithDefaults());
     }
 
 

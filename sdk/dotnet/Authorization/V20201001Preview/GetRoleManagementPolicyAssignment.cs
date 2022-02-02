@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Authorization.V20201001Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
         /// Role management policy
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Role management policy
         /// </summary>
         public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

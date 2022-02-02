@@ -13,9 +13,7 @@ export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:attestation/v20201001:getAttestationProvider", {
         "providerName": args.providerName,
         "resourceGroupName": args.resourceGroupName,

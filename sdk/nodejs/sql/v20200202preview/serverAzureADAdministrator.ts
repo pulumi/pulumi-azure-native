@@ -109,9 +109,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20200801preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20201101preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20210201preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20210501preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20210801preview:ServerAzureADAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerAzureADAdministrator.__pulumiType, name, resourceInputs, opts);

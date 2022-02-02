@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic.V20180701Preview
 {
     public static class ListWorkflowRunActionExpressionTraces
     {
         public static Task<ListWorkflowRunActionExpressionTracesResult> InvokeAsync(ListWorkflowRunActionExpressionTracesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesArgs(), options.WithDefaults());
 
         public static Output<ListWorkflowRunActionExpressionTracesResult> Invoke(ListWorkflowRunActionExpressionTracesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListWorkflowRunActionExpressionTracesResult>("azure-native:logic/v20180701preview:listWorkflowRunActionExpressionTraces", args ?? new ListWorkflowRunActionExpressionTracesInvokeArgs(), options.WithDefaults());
     }
 
 

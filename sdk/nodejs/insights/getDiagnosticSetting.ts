@@ -14,9 +14,7 @@ export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights:getDiagnosticSetting", {
         "name": args.name,
         "resourceUri": args.resourceUri,

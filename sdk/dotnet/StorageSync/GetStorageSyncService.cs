@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorageSync
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.StorageSync
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetStorageSyncServiceResult> InvokeAsync(GetStorageSyncServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Storage Sync Service object.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<GetStorageSyncServiceResult> Invoke(GetStorageSyncServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetStorageSyncServiceResult>("azure-native:storagesync:getStorageSyncService", args ?? new GetStorageSyncServiceInvokeArgs(), options.WithDefaults());
     }
 
 

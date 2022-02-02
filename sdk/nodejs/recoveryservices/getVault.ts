@@ -14,9 +14,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices:getVault", {
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,

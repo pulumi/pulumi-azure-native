@@ -175,9 +175,7 @@ export class MetricAlert extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["windowSize"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180301:MetricAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MetricAlert.__pulumiType, name, resourceInputs, opts);

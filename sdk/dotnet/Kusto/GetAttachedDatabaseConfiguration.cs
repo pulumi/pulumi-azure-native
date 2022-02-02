@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Kusto
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Kusto
         /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing an attached database configuration.
         /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

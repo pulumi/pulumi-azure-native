@@ -10,9 +10,7 @@ export function getIntegrationAccountAgreement(args: GetIntegrationAccountAgreem
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:logic/v20150801preview:getIntegrationAccountAgreement", {
         "agreementName": args.agreementName,
         "integrationAccountName": args.integrationAccountName,

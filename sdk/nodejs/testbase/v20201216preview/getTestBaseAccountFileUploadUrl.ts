@@ -12,9 +12,7 @@ export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUplo
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:testbase/v20201216preview:getTestBaseAccountFileUploadUrl", {
         "blobName": args.blobName,
         "resourceGroupName": args.resourceGroupName,

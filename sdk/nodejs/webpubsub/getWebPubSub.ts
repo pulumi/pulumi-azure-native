@@ -14,9 +14,7 @@ export function getWebPubSub(args: GetWebPubSubArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:webpubsub:getWebPubSub", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

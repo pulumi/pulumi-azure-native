@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
         /// Gateway authentication keys.
         /// </summary>
         public static Task<ListGatewayKeysResult> InvokeAsync(ListGatewayKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement/v20201201:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListGatewayKeysResult>("azure-native:apimanagement/v20201201:listGatewayKeys", args ?? new ListGatewayKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gateway authentication keys.
         /// </summary>
         public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement/v20201201:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement/v20201201:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());
     }
 
 

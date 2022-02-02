@@ -128,9 +128,7 @@ export class PolicyResource extends pulumi.CustomResource {
             resourceInputs["threshold"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:PolicyResource" }, { type: "azure-native:devtestlab/v20160515:PolicyResource" }, { type: "azure-native:devtestlab/v20180915:PolicyResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyResource.__pulumiType, name, resourceInputs, opts);

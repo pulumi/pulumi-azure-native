@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// Property details.
         /// </summary>
         public static Task<GetPropertyResult> InvokeAsync(GetPropertyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Property details.
         /// </summary>
         public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
     }
 
 

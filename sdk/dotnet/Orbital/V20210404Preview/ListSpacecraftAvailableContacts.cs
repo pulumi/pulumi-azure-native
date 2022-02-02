@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Orbital.V20210404Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// Response for the ListAvailableContacts API service call.
         /// </summary>
         public static Task<ListSpacecraftAvailableContactsResult> InvokeAsync(ListSpacecraftAvailableContactsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
         /// </summary>
         public static Output<ListSpacecraftAvailableContactsResult> Invoke(ListSpacecraftAvailableContactsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital/v20210404preview:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithDefaults());
     }
 
 

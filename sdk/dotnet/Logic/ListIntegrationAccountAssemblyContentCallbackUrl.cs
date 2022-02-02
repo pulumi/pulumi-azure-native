@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Logic
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Logic
         /// API Version: 2019-05-01.
         /// </summary>
         public static Task<ListIntegrationAccountAssemblyContentCallbackUrlResult> InvokeAsync(ListIntegrationAccountAssemblyContentCallbackUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The workflow trigger callback URL.
         /// API Version: 2019-05-01.
         /// </summary>
         public static Output<ListIntegrationAccountAssemblyContentCallbackUrlResult> Invoke(ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountAssemblyContentCallbackUrlResult>("azure-native:logic:listIntegrationAccountAssemblyContentCallbackUrl", args ?? new ListIntegrationAccountAssemblyContentCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

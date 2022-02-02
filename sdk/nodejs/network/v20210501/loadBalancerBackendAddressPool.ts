@@ -131,9 +131,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["tunnelInterfaces"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200401:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200501:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200601:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200701:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20200801:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20201101:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210201:LoadBalancerBackendAddressPool" }, { type: "azure-native:network/v20210301:LoadBalancerBackendAddressPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadBalancerBackendAddressPool.__pulumiType, name, resourceInputs, opts);

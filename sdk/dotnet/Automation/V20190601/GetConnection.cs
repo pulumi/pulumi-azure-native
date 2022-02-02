@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Automation.V20190601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Automation.V20190601
         /// Definition of the connection.
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:automation/v20190601:getConnection", args ?? new GetConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:automation/v20190601:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of the connection.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:automation/v20190601:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:automation/v20190601:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

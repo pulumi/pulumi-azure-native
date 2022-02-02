@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210201
         /// ExpressRouteConnection resource.
         /// </summary>
         public static Task<GetExpressRouteConnectionResult> InvokeAsync(GetExpressRouteConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-native:network/v20210201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteConnectionResult>("azure-native:network/v20210201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRouteConnection resource.
         /// </summary>
         public static Output<GetExpressRouteConnectionResult> Invoke(GetExpressRouteConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteConnectionResult>("azure-native:network/v20210201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetExpressRouteConnectionResult>("azure-native:network/v20210201:getExpressRouteConnection", args ?? new GetExpressRouteConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

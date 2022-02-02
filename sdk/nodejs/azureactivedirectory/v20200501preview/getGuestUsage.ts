@@ -12,9 +12,7 @@ export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20200501preview:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,

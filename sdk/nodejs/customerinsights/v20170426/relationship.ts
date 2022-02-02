@@ -147,9 +147,7 @@ export class Relationship extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Relationship" }, { type: "azure-native:customerinsights/v20170101:Relationship" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Relationship.__pulumiType, name, resourceInputs, opts);

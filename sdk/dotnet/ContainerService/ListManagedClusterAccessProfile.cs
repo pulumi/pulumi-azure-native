@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ContainerService
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ContainerService
         /// API Version: 2020-03-01.
         /// </summary>
         public static Task<ListManagedClusterAccessProfileResult> InvokeAsync(ListManagedClusterAccessProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Managed cluster Access Profile.
         /// API Version: 2020-03-01.
         /// </summary>
         public static Output<ListManagedClusterAccessProfileResult> Invoke(ListManagedClusterAccessProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithDefaults());
     }
 
 

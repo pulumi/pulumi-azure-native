@@ -133,9 +133,7 @@ export class BuildTask extends pulumi.CustomResource {
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:BuildTask" }, { type: "azure-native:containerregistry/v20180901:BuildTask" }, { type: "azure-native:containerregistry/v20190401:BuildTask" }, { type: "azure-native:containerregistry/v20190601preview:BuildTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildTask.__pulumiType, name, resourceInputs, opts);

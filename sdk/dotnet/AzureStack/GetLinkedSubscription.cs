@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AzureStack
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.AzureStack
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Task<GetLinkedSubscriptionResult> InvokeAsync(GetLinkedSubscriptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Linked Subscription information.
         /// API Version: 2020-06-01-preview.
         /// </summary>
         public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

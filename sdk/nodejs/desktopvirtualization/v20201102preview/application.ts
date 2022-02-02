@@ -151,9 +151,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["showInPortal"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:Application" }, { type: "azure-native:desktopvirtualization/v20190123preview:Application" }, { type: "azure-native:desktopvirtualization/v20190924preview:Application" }, { type: "azure-native:desktopvirtualization/v20191210preview:Application" }, { type: "azure-native:desktopvirtualization/v20200921preview:Application" }, { type: "azure-native:desktopvirtualization/v20201019preview:Application" }, { type: "azure-native:desktopvirtualization/v20201110preview:Application" }, { type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210309preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20210712:Application" }, { type: "azure-native:desktopvirtualization/v20210903preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);

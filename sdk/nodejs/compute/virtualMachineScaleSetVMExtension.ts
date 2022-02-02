@@ -129,9 +129,7 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension" }, { type: "azure-native:compute/v20211101:VirtualMachineScaleSetVMExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineScaleSetVMExtension.__pulumiType, name, resourceInputs, opts);

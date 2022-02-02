@@ -144,9 +144,7 @@ export class Host extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
             resourceInputs["vCenterId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:Host" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Host.__pulumiType, name, resourceInputs, opts);

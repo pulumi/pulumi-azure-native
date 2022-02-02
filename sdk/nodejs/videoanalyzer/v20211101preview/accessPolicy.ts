@@ -88,9 +88,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:AccessPolicy" }, { type: "azure-native:videoanalyzer/v20210501preview:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// API Version: 2017-12-01.
         /// </summary>
         public static Task<GetServerAdministratorResult> InvokeAsync(GetServerAdministratorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServerAdministratorResult>("azure-native:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a and external administrator to be created.
         /// API Version: 2017-12-01.
         /// </summary>
         public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbforpostgresql:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

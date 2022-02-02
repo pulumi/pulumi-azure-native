@@ -183,9 +183,7 @@ export class ProductApi extends pulumi.CustomResource {
             resourceInputs["subscriptionRequired"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ProductApi" }, { type: "azure-native:apimanagement/v20180101:ProductApi" }, { type: "azure-native:apimanagement/v20180601preview:ProductApi" }, { type: "azure-native:apimanagement/v20190101:ProductApi" }, { type: "azure-native:apimanagement/v20191201:ProductApi" }, { type: "azure-native:apimanagement/v20191201preview:ProductApi" }, { type: "azure-native:apimanagement/v20200601preview:ProductApi" }, { type: "azure-native:apimanagement/v20201201:ProductApi" }, { type: "azure-native:apimanagement/v20210101preview:ProductApi" }, { type: "azure-native:apimanagement/v20210401preview:ProductApi" }, { type: "azure-native:apimanagement/v20210801:ProductApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductApi.__pulumiType, name, resourceInputs, opts);

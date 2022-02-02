@@ -13,9 +13,7 @@ export function listClusterLanguageExtensions(args: ListClusterLanguageExtension
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:kusto/v20200215:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201
         /// MEC role.
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge/v20210201:getMECRole", args ?? new GetMECRoleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge/v20210201:getMECRole", args ?? new GetMECRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// MEC role.
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20210201:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20210201:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
     }
 
 

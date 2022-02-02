@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetProductPolicyResult> InvokeAsync(GetProductPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Policy Contract details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetProductPolicyResult> Invoke(GetProductPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

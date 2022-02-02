@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
         /// PublicIPAddress resource
         /// </summary>
         public static Task<GetPublicIpAddressResult> InvokeAsync(GetPublicIpAddressArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpAddressResult>("azure-native:network/v20150501preview:getPublicIpAddress", args ?? new GetPublicIpAddressArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpAddressResult>("azure-native:network/v20150501preview:getPublicIpAddress", args ?? new GetPublicIpAddressArgs(), options.WithDefaults());
 
         /// <summary>
         /// PublicIPAddress resource
         /// </summary>
         public static Output<GetPublicIpAddressResult> Invoke(GetPublicIpAddressInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIpAddressResult>("azure-native:network/v20150501preview:getPublicIpAddress", args ?? new GetPublicIpAddressInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIpAddressResult>("azure-native:network/v20150501preview:getPublicIpAddress", args ?? new GetPublicIpAddressInvokeArgs(), options.WithDefaults());
     }
 
 

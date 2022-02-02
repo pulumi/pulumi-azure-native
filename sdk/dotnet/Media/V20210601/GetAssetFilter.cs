@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Media.V20210601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Media.V20210601
         /// An Asset Filter.
         /// </summary>
         public static Task<GetAssetFilterResult> InvokeAsync(GetAssetFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Asset Filter.
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20210601:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
     }
 
 

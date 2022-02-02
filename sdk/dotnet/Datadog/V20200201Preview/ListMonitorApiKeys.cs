@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Datadog.V20200201Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Datadog.V20200201Preview
         /// Response of a list operation.
         /// </summary>
         public static Task<ListMonitorApiKeysResult> InvokeAsync(ListMonitorApiKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorApiKeysResult>("azure-native:datadog/v20200201preview:listMonitorApiKeys", args ?? new ListMonitorApiKeysArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListMonitorApiKeysResult>("azure-native:datadog/v20200201preview:listMonitorApiKeys", args ?? new ListMonitorApiKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
         /// </summary>
         public static Output<ListMonitorApiKeysResult> Invoke(ListMonitorApiKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20200201preview:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20200201preview:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithDefaults());
     }
 
 

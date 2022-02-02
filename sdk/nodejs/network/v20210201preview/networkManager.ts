@@ -121,9 +121,7 @@ export class NetworkManager extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkManager" }, { type: "azure-native:network/v20210501preview:NetworkManager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkManager.__pulumiType, name, resourceInputs, opts);

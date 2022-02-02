@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Storage.V20190601
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Storage.V20190601
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Task<GetManagementPolicyResult> InvokeAsync(GetManagementPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Storage Account ManagementPolicies operation response.
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20190601:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

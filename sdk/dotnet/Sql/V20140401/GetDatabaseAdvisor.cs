@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20140401
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// Database Advisor.
         /// </summary>
         public static Task<GetDatabaseAdvisorResult> InvokeAsync(GetDatabaseAdvisorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Database Advisor.
         /// </summary>
         public static Output<GetDatabaseAdvisorResult> Invoke(GetDatabaseAdvisorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDatabaseAdvisorResult>("azure-native:sql/v20140401:getDatabaseAdvisor", args ?? new GetDatabaseAdvisorInvokeArgs(), options.WithDefaults());
     }
 
 

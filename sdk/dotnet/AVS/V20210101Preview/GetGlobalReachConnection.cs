@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
         /// A global reach connection resource
         /// </summary>
         public static Task<GetGlobalReachConnectionResult> InvokeAsync(GetGlobalReachConnectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGlobalReachConnectionResult>("azure-native:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A global reach connection resource
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs/v20210101preview:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,9 +12,7 @@ export function getServerTrustCertificate(args: GetServerTrustCertificateArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:sql/v20210801preview:getServerTrustCertificate", {
         "certificateName": args.certificateName,
         "managedInstanceName": args.managedInstanceName,

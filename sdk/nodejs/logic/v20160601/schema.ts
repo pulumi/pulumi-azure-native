@@ -145,9 +145,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["targetNamespace"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:logic:Schema" }, { type: "azure-native:logic/v20150801preview:Schema" }, { type: "azure-native:logic/v20180701preview:Schema" }, { type: "azure-native:logic/v20190501:Schema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);

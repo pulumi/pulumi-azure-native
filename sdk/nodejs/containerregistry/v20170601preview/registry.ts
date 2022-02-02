@@ -123,9 +123,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Registry" }, { type: "azure-native:containerregistry/v20160627preview:Registry" }, { type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-native:containerregistry/v20210601preview:Registry" }, { type: "azure-native:containerregistry/v20210801preview:Registry" }, { type: "azure-native:containerregistry/v20210901:Registry" }, { type: "azure-native:containerregistry/v20211201preview:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);

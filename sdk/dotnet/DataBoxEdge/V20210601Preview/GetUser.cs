@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge/v20210601preview:getUser", args ?? new GetUserArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:databoxedge/v20210601preview:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge/v20210601preview:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge/v20210601preview:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

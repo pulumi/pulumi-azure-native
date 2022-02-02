@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// The connector mapping resource format.
         /// </summary>
         public static Task<GetConnectorMappingResult> InvokeAsync(GetConnectorMappingArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingArgs(), options.WithDefaults());
 
         /// <summary>
         /// The connector mapping resource format.
         /// </summary>
         public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithDefaults());
     }
 
 

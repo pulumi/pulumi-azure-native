@@ -125,9 +125,7 @@ export class CustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationData"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:CustomDomain" }, { type: "azure-native:cdn/v20150601:CustomDomain" }, { type: "azure-native:cdn/v20160402:CustomDomain" }, { type: "azure-native:cdn/v20161002:CustomDomain" }, { type: "azure-native:cdn/v20170402:CustomDomain" }, { type: "azure-native:cdn/v20171012:CustomDomain" }, { type: "azure-native:cdn/v20190415:CustomDomain" }, { type: "azure-native:cdn/v20190615:CustomDomain" }, { type: "azure-native:cdn/v20190615preview:CustomDomain" }, { type: "azure-native:cdn/v20191231:CustomDomain" }, { type: "azure-native:cdn/v20200331:CustomDomain" }, { type: "azure-native:cdn/v20200415:CustomDomain" }, { type: "azure-native:cdn/v20210601:CustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomDomain.__pulumiType, name, resourceInputs, opts);

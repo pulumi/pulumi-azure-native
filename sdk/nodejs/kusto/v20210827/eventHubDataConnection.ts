@@ -150,9 +150,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:EventHubDataConnection" }, { type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);

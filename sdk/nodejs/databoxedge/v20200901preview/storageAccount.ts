@@ -115,9 +115,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20201201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, resourceInputs, opts);

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// A logical database transparent data encryption state.
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql/v20200202preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql/v20200202preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// A logical database transparent data encryption state.
         /// </summary>
         public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20200202preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20200202preview:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
     }
 
 

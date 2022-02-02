@@ -14,9 +14,7 @@ export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMong
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getMongoDBResourceMongoDBCollection", {
         "accountName": args.accountName,
         "collectionName": args.collectionName,

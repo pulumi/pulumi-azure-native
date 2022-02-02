@@ -14,9 +14,7 @@ export function listSpacecraftAvailableContacts(args: ListSpacecraftAvailableCon
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:orbital:listSpacecraftAvailableContacts", {
         "contactProfile": args.contactProfile,
         "endTime": args.endTime,

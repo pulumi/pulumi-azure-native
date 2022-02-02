@@ -85,9 +85,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Policy" }, { type: "azure-native:apimanagement/v20170301:Policy" }, { type: "azure-native:apimanagement/v20180101:Policy" }, { type: "azure-native:apimanagement/v20180601preview:Policy" }, { type: "azure-native:apimanagement/v20190101:Policy" }, { type: "azure-native:apimanagement/v20191201:Policy" }, { type: "azure-native:apimanagement/v20191201preview:Policy" }, { type: "azure-native:apimanagement/v20200601preview:Policy" }, { type: "azure-native:apimanagement/v20201201:Policy" }, { type: "azure-native:apimanagement/v20210101preview:Policy" }, { type: "azure-native:apimanagement/v20210401preview:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);

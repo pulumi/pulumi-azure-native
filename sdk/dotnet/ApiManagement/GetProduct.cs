@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ApiManagement
         /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Product details.
         /// API Version: 2020-12-01.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:apimanagement:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

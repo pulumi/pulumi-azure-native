@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Migrate
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Migrate
         /// API Version: 2019-10-01.
         /// </summary>
         public static Task<GetVMwareCollectorResult> InvokeAsync(GetVMwareCollectorArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2019-10-01.
         /// </summary>
         public static Output<GetVMwareCollectorResult> Invoke(GetVMwareCollectorInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVMwareCollectorResult>("azure-native:migrate:getVMwareCollector", args ?? new GetVMwareCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

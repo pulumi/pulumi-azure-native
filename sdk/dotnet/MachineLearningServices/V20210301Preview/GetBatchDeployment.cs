@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     public static class GetBatchDeployment
     {
         public static Task<GetBatchDeploymentResult> InvokeAsync(GetBatchDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getBatchDeployment", args ?? new GetBatchDeploymentArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getBatchDeployment", args ?? new GetBatchDeploymentArgs(), options.WithDefaults());
 
         public static Output<GetBatchDeploymentResult> Invoke(GetBatchDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getBatchDeployment", args ?? new GetBatchDeploymentInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20210301preview:getBatchDeployment", args ?? new GetBatchDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -12,9 +12,7 @@ export function getIdentityProvider(args: GetIdentityProviderArgs, opts?: pulumi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180101:getIdentityProvider", {
         "identityProviderName": args.identityProviderName,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.StorSimple
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.StorSimple
         /// API Version: 2017-06-01.
         /// </summary>
         public static Task<GetManagerResult> InvokeAsync(GetManagerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// The StorSimple Manager.
         /// API Version: 2017-06-01.
         /// </summary>
         public static Output<GetManagerResult> Invoke(GetManagerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagerResult>("azure-native:storsimple:getManager", args ?? new GetManagerInvokeArgs(), options.WithDefaults());
     }
 
 

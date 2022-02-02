@@ -13,9 +13,7 @@ export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:media/v20200201preview:getMediaGraph", {
         "accountName": args.accountName,
         "mediaGraphName": args.mediaGraphName,

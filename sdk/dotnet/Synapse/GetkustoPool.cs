@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Synapse
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Synapse
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Task<GetkustoPoolResult> InvokeAsync(GetkustoPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetkustoPoolResult>("azure-native:synapse:getkustoPool", args ?? new GetkustoPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetkustoPoolResult>("azure-native:synapse:getkustoPool", args ?? new GetkustoPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Class representing a Kusto kusto pool.
         /// API Version: 2021-04-01-preview.
         /// </summary>
         public static Output<GetkustoPoolResult> Invoke(GetkustoPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetkustoPoolResult>("azure-native:synapse:getkustoPool", args ?? new GetkustoPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetkustoPoolResult>("azure-native:synapse:getkustoPool", args ?? new GetkustoPoolInvokeArgs(), options.WithDefaults());
     }
 
 

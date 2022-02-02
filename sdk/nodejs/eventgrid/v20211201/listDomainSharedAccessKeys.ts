@@ -12,9 +12,7 @@ export function listDomainSharedAccessKeys(args: ListDomainSharedAccessKeysArgs,
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20211201:listDomainSharedAccessKeys", {
         "domainName": args.domainName,
         "resourceGroupName": args.resourceGroupName,

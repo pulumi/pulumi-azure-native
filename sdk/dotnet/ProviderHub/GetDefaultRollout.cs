@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ProviderHub
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ProviderHub
         /// API Version: 2020-11-20.
         /// </summary>
         public static Task<GetDefaultRolloutResult> InvokeAsync(GetDefaultRolloutArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutArgs(), options.WithDefaults());
 
         /// <summary>
         /// Default rollout definition.
         /// API Version: 2020-11-20.
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());
     }
 
 

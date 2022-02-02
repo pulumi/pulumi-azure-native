@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Insights
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Insights
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
         /// API Version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
     }
 
 

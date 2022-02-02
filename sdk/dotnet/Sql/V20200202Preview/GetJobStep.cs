@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql.V20200202Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// A job step.
         /// </summary>
         public static Task<GetJobStepResult> InvokeAsync(GetJobStepArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql/v20200202preview:getJobStep", args ?? new GetJobStepArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobStepResult>("azure-native:sql/v20200202preview:getJobStep", args ?? new GetJobStepArgs(), options.WithDefaults());
 
         /// <summary>
         /// A job step.
         /// </summary>
         public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql/v20200202preview:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql/v20200202preview:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithDefaults());
     }
 
 

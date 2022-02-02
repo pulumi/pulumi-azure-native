@@ -12,9 +12,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:hybridconnectivity/v20211006preview:getEndpoint", {
         "endpointName": args.endpointName,
         "resourceUri": args.resourceUri,

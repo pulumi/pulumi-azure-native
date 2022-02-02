@@ -126,9 +126,7 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
             resourceInputs["timePeriod"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20180131:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180331:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20181001:BudgetByResourceGroupName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BudgetByResourceGroupName.__pulumiType, name, resourceInputs, opts);

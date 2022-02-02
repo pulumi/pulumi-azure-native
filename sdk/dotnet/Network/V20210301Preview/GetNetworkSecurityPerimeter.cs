@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20210301Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
         /// The Network Security Perimeter resource
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterResult> InvokeAsync(GetNetworkSecurityPerimeterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Network Security Perimeter resource
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterResult> Invoke(GetNetworkSecurityPerimeterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterResult>("azure-native:network/v20210301preview:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -158,9 +158,7 @@ export class ServerFarm extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerTierName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarm" }, { type: "azure-native:web/v20160901:ServerFarm" }, { type: "azure-native:web/v20180201:ServerFarm" }, { type: "azure-native:web/v20190801:ServerFarm" }, { type: "azure-native:web/v20200601:ServerFarm" }, { type: "azure-native:web/v20200901:ServerFarm" }, { type: "azure-native:web/v20201001:ServerFarm" }, { type: "azure-native:web/v20201201:ServerFarm" }, { type: "azure-native:web/v20210101:ServerFarm" }, { type: "azure-native:web/v20210115:ServerFarm" }, { type: "azure-native:web/v20210201:ServerFarm" }, { type: "azure-native:web/v20210301:ServerFarm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerFarm.__pulumiType, name, resourceInputs, opts);

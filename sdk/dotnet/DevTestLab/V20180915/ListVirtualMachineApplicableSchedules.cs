@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         /// </summary>
         public static Task<ListVirtualMachineApplicableSchedulesResult> InvokeAsync(ListVirtualMachineApplicableSchedulesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
         /// </summary>
         public static Output<ListVirtualMachineApplicableSchedulesResult> Invoke(ListVirtualMachineApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20180201
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20180201
         /// A common class for general resource information
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResult> InvokeAsync(GetVirtualNetworkGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network/v20180201:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResult>("azure-native:network/v20180201:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// A common class for general resource information
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResult> Invoke(GetVirtualNetworkGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network/v20180201:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResult>("azure-native:network/v20180201:getVirtualNetworkGateway", args ?? new GetVirtualNetworkGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

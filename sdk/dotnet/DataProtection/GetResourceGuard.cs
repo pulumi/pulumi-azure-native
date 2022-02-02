@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataProtection
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DataProtection
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Task<GetResourceGuardResult> InvokeAsync(GetResourceGuardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
         /// API Version: 2021-10-01-preview.
         /// </summary>
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
     }
 
 

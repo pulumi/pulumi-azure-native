@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DesktopVirtualization
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a HostPool definition.
         /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
     }
 
 

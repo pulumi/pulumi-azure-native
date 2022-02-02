@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
         /// OAuth Server Secrets Contract.
         /// </summary>
         public static Task<ListAuthorizationServerSecretsResult> InvokeAsync(ListAuthorizationServerSecretsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210101preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210101preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// OAuth Server Secrets Contract.
         /// </summary>
         public static Output<ListAuthorizationServerSecretsResult> Invoke(ListAuthorizationServerSecretsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210101preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<ListAuthorizationServerSecretsResult>("azure-native:apimanagement/v20210101preview:listAuthorizationServerSecrets", args ?? new ListAuthorizationServerSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

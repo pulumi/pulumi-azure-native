@@ -94,9 +94,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualRouterPeering" }, { type: "azure-native:network/v20190701:VirtualRouterPeering" }, { type: "azure-native:network/v20190801:VirtualRouterPeering" }, { type: "azure-native:network/v20191101:VirtualRouterPeering" }, { type: "azure-native:network/v20191201:VirtualRouterPeering" }, { type: "azure-native:network/v20200301:VirtualRouterPeering" }, { type: "azure-native:network/v20200401:VirtualRouterPeering" }, { type: "azure-native:network/v20200501:VirtualRouterPeering" }, { type: "azure-native:network/v20200601:VirtualRouterPeering" }, { type: "azure-native:network/v20200701:VirtualRouterPeering" }, { type: "azure-native:network/v20200801:VirtualRouterPeering" }, { type: "azure-native:network/v20201101:VirtualRouterPeering" }, { type: "azure-native:network/v20210201:VirtualRouterPeering" }, { type: "azure-native:network/v20210301:VirtualRouterPeering" }, { type: "azure-native:network/v20210501:VirtualRouterPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualRouterPeering.__pulumiType, name, resourceInputs, opts);

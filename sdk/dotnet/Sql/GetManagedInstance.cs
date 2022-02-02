@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Sql
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Sql
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// An Azure SQL managed instance.
         /// API Version: 2020-11-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure-native:sql:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

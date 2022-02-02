@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Addons.V20170515
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Addons.V20170515
         /// The status of the Canonical support plan.
         /// </summary>
         public static Task<GetSupportPlanTypeResult> InvokeAsync(GetSupportPlanTypeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-native:addons/v20170515:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSupportPlanTypeResult>("azure-native:addons/v20170515:getSupportPlanType", args ?? new GetSupportPlanTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The status of the Canonical support plan.
         /// </summary>
         public static Output<GetSupportPlanTypeResult> Invoke(GetSupportPlanTypeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSupportPlanTypeResult>("azure-native:addons/v20170515:getSupportPlanType", args ?? new GetSupportPlanTypeInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetSupportPlanTypeResult>("azure-native:addons/v20170515:getSupportPlanType", args ?? new GetSupportPlanTypeInvokeArgs(), options.WithDefaults());
     }
 
 

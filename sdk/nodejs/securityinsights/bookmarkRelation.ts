@@ -111,9 +111,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
             resourceInputs["relatedResourceType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BookmarkRelation.__pulumiType, name, resourceInputs, opts);

@@ -14,9 +14,7 @@ export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, o
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:documentdb:getSqlResourceSqlDatabase", {
         "accountName": args.accountName,
         "databaseName": args.databaseName,

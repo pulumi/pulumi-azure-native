@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
         /// Build result log resource properties payload
         /// </summary>
         public static Task<GetBuildServiceBuildResultLogResult> InvokeAsync(GetBuildServiceBuildResultLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Build result log resource properties payload
         /// </summary>
         public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20220101preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,9 +14,7 @@ export function getVirtualApplianceSite(args: GetVirtualApplianceSiteArgs, opts?
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:network:getVirtualApplianceSite", {
         "networkVirtualApplianceName": args.networkVirtualApplianceName,
         "resourceGroupName": args.resourceGroupName,

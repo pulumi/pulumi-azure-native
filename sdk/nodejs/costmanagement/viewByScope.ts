@@ -168,9 +168,7 @@ export class ViewByScope extends pulumi.CustomResource {
             resourceInputs["timeframe"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190401preview:ViewByScope" }, { type: "azure-native:costmanagement/v20191101:ViewByScope" }, { type: "azure-native:costmanagement/v20200601:ViewByScope" }, { type: "azure-native:costmanagement/v20211001:ViewByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ViewByScope.__pulumiType, name, resourceInputs, opts);

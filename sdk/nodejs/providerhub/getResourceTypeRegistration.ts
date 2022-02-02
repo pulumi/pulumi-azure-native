@@ -13,9 +13,7 @@ export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArg
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:providerhub:getResourceTypeRegistration", {
         "providerNamespace": args.providerNamespace,
         "resourceType": args.resourceType,

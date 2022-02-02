@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
 {
     public static class GetVirtualMachineImageTemplate
     {
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithDefaults());
 
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

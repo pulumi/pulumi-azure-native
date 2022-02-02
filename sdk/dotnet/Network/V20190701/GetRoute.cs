@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190701
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190701
         /// Route resource.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20190701:getRoute", args ?? new GetRouteArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network/v20190701:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Route resource.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20190701:getRoute", args ?? new GetRouteInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20190701:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

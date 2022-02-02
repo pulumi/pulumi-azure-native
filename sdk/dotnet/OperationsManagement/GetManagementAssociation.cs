@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.OperationsManagement
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetManagementAssociationResult> InvokeAsync(GetManagementAssociationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The container for solution.
         /// API Version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

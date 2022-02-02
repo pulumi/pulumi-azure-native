@@ -143,9 +143,7 @@ export class SyncMember extends pulumi.CustomResource {
             resourceInputs["usePrivateLinkConnection"] = undefined /*out*/;
             resourceInputs["userName"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-native:sql/v20201101preview:SyncMember" }, { type: "azure-native:sql/v20210201preview:SyncMember" }, { type: "azure-native:sql/v20210501preview:SyncMember" }, { type: "azure-native:sql/v20210801preview:SyncMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncMember.__pulumiType, name, resourceInputs, opts);

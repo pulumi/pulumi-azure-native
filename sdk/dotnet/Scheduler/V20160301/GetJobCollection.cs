@@ -6,17 +6,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Scheduler.V20160301
 {
     public static class GetJobCollection
     {
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler/v20160301:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobCollectionResult>("azure-native:scheduler/v20160301:getJobCollection", args ?? new GetJobCollectionArgs(), options.WithDefaults());
 
         public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler/v20160301:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler/v20160301:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -125,9 +125,7 @@ export class ACIService extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ACIService" }, { type: "azure-native:machinelearningservices/v20200501preview:ACIService" }, { type: "azure-native:machinelearningservices/v20200515preview:ACIService" }, { type: "azure-native:machinelearningservices/v20200901preview:ACIService" }, { type: "azure-native:machinelearningservices/v20210101:ACIService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ACIService.__pulumiType, name, resourceInputs, opts);

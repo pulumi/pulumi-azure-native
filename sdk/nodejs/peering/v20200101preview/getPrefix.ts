@@ -13,9 +13,7 @@ export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Pro
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:peering/v20200101preview:getPrefix", {
         "expand": args.expand,
         "peeringServiceName": args.peeringServiceName,

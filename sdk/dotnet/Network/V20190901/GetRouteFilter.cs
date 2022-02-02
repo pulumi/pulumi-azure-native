@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Network.V20190901
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.Network.V20190901
         /// Route Filter Resource.
         /// </summary>
         public static Task<GetRouteFilterResult> InvokeAsync(GetRouteFilterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure-native:network/v20190901:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure-native:network/v20190901:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Route Filter Resource.
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network/v20190901:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network/v20190901:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());
     }
 
 

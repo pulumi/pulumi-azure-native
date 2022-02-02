@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.Blueprint
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.Blueprint
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetTemplateArtifactResult> InvokeAsync(GetTemplateArtifactArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Blueprint artifact that deploys a Resource Manager template.
         /// API Version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetTemplateArtifactResult> Invoke(GetTemplateArtifactInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateArtifactResult>("azure-native:blueprint:getTemplateArtifact", args ?? new GetTemplateArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

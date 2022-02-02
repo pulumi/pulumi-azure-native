@@ -13,9 +13,7 @@ export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: 
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:eventgrid/v20200401preview:getPartnerRegistration", {
         "partnerRegistrationName": args.partnerRegistrationName,
         "resourceGroupName": args.resourceGroupName,

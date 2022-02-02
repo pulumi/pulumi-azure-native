@@ -126,9 +126,7 @@ export class KustoTableDataSetMapping extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20191101:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:KustoTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoTableDataSetMapping.__pulumiType, name, resourceInputs, opts);

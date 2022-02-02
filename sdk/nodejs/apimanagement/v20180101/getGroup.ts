@@ -12,9 +12,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:apimanagement/v20180101:getGroup", {
         "groupId": args.groupId,
         "resourceGroupName": args.resourceGroupName,

@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.DataShare.V20191101
 {
@@ -17,13 +16,13 @@ namespace Pulumi.AzureNative.DataShare.V20191101
         /// A Trigger data transfer object.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datashare/v20191101:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:datashare/v20191101:getTrigger", args ?? new GetTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// A Trigger data transfer object.
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datashare/v20191101:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datashare/v20191101:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

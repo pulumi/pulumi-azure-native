@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.WebPubSub.V20210901Preview
         /// Describes a Shared Private Link Resource
         /// </summary>
         public static Task<GetWebPubSubSharedPrivateLinkResourceResult> InvokeAsync(GetWebPubSubSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub/v20210901preview:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub/v20210901preview:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Describes a Shared Private Link Resource
         /// </summary>
         public static Output<GetWebPubSubSharedPrivateLinkResourceResult> Invoke(GetWebPubSubSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub/v20210901preview:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetWebPubSubSharedPrivateLinkResourceResult>("azure-native:webpubsub/v20210901preview:getWebPubSubSharedPrivateLinkResource", args ?? new GetWebPubSubSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

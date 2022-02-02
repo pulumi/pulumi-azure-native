@@ -13,9 +13,7 @@ export function getResourceGuardProxy(args: GetResourceGuardProxyArgs, opts?: pu
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:recoveryservices:getResourceGuardProxy", {
         "resourceGroupName": args.resourceGroupName,
         "resourceGuardProxyName": args.resourceGuardProxyName,

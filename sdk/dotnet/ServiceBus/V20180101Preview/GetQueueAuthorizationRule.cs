@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
@@ -16,13 +15,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20180101preview:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20180101preview:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of a namespace authorization rule.
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20180101preview:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus/v20180101preview:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

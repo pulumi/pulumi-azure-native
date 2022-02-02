@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
@@ -17,14 +16,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Task<GetHostResult> InvokeAsync(GetHostArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Define the host.
         /// API Version: 2020-10-01-preview.
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
     }
 
 

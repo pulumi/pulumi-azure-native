@@ -121,9 +121,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["trafficViewEnrollmentStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-native:network/v20180801:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
