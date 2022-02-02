@@ -72,6 +72,9 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
+install_provider::
+	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+
 test_provider::
 	(cd provider && go test -v $(PROVIDER_PKGS))
 
@@ -144,6 +147,7 @@ install_go_sdk::
 install_nodejs_sdk::
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
+test:: export PULUMI_LOCAL_NUGET=${WORKING_DIR}/nuget
 test::
 	cd examples && go test -v -tags=all -timeout 2h
 
