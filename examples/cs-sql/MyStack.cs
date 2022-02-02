@@ -26,29 +26,32 @@ class MyStack : Stack
             Version = "12.0"
         });
         
-        var db = new Database("testdb", new DatabaseArgs
-        {
-            ResourceGroupName = resourceGroup.Name,
-            ServerName = server.Name
-        });
+        // Temporarily removing database creating due to Azure service regularly returning an Internal Server Error
+        // Hopefully this issue will be resolved with Azure at some point and we can re-enable.
+
+        // var db = new Database("testdb", new DatabaseArgs
+        // {
+        //     ResourceGroupName = resourceGroup.Name,
+        //     ServerName = server.Name
+        // });
         
-        var shortRetention = new BackupShortTermRetentionPolicy("backup-short", new BackupShortTermRetentionPolicyArgs
-        {
-            ResourceGroupName = resourceGroup.Name,
-            ServerName = server.Name,
-            DatabaseName = db.Name,
-            PolicyName = "default",
-            RetentionDays = 30
-        });
+        // var shortRetention = new BackupShortTermRetentionPolicy("backup-short", new BackupShortTermRetentionPolicyArgs
+        // {
+        //     ResourceGroupName = resourceGroup.Name,
+        //     ServerName = server.Name,
+        //     DatabaseName = db.Name,
+        //     PolicyName = "default",
+        //     RetentionDays = 30
+        // });
         
-        var longRetention = new LongTermRetentionPolicy("backup-long", new LongTermRetentionPolicyArgs
-        {
-            ResourceGroupName = resourceGroup.Name,
-            ServerName = server.Name,
-            DatabaseName = db.Name,
-            PolicyName = "default",
-            MonthlyRetention = "P1M"
-        });
+        // var longRetention = new LongTermRetentionPolicy("backup-long", new LongTermRetentionPolicyArgs
+        // {
+        //     ResourceGroupName = resourceGroup.Name,
+        //     ServerName = server.Name,
+        //     DatabaseName = db.Name,
+        //     PolicyName = "default",
+        //     MonthlyRetention = "P1M"
+        // });
 
         var enableADS = new ServerSecurityAlertPolicy("default", new ServerSecurityAlertPolicyArgs
         {
