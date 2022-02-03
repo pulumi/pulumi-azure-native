@@ -187,6 +187,8 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
             suggest = "parameter_hash"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "resourceType":
+            suggest = "resource_type"
         elif key == "guestConfiguration":
             suggest = "guest_configuration"
         elif key == "vmssVMList":
@@ -210,6 +212,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
                  latest_report_id: str,
                  parameter_hash: str,
                  provisioning_state: str,
+                 resource_type: str,
                  context: Optional[str] = None,
                  guest_configuration: Optional['outputs.GuestConfigurationNavigationResponse'] = None,
                  vmss_vm_list: Optional[Sequence['outputs.VMSSVMInfoResponse']] = None):
@@ -221,6 +224,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         :param str latest_report_id: Id of the latest report for the guest configuration assignment. 
         :param str parameter_hash: parameter hash for the guest configuration assignment. 
         :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param str resource_type: Type of the resource - VMSS / VM
         :param str context: The source which initiated the guest configuration assignment. Ex: Azure Policy
         :param 'GuestConfigurationNavigationResponse' guest_configuration: The guest configuration to assign.
         :param Sequence['VMSSVMInfoResponse'] vmss_vm_list: The list of VM Compliance data for VMSS
@@ -231,6 +235,7 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         pulumi.set(__self__, "latest_report_id", latest_report_id)
         pulumi.set(__self__, "parameter_hash", parameter_hash)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_type", resource_type)
         if context is not None:
             pulumi.set(__self__, "context", context)
         if guest_configuration is not None:
@@ -285,6 +290,14 @@ class GuestConfigurationAssignmentPropertiesResponse(dict):
         The provisioning state, which only appears in the response.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        Type of the resource - VMSS / VM
+        """
+        return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter

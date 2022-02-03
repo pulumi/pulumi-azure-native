@@ -39,6 +39,36 @@ namespace Pulumi.AzureNative.DigitalTwins
     }
 
     /// <summary>
+    /// The type of time series connection resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionType : IEquatable<ConnectionType>
+    {
+        private readonly string _value;
+
+        private ConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionType AzureDataExplorer { get; } = new ConnectionType("AzureDataExplorer");
+
+        public static bool operator ==(ConnectionType left, ConnectionType right) => left.Equals(right);
+        public static bool operator !=(ConnectionType left, ConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionType other && Equals(other);
+        public bool Equals(ConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
     /// </summary>
     [EnumType]

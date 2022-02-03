@@ -10,6 +10,393 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+type AzureDataExplorerConnectionProperties struct {
+	// The name of the Azure Data Explorer database.
+	AdxDatabaseName string `pulumi:"adxDatabaseName"`
+	// The URI of the Azure Data Explorer endpoint.
+	AdxEndpointUri string `pulumi:"adxEndpointUri"`
+	// The resource ID of the Azure Data Explorer cluster.
+	AdxResourceId string `pulumi:"adxResourceId"`
+	// The name of the Azure Data Explorer table.
+	AdxTableName *string `pulumi:"adxTableName"`
+	// The type of time series connection resource.
+	// Expected value is 'AzureDataExplorer'.
+	ConnectionType string `pulumi:"connectionType"`
+	// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+	EventHubConsumerGroup *string `pulumi:"eventHubConsumerGroup"`
+	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+	EventHubEndpointUri string `pulumi:"eventHubEndpointUri"`
+	// The EventHub name in the EventHub namespace for identity-based authentication.
+	EventHubEntityPath string `pulumi:"eventHubEntityPath"`
+	// The resource ID of the EventHub namespace.
+	EventHubNamespaceResourceId string `pulumi:"eventHubNamespaceResourceId"`
+}
+
+// AzureDataExplorerConnectionPropertiesInput is an input type that accepts AzureDataExplorerConnectionPropertiesArgs and AzureDataExplorerConnectionPropertiesOutput values.
+// You can construct a concrete instance of `AzureDataExplorerConnectionPropertiesInput` via:
+//
+//          AzureDataExplorerConnectionPropertiesArgs{...}
+type AzureDataExplorerConnectionPropertiesInput interface {
+	pulumi.Input
+
+	ToAzureDataExplorerConnectionPropertiesOutput() AzureDataExplorerConnectionPropertiesOutput
+	ToAzureDataExplorerConnectionPropertiesOutputWithContext(context.Context) AzureDataExplorerConnectionPropertiesOutput
+}
+
+// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+type AzureDataExplorerConnectionPropertiesArgs struct {
+	// The name of the Azure Data Explorer database.
+	AdxDatabaseName pulumi.StringInput `pulumi:"adxDatabaseName"`
+	// The URI of the Azure Data Explorer endpoint.
+	AdxEndpointUri pulumi.StringInput `pulumi:"adxEndpointUri"`
+	// The resource ID of the Azure Data Explorer cluster.
+	AdxResourceId pulumi.StringInput `pulumi:"adxResourceId"`
+	// The name of the Azure Data Explorer table.
+	AdxTableName pulumi.StringPtrInput `pulumi:"adxTableName"`
+	// The type of time series connection resource.
+	// Expected value is 'AzureDataExplorer'.
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+	EventHubConsumerGroup pulumi.StringPtrInput `pulumi:"eventHubConsumerGroup"`
+	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+	EventHubEndpointUri pulumi.StringInput `pulumi:"eventHubEndpointUri"`
+	// The EventHub name in the EventHub namespace for identity-based authentication.
+	EventHubEntityPath pulumi.StringInput `pulumi:"eventHubEntityPath"`
+	// The resource ID of the EventHub namespace.
+	EventHubNamespaceResourceId pulumi.StringInput `pulumi:"eventHubNamespaceResourceId"`
+}
+
+func (AzureDataExplorerConnectionPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataExplorerConnectionProperties)(nil)).Elem()
+}
+
+func (i AzureDataExplorerConnectionPropertiesArgs) ToAzureDataExplorerConnectionPropertiesOutput() AzureDataExplorerConnectionPropertiesOutput {
+	return i.ToAzureDataExplorerConnectionPropertiesOutputWithContext(context.Background())
+}
+
+func (i AzureDataExplorerConnectionPropertiesArgs) ToAzureDataExplorerConnectionPropertiesOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataExplorerConnectionPropertiesOutput)
+}
+
+func (i AzureDataExplorerConnectionPropertiesArgs) ToAzureDataExplorerConnectionPropertiesPtrOutput() AzureDataExplorerConnectionPropertiesPtrOutput {
+	return i.ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AzureDataExplorerConnectionPropertiesArgs) ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataExplorerConnectionPropertiesOutput).ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(ctx)
+}
+
+// AzureDataExplorerConnectionPropertiesPtrInput is an input type that accepts AzureDataExplorerConnectionPropertiesArgs, AzureDataExplorerConnectionPropertiesPtr and AzureDataExplorerConnectionPropertiesPtrOutput values.
+// You can construct a concrete instance of `AzureDataExplorerConnectionPropertiesPtrInput` via:
+//
+//          AzureDataExplorerConnectionPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureDataExplorerConnectionPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAzureDataExplorerConnectionPropertiesPtrOutput() AzureDataExplorerConnectionPropertiesPtrOutput
+	ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(context.Context) AzureDataExplorerConnectionPropertiesPtrOutput
+}
+
+type azureDataExplorerConnectionPropertiesPtrType AzureDataExplorerConnectionPropertiesArgs
+
+func AzureDataExplorerConnectionPropertiesPtr(v *AzureDataExplorerConnectionPropertiesArgs) AzureDataExplorerConnectionPropertiesPtrInput {
+	return (*azureDataExplorerConnectionPropertiesPtrType)(v)
+}
+
+func (*azureDataExplorerConnectionPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureDataExplorerConnectionProperties)(nil)).Elem()
+}
+
+func (i *azureDataExplorerConnectionPropertiesPtrType) ToAzureDataExplorerConnectionPropertiesPtrOutput() AzureDataExplorerConnectionPropertiesPtrOutput {
+	return i.ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *azureDataExplorerConnectionPropertiesPtrType) ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureDataExplorerConnectionPropertiesPtrOutput)
+}
+
+// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+type AzureDataExplorerConnectionPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AzureDataExplorerConnectionPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataExplorerConnectionProperties)(nil)).Elem()
+}
+
+func (o AzureDataExplorerConnectionPropertiesOutput) ToAzureDataExplorerConnectionPropertiesOutput() AzureDataExplorerConnectionPropertiesOutput {
+	return o
+}
+
+func (o AzureDataExplorerConnectionPropertiesOutput) ToAzureDataExplorerConnectionPropertiesOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesOutput {
+	return o
+}
+
+func (o AzureDataExplorerConnectionPropertiesOutput) ToAzureDataExplorerConnectionPropertiesPtrOutput() AzureDataExplorerConnectionPropertiesPtrOutput {
+	return o.ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AzureDataExplorerConnectionPropertiesOutput) ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureDataExplorerConnectionProperties) *AzureDataExplorerConnectionProperties {
+		return &v
+	}).(AzureDataExplorerConnectionPropertiesPtrOutput)
+}
+
+// The name of the Azure Data Explorer database.
+func (o AzureDataExplorerConnectionPropertiesOutput) AdxDatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.AdxDatabaseName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Data Explorer endpoint.
+func (o AzureDataExplorerConnectionPropertiesOutput) AdxEndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.AdxEndpointUri }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Azure Data Explorer cluster.
+func (o AzureDataExplorerConnectionPropertiesOutput) AdxResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.AdxResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the Azure Data Explorer table.
+func (o AzureDataExplorerConnectionPropertiesOutput) AdxTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) *string { return v.AdxTableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of time series connection resource.
+// Expected value is 'AzureDataExplorer'.
+func (o AzureDataExplorerConnectionPropertiesOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+func (o AzureDataExplorerConnectionPropertiesOutput) EventHubConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) *string { return v.EventHubConsumerGroup }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+func (o AzureDataExplorerConnectionPropertiesOutput) EventHubEndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.EventHubEndpointUri }).(pulumi.StringOutput)
+}
+
+// The EventHub name in the EventHub namespace for identity-based authentication.
+func (o AzureDataExplorerConnectionPropertiesOutput) EventHubEntityPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.EventHubEntityPath }).(pulumi.StringOutput)
+}
+
+// The resource ID of the EventHub namespace.
+func (o AzureDataExplorerConnectionPropertiesOutput) EventHubNamespaceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionProperties) string { return v.EventHubNamespaceResourceId }).(pulumi.StringOutput)
+}
+
+type AzureDataExplorerConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureDataExplorerConnectionPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureDataExplorerConnectionProperties)(nil)).Elem()
+}
+
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) ToAzureDataExplorerConnectionPropertiesPtrOutput() AzureDataExplorerConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) ToAzureDataExplorerConnectionPropertiesPtrOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesPtrOutput {
+	return o
+}
+
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) Elem() AzureDataExplorerConnectionPropertiesOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) AzureDataExplorerConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AzureDataExplorerConnectionProperties
+		return ret
+	}).(AzureDataExplorerConnectionPropertiesOutput)
+}
+
+// The name of the Azure Data Explorer database.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) AdxDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdxDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of the Azure Data Explorer endpoint.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) AdxEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdxEndpointUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Azure Data Explorer cluster.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) AdxResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdxResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure Data Explorer table.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) AdxTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdxTableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of time series connection resource.
+// Expected value is 'AzureDataExplorer'.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) EventHubConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubConsumerGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) EventHubEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventHubEndpointUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The EventHub name in the EventHub namespace for identity-based authentication.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) EventHubEntityPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventHubEntityPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the EventHub namespace.
+func (o AzureDataExplorerConnectionPropertiesPtrOutput) EventHubNamespaceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureDataExplorerConnectionProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventHubNamespaceResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+type AzureDataExplorerConnectionPropertiesResponse struct {
+	// The name of the Azure Data Explorer database.
+	AdxDatabaseName string `pulumi:"adxDatabaseName"`
+	// The URI of the Azure Data Explorer endpoint.
+	AdxEndpointUri string `pulumi:"adxEndpointUri"`
+	// The resource ID of the Azure Data Explorer cluster.
+	AdxResourceId string `pulumi:"adxResourceId"`
+	// The name of the Azure Data Explorer table.
+	AdxTableName *string `pulumi:"adxTableName"`
+	// The type of time series connection resource.
+	// Expected value is 'AzureDataExplorer'.
+	ConnectionType string `pulumi:"connectionType"`
+	// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+	EventHubConsumerGroup *string `pulumi:"eventHubConsumerGroup"`
+	// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+	EventHubEndpointUri string `pulumi:"eventHubEndpointUri"`
+	// The EventHub name in the EventHub namespace for identity-based authentication.
+	EventHubEntityPath string `pulumi:"eventHubEntityPath"`
+	// The resource ID of the EventHub namespace.
+	EventHubNamespaceResourceId string `pulumi:"eventHubNamespaceResourceId"`
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// Properties of a time series database connection to Azure Data Explorer with data being sent via an EventHub.
+type AzureDataExplorerConnectionPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureDataExplorerConnectionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureDataExplorerConnectionPropertiesResponse)(nil)).Elem()
+}
+
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) ToAzureDataExplorerConnectionPropertiesResponseOutput() AzureDataExplorerConnectionPropertiesResponseOutput {
+	return o
+}
+
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) ToAzureDataExplorerConnectionPropertiesResponseOutputWithContext(ctx context.Context) AzureDataExplorerConnectionPropertiesResponseOutput {
+	return o
+}
+
+// The name of the Azure Data Explorer database.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) AdxDatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.AdxDatabaseName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Data Explorer endpoint.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) AdxEndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.AdxEndpointUri }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Azure Data Explorer cluster.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) AdxResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.AdxResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the Azure Data Explorer table.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) AdxTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) *string { return v.AdxTableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of time series connection resource.
+// Expected value is 'AzureDataExplorer'.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// The EventHub consumer group to use when ADX reads from EventHub. Defaults to $Default.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) EventHubConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) *string { return v.EventHubConsumerGroup }).(pulumi.StringPtrOutput)
+}
+
+// The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) EventHubEndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.EventHubEndpointUri }).(pulumi.StringOutput)
+}
+
+// The EventHub name in the EventHub namespace for identity-based authentication.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) EventHubEntityPath() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.EventHubEntityPath }).(pulumi.StringOutput)
+}
+
+// The resource ID of the EventHub namespace.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) EventHubNamespaceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.EventHubNamespaceResourceId }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o AzureDataExplorerConnectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureDataExplorerConnectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type ConnectionPropertiesPrivateLinkServiceConnectionState struct {
 	// Actions required for a private endpoint connection.
 	ActionsRequired *string `pulumi:"actionsRequired"`
@@ -974,7 +1361,71 @@ type ServiceBusResponse struct {
 	SecondaryConnectionString *string `pulumi:"secondaryConnectionString"`
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AzureDataExplorerConnectionPropertiesOutput{})
+	pulumi.RegisterOutputType(AzureDataExplorerConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AzureDataExplorerConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesPrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesResponsePrivateEndpointOutput{})
@@ -991,4 +1442,5 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

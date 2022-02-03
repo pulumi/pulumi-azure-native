@@ -776,6 +776,8 @@ type GuestConfigurationAssignmentPropertiesResponse struct {
 	ParameterHash string `pulumi:"parameterHash"`
 	// The provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Type of the resource - VMSS / VM
+	ResourceType string `pulumi:"resourceType"`
 	// The list of VM Compliance data for VMSS
 	VmssVMList []VMSSVMInfoResponse `pulumi:"vmssVMList"`
 }
@@ -846,6 +848,11 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) ParameterHash() pu
 // The provisioning state, which only appears in the response.
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the resource - VMSS / VM
+func (o GuestConfigurationAssignmentPropertiesResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
 // The list of VM Compliance data for VMSS

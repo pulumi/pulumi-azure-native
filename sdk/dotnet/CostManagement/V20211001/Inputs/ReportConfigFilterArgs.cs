@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
         [Input("dimensions")]
         public Input<Inputs.ReportConfigComparisonExpressionArgs>? Dimensions { get; set; }
 
-        /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        [Input("not")]
-        public Input<Inputs.ReportConfigFilterArgs>? Not { get; set; }
-
         [Input("or")]
         private InputList<Inputs.ReportConfigFilterArgs>? _or;
 

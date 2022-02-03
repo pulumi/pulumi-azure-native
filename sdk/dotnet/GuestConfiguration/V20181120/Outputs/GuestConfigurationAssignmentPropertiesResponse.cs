@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Type of the resource - VMSS / VM
+        /// </summary>
+        public readonly string ResourceType;
+        /// <summary>
         /// The list of VM Compliance data for VMSS
         /// </summary>
         public readonly ImmutableArray<Outputs.VMSSVMInfoResponse> VmssVMList;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
 
             string provisioningState,
 
+            string resourceType,
+
             ImmutableArray<Outputs.VMSSVMInfoResponse> vmssVMList)
         {
             AssignmentHash = assignmentHash;
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120.Outputs
             LatestReportId = latestReportId;
             ParameterHash = parameterHash;
             ProvisioningState = provisioningState;
+            ResourceType = resourceType;
             VmssVMList = vmssVMList;
         }
     }

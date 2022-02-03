@@ -6912,7 +6912,8 @@ _utilities.register(
   "classes": {
    "azure-native:digitaltwins:DigitalTwin": "DigitalTwin",
    "azure-native:digitaltwins:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
-   "azure-native:digitaltwins:PrivateEndpointConnection": "PrivateEndpointConnection"
+   "azure-native:digitaltwins:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:digitaltwins:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
   }
  },
  {
@@ -6941,6 +6942,17 @@ _utilities.register(
    "azure-native:digitaltwins/v20201201:DigitalTwin": "DigitalTwin",
    "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
    "azure-native:digitaltwins/v20201201:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "digitaltwins/v20210630preview",
+  "fqn": "pulumi_azure_native.digitaltwins.v20210630preview",
+  "classes": {
+   "azure-native:digitaltwins/v20210630preview:DigitalTwin": "DigitalTwin",
+   "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
+   "azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
   }
  },
  {
@@ -8460,6 +8472,17 @@ _utilities.register(
    "azure-native:hybridcompute/v20210610preview:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20210610preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20211210preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20211210preview",
+  "classes": {
+   "azure-native:hybridcompute/v20211210preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20211210preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20211210preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {

@@ -10,7 +10,9 @@ export * from "./digitalTwinsEndpoint";
 export * from "./getDigitalTwin";
 export * from "./getDigitalTwinsEndpoint";
 export * from "./getPrivateEndpointConnection";
+export * from "./getTimeSeriesDatabaseConnection";
 export * from "./privateEndpointConnection";
+export * from "./timeSeriesDatabaseConnection";
 
 // Export enums:
 export * from "../types/enums/digitaltwins";
@@ -19,17 +21,20 @@ export * from "../types/enums/digitaltwins";
 import * as v20200301preview from "./v20200301preview";
 import * as v20201031 from "./v20201031";
 import * as v20201201 from "./v20201201";
+import * as v20210630preview from "./v20210630preview";
 
 export {
     v20200301preview,
     v20201031,
     v20201201,
+    v20210630preview,
 };
 
 // Import resources to register:
 import { DigitalTwin } from "./digitalTwin";
 import { DigitalTwinsEndpoint } from "./digitalTwinsEndpoint";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { TimeSeriesDatabaseConnection } from "./timeSeriesDatabaseConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,6 +46,8 @@ const _module = {
                 return new DigitalTwinsEndpoint(name, <any>undefined, { urn })
             case "azure-native:digitaltwins:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:digitaltwins:TimeSeriesDatabaseConnection":
+                return new TimeSeriesDatabaseConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

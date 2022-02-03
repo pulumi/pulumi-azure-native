@@ -11,7 +11,9 @@ from .digital_twins_endpoint import *
 from .get_digital_twin import *
 from .get_digital_twins_endpoint import *
 from .get_private_endpoint_connection import *
+from .get_time_series_database_connection import *
 from .private_endpoint_connection import *
+from .time_series_database_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -23,8 +25,11 @@ if typing.TYPE_CHECKING:
     v20201031 = __v20201031
     import pulumi_azure_native.digitaltwins.v20201201 as __v20201201
     v20201201 = __v20201201
+    import pulumi_azure_native.digitaltwins.v20210630preview as __v20210630preview
+    v20210630preview = __v20210630preview
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20200301preview')
     v20201031 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20201031')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20201201')
+    v20210630preview = _utilities.lazy_import('pulumi_azure_native.digitaltwins.v20210630preview')
 

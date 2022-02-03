@@ -45,6 +45,8 @@ if typing.TYPE_CHECKING:
     v20210520 = __v20210520
     import pulumi_azure_native.hybridcompute.v20210610preview as __v20210610preview
     v20210610preview = __v20210610preview
+    import pulumi_azure_native.hybridcompute.v20211210preview as __v20211210preview
+    v20211210preview = __v20211210preview
 else:
     v20190318preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20190318preview')
     v20190802preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20190802preview')
@@ -58,4 +60,5 @@ else:
     v20210517preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20210517preview')
     v20210520 = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20210520')
     v20210610preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20210610preview')
+    v20211210preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20211210preview')
 

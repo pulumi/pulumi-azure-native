@@ -11,6 +11,13 @@ const (
 	AuthenticationTypeIdentityBased = AuthenticationType("IdentityBased")
 )
 
+// The type of time series connection resource.
+type ConnectionType string
+
+const (
+	ConnectionTypeAzureDataExplorer = ConnectionType("AzureDataExplorer")
+)
+
 // The type of Managed Identity used by the DigitalTwinsInstance. Only SystemAssigned is supported.
 type DigitalTwinsIdentityType string
 

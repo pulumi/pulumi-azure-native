@@ -5,11 +5,13 @@
 import * as v20200301preview from "./v20200301preview";
 import * as v20201031 from "./v20201031";
 import * as v20201201 from "./v20201201";
+import * as v20210630preview from "./v20210630preview";
 
 export {
     v20200301preview,
     v20201031,
     v20201201,
+    v20210630preview,
 };
 
 export const AuthenticationType = {
@@ -21,6 +23,15 @@ export const AuthenticationType = {
  * Specifies the authentication type being used for connecting to the endpoint.
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
+
+export const ConnectionType = {
+    AzureDataExplorer: "AzureDataExplorer",
+} as const;
+
+/**
+ * The type of time series connection resource.
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 export const DigitalTwinsIdentityType = {
     None: "None",

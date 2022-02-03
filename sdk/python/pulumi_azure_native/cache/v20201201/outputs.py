@@ -267,7 +267,9 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aofStorageConnectionString0":
+        if key == "zonalConfiguration":
+            suggest = "zonal_configuration"
+        elif key == "aofStorageConnectionString0":
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
             suggest = "aof_storage_connection_string1"
@@ -301,6 +303,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
 
     def __init__(__self__, *,
                  maxclients: str,
+                 zonal_configuration: str,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
                  maxfragmentationmemory_reserved: Optional[str] = None,
@@ -314,6 +317,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param str maxclients: The max clients config
+        :param str zonal_configuration: Zonal Configuration
         :param str aof_storage_connection_string0: First storage account connection string
         :param str aof_storage_connection_string1: Second storage account connection string
         :param str maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
@@ -326,6 +330,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         :param str rdb_storage_connection_string: The storage account connection string for storing rdb file
         """
         pulumi.set(__self__, "maxclients", maxclients)
+        pulumi.set(__self__, "zonal_configuration", zonal_configuration)
         if aof_storage_connection_string0 is not None:
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
@@ -354,6 +359,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         The max clients config
         """
         return pulumi.get(self, "maxclients")
+
+    @property
+    @pulumi.getter(name="zonalConfiguration")
+    def zonal_configuration(self) -> str:
+        """
+        Zonal Configuration
+        """
+        return pulumi.get(self, "zonal_configuration")
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationType',
+    'ConnectionType',
     'DigitalTwinsIdentityType',
     'EndpointType',
     'PrivateLinkServiceConnectionStatus',
@@ -19,6 +20,13 @@ class AuthenticationType(str, Enum):
     """
     KEY_BASED = "KeyBased"
     IDENTITY_BASED = "IdentityBased"
+
+
+class ConnectionType(str, Enum):
+    """
+    The type of time series connection resource.
+    """
+    AZURE_DATA_EXPLORER = "AzureDataExplorer"
 
 
 class DigitalTwinsIdentityType(str, Enum):
