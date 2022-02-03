@@ -106,6 +106,7 @@ var cutoffProviderVersions = map[string]string{
 	"azurestackhci":                 "v20210101preview",
 	"batch":                         "v20210101",
 	"cache":                         "v20210301",
+	"cdn":                           "v20200901",
 	"certificateregistration":       "v20201001",
 	"cognitiveservices":             "v20170418",
 	"compute":                       "v20210301",
