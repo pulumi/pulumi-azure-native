@@ -255,7 +255,7 @@ def get_origin(endpoint_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -303,7 +303,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginResult]:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

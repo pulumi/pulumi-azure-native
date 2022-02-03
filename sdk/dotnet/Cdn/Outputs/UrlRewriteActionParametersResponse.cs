@@ -20,6 +20,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Define the relative URL to which the above requests will be rewritten by.
         /// </summary>
         public readonly string Destination;
+        public readonly string OdataType;
         /// <summary>
         /// Whether to preserve unmatched path. Default value is true.
         /// </summary>
@@ -28,22 +29,21 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// define a request URI pattern that identifies the type of requests that may be rewritten. If value is blank, all strings are matched.
         /// </summary>
         public readonly string SourcePattern;
-        public readonly string TypeName;
 
         [OutputConstructor]
         private UrlRewriteActionParametersResponse(
             string destination,
 
+            string odataType,
+
             bool? preserveUnmatchedPath,
 
-            string sourcePattern,
-
-            string typeName)
+            string sourcePattern)
         {
             Destination = destination;
+            OdataType = odataType;
             PreserveUnmatchedPath = preserveUnmatchedPath;
             SourcePattern = sourcePattern;
-            TypeName = typeName;
         }
     }
 }

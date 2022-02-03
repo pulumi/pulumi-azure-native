@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Name of the header to modify
         /// </summary>
         public readonly string HeaderName;
-        public readonly string TypeName;
+        public readonly string OdataType;
         /// <summary>
         /// Value for the specified action
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             string headerName,
 
-            string typeName,
+            string odataType,
 
             string? value)
         {
             HeaderAction = headerAction;
             HeaderName = headerName;
-            TypeName = typeName;
+            OdataType = odataType;
             Value = value;
         }
     }

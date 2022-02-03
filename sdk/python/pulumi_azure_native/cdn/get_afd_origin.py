@@ -21,7 +21,7 @@ class GetAFDOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, enforce_certificate_name_check=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_group_name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
+    def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
         if azure_origin and not isinstance(azure_origin, dict):
             raise TypeError("Expected argument 'azure_origin' to be a dict")
         pulumi.set(__self__, "azure_origin", azure_origin)
@@ -31,9 +31,6 @@ class GetAFDOriginResult:
         if enabled_state and not isinstance(enabled_state, str):
             raise TypeError("Expected argument 'enabled_state' to be a str")
         pulumi.set(__self__, "enabled_state", enabled_state)
-        if enforce_certificate_name_check and not isinstance(enforce_certificate_name_check, bool):
-            raise TypeError("Expected argument 'enforce_certificate_name_check' to be a bool")
-        pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -49,9 +46,6 @@ class GetAFDOriginResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if origin_group_name and not isinstance(origin_group_name, str):
-            raise TypeError("Expected argument 'origin_group_name' to be a str")
-        pulumi.set(__self__, "origin_group_name", origin_group_name)
         if origin_host_header and not isinstance(origin_host_header, str):
             raise TypeError("Expected argument 'origin_host_header' to be a str")
         pulumi.set(__self__, "origin_host_header", origin_host_header)
@@ -61,8 +55,8 @@ class GetAFDOriginResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if shared_private_link_resource and not isinstance(shared_private_link_resource, list):
-            raise TypeError("Expected argument 'shared_private_link_resource' to be a list")
+        if shared_private_link_resource and not isinstance(shared_private_link_resource, dict):
+            raise TypeError("Expected argument 'shared_private_link_resource' to be a dict")
         pulumi.set(__self__, "shared_private_link_resource", shared_private_link_resource)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
@@ -94,14 +88,6 @@ class GetAFDOriginResult:
         Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         """
         return pulumi.get(self, "enabled_state")
-
-    @property
-    @pulumi.getter(name="enforceCertificateNameCheck")
-    def enforce_certificate_name_check(self) -> Optional[bool]:
-        """
-        Whether to enable certificate name check at origin level
-        """
-        return pulumi.get(self, "enforce_certificate_name_check")
 
     @property
     @pulumi.getter(name="hostName")
@@ -144,14 +130,6 @@ class GetAFDOriginResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="originGroupName")
-    def origin_group_name(self) -> str:
-        """
-        The name of the origin group which contains this origin.
-        """
-        return pulumi.get(self, "origin_group_name")
-
-    @property
     @pulumi.getter(name="originHostHeader")
     def origin_host_header(self) -> Optional[str]:
         """
@@ -177,7 +155,7 @@ class GetAFDOriginResult:
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResource")
-    def shared_private_link_resource(self) -> Optional[Sequence['outputs.SharedPrivateLinkResourcePropertiesResponse']]:
+    def shared_private_link_resource(self) -> Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']:
         """
         The properties of the private link resource for private origin.
         """
@@ -217,13 +195,11 @@ class AwaitableGetAFDOriginResult(GetAFDOriginResult):
             azure_origin=self.azure_origin,
             deployment_status=self.deployment_status,
             enabled_state=self.enabled_state,
-            enforce_certificate_name_check=self.enforce_certificate_name_check,
             host_name=self.host_name,
             http_port=self.http_port,
             https_port=self.https_port,
             id=self.id,
             name=self.name,
-            origin_group_name=self.origin_group_name,
             origin_host_header=self.origin_host_header,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
@@ -240,12 +216,12 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
     :param str origin_name: Name of the origin which is unique within the profile.
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -263,13 +239,11 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
         azure_origin=__ret__.azure_origin,
         deployment_status=__ret__.deployment_status,
         enabled_state=__ret__.enabled_state,
-        enforce_certificate_name_check=__ret__.enforce_certificate_name_check,
         host_name=__ret__.host_name,
         http_port=__ret__.http_port,
         https_port=__ret__.https_port,
         id=__ret__.id,
         name=__ret__.name,
-        origin_group_name=__ret__.origin_group_name,
         origin_host_header=__ret__.origin_host_header,
         priority=__ret__.priority,
         provisioning_state=__ret__.provisioning_state,
@@ -287,12 +261,12 @@ def get_afd_origin_output(origin_group_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginResult]:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the profile.
     :param str origin_name: Name of the origin which is unique within the profile.
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

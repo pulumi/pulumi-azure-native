@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDEndpoint")]
     public partial class AFDEndpoint : Pulumi.CustomResource
@@ -44,10 +44,10 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the profile which holds the endpoint.
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         /// </summary>
-        [Output("profileName")]
-        public Output<string> ProfileName { get; private set; } = null!;
+        [Output("originResponseTimeoutSeconds")]
+        public Output<int?> OriginResponseTimeoutSeconds { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -142,7 +142,13 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// </summary>
+        [Input("originResponseTimeoutSeconds")]
+        public Input<int>? OriginResponseTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

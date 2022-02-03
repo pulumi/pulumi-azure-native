@@ -21,7 +21,7 @@ class GetSecurityPolicyResult:
     """
     SecurityPolicy association for AzureFrontDoor profile
     """
-    def __init__(__self__, deployment_status=None, id=None, name=None, parameters=None, profile_name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, deployment_status=None, id=None, name=None, parameters=None, provisioning_state=None, system_data=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -34,9 +34,6 @@ class GetSecurityPolicyResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
-        if profile_name and not isinstance(profile_name, str):
-            raise TypeError("Expected argument 'profile_name' to be a str")
-        pulumi.set(__self__, "profile_name", profile_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -77,14 +74,6 @@ class GetSecurityPolicyResult:
         return pulumi.get(self, "parameters")
 
     @property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> str:
-        """
-        The name of the profile which holds the security policy.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -119,7 +108,6 @@ class AwaitableGetSecurityPolicyResult(GetSecurityPolicyResult):
             id=self.id,
             name=self.name,
             parameters=self.parameters,
-            profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             type=self.type)
@@ -131,10 +119,10 @@ def get_security_policy(profile_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityPolicyResult:
     """
     SecurityPolicy association for AzureFrontDoor profile
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str security_policy_name: Name of the security policy under the profile.
     """
@@ -153,7 +141,6 @@ def get_security_policy(profile_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         parameters=__ret__.parameters,
-        profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
         type=__ret__.type)
@@ -166,10 +153,10 @@ def get_security_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPolicyResult]:
     """
     SecurityPolicy association for AzureFrontDoor profile
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str security_policy_name: Name of the security policy under the profile.
     """

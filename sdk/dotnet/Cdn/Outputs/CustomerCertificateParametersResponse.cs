@@ -19,13 +19,9 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// <summary>
         /// Certificate issuing authority.
         /// </summary>
-        public readonly string CertificateAuthority;
+        public readonly string? CertificateAuthority;
         /// <summary>
-        /// Certificate expiration date.
-        /// </summary>
-        public readonly string ExpirationDate;
-        /// <summary>
-        /// Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        /// Resource reference to the KV secret
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse SecretSource;
         /// <summary>
@@ -33,19 +29,11 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string? SecretVersion;
         /// <summary>
-        /// Subject name in the certificate.
-        /// </summary>
-        public readonly string Subject;
-        /// <summary>
         /// The list of SANs.
         /// </summary>
         public readonly ImmutableArray<string> SubjectAlternativeNames;
         /// <summary>
-        /// Certificate thumbprint.
-        /// </summary>
-        public readonly string Thumbprint;
-        /// <summary>
-        /// The type of the secret resource.
+        /// The type of the Secret to create.
         /// Expected value is 'CustomerCertificate'.
         /// </summary>
         public readonly string Type;
@@ -56,31 +44,22 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
         [OutputConstructor]
         private CustomerCertificateParametersResponse(
-            string certificateAuthority,
-
-            string expirationDate,
+            string? certificateAuthority,
 
             Outputs.ResourceReferenceResponse secretSource,
 
             string? secretVersion,
 
-            string subject,
-
             ImmutableArray<string> subjectAlternativeNames,
-
-            string thumbprint,
 
             string type,
 
             bool? useLatestVersion)
         {
             CertificateAuthority = certificateAuthority;
-            ExpirationDate = expirationDate;
             SecretSource = secretSource;
             SecretVersion = secretVersion;
-            Subject = subject;
             SubjectAlternativeNames = subjectAlternativeNames;
-            Thumbprint = thumbprint;
             Type = type;
             UseLatestVersion = useLatestVersion;
         }

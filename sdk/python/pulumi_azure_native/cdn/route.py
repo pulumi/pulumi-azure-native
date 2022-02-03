@@ -20,14 +20,15 @@ class RouteArgs:
                  origin_group: pulumi.Input['ResourceReferenceArgs'],
                  profile_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 cache_configuration: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]] = None,
+                 compression_settings: Optional[pulumi.Input['CompressionSettingsArgs']] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
                  https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
                  link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]]] = None):
@@ -35,16 +36,17 @@ class RouteArgs:
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input['ResourceReferenceArgs'] origin_group: A reference to the origin group.
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input['AfdRouteCacheConfigurationArgs'] cache_configuration: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
-        :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] custom_domains: Domains referenced by this endpoint.
+        :param pulumi.Input['CompressionSettingsArgs'] compression_settings: compression settings.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param pulumi.Input[Union[str, 'HttpsRedirect']] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         :param pulumi.Input[Union[str, 'LinkToDefaultDomain']] link_to_default_domain: whether this route will be linked to the default endpoint domain.
         :param pulumi.Input[str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
+        :param pulumi.Input['AfdQueryStringCachingBehavior'] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] rule_sets: rule sets referenced by this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
@@ -53,8 +55,8 @@ class RouteArgs:
         pulumi.set(__self__, "origin_group", origin_group)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cache_configuration is not None:
-            pulumi.set(__self__, "cache_configuration", cache_configuration)
+        if compression_settings is not None:
+            pulumi.set(__self__, "compression_settings", compression_settings)
         if custom_domains is not None:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if enabled_state is not None:
@@ -69,6 +71,8 @@ class RouteArgs:
             pulumi.set(__self__, "origin_path", origin_path)
         if patterns_to_match is not None:
             pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+        if query_string_caching_behavior is not None:
+            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
         if route_name is not None:
             pulumi.set(__self__, "route_name", route_name)
         if rule_sets is not None:
@@ -104,7 +108,7 @@ class RouteArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        Name of the CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -125,27 +129,27 @@ class RouteArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="cacheConfiguration")
-    def cache_configuration(self) -> Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']]:
+    @pulumi.getter(name="compressionSettings")
+    def compression_settings(self) -> Optional[pulumi.Input['CompressionSettingsArgs']]:
         """
-        The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+        compression settings.
         """
-        return pulumi.get(self, "cache_configuration")
+        return pulumi.get(self, "compression_settings")
 
-    @cache_configuration.setter
-    def cache_configuration(self, value: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']]):
-        pulumi.set(self, "cache_configuration", value)
+    @compression_settings.setter
+    def compression_settings(self, value: Optional[pulumi.Input['CompressionSettingsArgs']]):
+        pulumi.set(self, "compression_settings", value)
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]:
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
         """
         Domains referenced by this endpoint.
         """
         return pulumi.get(self, "custom_domains")
 
     @custom_domains.setter
-    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]]]):
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "custom_domains", value)
 
     @property
@@ -221,6 +225,18 @@ class RouteArgs:
         pulumi.set(self, "patterns_to_match", value)
 
     @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> Optional[pulumi.Input['AfdQueryStringCachingBehavior']]:
+        """
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
+
+    @query_string_caching_behavior.setter
+    def query_string_caching_behavior(self, value: Optional[pulumi.Input['AfdQueryStringCachingBehavior']]):
+        pulumi.set(self, "query_string_caching_behavior", value)
+
+    @property
     @pulumi.getter(name="routeName")
     def route_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -262,8 +278,8 @@ class Route(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_configuration: Optional[pulumi.Input[pulumi.InputType['AfdRouteCacheConfigurationArgs']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivatedResourceReferenceArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
@@ -273,6 +289,7 @@ class Route(pulumi.CustomResource):
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
@@ -280,12 +297,12 @@ class Route(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AfdRouteCacheConfigurationArgs']] cache_configuration: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivatedResourceReferenceArgs']]]] custom_domains: Domains referenced by this endpoint.
+        :param pulumi.Input[pulumi.InputType['CompressionSettingsArgs']] compression_settings: compression settings.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
@@ -294,7 +311,8 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] origin_group: A reference to the origin group.
         :param pulumi.Input[str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input['AfdQueryStringCachingBehavior'] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] rule_sets: rule sets referenced by this endpoint.
@@ -308,7 +326,7 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
@@ -325,8 +343,8 @@ class Route(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_configuration: Optional[pulumi.Input[pulumi.InputType['AfdRouteCacheConfigurationArgs']]] = None,
-                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ActivatedResourceReferenceArgs']]]]] = None,
+                 compression_settings: Optional[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
                  enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
                  forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
@@ -336,6 +354,7 @@ class Route(pulumi.CustomResource):
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['AfdQueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
@@ -352,7 +371,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RouteArgs.__new__(RouteArgs)
 
-            __props__.__dict__["cache_configuration"] = cache_configuration
+            __props__.__dict__["compression_settings"] = compression_settings
             __props__.__dict__["custom_domains"] = custom_domains
             __props__.__dict__["enabled_state"] = enabled_state
             if endpoint_name is None and not opts.urn:
@@ -369,6 +388,7 @@ class Route(pulumi.CustomResource):
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
+            __props__.__dict__["query_string_caching_behavior"] = query_string_caching_behavior
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -404,11 +424,10 @@ class Route(pulumi.CustomResource):
 
         __props__ = RouteArgs.__new__(RouteArgs)
 
-        __props__.__dict__["cache_configuration"] = None
+        __props__.__dict__["compression_settings"] = None
         __props__.__dict__["custom_domains"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["enabled_state"] = None
-        __props__.__dict__["endpoint_name"] = None
         __props__.__dict__["forwarding_protocol"] = None
         __props__.__dict__["https_redirect"] = None
         __props__.__dict__["link_to_default_domain"] = None
@@ -417,6 +436,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["origin_path"] = None
         __props__.__dict__["patterns_to_match"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["query_string_caching_behavior"] = None
         __props__.__dict__["rule_sets"] = None
         __props__.__dict__["supported_protocols"] = None
         __props__.__dict__["system_data"] = None
@@ -424,16 +444,16 @@ class Route(pulumi.CustomResource):
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="cacheConfiguration")
-    def cache_configuration(self) -> pulumi.Output[Optional['outputs.AfdRouteCacheConfigurationResponse']]:
+    @pulumi.getter(name="compressionSettings")
+    def compression_settings(self) -> pulumi.Output[Optional['outputs.CompressionSettingsResponse']]:
         """
-        The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+        compression settings.
         """
-        return pulumi.get(self, "cache_configuration")
+        return pulumi.get(self, "compression_settings")
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> pulumi.Output[Optional[Sequence['outputs.ActivatedResourceReferenceResponse']]]:
+    def custom_domains(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceReferenceResponse']]]:
         """
         Domains referenced by this endpoint.
         """
@@ -451,14 +471,6 @@ class Route(pulumi.CustomResource):
         Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
-
-    @property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Output[str]:
-        """
-        The name of the endpoint which holds the route.
-        """
-        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="forwardingProtocol")
@@ -523,6 +535,14 @@ class Route(pulumi.CustomResource):
         Provisioning status
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> pulumi.Output[Optional[str]]:
+        """
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
 
     @property
     @pulumi.getter(name="ruleSets")

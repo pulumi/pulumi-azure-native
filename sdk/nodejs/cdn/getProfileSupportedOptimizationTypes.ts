@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The result of the GetSupportedOptimizationTypes API
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOptimizationTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileSupportedOptimizationTypesResult> {
     if (!opts) {
@@ -22,7 +22,7 @@ export function getProfileSupportedOptimizationTypes(args: GetProfileSupportedOp
 
 export interface GetProfileSupportedOptimizationTypesArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -47,7 +47,7 @@ export function getProfileSupportedOptimizationTypesOutput(args: GetProfileSuppo
 
 export interface GetProfileSupportedOptimizationTypesOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

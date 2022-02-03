@@ -33,6 +33,9 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }
 
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         /// <summary>
         /// Describes operator to be matched
         /// </summary>
@@ -50,9 +53,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
             get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>());
             set => _transforms = value;
         }
-
-        [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
 
         public RemoteAddressMatchConditionParametersArgs()
         {

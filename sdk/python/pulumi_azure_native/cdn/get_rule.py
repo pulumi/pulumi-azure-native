@@ -21,7 +21,7 @@ class GetRuleResult:
     """
     Friendly Rules name mapping to the any Rules or secret related information.
     """
-    def __init__(__self__, actions=None, conditions=None, deployment_status=None, id=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, rule_set_name=None, system_data=None, type=None):
+    def __init__(__self__, actions=None, conditions=None, deployment_status=None, id=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -46,9 +46,6 @@ class GetRuleResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if rule_set_name and not isinstance(rule_set_name, str):
-            raise TypeError("Expected argument 'rule_set_name' to be a str")
-        pulumi.set(__self__, "rule_set_name", rule_set_name)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -118,14 +115,6 @@ class GetRuleResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> str:
-        """
-        The name of the rule set containing the rule.
-        """
-        return pulumi.get(self, "rule_set_name")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -156,7 +145,6 @@ class AwaitableGetRuleResult(GetRuleResult):
             name=self.name,
             order=self.order,
             provisioning_state=self.provisioning_state,
-            rule_set_name=self.rule_set_name,
             system_data=self.system_data,
             type=self.type)
 
@@ -168,10 +156,10 @@ def get_rule(profile_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Friendly Rules name mapping to the any Rules or secret related information.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.
@@ -196,7 +184,6 @@ def get_rule(profile_name: Optional[str] = None,
         name=__ret__.name,
         order=__ret__.order,
         provisioning_state=__ret__.provisioning_state,
-        rule_set_name=__ret__.rule_set_name,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -209,10 +196,10 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
     """
     Friendly Rules name mapping to the any Rules or secret related information.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
-    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+    :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str rule_name: Name of the delivery rule which is unique within the endpoint.
     :param str rule_set_name: Name of the rule set under the profile.

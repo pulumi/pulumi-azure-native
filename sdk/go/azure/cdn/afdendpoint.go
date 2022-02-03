@@ -12,7 +12,7 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 type AFDEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -25,8 +25,8 @@ type AFDEndpoint struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the profile which holds the endpoint.
-	ProfileName pulumi.StringOutput `pulumi:"profileName"`
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds pulumi.IntPtrOutput `pulumi:"originResponseTimeoutSeconds"`
 	// Provisioning status
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Read only system data
@@ -97,7 +97,9 @@ type afdendpointArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -113,7 +115,9 @@ type AFDEndpointArgs struct {
 	EndpointName pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds pulumi.IntPtrInput
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput

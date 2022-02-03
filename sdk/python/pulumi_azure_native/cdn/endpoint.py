@@ -383,7 +383,7 @@ class Endpoint(pulumi.CustomResource):
                  __props__=None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,7 +417,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -494,7 +494,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url_signing_keys"] = url_signing_keys
             __props__.__dict__["web_application_firewall_policy_link"] = web_application_firewall_policy_link
-            __props__.__dict__["custom_domains"] = None
             __props__.__dict__["host_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -526,7 +525,6 @@ class Endpoint(pulumi.CustomResource):
         __props__ = EndpointArgs.__new__(EndpointArgs)
 
         __props__.__dict__["content_types_to_compress"] = None
-        __props__.__dict__["custom_domains"] = None
         __props__.__dict__["default_origin_group"] = None
         __props__.__dict__["delivery_policy"] = None
         __props__.__dict__["geo_filters"] = None
@@ -559,14 +557,6 @@ class Endpoint(pulumi.CustomResource):
         List of content types on which compression applies. The value should be a valid MIME type.
         """
         return pulumi.get(self, "content_types_to_compress")
-
-    @property
-    @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> pulumi.Output[Sequence['outputs.CustomDomainResponse']]:
-        """
-        The custom domains under the endpoint.
-        """
-        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="defaultOriginGroup")

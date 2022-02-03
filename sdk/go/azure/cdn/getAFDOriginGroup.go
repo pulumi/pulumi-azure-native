@@ -11,7 +11,7 @@ import (
 )
 
 // AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 func LookupAFDOriginGroup(ctx *pulumi.Context, args *LookupAFDOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupAFDOriginGroupResult, error) {
 	var rv LookupAFDOriginGroupResult
 	err := ctx.Invoke("azure-native:cdn:getAFDOriginGroup", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupAFDOriginGroup(ctx *pulumi.Context, args *LookupAFDOriginGroupArgs, o
 type LookupAFDOriginGroupArgs struct {
 	// Name of the origin group which is unique within the endpoint.
 	OriginGroupName string `pulumi:"originGroupName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -41,8 +41,6 @@ type LookupAFDOriginGroupResult struct {
 	LoadBalancingSettings *LoadBalancingSettingsParametersResponse `pulumi:"loadBalancingSettings"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The name of the profile which holds the origin group.
-	ProfileName string `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
@@ -69,7 +67,7 @@ func LookupAFDOriginGroupOutput(ctx *pulumi.Context, args LookupAFDOriginGroupOu
 type LookupAFDOriginGroupOutputArgs struct {
 	// Name of the origin group which is unique within the endpoint.
 	OriginGroupName pulumi.StringInput `pulumi:"originGroupName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -118,11 +116,6 @@ func (o LookupAFDOriginGroupResultOutput) LoadBalancingSettings() LoadBalancingS
 // Resource name.
 func (o LookupAFDOriginGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDOriginGroupResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The name of the profile which holds the origin group.
-func (o LookupAFDOriginGroupResultOutput) ProfileName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAFDOriginGroupResult) string { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

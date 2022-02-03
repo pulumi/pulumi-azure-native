@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:SecurityPolicy")]
     public partial class SecurityPolicy : Pulumi.CustomResource
@@ -30,12 +30,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.SecurityPolicyWebApplicationFirewallParametersResponse?> Parameters { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the profile which holds the security policy.
-        /// </summary>
-        [Output("profileName")]
-        public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -112,7 +106,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<Inputs.SecurityPolicyWebApplicationFirewallParametersArgs>? Parameters { get; set; }
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

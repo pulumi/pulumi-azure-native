@@ -18,29 +18,21 @@ class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
+        :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if origin_response_timeout_seconds is not None:
-            pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
         if profile_name is not None:
             pulumi.set(__self__, "profile_name", profile_name)
         if tags is not None:
@@ -62,25 +54,13 @@ class ProfileArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['SkuArgs']:
         """
-        The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
-        """
-        Managed service identity.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -95,22 +75,10 @@ class ProfileArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "origin_response_timeout_seconds")
-
-    @origin_response_timeout_seconds.setter
-    def origin_response_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "origin_response_timeout_seconds", value)
-
-    @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        Name of the CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -136,26 +104,22 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        A profile is a logical grouping of endpoints that share the same settings.
-        API Version: 2021-06-01.
+        CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -165,8 +129,8 @@ class Profile(pulumi.CustomResource):
                  args: ProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A profile is a logical grouping of endpoints that share the same settings.
-        API Version: 2021-06-01.
+        CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
@@ -183,9 +147,7 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -202,9 +164,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -213,8 +173,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["front_door_id"] = None
-            __props__.__dict__["kind"] = None
+            __props__.__dict__["frontdoor_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
@@ -244,12 +203,9 @@ class Profile(pulumi.CustomResource):
 
         __props__ = ProfileArgs.__new__(ProfileArgs)
 
-        __props__.__dict__["front_door_id"] = None
-        __props__.__dict__["identity"] = None
-        __props__.__dict__["kind"] = None
+        __props__.__dict__["frontdoor_id"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["origin_response_timeout_seconds"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_state"] = None
         __props__.__dict__["sku"] = None
@@ -259,28 +215,12 @@ class Profile(pulumi.CustomResource):
         return Profile(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="frontDoorId")
-    def front_door_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="frontdoorId")
+    def frontdoor_id(self) -> pulumi.Output[str]:
         """
         The Id of the frontdoor.
         """
-        return pulumi.get(self, "front_door_id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
-        """
-        Managed service identity.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Output[str]:
-        """
-        Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
-        """
-        return pulumi.get(self, "kind")
+        return pulumi.get(self, "frontdoor_id")
 
     @property
     @pulumi.getter
@@ -297,14 +237,6 @@ class Profile(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="originResponseTimeoutSeconds")
-    def origin_response_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "origin_response_timeout_seconds")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -326,7 +258,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
-        The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         """
         return pulumi.get(self, "sku")
 

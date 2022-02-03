@@ -45,14 +45,14 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("destinationProtocol")]
         public InputUnion<string, Pulumi.AzureNative.Cdn.DestinationProtocol>? DestinationProtocol { get; set; }
 
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         /// <summary>
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         [Input("redirectType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.RedirectType> RedirectType { get; set; } = null!;
-
-        [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
 
         public UrlRedirectActionParametersArgs()
         {

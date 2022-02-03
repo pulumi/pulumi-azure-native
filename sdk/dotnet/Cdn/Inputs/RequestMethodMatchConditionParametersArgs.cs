@@ -33,26 +33,14 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("negateCondition")]
         public Input<bool>? NegateCondition { get; set; }
 
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         /// <summary>
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.RequestMethodOperator> Operator { get; set; } = null!;
-
-        [Input("transforms")]
-        private InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>? _transforms;
-
-        /// <summary>
-        /// List of transforms
-        /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>> Transforms
-        {
-            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>());
-            set => _transforms = value;
-        }
-
-        [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
 
         public RequestMethodMatchConditionParametersArgs()
         {

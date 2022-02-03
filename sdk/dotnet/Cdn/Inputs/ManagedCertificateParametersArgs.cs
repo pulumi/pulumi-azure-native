@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     public sealed class ManagedCertificateParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the secret resource.
+        /// The type of the Secret to create.
         /// Expected value is 'ManagedCertificate'.
         /// </summary>
         [Input("type", required: true)]

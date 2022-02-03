@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Secret name mapping to the any Secret or secret related information.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetSecretArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -53,11 +53,7 @@ export interface GetSecretResult {
     /**
      * object which contains secret parameters
      */
-    readonly parameters?: outputs.cdn.AzureFirstPartyManagedCertificateParametersResponse | outputs.cdn.CustomerCertificateParametersResponse | outputs.cdn.ManagedCertificateParametersResponse | outputs.cdn.UrlSigningKeyParametersResponse;
-    /**
-     * The name of the profile which holds the secret.
-     */
-    readonly profileName: string;
+    readonly parameters?: outputs.cdn.CustomerCertificateParametersResponse | outputs.cdn.ManagedCertificateParametersResponse | outputs.cdn.UrlSigningKeyParametersResponse;
     /**
      * Provisioning status
      */
@@ -78,7 +74,7 @@ export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetSecretOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

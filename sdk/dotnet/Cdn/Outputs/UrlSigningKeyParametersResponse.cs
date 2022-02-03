@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string KeyId;
         /// <summary>
-        /// Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        /// Resource reference to the KV secret
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse SecretSource;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string? SecretVersion;
         /// <summary>
-        /// The type of the secret resource.
+        /// The type of the Secret to create.
         /// Expected value is 'UrlSigningKey'.
         /// </summary>
         public readonly string Type;

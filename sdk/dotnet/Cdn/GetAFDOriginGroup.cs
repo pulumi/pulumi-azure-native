@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Cdn
         public string OriginGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> OriginGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -99,10 +99,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name of the profile which holds the origin group.
-        /// </summary>
-        public readonly string ProfileName;
-        /// <summary>
         /// Provisioning status
         /// </summary>
         public readonly string ProvisioningState;
@@ -139,8 +135,6 @@ namespace Pulumi.AzureNative.Cdn
 
             string name,
 
-            string profileName,
-
             string provisioningState,
 
             Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedAfdOriginErrorDetectionSettings,
@@ -158,7 +152,6 @@ namespace Pulumi.AzureNative.Cdn
             Id = id;
             LoadBalancingSettings = loadBalancingSettings;
             Name = name;
-            ProfileName = profileName;
             ProvisioningState = provisioningState;
             ResponseBasedAfdOriginErrorDetectionSettings = responseBasedAfdOriginErrorDetectionSettings;
             SessionAffinityState = sessionAffinityState;

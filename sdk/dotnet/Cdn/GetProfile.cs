@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Cdn
     public static class GetProfile
     {
         /// <summary>
-        /// A profile is a logical grouping of endpoints that share the same settings.
-        /// API Version: 2021-06-01.
+        /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A profile is a logical grouping of endpoints that share the same settings.
-        /// API Version: 2021-06-01.
+        /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -72,19 +72,11 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
-        public readonly string FrontDoorId;
+        public readonly string FrontdoorId;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Managed service identity.
-        /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
-        /// <summary>
-        /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
-        /// </summary>
-        public readonly string Kind;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -94,10 +86,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-        /// </summary>
-        public readonly int? OriginResponseTimeoutSeconds;
-        /// <summary>
         /// Provisioning status of the profile.
         /// </summary>
         public readonly string ProvisioningState;
@@ -106,7 +94,7 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
-        /// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
         /// <summary>
@@ -124,19 +112,13 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetProfileResult(
-            string frontDoorId,
+            string frontdoorId,
 
             string id,
-
-            Outputs.ManagedServiceIdentityResponse? identity,
-
-            string kind,
 
             string location,
 
             string name,
-
-            int? originResponseTimeoutSeconds,
 
             string provisioningState,
 
@@ -150,13 +132,10 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
-            FrontDoorId = frontDoorId;
+            FrontdoorId = frontdoorId;
             Id = id;
-            Identity = identity;
-            Kind = kind;
             Location = location;
             Name = name;
-            OriginResponseTimeoutSeconds = originResponseTimeoutSeconds;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
             Sku = sku;

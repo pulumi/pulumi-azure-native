@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleSetResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getRuleSet(args: GetRuleSetArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetRuleSetArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -51,10 +51,6 @@ export interface GetRuleSetResult {
      */
     readonly name: string;
     /**
-     * The name of the profile which holds the rule set.
-     */
-    readonly profileName: string;
-    /**
      * Provisioning status
      */
     readonly provisioningState: string;
@@ -74,7 +70,7 @@ export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.Invok
 
 export interface GetRuleSetOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

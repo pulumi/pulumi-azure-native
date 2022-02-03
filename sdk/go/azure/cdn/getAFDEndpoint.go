@@ -11,7 +11,7 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 func LookupAFDEndpoint(ctx *pulumi.Context, args *LookupAFDEndpointArgs, opts ...pulumi.InvokeOption) (*LookupAFDEndpointResult, error) {
 	var rv LookupAFDEndpointResult
 	err := ctx.Invoke("azure-native:cdn:getAFDEndpoint", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupAFDEndpoint(ctx *pulumi.Context, args *LookupAFDEndpointArgs, opts ..
 type LookupAFDEndpointArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -43,8 +43,8 @@ type LookupAFDEndpointResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The name of the profile which holds the endpoint.
-	ProfileName string `pulumi:"profileName"`
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Read only system data
@@ -67,7 +67,7 @@ func LookupAFDEndpointOutput(ctx *pulumi.Context, args LookupAFDEndpointOutputAr
 type LookupAFDEndpointOutputArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -121,9 +121,9 @@ func (o LookupAFDEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the profile which holds the endpoint.
-func (o LookupAFDEndpointResultOutput) ProfileName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAFDEndpointResult) string { return v.ProfileName }).(pulumi.StringOutput)
+// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+func (o LookupAFDEndpointResultOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupAFDEndpointResult) *int { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Provisioning status

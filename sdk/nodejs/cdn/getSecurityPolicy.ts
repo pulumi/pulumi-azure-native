@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * SecurityPolicy association for AzureFrontDoor profile
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityPolicyResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getSecurityPolicy(args: GetSecurityPolicyArgs, opts?: pulumi.Inv
 
 export interface GetSecurityPolicyArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -55,10 +55,6 @@ export interface GetSecurityPolicyResult {
      */
     readonly parameters?: outputs.cdn.SecurityPolicyWebApplicationFirewallParametersResponse;
     /**
-     * The name of the profile which holds the security policy.
-     */
-    readonly profileName: string;
-    /**
      * Provisioning status
      */
     readonly provisioningState: string;
@@ -78,7 +74,7 @@ export function getSecurityPolicyOutput(args: GetSecurityPolicyOutputArgs, opts?
 
 export interface GetSecurityPolicyOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Friendly Secret name mapping to the any Secret or secret related information.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("azure-native:cdn:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
         /// <summary>
         /// Friendly Secret name mapping to the any Secret or secret related information.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-09-01.
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetSecretArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -95,10 +95,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly object? Parameters;
         /// <summary>
-        /// The name of the profile which holds the secret.
-        /// </summary>
-        public readonly string ProfileName;
-        /// <summary>
         /// Provisioning status
         /// </summary>
         public readonly string ProvisioningState;
@@ -121,8 +117,6 @@ namespace Pulumi.AzureNative.Cdn
 
             object? parameters,
 
-            string profileName,
-
             string provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -133,7 +127,6 @@ namespace Pulumi.AzureNative.Cdn
             Id = id;
             Name = name;
             Parameters = parameters;
-            ProfileName = profileName;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Type = type;

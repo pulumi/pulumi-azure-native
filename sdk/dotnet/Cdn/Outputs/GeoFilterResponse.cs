@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string Action;
         /// <summary>
-        /// Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.
+        /// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         /// </summary>
         public readonly ImmutableArray<string> CountryCodes;
         /// <summary>

@@ -171,7 +171,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.
@@ -212,7 +212,7 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    API Version: 2021-06-01.
+    API Version: 2020-09-01.
 
 
     :param str custom_domain_name: Name of the custom domain within an endpoint.

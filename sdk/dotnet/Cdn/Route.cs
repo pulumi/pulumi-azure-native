@@ -11,22 +11,22 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
-        /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+        /// compression settings.
         /// </summary>
-        [Output("cacheConfiguration")]
-        public Output<Outputs.AfdRouteCacheConfigurationResponse?> CacheConfiguration { get; private set; } = null!;
+        [Output("compressionSettings")]
+        public Output<Outputs.CompressionSettingsResponse?> CompressionSettings { get; private set; } = null!;
 
         /// <summary>
         /// Domains referenced by this endpoint.
         /// </summary>
         [Output("customDomains")]
-        public Output<ImmutableArray<Outputs.ActivatedResourceReferenceResponse>> CustomDomains { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceReferenceResponse>> CustomDomains { get; private set; } = null!;
 
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
@@ -36,12 +36,6 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("enabledState")]
         public Output<string?> EnabledState { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the endpoint which holds the route.
-        /// </summary>
-        [Output("endpointName")]
-        public Output<string> EndpointName { get; private set; } = null!;
 
         /// <summary>
         /// Protocol this rule will use when forwarding traffic to backends.
@@ -90,6 +84,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        /// </summary>
+        [Output("queryStringCachingBehavior")]
+        public Output<string?> QueryStringCachingBehavior { get; private set; } = null!;
 
         /// <summary>
         /// rule sets referenced by this endpoint.
@@ -166,20 +166,20 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+        /// compression settings.
         /// </summary>
-        [Input("cacheConfiguration")]
-        public Input<Inputs.AfdRouteCacheConfigurationArgs>? CacheConfiguration { get; set; }
+        [Input("compressionSettings")]
+        public Input<Inputs.CompressionSettingsArgs>? CompressionSettings { get; set; }
 
         [Input("customDomains")]
-        private InputList<Inputs.ActivatedResourceReferenceArgs>? _customDomains;
+        private InputList<Inputs.ResourceReferenceArgs>? _customDomains;
 
         /// <summary>
         /// Domains referenced by this endpoint.
         /// </summary>
-        public InputList<Inputs.ActivatedResourceReferenceArgs> CustomDomains
+        public InputList<Inputs.ResourceReferenceArgs> CustomDomains
         {
-            get => _customDomains ?? (_customDomains = new InputList<Inputs.ActivatedResourceReferenceArgs>());
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.ResourceReferenceArgs>());
             set => _customDomains = value;
         }
 
@@ -238,10 +238,16 @@ namespace Pulumi.AzureNative.Cdn
         }
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
+
+        /// <summary>
+        /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        /// </summary>
+        [Input("queryStringCachingBehavior")]
+        public Input<Pulumi.AzureNative.Cdn.AfdQueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

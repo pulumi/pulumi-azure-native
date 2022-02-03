@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// Resource reference to the Azure Key Vault secret. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{secretName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        /// Resource reference to the KV secret
         /// </summary>
         [Input("secretSource", required: true)]
         public Input<Inputs.ResourceReferenceArgs> SecretSource { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public Input<string>? SecretVersion { get; set; }
 
         /// <summary>
-        /// The type of the secret resource.
+        /// The type of the Secret to create.
         /// Expected value is 'UrlSigningKey'.
         /// </summary>
         [Input("type", required: true)]

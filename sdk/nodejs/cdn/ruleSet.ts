@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export class RuleSet extends pulumi.CustomResource {
     /**
@@ -41,10 +41,6 @@ export class RuleSet extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The name of the profile which holds the rule set.
-     */
-    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -86,7 +82,6 @@ export class RuleSet extends pulumi.CustomResource {
         } else {
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -103,7 +98,7 @@ export class RuleSet extends pulumi.CustomResource {
  */
 export interface RuleSetArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

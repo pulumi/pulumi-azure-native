@@ -21,7 +21,7 @@ class SecurityPolicyArgs:
                  security_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityPolicy resource.
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['SecurityPolicyWebApplicationFirewallParametersArgs'] parameters: object which contains security policy parameters
         :param pulumi.Input[str] security_policy_name: Name of the security policy under the profile.
@@ -37,7 +37,7 @@ class SecurityPolicyArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        Name of the CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -94,12 +94,12 @@ class SecurityPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         SecurityPolicy association for AzureFrontDoor profile
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecurityPolicyWebApplicationFirewallParametersArgs']] parameters: object which contains security policy parameters
-        :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] security_policy_name: Name of the security policy under the profile.
         """
@@ -111,7 +111,7 @@ class SecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SecurityPolicy association for AzureFrontDoor profile
-        API Version: 2021-06-01.
+        API Version: 2020-09-01.
 
         :param str resource_name: The name of the resource.
         :param SecurityPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,6 @@ class SecurityPolicy(pulumi.CustomResource):
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
-        __props__.__dict__["profile_name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -210,14 +209,6 @@ class SecurityPolicy(pulumi.CustomResource):
         object which contains security policy parameters
         """
         return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Output[str]:
-        """
-        The name of the profile which holds the security policy.
-        """
-        return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="provisioningState")

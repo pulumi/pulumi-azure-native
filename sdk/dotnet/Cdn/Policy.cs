@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Policy")]
     public partial class Policy : Pulumi.CustomResource

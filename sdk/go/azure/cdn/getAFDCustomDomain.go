@@ -11,7 +11,7 @@ import (
 )
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 func LookupAFDCustomDomain(ctx *pulumi.Context, args *LookupAFDCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupAFDCustomDomainResult, error) {
 	var rv LookupAFDCustomDomainResult
 	err := ctx.Invoke("azure-native:cdn:getAFDCustomDomain", args, &rv, opts...)
@@ -24,7 +24,7 @@ func LookupAFDCustomDomain(ctx *pulumi.Context, args *LookupAFDCustomDomainArgs,
 type LookupAFDCustomDomainArgs struct {
 	// Name of the domain under the profile which is unique globally.
 	CustomDomainName string `pulumi:"customDomainName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -43,10 +43,6 @@ type LookupAFDCustomDomainResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Resource reference to the Azure resource where custom domain ownership was prevalidated
-	PreValidatedCustomDomainResourceId *ResourceReferenceResponse `pulumi:"preValidatedCustomDomainResourceId"`
-	// The name of the profile which holds the domain.
-	ProfileName string `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Read only system data
@@ -71,7 +67,7 @@ func LookupAFDCustomDomainOutput(ctx *pulumi.Context, args LookupAFDCustomDomain
 type LookupAFDCustomDomainOutputArgs struct {
 	// Name of the domain under the profile which is unique globally.
 	CustomDomainName pulumi.StringInput `pulumi:"customDomainName"`
-	// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -123,18 +119,6 @@ func (o LookupAFDCustomDomainResultOutput) Id() pulumi.StringOutput {
 // Resource name.
 func (o LookupAFDCustomDomainResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource reference to the Azure resource where custom domain ownership was prevalidated
-func (o LookupAFDCustomDomainResultOutput) PreValidatedCustomDomainResourceId() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v LookupAFDCustomDomainResult) *ResourceReferenceResponse {
-		return v.PreValidatedCustomDomainResourceId
-	}).(ResourceReferenceResponsePtrOutput)
-}
-
-// The name of the profile which holds the domain.
-func (o LookupAFDCustomDomainResultOutput) ProfileName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAFDCustomDomainResult) string { return v.ProfileName }).(pulumi.StringOutput)
 }
 
 // Provisioning status

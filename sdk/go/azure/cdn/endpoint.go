@@ -12,14 +12,12 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-// API Version: 2021-06-01.
+// API Version: 2020-09-01.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayOutput `pulumi:"contentTypesToCompress"`
-	// The custom domains under the endpoint.
-	CustomDomains CustomDomainResponseArrayOutput `pulumi:"customDomains"`
 	// A reference to the origin group.
 	DefaultOriginGroup ResourceReferenceResponsePtrOutput `pulumi:"defaultOriginGroup"`
 	// A policy that specifies the delivery rules to be used for an endpoint.

@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     /// </summary>
     public sealed class CacheKeyQueryStringActionParametersArgs : Pulumi.ResourceArgs
     {
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         /// <summary>
         /// query parameters to include or exclude (comma separated).
         /// </summary>
@@ -26,9 +29,6 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// </summary>
         [Input("queryStringBehavior", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Cdn.QueryStringBehavior> QueryStringBehavior { get; set; } = null!;
-
-        [Input("typeName", required: true)]
-        public Input<string> TypeName { get; set; } = null!;
 
         public CacheKeyQueryStringActionParametersArgs()
         {

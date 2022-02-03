@@ -17,29 +17,14 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     public sealed class ManagedCertificateParametersResponse
     {
         /// <summary>
-        /// Certificate expiration date.
-        /// </summary>
-        public readonly string ExpirationDate;
-        /// <summary>
-        /// Subject name in the certificate.
-        /// </summary>
-        public readonly string Subject;
-        /// <summary>
-        /// The type of the secret resource.
+        /// The type of the Secret to create.
         /// Expected value is 'ManagedCertificate'.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
-        private ManagedCertificateParametersResponse(
-            string expirationDate,
-
-            string subject,
-
-            string type)
+        private ManagedCertificateParametersResponse(string type)
         {
-            ExpirationDate = expirationDate;
-            Subject = subject;
             Type = type;
         }
     }

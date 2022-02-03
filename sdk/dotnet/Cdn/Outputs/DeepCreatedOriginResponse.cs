@@ -45,10 +45,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// The approval status for the connection to the Private Link
-        /// </summary>
-        public readonly string PrivateEndpointStatus;
-        /// <summary>
         /// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         /// </summary>
         public readonly string? PrivateLinkAlias;
@@ -85,8 +81,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             int? priority,
 
-            string privateEndpointStatus,
-
             string? privateLinkAlias,
 
             string? privateLinkApprovalMessage,
@@ -104,7 +98,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
             Name = name;
             OriginHostHeader = originHostHeader;
             Priority = priority;
-            PrivateEndpointStatus = privateEndpointStatus;
             PrivateLinkAlias = privateLinkAlias;
             PrivateLinkApprovalMessage = privateLinkApprovalMessage;
             PrivateLinkLocation = privateLinkLocation;

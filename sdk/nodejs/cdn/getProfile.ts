@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * A profile is a logical grouping of endpoints that share the same settings.
- * API Version: 2021-06-01.
+ * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+ * API Version: 2020-09-01.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     if (!opts) {
@@ -23,7 +23,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetProfileArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -33,25 +33,17 @@ export interface GetProfileArgs {
 }
 
 /**
- * A profile is a logical grouping of endpoints that share the same settings.
+ * CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
  */
 export interface GetProfileResult {
     /**
      * The Id of the frontdoor.
      */
-    readonly frontDoorId: string;
+    readonly frontdoorId: string;
     /**
      * Resource ID.
      */
     readonly id: string;
-    /**
-     * Managed service identity.
-     */
-    readonly identity?: outputs.cdn.ManagedServiceIdentityResponse;
-    /**
-     * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
-     */
-    readonly kind: string;
     /**
      * Resource location.
      */
@@ -61,10 +53,6 @@ export interface GetProfileResult {
      */
     readonly name: string;
     /**
-     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
-     */
-    readonly originResponseTimeoutSeconds?: number;
-    /**
      * Provisioning status of the profile.
      */
     readonly provisioningState: string;
@@ -73,7 +61,7 @@ export interface GetProfileResult {
      */
     readonly resourceState: string;
     /**
-     * The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+     * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
     readonly sku: outputs.cdn.SkuResponse;
     /**
@@ -96,7 +84,7 @@ export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.Invok
 
 export interface GetProfileOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
- * API Version: 2021-06-01.
+ * API Version: 2020-09-01.
  */
 export function getAFDEndpoint(args: GetAFDEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDEndpointResult> {
     if (!opts) {
@@ -28,7 +28,7 @@ export interface GetAFDEndpointArgs {
      */
     endpointName: string;
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -63,9 +63,9 @@ export interface GetAFDEndpointResult {
      */
     readonly name: string;
     /**
-     * The name of the profile which holds the endpoint.
+     * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */
-    readonly profileName: string;
+    readonly originResponseTimeoutSeconds?: number;
     /**
      * Provisioning status
      */
@@ -94,7 +94,7 @@ export interface GetAFDEndpointOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

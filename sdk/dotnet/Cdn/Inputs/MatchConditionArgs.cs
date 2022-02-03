@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// Match variable to compare against.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Cdn.WafMatchVariable> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.MatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes if the result of this condition should be negated.
