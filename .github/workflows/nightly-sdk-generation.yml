@@ -42,11 +42,6 @@ jobs:
           git config --local user.email "bot@pulumi.com"
           git config --local user.name "pulumi-bot"
           git checkout -b generate-sdk/${{ github.run_id }}-${{ github.run_number }}
-      - name: commit changes
-        run: |
-          git add .
-          git commit -m "Preparing the SDK folder for regeneration"
-          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Update submodules
         run: make update_submodules
       - name: Build codegen binaries
@@ -59,8 +54,16 @@ jobs:
         working-directory: azure-rest-api-specs
       - name: commit changes
         run: |
+          git add sdk/nodejs
+          git commit -m "Regenerating Node.js SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
+          git add sdk/python
+          git commit -m "Regenerating Python SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
+          git add sdk/dotnet
+          git commit -m "Regenerating .NET SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
+          git add sdk/go*
+          git commit -m "Regenerating Go SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
           git add .
-          git commit -m "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
+          git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: pull-request
         uses: repo-sync/pull-request@v2
