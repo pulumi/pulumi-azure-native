@@ -4,6 +4,12 @@
 
 ---
 
+## 1.56.0 (2022-02-03)
+
+#### New resources:
+
+- `digitaltwins:TimeSeriesDatabaseConnection`
+
 ## 1.55.0 (2022-02-02)
 
 - Upgrade internal pulumi/pulumi dependencies to v3.23.2
