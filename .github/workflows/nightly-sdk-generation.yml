@@ -46,7 +46,6 @@ jobs:
         run: |
           git add .
           git commit -m "Preparing the SDK folder for regeneration"
-          git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: Update submodules
         run: make update_submodules
       - name: Build codegen binaries
@@ -59,8 +58,10 @@ jobs:
         working-directory: azure-rest-api-specs
       - name: commit changes
         run: |
+          git add sdk
+          git commit -m "Regenerating SDKs based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}" || echo "ignore commit failure, may be empty"
           git add .
-          git commit -m "Regenerating SDK based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
+          git commit -m "Regenerating based on azure-rest-api-specs @ ${{ steps.vars.outputs.commit-hash }}"
           git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
       - name: pull-request
         uses: repo-sync/pull-request@v2
