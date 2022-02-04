@@ -69525,6 +69525,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2019-01-01-preview"
@@ -96712,6 +96713,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-02-01-preview"
         ],
         "capabilities": "None",
