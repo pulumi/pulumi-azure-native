@@ -51695,6 +51695,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -51772,6 +51773,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -51812,6 +51814,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -51852,6 +51855,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -51892,6 +51896,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -51932,6 +51937,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52009,6 +52015,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52081,6 +52088,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52116,6 +52124,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52188,6 +52197,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52245,6 +52255,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -52302,6 +52313,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
           "2021-07-01-preview",
@@ -69525,6 +69537,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01-preview",
           "2021-10-01-preview",
           "2021-09-01-preview",
           "2019-01-01-preview"
@@ -73018,12 +73031,14 @@
         "locationMappings": null,
         "locations": [
           "Australia East",
+          "Canada Central",
           "Central US",
           "East US",
           "East US 2",
           "Japan East",
           "North Europe",
           "Southeast Asia",
+          "South Central US",
           "UK South",
           "West Central US",
           "West Europe",
@@ -73084,6 +73099,32 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-11-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-11-01-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-11-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2021-11-01-preview",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations/operationResults"
       },
       {
         "aliases": null,
@@ -96712,6 +96753,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01-preview",
           "2021-02-01-preview"
         ],
         "capabilities": "None",
@@ -104192,6 +104234,52 @@
         ],
         "properties": null,
         "resourceType": "accounts/storageContainers"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-12-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "Central US",
+          "Australia Central",
+          "Australia East",
+          "Australia Southeast",
+          "Canada Central",
+          "Canada East",
+          "Central India",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "France Central",
+          "Germany West Central",
+          "Japan East",
+          "Japan West",
+          "North Central US",
+          "North Europe",
+          "Norway East",
+          "South Africa North",
+          "South Central US",
+          "South India",
+          "Southeast Asia",
+          "Switzerland North",
+          "West Central US",
+          "West Europe",
+          "West India",
+          "West US",
+          "West US 2",
+          "UAE North",
+          "UK West",
+          "UK South",
+          "Brazil South",
+          "Korea Central"
+        ],
+        "properties": null,
+        "resourceType": "accounts/networks"
       },
       {
         "aliases": null,
