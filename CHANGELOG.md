@@ -2,6 +2,9 @@
 
 ## HEAD (Unreleased)
 
+- Fix Unable to destroy a ServerBlobAuditingPolicy
+  [#1481](https://github.com/pulumi/pulumi-azure-native/issues/1481)
+
 ---
 
 ## 1.56.0 (2022-02-03)
