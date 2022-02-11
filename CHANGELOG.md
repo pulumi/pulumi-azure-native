@@ -1,6 +1,15 @@
 # CHANGELOG
 
 ## HEAD (Unreleased)
+- Multiple updates [#1496](https://github.com/pulumi/pulumi-azure-native/pull/1496):
+  - pulumi/pulumi dependency bumped to v3.24.1
+  - Updated resource specs. Includes breaking change (see below)
+  - Workaround codegen bugs affecting new resource specs
+  - Fix tests
+
+#### Breaking Changes published by Microsoft:
+- Deletion of `v2019-05-01-preview` API for `appplatform`. See [source](https://github.com/Azure/azure-rest-api-specs/pull/17506)
+
 
 ---
 
