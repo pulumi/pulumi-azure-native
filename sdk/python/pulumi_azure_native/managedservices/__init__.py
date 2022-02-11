@@ -24,10 +24,13 @@ if typing.TYPE_CHECKING:
     v20190901 = __v20190901
     import pulumi_azure_native.managedservices.v20200201preview as __v20200201preview
     v20200201preview = __v20200201preview
+    import pulumi_azure_native.managedservices.v20220101preview as __v20220101preview
+    v20220101preview = __v20220101preview
 else:
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20180601preview')
     v20190401preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20190401preview')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.managedservices.v20190601')
     v20190901 = _utilities.lazy_import('pulumi_azure_native.managedservices.v20190901')
     v20200201preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20200201preview')
+    v20220101preview = _utilities.lazy_import('pulumi_azure_native.managedservices.v20220101preview')
 

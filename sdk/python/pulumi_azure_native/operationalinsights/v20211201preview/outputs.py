@@ -201,10 +201,10 @@ class RestoredLogsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceTable":
-            suggest = "source_table"
-        elif key == "endRestoreTime":
+        if key == "endRestoreTime":
             suggest = "end_restore_time"
+        elif key == "sourceTable":
+            suggest = "source_table"
         elif key == "startRestoreTime":
             suggest = "start_restore_time"
 
@@ -220,28 +220,21 @@ class RestoredLogsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_table: str,
                  end_restore_time: Optional[str] = None,
+                 source_table: Optional[str] = None,
                  start_restore_time: Optional[str] = None):
         """
         Restore parameters.
-        :param str source_table: The table to restore data from.
         :param str end_restore_time: The timestamp to end the restore by (UTC).
+        :param str source_table: The table to restore data from.
         :param str start_restore_time: The timestamp to start the restore from (UTC).
         """
-        pulumi.set(__self__, "source_table", source_table)
         if end_restore_time is not None:
             pulumi.set(__self__, "end_restore_time", end_restore_time)
+        if source_table is not None:
+            pulumi.set(__self__, "source_table", source_table)
         if start_restore_time is not None:
             pulumi.set(__self__, "start_restore_time", start_restore_time)
-
-    @property
-    @pulumi.getter(name="sourceTable")
-    def source_table(self) -> str:
-        """
-        The table to restore data from.
-        """
-        return pulumi.get(self, "source_table")
 
     @property
     @pulumi.getter(name="endRestoreTime")
@@ -250,6 +243,14 @@ class RestoredLogsResponse(dict):
         The timestamp to end the restore by (UTC).
         """
         return pulumi.get(self, "end_restore_time")
+
+    @property
+    @pulumi.getter(name="sourceTable")
+    def source_table(self) -> Optional[str]:
+        """
+        The table to restore data from.
+        """
+        return pulumi.get(self, "source_table")
 
     @property
     @pulumi.getter(name="startRestoreTime")
@@ -530,8 +531,8 @@ class SearchResultsResponse(dict):
                  start_search_time: Optional[str] = None):
         """
         Parameters of the search job that initiated this table.
-        :param str source_table: The table to search data from.
-        :param str description: Search results table's Description.
+        :param str source_table: The table used in the search job.
+        :param str description: Search job Description.
         :param str end_search_time: The timestamp to end the search by (UTC)
         :param int limit: Limit the search job to return up to specified number of rows.
         :param str query: Search job query.
@@ -553,7 +554,7 @@ class SearchResultsResponse(dict):
     @pulumi.getter(name="sourceTable")
     def source_table(self) -> str:
         """
-        The table to search data from.
+        The table used in the search job.
         """
         return pulumi.get(self, "source_table")
 
@@ -561,7 +562,7 @@ class SearchResultsResponse(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Search results table's Description.
+        Search job Description.
         """
         return pulumi.get(self, "description")
 

@@ -218,7 +218,7 @@ class Action(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workflow_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Action")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Action")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Action, __self__).__init__(
             'azure-native:securityinsights/v20210301preview:Action',

@@ -21,7 +21,7 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, initial_upload_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, initial_upload_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, system_data=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
         pulumi.set(__self__, "cloud_tiering", cloud_tiering)
@@ -82,6 +82,9 @@ class GetServerEndpointResult:
         if sync_status and not isinstance(sync_status, dict):
             raise TypeError("Expected argument 'sync_status' to be a dict")
         pulumi.set(__self__, "sync_status", sync_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tier_files_older_than_days and not isinstance(tier_files_older_than_days, int):
             raise TypeError("Expected argument 'tier_files_older_than_days' to be a int")
         pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
@@ -253,6 +256,14 @@ class GetServerEndpointResult:
         return pulumi.get(self, "sync_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="tierFilesOlderThanDays")
     def tier_files_older_than_days(self) -> Optional[int]:
         """
@@ -303,6 +314,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             server_name=self.server_name,
             server_resource_id=self.server_resource_id,
             sync_status=self.sync_status,
+            system_data=self.system_data,
             tier_files_older_than_days=self.tier_files_older_than_days,
             type=self.type,
             volume_free_space_percent=self.volume_free_space_percent)
@@ -354,6 +366,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         server_name=__ret__.server_name,
         server_resource_id=__ret__.server_resource_id,
         sync_status=__ret__.sync_status,
+        system_data=__ret__.system_data,
         tier_files_older_than_days=__ret__.tier_files_older_than_days,
         type=__ret__.type,
         volume_free_space_percent=__ret__.volume_free_space_percent)

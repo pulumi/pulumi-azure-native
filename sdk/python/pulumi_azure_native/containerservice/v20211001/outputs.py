@@ -3004,7 +3004,7 @@ class ManagedClusterSecurityProfileAzureDefenderResponse(dict):
         """
         Azure Defender settings for the security profile.
         :param bool enabled: Whether to enable Azure Defender
-        :param str log_analytics_workspace_resource_id: Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+        :param str log_analytics_workspace_resource_id: Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -3023,7 +3023,7 @@ class ManagedClusterSecurityProfileAzureDefenderResponse(dict):
     @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
     def log_analytics_workspace_resource_id(self) -> Optional[str]:
         """
-        Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+        Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
         """
         return pulumi.get(self, "log_analytics_workspace_resource_id")
 

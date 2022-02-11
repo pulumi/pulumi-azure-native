@@ -162,6 +162,7 @@ __all__ = [
     'HubArgs',
     'IPConfigurationBgpPeeringAddressArgs',
     'IPConfigurationProfileArgs',
+    'InboundEndpointIPConfigurationArgs',
     'InboundNatPoolArgs',
     'InboundNatRuleArgs',
     'IpTagArgs',
@@ -253,6 +254,7 @@ __all__ = [
     'SubResource',
     'SubResourceArgs',
     'SubnetArgs',
+    'TargetDnsServerArgs',
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
     'TrafficSelectorPolicyArgs',
@@ -11043,6 +11045,64 @@ class IPConfigurationProfileArgs:
 
 
 @pulumi.input_type
+class InboundEndpointIPConfigurationArgs:
+    def __init__(__self__, *,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]] = None,
+                 subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        IP configuration.
+        :param pulumi.Input[str] private_ip_address: Private IP address of the IP configuration.
+        :param pulumi.Input[Union[str, 'IpAllocationMethod']] private_ip_allocation_method: Private IP address allocation method.
+        :param pulumi.Input['SubResourceArgs'] subnet: The reference to the subnet bound to the IP configuration.
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is None:
+            private_ip_allocation_method = 'Dynamic'
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="privateIpAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]]:
+        """
+        Private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'IpAllocationMethod']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        The reference to the subnet bound to the IP configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
 class InboundNatPoolArgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
@@ -18466,6 +18526,48 @@ class SubnetArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class TargetDnsServerArgs:
+    def __init__(__self__, *,
+                 ip_address: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        Describes a server to forward the DNS queries to.
+        :param pulumi.Input[str] ip_address: DNS server IP address.
+        :param pulumi.Input[int] port: DNS server port.
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if port is None:
+            port = 53
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type

@@ -243,7 +243,7 @@ class AutomationRule(pulumi.CustomResource):
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AutomationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AutomationRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AutomationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutomationRule, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:AutomationRule',

@@ -48,6 +48,10 @@ __all__ = [
     'SalesforceSourceReadBehavior',
     'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
+    'ScriptActivityLogDestination',
+    'ScriptActivityParameterDirection',
+    'ScriptActivityParameterType',
+    'ScriptType',
     'ServiceNowAuthenticationType',
     'SftpAuthenticationType',
     'SparkAuthenticationType',
@@ -456,6 +460,49 @@ class SapHanaAuthenticationType(str, Enum):
     """
     BASIC = "Basic"
     WINDOWS = "Windows"
+
+
+class ScriptActivityLogDestination(str, Enum):
+    """
+    The destination of logs. Type: string.
+    """
+    ACTIVITY_OUTPUT = "ActivityOutput"
+    EXTERNAL_STORE = "ExternalStore"
+
+
+class ScriptActivityParameterDirection(str, Enum):
+    """
+    The direction of the parameter.
+    """
+    VALUE_INPUT = "Input"
+    VALUE_OUTPUT = "Output"
+    VALUE_INPUT_OUTPUT = "InputOutput"
+
+
+class ScriptActivityParameterType(str, Enum):
+    """
+    The type of the parameter.
+    """
+    BOOLEAN = "Boolean"
+    DATE_TIME = "DateTime"
+    DATE_TIME_OFFSET = "DateTimeOffset"
+    DECIMAL = "Decimal"
+    DOUBLE = "Double"
+    GUID = "Guid"
+    INT16 = "Int16"
+    INT32 = "Int32"
+    INT64 = "Int64"
+    SINGLE = "Single"
+    STRING = "String"
+    TIMESPAN = "Timespan"
+
+
+class ScriptType(str, Enum):
+    """
+    The type of the query. Type: string.
+    """
+    QUERY = "Query"
+    NON_QUERY = "NonQuery"
 
 
 class ServiceNowAuthenticationType(str, Enum):

@@ -71,8 +71,12 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "server_local_path", server_local_path)
         if server_resource_id is not None:
             pulumi.set(__self__, "server_resource_id", server_resource_id)
+        if tier_files_older_than_days is None:
+            tier_files_older_than_days = 0
         if tier_files_older_than_days is not None:
             pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
+        if volume_free_space_percent is None:
+            volume_free_space_percent = 20
         if volume_free_space_percent is not None:
             pulumi.set(__self__, "volume_free_space_percent", volume_free_space_percent)
 
@@ -357,7 +361,11 @@ class ServerEndpoint(pulumi.CustomResource):
             if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
+            if tier_files_older_than_days is None:
+                tier_files_older_than_days = 0
             __props__.__dict__["tier_files_older_than_days"] = tier_files_older_than_days
+            if volume_free_space_percent is None:
+                volume_free_space_percent = 20
             __props__.__dict__["volume_free_space_percent"] = volume_free_space_percent
             __props__.__dict__["cloud_tiering_status"] = None
             __props__.__dict__["last_operation_name"] = None

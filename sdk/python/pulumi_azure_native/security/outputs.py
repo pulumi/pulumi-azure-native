@@ -43,6 +43,8 @@ __all__ = [
     'DenylistCustomAlertRuleResponse',
     'GcpCredentialsDetailsPropertiesResponse',
     'HybridComputeSettingsPropertiesResponse',
+    'InformationProtectionAwsOfferingResponse',
+    'InformationProtectionAwsOfferingResponseInformationProtection',
     'IngestionConnectionStringResponse',
     'JitNetworkAccessPolicyVirtualMachineResponse',
     'JitNetworkAccessPortRuleResponse',
@@ -1533,12 +1535,12 @@ class DefenderForServersAwsOfferingResponse(dict):
         The Defender for Servers AWS offering configurations
         :param str description: The offering description.
         :param str offering_type: The type of the security offering.
-               Expected value is 'DefenderForServersAWS'.
+               Expected value is 'DefenderForServersAws'.
         :param 'DefenderForServersAwsOfferingResponseArcAutoProvisioning' arc_auto_provisioning: The ARC autoprovisioning configuration
         :param 'DefenderForServersAwsOfferingResponseDefenderForServers' defender_for_servers: The Defender for servers connection configuration
         """
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "offering_type", 'DefenderForServersAWS')
+        pulumi.set(__self__, "offering_type", 'DefenderForServersAws')
         if arc_auto_provisioning is not None:
             pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
         if defender_for_servers is not None:
@@ -1557,7 +1559,7 @@ class DefenderForServersAwsOfferingResponse(dict):
     def offering_type(self) -> str:
         """
         The type of the security offering.
-        Expected value is 'DefenderForServersAWS'.
+        Expected value is 'DefenderForServersAws'.
         """
         return pulumi.get(self, "offering_type")
 
@@ -2154,6 +2156,112 @@ class HybridComputeSettingsPropertiesResponse(dict):
         An object to access resources that are secured by an Azure AD tenant.
         """
         return pulumi.get(self, "service_principal")
+
+
+@pulumi.output_type
+class InformationProtectionAwsOfferingResponse(dict):
+    """
+    The information protection for AWS offering configurations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "offeringType":
+            suggest = "offering_type"
+        elif key == "informationProtection":
+            suggest = "information_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InformationProtectionAwsOfferingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InformationProtectionAwsOfferingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InformationProtectionAwsOfferingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 offering_type: str,
+                 information_protection: Optional['outputs.InformationProtectionAwsOfferingResponseInformationProtection'] = None):
+        """
+        The information protection for AWS offering configurations
+        :param str description: The offering description.
+        :param str offering_type: The type of the security offering.
+               Expected value is 'InformationProtectionAws'.
+        :param 'InformationProtectionAwsOfferingResponseInformationProtection' information_protection: The native cloud connection configuration
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "offering_type", 'InformationProtectionAws')
+        if information_protection is not None:
+            pulumi.set(__self__, "information_protection", information_protection)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The offering description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> str:
+        """
+        The type of the security offering.
+        Expected value is 'InformationProtectionAws'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @property
+    @pulumi.getter(name="informationProtection")
+    def information_protection(self) -> Optional['outputs.InformationProtectionAwsOfferingResponseInformationProtection']:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "information_protection")
+
+
+@pulumi.output_type
+class InformationProtectionAwsOfferingResponseInformationProtection(dict):
+    """
+    The native cloud connection configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudRoleArn":
+            suggest = "cloud_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InformationProtectionAwsOfferingResponseInformationProtection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InformationProtectionAwsOfferingResponseInformationProtection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InformationProtectionAwsOfferingResponseInformationProtection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[str] = None):
+        """
+        The native cloud connection configuration
+        :param str cloud_role_arn: The cloud role ARN in AWS for this feature
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[str]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
 
 
 @pulumi.output_type

@@ -76,6 +76,7 @@ __all__ = [
     'FirewallPolicyRuleType',
     'FirewallPolicySkuTier',
     'FlowLogFormatType',
+    'ForwardingRuleState',
     'FrontDoorEnabledState',
     'FrontDoorForwardingProtocol',
     'FrontDoorHealthProbeMethod',
@@ -92,6 +93,7 @@ __all__ = [
     'IPVersion',
     'IkeEncryption',
     'IkeIntegrity',
+    'IpAllocationMethod',
     'IpAllocationType',
     'IpsecEncryption',
     'IpsecIntegrity',
@@ -829,6 +831,14 @@ class FlowLogFormatType(str, Enum):
     JSON = "JSON"
 
 
+class ForwardingRuleState(str, Enum):
+    """
+    The state of forwarding rule.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class FrontDoorEnabledState(str, Enum):
     """
     Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
@@ -978,6 +988,14 @@ class IkeIntegrity(str, Enum):
     SHA384 = "SHA384"
     GCMAES256 = "GCMAES256"
     GCMAES128 = "GCMAES128"
+
+
+class IpAllocationMethod(str, Enum):
+    """
+    Private IP address allocation method.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
 
 
 class IpAllocationType(str, Enum):

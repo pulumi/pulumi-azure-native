@@ -29,13 +29,13 @@ class TableArgs:
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: The table plan.
+        :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
         :param pulumi.Input['RestoredLogsArgs'] restored_logs: Parameters of the restore operation that initiated this table.
-        :param pulumi.Input[int] retention_in_days: The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        :param pulumi.Input[int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         :param pulumi.Input['SchemaArgs'] schema: Table schema.
         :param pulumi.Input['SearchResultsArgs'] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[int] total_retention_in_days: The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -82,7 +82,7 @@ class TableArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input[Union[str, 'TablePlanEnum']]]:
         """
-        The table plan.
+        Instruct the system how to handle and charge the logs ingested to this table.
         """
         return pulumi.get(self, "plan")
 
@@ -106,7 +106,7 @@ class TableArgs:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -154,7 +154,7 @@ class TableArgs:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 
@@ -184,14 +184,14 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: The table plan.
+        :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['RestoredLogsArgs']] restored_logs: Parameters of the restore operation that initiated this table.
-        :param pulumi.Input[int] retention_in_days: The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        :param pulumi.Input[int] retention_in_days: The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         :param pulumi.Input[pulumi.InputType['SchemaArgs']] schema: Table schema.
         :param pulumi.Input[pulumi.InputType['SearchResultsArgs']] search_results: Parameters of the search job that initiated this table.
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[int] total_retention_in_days: The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        :param pulumi.Input[int] total_retention_in_days: The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -327,7 +327,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional[str]]:
         """
-        The table plan.
+        Instruct the system how to handle and charge the logs ingested to this table.
         """
         return pulumi.get(self, "plan")
 
@@ -359,7 +359,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -391,7 +391,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 

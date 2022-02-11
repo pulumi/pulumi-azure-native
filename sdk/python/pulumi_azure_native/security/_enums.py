@@ -223,6 +223,7 @@ class OfferingType(str, Enum):
     CSPM_MONITOR_AWS = "CspmMonitorAws"
     DEFENDER_FOR_CONTAINERS_AWS = "DefenderForContainersAws"
     DEFENDER_FOR_SERVERS_AWS = "DefenderForServersAws"
+    INFORMATION_PROTECTION_AWS = "InformationProtectionAws"
 
 
 class Operator(str, Enum):

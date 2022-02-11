@@ -21,7 +21,7 @@ class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
     """
-    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, change_enumeration_status=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, type=None):
+    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, change_enumeration_status=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, system_data=None, type=None):
         if azure_file_share_name and not isinstance(azure_file_share_name, str):
             raise TypeError("Expected argument 'azure_file_share_name' to be a str")
         pulumi.set(__self__, "azure_file_share_name", azure_file_share_name)
@@ -58,6 +58,9 @@ class GetCloudEndpointResult:
         if storage_account_tenant_id and not isinstance(storage_account_tenant_id, str):
             raise TypeError("Expected argument 'storage_account_tenant_id' to be a str")
         pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -159,6 +162,14 @@ class GetCloudEndpointResult:
         return pulumi.get(self, "storage_account_tenant_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -185,6 +196,7 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
             provisioning_state=self.provisioning_state,
             storage_account_resource_id=self.storage_account_resource_id,
             storage_account_tenant_id=self.storage_account_tenant_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -226,6 +238,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         storage_account_resource_id=__ret__.storage_account_resource_id,
         storage_account_tenant_id=__ret__.storage_account_tenant_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 

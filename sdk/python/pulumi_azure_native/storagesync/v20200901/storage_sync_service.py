@@ -176,6 +176,7 @@ class StorageSyncService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["storage_sync_service_status"] = None
             __props__.__dict__["storage_sync_service_uid"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20180402:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20180701:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20181001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190201:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190301:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20190601:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20191001:StorageSyncService"), pulumi.Alias(type_="azure-native:storagesync/v20200301:StorageSyncService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -210,6 +211,7 @@ class StorageSyncService(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["storage_sync_service_status"] = None
         __props__.__dict__["storage_sync_service_uid"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
@@ -285,6 +287,14 @@ class StorageSyncService(pulumi.CustomResource):
         Storage Sync service Uid
         """
         return pulumi.get(self, "storage_sync_service_uid")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
