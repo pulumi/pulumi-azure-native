@@ -26880,12 +26880,12 @@
         "roleDefinitionId": "cb17cddc-dbac-4ae0-ae79-8db34eddfca0"
       },
       {
-        "applicationId": "b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab",
-        "roleDefinitionId": "6efa92ca-56b6-40af-a468-5e3d2b5232f0"
-      },
-      {
         "applicationId": "579d9c9d-4c83-4efc-8124-7eba65ed3356",
         "roleDefinitionId": "8c99c4ce-d744-4597-a2f0-0a0044d67560"
+      },
+      {
+        "applicationId": "b9a92e36-2cf8-4f4e-bcb3-9d99e00e14ab",
+        "roleDefinitionId": "6efa92ca-56b6-40af-a468-5e3d2b5232f0"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Compute",
@@ -40056,6 +40056,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01-preview",
           "2020-08-01",
           "2020-03-01-preview",
           "2017-04-26-preview"
@@ -40258,6 +40259,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01-preview",
           "2020-10-01",
           "2020-08-01",
           "2020-03-01-preview"
@@ -51430,6 +51432,7 @@
           "Central US",
           "Australia Central",
           "Australia Southeast",
+          "Brazil Southeast",
           "Canada Central",
           "Central India",
           "East Asia",
@@ -51451,11 +51454,11 @@
           "France South",
           "Germany West Central",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland West",
           "UK South",
           "West Europe",
@@ -51486,6 +51489,7 @@
           "Central US",
           "Australia Central",
           "Australia Southeast",
+          "Brazil Southeast",
           "Canada Central",
           "Central India",
           "East Asia",
@@ -51507,11 +51511,11 @@
           "France South",
           "Germany West Central",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland West",
           "UK South",
           "West Europe",
@@ -51542,6 +51546,7 @@
           "Central US",
           "Australia Central",
           "Australia Southeast",
+          "Brazil Southeast",
           "Canada Central",
           "Central India",
           "East Asia",
@@ -51563,11 +51568,11 @@
           "France South",
           "Germany West Central",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland West",
           "UK South",
           "West Europe",
@@ -51598,6 +51603,7 @@
           "Central US",
           "Australia Central",
           "Australia Southeast",
+          "Brazil Southeast",
           "Canada Central",
           "Central India",
           "East Asia",
@@ -51619,11 +51625,11 @@
           "France South",
           "Germany West Central",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland West",
           "UK South",
           "West Europe",
@@ -51688,6 +51694,7 @@
           "Central US",
           "Australia Central",
           "Australia Southeast",
+          "Brazil Southeast",
           "Canada Central",
           "Central India",
           "East Asia",
@@ -51709,11 +51716,11 @@
           "France South",
           "Germany West Central",
           "Japan West",
-          "Korea South",
           "North Central US",
           "Norway East",
           "South India",
           "Southeast Asia",
+          "Sweden Central",
           "Switzerland West",
           "UK South",
           "West Europe",
@@ -82482,6 +82489,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01-preview",
           "2021-09-01",
           "2021-07-01-preview",
@@ -82501,6 +82509,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01-preview",
           "2021-09-01",
           "2021-07-01-preview",
@@ -82519,6 +82528,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01-preview",
           "2021-09-01",
           "2021-07-01-preview",
@@ -82535,7 +82545,7 @@
           "Southeast Asia"
         ],
         "properties": null,
-        "resourceType": "locations/operationstatuses"
+        "resourceType": "locations/operationStatuses"
       },
       {
         "aliases": null,
@@ -82621,6 +82631,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01",
           "2021-01-01-preview",
           "2020-10-01"
@@ -82640,6 +82651,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01",
           "2021-01-01-preview"
         ],
@@ -82658,6 +82670,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01",
           "2021-09-01",
           "2021-01-01-preview"
         ],
