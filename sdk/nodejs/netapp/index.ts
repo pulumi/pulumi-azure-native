@@ -14,11 +14,16 @@ export * from "./getBackupPolicy";
 export * from "./getPool";
 export * from "./getSnapshot";
 export * from "./getSnapshotPolicy";
+export * from "./getSubvolume";
+export * from "./getSubvolumeMetadata";
 export * from "./getVolume";
+export * from "./getVolumeGroup";
 export * from "./pool";
 export * from "./snapshot";
 export * from "./snapshotPolicy";
+export * from "./subvolume";
 export * from "./volume";
+export * from "./volumeGroup";
 
 // Export enums:
 export * from "../types/enums/netapp";
@@ -45,6 +50,7 @@ import * as v20210401 from "./v20210401";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210601 from "./v20210601";
 import * as v20210801 from "./v20210801";
+import * as v20211001 from "./v20211001";
 
 export {
     v20170815,
@@ -68,6 +74,7 @@ export {
     v20210401preview,
     v20210601,
     v20210801,
+    v20211001,
 };
 
 // Import resources to register:
@@ -77,7 +84,9 @@ import { BackupPolicy } from "./backupPolicy";
 import { Pool } from "./pool";
 import { Snapshot } from "./snapshot";
 import { SnapshotPolicy } from "./snapshotPolicy";
+import { Subvolume } from "./subvolume";
 import { Volume } from "./volume";
+import { VolumeGroup } from "./volumeGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -95,8 +104,12 @@ const _module = {
                 return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:netapp:SnapshotPolicy":
                 return new SnapshotPolicy(name, <any>undefined, { urn })
+            case "azure-native:netapp:Subvolume":
+                return new Subvolume(name, <any>undefined, { urn })
             case "azure-native:netapp:Volume":
                 return new Volume(name, <any>undefined, { urn })
+            case "azure-native:netapp:VolumeGroup":
+                return new VolumeGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -78,7 +78,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The provisioning state of the workspace.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
@@ -131,7 +131,6 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
             resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -145,6 +144,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["modifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -199,10 +199,6 @@ export interface WorkspaceArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the workspace.
-     */
-    provisioningState?: pulumi.Input<string | enums.operationalinsights.v20211201preview.WorkspaceEntityStatus>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */

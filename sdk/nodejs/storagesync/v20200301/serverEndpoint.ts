@@ -148,8 +148,8 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["serverResourceId"] = args ? args.serverResourceId : undefined;
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
-            resourceInputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
+            resourceInputs["tierFilesOlderThanDays"] = (args ? args.tierFilesOlderThanDays : undefined) ?? 0;
+            resourceInputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;

@@ -60,34 +60,19 @@ export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typ
 
 export const TablePlanEnum = {
     /**
-     * Basic - logs that are adjusted to support high volume / low value verbose logs.
+     * Logs  that are adjusted to support high volume low value verbose logs.
      */
     Basic: "Basic",
     /**
-     * Analytics - logs that allow monitoring and analytics.
+     * Logs  that allow monitoring and analytics.
      */
     Analytics: "Analytics",
 } as const;
 
 /**
- * The table plan.
+ * Instruct the system how to handle and charge the logs ingested to this table.
  */
 export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
-
-export const WorkspaceEntityStatus = {
-    Creating: "Creating",
-    Succeeded: "Succeeded",
-    Failed: "Failed",
-    Canceled: "Canceled",
-    Deleting: "Deleting",
-    ProvisioningAccount: "ProvisioningAccount",
-    Updating: "Updating",
-} as const;
-
-/**
- * The provisioning state of the workspace.
- */
-export type WorkspaceEntityStatus = (typeof WorkspaceEntityStatus)[keyof typeof WorkspaceEntityStatus];
 
 export const WorkspaceSkuNameEnum = {
     Free: "Free",

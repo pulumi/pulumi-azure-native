@@ -61,6 +61,10 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.v20200901.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

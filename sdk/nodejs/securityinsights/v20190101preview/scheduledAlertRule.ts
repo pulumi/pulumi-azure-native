@@ -217,7 +217,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20200101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ScheduledAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20200101:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:ScheduledAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ScheduledAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledAlertRule.__pulumiType, name, resourceInputs, opts);
     }

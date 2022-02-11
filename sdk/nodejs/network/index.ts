@@ -19,6 +19,8 @@ export * from "./ddosCustomPolicy";
 export * from "./ddosProtectionPlan";
 export * from "./defaultAdminRule";
 export * from "./defaultUserRule";
+export * from "./dnsForwardingRuleset";
+export * from "./dnsResolver";
 export * from "./dscpConfiguration";
 export * from "./endpoint";
 export * from "./experiment";
@@ -34,6 +36,7 @@ export * from "./firewallPolicy";
 export * from "./firewallPolicyRuleCollectionGroup";
 export * from "./firewallPolicyRuleGroup";
 export * from "./flowLog";
+export * from "./forwardingRule";
 export * from "./frontDoor";
 export * from "./getActiveSessions";
 export * from "./getAdminRule";
@@ -52,6 +55,8 @@ export * from "./getDdosCustomPolicy";
 export * from "./getDdosProtectionPlan";
 export * from "./getDefaultAdminRule";
 export * from "./getDefaultUserRule";
+export * from "./getDnsForwardingRuleset";
+export * from "./getDnsResolver";
 export * from "./getDnsResourceReferenceByTarResources";
 export * from "./getDscpConfiguration";
 export * from "./getEndpoint";
@@ -68,9 +73,11 @@ export * from "./getFirewallPolicy";
 export * from "./getFirewallPolicyRuleCollectionGroup";
 export * from "./getFirewallPolicyRuleGroup";
 export * from "./getFlowLog";
+export * from "./getForwardingRule";
 export * from "./getFrontDoor";
 export * from "./getHubRouteTable";
 export * from "./getHubVirtualNetworkConnection";
+export * from "./getInboundEndpoint";
 export * from "./getInboundNatRule";
 export * from "./getIpAllocation";
 export * from "./getIpGroup";
@@ -90,6 +97,7 @@ export * from "./getNetworkSecurityGroup";
 export * from "./getNetworkSecurityPerimeter";
 export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
+export * from "./getOutboundEndpoint";
 export * from "./getP2sVpnGateway";
 export * from "./getP2sVpnGatewayP2sVpnConnectionHealth";
 export * from "./getP2sVpnGatewayP2sVpnConnectionHealthDetailed";
@@ -153,12 +161,15 @@ export * from "./getWebApplicationFirewallPolicy";
 export * from "./getZone";
 export * from "./hubRouteTable";
 export * from "./hubVirtualNetworkConnection";
+export * from "./inboundEndpoint";
 export * from "./inboundNatRule";
 export * from "./ipAllocation";
 export * from "./ipGroup";
 export * from "./listActiveConnectivityConfiguration";
 export * from "./listActiveSecurityAdminRule";
 export * from "./listActiveSecurityUserRule";
+export * from "./listDnsForwardingRulesetByVirtualNetwork";
+export * from "./listDnsResolverByVirtualNetwork";
 export * from "./listEffectiveConnectivityConfiguration";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
@@ -182,6 +193,7 @@ export * from "./networkSecurityGroup";
 export * from "./networkSecurityPerimeter";
 export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
+export * from "./outboundEndpoint";
 export * from "./p2sVpnGateway";
 export * from "./p2sVpnServerConfiguration";
 export * from "./packetCapture";
@@ -285,6 +297,7 @@ import * as v20191201 from "./v20191201";
 import * as v20200101 from "./v20200101";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
+import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
@@ -342,6 +355,7 @@ export {
     v20200101,
     v20200301,
     v20200401,
+    v20200401preview,
     v20200501,
     v20200601,
     v20200701,
@@ -370,6 +384,8 @@ import { DdosCustomPolicy } from "./ddosCustomPolicy";
 import { DdosProtectionPlan } from "./ddosProtectionPlan";
 import { DefaultAdminRule } from "./defaultAdminRule";
 import { DefaultUserRule } from "./defaultUserRule";
+import { DnsForwardingRuleset } from "./dnsForwardingRuleset";
+import { DnsResolver } from "./dnsResolver";
 import { DscpConfiguration } from "./dscpConfiguration";
 import { Endpoint } from "./endpoint";
 import { Experiment } from "./experiment";
@@ -385,9 +401,11 @@ import { FirewallPolicy } from "./firewallPolicy";
 import { FirewallPolicyRuleCollectionGroup } from "./firewallPolicyRuleCollectionGroup";
 import { FirewallPolicyRuleGroup } from "./firewallPolicyRuleGroup";
 import { FlowLog } from "./flowLog";
+import { ForwardingRule } from "./forwardingRule";
 import { FrontDoor } from "./frontDoor";
 import { HubRouteTable } from "./hubRouteTable";
 import { HubVirtualNetworkConnection } from "./hubVirtualNetworkConnection";
+import { InboundEndpoint } from "./inboundEndpoint";
 import { InboundNatRule } from "./inboundNatRule";
 import { IpAllocation } from "./ipAllocation";
 import { IpGroup } from "./ipGroup";
@@ -407,6 +425,7 @@ import { NetworkSecurityGroup } from "./networkSecurityGroup";
 import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
+import { OutboundEndpoint } from "./outboundEndpoint";
 import { P2sVpnGateway } from "./p2sVpnGateway";
 import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
 import { PacketCapture } from "./packetCapture";
@@ -494,6 +513,10 @@ const _module = {
                 return new DefaultAdminRule(name, <any>undefined, { urn })
             case "azure-native:network:DefaultUserRule":
                 return new DefaultUserRule(name, <any>undefined, { urn })
+            case "azure-native:network:DnsForwardingRuleset":
+                return new DnsForwardingRuleset(name, <any>undefined, { urn })
+            case "azure-native:network:DnsResolver":
+                return new DnsResolver(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":
@@ -524,12 +547,16 @@ const _module = {
                 return new FirewallPolicyRuleGroup(name, <any>undefined, { urn })
             case "azure-native:network:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
+            case "azure-native:network:ForwardingRule":
+                return new ForwardingRule(name, <any>undefined, { urn })
             case "azure-native:network:FrontDoor":
                 return new FrontDoor(name, <any>undefined, { urn })
             case "azure-native:network:HubRouteTable":
                 return new HubRouteTable(name, <any>undefined, { urn })
             case "azure-native:network:HubVirtualNetworkConnection":
                 return new HubVirtualNetworkConnection(name, <any>undefined, { urn })
+            case "azure-native:network:InboundEndpoint":
+                return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:InboundNatRule":
                 return new InboundNatRule(name, <any>undefined, { urn })
             case "azure-native:network:IpAllocation":
@@ -568,6 +595,8 @@ const _module = {
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
+            case "azure-native:network:OutboundEndpoint":
+                return new OutboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnGateway":
                 return new P2sVpnGateway(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnServerConfiguration":

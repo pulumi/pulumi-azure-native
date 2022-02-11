@@ -112,6 +112,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly syncStatus!: pulumi.Output<outputs.storagesync.v20200901.ServerEndpointSyncStatusResponse>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.v20200901.SystemDataResponse>;
+    /**
      * Tier files older than days.
      */
     public readonly tierFilesOlderThanDays!: pulumi.Output<number | undefined>;
@@ -157,7 +161,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["serverResourceId"] = args ? args.serverResourceId : undefined;
             resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
+            resourceInputs["tierFilesOlderThanDays"] = (args ? args.tierFilesOlderThanDays : undefined) ?? 0;
             resourceInputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
@@ -169,6 +173,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["recallStatus"] = undefined /*out*/;
             resourceInputs["serverName"] = undefined /*out*/;
             resourceInputs["syncStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["cloudTiering"] = undefined /*out*/;
@@ -190,6 +195,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
             resourceInputs["serverName"] = undefined /*out*/;
             resourceInputs["serverResourceId"] = undefined /*out*/;
             resourceInputs["syncStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tierFilesOlderThanDays"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeFreeSpacePercent"] = undefined /*out*/;

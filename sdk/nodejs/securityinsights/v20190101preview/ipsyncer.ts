@@ -96,7 +96,7 @@ export class IPSyncer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:IPSyncer" }, { type: "azure-native:securityinsights/v20210301preview:IPSyncer" }, { type: "azure-native:securityinsights/v20210901preview:IPSyncer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:IPSyncer" }, { type: "azure-native:securityinsights/v20210301preview:IPSyncer" }, { type: "azure-native:securityinsights/v20210901preview:IPSyncer" }, { type: "azure-native:securityinsights/v20211001preview:IPSyncer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IPSyncer.__pulumiType, name, resourceInputs, opts);
     }

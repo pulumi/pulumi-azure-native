@@ -138,7 +138,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FusionAlertRule.__pulumiType, name, resourceInputs, opts);
     }

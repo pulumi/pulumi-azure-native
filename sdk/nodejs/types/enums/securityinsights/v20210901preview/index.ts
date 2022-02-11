@@ -73,7 +73,7 @@ export const AttackTactic = {
 } as const;
 
 /**
- * The severity for alerts created by this alert rule.
+ * A list of relevant mitre attacks.
  */
 export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
 

@@ -42,6 +42,7 @@ import * as v20191201 from "./v20191201";
 import * as v20200101 from "./v20200101";
 import * as v20200301 from "./v20200301";
 import * as v20200401 from "./v20200401";
+import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
 import * as v20200701 from "./v20200701";
@@ -94,6 +95,7 @@ export {
     v20200101,
     v20200301,
     v20200401,
+    v20200401preview,
     v20200501,
     v20200601,
     v20200701,
@@ -895,6 +897,16 @@ export const FlowLogFormatType = {
  */
 export type FlowLogFormatType = (typeof FlowLogFormatType)[keyof typeof FlowLogFormatType];
 
+export const ForwardingRuleState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The state of forwarding rule.
+ */
+export type ForwardingRuleState = (typeof ForwardingRuleState)[keyof typeof ForwardingRuleState];
+
 export const FrontDoorEnabledState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -1077,6 +1089,16 @@ export const IkeIntegrity = {
  * The IKE integrity algorithm (IKE phase 2).
  */
 export type IkeIntegrity = (typeof IkeIntegrity)[keyof typeof IkeIntegrity];
+
+export const IpAllocationMethod = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * Private IP address allocation method.
+ */
+export type IpAllocationMethod = (typeof IpAllocationMethod)[keyof typeof IpAllocationMethod];
 
 export const IpAllocationType = {
     Undefined: "Undefined",

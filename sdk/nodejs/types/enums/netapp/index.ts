@@ -23,6 +23,7 @@ import * as v20210401 from "./v20210401";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210601 from "./v20210601";
 import * as v20210801 from "./v20210801";
+import * as v20211001 from "./v20211001";
 
 export {
     v20170815,
@@ -46,7 +47,59 @@ export {
     v20210401preview,
     v20210601,
     v20210801,
+    v20211001,
 };
+
+export const ApplicationType = {
+    SAP_HANA: "SAP-HANA",
+} as const;
+
+/**
+ * Application Type
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+export const AvsDataStore = {
+    /**
+     * avsDataStore is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * avsDataStore is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+ */
+export type AvsDataStore = (typeof AvsDataStore)[keyof typeof AvsDataStore];
+
+export const ChownMode = {
+    Restricted: "Restricted",
+    Unrestricted: "Unrestricted",
+} as const;
+
+/**
+ * This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+ */
+export type ChownMode = (typeof ChownMode)[keyof typeof ChownMode];
+
+export const EnableSubvolumes = {
+    /**
+     * subvolumes are enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * subvolumes are not enabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Flag indicating whether subvolume operations are enabled on the volume
+ */
+export type EnableSubvolumes = (typeof EnableSubvolumes)[keyof typeof EnableSubvolumes];
 
 export const EndpointType = {
     Src: "src",
@@ -57,6 +110,22 @@ export const EndpointType = {
  * Indicates whether the local volume is the source or destination for the Volume Replication
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const NetworkFeatures = {
+    /**
+     * Basic network feature.
+     */
+    Basic: "Basic",
+    /**
+     * Standard network feature.
+     */
+    Standard: "Standard",
+} as const;
+
+/**
+ * Basic network, or Standard features available to the volume.
+ */
+export type NetworkFeatures = (typeof NetworkFeatures)[keyof typeof NetworkFeatures];
 
 export const QosType = {
     /**
@@ -108,6 +177,10 @@ export const ServiceLevel = {
      * Ultra service level
      */
     Ultra: "Ultra",
+    /**
+     * Zone redundant storage service level
+     */
+    StandardZRS: "StandardZRS",
 } as const;
 
 /**

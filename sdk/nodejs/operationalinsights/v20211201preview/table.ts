@@ -48,7 +48,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The table plan.
+     * Instruct the system how to handle and charge the logs ingested to this table.
      */
     public readonly plan!: pulumi.Output<string | undefined>;
     /**
@@ -64,7 +64,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly resultStatistics!: pulumi.Output<outputs.operationalinsights.v20211201preview.ResultStatisticsResponse | undefined>;
     /**
-     * The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+     * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Table extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.v20211201preview.SystemDataResponse>;
     /**
-     * The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+     * The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
      */
     public readonly totalRetentionInDays!: pulumi.Output<number | undefined>;
     /**
@@ -148,7 +148,7 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableArgs {
     /**
-     * The table plan.
+     * Instruct the system how to handle and charge the logs ingested to this table.
      */
     plan?: pulumi.Input<string | enums.operationalinsights.v20211201preview.TablePlanEnum>;
     /**
@@ -160,7 +160,7 @@ export interface TableArgs {
      */
     restoredLogs?: pulumi.Input<inputs.operationalinsights.v20211201preview.RestoredLogsArgs>;
     /**
-     * The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+     * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
     retentionInDays?: pulumi.Input<number>;
     /**
@@ -176,7 +176,7 @@ export interface TableArgs {
      */
     tableName?: pulumi.Input<string>;
     /**
-     * The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+     * The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
      */
     totalRetentionInDays?: pulumi.Input<number>;
     /**

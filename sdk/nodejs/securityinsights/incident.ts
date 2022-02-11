@@ -189,7 +189,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Incident" }, { type: "azure-native:securityinsights/v20200101:Incident" }, { type: "azure-native:securityinsights/v20210301preview:Incident" }, { type: "azure-native:securityinsights/v20210401:Incident" }, { type: "azure-native:securityinsights/v20210901preview:Incident" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Incident" }, { type: "azure-native:securityinsights/v20200101:Incident" }, { type: "azure-native:securityinsights/v20210301preview:Incident" }, { type: "azure-native:securityinsights/v20210401:Incident" }, { type: "azure-native:securityinsights/v20210901preview:Incident" }, { type: "azure-native:securityinsights/v20211001preview:Incident" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Incident.__pulumiType, name, resourceInputs, opts);
     }

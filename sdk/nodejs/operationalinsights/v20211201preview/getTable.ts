@@ -57,7 +57,7 @@ export interface GetTableResult {
      */
     readonly name: string;
     /**
-     * The table plan.
+     * Instruct the system how to handle and charge the logs ingested to this table.
      */
     readonly plan?: string;
     /**
@@ -73,7 +73,7 @@ export interface GetTableResult {
      */
     readonly resultStatistics?: outputs.operationalinsights.v20211201preview.ResultStatisticsResponse;
     /**
-     * The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+     * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
     readonly retentionInDays?: number;
     /**
@@ -89,7 +89,7 @@ export interface GetTableResult {
      */
     readonly systemData: outputs.operationalinsights.v20211201preview.SystemDataResponse;
     /**
-     * The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+     * The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
      */
     readonly totalRetentionInDays?: number;
     /**

@@ -479,6 +479,57 @@ export const SapHanaAuthenticationType = {
  */
 export type SapHanaAuthenticationType = (typeof SapHanaAuthenticationType)[keyof typeof SapHanaAuthenticationType];
 
+export const ScriptActivityLogDestination = {
+    ActivityOutput: "ActivityOutput",
+    ExternalStore: "ExternalStore",
+} as const;
+
+/**
+ * The destination of logs. Type: string.
+ */
+export type ScriptActivityLogDestination = (typeof ScriptActivityLogDestination)[keyof typeof ScriptActivityLogDestination];
+
+export const ScriptActivityParameterDirection = {
+    ValueInput: "Input",
+    ValueOutput: "Output",
+    ValueInputOutput: "InputOutput",
+} as const;
+
+/**
+ * The direction of the parameter.
+ */
+export type ScriptActivityParameterDirection = (typeof ScriptActivityParameterDirection)[keyof typeof ScriptActivityParameterDirection];
+
+export const ScriptActivityParameterType = {
+    Boolean: "Boolean",
+    DateTime: "DateTime",
+    DateTimeOffset: "DateTimeOffset",
+    Decimal: "Decimal",
+    Double: "Double",
+    Guid: "Guid",
+    Int16: "Int16",
+    Int32: "Int32",
+    Int64: "Int64",
+    Single: "Single",
+    String: "String",
+    Timespan: "Timespan",
+} as const;
+
+/**
+ * The type of the parameter.
+ */
+export type ScriptActivityParameterType = (typeof ScriptActivityParameterType)[keyof typeof ScriptActivityParameterType];
+
+export const ScriptType = {
+    Query: "Query",
+    NonQuery: "NonQuery",
+} as const;
+
+/**
+ * The type of the query. Type: string.
+ */
+export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
+
 export const ServiceNowAuthenticationType = {
     Basic: "Basic",
     OAuth2: "OAuth2",

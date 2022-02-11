@@ -76,6 +76,10 @@ export interface GetStorageSyncServiceResult {
      */
     readonly storageSyncServiceUid: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.v20200901.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
