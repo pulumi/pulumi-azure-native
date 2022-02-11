@@ -80,6 +80,11 @@ namespace Pulumi.AzureNative.NetApp.V20210801
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-native:netapp:VolumeGroup"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20211001:VolumeGroup"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

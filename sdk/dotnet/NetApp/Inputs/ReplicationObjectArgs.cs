@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// <summary>
         /// Schedule
         /// </summary>
-        [Input("replicationSchedule", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.NetApp.ReplicationSchedule> ReplicationSchedule { get; set; } = null!;
+        [Input("replicationSchedule")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.ReplicationSchedule>? ReplicationSchedule { get; set; }
 
         public ReplicationObjectArgs()
         {

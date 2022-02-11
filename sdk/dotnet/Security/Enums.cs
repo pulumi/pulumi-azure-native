@@ -519,6 +519,7 @@ namespace Pulumi.AzureNative.Security
         public static OfferingType CspmMonitorAws { get; } = new OfferingType("CspmMonitorAws");
         public static OfferingType DefenderForContainersAws { get; } = new OfferingType("DefenderForContainersAws");
         public static OfferingType DefenderForServersAws { get; } = new OfferingType("DefenderForServersAws");
+        public static OfferingType InformationProtectionAws { get; } = new OfferingType("InformationProtectionAws");
 
         public static bool operator ==(OfferingType left, OfferingType right) => left.Equals(right);
         public static bool operator !=(OfferingType left, OfferingType right) => !left.Equals(right);

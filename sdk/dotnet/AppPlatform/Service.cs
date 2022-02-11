@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Service"},

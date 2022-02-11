@@ -130,6 +130,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         public Output<Outputs.ServerEndpointSyncStatusResponse> SyncStatus { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Tier files older than days.
         /// </summary>
         [Output("tierFilesOlderThanDays")]
@@ -300,6 +306,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
             InitialDownloadPolicy = "NamespaceThenModifiedFiles";
             InitialUploadPolicy = "Merge";
             LocalCacheMode = "UpdateLocallyCachedFiles";
+            TierFilesOlderThanDays = 0;
             VolumeFreeSpacePercent = 20;
         }
     }

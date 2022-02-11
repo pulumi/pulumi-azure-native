@@ -2288,6 +2288,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// The state of forwarding rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ForwardingRuleState : IEquatable<ForwardingRuleState>
+    {
+        private readonly string _value;
+
+        private ForwardingRuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ForwardingRuleState Enabled { get; } = new ForwardingRuleState("Enabled");
+        public static ForwardingRuleState Disabled { get; } = new ForwardingRuleState("Disabled");
+
+        public static bool operator ==(ForwardingRuleState left, ForwardingRuleState right) => left.Equals(right);
+        public static bool operator !=(ForwardingRuleState left, ForwardingRuleState right) => !left.Equals(right);
+
+        public static explicit operator string(ForwardingRuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ForwardingRuleState other && Equals(other);
+        public bool Equals(ForwardingRuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
@@ -2799,6 +2830,37 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IkeIntegrity other && Equals(other);
         public bool Equals(IkeIntegrity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Private IP address allocation method.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpAllocationMethod : IEquatable<IpAllocationMethod>
+    {
+        private readonly string _value;
+
+        private IpAllocationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpAllocationMethod Static { get; } = new IpAllocationMethod("Static");
+        public static IpAllocationMethod Dynamic { get; } = new IpAllocationMethod("Dynamic");
+
+        public static bool operator ==(IpAllocationMethod left, IpAllocationMethod right) => left.Equals(right);
+        public static bool operator !=(IpAllocationMethod left, IpAllocationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(IpAllocationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpAllocationMethod other && Equals(other);
+        public bool Equals(IpAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

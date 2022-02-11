@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
                 {
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork:NetworkFunction"},
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:NetworkFunction"},
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:NetworkFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

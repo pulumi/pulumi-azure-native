@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform:Service"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Service"},

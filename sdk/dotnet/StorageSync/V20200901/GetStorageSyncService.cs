@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// </summary>
         public readonly string StorageSyncServiceUid;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
             string storageSyncServiceUid,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
             ProvisioningState = provisioningState;
             StorageSyncServiceStatus = storageSyncServiceStatus;
             StorageSyncServiceUid = storageSyncServiceUid;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Outputs
         public readonly string Description;
         /// <summary>
         /// The type of the security offering.
-        /// Expected value is 'DefenderForServersAWS'.
+        /// Expected value is 'DefenderForServersAws'.
         /// </summary>
         public readonly string OfferingType;
 

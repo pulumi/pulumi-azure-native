@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class SearchResultsResponse
     {
         /// <summary>
-        /// Search results table's Description.
+        /// Search job Description.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// </summary>
         public readonly string? Query;
         /// <summary>
-        /// The table to search data from.
+        /// The table used in the search job.
         /// </summary>
         public readonly string SourceTable;
         /// <summary>

@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
     }
 
     /// <summary>
-    /// The table plan.
+    /// Instruct the system how to handle and charge the logs ingested to this table.
     /// </summary>
     [EnumType]
     public readonly struct TablePlanEnum : IEquatable<TablePlanEnum>
@@ -140,11 +140,11 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         }
 
         /// <summary>
-        /// Basic - logs that are adjusted to support high volume / low value verbose logs.
+        /// Logs  that are adjusted to support high volume low value verbose logs.
         /// </summary>
         public static TablePlanEnum Basic { get; } = new TablePlanEnum("Basic");
         /// <summary>
-        /// Analytics - logs that allow monitoring and analytics.
+        /// Logs  that allow monitoring and analytics.
         /// </summary>
         public static TablePlanEnum Analytics { get; } = new TablePlanEnum("Analytics");
 
@@ -156,42 +156,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TablePlanEnum other && Equals(other);
         public bool Equals(TablePlanEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The provisioning state of the workspace.
-    /// </summary>
-    [EnumType]
-    public readonly struct WorkspaceEntityStatus : IEquatable<WorkspaceEntityStatus>
-    {
-        private readonly string _value;
-
-        private WorkspaceEntityStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceEntityStatus Creating { get; } = new WorkspaceEntityStatus("Creating");
-        public static WorkspaceEntityStatus Succeeded { get; } = new WorkspaceEntityStatus("Succeeded");
-        public static WorkspaceEntityStatus Failed { get; } = new WorkspaceEntityStatus("Failed");
-        public static WorkspaceEntityStatus Canceled { get; } = new WorkspaceEntityStatus("Canceled");
-        public static WorkspaceEntityStatus Deleting { get; } = new WorkspaceEntityStatus("Deleting");
-        public static WorkspaceEntityStatus ProvisioningAccount { get; } = new WorkspaceEntityStatus("ProvisioningAccount");
-        public static WorkspaceEntityStatus Updating { get; } = new WorkspaceEntityStatus("Updating");
-
-        public static bool operator ==(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => left.Equals(right);
-        public static bool operator !=(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceEntityStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceEntityStatus other && Equals(other);
-        public bool Equals(WorkspaceEntityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

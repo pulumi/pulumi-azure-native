@@ -63,6 +63,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190901
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:managedservices/v20220101preview:RegistrationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

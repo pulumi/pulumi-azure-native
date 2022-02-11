@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Action"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:Action"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Action"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Action"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

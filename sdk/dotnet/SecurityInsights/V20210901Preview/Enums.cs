@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210901Preview
     }
 
     /// <summary>
-    /// The severity for alerts created by this alert rule.
+    /// A list of relevant mitre attacks.
     /// </summary>
     [EnumType]
     public readonly struct AttackTactic : IEquatable<AttackTactic>

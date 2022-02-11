@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Outputs
         /// <summary>
         /// The table to restore data from.
         /// </summary>
-        public readonly string SourceTable;
+        public readonly string? SourceTable;
         /// <summary>
         /// The timestamp to start the restore from (UTC).
         /// </summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview.Outputs
         private RestoredLogsResponse(
             string? endRestoreTime,
 
-            string sourceTable,
+            string? sourceTable,
 
             string? startRestoreTime)
         {

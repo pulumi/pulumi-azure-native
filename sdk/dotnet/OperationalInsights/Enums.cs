@@ -349,7 +349,7 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
-    /// The table plan.
+    /// Instruct the system how to handle and charge the logs ingested to this table.
     /// </summary>
     [EnumType]
     public readonly struct TablePlanEnum : IEquatable<TablePlanEnum>
@@ -362,11 +362,11 @@ namespace Pulumi.AzureNative.OperationalInsights
         }
 
         /// <summary>
-        /// Basic - logs that are adjusted to support high volume / low value verbose logs.
+        /// Logs  that are adjusted to support high volume low value verbose logs.
         /// </summary>
         public static TablePlanEnum Basic { get; } = new TablePlanEnum("Basic");
         /// <summary>
-        /// Analytics - logs that allow monitoring and analytics.
+        /// Logs  that allow monitoring and analytics.
         /// </summary>
         public static TablePlanEnum Analytics { get; } = new TablePlanEnum("Analytics");
 

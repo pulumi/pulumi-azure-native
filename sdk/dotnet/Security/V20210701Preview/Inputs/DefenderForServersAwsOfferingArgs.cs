@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Security.V20210701Preview.Inputs
 
         /// <summary>
         /// The type of the security offering.
-        /// Expected value is 'DefenderForServersAWS'.
+        /// Expected value is 'DefenderForServersAws'.
         /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;

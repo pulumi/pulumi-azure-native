@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The table plan.
+        /// Instruct the system how to handle and charge the logs ingested to this table.
         /// </summary>
         public readonly string? Plan;
         /// <summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly Outputs.ResultStatisticsResponse? ResultStatistics;
         /// <summary>
-        /// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         /// </summary>
         public readonly int? RetentionInDays;
         /// <summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        /// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         /// </summary>
         public readonly int? TotalRetentionInDays;
         /// <summary>

@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         /// <summary>
         /// The provisioning state of the workspace.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
         /// </summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
 
             ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? publicNetworkAccessForIngestion,
 
