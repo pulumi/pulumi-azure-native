@@ -52,6 +52,9 @@ func NewVendorSkus(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:hybridnetwork/v20210501:VendorSkus"),
 		},
+		{
+			Type: pulumi.String("azure-native:hybridnetwork/v20220101preview:VendorSkus"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VendorSkus

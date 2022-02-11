@@ -37,6 +37,8 @@ type CloudEndpoint struct {
 	StorageAccountResourceId pulumi.StringPtrOutput `pulumi:"storageAccountResourceId"`
 	// Storage Account Tenant Id
 	StorageAccountTenantId pulumi.StringPtrOutput `pulumi:"storageAccountTenantId"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }

@@ -81,6 +81,8 @@ type LookupRegisteredServerResult struct {
 	ServiceLocation *string `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -245,6 +247,11 @@ func (o LookupRegisteredServerResultOutput) ServiceLocation() pulumi.StringPtrOu
 // Registered Server storageSyncServiceUid
 func (o LookupRegisteredServerResultOutput) StorageSyncServiceUid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegisteredServerResult) *string { return v.StorageSyncServiceUid }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupRegisteredServerResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupRegisteredServerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

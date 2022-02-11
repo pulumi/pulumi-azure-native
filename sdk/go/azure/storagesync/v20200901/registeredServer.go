@@ -63,6 +63,8 @@ type RegisteredServer struct {
 	ServiceLocation pulumi.StringPtrOutput `pulumi:"serviceLocation"`
 	// Registered Server storageSyncServiceUid
 	StorageSyncServiceUid pulumi.StringPtrOutput `pulumi:"storageSyncServiceUid"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }

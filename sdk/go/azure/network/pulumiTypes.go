@@ -36064,6 +36064,210 @@ func (o IPConfigurationResponseArrayOutput) Index(i pulumi.IntInput) IPConfigura
 	}).(IPConfigurationResponseOutput)
 }
 
+// IP configuration.
+type InboundEndpointIPConfiguration struct {
+	// Private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// Private IP address allocation method.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The reference to the subnet bound to the IP configuration.
+	Subnet *SubResource `pulumi:"subnet"`
+}
+
+// Defaults sets the appropriate defaults for InboundEndpointIPConfiguration
+func (val *InboundEndpointIPConfiguration) Defaults() *InboundEndpointIPConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateIpAllocationMethod) {
+		privateIpAllocationMethod_ := "Dynamic"
+		tmp.PrivateIpAllocationMethod = &privateIpAllocationMethod_
+	}
+	return &tmp
+}
+
+// InboundEndpointIPConfigurationInput is an input type that accepts InboundEndpointIPConfigurationArgs and InboundEndpointIPConfigurationOutput values.
+// You can construct a concrete instance of `InboundEndpointIPConfigurationInput` via:
+//
+//          InboundEndpointIPConfigurationArgs{...}
+type InboundEndpointIPConfigurationInput interface {
+	pulumi.Input
+
+	ToInboundEndpointIPConfigurationOutput() InboundEndpointIPConfigurationOutput
+	ToInboundEndpointIPConfigurationOutputWithContext(context.Context) InboundEndpointIPConfigurationOutput
+}
+
+// IP configuration.
+type InboundEndpointIPConfigurationArgs struct {
+	// Private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// Private IP address allocation method.
+	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
+	// The reference to the subnet bound to the IP configuration.
+	Subnet SubResourcePtrInput `pulumi:"subnet"`
+}
+
+func (InboundEndpointIPConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundEndpointIPConfiguration)(nil)).Elem()
+}
+
+func (i InboundEndpointIPConfigurationArgs) ToInboundEndpointIPConfigurationOutput() InboundEndpointIPConfigurationOutput {
+	return i.ToInboundEndpointIPConfigurationOutputWithContext(context.Background())
+}
+
+func (i InboundEndpointIPConfigurationArgs) ToInboundEndpointIPConfigurationOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundEndpointIPConfigurationOutput)
+}
+
+// InboundEndpointIPConfigurationArrayInput is an input type that accepts InboundEndpointIPConfigurationArray and InboundEndpointIPConfigurationArrayOutput values.
+// You can construct a concrete instance of `InboundEndpointIPConfigurationArrayInput` via:
+//
+//          InboundEndpointIPConfigurationArray{ InboundEndpointIPConfigurationArgs{...} }
+type InboundEndpointIPConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToInboundEndpointIPConfigurationArrayOutput() InboundEndpointIPConfigurationArrayOutput
+	ToInboundEndpointIPConfigurationArrayOutputWithContext(context.Context) InboundEndpointIPConfigurationArrayOutput
+}
+
+type InboundEndpointIPConfigurationArray []InboundEndpointIPConfigurationInput
+
+func (InboundEndpointIPConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundEndpointIPConfiguration)(nil)).Elem()
+}
+
+func (i InboundEndpointIPConfigurationArray) ToInboundEndpointIPConfigurationArrayOutput() InboundEndpointIPConfigurationArrayOutput {
+	return i.ToInboundEndpointIPConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i InboundEndpointIPConfigurationArray) ToInboundEndpointIPConfigurationArrayOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InboundEndpointIPConfigurationArrayOutput)
+}
+
+// IP configuration.
+type InboundEndpointIPConfigurationOutput struct{ *pulumi.OutputState }
+
+func (InboundEndpointIPConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundEndpointIPConfiguration)(nil)).Elem()
+}
+
+func (o InboundEndpointIPConfigurationOutput) ToInboundEndpointIPConfigurationOutput() InboundEndpointIPConfigurationOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationOutput) ToInboundEndpointIPConfigurationOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationOutput {
+	return o
+}
+
+// Private IP address of the IP configuration.
+func (o InboundEndpointIPConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Private IP address allocation method.
+func (o InboundEndpointIPConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfiguration) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the subnet bound to the IP configuration.
+func (o InboundEndpointIPConfigurationOutput) Subnet() SubResourcePtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfiguration) *SubResource { return v.Subnet }).(SubResourcePtrOutput)
+}
+
+type InboundEndpointIPConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (InboundEndpointIPConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundEndpointIPConfiguration)(nil)).Elem()
+}
+
+func (o InboundEndpointIPConfigurationArrayOutput) ToInboundEndpointIPConfigurationArrayOutput() InboundEndpointIPConfigurationArrayOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationArrayOutput) ToInboundEndpointIPConfigurationArrayOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationArrayOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationArrayOutput) Index(i pulumi.IntInput) InboundEndpointIPConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InboundEndpointIPConfiguration {
+		return vs[0].([]InboundEndpointIPConfiguration)[vs[1].(int)]
+	}).(InboundEndpointIPConfigurationOutput)
+}
+
+// IP configuration.
+type InboundEndpointIPConfigurationResponse struct {
+	// Private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// Private IP address allocation method.
+	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
+	// The reference to the subnet bound to the IP configuration.
+	Subnet *SubResourceResponse `pulumi:"subnet"`
+}
+
+// Defaults sets the appropriate defaults for InboundEndpointIPConfigurationResponse
+func (val *InboundEndpointIPConfigurationResponse) Defaults() *InboundEndpointIPConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateIpAllocationMethod) {
+		privateIpAllocationMethod_ := "Dynamic"
+		tmp.PrivateIpAllocationMethod = &privateIpAllocationMethod_
+	}
+	return &tmp
+}
+
+// IP configuration.
+type InboundEndpointIPConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (InboundEndpointIPConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InboundEndpointIPConfigurationResponse)(nil)).Elem()
+}
+
+func (o InboundEndpointIPConfigurationResponseOutput) ToInboundEndpointIPConfigurationResponseOutput() InboundEndpointIPConfigurationResponseOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationResponseOutput) ToInboundEndpointIPConfigurationResponseOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationResponseOutput {
+	return o
+}
+
+// Private IP address of the IP configuration.
+func (o InboundEndpointIPConfigurationResponseOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfigurationResponse) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Private IP address allocation method.
+func (o InboundEndpointIPConfigurationResponseOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfigurationResponse) *string { return v.PrivateIpAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the subnet bound to the IP configuration.
+func (o InboundEndpointIPConfigurationResponseOutput) Subnet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v InboundEndpointIPConfigurationResponse) *SubResourceResponse { return v.Subnet }).(SubResourceResponsePtrOutput)
+}
+
+type InboundEndpointIPConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (InboundEndpointIPConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InboundEndpointIPConfigurationResponse)(nil)).Elem()
+}
+
+func (o InboundEndpointIPConfigurationResponseArrayOutput) ToInboundEndpointIPConfigurationResponseArrayOutput() InboundEndpointIPConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationResponseArrayOutput) ToInboundEndpointIPConfigurationResponseArrayOutputWithContext(ctx context.Context) InboundEndpointIPConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o InboundEndpointIPConfigurationResponseArrayOutput) Index(i pulumi.IntInput) InboundEndpointIPConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InboundEndpointIPConfigurationResponse {
+		return vs[0].([]InboundEndpointIPConfigurationResponse)[vs[1].(int)]
+	}).(InboundEndpointIPConfigurationResponseOutput)
+}
+
 // Inbound NAT pool of the load balancer.
 type InboundNatPool struct {
 	// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
@@ -59630,13 +59834,13 @@ func (o SubResourceArrayOutput) Index(i pulumi.IntInput) SubResourceOutput {
 	}).(SubResourceOutput)
 }
 
-// Reference to another subresource.
+// Reference to another ARM resource.
 type SubResourceResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
-// Reference to another subresource.
+// Reference to another ARM resource.
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -60710,6 +60914,194 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 // The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Describes a server to forward the DNS queries to.
+type TargetDnsServer struct {
+	// DNS server IP address.
+	IpAddress *string `pulumi:"ipAddress"`
+	// DNS server port.
+	Port *int `pulumi:"port"`
+}
+
+// Defaults sets the appropriate defaults for TargetDnsServer
+func (val *TargetDnsServer) Defaults() *TargetDnsServer {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Port) {
+		port_ := 53
+		tmp.Port = &port_
+	}
+	return &tmp
+}
+
+// TargetDnsServerInput is an input type that accepts TargetDnsServerArgs and TargetDnsServerOutput values.
+// You can construct a concrete instance of `TargetDnsServerInput` via:
+//
+//          TargetDnsServerArgs{...}
+type TargetDnsServerInput interface {
+	pulumi.Input
+
+	ToTargetDnsServerOutput() TargetDnsServerOutput
+	ToTargetDnsServerOutputWithContext(context.Context) TargetDnsServerOutput
+}
+
+// Describes a server to forward the DNS queries to.
+type TargetDnsServerArgs struct {
+	// DNS server IP address.
+	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
+	// DNS server port.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (TargetDnsServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetDnsServer)(nil)).Elem()
+}
+
+func (i TargetDnsServerArgs) ToTargetDnsServerOutput() TargetDnsServerOutput {
+	return i.ToTargetDnsServerOutputWithContext(context.Background())
+}
+
+func (i TargetDnsServerArgs) ToTargetDnsServerOutputWithContext(ctx context.Context) TargetDnsServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetDnsServerOutput)
+}
+
+// TargetDnsServerArrayInput is an input type that accepts TargetDnsServerArray and TargetDnsServerArrayOutput values.
+// You can construct a concrete instance of `TargetDnsServerArrayInput` via:
+//
+//          TargetDnsServerArray{ TargetDnsServerArgs{...} }
+type TargetDnsServerArrayInput interface {
+	pulumi.Input
+
+	ToTargetDnsServerArrayOutput() TargetDnsServerArrayOutput
+	ToTargetDnsServerArrayOutputWithContext(context.Context) TargetDnsServerArrayOutput
+}
+
+type TargetDnsServerArray []TargetDnsServerInput
+
+func (TargetDnsServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetDnsServer)(nil)).Elem()
+}
+
+func (i TargetDnsServerArray) ToTargetDnsServerArrayOutput() TargetDnsServerArrayOutput {
+	return i.ToTargetDnsServerArrayOutputWithContext(context.Background())
+}
+
+func (i TargetDnsServerArray) ToTargetDnsServerArrayOutputWithContext(ctx context.Context) TargetDnsServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetDnsServerArrayOutput)
+}
+
+// Describes a server to forward the DNS queries to.
+type TargetDnsServerOutput struct{ *pulumi.OutputState }
+
+func (TargetDnsServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetDnsServer)(nil)).Elem()
+}
+
+func (o TargetDnsServerOutput) ToTargetDnsServerOutput() TargetDnsServerOutput {
+	return o
+}
+
+func (o TargetDnsServerOutput) ToTargetDnsServerOutputWithContext(ctx context.Context) TargetDnsServerOutput {
+	return o
+}
+
+// DNS server IP address.
+func (o TargetDnsServerOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetDnsServer) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// DNS server port.
+func (o TargetDnsServerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetDnsServer) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type TargetDnsServerArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetDnsServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetDnsServer)(nil)).Elem()
+}
+
+func (o TargetDnsServerArrayOutput) ToTargetDnsServerArrayOutput() TargetDnsServerArrayOutput {
+	return o
+}
+
+func (o TargetDnsServerArrayOutput) ToTargetDnsServerArrayOutputWithContext(ctx context.Context) TargetDnsServerArrayOutput {
+	return o
+}
+
+func (o TargetDnsServerArrayOutput) Index(i pulumi.IntInput) TargetDnsServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetDnsServer {
+		return vs[0].([]TargetDnsServer)[vs[1].(int)]
+	}).(TargetDnsServerOutput)
+}
+
+// Describes a server to forward the DNS queries to.
+type TargetDnsServerResponse struct {
+	// DNS server IP address.
+	IpAddress *string `pulumi:"ipAddress"`
+	// DNS server port.
+	Port *int `pulumi:"port"`
+}
+
+// Defaults sets the appropriate defaults for TargetDnsServerResponse
+func (val *TargetDnsServerResponse) Defaults() *TargetDnsServerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Port) {
+		port_ := 53
+		tmp.Port = &port_
+	}
+	return &tmp
+}
+
+// Describes a server to forward the DNS queries to.
+type TargetDnsServerResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetDnsServerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetDnsServerResponse)(nil)).Elem()
+}
+
+func (o TargetDnsServerResponseOutput) ToTargetDnsServerResponseOutput() TargetDnsServerResponseOutput {
+	return o
+}
+
+func (o TargetDnsServerResponseOutput) ToTargetDnsServerResponseOutputWithContext(ctx context.Context) TargetDnsServerResponseOutput {
+	return o
+}
+
+// DNS server IP address.
+func (o TargetDnsServerResponseOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetDnsServerResponse) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// DNS server port.
+func (o TargetDnsServerResponseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TargetDnsServerResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+type TargetDnsServerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetDnsServerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetDnsServerResponse)(nil)).Elem()
+}
+
+func (o TargetDnsServerResponseArrayOutput) ToTargetDnsServerResponseArrayOutput() TargetDnsServerResponseArrayOutput {
+	return o
+}
+
+func (o TargetDnsServerResponseArrayOutput) ToTargetDnsServerResponseArrayOutputWithContext(ctx context.Context) TargetDnsServerResponseArrayOutput {
+	return o
+}
+
+func (o TargetDnsServerResponseArrayOutput) Index(i pulumi.IntInput) TargetDnsServerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetDnsServerResponse {
+		return vs[0].([]TargetDnsServerResponse)[vs[1].(int)]
+	}).(TargetDnsServerResponseOutput)
 }
 
 // Parameters that define the configuration of traffic analytics.
@@ -63161,6 +63553,59 @@ func (o VirtualNetworkBgpCommunitiesResponsePtrOutput) VirtualNetworkCommunity()
 		}
 		return &v.VirtualNetworkCommunity
 	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to DNS forwarding ruleset and associated virtual network link.
+type VirtualNetworkDnsForwardingRulesetResponse struct {
+	// DNS Forwarding Ruleset Resource ID.
+	Id *string `pulumi:"id"`
+	// The reference to the virtual network link.
+	VirtualNetworkLink *SubResourceResponse `pulumi:"virtualNetworkLink"`
+}
+
+// Reference to DNS forwarding ruleset and associated virtual network link.
+type VirtualNetworkDnsForwardingRulesetResponseOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkDnsForwardingRulesetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkDnsForwardingRulesetResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkDnsForwardingRulesetResponseOutput) ToVirtualNetworkDnsForwardingRulesetResponseOutput() VirtualNetworkDnsForwardingRulesetResponseOutput {
+	return o
+}
+
+func (o VirtualNetworkDnsForwardingRulesetResponseOutput) ToVirtualNetworkDnsForwardingRulesetResponseOutputWithContext(ctx context.Context) VirtualNetworkDnsForwardingRulesetResponseOutput {
+	return o
+}
+
+// DNS Forwarding Ruleset Resource ID.
+func (o VirtualNetworkDnsForwardingRulesetResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkDnsForwardingRulesetResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the virtual network link.
+func (o VirtualNetworkDnsForwardingRulesetResponseOutput) VirtualNetworkLink() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkDnsForwardingRulesetResponse) *SubResourceResponse { return v.VirtualNetworkLink }).(SubResourceResponsePtrOutput)
+}
+
+type VirtualNetworkDnsForwardingRulesetResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkDnsForwardingRulesetResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkDnsForwardingRulesetResponse)(nil)).Elem()
+}
+
+func (o VirtualNetworkDnsForwardingRulesetResponseArrayOutput) ToVirtualNetworkDnsForwardingRulesetResponseArrayOutput() VirtualNetworkDnsForwardingRulesetResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkDnsForwardingRulesetResponseArrayOutput) ToVirtualNetworkDnsForwardingRulesetResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkDnsForwardingRulesetResponseArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkDnsForwardingRulesetResponseArrayOutput) Index(i pulumi.IntInput) VirtualNetworkDnsForwardingRulesetResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkDnsForwardingRulesetResponse {
+		return vs[0].([]VirtualNetworkDnsForwardingRulesetResponse)[vs[1].(int)]
+	}).(VirtualNetworkDnsForwardingRulesetResponseOutput)
 }
 
 // A common class for general resource information.
@@ -70351,6 +70796,10 @@ func init() {
 	pulumi.RegisterOutputType(IPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(IPConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IPConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(InboundEndpointIPConfigurationOutput{})
+	pulumi.RegisterOutputType(InboundEndpointIPConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(InboundEndpointIPConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(InboundEndpointIPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(InboundNatPoolOutput{})
 	pulumi.RegisterOutputType(InboundNatPoolArrayOutput{})
 	pulumi.RegisterOutputType(InboundNatPoolResponseOutput{})
@@ -70726,6 +71175,10 @@ func init() {
 	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubnetResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(TargetDnsServerOutput{})
+	pulumi.RegisterOutputType(TargetDnsServerArrayOutput{})
+	pulumi.RegisterOutputType(TargetDnsServerResponseOutput{})
+	pulumi.RegisterOutputType(TargetDnsServerResponseArrayOutput{})
 	pulumi.RegisterOutputType(TrafficAnalyticsConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(TrafficAnalyticsConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TrafficAnalyticsConfigurationPropertiesResponseOutput{})
@@ -70774,6 +71227,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkBgpCommunitiesPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkBgpCommunitiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkBgpCommunitiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkDnsForwardingRulesetResponseOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkDnsForwardingRulesetResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkGatewayIPConfigurationOutput{})

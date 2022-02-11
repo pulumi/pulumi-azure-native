@@ -40,7 +40,7 @@ type LookupTableResult struct {
 	LastPlanModifiedDate string `pulumi:"lastPlanModifiedDate"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The table plan.
+	// Instruct the system how to handle and charge the logs ingested to this table.
 	Plan *string `pulumi:"plan"`
 	// Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -48,7 +48,7 @@ type LookupTableResult struct {
 	RestoredLogs *RestoredLogsResponse `pulumi:"restoredLogs"`
 	// Search job execution statistics.
 	ResultStatistics *ResultStatisticsResponse `pulumi:"resultStatistics"`
-	// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+	// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Table schema.
 	Schema *SchemaResponse `pulumi:"schema"`
@@ -56,7 +56,7 @@ type LookupTableResult struct {
 	SearchResults *SearchResultsResponse `pulumi:"searchResults"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+	// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
 	TotalRetentionInDays *int `pulumi:"totalRetentionInDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -119,7 +119,7 @@ func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The table plan.
+// Instruct the system how to handle and charge the logs ingested to this table.
 func (o LookupTableResultOutput) Plan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *string { return v.Plan }).(pulumi.StringPtrOutput)
 }
@@ -139,7 +139,7 @@ func (o LookupTableResultOutput) ResultStatistics() ResultStatisticsResponsePtrO
 	return o.ApplyT(func(v LookupTableResult) *ResultStatisticsResponse { return v.ResultStatistics }).(ResultStatisticsResponsePtrOutput)
 }
 
-// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
 func (o LookupTableResultOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -159,7 +159,7 @@ func (o LookupTableResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupTableResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
 func (o LookupTableResultOutput) TotalRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *int { return v.TotalRetentionInDays }).(pulumi.IntPtrOutput)
 }

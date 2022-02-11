@@ -154,6 +154,7 @@ const (
 	OfferingTypeCspmMonitorAws           = OfferingType("CspmMonitorAws")
 	OfferingTypeDefenderForContainersAws = OfferingType("DefenderForContainersAws")
 	OfferingTypeDefenderForServersAws    = OfferingType("DefenderForServersAws")
+	OfferingTypeInformationProtectionAws = OfferingType("InformationProtectionAws")
 )
 
 // A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.

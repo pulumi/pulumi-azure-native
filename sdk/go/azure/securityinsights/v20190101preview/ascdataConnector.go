@@ -62,6 +62,9 @@ func NewASCDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210901preview:ASCDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20211001preview:ASCDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ASCDataConnector

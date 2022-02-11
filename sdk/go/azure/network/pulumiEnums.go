@@ -657,6 +657,14 @@ const (
 	FlowLogFormatTypeJSON = FlowLogFormatType("JSON")
 )
 
+// The state of forwarding rule.
+type ForwardingRuleStateEnum string
+
+const (
+	ForwardingRuleStateEnumEnabled  = ForwardingRuleStateEnum("Enabled")
+	ForwardingRuleStateEnumDisabled = ForwardingRuleStateEnum("Disabled")
+)
+
 // Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
 type FrontDoorEnabledState string
 
@@ -806,6 +814,14 @@ const (
 	IkeIntegritySHA384    = IkeIntegrity("SHA384")
 	IkeIntegrityGCMAES256 = IkeIntegrity("GCMAES256")
 	IkeIntegrityGCMAES128 = IkeIntegrity("GCMAES128")
+)
+
+// Private IP address allocation method.
+type IpAllocationMethod string
+
+const (
+	IpAllocationMethodStatic  = IpAllocationMethod("Static")
+	IpAllocationMethodDynamic = IpAllocationMethod("Dynamic")
 )
 
 // The type for the IpAllocation.

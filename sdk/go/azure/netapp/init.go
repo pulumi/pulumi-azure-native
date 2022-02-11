@@ -33,8 +33,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Snapshot{}
 	case "azure-native:netapp:SnapshotPolicy":
 		r = &SnapshotPolicy{}
+	case "azure-native:netapp:Subvolume":
+		r = &Subvolume{}
 	case "azure-native:netapp:Volume":
 		r = &Volume{}
+	case "azure-native:netapp:VolumeGroup":
+		r = &VolumeGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

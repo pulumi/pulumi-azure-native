@@ -73,6 +73,8 @@ type LookupServerEndpointResult struct {
 	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
 	SyncStatus ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tier files older than days.
 	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -220,6 +222,11 @@ func (o LookupServerEndpointResultOutput) ServerResourceId() pulumi.StringPtrOut
 // Server Endpoint sync status
 func (o LookupServerEndpointResultOutput) SyncStatus() ServerEndpointSyncStatusResponseOutput {
 	return o.ApplyT(func(v LookupServerEndpointResult) ServerEndpointSyncStatusResponse { return v.SyncStatus }).(ServerEndpointSyncStatusResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupServerEndpointResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupServerEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // Tier files older than days.

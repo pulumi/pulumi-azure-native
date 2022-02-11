@@ -21,7 +21,7 @@ type Table struct {
 	LastPlanModifiedDate pulumi.StringOutput `pulumi:"lastPlanModifiedDate"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The table plan.
+	// Instruct the system how to handle and charge the logs ingested to this table.
 	Plan pulumi.StringPtrOutput `pulumi:"plan"`
 	// Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
@@ -29,7 +29,7 @@ type Table struct {
 	RestoredLogs RestoredLogsResponsePtrOutput `pulumi:"restoredLogs"`
 	// Search job execution statistics.
 	ResultStatistics ResultStatisticsResponsePtrOutput `pulumi:"resultStatistics"`
-	// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+	// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
 	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// Table schema.
 	Schema SchemaResponsePtrOutput `pulumi:"schema"`
@@ -37,7 +37,7 @@ type Table struct {
 	SearchResults SearchResultsResponsePtrOutput `pulumi:"searchResults"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+	// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
 	TotalRetentionInDays pulumi.IntPtrOutput `pulumi:"totalRetentionInDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -94,13 +94,13 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// The table plan.
+	// Instruct the system how to handle and charge the logs ingested to this table.
 	Plan *string `pulumi:"plan"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Parameters of the restore operation that initiated this table.
 	RestoredLogs *RestoredLogs `pulumi:"restoredLogs"`
-	// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+	// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
 	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Table schema.
 	Schema *Schema `pulumi:"schema"`
@@ -108,7 +108,7 @@ type tableArgs struct {
 	SearchResults *SearchResults `pulumi:"searchResults"`
 	// The name of the table.
 	TableName *string `pulumi:"tableName"`
-	// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+	// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
 	TotalRetentionInDays *int `pulumi:"totalRetentionInDays"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -116,13 +116,13 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// The table plan.
+	// Instruct the system how to handle and charge the logs ingested to this table.
 	Plan pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Parameters of the restore operation that initiated this table.
 	RestoredLogs RestoredLogsPtrInput
-	// The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+	// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
 	RetentionInDays pulumi.IntPtrInput
 	// Table schema.
 	Schema SchemaPtrInput
@@ -130,7 +130,7 @@ type TableArgs struct {
 	SearchResults SearchResultsPtrInput
 	// The name of the table.
 	TableName pulumi.StringPtrInput
-	// The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+	// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
 	TotalRetentionInDays pulumi.IntPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput

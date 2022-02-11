@@ -46,7 +46,7 @@ const (
 	AlertSeverityInformational = AlertSeverity("Informational")
 )
 
-// The severity for alerts created by this alert rule.
+// A list of relevant mitre attacks.
 type AttackTactic string
 
 const (

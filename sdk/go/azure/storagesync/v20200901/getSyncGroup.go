@@ -37,6 +37,8 @@ type LookupSyncGroupResult struct {
 	Name string `pulumi:"name"`
 	// Sync group status
 	SyncGroupStatus string `pulumi:"syncGroupStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Unique Id
@@ -93,6 +95,11 @@ func (o LookupSyncGroupResultOutput) Name() pulumi.StringOutput {
 // Sync group status
 func (o LookupSyncGroupResultOutput) SyncGroupStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSyncGroupResult) string { return v.SyncGroupStatus }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupSyncGroupResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupSyncGroupResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -9062,7 +9062,7 @@ func (o ManagedClusterSecurityProfilePtrOutput) AzureDefender() ManagedClusterSe
 type ManagedClusterSecurityProfileAzureDefender struct {
 	// Whether to enable Azure Defender
 	Enabled *bool `pulumi:"enabled"`
-	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 	LogAnalyticsWorkspaceResourceId *string `pulumi:"logAnalyticsWorkspaceResourceId"`
 }
 
@@ -9081,7 +9081,7 @@ type ManagedClusterSecurityProfileAzureDefenderInput interface {
 type ManagedClusterSecurityProfileAzureDefenderArgs struct {
 	// Whether to enable Azure Defender
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 	LogAnalyticsWorkspaceResourceId pulumi.StringPtrInput `pulumi:"logAnalyticsWorkspaceResourceId"`
 }
 
@@ -9168,7 +9168,7 @@ func (o ManagedClusterSecurityProfileAzureDefenderOutput) Enabled() pulumi.BoolP
 	return o.ApplyT(func(v ManagedClusterSecurityProfileAzureDefender) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 func (o ManagedClusterSecurityProfileAzureDefenderOutput) LogAnalyticsWorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSecurityProfileAzureDefender) *string { return v.LogAnalyticsWorkspaceResourceId }).(pulumi.StringPtrOutput)
 }
@@ -9207,7 +9207,7 @@ func (o ManagedClusterSecurityProfileAzureDefenderPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 func (o ManagedClusterSecurityProfileAzureDefenderPtrOutput) LogAnalyticsWorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSecurityProfileAzureDefender) *string {
 		if v == nil {
@@ -9221,7 +9221,7 @@ func (o ManagedClusterSecurityProfileAzureDefenderPtrOutput) LogAnalyticsWorkspa
 type ManagedClusterSecurityProfileAzureDefenderResponse struct {
 	// Whether to enable Azure Defender
 	Enabled *bool `pulumi:"enabled"`
-	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+	// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 	LogAnalyticsWorkspaceResourceId *string `pulumi:"logAnalyticsWorkspaceResourceId"`
 }
 
@@ -9245,7 +9245,7 @@ func (o ManagedClusterSecurityProfileAzureDefenderResponseOutput) Enabled() pulu
 	return o.ApplyT(func(v ManagedClusterSecurityProfileAzureDefenderResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 func (o ManagedClusterSecurityProfileAzureDefenderResponseOutput) LogAnalyticsWorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSecurityProfileAzureDefenderResponse) *string {
 		return v.LogAnalyticsWorkspaceResourceId
@@ -9286,7 +9286,7 @@ func (o ManagedClusterSecurityProfileAzureDefenderResponsePtrOutput) Enabled() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
 func (o ManagedClusterSecurityProfileAzureDefenderResponsePtrOutput) LogAnalyticsWorkspaceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSecurityProfileAzureDefenderResponse) *string {
 		if v == nil {

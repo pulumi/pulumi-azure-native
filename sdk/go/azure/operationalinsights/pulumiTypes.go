@@ -1716,6 +1716,8 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 type RestoredLogs struct {
 	// The timestamp to end the restore by (UTC).
 	EndRestoreTime *string `pulumi:"endRestoreTime"`
+	// The table to restore data from.
+	SourceTable *string `pulumi:"sourceTable"`
 	// The timestamp to start the restore from (UTC).
 	StartRestoreTime *string `pulumi:"startRestoreTime"`
 }
@@ -1735,6 +1737,8 @@ type RestoredLogsInput interface {
 type RestoredLogsArgs struct {
 	// The timestamp to end the restore by (UTC).
 	EndRestoreTime pulumi.StringPtrInput `pulumi:"endRestoreTime"`
+	// The table to restore data from.
+	SourceTable pulumi.StringPtrInput `pulumi:"sourceTable"`
 	// The timestamp to start the restore from (UTC).
 	StartRestoreTime pulumi.StringPtrInput `pulumi:"startRestoreTime"`
 }
@@ -1822,6 +1826,11 @@ func (o RestoredLogsOutput) EndRestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoredLogs) *string { return v.EndRestoreTime }).(pulumi.StringPtrOutput)
 }
 
+// The table to restore data from.
+func (o RestoredLogsOutput) SourceTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogs) *string { return v.SourceTable }).(pulumi.StringPtrOutput)
+}
+
 // The timestamp to start the restore from (UTC).
 func (o RestoredLogsOutput) StartRestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestoredLogs) *string { return v.StartRestoreTime }).(pulumi.StringPtrOutput)
@@ -1861,6 +1870,16 @@ func (o RestoredLogsPtrOutput) EndRestoreTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The table to restore data from.
+func (o RestoredLogsPtrOutput) SourceTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestoredLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceTable
+	}).(pulumi.StringPtrOutput)
+}
+
 // The timestamp to start the restore from (UTC).
 func (o RestoredLogsPtrOutput) StartRestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestoredLogs) *string {
@@ -1876,7 +1895,7 @@ type RestoredLogsResponse struct {
 	// The timestamp to end the restore by (UTC).
 	EndRestoreTime *string `pulumi:"endRestoreTime"`
 	// The table to restore data from.
-	SourceTable string `pulumi:"sourceTable"`
+	SourceTable *string `pulumi:"sourceTable"`
 	// The timestamp to start the restore from (UTC).
 	StartRestoreTime *string `pulumi:"startRestoreTime"`
 }
@@ -1902,8 +1921,8 @@ func (o RestoredLogsResponseOutput) EndRestoreTime() pulumi.StringPtrOutput {
 }
 
 // The table to restore data from.
-func (o RestoredLogsResponseOutput) SourceTable() pulumi.StringOutput {
-	return o.ApplyT(func(v RestoredLogsResponse) string { return v.SourceTable }).(pulumi.StringOutput)
+func (o RestoredLogsResponseOutput) SourceTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestoredLogsResponse) *string { return v.SourceTable }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp to start the restore from (UTC).
@@ -1951,7 +1970,7 @@ func (o RestoredLogsResponsePtrOutput) SourceTable() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.SourceTable
+		return v.SourceTable
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2505,7 +2524,7 @@ func (o SchemaResponsePtrOutput) TableType() pulumi.StringPtrOutput {
 
 // Parameters of the search job that initiated this table.
 type SearchResults struct {
-	// Search results table's Description.
+	// Search job Description.
 	Description *string `pulumi:"description"`
 	// The timestamp to end the search by (UTC)
 	EndSearchTime *string `pulumi:"endSearchTime"`
@@ -2530,7 +2549,7 @@ type SearchResultsInput interface {
 
 // Parameters of the search job that initiated this table.
 type SearchResultsArgs struct {
-	// Search results table's Description.
+	// Search job Description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The timestamp to end the search by (UTC)
 	EndSearchTime pulumi.StringPtrInput `pulumi:"endSearchTime"`
@@ -2620,7 +2639,7 @@ func (o SearchResultsOutput) ToSearchResultsPtrOutputWithContext(ctx context.Con
 	}).(SearchResultsPtrOutput)
 }
 
-// Search results table's Description.
+// Search job Description.
 func (o SearchResultsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SearchResults) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -2669,7 +2688,7 @@ func (o SearchResultsPtrOutput) Elem() SearchResultsOutput {
 	}).(SearchResultsOutput)
 }
 
-// Search results table's Description.
+// Search job Description.
 func (o SearchResultsPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SearchResults) *string {
 		if v == nil {
@@ -2721,7 +2740,7 @@ func (o SearchResultsPtrOutput) StartSearchTime() pulumi.StringPtrOutput {
 
 // Parameters of the search job that initiated this table.
 type SearchResultsResponse struct {
-	// Search results table's Description.
+	// Search job Description.
 	Description *string `pulumi:"description"`
 	// The timestamp to end the search by (UTC)
 	EndSearchTime *string `pulumi:"endSearchTime"`
@@ -2729,7 +2748,7 @@ type SearchResultsResponse struct {
 	Limit *int `pulumi:"limit"`
 	// Search job query.
 	Query *string `pulumi:"query"`
-	// The table to search data from.
+	// The table used in the search job.
 	SourceTable string `pulumi:"sourceTable"`
 	// The timestamp to start the search from (UTC)
 	StartSearchTime *string `pulumi:"startSearchTime"`
@@ -2750,7 +2769,7 @@ func (o SearchResultsResponseOutput) ToSearchResultsResponseOutputWithContext(ct
 	return o
 }
 
-// Search results table's Description.
+// Search job Description.
 func (o SearchResultsResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SearchResultsResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -2770,7 +2789,7 @@ func (o SearchResultsResponseOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SearchResultsResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// The table to search data from.
+// The table used in the search job.
 func (o SearchResultsResponseOutput) SourceTable() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResultsResponse) string { return v.SourceTable }).(pulumi.StringOutput)
 }
@@ -2804,7 +2823,7 @@ func (o SearchResultsResponsePtrOutput) Elem() SearchResultsResponseOutput {
 	}).(SearchResultsResponseOutput)
 }
 
-// Search results table's Description.
+// Search job Description.
 func (o SearchResultsResponsePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SearchResultsResponse) *string {
 		if v == nil {
@@ -2844,7 +2863,7 @@ func (o SearchResultsResponsePtrOutput) Query() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The table to search data from.
+// The table used in the search job.
 func (o SearchResultsResponsePtrOutput) SourceTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SearchResultsResponse) *string {
 		if v == nil {
