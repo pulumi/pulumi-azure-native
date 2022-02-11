@@ -1,6 +1,9 @@
 # CHANGELOG
 
 ## HEAD (Unreleased)
+(None)
+
+## 1.57.0 (2022-02-11)
 - Multiple updates [#1496](https://github.com/pulumi/pulumi-azure-native/pull/1496):
   - pulumi/pulumi dependency bumped to v3.24.1
   - Updated resource specs. Includes breaking change (see below)
@@ -9,6 +12,30 @@
 
 #### Breaking Changes published by Microsoft:
 - Deletion of `v2019-05-01-preview` API for `appplatform`. See [source](https://github.com/Azure/azure-rest-api-specs/pull/17506)
+
+
+#### New resources:
+- `azure-native:netapp:Subvolume`
+- `azure-native:netapp:VolumeGroup`
+- `azure-native:network:DnsForwardingRuleset`
+- `azure-native:network:DnsResolver`
+- `azure-native:network:ForwardingRule`
+- `azure-native:network:InboundEndpoint`
+- `azure-native:network:OutboundEndpoint`
+
+#### New functions:
+
+- `azure-native:hybridnetwork:listVendorSkusCredential`
+- `azure-native:netapp:getSubvolume`
+- `azure-native:netapp:getSubvolumeMetadata`
+- `azure-native:netapp:getVolumeGroup`
+- `azure-native:network:getDnsForwardingRuleset`
+- `azure-native:network:getDnsResolver`
+- `azure-native:network:getForwardingRule`
+- `azure-native:network:getInboundEndpoint`
+- `azure-native:network:getOutboundEndpoint`
+- `azure-native:network:listDnsForwardingRulesetByVirtualNetwork`
+- `azure-native:network:listDnsResolverByVirtualNetwork`
 
 
 ---
