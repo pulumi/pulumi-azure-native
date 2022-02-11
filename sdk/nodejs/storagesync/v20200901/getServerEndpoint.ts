@@ -126,6 +126,10 @@ export interface GetServerEndpointResult {
      */
     readonly syncStatus: outputs.storagesync.v20200901.ServerEndpointSyncStatusResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.v20200901.SystemDataResponse;
+    /**
      * Tier files older than days.
      */
     readonly tierFilesOlderThanDays?: number;

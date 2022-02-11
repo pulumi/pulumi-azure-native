@@ -964,6 +964,8 @@ func (o DailyScheduleResponsePtrOutput) UsedBytes() pulumi.Float64PtrOutput {
 type ExportPolicyRule struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
+	// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+	ChownMode *string `pulumi:"chownMode"`
 	// Allows CIFS protocol
 	Cifs *bool `pulumi:"cifs"`
 	// Has root access to volume
@@ -998,6 +1000,10 @@ func (val *ExportPolicyRule) Defaults() *ExportPolicyRule {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.ChownMode) {
+		chownMode_ := "Restricted"
+		tmp.ChownMode = &chownMode_
+	}
 	if isZero(tmp.HasRootAccess) {
 		hasRootAccess_ := true
 		tmp.HasRootAccess = &hasRootAccess_
@@ -1044,6 +1050,8 @@ type ExportPolicyRuleInput interface {
 type ExportPolicyRuleArgs struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients pulumi.StringPtrInput `pulumi:"allowedClients"`
+	// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+	ChownMode pulumi.StringPtrInput `pulumi:"chownMode"`
 	// Allows CIFS protocol
 	Cifs pulumi.BoolPtrInput `pulumi:"cifs"`
 	// Has root access to volume
@@ -1127,6 +1135,11 @@ func (o ExportPolicyRuleOutput) ToExportPolicyRuleOutputWithContext(ctx context.
 // Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRule) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
+}
+
+// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+func (o ExportPolicyRuleOutput) ChownMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRule) *string { return v.ChownMode }).(pulumi.StringPtrOutput)
 }
 
 // Allows CIFS protocol
@@ -1218,6 +1231,8 @@ func (o ExportPolicyRuleArrayOutput) Index(i pulumi.IntInput) ExportPolicyRuleOu
 type ExportPolicyRuleResponse struct {
 	// Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 	AllowedClients *string `pulumi:"allowedClients"`
+	// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+	ChownMode *string `pulumi:"chownMode"`
 	// Allows CIFS protocol
 	Cifs *bool `pulumi:"cifs"`
 	// Has root access to volume
@@ -1252,6 +1267,10 @@ func (val *ExportPolicyRuleResponse) Defaults() *ExportPolicyRuleResponse {
 		return nil
 	}
 	tmp := *val
+	if isZero(tmp.ChownMode) {
+		chownMode_ := "Restricted"
+		tmp.ChownMode = &chownMode_
+	}
 	if isZero(tmp.HasRootAccess) {
 		hasRootAccess_ := true
 		tmp.HasRootAccess = &hasRootAccess_
@@ -1301,6 +1320,11 @@ func (o ExportPolicyRuleResponseOutput) ToExportPolicyRuleResponseOutputWithCont
 // Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
 func (o ExportPolicyRuleResponseOutput) AllowedClients() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportPolicyRuleResponse) *string { return v.AllowedClients }).(pulumi.StringPtrOutput)
+}
+
+// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+func (o ExportPolicyRuleResponseOutput) ChownMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportPolicyRuleResponse) *string { return v.ChownMode }).(pulumi.StringPtrOutput)
 }
 
 // Allows CIFS protocol
@@ -2071,6 +2095,168 @@ func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) Mount
 	}).(MountTargetPropertiesResponseOutput)
 }
 
+// Application specific parameters for the placement of volumes in the volume group
+type PlacementKeyValuePairs struct {
+	// Key for an application specific parameter for the placement of volumes in the volume group
+	Key string `pulumi:"key"`
+	// Value for an application specific parameter for the placement of volumes in the volume group
+	Value string `pulumi:"value"`
+}
+
+// PlacementKeyValuePairsInput is an input type that accepts PlacementKeyValuePairsArgs and PlacementKeyValuePairsOutput values.
+// You can construct a concrete instance of `PlacementKeyValuePairsInput` via:
+//
+//          PlacementKeyValuePairsArgs{...}
+type PlacementKeyValuePairsInput interface {
+	pulumi.Input
+
+	ToPlacementKeyValuePairsOutput() PlacementKeyValuePairsOutput
+	ToPlacementKeyValuePairsOutputWithContext(context.Context) PlacementKeyValuePairsOutput
+}
+
+// Application specific parameters for the placement of volumes in the volume group
+type PlacementKeyValuePairsArgs struct {
+	// Key for an application specific parameter for the placement of volumes in the volume group
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value for an application specific parameter for the placement of volumes in the volume group
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PlacementKeyValuePairsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementKeyValuePairs)(nil)).Elem()
+}
+
+func (i PlacementKeyValuePairsArgs) ToPlacementKeyValuePairsOutput() PlacementKeyValuePairsOutput {
+	return i.ToPlacementKeyValuePairsOutputWithContext(context.Background())
+}
+
+func (i PlacementKeyValuePairsArgs) ToPlacementKeyValuePairsOutputWithContext(ctx context.Context) PlacementKeyValuePairsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementKeyValuePairsOutput)
+}
+
+// PlacementKeyValuePairsArrayInput is an input type that accepts PlacementKeyValuePairsArray and PlacementKeyValuePairsArrayOutput values.
+// You can construct a concrete instance of `PlacementKeyValuePairsArrayInput` via:
+//
+//          PlacementKeyValuePairsArray{ PlacementKeyValuePairsArgs{...} }
+type PlacementKeyValuePairsArrayInput interface {
+	pulumi.Input
+
+	ToPlacementKeyValuePairsArrayOutput() PlacementKeyValuePairsArrayOutput
+	ToPlacementKeyValuePairsArrayOutputWithContext(context.Context) PlacementKeyValuePairsArrayOutput
+}
+
+type PlacementKeyValuePairsArray []PlacementKeyValuePairsInput
+
+func (PlacementKeyValuePairsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlacementKeyValuePairs)(nil)).Elem()
+}
+
+func (i PlacementKeyValuePairsArray) ToPlacementKeyValuePairsArrayOutput() PlacementKeyValuePairsArrayOutput {
+	return i.ToPlacementKeyValuePairsArrayOutputWithContext(context.Background())
+}
+
+func (i PlacementKeyValuePairsArray) ToPlacementKeyValuePairsArrayOutputWithContext(ctx context.Context) PlacementKeyValuePairsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlacementKeyValuePairsArrayOutput)
+}
+
+// Application specific parameters for the placement of volumes in the volume group
+type PlacementKeyValuePairsOutput struct{ *pulumi.OutputState }
+
+func (PlacementKeyValuePairsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementKeyValuePairs)(nil)).Elem()
+}
+
+func (o PlacementKeyValuePairsOutput) ToPlacementKeyValuePairsOutput() PlacementKeyValuePairsOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsOutput) ToPlacementKeyValuePairsOutputWithContext(ctx context.Context) PlacementKeyValuePairsOutput {
+	return o
+}
+
+// Key for an application specific parameter for the placement of volumes in the volume group
+func (o PlacementKeyValuePairsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementKeyValuePairs) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value for an application specific parameter for the placement of volumes in the volume group
+func (o PlacementKeyValuePairsOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementKeyValuePairs) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PlacementKeyValuePairsArrayOutput struct{ *pulumi.OutputState }
+
+func (PlacementKeyValuePairsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlacementKeyValuePairs)(nil)).Elem()
+}
+
+func (o PlacementKeyValuePairsArrayOutput) ToPlacementKeyValuePairsArrayOutput() PlacementKeyValuePairsArrayOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsArrayOutput) ToPlacementKeyValuePairsArrayOutputWithContext(ctx context.Context) PlacementKeyValuePairsArrayOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsArrayOutput) Index(i pulumi.IntInput) PlacementKeyValuePairsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlacementKeyValuePairs {
+		return vs[0].([]PlacementKeyValuePairs)[vs[1].(int)]
+	}).(PlacementKeyValuePairsOutput)
+}
+
+// Application specific parameters for the placement of volumes in the volume group
+type PlacementKeyValuePairsResponse struct {
+	// Key for an application specific parameter for the placement of volumes in the volume group
+	Key string `pulumi:"key"`
+	// Value for an application specific parameter for the placement of volumes in the volume group
+	Value string `pulumi:"value"`
+}
+
+// Application specific parameters for the placement of volumes in the volume group
+type PlacementKeyValuePairsResponseOutput struct{ *pulumi.OutputState }
+
+func (PlacementKeyValuePairsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementKeyValuePairsResponse)(nil)).Elem()
+}
+
+func (o PlacementKeyValuePairsResponseOutput) ToPlacementKeyValuePairsResponseOutput() PlacementKeyValuePairsResponseOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsResponseOutput) ToPlacementKeyValuePairsResponseOutputWithContext(ctx context.Context) PlacementKeyValuePairsResponseOutput {
+	return o
+}
+
+// Key for an application specific parameter for the placement of volumes in the volume group
+func (o PlacementKeyValuePairsResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementKeyValuePairsResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value for an application specific parameter for the placement of volumes in the volume group
+func (o PlacementKeyValuePairsResponseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PlacementKeyValuePairsResponse) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PlacementKeyValuePairsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PlacementKeyValuePairsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlacementKeyValuePairsResponse)(nil)).Elem()
+}
+
+func (o PlacementKeyValuePairsResponseArrayOutput) ToPlacementKeyValuePairsResponseArrayOutput() PlacementKeyValuePairsResponseArrayOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsResponseArrayOutput) ToPlacementKeyValuePairsResponseArrayOutputWithContext(ctx context.Context) PlacementKeyValuePairsResponseArrayOutput {
+	return o
+}
+
+func (o PlacementKeyValuePairsResponseArrayOutput) Index(i pulumi.IntInput) PlacementKeyValuePairsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlacementKeyValuePairsResponse {
+		return vs[0].([]PlacementKeyValuePairsResponse)[vs[1].(int)]
+	}).(PlacementKeyValuePairsResponseOutput)
+}
+
 // Replication properties
 type ReplicationObject struct {
 	// Indicates whether the local volume is the source or destination for the Volume Replication
@@ -2082,7 +2268,7 @@ type ReplicationObject struct {
 	// Id
 	ReplicationId *string `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	ReplicationSchedule *string `pulumi:"replicationSchedule"`
 }
 
 // ReplicationObjectInput is an input type that accepts ReplicationObjectArgs and ReplicationObjectOutput values.
@@ -2107,7 +2293,7 @@ type ReplicationObjectArgs struct {
 	// Id
 	ReplicationId pulumi.StringPtrInput `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule pulumi.StringInput `pulumi:"replicationSchedule"`
+	ReplicationSchedule pulumi.StringPtrInput `pulumi:"replicationSchedule"`
 }
 
 func (ReplicationObjectArgs) ElementType() reflect.Type {
@@ -2209,8 +2395,8 @@ func (o ReplicationObjectOutput) ReplicationId() pulumi.StringPtrOutput {
 }
 
 // Schedule
-func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationObject) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+func (o ReplicationObjectOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationObject) *string { return v.ReplicationSchedule }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationObjectPtrOutput struct{ *pulumi.OutputState }
@@ -2283,7 +2469,7 @@ func (o ReplicationObjectPtrOutput) ReplicationSchedule() pulumi.StringPtrOutput
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicationSchedule
+		return v.ReplicationSchedule
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2298,7 +2484,7 @@ type ReplicationObjectResponse struct {
 	// Id
 	ReplicationId *string `pulumi:"replicationId"`
 	// Schedule
-	ReplicationSchedule string `pulumi:"replicationSchedule"`
+	ReplicationSchedule *string `pulumi:"replicationSchedule"`
 }
 
 // Replication properties
@@ -2337,8 +2523,8 @@ func (o ReplicationObjectResponseOutput) ReplicationId() pulumi.StringPtrOutput 
 }
 
 // Schedule
-func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringOutput {
-	return o.ApplyT(func(v ReplicationObjectResponse) string { return v.ReplicationSchedule }).(pulumi.StringOutput)
+func (o ReplicationObjectResponseOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationObjectResponse) *string { return v.ReplicationSchedule }).(pulumi.StringPtrOutput)
 }
 
 type ReplicationObjectResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2411,7 +2597,7 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 		if v == nil {
 			return nil
 		}
-		return &v.ReplicationSchedule
+		return v.ReplicationSchedule
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2960,6 +3146,1268 @@ func (o VolumeBackupsResponseArrayOutput) Index(i pulumi.IntInput) VolumeBackups
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeBackupsResponse {
 		return vs[0].([]VolumeBackupsResponse)[vs[1].(int)]
 	}).(VolumeBackupsResponseOutput)
+}
+
+// Volume group properties
+type VolumeGroupMetaData struct {
+	// Application specific identifier
+	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
+	// Application Type
+	ApplicationType *string `pulumi:"applicationType"`
+	// Application specific identifier of deployment rules for the volume group
+	DeploymentSpecId *string `pulumi:"deploymentSpecId"`
+	// Application specific placement rules for the volume group
+	GlobalPlacementRules []PlacementKeyValuePairs `pulumi:"globalPlacementRules"`
+	// Group Description
+	GroupDescription *string `pulumi:"groupDescription"`
+}
+
+// VolumeGroupMetaDataInput is an input type that accepts VolumeGroupMetaDataArgs and VolumeGroupMetaDataOutput values.
+// You can construct a concrete instance of `VolumeGroupMetaDataInput` via:
+//
+//          VolumeGroupMetaDataArgs{...}
+type VolumeGroupMetaDataInput interface {
+	pulumi.Input
+
+	ToVolumeGroupMetaDataOutput() VolumeGroupMetaDataOutput
+	ToVolumeGroupMetaDataOutputWithContext(context.Context) VolumeGroupMetaDataOutput
+}
+
+// Volume group properties
+type VolumeGroupMetaDataArgs struct {
+	// Application specific identifier
+	ApplicationIdentifier pulumi.StringPtrInput `pulumi:"applicationIdentifier"`
+	// Application Type
+	ApplicationType pulumi.StringPtrInput `pulumi:"applicationType"`
+	// Application specific identifier of deployment rules for the volume group
+	DeploymentSpecId pulumi.StringPtrInput `pulumi:"deploymentSpecId"`
+	// Application specific placement rules for the volume group
+	GlobalPlacementRules PlacementKeyValuePairsArrayInput `pulumi:"globalPlacementRules"`
+	// Group Description
+	GroupDescription pulumi.StringPtrInput `pulumi:"groupDescription"`
+}
+
+func (VolumeGroupMetaDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupMetaData)(nil)).Elem()
+}
+
+func (i VolumeGroupMetaDataArgs) ToVolumeGroupMetaDataOutput() VolumeGroupMetaDataOutput {
+	return i.ToVolumeGroupMetaDataOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupMetaDataArgs) ToVolumeGroupMetaDataOutputWithContext(ctx context.Context) VolumeGroupMetaDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupMetaDataOutput)
+}
+
+func (i VolumeGroupMetaDataArgs) ToVolumeGroupMetaDataPtrOutput() VolumeGroupMetaDataPtrOutput {
+	return i.ToVolumeGroupMetaDataPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupMetaDataArgs) ToVolumeGroupMetaDataPtrOutputWithContext(ctx context.Context) VolumeGroupMetaDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupMetaDataOutput).ToVolumeGroupMetaDataPtrOutputWithContext(ctx)
+}
+
+// VolumeGroupMetaDataPtrInput is an input type that accepts VolumeGroupMetaDataArgs, VolumeGroupMetaDataPtr and VolumeGroupMetaDataPtrOutput values.
+// You can construct a concrete instance of `VolumeGroupMetaDataPtrInput` via:
+//
+//          VolumeGroupMetaDataArgs{...}
+//
+//  or:
+//
+//          nil
+type VolumeGroupMetaDataPtrInput interface {
+	pulumi.Input
+
+	ToVolumeGroupMetaDataPtrOutput() VolumeGroupMetaDataPtrOutput
+	ToVolumeGroupMetaDataPtrOutputWithContext(context.Context) VolumeGroupMetaDataPtrOutput
+}
+
+type volumeGroupMetaDataPtrType VolumeGroupMetaDataArgs
+
+func VolumeGroupMetaDataPtr(v *VolumeGroupMetaDataArgs) VolumeGroupMetaDataPtrInput {
+	return (*volumeGroupMetaDataPtrType)(v)
+}
+
+func (*volumeGroupMetaDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupMetaData)(nil)).Elem()
+}
+
+func (i *volumeGroupMetaDataPtrType) ToVolumeGroupMetaDataPtrOutput() VolumeGroupMetaDataPtrOutput {
+	return i.ToVolumeGroupMetaDataPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeGroupMetaDataPtrType) ToVolumeGroupMetaDataPtrOutputWithContext(ctx context.Context) VolumeGroupMetaDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupMetaDataPtrOutput)
+}
+
+// Volume group properties
+type VolumeGroupMetaDataOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupMetaDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupMetaData)(nil)).Elem()
+}
+
+func (o VolumeGroupMetaDataOutput) ToVolumeGroupMetaDataOutput() VolumeGroupMetaDataOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataOutput) ToVolumeGroupMetaDataOutputWithContext(ctx context.Context) VolumeGroupMetaDataOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataOutput) ToVolumeGroupMetaDataPtrOutput() VolumeGroupMetaDataPtrOutput {
+	return o.ToVolumeGroupMetaDataPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeGroupMetaDataOutput) ToVolumeGroupMetaDataPtrOutputWithContext(ctx context.Context) VolumeGroupMetaDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeGroupMetaData) *VolumeGroupMetaData {
+		return &v
+	}).(VolumeGroupMetaDataPtrOutput)
+}
+
+// Application specific identifier
+func (o VolumeGroupMetaDataOutput) ApplicationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaData) *string { return v.ApplicationIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Application Type
+func (o VolumeGroupMetaDataOutput) ApplicationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaData) *string { return v.ApplicationType }).(pulumi.StringPtrOutput)
+}
+
+// Application specific identifier of deployment rules for the volume group
+func (o VolumeGroupMetaDataOutput) DeploymentSpecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaData) *string { return v.DeploymentSpecId }).(pulumi.StringPtrOutput)
+}
+
+// Application specific placement rules for the volume group
+func (o VolumeGroupMetaDataOutput) GlobalPlacementRules() PlacementKeyValuePairsArrayOutput {
+	return o.ApplyT(func(v VolumeGroupMetaData) []PlacementKeyValuePairs { return v.GlobalPlacementRules }).(PlacementKeyValuePairsArrayOutput)
+}
+
+// Group Description
+func (o VolumeGroupMetaDataOutput) GroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaData) *string { return v.GroupDescription }).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupMetaDataPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupMetaDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupMetaData)(nil)).Elem()
+}
+
+func (o VolumeGroupMetaDataPtrOutput) ToVolumeGroupMetaDataPtrOutput() VolumeGroupMetaDataPtrOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataPtrOutput) ToVolumeGroupMetaDataPtrOutputWithContext(ctx context.Context) VolumeGroupMetaDataPtrOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataPtrOutput) Elem() VolumeGroupMetaDataOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) VolumeGroupMetaData {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupMetaData
+		return ret
+	}).(VolumeGroupMetaDataOutput)
+}
+
+// Application specific identifier
+func (o VolumeGroupMetaDataPtrOutput) ApplicationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application Type
+func (o VolumeGroupMetaDataPtrOutput) ApplicationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific identifier of deployment rules for the volume group
+func (o VolumeGroupMetaDataPtrOutput) DeploymentSpecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentSpecId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific placement rules for the volume group
+func (o VolumeGroupMetaDataPtrOutput) GlobalPlacementRules() PlacementKeyValuePairsArrayOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) []PlacementKeyValuePairs {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalPlacementRules
+	}).(PlacementKeyValuePairsArrayOutput)
+}
+
+// Group Description
+func (o VolumeGroupMetaDataPtrOutput) GroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// Volume group properties
+type VolumeGroupMetaDataResponse struct {
+	// Application specific identifier
+	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
+	// Application Type
+	ApplicationType *string `pulumi:"applicationType"`
+	// Application specific identifier of deployment rules for the volume group
+	DeploymentSpecId *string `pulumi:"deploymentSpecId"`
+	// Application specific placement rules for the volume group
+	GlobalPlacementRules []PlacementKeyValuePairsResponse `pulumi:"globalPlacementRules"`
+	// Group Description
+	GroupDescription *string `pulumi:"groupDescription"`
+	// Number of volumes in volume group
+	VolumesCount float64 `pulumi:"volumesCount"`
+}
+
+// Volume group properties
+type VolumeGroupMetaDataResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupMetaDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupMetaDataResponse)(nil)).Elem()
+}
+
+func (o VolumeGroupMetaDataResponseOutput) ToVolumeGroupMetaDataResponseOutput() VolumeGroupMetaDataResponseOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataResponseOutput) ToVolumeGroupMetaDataResponseOutputWithContext(ctx context.Context) VolumeGroupMetaDataResponseOutput {
+	return o
+}
+
+// Application specific identifier
+func (o VolumeGroupMetaDataResponseOutput) ApplicationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) *string { return v.ApplicationIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Application Type
+func (o VolumeGroupMetaDataResponseOutput) ApplicationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) *string { return v.ApplicationType }).(pulumi.StringPtrOutput)
+}
+
+// Application specific identifier of deployment rules for the volume group
+func (o VolumeGroupMetaDataResponseOutput) DeploymentSpecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) *string { return v.DeploymentSpecId }).(pulumi.StringPtrOutput)
+}
+
+// Application specific placement rules for the volume group
+func (o VolumeGroupMetaDataResponseOutput) GlobalPlacementRules() PlacementKeyValuePairsResponseArrayOutput {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) []PlacementKeyValuePairsResponse { return v.GlobalPlacementRules }).(PlacementKeyValuePairsResponseArrayOutput)
+}
+
+// Group Description
+func (o VolumeGroupMetaDataResponseOutput) GroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) *string { return v.GroupDescription }).(pulumi.StringPtrOutput)
+}
+
+// Number of volumes in volume group
+func (o VolumeGroupMetaDataResponseOutput) VolumesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupMetaDataResponse) float64 { return v.VolumesCount }).(pulumi.Float64Output)
+}
+
+type VolumeGroupMetaDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupMetaDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeGroupMetaDataResponse)(nil)).Elem()
+}
+
+func (o VolumeGroupMetaDataResponsePtrOutput) ToVolumeGroupMetaDataResponsePtrOutput() VolumeGroupMetaDataResponsePtrOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataResponsePtrOutput) ToVolumeGroupMetaDataResponsePtrOutputWithContext(ctx context.Context) VolumeGroupMetaDataResponsePtrOutput {
+	return o
+}
+
+func (o VolumeGroupMetaDataResponsePtrOutput) Elem() VolumeGroupMetaDataResponseOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) VolumeGroupMetaDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeGroupMetaDataResponse
+		return ret
+	}).(VolumeGroupMetaDataResponseOutput)
+}
+
+// Application specific identifier
+func (o VolumeGroupMetaDataResponsePtrOutput) ApplicationIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application Type
+func (o VolumeGroupMetaDataResponsePtrOutput) ApplicationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific identifier of deployment rules for the volume group
+func (o VolumeGroupMetaDataResponsePtrOutput) DeploymentSpecId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentSpecId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application specific placement rules for the volume group
+func (o VolumeGroupMetaDataResponsePtrOutput) GlobalPlacementRules() PlacementKeyValuePairsResponseArrayOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) []PlacementKeyValuePairsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GlobalPlacementRules
+	}).(PlacementKeyValuePairsResponseArrayOutput)
+}
+
+// Group Description
+func (o VolumeGroupMetaDataResponsePtrOutput) GroupDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of volumes in volume group
+func (o VolumeGroupMetaDataResponsePtrOutput) VolumesCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VolumeGroupMetaDataResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumesCount
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Volume resource
+type VolumeGroupVolumeProperties struct {
+	// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+	AvsDataStore *string `pulumi:"avsDataStore"`
+	// UUID v4 or resource identifier used to identify the Backup.
+	BackupId *string `pulumi:"backupId"`
+	// Pool Resource Id used in case of creating a volume through volume group
+	CapacityPoolResourceId *string `pulumi:"capacityPoolResourceId"`
+	// Specifies whether Cool Access(tiering) is enabled for the volume.
+	CoolAccess *bool `pulumi:"coolAccess"`
+	// Specifies the number of days after which data that is not accessed by clients will be tiered.
+	CoolnessPeriod *int `pulumi:"coolnessPeriod"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken string `pulumi:"creationToken"`
+	// DataProtection type volumes include an object containing details of the replication
+	DataProtection *VolumePropertiesDataProtection `pulumi:"dataProtection"`
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+	DefaultGroupQuotaInKiBs *float64 `pulumi:"defaultGroupQuotaInKiBs"`
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
+	// Flag indicating whether subvolume operations are enabled on the volume
+	EnableSubvolumes *string `pulumi:"enableSubvolumes"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
+	// Set of export policy rules
+	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
+	// Specifies if default quota is enabled for the volume.
+	IsDefaultQuotaEnabled *bool `pulumi:"isDefaultQuotaEnabled"`
+	// Restoring
+	IsRestoring *bool `pulumi:"isRestoring"`
+	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled *bool `pulumi:"ldapEnabled"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Basic network, or Standard features available to the volume.
+	NetworkFeatures *string `pulumi:"networkFeatures"`
+	// Application specific placement rules for the particular volume
+	PlacementRules []PlacementKeyValuePairs `pulumi:"placementRules"`
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
+	ProtocolTypes []string `pulumi:"protocolTypes"`
+	// Proximity placement group associated with the volume
+	ProximityPlacementGroup *string `pulumi:"proximityPlacementGroup"`
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+	SecurityStyle *string `pulumi:"securityStyle"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Enables continuously available share property for smb volume. Only applicable for SMB volume
+	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
+	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+	SmbEncryption *bool `pulumi:"smbEncryption"`
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId string `pulumi:"subnetId"`
+	// Resource tags
+	Tags            map[string]string `pulumi:"tags"`
+	ThroughputMibps *float64          `pulumi:"throughputMibps"`
+	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+	UnixPermissions *string `pulumi:"unixPermissions"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold float64 `pulumi:"usageThreshold"`
+	// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+	VolumeSpecName *string `pulumi:"volumeSpecName"`
+	// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// Defaults sets the appropriate defaults for VolumeGroupVolumeProperties
+func (val *VolumeGroupVolumeProperties) Defaults() *VolumeGroupVolumeProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AvsDataStore) {
+		avsDataStore_ := "Disabled"
+		tmp.AvsDataStore = &avsDataStore_
+	}
+	if isZero(tmp.CoolAccess) {
+		coolAccess_ := false
+		tmp.CoolAccess = &coolAccess_
+	}
+	if isZero(tmp.DefaultGroupQuotaInKiBs) {
+		defaultGroupQuotaInKiBs_ := 0.0
+		tmp.DefaultGroupQuotaInKiBs = &defaultGroupQuotaInKiBs_
+	}
+	if isZero(tmp.DefaultUserQuotaInKiBs) {
+		defaultUserQuotaInKiBs_ := 0.0
+		tmp.DefaultUserQuotaInKiBs = &defaultUserQuotaInKiBs_
+	}
+	if isZero(tmp.EnableSubvolumes) {
+		enableSubvolumes_ := "Disabled"
+		tmp.EnableSubvolumes = &enableSubvolumes_
+	}
+	if isZero(tmp.IsDefaultQuotaEnabled) {
+		isDefaultQuotaEnabled_ := false
+		tmp.IsDefaultQuotaEnabled = &isDefaultQuotaEnabled_
+	}
+	if isZero(tmp.KerberosEnabled) {
+		kerberosEnabled_ := false
+		tmp.KerberosEnabled = &kerberosEnabled_
+	}
+	if isZero(tmp.LdapEnabled) {
+		ldapEnabled_ := false
+		tmp.LdapEnabled = &ldapEnabled_
+	}
+	if isZero(tmp.NetworkFeatures) {
+		networkFeatures_ := "Basic"
+		tmp.NetworkFeatures = &networkFeatures_
+	}
+	if isZero(tmp.SecurityStyle) {
+		securityStyle_ := "unix"
+		tmp.SecurityStyle = &securityStyle_
+	}
+	if isZero(tmp.SmbContinuouslyAvailable) {
+		smbContinuouslyAvailable_ := false
+		tmp.SmbContinuouslyAvailable = &smbContinuouslyAvailable_
+	}
+	if isZero(tmp.SmbEncryption) {
+		smbEncryption_ := false
+		tmp.SmbEncryption = &smbEncryption_
+	}
+	if isZero(tmp.SnapshotDirectoryVisible) {
+		snapshotDirectoryVisible_ := true
+		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
+	}
+	if isZero(tmp.ThroughputMibps) {
+		throughputMibps_ := 0.0
+		tmp.ThroughputMibps = &throughputMibps_
+	}
+	if isZero(tmp.UnixPermissions) {
+		unixPermissions_ := "0770"
+		tmp.UnixPermissions = &unixPermissions_
+	}
+	if isZero(tmp.UsageThreshold) {
+		tmp.UsageThreshold = 107374182400.0
+	}
+	return &tmp
+}
+
+// VolumeGroupVolumePropertiesInput is an input type that accepts VolumeGroupVolumePropertiesArgs and VolumeGroupVolumePropertiesOutput values.
+// You can construct a concrete instance of `VolumeGroupVolumePropertiesInput` via:
+//
+//          VolumeGroupVolumePropertiesArgs{...}
+type VolumeGroupVolumePropertiesInput interface {
+	pulumi.Input
+
+	ToVolumeGroupVolumePropertiesOutput() VolumeGroupVolumePropertiesOutput
+	ToVolumeGroupVolumePropertiesOutputWithContext(context.Context) VolumeGroupVolumePropertiesOutput
+}
+
+// Volume resource
+type VolumeGroupVolumePropertiesArgs struct {
+	// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+	AvsDataStore pulumi.StringPtrInput `pulumi:"avsDataStore"`
+	// UUID v4 or resource identifier used to identify the Backup.
+	BackupId pulumi.StringPtrInput `pulumi:"backupId"`
+	// Pool Resource Id used in case of creating a volume through volume group
+	CapacityPoolResourceId pulumi.StringPtrInput `pulumi:"capacityPoolResourceId"`
+	// Specifies whether Cool Access(tiering) is enabled for the volume.
+	CoolAccess pulumi.BoolPtrInput `pulumi:"coolAccess"`
+	// Specifies the number of days after which data that is not accessed by clients will be tiered.
+	CoolnessPeriod pulumi.IntPtrInput `pulumi:"coolnessPeriod"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken pulumi.StringInput `pulumi:"creationToken"`
+	// DataProtection type volumes include an object containing details of the replication
+	DataProtection VolumePropertiesDataProtectionPtrInput `pulumi:"dataProtection"`
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+	DefaultGroupQuotaInKiBs pulumi.Float64PtrInput `pulumi:"defaultGroupQuotaInKiBs"`
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+	DefaultUserQuotaInKiBs pulumi.Float64PtrInput `pulumi:"defaultUserQuotaInKiBs"`
+	// Flag indicating whether subvolume operations are enabled on the volume
+	EnableSubvolumes pulumi.StringPtrInput `pulumi:"enableSubvolumes"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource pulumi.StringPtrInput `pulumi:"encryptionKeySource"`
+	// Set of export policy rules
+	ExportPolicy VolumePropertiesExportPolicyPtrInput `pulumi:"exportPolicy"`
+	// Specifies if default quota is enabled for the volume.
+	IsDefaultQuotaEnabled pulumi.BoolPtrInput `pulumi:"isDefaultQuotaEnabled"`
+	// Restoring
+	IsRestoring pulumi.BoolPtrInput `pulumi:"isRestoring"`
+	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+	KerberosEnabled pulumi.BoolPtrInput `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled pulumi.BoolPtrInput `pulumi:"ldapEnabled"`
+	// Resource name
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Basic network, or Standard features available to the volume.
+	NetworkFeatures pulumi.StringPtrInput `pulumi:"networkFeatures"`
+	// Application specific placement rules for the particular volume
+	PlacementRules PlacementKeyValuePairsArrayInput `pulumi:"placementRules"`
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
+	ProtocolTypes pulumi.StringArrayInput `pulumi:"protocolTypes"`
+	// Proximity placement group associated with the volume
+	ProximityPlacementGroup pulumi.StringPtrInput `pulumi:"proximityPlacementGroup"`
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+	SecurityStyle pulumi.StringPtrInput `pulumi:"securityStyle"`
+	// The service level of the file system
+	ServiceLevel pulumi.StringPtrInput `pulumi:"serviceLevel"`
+	// Enables continuously available share property for smb volume. Only applicable for SMB volume
+	SmbContinuouslyAvailable pulumi.BoolPtrInput `pulumi:"smbContinuouslyAvailable"`
+	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+	SmbEncryption pulumi.BoolPtrInput `pulumi:"smbEncryption"`
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible pulumi.BoolPtrInput `pulumi:"snapshotDirectoryVisible"`
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+	// Resource tags
+	Tags            pulumi.StringMapInput  `pulumi:"tags"`
+	ThroughputMibps pulumi.Float64PtrInput `pulumi:"throughputMibps"`
+	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+	UnixPermissions pulumi.StringPtrInput `pulumi:"unixPermissions"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold pulumi.Float64Input `pulumi:"usageThreshold"`
+	// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+	VolumeSpecName pulumi.StringPtrInput `pulumi:"volumeSpecName"`
+	// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
+}
+
+func (VolumeGroupVolumePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupVolumeProperties)(nil)).Elem()
+}
+
+func (i VolumeGroupVolumePropertiesArgs) ToVolumeGroupVolumePropertiesOutput() VolumeGroupVolumePropertiesOutput {
+	return i.ToVolumeGroupVolumePropertiesOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupVolumePropertiesArgs) ToVolumeGroupVolumePropertiesOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupVolumePropertiesOutput)
+}
+
+// VolumeGroupVolumePropertiesArrayInput is an input type that accepts VolumeGroupVolumePropertiesArray and VolumeGroupVolumePropertiesArrayOutput values.
+// You can construct a concrete instance of `VolumeGroupVolumePropertiesArrayInput` via:
+//
+//          VolumeGroupVolumePropertiesArray{ VolumeGroupVolumePropertiesArgs{...} }
+type VolumeGroupVolumePropertiesArrayInput interface {
+	pulumi.Input
+
+	ToVolumeGroupVolumePropertiesArrayOutput() VolumeGroupVolumePropertiesArrayOutput
+	ToVolumeGroupVolumePropertiesArrayOutputWithContext(context.Context) VolumeGroupVolumePropertiesArrayOutput
+}
+
+type VolumeGroupVolumePropertiesArray []VolumeGroupVolumePropertiesInput
+
+func (VolumeGroupVolumePropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupVolumeProperties)(nil)).Elem()
+}
+
+func (i VolumeGroupVolumePropertiesArray) ToVolumeGroupVolumePropertiesArrayOutput() VolumeGroupVolumePropertiesArrayOutput {
+	return i.ToVolumeGroupVolumePropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeGroupVolumePropertiesArray) ToVolumeGroupVolumePropertiesArrayOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupVolumePropertiesArrayOutput)
+}
+
+// Volume resource
+type VolumeGroupVolumePropertiesOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupVolumePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupVolumeProperties)(nil)).Elem()
+}
+
+func (o VolumeGroupVolumePropertiesOutput) ToVolumeGroupVolumePropertiesOutput() VolumeGroupVolumePropertiesOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesOutput) ToVolumeGroupVolumePropertiesOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesOutput {
+	return o
+}
+
+// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+func (o VolumeGroupVolumePropertiesOutput) AvsDataStore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.AvsDataStore }).(pulumi.StringPtrOutput)
+}
+
+// UUID v4 or resource identifier used to identify the Backup.
+func (o VolumeGroupVolumePropertiesOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+// Pool Resource Id used in case of creating a volume through volume group
+func (o VolumeGroupVolumePropertiesOutput) CapacityPoolResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.CapacityPoolResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether Cool Access(tiering) is enabled for the volume.
+func (o VolumeGroupVolumePropertiesOutput) CoolAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.CoolAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number of days after which data that is not accessed by clients will be tiered.
+func (o VolumeGroupVolumePropertiesOutput) CoolnessPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *int { return v.CoolnessPeriod }).(pulumi.IntPtrOutput)
+}
+
+// A unique file path for the volume. Used when creating mount targets
+func (o VolumeGroupVolumePropertiesOutput) CreationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) string { return v.CreationToken }).(pulumi.StringOutput)
+}
+
+// DataProtection type volumes include an object containing details of the replication
+func (o VolumeGroupVolumePropertiesOutput) DataProtection() VolumePropertiesDataProtectionPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *VolumePropertiesDataProtection { return v.DataProtection }).(VolumePropertiesDataProtectionPtrOutput)
+}
+
+// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+func (o VolumeGroupVolumePropertiesOutput) DefaultGroupQuotaInKiBs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *float64 { return v.DefaultGroupQuotaInKiBs }).(pulumi.Float64PtrOutput)
+}
+
+// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+func (o VolumeGroupVolumePropertiesOutput) DefaultUserQuotaInKiBs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *float64 { return v.DefaultUserQuotaInKiBs }).(pulumi.Float64PtrOutput)
+}
+
+// Flag indicating whether subvolume operations are enabled on the volume
+func (o VolumeGroupVolumePropertiesOutput) EnableSubvolumes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.EnableSubvolumes }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+func (o VolumeGroupVolumePropertiesOutput) EncryptionKeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
+}
+
+// Set of export policy rules
+func (o VolumeGroupVolumePropertiesOutput) ExportPolicy() VolumePropertiesExportPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *VolumePropertiesExportPolicy { return v.ExportPolicy }).(VolumePropertiesExportPolicyPtrOutput)
+}
+
+// Specifies if default quota is enabled for the volume.
+func (o VolumeGroupVolumePropertiesOutput) IsDefaultQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.IsDefaultQuotaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Restoring
+func (o VolumeGroupVolumePropertiesOutput) IsRestoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.IsRestoring }).(pulumi.BoolPtrOutput)
+}
+
+// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+func (o VolumeGroupVolumePropertiesOutput) KerberosEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.KerberosEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether LDAP is enabled or not for a given NFS volume.
+func (o VolumeGroupVolumePropertiesOutput) LdapEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.LdapEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name
+func (o VolumeGroupVolumePropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Basic network, or Standard features available to the volume.
+func (o VolumeGroupVolumePropertiesOutput) NetworkFeatures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
+}
+
+// Application specific placement rules for the particular volume
+func (o VolumeGroupVolumePropertiesOutput) PlacementRules() PlacementKeyValuePairsArrayOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) []PlacementKeyValuePairs { return v.PlacementRules }).(PlacementKeyValuePairsArrayOutput)
+}
+
+// Set of protocol types, default NFSv3, CIFS for SMB protocol
+func (o VolumeGroupVolumePropertiesOutput) ProtocolTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) []string { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
+}
+
+// Proximity placement group associated with the volume
+func (o VolumeGroupVolumePropertiesOutput) ProximityPlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.ProximityPlacementGroup }).(pulumi.StringPtrOutput)
+}
+
+// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+func (o VolumeGroupVolumePropertiesOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+// The service level of the file system
+func (o VolumeGroupVolumePropertiesOutput) ServiceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
+}
+
+// Enables continuously available share property for smb volume. Only applicable for SMB volume
+func (o VolumeGroupVolumePropertiesOutput) SmbContinuouslyAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.SmbContinuouslyAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+func (o VolumeGroupVolumePropertiesOutput) SmbEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.SmbEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumeGroupVolumePropertiesOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
+}
+
+// UUID v4 or resource identifier used to identify the Snapshot.
+func (o VolumeGroupVolumePropertiesOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+func (o VolumeGroupVolumePropertiesOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o VolumeGroupVolumePropertiesOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o VolumeGroupVolumePropertiesOutput) ThroughputMibps() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *float64 { return v.ThroughputMibps }).(pulumi.Float64PtrOutput)
+}
+
+// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+func (o VolumeGroupVolumePropertiesOutput) UnixPermissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.UnixPermissions }).(pulumi.StringPtrOutput)
+}
+
+// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+func (o VolumeGroupVolumePropertiesOutput) UsageThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) float64 { return v.UsageThreshold }).(pulumi.Float64Output)
+}
+
+// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+func (o VolumeGroupVolumePropertiesOutput) VolumeSpecName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.VolumeSpecName }).(pulumi.StringPtrOutput)
+}
+
+// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+func (o VolumeGroupVolumePropertiesOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumeProperties) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupVolumePropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupVolumePropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupVolumeProperties)(nil)).Elem()
+}
+
+func (o VolumeGroupVolumePropertiesArrayOutput) ToVolumeGroupVolumePropertiesArrayOutput() VolumeGroupVolumePropertiesArrayOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesArrayOutput) ToVolumeGroupVolumePropertiesArrayOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesArrayOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesArrayOutput) Index(i pulumi.IntInput) VolumeGroupVolumePropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupVolumeProperties {
+		return vs[0].([]VolumeGroupVolumeProperties)[vs[1].(int)]
+	}).(VolumeGroupVolumePropertiesOutput)
+}
+
+// Volume resource
+type VolumeGroupVolumePropertiesResponse struct {
+	// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+	AvsDataStore *string `pulumi:"avsDataStore"`
+	// UUID v4 or resource identifier used to identify the Backup.
+	BackupId *string `pulumi:"backupId"`
+	// Unique Baremetal Tenant Identifier.
+	BaremetalTenantId string `pulumi:"baremetalTenantId"`
+	// Pool Resource Id used in case of creating a volume through volume group
+	CapacityPoolResourceId *string `pulumi:"capacityPoolResourceId"`
+	// When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+	CloneProgress int `pulumi:"cloneProgress"`
+	// Specifies whether Cool Access(tiering) is enabled for the volume.
+	CoolAccess *bool `pulumi:"coolAccess"`
+	// Specifies the number of days after which data that is not accessed by clients will be tiered.
+	CoolnessPeriod *int `pulumi:"coolnessPeriod"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken string `pulumi:"creationToken"`
+	// DataProtection type volumes include an object containing details of the replication
+	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
+	// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+	DefaultGroupQuotaInKiBs *float64 `pulumi:"defaultGroupQuotaInKiBs"`
+	// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+	DefaultUserQuotaInKiBs *float64 `pulumi:"defaultUserQuotaInKiBs"`
+	// Flag indicating whether subvolume operations are enabled on the volume
+	EnableSubvolumes *string `pulumi:"enableSubvolumes"`
+	// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+	EncryptionKeySource *string `pulumi:"encryptionKeySource"`
+	// Set of export policy rules
+	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
+	// Unique FileSystem Identifier.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// Resource Id
+	Id string `pulumi:"id"`
+	// Specifies if default quota is enabled for the volume.
+	IsDefaultQuotaEnabled *bool `pulumi:"isDefaultQuotaEnabled"`
+	// Restoring
+	IsRestoring *bool `pulumi:"isRestoring"`
+	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
+	// Specifies whether LDAP is enabled or not for a given NFS volume.
+	LdapEnabled *bool `pulumi:"ldapEnabled"`
+	// Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+	MaximumNumberOfFiles float64 `pulumi:"maximumNumberOfFiles"`
+	// List of mount targets
+	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Basic network, or Standard features available to the volume.
+	NetworkFeatures *string `pulumi:"networkFeatures"`
+	// Network Sibling Set ID for the the group of volumes sharing networking resources.
+	NetworkSiblingSetId string `pulumi:"networkSiblingSetId"`
+	// Application specific placement rules for the particular volume
+	PlacementRules []PlacementKeyValuePairsResponse `pulumi:"placementRules"`
+	// Set of protocol types, default NFSv3, CIFS for SMB protocol
+	ProtocolTypes []string `pulumi:"protocolTypes"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Proximity placement group associated with the volume
+	ProximityPlacementGroup *string `pulumi:"proximityPlacementGroup"`
+	// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+	SecurityStyle *string `pulumi:"securityStyle"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Enables continuously available share property for smb volume. Only applicable for SMB volume
+	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
+	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+	SmbEncryption *bool `pulumi:"smbEncryption"`
+	// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// Provides storage to network proximity information for the volume.
+	StorageToNetworkProximity string `pulumi:"storageToNetworkProximity"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId string `pulumi:"subnetId"`
+	// T2 network information
+	T2Network string `pulumi:"t2Network"`
+	// Resource tags
+	Tags            map[string]string `pulumi:"tags"`
+	ThroughputMibps *float64          `pulumi:"throughputMibps"`
+	// Resource type
+	Type string `pulumi:"type"`
+	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+	UnixPermissions *string `pulumi:"unixPermissions"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold float64 `pulumi:"usageThreshold"`
+	// Volume Group Name
+	VolumeGroupName string `pulumi:"volumeGroupName"`
+	// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+	VolumeSpecName *string `pulumi:"volumeSpecName"`
+	// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+	VolumeType *string `pulumi:"volumeType"`
+}
+
+// Defaults sets the appropriate defaults for VolumeGroupVolumePropertiesResponse
+func (val *VolumeGroupVolumePropertiesResponse) Defaults() *VolumeGroupVolumePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AvsDataStore) {
+		avsDataStore_ := "Disabled"
+		tmp.AvsDataStore = &avsDataStore_
+	}
+	if isZero(tmp.CoolAccess) {
+		coolAccess_ := false
+		tmp.CoolAccess = &coolAccess_
+	}
+	if isZero(tmp.DefaultGroupQuotaInKiBs) {
+		defaultGroupQuotaInKiBs_ := 0.0
+		tmp.DefaultGroupQuotaInKiBs = &defaultGroupQuotaInKiBs_
+	}
+	if isZero(tmp.DefaultUserQuotaInKiBs) {
+		defaultUserQuotaInKiBs_ := 0.0
+		tmp.DefaultUserQuotaInKiBs = &defaultUserQuotaInKiBs_
+	}
+	if isZero(tmp.EnableSubvolumes) {
+		enableSubvolumes_ := "Disabled"
+		tmp.EnableSubvolumes = &enableSubvolumes_
+	}
+	if isZero(tmp.IsDefaultQuotaEnabled) {
+		isDefaultQuotaEnabled_ := false
+		tmp.IsDefaultQuotaEnabled = &isDefaultQuotaEnabled_
+	}
+	if isZero(tmp.KerberosEnabled) {
+		kerberosEnabled_ := false
+		tmp.KerberosEnabled = &kerberosEnabled_
+	}
+	if isZero(tmp.LdapEnabled) {
+		ldapEnabled_ := false
+		tmp.LdapEnabled = &ldapEnabled_
+	}
+	if isZero(tmp.NetworkFeatures) {
+		networkFeatures_ := "Basic"
+		tmp.NetworkFeatures = &networkFeatures_
+	}
+	if isZero(tmp.SecurityStyle) {
+		securityStyle_ := "unix"
+		tmp.SecurityStyle = &securityStyle_
+	}
+	if isZero(tmp.SmbContinuouslyAvailable) {
+		smbContinuouslyAvailable_ := false
+		tmp.SmbContinuouslyAvailable = &smbContinuouslyAvailable_
+	}
+	if isZero(tmp.SmbEncryption) {
+		smbEncryption_ := false
+		tmp.SmbEncryption = &smbEncryption_
+	}
+	if isZero(tmp.SnapshotDirectoryVisible) {
+		snapshotDirectoryVisible_ := true
+		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
+	}
+	if isZero(tmp.ThroughputMibps) {
+		throughputMibps_ := 0.0
+		tmp.ThroughputMibps = &throughputMibps_
+	}
+	if isZero(tmp.UnixPermissions) {
+		unixPermissions_ := "0770"
+		tmp.UnixPermissions = &unixPermissions_
+	}
+	if isZero(tmp.UsageThreshold) {
+		tmp.UsageThreshold = 107374182400.0
+	}
+	return &tmp
+}
+
+// Volume resource
+type VolumeGroupVolumePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupVolumePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeGroupVolumePropertiesResponse)(nil)).Elem()
+}
+
+func (o VolumeGroupVolumePropertiesResponseOutput) ToVolumeGroupVolumePropertiesResponseOutput() VolumeGroupVolumePropertiesResponseOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesResponseOutput) ToVolumeGroupVolumePropertiesResponseOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesResponseOutput {
+	return o
+}
+
+// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+func (o VolumeGroupVolumePropertiesResponseOutput) AvsDataStore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.AvsDataStore }).(pulumi.StringPtrOutput)
+}
+
+// UUID v4 or resource identifier used to identify the Backup.
+func (o VolumeGroupVolumePropertiesResponseOutput) BackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.BackupId }).(pulumi.StringPtrOutput)
+}
+
+// Unique Baremetal Tenant Identifier.
+func (o VolumeGroupVolumePropertiesResponseOutput) BaremetalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.BaremetalTenantId }).(pulumi.StringOutput)
+}
+
+// Pool Resource Id used in case of creating a volume through volume group
+func (o VolumeGroupVolumePropertiesResponseOutput) CapacityPoolResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.CapacityPoolResourceId }).(pulumi.StringPtrOutput)
+}
+
+// When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.
+func (o VolumeGroupVolumePropertiesResponseOutput) CloneProgress() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) int { return v.CloneProgress }).(pulumi.IntOutput)
+}
+
+// Specifies whether Cool Access(tiering) is enabled for the volume.
+func (o VolumeGroupVolumePropertiesResponseOutput) CoolAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.CoolAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number of days after which data that is not accessed by clients will be tiered.
+func (o VolumeGroupVolumePropertiesResponseOutput) CoolnessPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *int { return v.CoolnessPeriod }).(pulumi.IntPtrOutput)
+}
+
+// A unique file path for the volume. Used when creating mount targets
+func (o VolumeGroupVolumePropertiesResponseOutput) CreationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.CreationToken }).(pulumi.StringOutput)
+}
+
+// DataProtection type volumes include an object containing details of the replication
+func (o VolumeGroupVolumePropertiesResponseOutput) DataProtection() VolumePropertiesResponseDataProtectionPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *VolumePropertiesResponseDataProtection {
+		return v.DataProtection
+	}).(VolumePropertiesResponseDataProtectionPtrOutput)
+}
+
+// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
+func (o VolumeGroupVolumePropertiesResponseOutput) DefaultGroupQuotaInKiBs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *float64 { return v.DefaultGroupQuotaInKiBs }).(pulumi.Float64PtrOutput)
+}
+
+// Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+func (o VolumeGroupVolumePropertiesResponseOutput) DefaultUserQuotaInKiBs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *float64 { return v.DefaultUserQuotaInKiBs }).(pulumi.Float64PtrOutput)
+}
+
+// Flag indicating whether subvolume operations are enabled on the volume
+func (o VolumeGroupVolumePropertiesResponseOutput) EnableSubvolumes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.EnableSubvolumes }).(pulumi.StringPtrOutput)
+}
+
+// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+func (o VolumeGroupVolumePropertiesResponseOutput) EncryptionKeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.EncryptionKeySource }).(pulumi.StringPtrOutput)
+}
+
+// Set of export policy rules
+func (o VolumeGroupVolumePropertiesResponseOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *VolumePropertiesResponseExportPolicy {
+		return v.ExportPolicy
+	}).(VolumePropertiesResponseExportPolicyPtrOutput)
+}
+
+// Unique FileSystem Identifier.
+func (o VolumeGroupVolumePropertiesResponseOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// Resource Id
+func (o VolumeGroupVolumePropertiesResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies if default quota is enabled for the volume.
+func (o VolumeGroupVolumePropertiesResponseOutput) IsDefaultQuotaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.IsDefaultQuotaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Restoring
+func (o VolumeGroupVolumePropertiesResponseOutput) IsRestoring() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.IsRestoring }).(pulumi.BoolPtrOutput)
+}
+
+// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+func (o VolumeGroupVolumePropertiesResponseOutput) KerberosEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.KerberosEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether LDAP is enabled or not for a given NFS volume.
+func (o VolumeGroupVolumePropertiesResponseOutput) LdapEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.LdapEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
+func (o VolumeGroupVolumePropertiesResponseOutput) MaximumNumberOfFiles() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) float64 { return v.MaximumNumberOfFiles }).(pulumi.Float64Output)
+}
+
+// List of mount targets
+func (o VolumeGroupVolumePropertiesResponseOutput) MountTargets() MountTargetPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) []MountTargetPropertiesResponse { return v.MountTargets }).(MountTargetPropertiesResponseArrayOutput)
+}
+
+// Resource name
+func (o VolumeGroupVolumePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Basic network, or Standard features available to the volume.
+func (o VolumeGroupVolumePropertiesResponseOutput) NetworkFeatures() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.NetworkFeatures }).(pulumi.StringPtrOutput)
+}
+
+// Network Sibling Set ID for the the group of volumes sharing networking resources.
+func (o VolumeGroupVolumePropertiesResponseOutput) NetworkSiblingSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.NetworkSiblingSetId }).(pulumi.StringOutput)
+}
+
+// Application specific placement rules for the particular volume
+func (o VolumeGroupVolumePropertiesResponseOutput) PlacementRules() PlacementKeyValuePairsResponseArrayOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) []PlacementKeyValuePairsResponse { return v.PlacementRules }).(PlacementKeyValuePairsResponseArrayOutput)
+}
+
+// Set of protocol types, default NFSv3, CIFS for SMB protocol
+func (o VolumeGroupVolumePropertiesResponseOutput) ProtocolTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) []string { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
+}
+
+// Azure lifecycle management
+func (o VolumeGroupVolumePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Proximity placement group associated with the volume
+func (o VolumeGroupVolumePropertiesResponseOutput) ProximityPlacementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.ProximityPlacementGroup }).(pulumi.StringPtrOutput)
+}
+
+// The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
+func (o VolumeGroupVolumePropertiesResponseOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+// The service level of the file system
+func (o VolumeGroupVolumePropertiesResponseOutput) ServiceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
+}
+
+// Enables continuously available share property for smb volume. Only applicable for SMB volume
+func (o VolumeGroupVolumePropertiesResponseOutput) SmbContinuouslyAvailable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.SmbContinuouslyAvailable }).(pulumi.BoolPtrOutput)
+}
+
+// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
+func (o VolumeGroupVolumePropertiesResponseOutput) SmbEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.SmbEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+func (o VolumeGroupVolumePropertiesResponseOutput) SnapshotDirectoryVisible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *bool { return v.SnapshotDirectoryVisible }).(pulumi.BoolPtrOutput)
+}
+
+// UUID v4 or resource identifier used to identify the Snapshot.
+func (o VolumeGroupVolumePropertiesResponseOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// Provides storage to network proximity information for the volume.
+func (o VolumeGroupVolumePropertiesResponseOutput) StorageToNetworkProximity() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.StorageToNetworkProximity }).(pulumi.StringOutput)
+}
+
+// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+func (o VolumeGroupVolumePropertiesResponseOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// T2 network information
+func (o VolumeGroupVolumePropertiesResponseOutput) T2Network() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.T2Network }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o VolumeGroupVolumePropertiesResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o VolumeGroupVolumePropertiesResponseOutput) ThroughputMibps() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *float64 { return v.ThroughputMibps }).(pulumi.Float64PtrOutput)
+}
+
+// Resource type
+func (o VolumeGroupVolumePropertiesResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
+func (o VolumeGroupVolumePropertiesResponseOutput) UnixPermissions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.UnixPermissions }).(pulumi.StringPtrOutput)
+}
+
+// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+func (o VolumeGroupVolumePropertiesResponseOutput) UsageThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) float64 { return v.UsageThreshold }).(pulumi.Float64Output)
+}
+
+// Volume Group Name
+func (o VolumeGroupVolumePropertiesResponseOutput) VolumeGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) string { return v.VolumeGroupName }).(pulumi.StringOutput)
+}
+
+// Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
+func (o VolumeGroupVolumePropertiesResponseOutput) VolumeSpecName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.VolumeSpecName }).(pulumi.StringPtrOutput)
+}
+
+// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
+func (o VolumeGroupVolumePropertiesResponseOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeGroupVolumePropertiesResponse) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type VolumeGroupVolumePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeGroupVolumePropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeGroupVolumePropertiesResponse)(nil)).Elem()
+}
+
+func (o VolumeGroupVolumePropertiesResponseArrayOutput) ToVolumeGroupVolumePropertiesResponseArrayOutput() VolumeGroupVolumePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesResponseArrayOutput) ToVolumeGroupVolumePropertiesResponseArrayOutputWithContext(ctx context.Context) VolumeGroupVolumePropertiesResponseArrayOutput {
+	return o
+}
+
+func (o VolumeGroupVolumePropertiesResponseArrayOutput) Index(i pulumi.IntInput) VolumeGroupVolumePropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeGroupVolumePropertiesResponse {
+		return vs[0].([]VolumeGroupVolumePropertiesResponse)[vs[1].(int)]
+	}).(VolumeGroupVolumePropertiesResponseOutput)
 }
 
 // DataProtection type volumes include an object containing details of the replication
@@ -4005,6 +5453,10 @@ func init() {
 	pulumi.RegisterOutputType(MonthlyScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(PlacementKeyValuePairsOutput{})
+	pulumi.RegisterOutputType(PlacementKeyValuePairsArrayOutput{})
+	pulumi.RegisterOutputType(PlacementKeyValuePairsResponseOutput{})
+	pulumi.RegisterOutputType(PlacementKeyValuePairsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponseOutput{})
@@ -4018,6 +5470,14 @@ func init() {
 	pulumi.RegisterOutputType(VolumeBackupsArrayOutput{})
 	pulumi.RegisterOutputType(VolumeBackupsResponseOutput{})
 	pulumi.RegisterOutputType(VolumeBackupsResponseArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupMetaDataOutput{})
+	pulumi.RegisterOutputType(VolumeGroupMetaDataPtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupMetaDataResponseOutput{})
+	pulumi.RegisterOutputType(VolumeGroupMetaDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(VolumeGroupVolumePropertiesOutput{})
+	pulumi.RegisterOutputType(VolumeGroupVolumePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(VolumeGroupVolumePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(VolumeGroupVolumePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesDataProtectionOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesDataProtectionPtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesExportPolicyOutput{})

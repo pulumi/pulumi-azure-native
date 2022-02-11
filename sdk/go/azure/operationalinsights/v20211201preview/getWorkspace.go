@@ -52,7 +52,7 @@ type LookupWorkspaceResult struct {
 	// List of linked private link scope resources.
 	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
 	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
 	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
 	// The network access type for accessing Log Analytics query.
@@ -162,8 +162,8 @@ func (o LookupWorkspaceResultOutput) PrivateLinkScopedResources() PrivateLinkSco
 }
 
 // The provisioning state of the workspace.
-func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupWorkspaceResult) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o LookupWorkspaceResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // The network access type for accessing Log Analytics ingestion.

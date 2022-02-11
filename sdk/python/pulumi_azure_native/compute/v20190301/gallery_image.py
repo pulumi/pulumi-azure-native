@@ -397,7 +397,7 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20180601:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryImage"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-native:compute/v20190301:GalleryImage',

@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         public Output<string> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]

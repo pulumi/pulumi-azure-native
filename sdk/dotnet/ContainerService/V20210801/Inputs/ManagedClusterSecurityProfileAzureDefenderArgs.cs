@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210801.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, leave the field empty.
+        /// Resource ID of the Log Analytics workspace to be associated with Azure Defender.  When Azure Defender is enabled, this field is required and must be a valid workspace resource ID. When Azure Defender is disabled, this field should not be exists.
         /// </summary>
         [Input("logAnalyticsWorkspaceResourceId")]
         public Input<string>? LogAnalyticsWorkspaceResourceId { get; set; }

@@ -20,6 +20,8 @@ from .ddos_custom_policy import *
 from .ddos_protection_plan import *
 from .default_admin_rule import *
 from .default_user_rule import *
+from .dns_forwarding_ruleset import *
+from .dns_resolver import *
 from .dscp_configuration import *
 from .endpoint import *
 from .experiment import *
@@ -35,6 +37,7 @@ from .firewall_policy import *
 from .firewall_policy_rule_collection_group import *
 from .firewall_policy_rule_group import *
 from .flow_log import *
+from .forwarding_rule import *
 from .front_door import *
 from .get_active_sessions import *
 from .get_admin_rule import *
@@ -53,6 +56,8 @@ from .get_ddos_custom_policy import *
 from .get_ddos_protection_plan import *
 from .get_default_admin_rule import *
 from .get_default_user_rule import *
+from .get_dns_forwarding_ruleset import *
+from .get_dns_resolver import *
 from .get_dns_resource_reference_by_tar_resources import *
 from .get_dscp_configuration import *
 from .get_endpoint import *
@@ -69,9 +74,11 @@ from .get_firewall_policy import *
 from .get_firewall_policy_rule_collection_group import *
 from .get_firewall_policy_rule_group import *
 from .get_flow_log import *
+from .get_forwarding_rule import *
 from .get_front_door import *
 from .get_hub_route_table import *
 from .get_hub_virtual_network_connection import *
+from .get_inbound_endpoint import *
 from .get_inbound_nat_rule import *
 from .get_ip_allocation import *
 from .get_ip_group import *
@@ -91,6 +98,7 @@ from .get_network_security_group import *
 from .get_network_security_perimeter import *
 from .get_network_virtual_appliance import *
 from .get_network_watcher import *
+from .get_outbound_endpoint import *
 from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed import *
@@ -154,12 +162,15 @@ from .get_web_application_firewall_policy import *
 from .get_zone import *
 from .hub_route_table import *
 from .hub_virtual_network_connection import *
+from .inbound_endpoint import *
 from .inbound_nat_rule import *
 from .ip_allocation import *
 from .ip_group import *
 from .list_active_connectivity_configuration import *
 from .list_active_security_admin_rule import *
 from .list_active_security_user_rule import *
+from .list_dns_forwarding_ruleset_by_virtual_network import *
+from .list_dns_resolver_by_virtual_network import *
 from .list_effective_connectivity_configuration import *
 from .list_effective_virtual_network_by_network_group import *
 from .list_effective_virtual_network_by_network_manager import *
@@ -183,6 +194,7 @@ from .network_security_group import *
 from .network_security_perimeter import *
 from .network_virtual_appliance import *
 from .network_watcher import *
+from .outbound_endpoint import *
 from .p2s_vpn_gateway import *
 from .p2s_vpn_server_configuration import *
 from .packet_capture import *
@@ -330,6 +342,8 @@ if typing.TYPE_CHECKING:
     v20200301 = __v20200301
     import pulumi_azure_native.network.v20200401 as __v20200401
     v20200401 = __v20200401
+    import pulumi_azure_native.network.v20200401preview as __v20200401preview
+    v20200401preview = __v20200401preview
     import pulumi_azure_native.network.v20200501 as __v20200501
     v20200501 = __v20200501
     import pulumi_azure_native.network.v20200601 as __v20200601
@@ -397,6 +411,7 @@ else:
     v20200101 = _utilities.lazy_import('pulumi_azure_native.network.v20200101')
     v20200301 = _utilities.lazy_import('pulumi_azure_native.network.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.network.v20200401')
+    v20200401preview = _utilities.lazy_import('pulumi_azure_native.network.v20200401preview')
     v20200501 = _utilities.lazy_import('pulumi_azure_native.network.v20200501')
     v20200601 = _utilities.lazy_import('pulumi_azure_native.network.v20200601')
     v20200701 = _utilities.lazy_import('pulumi_azure_native.network.v20200701')

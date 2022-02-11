@@ -282,6 +282,8 @@ namespace Pulumi.AzureNative.StorageSync
         {
             InitialDownloadPolicy = "NamespaceThenModifiedFiles";
             LocalCacheMode = "UpdateLocallyCachedFiles";
+            TierFilesOlderThanDays = 0;
+            VolumeFreeSpacePercent = 20;
         }
     }
 }

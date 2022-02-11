@@ -400,6 +400,49 @@ const (
 	SapHanaAuthenticationTypeWindows = SapHanaAuthenticationType("Windows")
 )
 
+// The destination of logs. Type: string.
+type ScriptActivityLogDestination string
+
+const (
+	ScriptActivityLogDestinationActivityOutput = ScriptActivityLogDestination("ActivityOutput")
+	ScriptActivityLogDestinationExternalStore  = ScriptActivityLogDestination("ExternalStore")
+)
+
+// The direction of the parameter.
+type ScriptActivityParameterDirection string
+
+const (
+	ScriptActivityParameterDirectionValueInput       = ScriptActivityParameterDirection("Input")
+	ScriptActivityParameterDirectionValueOutput      = ScriptActivityParameterDirection("Output")
+	ScriptActivityParameterDirectionValueInputOutput = ScriptActivityParameterDirection("InputOutput")
+)
+
+// The type of the parameter.
+type ScriptActivityParameterType string
+
+const (
+	ScriptActivityParameterTypeBoolean        = ScriptActivityParameterType("Boolean")
+	ScriptActivityParameterTypeDateTime       = ScriptActivityParameterType("DateTime")
+	ScriptActivityParameterTypeDateTimeOffset = ScriptActivityParameterType("DateTimeOffset")
+	ScriptActivityParameterTypeDecimal        = ScriptActivityParameterType("Decimal")
+	ScriptActivityParameterTypeDouble         = ScriptActivityParameterType("Double")
+	ScriptActivityParameterTypeGuid           = ScriptActivityParameterType("Guid")
+	ScriptActivityParameterTypeInt16          = ScriptActivityParameterType("Int16")
+	ScriptActivityParameterTypeInt32          = ScriptActivityParameterType("Int32")
+	ScriptActivityParameterTypeInt64          = ScriptActivityParameterType("Int64")
+	ScriptActivityParameterTypeSingle         = ScriptActivityParameterType("Single")
+	ScriptActivityParameterTypeString         = ScriptActivityParameterType("String")
+	ScriptActivityParameterTypeTimespan       = ScriptActivityParameterType("Timespan")
+)
+
+// The type of the query. Type: string.
+type ScriptType string
+
+const (
+	ScriptTypeQuery    = ScriptType("Query")
+	ScriptTypeNonQuery = ScriptType("NonQuery")
+)
+
 // The authentication type to use.
 type ServiceNowAuthenticationType string
 

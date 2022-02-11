@@ -33,6 +33,8 @@ type StorageSyncService struct {
 	StorageSyncServiceStatus pulumi.IntOutput `pulumi:"storageSyncServiceStatus"`
 	// Storage Sync service Uid
 	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

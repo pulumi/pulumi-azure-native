@@ -8,6 +8,141 @@ using Pulumi;
 namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
+    /// Application Type
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationType : IEquatable<ApplicationType>
+    {
+        private readonly string _value;
+
+        private ApplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationType SAP_HANA { get; } = new ApplicationType("SAP-HANA");
+
+        public static bool operator ==(ApplicationType left, ApplicationType right) => left.Equals(right);
+        public static bool operator !=(ApplicationType left, ApplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationType other && Equals(other);
+        public bool Equals(ApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+    /// </summary>
+    [EnumType]
+    public readonly struct AvsDataStore : IEquatable<AvsDataStore>
+    {
+        private readonly string _value;
+
+        private AvsDataStore(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// avsDataStore is enabled
+        /// </summary>
+        public static AvsDataStore Enabled { get; } = new AvsDataStore("Enabled");
+        /// <summary>
+        /// avsDataStore is disabled
+        /// </summary>
+        public static AvsDataStore Disabled { get; } = new AvsDataStore("Disabled");
+
+        public static bool operator ==(AvsDataStore left, AvsDataStore right) => left.Equals(right);
+        public static bool operator !=(AvsDataStore left, AvsDataStore right) => !left.Equals(right);
+
+        public static explicit operator string(AvsDataStore value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AvsDataStore other && Equals(other);
+        public bool Equals(AvsDataStore other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChownMode : IEquatable<ChownMode>
+    {
+        private readonly string _value;
+
+        private ChownMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChownMode Restricted { get; } = new ChownMode("Restricted");
+        public static ChownMode Unrestricted { get; } = new ChownMode("Unrestricted");
+
+        public static bool operator ==(ChownMode left, ChownMode right) => left.Equals(right);
+        public static bool operator !=(ChownMode left, ChownMode right) => !left.Equals(right);
+
+        public static explicit operator string(ChownMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChownMode other && Equals(other);
+        public bool Equals(ChownMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flag indicating whether subvolume operations are enabled on the volume
+    /// </summary>
+    [EnumType]
+    public readonly struct EnableSubvolumes : IEquatable<EnableSubvolumes>
+    {
+        private readonly string _value;
+
+        private EnableSubvolumes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// subvolumes are enabled
+        /// </summary>
+        public static EnableSubvolumes Enabled { get; } = new EnableSubvolumes("Enabled");
+        /// <summary>
+        /// subvolumes are not enabled
+        /// </summary>
+        public static EnableSubvolumes Disabled { get; } = new EnableSubvolumes("Disabled");
+
+        public static bool operator ==(EnableSubvolumes left, EnableSubvolumes right) => left.Equals(right);
+        public static bool operator !=(EnableSubvolumes left, EnableSubvolumes right) => !left.Equals(right);
+
+        public static explicit operator string(EnableSubvolumes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnableSubvolumes other && Equals(other);
+        public bool Equals(EnableSubvolumes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the local volume is the source or destination for the Volume Replication
     /// </summary>
     [EnumType]
@@ -31,6 +166,43 @@ namespace Pulumi.AzureNative.NetApp
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
         public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Basic network, or Standard features available to the volume.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkFeatures : IEquatable<NetworkFeatures>
+    {
+        private readonly string _value;
+
+        private NetworkFeatures(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Basic network feature.
+        /// </summary>
+        public static NetworkFeatures Basic { get; } = new NetworkFeatures("Basic");
+        /// <summary>
+        /// Standard network feature.
+        /// </summary>
+        public static NetworkFeatures Standard { get; } = new NetworkFeatures("Standard");
+
+        public static bool operator ==(NetworkFeatures left, NetworkFeatures right) => left.Equals(right);
+        public static bool operator !=(NetworkFeatures left, NetworkFeatures right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkFeatures value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkFeatures other && Equals(other);
+        public bool Equals(NetworkFeatures other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -163,6 +335,10 @@ namespace Pulumi.AzureNative.NetApp
         /// Ultra service level
         /// </summary>
         public static ServiceLevel Ultra { get; } = new ServiceLevel("Ultra");
+        /// <summary>
+        /// Zone redundant storage service level
+        /// </summary>
+        public static ServiceLevel StandardZRS { get; } = new ServiceLevel("StandardZRS");
 
         public static bool operator ==(ServiceLevel left, ServiceLevel right) => left.Equals(right);
         public static bool operator !=(ServiceLevel left, ServiceLevel right) => !left.Equals(right);

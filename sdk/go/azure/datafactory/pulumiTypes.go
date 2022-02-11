@@ -22123,6 +22123,116 @@ type ScriptActionResponse struct {
 	Uri string `pulumi:"uri"`
 }
 
+// Script activity type.
+type ScriptActivity struct {
+	// Activity depends on condition.
+	DependsOn []ActivityDependency `pulumi:"dependsOn"`
+	// Activity description.
+	Description *string `pulumi:"description"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReference `pulumi:"linkedServiceName"`
+	// Log settings of script activity.
+	LogSettings *ScriptActivityTypePropertiesLogSettings `pulumi:"logSettings"`
+	// Activity name.
+	Name string `pulumi:"name"`
+	// Activity policy.
+	Policy *ActivityPolicy `pulumi:"policy"`
+	// Array of script blocks. Type: array.
+	Scripts []ScriptActivityScriptBlock `pulumi:"scripts"`
+	// Type of activity.
+	// Expected value is 'Script'.
+	Type string `pulumi:"type"`
+	// Activity user properties.
+	UserProperties []UserProperty `pulumi:"userProperties"`
+}
+
+// Parameters of a script block.
+type ScriptActivityParameter struct {
+	// The direction of the parameter.
+	Direction *string `pulumi:"direction"`
+	// The name of the parameter. Type: string (or Expression with resultType string).
+	Name interface{} `pulumi:"name"`
+	// The size of the output direction parameter.
+	Size *int `pulumi:"size"`
+	// The type of the parameter.
+	Type *string `pulumi:"type"`
+	// The value of the parameter.
+	Value interface{} `pulumi:"value"`
+}
+
+// Parameters of a script block.
+type ScriptActivityParameterResponse struct {
+	// The direction of the parameter.
+	Direction *string `pulumi:"direction"`
+	// The name of the parameter. Type: string (or Expression with resultType string).
+	Name interface{} `pulumi:"name"`
+	// The size of the output direction parameter.
+	Size *int `pulumi:"size"`
+	// The type of the parameter.
+	Type *string `pulumi:"type"`
+	// The value of the parameter.
+	Value interface{} `pulumi:"value"`
+}
+
+// Script activity type.
+type ScriptActivityResponse struct {
+	// Activity depends on condition.
+	DependsOn []ActivityDependencyResponse `pulumi:"dependsOn"`
+	// Activity description.
+	Description *string `pulumi:"description"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponse `pulumi:"linkedServiceName"`
+	// Log settings of script activity.
+	LogSettings *ScriptActivityTypePropertiesResponseLogSettings `pulumi:"logSettings"`
+	// Activity name.
+	Name string `pulumi:"name"`
+	// Activity policy.
+	Policy *ActivityPolicyResponse `pulumi:"policy"`
+	// Array of script blocks. Type: array.
+	Scripts []ScriptActivityScriptBlockResponse `pulumi:"scripts"`
+	// Type of activity.
+	// Expected value is 'Script'.
+	Type string `pulumi:"type"`
+	// Activity user properties.
+	UserProperties []UserPropertyResponse `pulumi:"userProperties"`
+}
+
+// Script block of scripts.
+type ScriptActivityScriptBlock struct {
+	// Array of script parameters. Type: array.
+	Parameters []ScriptActivityParameter `pulumi:"parameters"`
+	// The query text. Type: string (or Expression with resultType string).
+	Text interface{} `pulumi:"text"`
+	// The type of the query. Type: string.
+	Type string `pulumi:"type"`
+}
+
+// Script block of scripts.
+type ScriptActivityScriptBlockResponse struct {
+	// Array of script parameters. Type: array.
+	Parameters []ScriptActivityParameterResponse `pulumi:"parameters"`
+	// The query text. Type: string (or Expression with resultType string).
+	Text interface{} `pulumi:"text"`
+	// The type of the query. Type: string.
+	Type string `pulumi:"type"`
+}
+
+// Log settings of script activity.
+type ScriptActivityTypePropertiesLogSettings struct {
+	// The destination of logs. Type: string.
+	LogDestination string `pulumi:"logDestination"`
+	// Log location settings customer needs to provide when enabling log.
+	LogLocationSettings *LogLocationSettings `pulumi:"logLocationSettings"`
+}
+
+// Log settings of script activity.
+type ScriptActivityTypePropertiesResponseLogSettings struct {
+	// The destination of logs. Type: string.
+	LogDestination string `pulumi:"logDestination"`
+	// Log location settings customer needs to provide when enabling log.
+	LogLocationSettings *LogLocationSettingsResponse `pulumi:"logLocationSettings"`
+}
+
 // Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
 type SecureString struct {
 	// Type of the secret.

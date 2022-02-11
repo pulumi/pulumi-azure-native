@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
         public Input<string>? EndRestoreTime { get; set; }
 
         /// <summary>
+        /// The table to restore data from.
+        /// </summary>
+        [Input("sourceTable")]
+        public Input<string>? SourceTable { get; set; }
+
+        /// <summary>
         /// The timestamp to start the restore from (UTC).
         /// </summary>
         [Input("startRestoreTime")]

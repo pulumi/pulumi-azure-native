@@ -237,6 +237,7 @@ class CloudEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["partnership_id"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:CloudEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:CloudEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -273,6 +274,7 @@ class CloudEndpoint(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["storage_account_resource_id"] = None
         __props__.__dict__["storage_account_tenant_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CloudEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -363,6 +365,14 @@ class CloudEndpoint(pulumi.CustomResource):
         Storage Account Tenant Id
         """
         return pulumi.get(self, "storage_account_tenant_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -111,14 +111,18 @@ class ColumnArgs:
 class RestoredLogsArgs:
     def __init__(__self__, *,
                  end_restore_time: Optional[pulumi.Input[str]] = None,
+                 source_table: Optional[pulumi.Input[str]] = None,
                  start_restore_time: Optional[pulumi.Input[str]] = None):
         """
         Restore parameters.
         :param pulumi.Input[str] end_restore_time: The timestamp to end the restore by (UTC).
+        :param pulumi.Input[str] source_table: The table to restore data from.
         :param pulumi.Input[str] start_restore_time: The timestamp to start the restore from (UTC).
         """
         if end_restore_time is not None:
             pulumi.set(__self__, "end_restore_time", end_restore_time)
+        if source_table is not None:
+            pulumi.set(__self__, "source_table", source_table)
         if start_restore_time is not None:
             pulumi.set(__self__, "start_restore_time", start_restore_time)
 
@@ -133,6 +137,18 @@ class RestoredLogsArgs:
     @end_restore_time.setter
     def end_restore_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "end_restore_time", value)
+
+    @property
+    @pulumi.getter(name="sourceTable")
+    def source_table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table to restore data from.
+        """
+        return pulumi.get(self, "source_table")
+
+    @source_table.setter
+    def source_table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_table", value)
 
     @property
     @pulumi.getter(name="startRestoreTime")
@@ -229,7 +245,7 @@ class SearchResultsArgs:
                  start_search_time: Optional[pulumi.Input[str]] = None):
         """
         Parameters of the search job that initiated this table.
-        :param pulumi.Input[str] description: Search results table's Description.
+        :param pulumi.Input[str] description: Search job Description.
         :param pulumi.Input[str] end_search_time: The timestamp to end the search by (UTC)
         :param pulumi.Input[int] limit: Limit the search job to return up to specified number of rows.
         :param pulumi.Input[str] query: Search job query.
@@ -250,7 +266,7 @@ class SearchResultsArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Search results table's Description.
+        Search job Description.
         """
         return pulumi.get(self, "description")
 

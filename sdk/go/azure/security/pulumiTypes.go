@@ -2124,7 +2124,7 @@ type DefenderForServersAwsOffering struct {
 	// The Defender for servers connection configuration
 	DefenderForServers *DefenderForServersAwsOfferingDefenderForServers `pulumi:"defenderForServers"`
 	// The type of the security offering.
-	// Expected value is 'DefenderForServersAWS'.
+	// Expected value is 'DefenderForServersAws'.
 	OfferingType string `pulumi:"offeringType"`
 }
 
@@ -2151,7 +2151,7 @@ type DefenderForServersAwsOfferingResponse struct {
 	// The offering description.
 	Description string `pulumi:"description"`
 	// The type of the security offering.
-	// Expected value is 'DefenderForServersAWS'.
+	// Expected value is 'DefenderForServersAws'.
 	OfferingType string `pulumi:"offeringType"`
 }
 
@@ -2816,6 +2816,38 @@ func (o HybridComputeSettingsPropertiesResponsePtrOutput) ServicePrincipal() Ser
 		}
 		return v.ServicePrincipal
 	}).(ServicePrincipalPropertiesResponsePtrOutput)
+}
+
+// The information protection for AWS offering configurations
+type InformationProtectionAwsOffering struct {
+	// The native cloud connection configuration
+	InformationProtection *InformationProtectionAwsOfferingInformationProtection `pulumi:"informationProtection"`
+	// The type of the security offering.
+	// Expected value is 'InformationProtectionAws'.
+	OfferingType string `pulumi:"offeringType"`
+}
+
+// The native cloud connection configuration
+type InformationProtectionAwsOfferingInformationProtection struct {
+	// The cloud role ARN in AWS for this feature
+	CloudRoleArn *string `pulumi:"cloudRoleArn"`
+}
+
+// The information protection for AWS offering configurations
+type InformationProtectionAwsOfferingResponse struct {
+	// The offering description.
+	Description string `pulumi:"description"`
+	// The native cloud connection configuration
+	InformationProtection *InformationProtectionAwsOfferingResponseInformationProtection `pulumi:"informationProtection"`
+	// The type of the security offering.
+	// Expected value is 'InformationProtectionAws'.
+	OfferingType string `pulumi:"offeringType"`
+}
+
+// The native cloud connection configuration
+type InformationProtectionAwsOfferingResponseInformationProtection struct {
+	// The cloud role ARN in AWS for this feature
+	CloudRoleArn *string `pulumi:"cloudRoleArn"`
 }
 
 // Connection string for ingesting security data and logs

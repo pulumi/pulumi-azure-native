@@ -65,7 +65,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20201101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform:Deployment"},
-                    new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Deployment"},

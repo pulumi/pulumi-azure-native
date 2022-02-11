@@ -22,7 +22,6 @@ class WorkspaceArgs:
                  features: Optional[pulumi.Input['WorkspaceFeaturesArgs']] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
                  public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
@@ -38,7 +37,6 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceFeaturesArgs'] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
@@ -58,8 +56,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "force_cmk_for_query", force_cmk_for_query)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if public_network_access_for_ingestion is not None:
             pulumi.set(__self__, "public_network_access_for_ingestion", public_network_access_for_ingestion)
         if public_network_access_for_query is not None:
@@ -146,18 +142,6 @@ class WorkspaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]]:
-        """
-        The provisioning state of the workspace.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]]):
-        pulumi.set(self, "provisioning_state", value)
 
     @property
     @pulumi.getter(name="publicNetworkAccessForIngestion")
@@ -254,7 +238,6 @@ class Workspace(pulumi.CustomResource):
                  features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
                  public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -274,7 +257,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']] features: Workspace features.
         :param pulumi.Input[bool] force_cmk_for_query: Indicates whether customer managed storage is mandatory for query management.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[str, 'WorkspaceEntityStatus']] provisioning_state: The provisioning state of the workspace.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Log Analytics ingestion.
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Log Analytics query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -313,7 +295,6 @@ class Workspace(pulumi.CustomResource):
                  features: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeaturesArgs']]] = None,
                  force_cmk_for_query: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'WorkspaceEntityStatus']]] = None,
                  public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -339,7 +320,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["features"] = features
             __props__.__dict__["force_cmk_for_query"] = force_cmk_for_query
             __props__.__dict__["location"] = location
-            __props__.__dict__["provisioning_state"] = provisioning_state
             __props__.__dict__["public_network_access_for_ingestion"] = public_network_access_for_ingestion
             __props__.__dict__["public_network_access_for_query"] = public_network_access_for_query
             if resource_group_name is None and not opts.urn:
@@ -355,6 +335,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["modified_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_link_scoped_resources"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20151101preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200301preview:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20200801:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20201001:Workspace"), pulumi.Alias(type_="azure-native:operationalinsights/v20210601:Workspace")])
@@ -484,7 +465,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state of the workspace.
         """

@@ -49,6 +49,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DefaultAdminRule{}
 	case "azure-native:network:DefaultUserRule":
 		r = &DefaultUserRule{}
+	case "azure-native:network:DnsForwardingRuleset":
+		r = &DnsForwardingRuleset{}
+	case "azure-native:network:DnsResolver":
+		r = &DnsResolver{}
 	case "azure-native:network:DscpConfiguration":
 		r = &DscpConfiguration{}
 	case "azure-native:network:Endpoint":
@@ -79,12 +83,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FirewallPolicyRuleGroup{}
 	case "azure-native:network:FlowLog":
 		r = &FlowLog{}
+	case "azure-native:network:ForwardingRule":
+		r = &ForwardingRule{}
 	case "azure-native:network:FrontDoor":
 		r = &FrontDoor{}
 	case "azure-native:network:HubRouteTable":
 		r = &HubRouteTable{}
 	case "azure-native:network:HubVirtualNetworkConnection":
 		r = &HubVirtualNetworkConnection{}
+	case "azure-native:network:InboundEndpoint":
+		r = &InboundEndpoint{}
 	case "azure-native:network:InboundNatRule":
 		r = &InboundNatRule{}
 	case "azure-native:network:IpAllocation":
@@ -123,6 +131,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkVirtualAppliance{}
 	case "azure-native:network:NetworkWatcher":
 		r = &NetworkWatcher{}
+	case "azure-native:network:OutboundEndpoint":
+		r = &OutboundEndpoint{}
 	case "azure-native:network:P2sVpnGateway":
 		r = &P2sVpnGateway{}
 	case "azure-native:network:P2sVpnServerConfiguration":

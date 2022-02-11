@@ -77,6 +77,8 @@ class ServerEndpointArgs:
             pulumi.set(__self__, "server_local_path", server_local_path)
         if server_resource_id is not None:
             pulumi.set(__self__, "server_resource_id", server_resource_id)
+        if tier_files_older_than_days is None:
+            tier_files_older_than_days = 0
         if tier_files_older_than_days is not None:
             pulumi.set(__self__, "tier_files_older_than_days", tier_files_older_than_days)
         if volume_free_space_percent is None:
@@ -383,6 +385,8 @@ class ServerEndpoint(pulumi.CustomResource):
             if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__.__dict__["sync_group_name"] = sync_group_name
+            if tier_files_older_than_days is None:
+                tier_files_older_than_days = 0
             __props__.__dict__["tier_files_older_than_days"] = tier_files_older_than_days
             if volume_free_space_percent is None:
                 volume_free_space_percent = 20
@@ -397,6 +401,7 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__.__dict__["recall_status"] = None
             __props__.__dict__["server_name"] = None
             __props__.__dict__["sync_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20170605preview:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180402:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20180701:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20181001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190201:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190301:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20190601:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20191001:ServerEndpoint"), pulumi.Alias(type_="azure-native:storagesync/v20200301:ServerEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -441,6 +446,7 @@ class ServerEndpoint(pulumi.CustomResource):
         __props__.__dict__["server_name"] = None
         __props__.__dict__["server_resource_id"] = None
         __props__.__dict__["sync_status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tier_files_older_than_days"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_free_space_percent"] = None
@@ -597,6 +603,14 @@ class ServerEndpoint(pulumi.CustomResource):
         Server Endpoint sync status
         """
         return pulumi.get(self, "sync_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="tierFilesOlderThanDays")

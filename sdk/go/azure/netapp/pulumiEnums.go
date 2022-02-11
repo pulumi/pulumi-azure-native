@@ -3,12 +3,57 @@
 
 package netapp
 
+// Application Type
+type ApplicationType string
+
+const (
+	ApplicationType_SAP_HANA = ApplicationType("SAP-HANA")
+)
+
+// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+type AvsDataStore string
+
+const (
+	// avsDataStore is enabled
+	AvsDataStoreEnabled = AvsDataStore("Enabled")
+	// avsDataStore is disabled
+	AvsDataStoreDisabled = AvsDataStore("Disabled")
+)
+
+// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+type ChownMode string
+
+const (
+	ChownModeRestricted   = ChownMode("Restricted")
+	ChownModeUnrestricted = ChownMode("Unrestricted")
+)
+
+// Flag indicating whether subvolume operations are enabled on the volume
+type EnableSubvolumes string
+
+const (
+	// subvolumes are enabled
+	EnableSubvolumesEnabled = EnableSubvolumes("Enabled")
+	// subvolumes are not enabled
+	EnableSubvolumesDisabled = EnableSubvolumes("Disabled")
+)
+
 // Indicates whether the local volume is the source or destination for the Volume Replication
 type EndpointType string
 
 const (
 	EndpointTypeSrc = EndpointType("src")
 	EndpointTypeDst = EndpointType("dst")
+)
+
+// Basic network, or Standard features available to the volume.
+type NetworkFeatures string
+
+const (
+	// Basic network feature.
+	NetworkFeaturesBasic = NetworkFeatures("Basic")
+	// Standard network feature.
+	NetworkFeaturesStandard = NetworkFeatures("Standard")
 )
 
 // The qos type of the pool
@@ -48,6 +93,8 @@ const (
 	ServiceLevelPremium = ServiceLevel("Premium")
 	// Ultra service level
 	ServiceLevelUltra = ServiceLevel("Ultra")
+	// Zone redundant storage service level
+	ServiceLevelStandardZRS = ServiceLevel("StandardZRS")
 )
 
 func init() {

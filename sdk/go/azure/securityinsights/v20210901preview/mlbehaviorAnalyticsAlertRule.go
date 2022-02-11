@@ -78,6 +78,9 @@ func NewMLBehaviorAnalyticsAlertRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MLBehaviorAnalyticsAlertRule

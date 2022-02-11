@@ -63,7 +63,7 @@ export class SecurityConnector extends pulumi.CustomResource {
     /**
      * A collection of offerings for the security connector.
      */
-    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse)[] | undefined>;
+    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[] | undefined>;
     /**
      * The multi cloud account's organizational data
      */
@@ -151,7 +151,7 @@ export interface SecurityConnectorArgs {
     /**
      * A collection of offerings for the security connector.
      */
-    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs>[]>;
+    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.InformationProtectionAwsOfferingArgs>[]>;
     /**
      * The multi cloud account's organizational data
      */

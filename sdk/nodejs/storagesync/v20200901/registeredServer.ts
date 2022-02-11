@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -131,6 +132,10 @@ export class RegisteredServer extends pulumi.CustomResource {
      */
     public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.v20200901.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -178,6 +183,7 @@ export class RegisteredServer extends pulumi.CustomResource {
             resourceInputs["serverName"] = undefined /*out*/;
             resourceInputs["serviceLocation"] = undefined /*out*/;
             resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["agentVersion"] = undefined /*out*/;
@@ -204,6 +210,7 @@ export class RegisteredServer extends pulumi.CustomResource {
             resourceInputs["serverRole"] = undefined /*out*/;
             resourceInputs["serviceLocation"] = undefined /*out*/;
             resourceInputs["storageSyncServiceUid"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.HybridNetwork.V20210501
                 {
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork:VendorSkus"},
                     new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20200101preview:VendorSkus"},
+                    new Pulumi.Alias { Type = "azure-native:hybridnetwork/v20220101preview:VendorSkus"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

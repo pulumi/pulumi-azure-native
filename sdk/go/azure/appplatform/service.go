@@ -42,9 +42,6 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:appplatform/v20190501preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20200701:Service"),
 		},
 		{

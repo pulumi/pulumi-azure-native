@@ -1559,19 +1559,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "appplatform/v20190501preview",
-  "fqn": "pulumi_azure_native.appplatform.v20190501preview",
-  "classes": {
-   "azure-native:appplatform/v20190501preview:App": "App",
-   "azure-native:appplatform/v20190501preview:Binding": "Binding",
-   "azure-native:appplatform/v20190501preview:Certificate": "Certificate",
-   "azure-native:appplatform/v20190501preview:CustomDomain": "CustomDomain",
-   "azure-native:appplatform/v20190501preview:Deployment": "Deployment",
-   "azure-native:appplatform/v20190501preview:Service": "Service"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "appplatform/v20200701",
   "fqn": "pulumi_azure_native.appplatform.v20200701",
   "classes": {
@@ -3800,6 +3787,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20211001",
+  "fqn": "pulumi_azure_native.compute.v20211001",
+  "classes": {
+   "azure-native:compute/v20211001:Gallery": "Gallery",
+   "azure-native:compute/v20211001:GalleryApplication": "GalleryApplication",
+   "azure-native:compute/v20211001:GalleryApplicationVersion": "GalleryApplicationVersion",
+   "azure-native:compute/v20211001:GalleryImage": "GalleryImage",
+   "azure-native:compute/v20211001:GalleryImageVersion": "GalleryImageVersion"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "compute/v20211101",
   "fqn": "pulumi_azure_native.compute.v20211101",
   "classes": {
@@ -4713,6 +4712,18 @@ _utilities.register(
    "azure-native:containerservice/v20211101preview:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20211101preview:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20220102preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220102preview",
+  "classes": {
+   "azure-native:containerservice/v20220102preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220102preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220102preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220102preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220102preview:Snapshot": "Snapshot"
   }
  },
  {
@@ -8569,6 +8580,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridnetwork/v20220101preview",
+  "fqn": "pulumi_azure_native.hybridnetwork.v20220101preview",
+  "classes": {
+   "azure-native:hybridnetwork/v20220101preview:Device": "Device",
+   "azure-native:hybridnetwork/v20220101preview:NetworkFunction": "NetworkFunction",
+   "azure-native:hybridnetwork/v20220101preview:Vendor": "Vendor",
+   "azure-native:hybridnetwork/v20220101preview:VendorSkuPreview": "VendorSkuPreview",
+   "azure-native:hybridnetwork/v20220101preview:VendorSkus": "VendorSkus"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "importexport",
   "fqn": "pulumi_azure_native.importexport",
   "classes": {
@@ -10211,6 +10234,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "managedservices/v20220101preview",
+  "fqn": "pulumi_azure_native.managedservices.v20220101preview",
+  "classes": {
+   "azure-native:managedservices/v20220101preview:RegistrationAssignment": "RegistrationAssignment",
+   "azure-native:managedservices/v20220101preview:RegistrationDefinition": "RegistrationDefinition"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "management",
   "fqn": "pulumi_azure_native.management",
   "classes": {
@@ -10725,7 +10757,9 @@ _utilities.register(
    "azure-native:netapp:Pool": "Pool",
    "azure-native:netapp:Snapshot": "Snapshot",
    "azure-native:netapp:SnapshotPolicy": "SnapshotPolicy",
-   "azure-native:netapp:Volume": "Volume"
+   "azure-native:netapp:Subvolume": "Subvolume",
+   "azure-native:netapp:Volume": "Volume",
+   "azure-native:netapp:VolumeGroup": "VolumeGroup"
   }
  },
  {
@@ -10998,6 +11032,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "netapp/v20211001",
+  "fqn": "pulumi_azure_native.netapp.v20211001",
+  "classes": {
+   "azure-native:netapp/v20211001:Account": "Account",
+   "azure-native:netapp/v20211001:Backup": "Backup",
+   "azure-native:netapp/v20211001:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20211001:Pool": "Pool",
+   "azure-native:netapp/v20211001:Snapshot": "Snapshot",
+   "azure-native:netapp/v20211001:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20211001:Subvolume": "Subvolume",
+   "azure-native:netapp/v20211001:Volume": "Volume",
+   "azure-native:netapp/v20211001:VolumeGroup": "VolumeGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "network",
   "fqn": "pulumi_azure_native.network",
   "classes": {
@@ -11015,6 +11065,8 @@ _utilities.register(
    "azure-native:network:DdosProtectionPlan": "DdosProtectionPlan",
    "azure-native:network:DefaultAdminRule": "DefaultAdminRule",
    "azure-native:network:DefaultUserRule": "DefaultUserRule",
+   "azure-native:network:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:network:DnsResolver": "DnsResolver",
    "azure-native:network:DscpConfiguration": "DscpConfiguration",
    "azure-native:network:Endpoint": "Endpoint",
    "azure-native:network:Experiment": "Experiment",
@@ -11030,9 +11082,11 @@ _utilities.register(
    "azure-native:network:FirewallPolicyRuleCollectionGroup": "FirewallPolicyRuleCollectionGroup",
    "azure-native:network:FirewallPolicyRuleGroup": "FirewallPolicyRuleGroup",
    "azure-native:network:FlowLog": "FlowLog",
+   "azure-native:network:ForwardingRule": "ForwardingRule",
    "azure-native:network:FrontDoor": "FrontDoor",
    "azure-native:network:HubRouteTable": "HubRouteTable",
    "azure-native:network:HubVirtualNetworkConnection": "HubVirtualNetworkConnection",
+   "azure-native:network:InboundEndpoint": "InboundEndpoint",
    "azure-native:network:InboundNatRule": "InboundNatRule",
    "azure-native:network:IpAllocation": "IpAllocation",
    "azure-native:network:IpGroup": "IpGroup",
@@ -11052,6 +11106,7 @@ _utilities.register(
    "azure-native:network:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
    "azure-native:network:NetworkVirtualAppliance": "NetworkVirtualAppliance",
    "azure-native:network:NetworkWatcher": "NetworkWatcher",
+   "azure-native:network:OutboundEndpoint": "OutboundEndpoint",
    "azure-native:network:P2sVpnGateway": "P2sVpnGateway",
    "azure-native:network:P2sVpnServerConfiguration": "P2sVpnServerConfiguration",
    "azure-native:network:PacketCapture": "PacketCapture",
@@ -12592,6 +12647,19 @@ _utilities.register(
    "azure-native:network/v20200401:VpnServerConfiguration": "VpnServerConfiguration",
    "azure-native:network/v20200401:VpnSite": "VpnSite",
    "azure-native:network/v20200401:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "network/v20200401preview",
+  "fqn": "pulumi_azure_native.network.v20200401preview",
+  "classes": {
+   "azure-native:network/v20200401preview:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:network/v20200401preview:DnsResolver": "DnsResolver",
+   "azure-native:network/v20200401preview:ForwardingRule": "ForwardingRule",
+   "azure-native:network/v20200401preview:InboundEndpoint": "InboundEndpoint",
+   "azure-native:network/v20200401preview:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:network/v20200401preview:VirtualNetworkLink": "VirtualNetworkLink"
   }
  },
  {
@@ -15269,6 +15337,60 @@ _utilities.register(
    "azure-native:securityinsights/v20210901preview:Ueba": "Ueba",
    "azure-native:securityinsights/v20210901preview:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20210901preview:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securityinsights/v20211001preview",
+  "fqn": "pulumi_azure_native.securityinsights.v20211001preview",
+  "classes": {
+   "azure-native:securityinsights/v20211001preview:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20211001preview:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20211001preview:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20211001preview:Action": "Action",
+   "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
+   "azure-native:securityinsights/v20211001preview:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20211001preview:Anomalies": "Anomalies",
+   "azure-native:securityinsights/v20211001preview:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20211001preview:AwsS3DataConnector": "AwsS3DataConnector",
+   "azure-native:securityinsights/v20211001preview:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20211001preview:BookmarkRelation": "BookmarkRelation",
+   "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector": "CodelessApiPollingDataConnector",
+   "azure-native:securityinsights/v20211001preview:CodelessUiDataConnector": "CodelessUiDataConnector",
+   "azure-native:securityinsights/v20211001preview:DataConnector": "DataConnector",
+   "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector": "Dynamics365DataConnector",
+   "azure-native:securityinsights/v20211001preview:EntityAnalytics": "EntityAnalytics",
+   "azure-native:securityinsights/v20211001preview:EntityQuery": "EntityQuery",
+   "azure-native:securityinsights/v20211001preview:EyesOn": "EyesOn",
+   "azure-native:securityinsights/v20211001preview:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20211001preview:Incident": "Incident",
+   "azure-native:securityinsights/v20211001preview:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20211001preview:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20211001preview:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20211001preview:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule": "MLBehaviorAnalyticsAlertRule",
+   "azure-native:securityinsights/v20211001preview:MSTIDataConnector": "MSTIDataConnector",
+   "azure-native:securityinsights/v20211001preview:MTPDataConnector": "MTPDataConnector",
+   "azure-native:securityinsights/v20211001preview:Metadata": "Metadata",
+   "azure-native:securityinsights/v20211001preview:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20211001preview:NrtAlertRule": "NrtAlertRule",
+   "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector": "Office365ProjectDataConnector",
+   "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector": "OfficeATPDataConnector",
+   "azure-native:securityinsights/v20211001preview:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20211001preview:OfficeIRMDataConnector": "OfficeIRMDataConnector",
+   "azure-native:securityinsights/v20211001preview:OfficePowerBIDataConnector": "OfficePowerBIDataConnector",
+   "azure-native:securityinsights/v20211001preview:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights/v20211001preview:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20211001preview:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20211001preview:SourceControl": "SourceControl",
+   "azure-native:securityinsights/v20211001preview:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule": "ThreatIntelligenceAlertRule",
+   "azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20211001preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
+   "azure-native:securityinsights/v20211001preview:Ueba": "Ueba",
+   "azure-native:securityinsights/v20211001preview:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20211001preview:WatchlistItem": "WatchlistItem"
   }
  },
  {

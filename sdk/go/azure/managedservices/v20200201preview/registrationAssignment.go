@@ -49,6 +49,9 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:managedservices/v20190901:RegistrationAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:managedservices/v20220101preview:RegistrationAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource RegistrationAssignment

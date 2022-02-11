@@ -101,7 +101,7 @@ class GetTableResult:
     @pulumi.getter
     def plan(self) -> Optional[str]:
         """
-        The table plan.
+        Instruct the system how to handle and charge the logs ingested to this table.
         """
         return pulumi.get(self, "plan")
 
@@ -133,7 +133,7 @@ class GetTableResult:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[int]:
         """
-        The data table data retention in days, between 4 and 730. Setting this property to null will default to the workspace retention.
+        The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -165,7 +165,7 @@ class GetTableResult:
     @pulumi.getter(name="totalRetentionInDays")
     def total_retention_in_days(self) -> Optional[int]:
         """
-        The table data total retention in days, between 4 and 2555. Setting this property to null will default to table retention.
+        The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         """
         return pulumi.get(self, "total_retention_in_days")
 

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.OperationalInsights.Inputs
     public sealed class SearchResultsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Search results table's Description.
+        /// Search job Description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

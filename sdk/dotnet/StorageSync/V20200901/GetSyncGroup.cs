@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// </summary>
         public readonly string SyncGroupStatus;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
             string syncGroupStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string uniqueId)
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
             Id = id;
             Name = name;
             SyncGroupStatus = syncGroupStatus;
+            SystemData = systemData;
             Type = type;
             UniqueId = uniqueId;
         }

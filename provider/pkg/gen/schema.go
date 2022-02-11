@@ -1509,13 +1509,16 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 
 			if v, has := m.pkg.Types[tok]; has {
 				if tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 ||
-					tok == "azure-native:netapp:ExportPolicyRuleResponse" && len(v.Properties) == 14 {
+					tok == "azure-native:netapp:ExportPolicyRuleResponse" && len(v.Properties) == 14 ||
+					tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 ||
+					tok == "azure-native:netapp:ExportPolicyRule" && len(v.Properties) == 14 {
 					// TODO: this was needed to unblock nightly generation: generalize this case.
 					v = spec
 				}
 				err := compatibleTypes(spec, v, isOutput)
 				if err != nil {
-					return nil, errors.Wrapf(err, "incompatible type %q for resource %q", tok, m.resourceName)
+					return nil, errors.Wrapf(err, "incompatible type %q for resource %q (%q)", tok, m.resourceName,
+						m.resourceToken)
 				}
 			}
 
@@ -1699,6 +1702,11 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	} else {
 		for _, val := range resolvedSchema.Enum {
 			enumVal := pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
+			// Override the name for the values for this Enum since it contains unfortunately
+			// named values like `Input` and `Output` which collide especially for Go Codegen.
+			if strings.HasPrefix(m.module, "datafactory") && enumName == "ScriptActivityParameterDirection" {
+				enumVal.Name = fmt.Sprintf("Value%s", val)
+			}
 			enumSpec.Enum = append(enumSpec.Enum, enumVal)
 		}
 	}
@@ -1811,6 +1819,10 @@ var typeNameOverrides = map[string]string{
 	"Network.Policy.MatchCondition":           "FrontDoorMatchCondition",
 	"Network.Policy.MatchVariable":            "FrontDoorMatchVariable",
 	"Network.Policy.PolicySettings":           "FrontDoorPolicySettings",
+	// IpConfigurationResponse conflicts with IPConfigurationResponse used for existing networking resources.
+	// This avoids Dotnet SDK failing to build since codegen currently elides the IPConfigurationResponse
+	// output types since it assumes the existing one is sufficient.
+	"Network.InboundEndpoint.IpConfiguration": "InboundEndpointIPConfiguration",
 	// The following two types are read-only, while the same types in another spec are writable.
 	"RecoveryServices.Vault.PrivateEndpointConnection":         "VaultPrivateEndpointConnection",
 	"RecoveryServices.Vault.PrivateLinkServiceConnectionState": "VaultPrivateLinkServiceConnectionState",

@@ -67,7 +67,7 @@ export interface GetSecurityConnectorResult {
     /**
      * A collection of offerings for the security connector.
      */
-    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse)[];
+    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
     /**
      * The multi cloud account's organizational data
      */

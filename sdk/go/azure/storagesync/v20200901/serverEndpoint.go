@@ -53,6 +53,8 @@ type ServerEndpoint struct {
 	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
 	// Server Endpoint sync status
 	SyncStatus ServerEndpointSyncStatusResponseOutput `pulumi:"syncStatus"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Tier files older than days.
 	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -85,6 +87,9 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	}
 	if isZero(args.LocalCacheMode) {
 		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
+	}
+	if isZero(args.TierFilesOlderThanDays) {
+		args.TierFilesOlderThanDays = pulumi.IntPtr(0)
 	}
 	if isZero(args.VolumeFreeSpacePercent) {
 		args.VolumeFreeSpacePercent = pulumi.IntPtr(20)

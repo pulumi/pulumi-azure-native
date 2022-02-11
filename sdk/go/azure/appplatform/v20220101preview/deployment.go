@@ -51,9 +51,6 @@ func NewDeployment(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:appplatform:Deployment"),
 		},
 		{
-			Type: pulumi.String("azure-native:appplatform/v20190501preview:Deployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20200701:Deployment"),
 		},
 		{

@@ -40,6 +40,8 @@ __all__ = [
     'DenylistCustomAlertRuleArgs',
     'GcpCredentialsDetailsPropertiesArgs',
     'HybridComputeSettingsPropertiesArgs',
+    'InformationProtectionAwsOfferingInformationProtectionArgs',
+    'InformationProtectionAwsOfferingArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
     'JitNetworkAccessPortRuleArgs',
     'JitNetworkAccessRequestPortArgs',
@@ -1150,11 +1152,11 @@ class DefenderForServersAwsOfferingArgs:
         """
         The Defender for Servers AWS offering configurations
         :param pulumi.Input[str] offering_type: The type of the security offering.
-               Expected value is 'DefenderForServersAWS'.
+               Expected value is 'DefenderForServersAws'.
         :param pulumi.Input['DefenderForServersAwsOfferingArcAutoProvisioningArgs'] arc_auto_provisioning: The ARC autoprovisioning configuration
         :param pulumi.Input['DefenderForServersAwsOfferingDefenderForServersArgs'] defender_for_servers: The Defender for servers connection configuration
         """
-        pulumi.set(__self__, "offering_type", 'DefenderForServersAWS')
+        pulumi.set(__self__, "offering_type", 'DefenderForServersAws')
         if arc_auto_provisioning is not None:
             pulumi.set(__self__, "arc_auto_provisioning", arc_auto_provisioning)
         if defender_for_servers is not None:
@@ -1165,7 +1167,7 @@ class DefenderForServersAwsOfferingArgs:
     def offering_type(self) -> pulumi.Input[str]:
         """
         The type of the security offering.
-        Expected value is 'DefenderForServersAWS'.
+        Expected value is 'DefenderForServersAws'.
         """
         return pulumi.get(self, "offering_type")
 
@@ -1528,6 +1530,71 @@ class HybridComputeSettingsPropertiesArgs:
     @service_principal.setter
     def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalPropertiesArgs']]):
         pulumi.set(self, "service_principal", value)
+
+
+@pulumi.input_type
+class InformationProtectionAwsOfferingInformationProtectionArgs:
+    def __init__(__self__, *,
+                 cloud_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The native cloud connection configuration
+        :param pulumi.Input[str] cloud_role_arn: The cloud role ARN in AWS for this feature
+        """
+        if cloud_role_arn is not None:
+            pulumi.set(__self__, "cloud_role_arn", cloud_role_arn)
+
+    @property
+    @pulumi.getter(name="cloudRoleArn")
+    def cloud_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cloud role ARN in AWS for this feature
+        """
+        return pulumi.get(self, "cloud_role_arn")
+
+    @cloud_role_arn.setter
+    def cloud_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_role_arn", value)
+
+
+@pulumi.input_type
+class InformationProtectionAwsOfferingArgs:
+    def __init__(__self__, *,
+                 offering_type: pulumi.Input[str],
+                 information_protection: Optional[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgs']] = None):
+        """
+        The information protection for AWS offering configurations
+        :param pulumi.Input[str] offering_type: The type of the security offering.
+               Expected value is 'InformationProtectionAws'.
+        :param pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgs'] information_protection: The native cloud connection configuration
+        """
+        pulumi.set(__self__, "offering_type", 'InformationProtectionAws')
+        if information_protection is not None:
+            pulumi.set(__self__, "information_protection", information_protection)
+
+    @property
+    @pulumi.getter(name="offeringType")
+    def offering_type(self) -> pulumi.Input[str]:
+        """
+        The type of the security offering.
+        Expected value is 'InformationProtectionAws'.
+        """
+        return pulumi.get(self, "offering_type")
+
+    @offering_type.setter
+    def offering_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "offering_type", value)
+
+    @property
+    @pulumi.getter(name="informationProtection")
+    def information_protection(self) -> Optional[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgs']]:
+        """
+        The native cloud connection configuration
+        """
+        return pulumi.get(self, "information_protection")
+
+    @information_protection.setter
+    def information_protection(self, value: Optional[pulumi.Input['InformationProtectionAwsOfferingInformationProtectionArgs']]):
+        pulumi.set(self, "information_protection", value)
 
 
 @pulumi.input_type

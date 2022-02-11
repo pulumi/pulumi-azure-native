@@ -736,7 +736,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ThreatIntelligenceIndicator, __self__).__init__(
             'azure-native:securityinsights:ThreatIntelligenceIndicator',

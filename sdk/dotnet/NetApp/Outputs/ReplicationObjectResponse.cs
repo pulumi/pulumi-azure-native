@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// <summary>
         /// Schedule
         /// </summary>
-        public readonly string ReplicationSchedule;
+        public readonly string? ReplicationSchedule;
 
         [OutputConstructor]
         private ReplicationObjectResponse(
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? replicationId,
 
-            string replicationSchedule)
+            string? replicationSchedule)
         {
             EndpointType = endpointType;
             RemoteVolumeRegion = remoteVolumeRegion;

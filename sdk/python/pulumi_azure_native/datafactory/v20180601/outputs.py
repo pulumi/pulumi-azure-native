@@ -463,6 +463,10 @@ __all__ = [
     'ScheduleTriggerRecurrenceResponse',
     'ScheduleTriggerResponse',
     'ScriptActionResponse',
+    'ScriptActivityParameterResponse',
+    'ScriptActivityResponse',
+    'ScriptActivityScriptBlockResponse',
+    'ScriptActivityTypePropertiesResponseLogSettings',
     'SecureStringResponse',
     'SelfDependencyTumblingWindowTriggerReferenceResponse',
     'SelfHostedIntegrationRuntimeNodeResponse',
@@ -31046,7 +31050,7 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
         :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
@@ -38596,8 +38600,8 @@ class IfConditionActivityResponse(dict):
                Expected value is 'IfCondition'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
@@ -62616,6 +62620,316 @@ class ScriptActionResponse(dict):
 
 
 @pulumi.output_type
+class ScriptActivityParameterResponse(dict):
+    """
+    Parameters of a script block.
+    """
+    def __init__(__self__, *,
+                 direction: Optional[str] = None,
+                 name: Optional[Any] = None,
+                 size: Optional[int] = None,
+                 type: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Parameters of a script block.
+        :param str direction: The direction of the parameter.
+        :param Any name: The name of the parameter. Type: string (or Expression with resultType string).
+        :param int size: The size of the output direction parameter.
+        :param str type: The type of the parameter.
+        :param Any value: The value of the parameter.
+        """
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[str]:
+        """
+        The direction of the parameter.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[Any]:
+        """
+        The name of the parameter. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[int]:
+        """
+        The size of the output direction parameter.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        The value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScriptActivityResponse(dict):
+    """
+    Script activity type.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "logSettings":
+            suggest = "log_settings"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 name: str,
+                 type: str,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
+                 description: Optional[str] = None,
+                 log_settings: Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings'] = None,
+                 policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 scripts: Optional[Sequence['outputs.ScriptActivityScriptBlockResponse']] = None,
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
+        """
+        Script activity type.
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str name: Activity name.
+        :param str type: Type of activity.
+               Expected value is 'Script'.
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
+        :param str description: Activity description.
+        :param 'ScriptActivityTypePropertiesResponseLogSettings' log_settings: Log settings of script activity.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Sequence['ScriptActivityScriptBlockResponse'] scripts: Array of script blocks. Type: array.
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Script')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if log_settings is not None:
+            pulumi.set(__self__, "log_settings", log_settings)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of activity.
+        Expected value is 'Script'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="logSettings")
+    def log_settings(self) -> Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings']:
+        """
+        Log settings of script activity.
+        """
+        return pulumi.get(self, "log_settings")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional[Sequence['outputs.ScriptActivityScriptBlockResponse']]:
+        """
+        Array of script blocks. Type: array.
+        """
+        return pulumi.get(self, "scripts")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
+class ScriptActivityScriptBlockResponse(dict):
+    """
+    Script block of scripts.
+    """
+    def __init__(__self__, *,
+                 text: Any,
+                 type: str,
+                 parameters: Optional[Sequence['outputs.ScriptActivityParameterResponse']] = None):
+        """
+        Script block of scripts.
+        :param Any text: The query text. Type: string (or Expression with resultType string).
+        :param str type: The type of the query. Type: string.
+        :param Sequence['ScriptActivityParameterResponse'] parameters: Array of script parameters. Type: array.
+        """
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Any:
+        """
+        The query text. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "text")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the query. Type: string.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ScriptActivityParameterResponse']]:
+        """
+        Array of script parameters. Type: array.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class ScriptActivityTypePropertiesResponseLogSettings(dict):
+    """
+    Log settings of script activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "logLocationSettings":
+            suggest = "log_location_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScriptActivityTypePropertiesResponseLogSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScriptActivityTypePropertiesResponseLogSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScriptActivityTypePropertiesResponseLogSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_destination: str,
+                 log_location_settings: Optional['outputs.LogLocationSettingsResponse'] = None):
+        """
+        Log settings of script activity.
+        :param str log_destination: The destination of logs. Type: string.
+        :param 'LogLocationSettingsResponse' log_location_settings: Log location settings customer needs to provide when enabling log.
+        """
+        pulumi.set(__self__, "log_destination", log_destination)
+        if log_location_settings is not None:
+            pulumi.set(__self__, "log_location_settings", log_location_settings)
+
+    @property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> str:
+        """
+        The destination of logs. Type: string.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @property
+    @pulumi.getter(name="logLocationSettings")
+    def log_location_settings(self) -> Optional['outputs.LogLocationSettingsResponse']:
+        """
+        Log location settings customer needs to provide when enabling log.
+        """
+        return pulumi.get(self, "log_location_settings")
+
+
+@pulumi.output_type
 class SecureStringResponse(dict):
     """
     Azure Data Factory secure string definition. The string value will be masked with asterisks '*' during Get or List API calls.
@@ -70382,7 +70696,7 @@ class SwitchActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Switch'.
         :param Sequence['SwitchCaseResponse'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -70477,7 +70791,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[str] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param str value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -72455,7 +72769,7 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.

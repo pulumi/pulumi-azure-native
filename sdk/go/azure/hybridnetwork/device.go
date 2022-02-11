@@ -54,6 +54,9 @@ func NewDevice(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:hybridnetwork/v20210501:Device"),
 		},
+		{
+			Type: pulumi.String("azure-native:hybridnetwork/v20220101preview:Device"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Device

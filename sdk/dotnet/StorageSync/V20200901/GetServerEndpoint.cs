@@ -172,6 +172,10 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
         /// </summary>
         public readonly Outputs.ServerEndpointSyncStatusResponse SyncStatus;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Tier files older than days.
         /// </summary>
         public readonly int? TierFilesOlderThanDays;
@@ -226,6 +230,8 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
 
             Outputs.ServerEndpointSyncStatusResponse syncStatus,
 
+            Outputs.SystemDataResponse systemData,
+
             int? tierFilesOlderThanDays,
 
             string type,
@@ -252,6 +258,7 @@ namespace Pulumi.AzureNative.StorageSync.V20200901
             ServerName = serverName;
             ServerResourceId = serverResourceId;
             SyncStatus = syncStatus;
+            SystemData = systemData;
             TierFilesOlderThanDays = tierFilesOlderThanDays;
             Type = type;
             VolumeFreeSpacePercent = volumeFreeSpacePercent;

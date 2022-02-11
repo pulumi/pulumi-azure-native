@@ -97,7 +97,7 @@ class AlertSeverity(str, Enum):
 
 class AttackTactic(str, Enum):
     """
-    The severity for alerts created by this alert rule.
+    A list of relevant mitre attacks.
     """
     INITIAL_ACCESS = "InitialAccess"
     EXECUTION = "Execution"

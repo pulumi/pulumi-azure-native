@@ -80,6 +80,10 @@ export class CloudEndpoint extends pulumi.CustomResource {
      */
     public readonly storageAccountTenantId!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.v20200901.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnershipId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureFileShareName"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["storageAccountResourceId"] = undefined /*out*/;
             resourceInputs["storageAccountTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

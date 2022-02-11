@@ -1388,6 +1388,141 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The destination of logs. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptActivityLogDestination : IEquatable<ScriptActivityLogDestination>
+    {
+        private readonly string _value;
+
+        private ScriptActivityLogDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptActivityLogDestination ActivityOutput { get; } = new ScriptActivityLogDestination("ActivityOutput");
+        public static ScriptActivityLogDestination ExternalStore { get; } = new ScriptActivityLogDestination("ExternalStore");
+
+        public static bool operator ==(ScriptActivityLogDestination left, ScriptActivityLogDestination right) => left.Equals(right);
+        public static bool operator !=(ScriptActivityLogDestination left, ScriptActivityLogDestination right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptActivityLogDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptActivityLogDestination other && Equals(other);
+        public bool Equals(ScriptActivityLogDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The direction of the parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptActivityParameterDirection : IEquatable<ScriptActivityParameterDirection>
+    {
+        private readonly string _value;
+
+        private ScriptActivityParameterDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptActivityParameterDirection ValueInput { get; } = new ScriptActivityParameterDirection("Input");
+        public static ScriptActivityParameterDirection ValueOutput { get; } = new ScriptActivityParameterDirection("Output");
+        public static ScriptActivityParameterDirection ValueInputOutput { get; } = new ScriptActivityParameterDirection("InputOutput");
+
+        public static bool operator ==(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => left.Equals(right);
+        public static bool operator !=(ScriptActivityParameterDirection left, ScriptActivityParameterDirection right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptActivityParameterDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptActivityParameterDirection other && Equals(other);
+        public bool Equals(ScriptActivityParameterDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the parameter.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptActivityParameterType : IEquatable<ScriptActivityParameterType>
+    {
+        private readonly string _value;
+
+        private ScriptActivityParameterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptActivityParameterType Boolean { get; } = new ScriptActivityParameterType("Boolean");
+        public static ScriptActivityParameterType DateTime { get; } = new ScriptActivityParameterType("DateTime");
+        public static ScriptActivityParameterType DateTimeOffset { get; } = new ScriptActivityParameterType("DateTimeOffset");
+        public static ScriptActivityParameterType Decimal { get; } = new ScriptActivityParameterType("Decimal");
+        public static ScriptActivityParameterType Double { get; } = new ScriptActivityParameterType("Double");
+        public static ScriptActivityParameterType Guid { get; } = new ScriptActivityParameterType("Guid");
+        public static ScriptActivityParameterType Int16 { get; } = new ScriptActivityParameterType("Int16");
+        public static ScriptActivityParameterType Int32 { get; } = new ScriptActivityParameterType("Int32");
+        public static ScriptActivityParameterType Int64 { get; } = new ScriptActivityParameterType("Int64");
+        public static ScriptActivityParameterType Single { get; } = new ScriptActivityParameterType("Single");
+        public static ScriptActivityParameterType String { get; } = new ScriptActivityParameterType("String");
+        public static ScriptActivityParameterType Timespan { get; } = new ScriptActivityParameterType("Timespan");
+
+        public static bool operator ==(ScriptActivityParameterType left, ScriptActivityParameterType right) => left.Equals(right);
+        public static bool operator !=(ScriptActivityParameterType left, ScriptActivityParameterType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptActivityParameterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptActivityParameterType other && Equals(other);
+        public bool Equals(ScriptActivityParameterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the query. Type: string.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptType : IEquatable<ScriptType>
+    {
+        private readonly string _value;
+
+        private ScriptType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScriptType Query { get; } = new ScriptType("Query");
+        public static ScriptType NonQuery { get; } = new ScriptType("NonQuery");
+
+        public static bool operator ==(ScriptType left, ScriptType right) => left.Equals(right);
+        public static bool operator !=(ScriptType left, ScriptType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
+        public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication type to use.
     /// </summary>
     [EnumType]

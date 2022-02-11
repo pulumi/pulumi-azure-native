@@ -57,6 +57,8 @@ type LookupCloudEndpointResult struct {
 	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 	// Storage Account Tenant Id
 	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -160,6 +162,11 @@ func (o LookupCloudEndpointResultOutput) StorageAccountResourceId() pulumi.Strin
 // Storage Account Tenant Id
 func (o LookupCloudEndpointResultOutput) StorageAccountTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCloudEndpointResult) *string { return v.StorageAccountTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupCloudEndpointResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupCloudEndpointResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

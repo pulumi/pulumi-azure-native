@@ -194,7 +194,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20190501preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20200701:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20200701:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Deployment"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-native:appplatform/v20210901preview:Deployment',

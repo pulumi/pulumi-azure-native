@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         /// The provisioning state of the workspace.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
@@ -212,12 +212,6 @@ namespace Pulumi.AzureNative.OperationalInsights.V20211201Preview
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the workspace.
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.V20211201Preview.WorkspaceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.

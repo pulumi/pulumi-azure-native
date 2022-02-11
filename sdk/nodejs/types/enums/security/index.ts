@@ -228,6 +228,7 @@ export const OfferingType = {
     CspmMonitorAws: "CspmMonitorAws",
     DefenderForContainersAws: "DefenderForContainersAws",
     DefenderForServersAws: "DefenderForServersAws",
+    InformationProtectionAws: "InformationProtectionAws",
 } as const;
 
 /**

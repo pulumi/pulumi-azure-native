@@ -5,12 +5,60 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationType',
+    'AvsDataStore',
+    'ChownMode',
+    'EnableSubvolumes',
     'EndpointType',
+    'NetworkFeatures',
     'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
     'ServiceLevel',
 ]
+
+
+class ApplicationType(str, Enum):
+    """
+    Application Type
+    """
+    SA_P_HANA = "SAP-HANA"
+
+
+class AvsDataStore(str, Enum):
+    """
+    Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
+    """
+    ENABLED = "Enabled"
+    """
+    avsDataStore is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    avsDataStore is disabled
+    """
+
+
+class ChownMode(str, Enum):
+    """
+    This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+    """
+    RESTRICTED = "Restricted"
+    UNRESTRICTED = "Unrestricted"
+
+
+class EnableSubvolumes(str, Enum):
+    """
+    Flag indicating whether subvolume operations are enabled on the volume
+    """
+    ENABLED = "Enabled"
+    """
+    subvolumes are enabled
+    """
+    DISABLED = "Disabled"
+    """
+    subvolumes are not enabled
+    """
 
 
 class EndpointType(str, Enum):
@@ -19,6 +67,20 @@ class EndpointType(str, Enum):
     """
     SRC = "src"
     DST = "dst"
+
+
+class NetworkFeatures(str, Enum):
+    """
+    Basic network, or Standard features available to the volume.
+    """
+    BASIC = "Basic"
+    """
+    Basic network feature.
+    """
+    STANDARD = "Standard"
+    """
+    Standard network feature.
+    """
 
 
 class QosType(str, Enum):
@@ -67,4 +129,8 @@ class ServiceLevel(str, Enum):
     ULTRA = "Ultra"
     """
     Ultra service level
+    """
+    STANDARD_ZRS = "StandardZRS"
+    """
+    Zone redundant storage service level
     """

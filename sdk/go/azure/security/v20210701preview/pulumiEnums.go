@@ -19,6 +19,7 @@ const (
 	OfferingTypeCspmMonitorAws           = OfferingType("CspmMonitorAws")
 	OfferingTypeDefenderForContainersAws = OfferingType("DefenderForContainersAws")
 	OfferingTypeDefenderForServersAws    = OfferingType("DefenderForServersAws")
+	OfferingTypeInformationProtectionAws = OfferingType("InformationProtectionAws")
 )
 
 // The multi cloud account's membership type in the organization

@@ -79,6 +79,12 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	if isZero(args.LocalCacheMode) {
 		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
 	}
+	if isZero(args.TierFilesOlderThanDays) {
+		args.TierFilesOlderThanDays = pulumi.IntPtr(0)
+	}
+	if isZero(args.VolumeFreeSpacePercent) {
+		args.VolumeFreeSpacePercent = pulumi.IntPtr(20)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:storagesync:ServerEndpoint"),

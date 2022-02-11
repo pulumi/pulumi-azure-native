@@ -177,7 +177,7 @@ class EntityAnalytics(pulumi.CustomResource):
             __props__.__dict__["is_enabled"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EntityAnalytics")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EntityAnalytics, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:EntityAnalytics',

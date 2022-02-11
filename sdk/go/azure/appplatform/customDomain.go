@@ -42,9 +42,6 @@ func NewCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-native:appplatform/v20190501preview:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20200701:CustomDomain"),
 		},
 		{

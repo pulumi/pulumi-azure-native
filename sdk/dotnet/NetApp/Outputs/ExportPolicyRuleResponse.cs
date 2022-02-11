@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? AllowedClients;
         /// <summary>
+        /// This parameter specifies who is authorized to change the ownership of a file. restricted - Only root user can change the ownership of the file. unrestricted - Non-root users can change ownership of files that they own.
+        /// </summary>
+        public readonly string? ChownMode;
+        /// <summary>
         /// Allows CIFS protocol
         /// </summary>
         public readonly bool? Cifs;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         private ExportPolicyRuleResponse(
             string? allowedClients,
 
+            string? chownMode,
+
             bool? cifs,
 
             bool? hasRootAccess,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             bool? unixReadWrite)
         {
             AllowedClients = allowedClients;
+            ChownMode = chownMode;
             Cifs = cifs;
             HasRootAccess = hasRootAccess;
             Kerberos5ReadOnly = kerberos5ReadOnly;

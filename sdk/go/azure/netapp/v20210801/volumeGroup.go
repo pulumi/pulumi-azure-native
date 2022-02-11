@@ -44,6 +44,15 @@ func NewVolumeGroup(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:netapp:VolumeGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20211001:VolumeGroup"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VolumeGroup
 	err := ctx.RegisterResource("azure-native:netapp/v20210801:VolumeGroup", name, args, &resource, opts...)
 	if err != nil {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetSyncGroupResult',
@@ -20,7 +21,7 @@ class GetSyncGroupResult:
     """
     Sync Group object.
     """
-    def __init__(__self__, id=None, name=None, sync_group_status=None, type=None, unique_id=None):
+    def __init__(__self__, id=None, name=None, sync_group_status=None, system_data=None, type=None, unique_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -30,6 +31,9 @@ class GetSyncGroupResult:
         if sync_group_status and not isinstance(sync_group_status, str):
             raise TypeError("Expected argument 'sync_group_status' to be a str")
         pulumi.set(__self__, "sync_group_status", sync_group_status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -62,6 +66,14 @@ class GetSyncGroupResult:
         return pulumi.get(self, "sync_group_status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -87,6 +99,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             id=self.id,
             name=self.name,
             sync_group_status=self.sync_group_status,
+            system_data=self.system_data,
             type=self.type,
             unique_id=self.unique_id)
 
@@ -117,6 +130,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         sync_group_status=__ret__.sync_group_status,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         unique_id=__ret__.unique_id)
 

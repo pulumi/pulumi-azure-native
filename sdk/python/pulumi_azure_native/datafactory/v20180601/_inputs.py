@@ -456,6 +456,10 @@ __all__ = [
     'ScheduleTriggerRecurrenceArgs',
     'ScheduleTriggerArgs',
     'ScriptActionArgs',
+    'ScriptActivityParameterArgs',
+    'ScriptActivityScriptBlockArgs',
+    'ScriptActivityTypePropertiesLogSettingsArgs',
+    'ScriptActivityArgs',
     'SecureStringArgs',
     'SelfDependencyTumblingWindowTriggerReferenceArgs',
     'SelfHostedIntegrationRuntimeArgs',
@@ -32521,7 +32525,7 @@ class FlowletArgs:
 @pulumi.input_type
 class ForEachActivityArgs:
     def __init__(__self__, *,
-                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]],
+                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]],
                  items: pulumi.Input['ExpressionArgs'],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -32532,7 +32536,7 @@ class ForEachActivityArgs:
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute .
         :param pulumi.Input['ExpressionArgs'] items: Collection to iterate.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
@@ -32560,14 +32564,14 @@ class ForEachActivityArgs:
 
     @property
     @pulumi.getter
-    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]:
+    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]:
         """
         List of activities to execute .
         """
         return pulumi.get(self, "activities")
 
     @activities.setter
-    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]):
+    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]):
         pulumi.set(self, "activities", value)
 
     @property
@@ -40710,8 +40714,8 @@ class IfConditionActivityArgs:
                  type: pulumi.Input[str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 if_false_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
-                 if_true_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+                 if_false_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+                 if_true_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
@@ -40721,8 +40725,8 @@ class IfConditionActivityArgs:
                Expected value is 'IfCondition'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
@@ -40802,26 +40806,26 @@ class IfConditionActivityArgs:
 
     @property
     @pulumi.getter(name="ifFalseActivities")
-    def if_false_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
+    def if_false_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
         """
         List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
         """
         return pulumi.get(self, "if_false_activities")
 
     @if_false_activities.setter
-    def if_false_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
+    def if_false_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
         pulumi.set(self, "if_false_activities", value)
 
     @property
     @pulumi.getter(name="ifTrueActivities")
-    def if_true_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
+    def if_true_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
         """
         List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         """
         return pulumi.get(self, "if_true_activities")
 
     @if_true_activities.setter
-    def if_true_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
+    def if_true_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
         pulumi.set(self, "if_true_activities", value)
 
     @property
@@ -65344,6 +65348,338 @@ class ScriptActionArgs:
 
 
 @pulumi.input_type
+class ScriptActivityParameterArgs:
+    def __init__(__self__, *,
+                 direction: Optional[pulumi.Input[Union[str, 'ScriptActivityParameterDirection']]] = None,
+                 name: Optional[Any] = None,
+                 size: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ScriptActivityParameterType']]] = None,
+                 value: Optional[Any] = None):
+        """
+        Parameters of a script block.
+        :param pulumi.Input[Union[str, 'ScriptActivityParameterDirection']] direction: The direction of the parameter.
+        :param Any name: The name of the parameter. Type: string (or Expression with resultType string).
+        :param pulumi.Input[int] size: The size of the output direction parameter.
+        :param pulumi.Input[Union[str, 'ScriptActivityParameterType']] type: The type of the parameter.
+        :param Any value: The value of the parameter.
+        """
+        if direction is not None:
+            pulumi.set(__self__, "direction", direction)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def direction(self) -> Optional[pulumi.Input[Union[str, 'ScriptActivityParameterDirection']]]:
+        """
+        The direction of the parameter.
+        """
+        return pulumi.get(self, "direction")
+
+    @direction.setter
+    def direction(self, value: Optional[pulumi.Input[Union[str, 'ScriptActivityParameterDirection']]]):
+        pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[Any]:
+        """
+        The name of the parameter. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[Any]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the output direction parameter.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ScriptActivityParameterType']]]:
+        """
+        The type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ScriptActivityParameterType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        The value of the parameter.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[Any]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ScriptActivityScriptBlockArgs:
+    def __init__(__self__, *,
+                 text: Any,
+                 type: pulumi.Input[Union[str, 'ScriptType']],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]]] = None):
+        """
+        Script block of scripts.
+        :param Any text: The query text. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'ScriptType']] type: The type of the query. Type: string.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]] parameters: Array of script parameters. Type: array.
+        """
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "type", type)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Any:
+        """
+        The query text. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Any):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ScriptType']]:
+        """
+        The type of the query. Type: string.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ScriptType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]]]:
+        """
+        Array of script parameters. Type: array.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class ScriptActivityTypePropertiesLogSettingsArgs:
+    def __init__(__self__, *,
+                 log_destination: pulumi.Input[Union[str, 'ScriptActivityLogDestination']],
+                 log_location_settings: Optional[pulumi.Input['LogLocationSettingsArgs']] = None):
+        """
+        Log settings of script activity.
+        :param pulumi.Input[Union[str, 'ScriptActivityLogDestination']] log_destination: The destination of logs. Type: string.
+        :param pulumi.Input['LogLocationSettingsArgs'] log_location_settings: Log location settings customer needs to provide when enabling log.
+        """
+        pulumi.set(__self__, "log_destination", log_destination)
+        if log_location_settings is not None:
+            pulumi.set(__self__, "log_location_settings", log_location_settings)
+
+    @property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> pulumi.Input[Union[str, 'ScriptActivityLogDestination']]:
+        """
+        The destination of logs. Type: string.
+        """
+        return pulumi.get(self, "log_destination")
+
+    @log_destination.setter
+    def log_destination(self, value: pulumi.Input[Union[str, 'ScriptActivityLogDestination']]):
+        pulumi.set(self, "log_destination", value)
+
+    @property
+    @pulumi.getter(name="logLocationSettings")
+    def log_location_settings(self) -> Optional[pulumi.Input['LogLocationSettingsArgs']]:
+        """
+        Log location settings customer needs to provide when enabling log.
+        """
+        return pulumi.get(self, "log_location_settings")
+
+    @log_location_settings.setter
+    def log_location_settings(self, value: Optional[pulumi.Input['LogLocationSettingsArgs']]):
+        pulumi.set(self, "log_location_settings", value)
+
+
+@pulumi.input_type
+class ScriptActivityArgs:
+    def __init__(__self__, *,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 log_settings: Optional[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs']] = None,
+                 policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
+                 scripts: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]]] = None,
+                 user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
+        """
+        Script activity type.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param pulumi.Input[str] name: Activity name.
+        :param pulumi.Input[str] type: Type of activity.
+               Expected value is 'Script'.
+        :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
+        :param pulumi.Input[str] description: Activity description.
+        :param pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs'] log_settings: Log settings of script activity.
+        :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]] scripts: Array of script blocks. Type: array.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'Script')
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if log_settings is not None:
+            pulumi.set(__self__, "log_settings", log_settings)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of activity.
+        Expected value is 'Script'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @depends_on.setter
+    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]]):
+        pulumi.set(self, "depends_on", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="logSettings")
+    def log_settings(self) -> Optional[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs']]:
+        """
+        Log settings of script activity.
+        """
+        return pulumi.get(self, "log_settings")
+
+    @log_settings.setter
+    def log_settings(self, value: Optional[pulumi.Input['ScriptActivityTypePropertiesLogSettingsArgs']]):
+        pulumi.set(self, "log_settings", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ActivityPolicyArgs']]:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]]]:
+        """
+        Array of script blocks. Type: array.
+        """
+        return pulumi.get(self, "scripts")
+
+    @scripts.setter
+    def scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScriptActivityScriptBlockArgs']]]]):
+        pulumi.set(self, "scripts", value)
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+    @user_properties.setter
+    def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
+        pulumi.set(self, "user_properties", value)
+
+
+@pulumi.input_type
 class SecureStringArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -72282,7 +72618,7 @@ class SwitchActivityArgs:
                  on: pulumi.Input['ExpressionArgs'],
                  type: pulumi.Input[str],
                  cases: Optional[pulumi.Input[Sequence[pulumi.Input['SwitchCaseArgs']]]] = None,
-                 default_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+                 default_activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
@@ -72293,7 +72629,7 @@ class SwitchActivityArgs:
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Switch'.
         :param pulumi.Input[Sequence[pulumi.Input['SwitchCaseArgs']]] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -72363,14 +72699,14 @@ class SwitchActivityArgs:
 
     @property
     @pulumi.getter(name="defaultActivities")
-    def default_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
+    def default_activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
         """
         List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         """
         return pulumi.get(self, "default_activities")
 
     @default_activities.setter
-    def default_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
+    def default_activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
         pulumi.set(self, "default_activities", value)
 
     @property
@@ -72413,11 +72749,11 @@ class SwitchActivityArgs:
 @pulumi.input_type
 class SwitchCaseArgs:
     def __init__(__self__, *,
-                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
+                 activities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute for satisfied case condition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute for satisfied case condition.
         :param pulumi.Input[str] value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -72427,14 +72763,14 @@ class SwitchCaseArgs:
 
     @property
     @pulumi.getter
-    def activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
+    def activities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]:
         """
         List of activities to execute for satisfied case condition.
         """
         return pulumi.get(self, "activities")
 
     @activities.setter
-    def activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
+    def activities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]]):
         pulumi.set(self, "activities", value)
 
     @property
@@ -74396,7 +74732,7 @@ class TumblingWindowTriggerArgs:
 @pulumi.input_type
 class UntilActivityArgs:
     def __init__(__self__, *,
-                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]],
+                 activities: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]],
                  expression: pulumi.Input['ExpressionArgs'],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -74406,7 +74742,7 @@ class UntilActivityArgs:
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities to execute.
         :param pulumi.Input['ExpressionArgs'] expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[str] type: Type of activity.
@@ -74431,14 +74767,14 @@ class UntilActivityArgs:
 
     @property
     @pulumi.getter
-    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]:
+    def activities(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]:
         """
         List of activities to execute.
         """
         return pulumi.get(self, "activities")
 
     @activities.setter
-    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]):
+    def activities(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]):
         pulumi.set(self, "activities", value)
 
     @property

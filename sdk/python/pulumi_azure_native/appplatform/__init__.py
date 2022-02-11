@@ -48,8 +48,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.appplatform.v20190501preview as __v20190501preview
-    v20190501preview = __v20190501preview
     import pulumi_azure_native.appplatform.v20200701 as __v20200701
     v20200701 = __v20200701
     import pulumi_azure_native.appplatform.v20201101preview as __v20201101preview
@@ -61,7 +59,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.appplatform.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
 else:
-    v20190501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20190501preview')
     v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
     v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')

@@ -36,7 +36,7 @@ type Workspace struct {
 	// List of linked private link scope resources.
 	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayOutput `pulumi:"privateLinkScopedResources"`
 	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
 	PublicNetworkAccessForIngestion pulumi.StringPtrOutput `pulumi:"publicNetworkAccessForIngestion"`
 	// The network access type for accessing Log Analytics query.
@@ -128,8 +128,6 @@ type workspaceArgs struct {
 	ForceCmkForQuery *bool `pulumi:"forceCmkForQuery"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
 	// The network access type for accessing Log Analytics ingestion.
 	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
 	// The network access type for accessing Log Analytics query.
@@ -160,8 +158,6 @@ type WorkspaceArgs struct {
 	ForceCmkForQuery pulumi.BoolPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrInput
 	// The network access type for accessing Log Analytics ingestion.
 	PublicNetworkAccessForIngestion pulumi.StringPtrInput
 	// The network access type for accessing Log Analytics query.

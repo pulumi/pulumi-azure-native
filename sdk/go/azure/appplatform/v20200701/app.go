@@ -48,9 +48,6 @@ func NewApp(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:appplatform:App"),
 		},
 		{
-			Type: pulumi.String("azure-native:appplatform/v20190501preview:App"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20201101preview:App"),
 		},
 		{

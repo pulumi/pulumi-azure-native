@@ -82,7 +82,7 @@ export interface GetWorkspaceResult {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
