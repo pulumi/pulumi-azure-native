@@ -1,7 +1,16 @@
 # CHANGELOG
 
-## HEAD (Unreleased)
-(None)
+## 1.58.0 (2022-02-14)
+- Fix go module size issue introduced in v1.57.0 (https://github.com/pulumi/pulumi-azure-native/issues/1502)
+
+### New resources:
+- `azure-native:azureactivedirectory/v20210401:GuestUsage`
+- `azure-native:containerservice/v20220101:Snapshot`
+- `azure-native:azureactivedirectory/v20210401:B2CTenant`
+- `azure-native:containerservice/v20220101:MaintenanceConfiguration`
+- `azure-native:containerservice/v20220101:PrivateEndpointConnection`
+- `azure-native:containerservice/v20220101:ManagedCluster`
+- `azure-native:containerservice/v20220101:AgentPool`
 
 ## 1.57.0 (2022-02-11)
 - Multiple updates [#1496](https://github.com/pulumi/pulumi-azure-native/pull/1496):
