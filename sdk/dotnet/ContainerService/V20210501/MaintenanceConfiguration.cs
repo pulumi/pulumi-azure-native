@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20211001:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20211101preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:MaintenanceConfiguration"},
                 },
             };

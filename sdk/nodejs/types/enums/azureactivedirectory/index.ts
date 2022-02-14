@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
+import * as v20210401 from "./v20210401";
 
 export {
     v20190101preview,
+    v20210401,
 };
 
 export const B2CResourceSKUName = {

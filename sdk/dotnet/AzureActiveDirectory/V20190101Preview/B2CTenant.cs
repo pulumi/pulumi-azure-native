@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
+                    new Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:B2CTenant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

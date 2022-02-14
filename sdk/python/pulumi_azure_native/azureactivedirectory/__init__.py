@@ -19,7 +19,10 @@ if typing.TYPE_CHECKING:
     v20190101preview = __v20190101preview
     import pulumi_azure_native.azureactivedirectory.v20200501preview as __v20200501preview
     v20200501preview = __v20200501preview
+    import pulumi_azure_native.azureactivedirectory.v20210401 as __v20210401
+    v20210401 = __v20210401
 else:
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20190101preview')
     v20200501preview = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20200501preview')
+    v20210401 = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory.v20210401')
 

@@ -2318,6 +2318,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azureactivedirectory/v20210401",
+  "fqn": "pulumi_azure_native.azureactivedirectory.v20210401",
+  "classes": {
+   "azure-native:azureactivedirectory/v20210401:B2CTenant": "B2CTenant",
+   "azure-native:azureactivedirectory/v20210401:GuestUsage": "GuestUsage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurearcdata",
   "fqn": "pulumi_azure_native.azurearcdata",
   "classes": {
@@ -4712,6 +4721,18 @@ _utilities.register(
    "azure-native:containerservice/v20211101preview:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20211101preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20211101preview:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20220101",
+  "fqn": "pulumi_azure_native.containerservice.v20220101",
+  "classes": {
+   "azure-native:containerservice/v20220101:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220101:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220101:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220101:Snapshot": "Snapshot"
   }
  },
  {
