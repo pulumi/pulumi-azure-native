@@ -102,6 +102,7 @@ var cutoffProviderVersions = map[string]string{
 	"automanage":                    "v20200630preview",
 	"autonomousdevelopmentplatform": "v20210201preview",
 	"avs":                           "v20210101preview",
+	"azureactivedirectory":          "v20190101preview",
 	"azurearcdata":                  "v20210601preview",
 	"azurestackhci":                 "v20210101preview",
 	"batch":                         "v20210101",
