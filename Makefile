@@ -81,7 +81,18 @@ test_provider::
 lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
-generate_nodejs::
+define FAKE_MODULE
+module fake_module // Exclude this directory from Go tools
+
+go 1.16
+endef
+
+export FAKE_MODULE
+
+$(WORKING_DIR)/sdk/nodejs/go.mod:
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > $@
+
+generate_nodejs:: $(WORKING_DIR)/sdk/nodejs/go.mod
 	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION} && \
 	cd ${PACKDIR}/nodejs/ && \
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
@@ -95,7 +106,10 @@ build_nodejs::
 	cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 	sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 
-generate_python::
+$(WORKING_DIR)/sdk/python/go.mod:
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > $@
+
+generate_python:: $(WORKING_DIR)/sdk/python/go.mod
 	$(WORKING_DIR)/bin/$(CODEGEN) python ${VERSION}
 
 build_python:: PYPI_VERSION := $(shell pulumictl get version --language python)
@@ -109,7 +123,10 @@ build_python::
 	rm ./bin/go.mod && \
 	cd ./bin && python3 setup.py build sdist
 
-generate_dotnet::
+$(WORKING_DIR)/sdk/dotnet/go.mod:
+	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > $@
+
+generate_dotnet:: $(WORKING_DIR)/sdk/dotnet/go.mod
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION} && \
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
