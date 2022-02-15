@@ -7496,6 +7496,37 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "documentdb/v20211115preview",
+  "fqn": "pulumi_azure_native.documentdb.v20211115preview",
+  "classes": {
+   "azure-native:documentdb/v20211115preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20211115preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20211115preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20211115preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20211115preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20211115preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20211115preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20211115preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20211115preview:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20211115preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20211115preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20211115preview:Service": "Service",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20211115preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20211115preview:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "domainregistration",
   "fqn": "pulumi_azure_native.domainregistration",
   "classes": {
@@ -9485,6 +9516,27 @@ _utilities.register(
    "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
    "azure-native:kusto/v20210827:ReadWriteDatabase": "ReadWriteDatabase",
    "azure-native:kusto/v20210827:Script": "Script"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kusto/v20220201",
+  "fqn": "pulumi_azure_native.kusto.v20220201",
+  "classes": {
+   "azure-native:kusto/v20220201:AttachedDatabaseConfiguration": "AttachedDatabaseConfiguration",
+   "azure-native:kusto/v20220201:Cluster": "Cluster",
+   "azure-native:kusto/v20220201:ClusterPrincipalAssignment": "ClusterPrincipalAssignment",
+   "azure-native:kusto/v20220201:DataConnection": "DataConnection",
+   "azure-native:kusto/v20220201:Database": "Database",
+   "azure-native:kusto/v20220201:DatabasePrincipalAssignment": "DatabasePrincipalAssignment",
+   "azure-native:kusto/v20220201:EventGridDataConnection": "EventGridDataConnection",
+   "azure-native:kusto/v20220201:EventHubDataConnection": "EventHubDataConnection",
+   "azure-native:kusto/v20220201:IotHubDataConnection": "IotHubDataConnection",
+   "azure-native:kusto/v20220201:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:kusto/v20220201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase": "ReadOnlyFollowingDatabase",
+   "azure-native:kusto/v20220201:ReadWriteDatabase": "ReadWriteDatabase",
+   "azure-native:kusto/v20220201:Script": "Script"
   }
  },
  {
@@ -14431,7 +14483,8 @@ _utilities.register(
    "azure-native:recoveryservices/v20211201:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20211201:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
    "azure-native:recoveryservices/v20211201:ReplicationvCenter": "ReplicationvCenter",
-   "azure-native:recoveryservices/v20211201:ResourceGuardProxy": "ResourceGuardProxy"
+   "azure-native:recoveryservices/v20211201:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20211201:Vault": "Vault"
   }
  },
  {

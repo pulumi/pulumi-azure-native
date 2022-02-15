@@ -238,7 +238,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210101:AttachedDatabaseConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210101:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20220201:AttachedDatabaseConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure-native:kusto/v20210827:AttachedDatabaseConfiguration',

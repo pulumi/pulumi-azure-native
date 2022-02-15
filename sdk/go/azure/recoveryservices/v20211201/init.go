@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationvCenter{}
 	case "azure-native:recoveryservices/v20211201:ResourceGuardProxy":
 		r = &ResourceGuardProxy{}
+	case "azure-native:recoveryservices/v20211201:Vault":
+		r = &Vault{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

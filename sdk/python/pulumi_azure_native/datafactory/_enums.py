@@ -62,12 +62,14 @@ __all__ = [
     'SsisPackageLocationType',
     'StoredProcedureParameterType',
     'SybaseAuthenticationType',
+    'TeamDeskAuthenticationType',
     'TeradataAuthenticationType',
     'TumblingWindowFrequency',
     'VariableType',
     'WebActivityMethod',
     'WebAuthenticationType',
     'WebHookActivityMethod',
+    'ZendeskAuthenticationType',
 ]
 
 
@@ -597,6 +599,14 @@ class SybaseAuthenticationType(str, Enum):
     WINDOWS = "Windows"
 
 
+class TeamDeskAuthenticationType(str, Enum):
+    """
+    The authentication type to use.
+    """
+    BASIC = "Basic"
+    TOKEN = "Token"
+
+
 class TeradataAuthenticationType(str, Enum):
     """
     AuthenticationType to be used for connection.
@@ -647,3 +657,11 @@ class WebHookActivityMethod(str, Enum):
     Rest API method for target endpoint.
     """
     POST = "POST"
+
+
+class ZendeskAuthenticationType(str, Enum):
+    """
+    The authentication type to use.
+    """
+    BASIC = "Basic"
+    TOKEN = "Token"

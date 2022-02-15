@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.DocumentDB
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

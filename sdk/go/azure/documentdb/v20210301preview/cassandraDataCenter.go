@@ -52,6 +52,9 @@ func NewCassandraDataCenter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211015preview:CassandraDataCenter"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20211115preview:CassandraDataCenter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CassandraDataCenter

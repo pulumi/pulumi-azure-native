@@ -405,6 +405,7 @@ __all__ = [
     'QuickBooksLinkedServiceResponse',
     'QuickBooksObjectDatasetResponse',
     'QuickBooksSourceResponse',
+    'QuickbaseLinkedServiceResponse',
     'RecurrenceScheduleOccurrenceResponse',
     'RecurrenceScheduleResponse',
     'RedirectIncompatibleRowSettingsResponse',
@@ -487,6 +488,7 @@ __all__ = [
     'ShopifyObjectDatasetResponse',
     'ShopifySourceResponse',
     'SkipErrorFileResponse',
+    'SmartsheetLinkedServiceResponse',
     'SnowflakeDatasetResponse',
     'SnowflakeExportCopyCommandResponse',
     'SnowflakeImportCopyCommandResponse',
@@ -531,6 +533,7 @@ __all__ = [
     'TabularSourceResponse',
     'TarGZipReadSettingsResponse',
     'TarReadSettingsResponse',
+    'TeamDeskLinkedServiceResponse',
     'TeradataLinkedServiceResponse',
     'TeradataPartitionSettingsResponse',
     'TeradataSourceResponse',
@@ -567,6 +570,7 @@ __all__ = [
     'XmlDatasetResponse',
     'XmlReadSettingsResponse',
     'XmlSourceResponse',
+    'ZendeskLinkedServiceResponse',
     'ZipDeflateReadSettingsResponse',
     'ZohoLinkedServiceResponse',
     'ZohoObjectDatasetResponse',
@@ -54815,6 +54819,133 @@ class QuickBooksSourceResponse(dict):
 
 
 @pulumi.output_type
+class QuickbaseLinkedServiceResponse(dict):
+    """
+    Linked service for Quickbase.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userToken":
+            suggest = "user_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QuickbaseLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QuickbaseLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QuickbaseLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 url: Any,
+                 user_token: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Quickbase.
+        :param str type: Type of linked service.
+               Expected value is 'Quickbase'.
+        :param Any url: The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] user_token: The user token for the Quickbase source.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "type", 'Quickbase')
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "user_token", user_token)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Quickbase'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="userToken")
+    def user_token(self) -> Any:
+        """
+        The user token for the Quickbase source.
+        """
+        return pulumi.get(self, "user_token")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class RecurrenceScheduleOccurrenceResponse(dict):
     """
     The recurrence schedule occurrence.
@@ -65648,6 +65779,122 @@ class SkipErrorFileResponse(dict):
 
 
 @pulumi.output_type
+class SmartsheetLinkedServiceResponse(dict):
+    """
+    Linked service for Smartsheet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmartsheetLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmartsheetLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmartsheetLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Smartsheet.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Smartsheet source.
+        :param str type: Type of linked service.
+               Expected value is 'Smartsheet'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "type", 'Smartsheet')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Any:
+        """
+        The api token for the Smartsheet source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Smartsheet'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class SnowflakeDatasetResponse(dict):
     """
     The snowflake dataset.
@@ -71494,6 +71741,173 @@ class TarReadSettingsResponse(dict):
 
 
 @pulumi.output_type
+class TeamDeskLinkedServiceResponse(dict):
+    """
+    Linked service for TeamDesk.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamDeskLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamDeskLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamDeskLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: str,
+                 type: str,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 api_token: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
+        """
+        Linked service for TeamDesk.
+        :param str authentication_type: The authentication type to use.
+        :param str type: Type of linked service.
+               Expected value is 'TeamDesk'.
+        :param Any url: The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the TeamDesk source.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the TeamDesk source.
+        :param Any user_name: The username of the TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "type", 'TeamDesk')
+        pulumi.set(__self__, "url", url)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'TeamDesk'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[Any]:
+        """
+        The api token for the TeamDesk source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        The password of the TeamDesk source.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The username of the TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
 class TeradataLinkedServiceResponse(dict):
     """
     Linked service for Teradata data source.
@@ -75745,6 +76159,173 @@ class XmlSourceResponse(dict):
         Xml store settings.
         """
         return pulumi.get(self, "store_settings")
+
+
+@pulumi.output_type
+class ZendeskLinkedServiceResponse(dict):
+    """
+    Linked service for Zendesk.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ZendeskLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ZendeskLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ZendeskLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: str,
+                 type: str,
+                 url: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 api_token: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 user_name: Optional[Any] = None):
+        """
+        Linked service for Zendesk.
+        :param str authentication_type: The authentication type to use.
+        :param str type: Type of linked service.
+               Expected value is 'Zendesk'.
+        :param Any url: The url to connect Zendesk source. Type: string (or Expression with resultType string).
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Zendesk source.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Zendesk source.
+        :param Any user_name: The username of the Zendesk source. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "type", 'Zendesk')
+        pulumi.set(__self__, "url", url)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Zendesk'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect Zendesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[Any]:
+        """
+        The api token for the Zendesk source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        The password of the Zendesk source.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The username of the Zendesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type

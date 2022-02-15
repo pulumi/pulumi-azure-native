@@ -650,6 +650,16 @@ export const SybaseAuthenticationType = {
  */
 export type SybaseAuthenticationType = (typeof SybaseAuthenticationType)[keyof typeof SybaseAuthenticationType];
 
+export const TeamDeskAuthenticationType = {
+    Basic: "Basic",
+    Token: "Token",
+} as const;
+
+/**
+ * The authentication type to use.
+ */
+export type TeamDeskAuthenticationType = (typeof TeamDeskAuthenticationType)[keyof typeof TeamDeskAuthenticationType];
+
 export const TeradataAuthenticationType = {
     Basic: "Basic",
     Windows: "Windows",
@@ -713,3 +723,13 @@ export const WebHookActivityMethod = {
  * Rest API method for target endpoint.
  */
 export type WebHookActivityMethod = (typeof WebHookActivityMethod)[keyof typeof WebHookActivityMethod];
+
+export const ZendeskAuthenticationType = {
+    Basic: "Basic",
+    Token: "Token",
+} as const;
+
+/**
+ * The authentication type to use.
+ */
+export type ZendeskAuthenticationType = (typeof ZendeskAuthenticationType)[keyof typeof ZendeskAuthenticationType];

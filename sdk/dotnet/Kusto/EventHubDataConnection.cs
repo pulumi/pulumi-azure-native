@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:EventHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

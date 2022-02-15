@@ -399,6 +399,7 @@ __all__ = [
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
     'QuickBooksSourceArgs',
+    'QuickbaseLinkedServiceArgs',
     'RecurrenceScheduleOccurrenceArgs',
     'RecurrenceScheduleArgs',
     'RedirectIncompatibleRowSettingsArgs',
@@ -478,6 +479,7 @@ __all__ = [
     'ShopifyObjectDatasetArgs',
     'ShopifySourceArgs',
     'SkipErrorFileArgs',
+    'SmartsheetLinkedServiceArgs',
     'SnowflakeDatasetArgs',
     'SnowflakeExportCopyCommandArgs',
     'SnowflakeImportCopyCommandArgs',
@@ -515,6 +517,7 @@ __all__ = [
     'TabularSourceArgs',
     'TarGZipReadSettingsArgs',
     'TarReadSettingsArgs',
+    'TeamDeskLinkedServiceArgs',
     'TeradataLinkedServiceArgs',
     'TeradataPartitionSettingsArgs',
     'TeradataSourceArgs',
@@ -550,6 +553,7 @@ __all__ = [
     'XmlDatasetArgs',
     'XmlReadSettingsArgs',
     'XmlSourceArgs',
+    'ZendeskLinkedServiceArgs',
     'ZipDeflateReadSettingsArgs',
     'ZohoLinkedServiceArgs',
     'ZohoObjectDatasetArgs',
@@ -57235,6 +57239,141 @@ class QuickBooksSourceArgs:
 
 
 @pulumi.input_type
+class QuickbaseLinkedServiceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 url: Any,
+                 user_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+        """
+        Linked service for Quickbase.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'Quickbase'.
+        :param Any url: The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] user_token: The user token for the Quickbase source.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "type", 'Quickbase')
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "user_token", user_token)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'Quickbase'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect Quickbase source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Any):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="userToken")
+    def user_token(self) -> pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]:
+        """
+        The user token for the Quickbase source.
+        """
+        return pulumi.get(self, "user_token")
+
+    @user_token.setter
+    def user_token(self, value: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]):
+        pulumi.set(self, "user_token", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[Any]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class RecurrenceScheduleOccurrenceArgs:
     def __init__(__self__, *,
                  day: Optional[pulumi.Input['DayOfWeek']] = None,
@@ -68083,6 +68222,126 @@ class SkipErrorFileArgs:
 
 
 @pulumi.input_type
+class SmartsheetLinkedServiceArgs:
+    def __init__(__self__, *,
+                 api_token: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+        """
+        Linked service for Smartsheet.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] api_token: The api token for the Smartsheet source.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'Smartsheet'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "type", 'Smartsheet')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]:
+        """
+        The api token for the Smartsheet source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @api_token.setter
+    def api_token(self, value: pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]):
+        pulumi.set(self, "api_token", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'Smartsheet'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[Any]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class SnowflakeDatasetArgs:
     def __init__(__self__, *,
                  linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
@@ -73478,6 +73737,189 @@ class TarReadSettingsArgs:
 
 
 @pulumi.input_type
+class TeamDeskLinkedServiceArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[Union[str, 'TeamDeskAuthenticationType']],
+                 type: pulumi.Input[str],
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 api_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 user_name: Optional[Any] = None):
+        """
+        Linked service for TeamDesk.
+        :param pulumi.Input[Union[str, 'TeamDeskAuthenticationType']] authentication_type: The authentication type to use.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'TeamDesk'.
+        :param Any url: The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] api_token: The api token for the TeamDesk source.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password of the TeamDesk source.
+        :param Any user_name: The username of the TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "type", 'TeamDesk')
+        pulumi.set(__self__, "url", url)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[Union[str, 'TeamDeskAuthenticationType']]:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[Union[str, 'TeamDeskAuthenticationType']]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'TeamDesk'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Any):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The api token for the TeamDesk source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @api_token.setter
+    def api_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "api_token", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[Any]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The password of the TeamDesk source.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The username of the TeamDesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
 class TeradataLinkedServiceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -77840,6 +78282,189 @@ class XmlSourceArgs:
     @store_settings.setter
     def store_settings(self, value: Optional[pulumi.Input[Union['AmazonS3CompatibleReadSettingsArgs', 'AmazonS3ReadSettingsArgs', 'AzureBlobFSReadSettingsArgs', 'AzureBlobStorageReadSettingsArgs', 'AzureDataLakeStoreReadSettingsArgs', 'AzureFileStorageReadSettingsArgs', 'FileServerReadSettingsArgs', 'FtpReadSettingsArgs', 'GoogleCloudStorageReadSettingsArgs', 'HdfsReadSettingsArgs', 'HttpReadSettingsArgs', 'OracleCloudStorageReadSettingsArgs', 'SftpReadSettingsArgs']]]):
         pulumi.set(self, "store_settings", value)
+
+
+@pulumi.input_type
+class ZendeskLinkedServiceArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[Union[str, 'ZendeskAuthenticationType']],
+                 type: pulumi.Input[str],
+                 url: Any,
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 api_token: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 user_name: Optional[Any] = None):
+        """
+        Linked service for Zendesk.
+        :param pulumi.Input[Union[str, 'ZendeskAuthenticationType']] authentication_type: The authentication type to use.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'Zendesk'.
+        :param Any url: The url to connect Zendesk source. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] api_token: The api token for the Zendesk source.
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password of the Zendesk source.
+        :param Any user_name: The username of the Zendesk source. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "type", 'Zendesk')
+        pulumi.set(__self__, "url", url)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if api_token is not None:
+            pulumi.set(__self__, "api_token", api_token)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[Union[str, 'ZendeskAuthenticationType']]:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[Union[str, 'ZendeskAuthenticationType']]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'Zendesk'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Any:
+        """
+        The url to connect Zendesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Any):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The api token for the Zendesk source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @api_token.setter
+    def api_token(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "api_token", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[Any]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        The password of the Zendesk source.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        The username of the Zendesk source. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.input_type

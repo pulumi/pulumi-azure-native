@@ -88,6 +88,9 @@ func NewReadOnlyFollowingDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:kusto/v20220201:ReadOnlyFollowingDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReadOnlyFollowingDatabase

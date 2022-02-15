@@ -46,6 +46,9 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:Service"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20211115preview:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

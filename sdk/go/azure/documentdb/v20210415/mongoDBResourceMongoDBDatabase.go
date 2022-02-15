@@ -107,6 +107,9 @@ func NewMongoDBResourceMongoDBDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20211115preview:MongoDBResourceMongoDBDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoDBDatabase

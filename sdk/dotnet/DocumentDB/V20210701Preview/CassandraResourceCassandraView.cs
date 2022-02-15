@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:documentdb:CassandraResourceCassandraView"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

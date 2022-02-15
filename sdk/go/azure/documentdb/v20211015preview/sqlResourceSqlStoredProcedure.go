@@ -99,6 +99,9 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20211115preview:SqlResourceSqlStoredProcedure"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SqlResourceSqlStoredProcedure

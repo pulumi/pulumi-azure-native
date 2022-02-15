@@ -142,7 +142,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:IotHubDataConnection" }, { type: "azure-native:kusto/v20190121:IotHubDataConnection" }, { type: "azure-native:kusto/v20190907:IotHubDataConnection" }, { type: "azure-native:kusto/v20191109:IotHubDataConnection" }, { type: "azure-native:kusto/v20200215:IotHubDataConnection" }, { type: "azure-native:kusto/v20200614:IotHubDataConnection" }, { type: "azure-native:kusto/v20200918:IotHubDataConnection" }, { type: "azure-native:kusto/v20210101:IotHubDataConnection" }, { type: "azure-native:kusto/v20210827:IotHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:IotHubDataConnection" }, { type: "azure-native:kusto/v20190121:IotHubDataConnection" }, { type: "azure-native:kusto/v20190907:IotHubDataConnection" }, { type: "azure-native:kusto/v20191109:IotHubDataConnection" }, { type: "azure-native:kusto/v20200215:IotHubDataConnection" }, { type: "azure-native:kusto/v20200614:IotHubDataConnection" }, { type: "azure-native:kusto/v20200918:IotHubDataConnection" }, { type: "azure-native:kusto/v20210101:IotHubDataConnection" }, { type: "azure-native:kusto/v20210827:IotHubDataConnection" }, { type: "azure-native:kusto/v20220201:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }

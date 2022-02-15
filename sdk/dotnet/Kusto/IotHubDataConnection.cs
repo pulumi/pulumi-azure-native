@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Kusto
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:IotHubDataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

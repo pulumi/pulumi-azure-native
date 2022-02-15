@@ -19625,6 +19625,48 @@ type QuickBooksSourceResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Linked service for Quickbase.
+type QuickbaseLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Quickbase'.
+	Type string `pulumi:"type"`
+	// The url to connect Quickbase source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The user token for the Quickbase source.
+	UserToken interface{} `pulumi:"userToken"`
+}
+
+// Linked service for Quickbase.
+type QuickbaseLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Quickbase'.
+	Type string `pulumi:"type"`
+	// The url to connect Quickbase source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The user token for the Quickbase source.
+	UserToken interface{} `pulumi:"userToken"`
+}
+
 // The recurrence schedule.
 type RecurrenceSchedule struct {
 	// The hours.
@@ -23058,6 +23100,44 @@ type SkipErrorFileResponse struct {
 	FileMissing interface{} `pulumi:"fileMissing"`
 }
 
+// Linked service for Smartsheet.
+type SmartsheetLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Smartsheet source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Smartsheet'.
+	Type string `pulumi:"type"`
+}
+
+// Linked service for Smartsheet.
+type SmartsheetLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Smartsheet source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Smartsheet'.
+	Type string `pulumi:"type"`
+}
+
 // The snowflake dataset.
 type SnowflakeDataset struct {
 	// List of tags that can be used for describing the Dataset.
@@ -24816,6 +24896,60 @@ type TarReadSettingsResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Linked service for TeamDesk.
+type TeamDeskLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the TeamDesk source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The authentication type to use.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The password of the TeamDesk source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'TeamDesk'.
+	Type string `pulumi:"type"`
+	// The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The username of the TeamDesk source. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
+}
+
+// Linked service for TeamDesk.
+type TeamDeskLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the TeamDesk source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The authentication type to use.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// The password of the TeamDesk source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'TeamDesk'.
+	Type string `pulumi:"type"`
+	// The url to connect TeamDesk source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The username of the TeamDesk source. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
+}
+
 // Linked service for Teradata data source.
 type TeradataLinkedService struct {
 	// List of tags that can be used for describing the linked service.
@@ -26452,6 +26586,60 @@ type XmlSourceResponse struct {
 	// Copy source type.
 	// Expected value is 'XmlSource'.
 	Type string `pulumi:"type"`
+}
+
+// Linked service for Zendesk.
+type ZendeskLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Zendesk source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The authentication type to use.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The password of the Zendesk source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'Zendesk'.
+	Type string `pulumi:"type"`
+	// The url to connect Zendesk source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The username of the Zendesk source. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
+}
+
+// Linked service for Zendesk.
+type ZendeskLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Zendesk source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The authentication type to use.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// The password of the Zendesk source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'Zendesk'.
+	Type string `pulumi:"type"`
+	// The url to connect Zendesk source. Type: string (or Expression with resultType string).
+	Url interface{} `pulumi:"url"`
+	// The username of the Zendesk source. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
 }
 
 // The ZipDeflate compression read settings.

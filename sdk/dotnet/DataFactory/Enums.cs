@@ -1845,6 +1845,37 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// The authentication type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct TeamDeskAuthenticationType : IEquatable<TeamDeskAuthenticationType>
+    {
+        private readonly string _value;
+
+        private TeamDeskAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TeamDeskAuthenticationType Basic { get; } = new TeamDeskAuthenticationType("Basic");
+        public static TeamDeskAuthenticationType Token { get; } = new TeamDeskAuthenticationType("Token");
+
+        public static bool operator ==(TeamDeskAuthenticationType left, TeamDeskAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(TeamDeskAuthenticationType left, TeamDeskAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(TeamDeskAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TeamDeskAuthenticationType other && Equals(other);
+        public bool Equals(TeamDeskAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// AuthenticationType to be used for connection.
     /// </summary>
     [EnumType]
@@ -2027,6 +2058,37 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebHookActivityMethod other && Equals(other);
         public bool Equals(WebHookActivityMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ZendeskAuthenticationType : IEquatable<ZendeskAuthenticationType>
+    {
+        private readonly string _value;
+
+        private ZendeskAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZendeskAuthenticationType Basic { get; } = new ZendeskAuthenticationType("Basic");
+        public static ZendeskAuthenticationType Token { get; } = new ZendeskAuthenticationType("Token");
+
+        public static bool operator ==(ZendeskAuthenticationType left, ZendeskAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(ZendeskAuthenticationType left, ZendeskAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(ZendeskAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZendeskAuthenticationType other && Equals(other);
+        public bool Equals(ZendeskAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

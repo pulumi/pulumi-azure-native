@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Kusto
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

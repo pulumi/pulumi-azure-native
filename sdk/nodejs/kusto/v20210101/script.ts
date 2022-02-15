@@ -112,7 +112,7 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:Script" }, { type: "azure-native:kusto/v20210827:Script" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:Script" }, { type: "azure-native:kusto/v20210827:Script" }, { type: "azure-native:kusto/v20220201:Script" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Script.__pulumiType, name, resourceInputs, opts);
     }

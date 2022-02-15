@@ -265,6 +265,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210415
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:DatabaseAccount"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:DatabaseAccount"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:DatabaseAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

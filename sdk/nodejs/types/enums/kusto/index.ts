@@ -13,6 +13,7 @@ import * as v20200614 from "./v20200614";
 import * as v20200918 from "./v20200918";
 import * as v20210101 from "./v20210101";
 import * as v20210827 from "./v20210827";
+import * as v20220201 from "./v20220201";
 
 export {
     v20170907privatepreview,
@@ -26,6 +27,7 @@ export {
     v20200918,
     v20210101,
     v20210827,
+    v20220201,
 };
 
 export const AzureSkuName = {

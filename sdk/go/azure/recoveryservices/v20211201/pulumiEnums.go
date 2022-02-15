@@ -172,6 +172,14 @@ const (
 	IAASVMPolicyTypeV2      = IAASVMPolicyType("V2")
 )
 
+// Enabling/Disabling the Double Encryption state
+type InfrastructureEncryptionState string
+
+const (
+	InfrastructureEncryptionStateEnabled  = InfrastructureEncryptionState("Enabled")
+	InfrastructureEncryptionStateDisabled = InfrastructureEncryptionState("Disabled")
+)
+
 // Last backup operation status. Possible values: Healthy, Unhealthy.
 type LastBackupStatus string
 
@@ -363,6 +371,16 @@ const (
 	ResourceHealthStatusInvalid             = ResourceHealthStatus("Invalid")
 )
 
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ResourceIdentityTypeUserAssigned                 = ResourceIdentityType("UserAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
+)
+
 // Retention duration type of retention policy.
 type RetentionDurationType string
 
@@ -399,6 +417,14 @@ type SetMultiVmSyncStatus string
 const (
 	SetMultiVmSyncStatusEnable  = SetMultiVmSyncStatus("Enable")
 	SetMultiVmSyncStatusDisable = SetMultiVmSyncStatus("Disable")
+)
+
+// The Sku name.
+type SkuName string
+
+const (
+	SkuNameStandard = SkuName("Standard")
+	SkuNameRS0      = SkuName("RS0")
 )
 
 // The SQL Server license type.

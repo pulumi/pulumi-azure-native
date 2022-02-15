@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:DataConnection"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -122,7 +122,7 @@ export class ClusterPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210101:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210827:ClusterPrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20191109:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200215:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20200614:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210101:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20210827:ClusterPrincipalAssignment" }, { type: "azure-native:kusto/v20220201:ClusterPrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

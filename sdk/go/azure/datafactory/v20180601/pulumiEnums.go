@@ -535,6 +535,14 @@ const (
 	SybaseAuthenticationTypeWindows = SybaseAuthenticationType("Windows")
 )
 
+// The authentication type to use.
+type TeamDeskAuthenticationType string
+
+const (
+	TeamDeskAuthenticationTypeBasic = TeamDeskAuthenticationType("Basic")
+	TeamDeskAuthenticationTypeToken = TeamDeskAuthenticationType("Token")
+)
+
 // AuthenticationType to be used for connection.
 type TeradataAuthenticationType string
 
@@ -585,6 +593,14 @@ type WebHookActivityMethod string
 
 const (
 	WebHookActivityMethodPOST = WebHookActivityMethod("POST")
+)
+
+// The authentication type to use.
+type ZendeskAuthenticationType string
+
+const (
+	ZendeskAuthenticationTypeBasic = ZendeskAuthenticationType("Basic")
+	ZendeskAuthenticationTypeToken = ZendeskAuthenticationType("Token")
 )
 
 func init() {

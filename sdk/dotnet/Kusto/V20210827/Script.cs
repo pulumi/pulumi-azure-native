@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                 {
                     new Pulumi.Alias { Type = "azure-native:kusto:Script"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:Script"},
+                    new Pulumi.Alias { Type = "azure-native:kusto/v20220201:Script"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
