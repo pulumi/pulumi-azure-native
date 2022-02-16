@@ -481,6 +481,7 @@ class SupportedCloudEnum(str, Enum):
     Relevant cloud for the custom assessment automation.
     """
     AWS = "AWS"
+    GCP = "GCP"
 
 
 class Threats(str, Enum):

@@ -44,6 +44,7 @@ type SupportedCloudEnum string
 
 const (
 	SupportedCloudEnumAWS = SupportedCloudEnum("AWS")
+	SupportedCloudEnumGCP = SupportedCloudEnum("GCP")
 )
 
 func init() {

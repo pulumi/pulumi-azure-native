@@ -48,6 +48,7 @@ export type SeverityEnum = (typeof SeverityEnum)[keyof typeof SeverityEnum];
 
 export const SupportedCloudEnum = {
     AWS: "AWS",
+    GCP: "GCP",
 } as const;
 
 /**

@@ -36,6 +36,10 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
@@ -72,8 +76,10 @@ export class PatchSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scheduleEntries"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Cache.V20201201
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Cache.V20201201
         private GetPatchScheduleResult(
             string id,
 
+            string location,
+
             string name,
 
             ImmutableArray<Outputs.ScheduleEntryResponse> scheduleEntries,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNative.Cache.V20201201
             string type)
         {
             Id = id;
+            Location = location;
             Name = name;
             ScheduleEntries = scheduleEntries;
             Type = type;

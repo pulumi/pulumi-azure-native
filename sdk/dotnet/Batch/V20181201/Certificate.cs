@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Batch.V20181201
                     new Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210601:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

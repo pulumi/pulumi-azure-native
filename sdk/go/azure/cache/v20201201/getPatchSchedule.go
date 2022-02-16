@@ -33,6 +33,8 @@ type LookupPatchScheduleArgs struct {
 type LookupPatchScheduleResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
@@ -81,6 +83,11 @@ func (o LookupPatchScheduleResultOutput) ToLookupPatchScheduleResultOutputWithCo
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupPatchScheduleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LookupPatchScheduleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchScheduleResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // The name of the resource

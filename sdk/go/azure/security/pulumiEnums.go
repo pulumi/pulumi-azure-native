@@ -346,6 +346,7 @@ type SupportedCloudEnum string
 
 const (
 	SupportedCloudEnumAWS = SupportedCloudEnum("AWS")
+	SupportedCloudEnumGCP = SupportedCloudEnum("GCP")
 )
 
 // Threats impact of the assessment

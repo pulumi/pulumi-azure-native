@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.Batch.V20210101
                     new Pulumi.Alias { Type = "azure-native:batch/v20200501:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20200901:BatchAccount"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210601:BatchAccount"},
+                    new Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

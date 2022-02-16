@@ -25,6 +25,8 @@ if typing.TYPE_CHECKING:
     analysisservices = __analysisservices
     import pulumi_azure_native.apimanagement as __apimanagement
     apimanagement = __apimanagement
+    import pulumi_azure_native.app as __app
+    app = __app
     import pulumi_azure_native.appconfiguration as __appconfiguration
     appconfiguration = __appconfiguration
     import pulumi_azure_native.appplatform as __appplatform
@@ -374,6 +376,7 @@ else:
     alertsmanagement = _utilities.lazy_import('pulumi_azure_native.alertsmanagement')
     analysisservices = _utilities.lazy_import('pulumi_azure_native.analysisservices')
     apimanagement = _utilities.lazy_import('pulumi_azure_native.apimanagement')
+    app = _utilities.lazy_import('pulumi_azure_native.app')
     appconfiguration = _utilities.lazy_import('pulumi_azure_native.appconfiguration')
     appplatform = _utilities.lazy_import('pulumi_azure_native.appplatform')
     attestation = _utilities.lazy_import('pulumi_azure_native.attestation')
@@ -1458,6 +1461,34 @@ _utilities.register(
    "azure-native:apimanagement/v20210801:TagByOperation": "TagByOperation",
    "azure-native:apimanagement/v20210801:TagByProduct": "TagByProduct",
    "azure-native:apimanagement/v20210801:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "app",
+  "fqn": "pulumi_azure_native.app",
+  "classes": {
+   "azure-native:app:Certificate": "Certificate",
+   "azure-native:app:ContainerApp": "ContainerApp",
+   "azure-native:app:ContainerAppsAuthConfig": "ContainerAppsAuthConfig",
+   "azure-native:app:ContainerAppsSourceControl": "ContainerAppsSourceControl",
+   "azure-native:app:DaprComponent": "DaprComponent",
+   "azure-native:app:ManagedEnvironment": "ManagedEnvironment",
+   "azure-native:app:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "app/v20220101preview",
+  "fqn": "pulumi_azure_native.app.v20220101preview",
+  "classes": {
+   "azure-native:app/v20220101preview:Certificate": "Certificate",
+   "azure-native:app/v20220101preview:ContainerApp": "ContainerApp",
+   "azure-native:app/v20220101preview:ContainerAppsAuthConfig": "ContainerAppsAuthConfig",
+   "azure-native:app/v20220101preview:ContainerAppsSourceControl": "ContainerAppsSourceControl",
+   "azure-native:app/v20220101preview:DaprComponent": "DaprComponent",
+   "azure-native:app/v20220101preview:ManagedEnvironment": "ManagedEnvironment",
+   "azure-native:app/v20220101preview:ManagedEnvironmentsStorage": "ManagedEnvironmentsStorage"
   }
  },
  {
@@ -2646,6 +2677,18 @@ _utilities.register(
    "azure-native:batch/v20210601:BatchAccount": "BatchAccount",
    "azure-native:batch/v20210601:Certificate": "Certificate",
    "azure-native:batch/v20210601:Pool": "Pool"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "batch/v20220101",
+  "fqn": "pulumi_azure_native.batch.v20220101",
+  "classes": {
+   "azure-native:batch/v20220101:Application": "Application",
+   "azure-native:batch/v20220101:ApplicationPackage": "ApplicationPackage",
+   "azure-native:batch/v20220101:BatchAccount": "BatchAccount",
+   "azure-native:batch/v20220101:Certificate": "Certificate",
+   "azure-native:batch/v20220101:Pool": "Pool"
   }
  },
  {
@@ -15826,6 +15869,19 @@ _utilities.register(
    "azure-native:servicefabric/v20211101preview:ManagedCluster": "ManagedCluster",
    "azure-native:servicefabric/v20211101preview:NodeType": "NodeType",
    "azure-native:servicefabric/v20211101preview:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20220101",
+  "fqn": "pulumi_azure_native.servicefabric.v20220101",
+  "classes": {
+   "azure-native:servicefabric/v20220101:Application": "Application",
+   "azure-native:servicefabric/v20220101:ApplicationType": "ApplicationType",
+   "azure-native:servicefabric/v20220101:ApplicationTypeVersion": "ApplicationTypeVersion",
+   "azure-native:servicefabric/v20220101:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20220101:NodeType": "NodeType",
+   "azure-native:servicefabric/v20220101:Service": "Service"
   }
  },
  {

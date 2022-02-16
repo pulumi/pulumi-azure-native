@@ -15,6 +15,8 @@ import (
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of patch schedules for a Redis cache.

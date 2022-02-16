@@ -518,6 +518,7 @@ export type StatusReason = (typeof StatusReason)[keyof typeof StatusReason];
 
 export const SupportedCloudEnum = {
     AWS: "AWS",
+    GCP: "GCP",
 } as const;
 
 /**

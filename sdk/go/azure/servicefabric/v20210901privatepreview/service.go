@@ -58,6 +58,9 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20211101preview:Service"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20220101:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

@@ -55,6 +55,9 @@ func NewApplicationType(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20211101preview:ApplicationType"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20220101:ApplicationType"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationType

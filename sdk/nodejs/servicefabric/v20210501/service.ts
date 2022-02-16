@@ -99,7 +99,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Service" }, { type: "azure-native:servicefabric/v20210701preview:Service" }, { type: "azure-native:servicefabric/v20210901privatepreview:Service" }, { type: "azure-native:servicefabric/v20211101preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Service" }, { type: "azure-native:servicefabric/v20210701preview:Service" }, { type: "azure-native:servicefabric/v20210901privatepreview:Service" }, { type: "azure-native:servicefabric/v20211101preview:Service" }, { type: "azure-native:servicefabric/v20220101:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

@@ -63,6 +63,9 @@ func NewApplicationTypeVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20210901privatepreview:ApplicationTypeVersion"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicefabric/v20220101:ApplicationTypeVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationTypeVersion

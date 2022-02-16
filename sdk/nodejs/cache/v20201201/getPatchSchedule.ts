@@ -45,6 +45,10 @@ export interface GetPatchScheduleResult {
      */
     readonly id: string;
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

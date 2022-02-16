@@ -79,6 +79,9 @@ func NewApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:batch/v20210101:Application"),
 		},
+		{
+			Type: pulumi.String("azure-native:batch/v20220101:Application"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Application

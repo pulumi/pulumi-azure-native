@@ -1145,6 +1145,7 @@ namespace Pulumi.AzureNative.Security
         }
 
         public static SupportedCloudEnum AWS { get; } = new SupportedCloudEnum("AWS");
+        public static SupportedCloudEnum GCP { get; } = new SupportedCloudEnum("GCP");
 
         public static bool operator ==(SupportedCloudEnum left, SupportedCloudEnum right) => left.Equals(right);
         public static bool operator !=(SupportedCloudEnum left, SupportedCloudEnum right) => !left.Equals(right);

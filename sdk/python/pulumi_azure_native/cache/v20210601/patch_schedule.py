@@ -152,6 +152,7 @@ class PatchSchedule(pulumi.CustomResource):
             if schedule_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_entries'")
             __props__.__dict__["schedule_entries"] = schedule_entries
+            __props__.__dict__["location"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20201201:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -177,10 +178,19 @@ class PatchSchedule(pulumi.CustomResource):
 
         __props__ = PatchScheduleArgs.__new__(PatchScheduleArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedule_entries"] = None
         __props__.__dict__["type"] = None
         return PatchSchedule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

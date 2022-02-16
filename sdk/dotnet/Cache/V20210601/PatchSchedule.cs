@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Cache.V20210601
     public partial class PatchSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

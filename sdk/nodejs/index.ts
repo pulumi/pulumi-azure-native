@@ -16,6 +16,7 @@ import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apimanagement from "./apimanagement";
+import * as app from "./app";
 import * as appconfiguration from "./appconfiguration";
 import * as appplatform from "./appplatform";
 import * as attestation from "./attestation";
@@ -197,6 +198,7 @@ export {
     alertsmanagement,
     analysisservices,
     apimanagement,
+    app,
     appconfiguration,
     appplatform,
     attestation,
