@@ -126,6 +126,22 @@ func TestTimeSeriesTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestPublicIpUpdateTs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:         filepath.Join(getCwd(t), "public-ip-update"),
+			SkipRefresh: true,
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
