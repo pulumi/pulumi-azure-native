@@ -5,12 +5,13 @@ package openapi
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
 // versioner checks whether the given combination of a provider, a resource path, and a versions
@@ -162,6 +163,7 @@ var cutoffProviderVersions = map[string]string{
 	"signalrservice":                "v20210401preview",
 	"solutions":                     "v20190701",
 	"sql":                           "v20201101preview",
+	"sqlvirtualmachine":             "v20170301preview",
 	"streamanalytics":               "v20160301",
 	"storage":                       "v20210201",
 	"storagecache":                  "v20210301",
