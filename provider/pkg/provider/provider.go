@@ -14,6 +14,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -181,10 +182,10 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 		objectId := ""
 		if auth.GetAuthenticatedObjectID != nil {
-		  objectId, err = auth.GetAuthenticatedObjectID(ctx)
-		  if err != nil {
-			  return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-		  }
+			objectId, err = auth.GetAuthenticatedObjectID(ctx)
+			if err != nil {
+				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
+			}
 		}
 		outputs = map[string]interface{}{
 			"clientId":       auth.ClientID,
@@ -734,7 +735,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 			_, hasOldInput := oldInputs[key]
 			newInputValue, hasNewInput := newResInputs[key]
 			outputValue, hasOutput := oldState[key]
-			if !hasOldInput && hasNewInput && hasOutput && newInputValue == outputValue {
+			if !hasOldInput && hasNewInput && hasOutput && reflect.DeepEqual(newInputValue, outputValue) {
 				v.Kind = rpc.PropertyDiff_ADD
 			} else {
 				replaces = append(replaces, k)
