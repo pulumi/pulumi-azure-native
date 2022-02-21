@@ -505,6 +505,7 @@ github.com/mgutz/ansi v0.0.0-20170206155736-9520e82c474b/go.mod h1:01TrycV0kFyex
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db h1:62I3jR2EmQ4l5rM/4FEfDWcRD+abF5XlKShorW5LRoQ=
 github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db/go.mod h1:l0dey0ia/Uv7NcFFVbCLtqEBQbrT4OCwCSKTEv6enCw=
+github.com/mitchellh/copystructure v1.0.0 h1:Laisrj+bAB6b/yJwB5Bt3ITZhGJdqmxquMKeZ+mmkFQ=
 github.com/mitchellh/copystructure v1.0.0/go.mod h1:SNtv71yrdKgLRyLFxmLdkAbkKEFWgYaq1OVrnRcwhnw=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
 github.com/mitchellh/go-homedir v1.1.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
@@ -520,6 +521,7 @@ github.com/mitchellh/mapstructure v1.3.2/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RR
 github.com/mitchellh/mapstructure v1.3.3/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
 github.com/mitchellh/mapstructure v1.4.1 h1:CpVNEelQCZBooIPDn+AR3NpivK/TIKU8bDxdASFVQag=
 github.com/mitchellh/mapstructure v1.4.1/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
+github.com/mitchellh/reflectwalk v1.0.0 h1:9D+8oIskB4VJBN5SFlmc27fSlIBZaov1Wpk/IfikLNY=
 github.com/mitchellh/reflectwalk v1.0.0/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421/go.mod h1:6dJC0mAP4ikYIbvyc7fijjWJddQyLn8Ig3JB5CqoB9Q=
 github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd h1:TRLaZ9cD/w8PVh93nsPXa1VrQ6jlwL5oN8l14QlcNfg=
@@ -591,13 +593,8 @@ github.com/prometheus/procfs v0.0.0-20190507164030-5867b95ac084/go.mod h1:TjEm7z
 github.com/prometheus/procfs v0.0.2/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsTZCD3I8kEA=
 github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+GxbHq6oeK9A=
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
-github.com/pulumi/pulumi/pkg/v3 v3.23.2 h1:QeaCXhMLX6pAdZzXfNnTQTmtQdROqAj56vboHDzr3JE=
-github.com/pulumi/pulumi/pkg/v3 v3.23.2/go.mod h1:yo+15Oh7E+0Xtgk3C4jOMugldRGUTktkRRYmoa0Ib2U=
 github.com/pulumi/pulumi/pkg/v3 v3.24.1 h1:5Jqu/eR4P8O0ST7ZA9VqxX7Vq23g5y3dp2K0Egiy8w0=
 github.com/pulumi/pulumi/pkg/v3 v3.24.1/go.mod h1:3MYj+8Rmv0mWYWXEQ6z8TeoRxS7vnqow9o/c/tp6IHI=
-github.com/pulumi/pulumi/sdk/v3 v3.23.2 h1:m/YfyUsoeRFyHXDm2HtJhK+tBV58nrdmWsAkNQimRU4=
-github.com/pulumi/pulumi/sdk/v3 v3.23.2/go.mod h1:WHOQB00iuHZyXhwrymxpKXhpOahSguJIpRjVokmM11w=
-github.com/pulumi/pulumi/sdk/v3 v3.24.0 h1:jXJQqSd4fJeB/XGGBMb9Rt6CrsT5T3/XMk67fH04v+s=
 github.com/pulumi/pulumi/sdk/v3 v3.24.0/go.mod h1:WHOQB00iuHZyXhwrymxpKXhpOahSguJIpRjVokmM11w=
 github.com/pulumi/pulumi/sdk/v3 v3.24.1 h1:Ywaih9y/zBfS8s4w6BtcsBF/rHQpGbbZ82oXwEVUfVI=
 github.com/pulumi/pulumi/sdk/v3 v3.24.1/go.mod h1:WHOQB00iuHZyXhwrymxpKXhpOahSguJIpRjVokmM11w=
