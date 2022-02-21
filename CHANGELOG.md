@@ -2,7 +2,10 @@
 
 ## HEAD (Unreleased)
 
+## 1.59.0 (2022-02-22)
+
 - Fix Diff panic when value is a map [#1515](https://github.com/pulumi/pulumi-azure-native/issues/1515)
+- Fix ignores of schema and metadata go files [#1526](https://github.com/pulumi/pulumi-azure-native/issues/1513)
 
 ## 1.58.0 (2022-02-14)
 - Fix go module size issue introduced in v1.57.0 (https://github.com/pulumi/pulumi-azure-native/issues/1502)
