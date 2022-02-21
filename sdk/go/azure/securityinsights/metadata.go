@@ -79,6 +79,9 @@ func NewMetadata(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20210901preview:Metadata"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20211001preview:Metadata"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Metadata
