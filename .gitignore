@@ -12,8 +12,8 @@ Pulumi.*.yaml
 yarn.lock
 package-lock.json
 
-**/metadata.go
-**/schema.go
+provider/cmd/**/metadata.go
+provider/cmd/**/schema.go
 **/version.txt
 **/nuget
 **/dist
