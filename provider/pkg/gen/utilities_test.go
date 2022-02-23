@@ -14,7 +14,7 @@ func TestToLowerCamel(t *testing.T) {
 		{"ID", "id"},
 		{"TTL", "ttl"},
 		{"_ref", "ref"},
-		{"5qi", "fiveqi"},
+		{"5qi", "fiveQi"},
 		{"6", "six"},
 	}
 	for _, i := range cases {

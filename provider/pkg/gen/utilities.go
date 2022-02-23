@@ -49,7 +49,11 @@ func ToLowerCamel(s string) string {
 	}
 	r := []rune(s)
 	if prefix, found := commonPrefixReplacements[r[0]]; found {
-		s = prefix + string(r[1:])
+		if len(r) > 1 {
+			s = prefix + strings.ToUpper(string(r[1])) + string(r[2:])
+		} else {
+			s = prefix
+		}
 	}
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
