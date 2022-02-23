@@ -22,6 +22,21 @@ func firstToLower(s string) string {
 	return string(append([]rune{unicode.ToLower(runes[0])}, runes[1:]...))
 }
 
+var commonPrefixReplacements = map[rune]string{
+	'*': "asterisk",
+	'0': "zero",
+	'1': "one",
+	'2': "two",
+	'3': "three",
+	'4': "four",
+	'5': "five",
+	'6': "six",
+	'7': "seven",
+	'8': "eight",
+	'9': "nine",
+	'_': "",
+}
+
 // ToLowerCamel converts a string to lowerCamelCase.
 // The code is adopted from https://github.com/iancoleman/strcase but changed in several ways to handle
 // all the cases that are found in Azure in a most user-friendly way.
@@ -32,11 +47,10 @@ func ToLowerCamel(s string) string {
 	if uppercaseAcronym[s] {
 		s = strings.ToLower(s)
 	}
-	s = strings.TrimLeftFunc(s, func(r rune) bool {
-		isLower := r >= 97 && r <= 122
-		isUpper := r >= 65 && r <= 90
-		return !isLower && !isUpper
-	})
+	r := []rune(s)
+	if prefix, found := commonPrefixReplacements[r[0]]; found {
+		s = prefix + string(r[1:])
+	}
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
 	}
