@@ -32,9 +32,11 @@ func ToLowerCamel(s string) string {
 	if uppercaseAcronym[s] {
 		s = strings.ToLower(s)
 	}
-	if r := rune(s[0]); r == '_' {
-		s = s[1:]
-	}
+	s = strings.TrimLeftFunc(s, func(r rune) bool {
+		isLower := r >= 97 && r <= 122
+		isUpper := r >= 65 && r <= 90
+		return !isLower && !isUpper
+	})
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
 	}
