@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Fix property names starting with numbers [#1528](https://github.com/pulumi/pulumi-azure-native/issues/1528)
+
 ## 1.59.0 (2022-02-22)
 
 - Fix Diff panic when value is a map [#1515](https://github.com/pulumi/pulumi-azure-native/issues/1515)
