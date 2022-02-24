@@ -360,6 +360,7 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 	sort.Strings(previews)
 	sort.Strings(stables)
 	versions := append(previews, stables...)
+	availableVersions := codegen.NewStringSet(versions...)
 
 	pathTypeNames := map[string]string{}
 	latestResources = map[string]*ResourceSpec{}
@@ -390,9 +391,13 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 				}
 			}
 
-			isKnown := c.isKnown(provider, r.Path, version)
+			knownVersions := c.knownVersions(provider, r.Path)
+			isKnown := knownVersions.Has(version)
 			if !isKnown && knownResources.Has(normalizedPath) {
-				continue
+				availableKnown := intersectStringSet(knownVersions, availableVersions)
+				if availableKnown.Any() {
+					continue
+				}
 			}
 			if isKnown {
 				knownResources.Add(normalizedPath)
@@ -411,20 +416,29 @@ func (c *versioner) calculateLatestVersions(provider string, versionMap Provider
 	return latestResources
 }
 
-// isKnown returns true when a given provider, a resource path, and a version exist in the lookup map.
-func (c *versioner) isKnown(provider, path, version string) bool {
+func (c *versioner) knownVersions(provider, path string) codegen.StringSet {
 	providerLookup, ok := c.lookup[strings.ToLower(provider)]
 	if !ok {
-		return false
+		return codegen.NewStringSet()
 	}
 
 	resourceTypes := c.armResourceTypes(path)
 	for _, resourceType := range resourceTypes {
 		if resourceVersions, ok := providerLookup[resourceType]; ok {
-			return resourceVersions.Has(version)
+			return resourceVersions
 		}
 	}
-	return false
+	return codegen.NewStringSet()
+}
+
+func intersectStringSet(ss, other codegen.StringSet) codegen.StringSet {
+	result := codegen.NewStringSet()
+	for v := range ss {
+		if other.Has(v) {
+			result.Add(v)
+		}
+	}
+	return result
 }
 
 // armResourceTypes returns a list of ARM resource type identifiers starting from the most specific one and ending
