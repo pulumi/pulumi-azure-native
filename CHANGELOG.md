@@ -2,7 +2,24 @@
 
 ## HEAD (Unreleased)
 
+## 1.60.0 (2020-02-25)
+
 - Fix property names starting with numbers [#1528](https://github.com/pulumi/pulumi-azure-native/issues/1528)
+
+### New resources
+
+- `azure-native:dashboard:Grafana`
+- `azure-native:extendedlocation:ResourceSyncRule`
+- `azure-native:mobilenetwork:AttachedDataNetwork`
+- `azure-native:mobilenetwork:DataNetwork`
+- `azure-native:mobilenetwork:MobileNetwork`
+- `azure-native:mobilenetwork:PacketCoreControlPlane`
+- `azure-native:mobilenetwork:PacketCoreDataPlane`
+- `azure-native:mobilenetwork:Service`
+- `azure-native:mobilenetwork:Sim`
+- `azure-native:mobilenetwork:SimPolicy`
+- `azure-native:mobilenetwork:Site`
+- `azure-native:mobilenetwork:Slice`
 
 ## 1.59.0 (2022-02-22)
 
@@ -10,9 +27,11 @@
 - Fix ignores of schema and metadata go files [#1526](https://github.com/pulumi/pulumi-azure-native/issues/1513)
 
 ## 1.58.0 (2022-02-14)
+
 - Fix go module size issue introduced in v1.57.0 (https://github.com/pulumi/pulumi-azure-native/issues/1502)
 
 ### New resources:
+
 - `azure-native:azureactivedirectory/v20210401:GuestUsage`
 - `azure-native:containerservice/v20220101:Snapshot`
 - `azure-native:azureactivedirectory/v20210401:B2CTenant`
@@ -22,17 +41,19 @@
 - `azure-native:containerservice/v20220101:AgentPool`
 
 ## 1.57.0 (2022-02-11)
+
 - Multiple updates [#1496](https://github.com/pulumi/pulumi-azure-native/pull/1496):
   - pulumi/pulumi dependency bumped to v3.24.1
   - Updated resource specs. Includes breaking change (see below)
   - Workaround codegen bugs affecting new resource specs
   - Fix tests
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
+
 - Deletion of `v2019-05-01-preview` API for `appplatform`. See [source](https://github.com/Azure/azure-rest-api-specs/pull/17506)
 
+### New resources
 
-#### New resources:
 - `azure-native:netapp:Subvolume`
 - `azure-native:netapp:VolumeGroup`
 - `azure-native:network:DnsForwardingRuleset`
@@ -41,7 +62,7 @@
 - `azure-native:network:InboundEndpoint`
 - `azure-native:network:OutboundEndpoint`
 
-#### New functions:
+### New functions
 
 - `azure-native:hybridnetwork:listVendorSkusCredential`
 - `azure-native:netapp:getSubvolume`
@@ -55,12 +76,11 @@
 - `azure-native:network:listDnsForwardingRulesetByVirtualNetwork`
 - `azure-native:network:listDnsResolverByVirtualNetwork`
 
-
 ---
 
 ## 1.56.0 (2022-02-03)
 
-#### New resources:
+### New resources
 
 - `digitaltwins:TimeSeriesDatabaseConnection`
 
@@ -70,7 +90,7 @@
 
 ## 1.54.0 (2022-01-25)
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `security.Scanner` resource and function removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/17232))
@@ -81,13 +101,13 @@
 
 ## 1.53.0 (2022-01-10)
 
-#### New resources:
+### New resources
 
 - `operationalinsights.Table`
 - `security.Scanner`
 - `storage.LocalUser`
 
-#### New functions:
+### New functions
 
 - `operationalinsights.getTable`
 - `security.getScanner`
@@ -95,13 +115,13 @@
 - `storage.listLocalUserKeys`
 - `web.listContainerAppSecrets`
 
-#### Enhancements:
+### Enhancements
 
 - Input/output based functions API in Go SDK
 
 ## 1.52.0 (2021-12-29)
 
-#### New resources:
+### New resources
 
 - `appplatform.ApiPortal`
 - `appplatform.ApiPortalCustomDomain`
@@ -114,7 +134,7 @@
 - `appplatform.ServiceRegistry`
 - `openenergyplatform.EnergyService`
 
-#### New functions:
+### New functions
 
 - `appplatform.getApiPortal`
 - `appplatform.getApiPortalCustomDomain`
@@ -129,26 +149,26 @@
 - `appplatform.getServiceRegistry`
 - `openenergyplatform.getEnergyService`
 
-#### Bug fixes:
+### Bug fixes
 
 - Fix deletion of `sql.BackupShortTermRetentionPolicy` and `sql.LongTermRetentionPolicy`
   [#1345](https://github.com/pulumi/pulumi-azure-native/issues/1345)
 
 ## 1.51.0 (2021-12-20)
 
-#### New resources:
+### New resources
 
 - `datamigration.SqlMigrationService`
 - `sql.IPv6FirewallRule`
 
-#### New functions:
+### New functions
 
 - `datamigration.getSqlMigrationService`
 - `datamigration.listSqlMigrationServiceAuthKeys`
 - `datamigration.listSqlMigrationServiceMonitoringData`
 - `sql.getIPv6FirewallRule`
 
-#### Enhancements:
+### Enhancements
 
 - Update to `pulumi/pulumi` 3.20.0
 - Go SDK improvements:
@@ -158,17 +178,17 @@
 
 ## 1.50.0 (2021-12-15)
 
-#### New functions:
+### New functions
 
 - `elastic.listUpgradableVersionDetails`
 
-#### Enhancements:
+### Enhancements
 
 - Remove `etag` from resource inputs
   [#1337](https://github.com/pulumi/pulumi-azure-native/issues/1337)
 - Update to `pulumi/pulumi` 3.19.0
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `provisioningState` property removed from a new types in `botservice`: `MsTeamsChannel`, `DirectLineChannel`, `WebChatChannel`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16882))
@@ -177,27 +197,27 @@
 
 ## 1.49.0 (2021-12-06)
 
-#### Bug fixes:
+### Bug fixes
 
 - Fix `web.WebAppSwiftVirtualNetworkConnectionSlot` creation
   [#866](https://github.com/pulumi/pulumi-azure-native/issues/866)
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `documentdb.GraphResourceGetPropertiesResponseResource` removed properties `rid`, `ts`, `etag`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16841))
 
 ## 1.48.0 (2021-11-29)
 
-#### New resources:
+### New resources
 
 - `loadtestservice.LoadTest`
 
-#### New functions:
+### New functions
 
 - `loadtestservice.getLoadTest`
 
-#### Bug fixes:
+### Bug fixes
 
 - Fix `resources.TagAtScope` creation
   [#1253](https://github.com/pulumi/pulumi-azure-native/issues/1253)
@@ -206,7 +226,7 @@
 
 ## 1.47.0 (2021-11-19)
 
-#### CRITICAL Bug fix:
+### CRITICAL Bug fix
 
 - Avoid provider credentials leaking into state.
   [#1309](https://github.com/pulumi/pulumi-azure-native/issues/1309)
@@ -227,14 +247,14 @@
   support a similar mechanism which should significantly limit exposure of the credentials.
   Nonetheless, We sincerely regret the inconvenience this causes.
 
-#### New resources:
+### New resources
 
 - `alertsmanagement.PrometheusRuleGroup`
 - `orbital.Contact`
 - `orbital.ContactProfile`
 - `orbital.Spacecraft`
 
-#### New functions:
+### New functions
 
 - `alertsmanagement.getPrometheusRuleGroup`
 - `orbital.getContact`
@@ -242,21 +262,21 @@
 - `orbital.getSpacecraft`
 - `orbital.listSpacecraftAvailableContacts`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `botservice.BotProperties` replaced `isIsolated` property with `publicNetworkAccess`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16760))
 
 ## 1.46.0 (2021-11-15)
 
-#### Bug fixes:
+### Bug fixes
 
 - Make Deletion of DNS zone more robust
   [#969](https://github.com/pulumi/pulumi-azure-native/issues/969)
 - Fix creation of `sql.ServerAzureADOnlyAuthentication` resource
   [#1042](https://github.com/pulumi/pulumi-azure-native/issues/1042)
 
-#### Enhancements:
+### Enhancements
 
 - Remove aliases from `azure-nextgen` resources. If you need to update from `azure-nextgen`
   versions, please update to 1.45.0 or earlier first, run `pulumi up` successfully, then
@@ -265,23 +285,23 @@
 - Fixed replacement of ServiceBus Topics & Queues
   [#940](https://github.com/pulumi/pulumi-azure-native/issues/940)
 
-#### New resources:
+### New resources
 
 - `apimanagement.Schema`
 - `documentdb.MongoDBResourceMongoRoleDefinition`
 - `documentdb.MongoDBResourceMongoUserDefinition`
 
-#### New functions:
+### New functions
 
 - `apimanagement.getSchema`
 - `documentdb.getMongoDBResourceMongoRoleDefinition`
 - `documentdb.getMongoDBResourceMongoUserDefinition`
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `edgeorder` resources updated from `2020-12-01-preview` to `2020-12-01`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `iotsecurity.LocationSite` and `iotsecurity.SiteSensor` were removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16588))
@@ -292,17 +312,17 @@
 
 ## 1.45.0 (2021-11-05)
 
-#### New resources:
+### New resources
 
 - `cognitiveservices.CommitmentPlan`
 - `cognitiveservices.Deployment`
 
-#### New functions:
+### New functions
 
 - `cognitiveservices.getCommitmentPlan`
 - `cognitiveservices.getDeployment`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `security:CustomAssessmentAutomation` properties `implementationEffort`
   and `userImpact` removed
@@ -310,16 +330,16 @@
 
 ## 1.44.0 (2021-11-02)
 
-#### New resources:
+### New resources
 
 - `web.ContainerApp`
 
-#### New functions:
+### New functions
 
 - `maps.listAccountSas`
 - `web.getContainerApp`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `compute.RestorePoint` property `provisioningDetails` removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16099))
@@ -331,21 +351,21 @@
 
 ## 1.43.0 (2021-10-27)
 
-#### New resources:
+### New resources
 
 - `security.SecurityConnector`
 
-#### New functions:
+### New functions
 
 - `security.getSecurityConnector`
 
-#### Enhancements:
+### Enhancements
 
 - Update to `pulumi/pulumi` 3.16.0
 
 ## 1.42.0 (2021-10-25)
 
-#### New resources:
+### New resources
 
 - `avs.PlacementPolicy`
 - `chaos.Capability`
@@ -355,7 +375,7 @@
 - `network.RoutingIntent`
 - `resourceconnector.Appliance`
 
-#### New functions:
+### New functions
 
 - `avs.getPlacementPolicy`
 - `chaos.getCapability`
@@ -370,69 +390,69 @@
 
 ## 1.41.0 (2021-10-20)
 
-#### New resources:
+### New resources
 
 - `appplatform.Storage`
 - `videoindexer.Account`
 
-#### New functions:
+### New functions
 
 - `appplatform.getStorage`
 - `videoindexer.getAccount`
 
 ## 1.40.0 (2021-10-18)
 
-#### New resources:
+### New resources
 
 - `eventhub.SchemaRegistry`
 
-#### New functions:
+### New functions
 
 - `eventhub.getSchemaRegistry`
 
-#### Bug Fixes
+### Bug Fixes
 
 - Fix validation of untyped arrays
   [#1224](https://github.com/pulumi/pulumi-azure-native/issues/1224).
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `securityinsights.SourceControl` property `sourceControlId` renamed to `id`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16280))
 
 ## 1.39.0 (2021-10-15)
 
-#### New resources:
+### New resources
 
 - `hybridconnectivity.Endpoint`
 
-#### New functions:
+### New functions
 
 - `hybridconnectivity.getEndpoint`
 - `hybridconnectivity.listEndpointCredentials`
 
 ## 1.38.0 (2021-10-14)
 
-#### New resources:
+### New resources
 
 - `kubernetesconfiguration.FluxConfiguration`
 
-#### New functions:
+### New functions
 
 - `kubernetesconfiguration.getFluxConfiguration`
 
-#### Enhancements:
+### Enhancements
 
 - Add replacement annotations for `containerservice.ManagedCluster`
   [#959](https://github.com/pulumi/pulumi-azure-native/issues/959).
 
 ## 1.37.0 (2021-10-12)
 
-#### Enhancements:
+### Enhancements
 
 - Update to `pulumi/pulumi` 3.14.0 with input/output based functions API in Node.js
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - Identity definition `deviceupdate.Account` was adjusted to use the common type
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16197))
@@ -447,23 +467,23 @@
 
 ## 1.36.0 (2021-10-07)
 
-#### New resources:
+### New resources
 
 - `sql.DistributedAvailabilityGroup`
 - `sql.ServerTrustCertificate`
 
-#### New functions:
+### New functions
 
 - `sql.getDistributedAvailabilityGroup`
 - `sql.getServerTrustCertificate`
 
 ## 1.35.0 (2021-10-06)
 
-#### Enhancements:
+### Enhancements
 
 - Update to `pulumi/pulumi` 3.13.2 with input/output based functions API in Python
 
-#### New resources:
+### New resources
 
 - `authorization.PolicyPricing`
 - `connectedvmwarevsphere.Cluster`
@@ -483,7 +503,7 @@
 - `videoanalyzer.PipelineTopology`
 - `videoanalyzer.PrivateEndpointConnection`
 
-#### New functions:
+### New functions
 
 - `authorization.getPolicyPricing`
 - `connectedvmwarevsphere.getCluster`
@@ -506,24 +526,24 @@
 
 ## 1.34.0 (2021-09-30)
 
-#### New resources:
+### New resources
 
 - `security.Assignment`
 - `security.Standard`
 
-#### New functions:
+### New functions
 
 - `security.getAssignment`
 - `security.getStandard`
 
 ## 1.33.0 (2021-09-28)
 
-#### New resources:
+### New resources
 
 - `servicelinker.Linker`
 - `sql.EncryptionProtector`
 
-#### New functions:
+### New functions
 
 - `servicelinker.getLinker`
 - `servicelinker.listLinkerConfigurations`
@@ -531,19 +551,19 @@
 
 ## 1.32.0 (2021-09-27)
 
-#### New resources:
+### New resources
 
 - `timeseriesinsights.PrivateEndpointConnection`
 - `webpubsub.WebPubSubHub`
 
-#### New functions:
+### New functions
 
 - `timeseriesinsights.getPrivateEndpointConnection`
 - `webpubsub.getWebPubSubHub`
 
 ## 1.31.0 (2021-09-23)
 
-#### New resources:
+### New resources
 
 - `apimanagement.PrivateEndpointConnectionByName`
 - `deviceupdate.PrivateEndpointConnection`
@@ -551,7 +571,7 @@
 - `security.CustomAssessmentAutomation`
 - `security.CustomEntityStoreAssignment`
 
-#### New functions:
+### New functions
 
 - `apimanagement.getPrivateEndpointConnectionByName`
 - `deviceupdate.getPrivateEndpointConnection`
@@ -559,7 +579,7 @@
 - `security.getCustomAssessmentAutomation`
 - `security.getCustomEntityStoreAssignment`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - The response shape is undefine for the `offsite.MasterSite` resource,
   so we had to remove it from our SDKs until this problem is resolved
@@ -567,26 +587,26 @@
 
 ## 1.30.0 (2021-09-22)
 
-#### Bug Fixes
+### Bug Fixes
 
 - Fix the destroy operation for `web.WebAppAuthSettings`
   [#947](https://github.com/pulumi/pulumi-azure-native/issues/947).
 
 ## 1.29.0 (2021-09-20)
 
-#### New resources:
+### New resources
 
 - `hdinsight.PrivateEndpointConnection`
 - `labservices:LabPlan`
 - `labservices:Schedule`
 
-#### New functions:
+### New functions
 
 - `hdinsight.getPrivateEndpointConnection`
 - `labservices.getLabPlan`
 - `labservices.getSchedule`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - The shape of the `documentdb.Service` resource adjusted to match API expectations
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15971))
@@ -595,37 +615,37 @@
 - `extendedlocation.customLocation` casing corrected to `extendedlocation.CustomLocation`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15676))
 
-#### Bug Fixes
+### Bug Fixes
 
 - Fix `authorization.getClientConfig` when using Managed Identities
   [#1008](https://github.com/pulumi/pulumi-azure-native/issues/1008).
 
 ## 1.28.0 (2021-09-13)
 
-#### New functions:
+### New functions
 
 - `kubernetes.listConnectedClusterUserCredential`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - SKU property removed from `purview.Account`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15965))
 
 ## 1.27.0 (2021-09-10)
 
-#### New resources:
+### New resources
 
 - `containerservice.Snapshot`
 - `documentdb.CassandraResourceCassandraView`
 - `documentdb.GraphResourceGraph`
 
-#### New functions:
+### New functions
 
 - `containerservice.getSnapshot`
 - `documentdb.getCassandraResourceCassandraView`
 - `documentdb.getGraphResourceGraph`
 
-#### Dependencies
+### Dependencies
 
 - Updated `pulumi/pulumi` dependencies to 3.10.3
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
@@ -633,20 +653,20 @@
 
 ## 1.26.0 (2021-09-09)
 
-#### New resources:
+### New resources
 
 - `aadiam.PrivateEndpointConnection`
 - `kusto.ManagedPrivateEndpoint`
 - `kusto.PrivateEndpointConnection`
 
-#### New functions:
+### New functions
 
 - `aadiam:getPrivateEndpointConnection`
 - `kusto.getManagedPrivateEndpoint`
 - `kusto.getPrivateEndpointConnection`
 - `redhatopenshift.listOpenShiftClusterAdminCredentials`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - Kusto-related resources and functions in the `synapse` are renamed
   (e.g. `synapse.AttachedDatabaseConfiguration` to `synapse.KustoPoolAttachedDatabaseConfiguration`)
@@ -658,7 +678,7 @@
 - App Service Auth shape restructured for `web` resources
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15283))
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `authorization:ManagementLock*` resources and functions updated from `2016-09-01` to `2017-04-01`
 - `aadiam.privateLinkForAzureAd" changed from `2020-03-01-preview`to`2020-03-01`
@@ -667,36 +687,36 @@
 
 ## 1.25.0 (2021-09-01)
 
-#### New resources:
+### New resources
 
 - `security.AdvancedThreatProtection`
 
-#### New functions:
+### New functions
 
 - `security.getAdvancedThreatProtection`
 
-#### Enhancements:
+### Enhancements
 
 - Add missing API versions of Service Fabric
   [#922](https://github.com/pulumi/pulumi-azure-native/issues/922).
 
 ## 1.24.0 (2021-08-31)
 
-#### New resources:
+### New resources
 
 - `automation.HybridRunbookWorker`
 - `automation.HybridRunbookWorkerGroup`
 
-#### New functions:
+### New functions
 
 - `automation.getHybridRunbookWorker`
 - `automation.getHybridRunbookWorkerGroup`
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `logz` resources and functions updated from `2020-10-01-preview` to `2020-10-01`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - Enum `securityinsights:CaseSeverity` renamed to `securityinsights:IncidentSeverityEnum`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15761))
@@ -712,7 +732,7 @@ This removes the following changes of 1.23.0:
 
 ## 1.23.0 (2021-08-20)
 
-#### New resources:
+### New resources
 
 - `dataprotection.ResourceGuard`
 - `powerbi.PowerBIResource`
@@ -720,32 +740,32 @@ This removes the following changes of 1.23.0:
 - `sql.DatabaseAdvisor`
 - `sql.ServerAdvisor`
 
-#### New functions:
+### New functions
 
 - `dataprotection.getResourceGuard`
 - `powerbi.getPrivateEndpointConnection`
 - `sql.getDatabaseAdvisor`
 - `sql.getServerAdvisor`
 
-#### Bug Fixes
+### Bug Fixes
 
 - Fix `sql.ServerVulnerabilityAssessment` existence check
   [#1050](https://github.com/pulumi/pulumi-azure-native/issues/1050).
 
-#### Dependencies
+### Dependencies
 
 - Updated `pulumi/pulumi` dependencies to 3.10.3
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
 - Support inputty Go enums
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `network.listEffectiveSecurityUserRuleBySubnet` was removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15668))
 
 ## 1.22.0 (2021-08-17)
 
-#### Bug Fixes
+### Bug Fixes
 
 - Remove validation of properties with type `any`
   [#1058](https://github.com/pulumi/pulumi-azure-native/issues/1058).
@@ -753,7 +773,7 @@ This removes the following changes of 1.23.0:
 - Better support for initialization failures by checkpointing partially created resources to state
   [#938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - All hierchicalQueue-related fields removed from `datalakeanalytics.Account`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15591))
@@ -763,7 +783,7 @@ This removes the following changes of 1.23.0:
 
 ## 1.21.0 (2021-08-12)
 
-#### New functions
+### New functions
 
 - `network.listActiveConnectivityConfiguration`
 - `network.listActiveSecurityAdminRule`
@@ -772,7 +792,7 @@ This removes the following changes of 1.23.0:
 - `network.listEffectiveSecurityUserRuleBySubnet`
 - `network.listNetworkManagerEffectiveSecurityAdminRule`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `network.listEffectiveConfiguration`, `network.listActiveConfiguration`,
   `network.listEffectiveConfigurationBySubnet` were removed in favor of the functions listed
@@ -781,22 +801,22 @@ This removes the following changes of 1.23.0:
 
 ## 1.20.0 (2021-08-06)
 
-#### New resources
+### New resources
 
 - `iotsecurity.LocationSite`
 - `iotsecurity.SiteSensor`
 
-#### New functions
+### New functions
 
 - `iotsecurity.getLocationSite`
 - `iotsecurity.getSiteSensor`
 
-#### Enhancements
+### Enhancements
 
 - Support initialization failures by checkpointing partially created resources to state
   [#938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - `datafactory` adjusted the type of `additionalColumns` and `compressionType` properties
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15264))
@@ -805,12 +825,12 @@ This removes the following changes of 1.23.0:
 
 ## 1.19.0 (2021-07-22)
 
-#### Enhancements:
+### Enhancements
 
 - Updates Authorization::RoleAssignment to force replace on principalId or scope change
   [#771](https://github.com/pulumi/pulumi-azure-native/issues/771)
 
-#### New resources:
+### New resources
 
 - `fluidrelay.FluidRelayServer`
 - `healthcareapis.DicomService`
@@ -819,7 +839,7 @@ This removes the following changes of 1.23.0:
 - `healthcareapis.IotConnectorFhirDestination`
 - `healthcareapis.Workspace`
 
-#### New functions:
+### New functions
 
 - `fluidrelay.getFluidRelayServer`
 - `fluidrelay.getFluidRelayServerKeys`
@@ -829,7 +849,7 @@ This removes the following changes of 1.23.0:
 - `healthcareapis.getIotConnectorFhirDestination`
 - `healthcareapis.getWorkspace`
 
-#### Breaking Changes published by Microsoft:
+### Breaking Changes published by Microsoft
 
 - Several properties in `hanaonazure` are marked as read-only
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15205))
@@ -839,32 +859,32 @@ This removes the following changes of 1.23.0:
 
 ## 1.18.0 (2021-07-19)
 
-#### New resources:
+### New resources
 
 - `authorization.ResourceManagementPrivateLink`
 - `securityinsights.Anomalies`
 
-#### New functions:
+### New functions
 
 - `authorization.getResourceManagementPrivateLink`
 - `securityinsights.getAnomalies`
 
 ## 1.17.0 (2021-07-16)
 
-#### New resources:
+### New resources
 
 - `compute.CapacityReservation`
 - `compute.CapacityReservationGroup`
 - `network.NetworkSecurityPerimeter`
 
-#### New functions:
+### New functions
 
 - `compute.getCapacityReservation`
 - `compute.getCapacityReservationGroup`
 - `dbformysql.getGetPrivateDnsZoneSuffixExecute`
 - `network.getNetworkSecurityPerimeter`
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `maxCapacity` is removed from `operationalinsights.outputs.CapacityReservationPropertiesResponse`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14953))
@@ -873,60 +893,60 @@ This removes the following changes of 1.23.0:
 
 ## 1.16.0 (2021-07-06)
 
-#### New Resources
+### New Resources
 
 - `synapse.AttachedDatabaseConfiguration`
 
-#### New Functions
+### New Functions
 
 - `synapse.getAttachedDatabaseConfiguration`
 - `synapse.listKustoPoolFollowerDatabases`
 - `synapse.listKustoPoolLanguageExtensions`
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - A number of breaking changes in `edgeorder` module (preview API version)
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14935))
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `elastic` resources and functions updated from `2020-07-01-preview` to `2020-07-01`
 
 ## 1.15.0 (2021-07-01)
 
-#### New Resources
+### New Resources
 
 - `features.SubscriptionFeatureRegistration`
 - `peering.ConnectionMonitorTest`
 
-#### New Functions
+### New Functions
 
 - `features.getSubscriptionFeatureRegistration`
 - `peering.getConnectionMonitorTest`
 
-#### Bug Fixes
+### Bug Fixes
 
 - Fix import of resources with unorthodox parameter capitalization, e.g. `network.VirtualWan`
   [#942](https://github.com/pulumi/pulumi-azure-native/issues/942).
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `iotspaces` resource provider was removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13993))
 
 ## 1.14.0 (2021-06-23)
 
-#### New Resources
+### New Resources
 
 - `azurestackhci.ArcSetting`
 - `azurestackhci.Extension`
 
-#### New Functions
+### New Functions
 
 - `azurestackhci.getArcSetting`
 - `azurestackhci.getExtension`
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `datafactory` changed the type for `avroCompressionCodec` and `orcCompressionCodec`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14770))
@@ -935,40 +955,40 @@ This removes the following changes of 1.23.0:
 
 ## 1.13.0 (2021-06-17)
 
-#### Bug Fixes
+### Bug Fixes
 
 - Add missing types for complete definition of dashboards
   [#858](https://github.com/pulumi/pulumi-azure-native/issues/858).
 
-#### New Resources
+### New Resources
 
 - `desktopvirtualization.SessionHostConfiguration`
 
-#### New Functions
+### New Functions
 
 - `desktopvirtualization.getSessionHostConfiguration`
 - `eventgrid.getEventSubscriptionDeliveryAttributes`
 - `eventgrid.getPartnerTopicEventSubscriptionDeliveryAttributes`
 - `eventgrid.getSystemTopicEventSubscriptionDeliveryAttributes`
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `securityinsights.IncidentComment` and `securityinsights.IncidentRelation` promoted
   from `2019-01-01-preview` to `2021-03-01-preview` to unify with other resources of
   the `securityinsights` module. New API contains no breaking changes.
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `batchai` resource provider was deprecated and removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14788))
 
 ## 1.12.0 (2021-06-15)
 
-#### New Resources
+### New Resources
 
 - `databricks.PrivateEndpointConnection`
 
-#### New Functions
+### New Functions
 
 - `apimanagement.getUserSharedAccessToken`
 - `databricks.getPrivateEndpointConnection`
@@ -982,7 +1002,7 @@ This removes the following changes of 1.23.0:
 - `recoveryservices.getRecoveryPointAccessToken`
 - `storsimple.getManagerDevicePublicEncryptionKey`
 
-#### Removed Functions
+### Removed Functions
 
 - `operationalinsights.listWorkspaceKeys` - this function was deprecated on
   the Azure side, and the API doesn't work anymore. Use `operationalinsights.getSharedKeys`
@@ -990,14 +1010,14 @@ This removes the following changes of 1.23.0:
 
 ## 1.11.0 (2021-06-09)
 
-#### New Resources
+### New Resources
 
 - `azurearcdata.DataController`
 - `azurearcdata.PostgresInstance`
 - `azurearcdata.SqlManagedInstance`
 - `azurearcdata.SqlServerInstance`
 
-#### New Functions
+### New Functions
 
 - `azurearcdata.getDataController`
 - `azurearcdata.getPostgresInstance`
@@ -1006,7 +1026,7 @@ This removes the following changes of 1.23.0:
 
 ## 1.10.0 (2021-06-08)
 
-#### New Resources
+### New Resources
 
 - `marketplace:PrivateStoreCollection`
 - `marketplace:PrivateStoreCollectionOffer`
@@ -1015,7 +1035,7 @@ This removes the following changes of 1.23.0:
 - `securityinsights:EntityQuery`
 - `testbase:CustomerEvent`
 
-#### New Functions
+### New Functions
 
 - `marketplace:getPrivateStoreCollection`
 - `marketplace:getPrivateStoreCollectionOffer`
@@ -1026,7 +1046,7 @@ This removes the following changes of 1.23.0:
 
 ## 1.9.0 (2021-05-31)
 
-#### New Resources
+### New Resources
 
 - `botservice.PrivateEndpointConnection`
 - `documentdb.Service`
@@ -1048,7 +1068,7 @@ This removes the following changes of 1.23.0:
 - `securityinsights.SourceControl`
 - `sql.OutboundFirewallRule`
 
-#### New Functions
+### New Functions
 
 - `botservice.getPrivateEndpointConnection`
 - `documentdb.getService`
@@ -1077,30 +1097,30 @@ This removes the following changes of 1.23.0:
 
 ## 1.8.0 (2021-05-25)
 
-#### New Resources
+### New Resources
 
 - `web.KubeEnvironment`
 
-#### New Functions
+### New Functions
 
 - `logz.listMonitorUserRoles`
 - `logz.listMonitorVMHosts`
 - `logz.listSubAccountVMHosts`
 - `web.getKubeEnvironment`
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - Azure now indicates that the version `2021-01-01-preview` of `servicebus.PrivateEndpointConnection`
   isn't supported yet, so we switched it to the older supported version `2018-01-01-preview`
 
 ## 1.7.0 (2021-05-19)
 
-#### Improvements
+### Improvements
 
 - Do not count 429 (Too Many Requests) towards the limit of retry attempts, retry them indefinitely
   [#849](https://github.com/pulumi/pulumi-azure-native/issues/849)
 
-#### New Resources
+### New Resources
 
 - `avs.CloudLink`
 - `avs.ScriptExecution`
@@ -1178,7 +1198,7 @@ This removes the following changes of 1.23.0:
 - `timeseriesinsights.Gen2Environment`
 - `timeseriesinsights.IoTHubEventSource`
 
-#### New Functions
+### New Functions
 
 - `avs.getCloudLink`
 - `avs.getScriptExecution`
@@ -1259,7 +1279,7 @@ This removes the following changes of 1.23.0:
 - `timeseriesinsights.getGen2Environment`
 - `timeseriesinsights.getIoTHubEventSource`
 
-#### Deprecated resources
+### Deprecated resources
 
 The following resources are now deprecated in favor of their specialized variants listed above.
 
@@ -1285,19 +1305,19 @@ The following resources are now deprecated in favor of their specialized variant
 - `timeseriesinsights.Environment`
 - `timeseriesinsights.EventSource`
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `sql` resource provider renamed the type `ResourceIdentityWithUserAssignedIdentities` to `ResourceIdentity`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14439))
 
 ## 1.6.0 (2021-05-17)
 
-#### New Features
+### New Features
 
 - Add support for authentication against private and hybrid cloud environments.
   [#831](https://github.com/pulumi/pulumi-azure-native/pull/831/)
 
-#### New Resources
+### New Resources
 
 - `compute:RestorePoint`
 - `compute:RestorePointCollection`
@@ -1305,7 +1325,7 @@ The following resources are now deprecated in favor of their specialized variant
 - `desktopvirtualization:PrivateEndpointConnectionByWorkspace`
 - `network:VirtualNetworkGatewayNatRule`
 
-#### New Functions
+### New Functions
 
 - `compute:getRestorePoint`
 - `compute:getRestorePointCollection`
@@ -1313,14 +1333,14 @@ The following resources are now deprecated in favor of their specialized variant
 - `desktopvirtualization:getPrivateEndpointConnectionByWorkspace`
 - `network:getVirtualNetworkGatewayNatRule`
 
-#### Updated API versions for top-level resources
+### Updated API versions for top-level resources
 
 - `compute:VirtualMachine`, `compute:VirtualMachineExtension`, `compute:VirtualMachineRunCommandByVirtualMachine`,
   `compute:VirtualMachineScaleSet`, `compute:VirtualMachineScaleSetExtension`, `compute:VirtualMachineScaleSetVM`,
   `compute:VirtualMachineScaleSetVMExtension`, `compute:VirtualMachineScaleSetVMRunCommand` are upgraded from version
   `2020-12-01` to `2021-03-01` to enable `RestorePoint` and `RestorePointCollection` resources
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `appplatform` version `2021-03-03-preview` is renamed to `2021-06-01-preview`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14323))
@@ -1335,59 +1355,59 @@ The following resources are now deprecated in favor of their specialized variant
 
 ## 1.5.0 (2021-05-08)
 
-#### New Resources
+### New Resources
 
 - `agfoodplatform.Extension`
 - `agfoodplatform.FarmBeatsModel`
 
-#### New Functions
+### New Functions
 
 - `agfoodplatform.getExtension`
 - `agfoodplatform.getFarmBeatsModel`
 
-#### Bug fixes
+### Bug fixes
 
 - Don't set auto-location of LoadBalancerBackendAddressPool as the service doesn't expect it
   [#819](https://github.com/pulumi/pulumi-azure-native/issues/819)
 
 ## 1.4.0 (2021-05-05)
 
-#### New Resources
+### New Resources
 
 - `securityinsights.SentinelOnboardingState`
 
-#### New Functions
+### New Functions
 
 - `securityinsights.getSentinelOnboardingState`
 
-#### Improvements
+### Improvements
 
 - Load Python modules lazily to speed up program execution
   [#738](https://github.com/pulumi/pulumi-azure-native/issues/738)
 
-#### Bug fixes
+### Bug fixes
 
 - Allow 204 as a valid response for a non-existing resource
   [#808](https://github.com/pulumi/pulumi-azure-native/issues/808)
 
 ## 1.3.0 (2021-04-30)
 
-#### New Resources
+### New Resources
 
 - `synapse.DatabasePrincipalAssignment`
 - `synapse.KustoPoolPrincipalAssignment`
 
-#### New Functions
+### New Functions
 
 - `synapse.getDatabasePrincipalAssignment`
 - `synapse.getKustoPoolPrincipalAssignment`
 
-#### Bug fixes
+### Bug fixes
 
 - Fix constant value discriminator resolution for multi-level discriminated unions
   [#765](https://github.com/pulumi/pulumi-azure-native/issues/765)
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `management.ManagementGroup` moved the location of the `path` property
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13897))
@@ -1397,7 +1417,7 @@ The following resources are now deprecated in favor of their specialized variant
 
 ## 1.2.0 (2021-04-28)
 
-#### New Resources
+### New Resources
 
 - `dbforpostgresql.ServerSecurityAlertPolicy`
   [#788](https://github.com/pulumi/pulumi-azure-native/issues/788)
@@ -1415,7 +1435,7 @@ New module for Test Base management:
 - `testbase.Package`
 - `testbase.FavoriteProcess`
 
-#### New Functions
+### New Functions
 
 - `elastic.listVMHost`
 
@@ -1438,13 +1458,13 @@ New module for Test Base management:
 - `testbase.getPackage`
 - `testbase.getFavoriteProcess`
 
-#### Bug fixes
+### Bug fixes
 
 - Fix import of SQL/Mongo databases and collections
   [#741](https://github.com/pulumi/pulumi-azure-native/issues/741) and
   [#777](https://github.com/pulumi/pulumi-azure-native/issues/777)
 
-#### Breaking Changes published by Microsoft
+### Breaking Changes published by Microsoft
 
 - `batchai.FileServer` resource is deprecated ([source](https://github.com/Azure/azure-rest-api-specs/pull/13944))
 - Extended location hierarchy for virtual network local gateway ([source](https://github.com/Azure/azure-rest-api-specs/pull/13943))
@@ -1458,7 +1478,7 @@ New module for Test Base management:
 
 ## 1.1.0 (2021-04-20)
 
-#### New Resources
+### New Resources
 
 - `dbforpostgresql.v20200214preview.Configuration` - PostgreSQL Flexible Server Configuration (preview)
   [#711](https://github.com/pulumi/pulumi-azure-native/issues/711)
@@ -1472,7 +1492,7 @@ New module for Test Base management:
 
 The native Azure provider for Pulumi is now generally available.
 
-#### Breaking Changes
+### Breaking Changes
 
 - Depend on Pulumi 3.0, which includes improvements to Python resource arguments and key translation, Go SDK performance, Node SDK performance, general availability of Automation API, and more.
 - Generate consistent names for object types regardless on whether or not they are
@@ -1482,7 +1502,7 @@ The native Azure provider for Pulumi is now generally available.
 
 ## 0.9.0 (2021-04-16)
 
-#### Breaking Changes
+### Breaking Changes
 
 - All `*/latest` modules are now removed. They have been deprecated since 0.7.0. If you are migrating
   from earlier versions, first upgrade to 0.8.0, replace all resources from `latest` modules with their
@@ -1492,7 +1512,7 @@ The native Azure provider for Pulumi is now generally available.
   and `network.RecordSet` (public DNS).
   [#583](https://github.com/pulumi/pulumi-azure-native/issues/583)
 
-#### Improvements
+### Improvements
 
 - New resources: `sql.BackupShortTermRetentionPolicy`, `sql.DatabaseBlobAuditingPolicy`,
   `sql.ExtendedDatabaseBlobAuditingPolicy`, `sql.ExtendedServerBlobAuditingPolicy`,
@@ -1503,7 +1523,7 @@ The native Azure provider for Pulumi is now generally available.
 
 ## 0.8.0 (2021-04-02)
 
-#### Breaking Changes
+### Breaking Changes
 
 - Updated all top-level resources to the latest API versions.
 - Prevent silent clashes of different types under the same name. The types are now disambiguated.
@@ -1520,7 +1540,7 @@ The native Azure provider for Pulumi is now generally available.
 - Respect x-ms-mutability annotations for write-only properties.
   [#679](https://github.com/pulumi/pulumi-azure-native/pull/679)
 
-#### Improvements
+### Improvements
 
 - Upgrade to Go 1.16.
   [#630](https://github.com/pulumi/pulumi-azure-native/issues/630)
@@ -1539,7 +1559,7 @@ The native Azure provider for Pulumi is now generally available.
 - Add nested collection types in Go to fix SDK build issues
   [#707](https://github.com/pulumi/pulumi-azure-native/pull/707)
 
-#### Fixes
+### Fixes
 
 - Support migration from `azure-nextgen` with custom providers.
   [#617](https://github.com/pulumi/pulumi-azure-native/issues/617)
@@ -1556,7 +1576,7 @@ Fixed the aliases for smooth migration from `azure-nextgen` to `azure-native`.
 
 See the [announcement](https://pulumi.com/blog/full-coverage-of-azure-resources-with-azure-native/) in the official Pulumi blog.
 
-#### Top-Level Resources
+### Top-Level Resources
 
 Top-Level Resources ([#169](https://github.com/pulumi/pulumi-azure-nextgen/issues/169)):
 
@@ -1580,7 +1600,7 @@ new azure_nextgen.storage.StorageAccount("sa", ...);
 
 Note: `storage.Blob` and `storage.StorageAccountStaticWebsite` are top-level resources only, their `latest` counterpart has been removed.
 
-#### Auto-naming ([#5](https://github.com/pulumi/pulumi-azure-nextgen/issues/5))
+### Auto-naming ([#5](https://github.com/pulumi/pulumi-azure-nextgen/issues/5))
 
 Auto-naming is applied for properties that are the last path parameters in their API endpoint path.
 
@@ -1604,13 +1624,13 @@ const blob = new storage.Blob("wwwroot", {
 // blob name is simply "wwwroot"
 ```
 
-#### Breaking Changes
+### Breaking Changes
 
 - `web.WebApplicationSettings` renamed to `web.WebAppApplicationSettings` ([#282](https://github.com/pulumi/pulumi-azure-nextgen/issues/282))
 - `authorization.GetClientConfig`, `authorization.GetClientToken`, `Storage.Blob`, `Storage.StorageAccountStaticWebsite` were removed from
   corresponding `latest` modules and are only available in the top-level modules
 
-#### Bug Fixes
+### Bug Fixes
 
 - Relax the enum check to accomodate irregularities like in [#294](https://github.com/pulumi/pulumi-azure-nextgen/issues/294)
 
@@ -1623,7 +1643,7 @@ New features:
 
 ## 0.6.0 (2021-02-02)
 
-#### Breaking changes in SDKs
+### Breaking changes in SDKs
 
 Limit the `latest` version to published versions of APIs ([#191](https://github.com/pulumi/pulumi-azure-nextgen/issues/191))
 
@@ -1691,14 +1711,14 @@ Moved from `OperationalInsights` to `SecurityInsights`:
 - `AlertRule` resource
 - `Action` resource
 
-#### Fixes
+### Fixes
 
 - Fix unknown propagation in Update's preview ([#115](https://github.com/pulumi/pulumi-azure-nextgen/issues/115))
 - Re-model Identity and Encryption properties of EventHubs/ServiceBus namespace ([#243](https://github.com/pulumi/pulumi-azure-nextgen/issues/243))
 - Various fixes to Go SDK to address compilation issues due to name collisions. Conflicting types have been renamed for various resource providers but Go programs would not have been able to successfully compile with previous names anyway. ([#137](https://github.com/pulumi/pulumi-azure-nextgen/issues/137))
 - Respect custom timeouts ([#252](https://github.com/pulumi/pulumi-azure-nextgen/issues/252))
 
-#### New resources
+### New resources
 
 - `Sql.DatabaseSecurityAlertPolicy` ([#257](https://github.com/pulumi/pulumi-azure-nextgen/issues/257))
 - `Storage.StorageAccountStaticWebsite` ([#86](https://github.com/pulumi/pulumi-azure-nextgen/issues/86))
@@ -1719,7 +1739,7 @@ Moved from `OperationalInsights` to `SecurityInsights`:
 - `Web.WebApplicationSettings`
 - `Web.WebApplicationSettingsSlot`
 
-#### New invoke functions
+### New invoke functions
 
 - `AppConfiguration.listConfigurationStoreKeys`
 - `Relay.listHybridConnectionKeys`
