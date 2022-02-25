@@ -59,6 +59,9 @@ func NewCustomLocation(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:extendedlocation/v20210815:CustomLocation"),
 		},
+		{
+			Type: pulumi.String("azure-native:extendedlocation/v20210831preview:CustomLocation"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CustomLocation

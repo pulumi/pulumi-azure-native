@@ -156,7 +156,7 @@ class ModuleResponse(dict):
         Specifies configuration of a redis module
         :param str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
         :param str version: The version of the module, e.g. '1.0'.
-        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -183,7 +183,7 @@ class ModuleResponse(dict):
     @pulumi.getter
     def args(self) -> Optional[str]:
         """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
 

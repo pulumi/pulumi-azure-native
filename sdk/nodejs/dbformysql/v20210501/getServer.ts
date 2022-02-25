@@ -48,6 +48,10 @@ export interface GetServerResult {
      */
     readonly backup?: outputs.dbformysql.v20210501.BackupResponse;
     /**
+     * The Data Encryption for CMK.
+     */
+    readonly dataEncryption?: outputs.dbformysql.v20210501.DataEncryptionResponse;
+    /**
      * The fully qualified domain name of a server.
      */
     readonly fullyQualifiedDomainName: string;
@@ -59,6 +63,10 @@ export interface GetServerResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The cmk identity for the server.
+     */
+    readonly identity?: outputs.dbformysql.v20210501.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */

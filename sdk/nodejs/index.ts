@@ -54,6 +54,7 @@ import * as containerservice from "./containerservice";
 import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
+import * as dashboard from "./dashboard";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
@@ -128,6 +129,7 @@ import * as marketplace from "./marketplace";
 import * as media from "./media";
 import * as migrate from "./migrate";
 import * as mixedreality from "./mixedreality";
+import * as mobilenetwork from "./mobilenetwork";
 import * as netapp from "./netapp";
 import * as network from "./network";
 import * as notebooks from "./notebooks";
@@ -236,6 +238,7 @@ export {
     costmanagement,
     customerinsights,
     customproviders,
+    dashboard,
     databox,
     databoxedge,
     databricks,
@@ -310,6 +313,7 @@ export {
     media,
     migrate,
     mixedreality,
+    mobilenetwork,
     netapp,
     network,
     notebooks,

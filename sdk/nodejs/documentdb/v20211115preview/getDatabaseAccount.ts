@@ -112,6 +112,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly enableFreeTier?: boolean;
     /**
+     * Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+     */
+    readonly enableMaterializedViews?: boolean;
+    /**
      * Enables the account to write in multiple locations
      */
     readonly enableMultipleWriteLocations?: boolean;

@@ -78,7 +78,7 @@ class CertBasedSecurityPrincipalArgs:
                  ledger_role_name: Optional[pulumi.Input[Union[str, 'LedgerRoleName']]] = None):
         """
         Cert based security principal with Ledger RoleName
-        :param pulumi.Input[str] cert: Base64 encoded public key of the user cert (.pem or .cer)
+        :param pulumi.Input[str] cert: Public key of the user cert (.pem or .cer)
         :param pulumi.Input[Union[str, 'LedgerRoleName']] ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
         if cert is not None:
@@ -90,7 +90,7 @@ class CertBasedSecurityPrincipalArgs:
     @pulumi.getter
     def cert(self) -> Optional[pulumi.Input[str]]:
         """
-        Base64 encoded public key of the user cert (.pem or .cer)
+        Public key of the user cert (.pem or .cer)
         """
         return pulumi.get(self, "cert")
 

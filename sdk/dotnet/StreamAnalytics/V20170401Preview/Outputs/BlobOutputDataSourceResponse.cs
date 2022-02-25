@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
     public sealed class BlobOutputDataSourceResponse
     {
         /// <summary>
-        /// Authentication Mode.
+        /// Authentication Mode. 
         /// </summary>
         public readonly string? AuthenticationMode;
         /// <summary>

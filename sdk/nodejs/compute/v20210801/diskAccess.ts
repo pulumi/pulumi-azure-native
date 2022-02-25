@@ -103,7 +103,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskAccess" }, { type: "azure-native:compute/v20200501:DiskAccess" }, { type: "azure-native:compute/v20200630:DiskAccess" }, { type: "azure-native:compute/v20200930:DiskAccess" }, { type: "azure-native:compute/v20201201:DiskAccess" }, { type: "azure-native:compute/v20210401:DiskAccess" }, { type: "azure-native:compute/v20211201:DiskAccess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskAccess.__pulumiType, name, resourceInputs, opts);
     }

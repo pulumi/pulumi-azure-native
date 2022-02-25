@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Inputs
     public sealed class BlobOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Authentication Mode.
+        /// Authentication Mode. 
         /// </summary>
         [Input("authenticationMode")]
         public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }

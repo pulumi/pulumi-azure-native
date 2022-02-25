@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// An option to store secret value in secure place
+        /// </summary>
+        [Output("secretStore")]
+        public Output<Outputs.SecretStoreResponse?> SecretStore { get; private set; } = null!;
+
+        /// <summary>
         /// The system data.
         /// </summary>
         [Output("systemData")]
@@ -56,6 +62,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VNet solution.
+        /// </summary>
+        [Output("vNetSolution")]
+        public Output<Outputs.VNetSolutionResponse?> VNetSolution { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,10 +143,22 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         public Input<string> ResourceUri { get; set; } = null!;
 
         /// <summary>
+        /// An option to store secret value in secure place
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.SecretStoreArgs>? SecretStore { get; set; }
+
+        /// <summary>
         /// The resource Id of target service.
         /// </summary>
         [Input("targetId")]
         public Input<string>? TargetId { get; set; }
+
+        /// <summary>
+        /// The VNet solution.
+        /// </summary>
+        [Input("vNetSolution")]
+        public Input<Inputs.VNetSolutionArgs>? VNetSolution { get; set; }
 
         public LinkerArgs()
         {

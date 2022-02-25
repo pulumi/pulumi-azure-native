@@ -263,6 +263,350 @@ func (o BackupResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The date encryption for cmk.
+type DataEncryption struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type *DataEncryptionType `pulumi:"type"`
+}
+
+// DataEncryptionInput is an input type that accepts DataEncryptionArgs and DataEncryptionOutput values.
+// You can construct a concrete instance of `DataEncryptionInput` via:
+//
+//          DataEncryptionArgs{...}
+type DataEncryptionInput interface {
+	pulumi.Input
+
+	ToDataEncryptionOutput() DataEncryptionOutput
+	ToDataEncryptionOutputWithContext(context.Context) DataEncryptionOutput
+}
+
+// The date encryption for cmk.
+type DataEncryptionArgs struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri pulumi.StringPtrInput `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri pulumi.StringPtrInput `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type DataEncryptionTypePtrInput `pulumi:"type"`
+}
+
+func (DataEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryption)(nil)).Elem()
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionOutput() DataEncryptionOutput {
+	return i.ToDataEncryptionOutputWithContext(context.Background())
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionOutputWithContext(ctx context.Context) DataEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionOutput)
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return i.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i DataEncryptionArgs) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionOutput).ToDataEncryptionPtrOutputWithContext(ctx)
+}
+
+// DataEncryptionPtrInput is an input type that accepts DataEncryptionArgs, DataEncryptionPtr and DataEncryptionPtrOutput values.
+// You can construct a concrete instance of `DataEncryptionPtrInput` via:
+//
+//          DataEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type DataEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToDataEncryptionPtrOutput() DataEncryptionPtrOutput
+	ToDataEncryptionPtrOutputWithContext(context.Context) DataEncryptionPtrOutput
+}
+
+type dataEncryptionPtrType DataEncryptionArgs
+
+func DataEncryptionPtr(v *DataEncryptionArgs) DataEncryptionPtrInput {
+	return (*dataEncryptionPtrType)(v)
+}
+
+func (*dataEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryption)(nil)).Elem()
+}
+
+func (i *dataEncryptionPtrType) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return i.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *dataEncryptionPtrType) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataEncryptionPtrOutput)
+}
+
+// The date encryption for cmk.
+type DataEncryptionOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryption)(nil)).Elem()
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionOutput() DataEncryptionOutput {
+	return o
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionOutputWithContext(ctx context.Context) DataEncryptionOutput {
+	return o
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return o.ToDataEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o DataEncryptionOutput) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataEncryption) *DataEncryption {
+		return &v
+	}).(DataEncryptionPtrOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryption) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionOutput) Type() DataEncryptionTypePtrOutput {
+	return o.ApplyT(func(v DataEncryption) *DataEncryptionType { return v.Type }).(DataEncryptionTypePtrOutput)
+}
+
+type DataEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryption)(nil)).Elem()
+}
+
+func (o DataEncryptionPtrOutput) ToDataEncryptionPtrOutput() DataEncryptionPtrOutput {
+	return o
+}
+
+func (o DataEncryptionPtrOutput) ToDataEncryptionPtrOutputWithContext(ctx context.Context) DataEncryptionPtrOutput {
+	return o
+}
+
+func (o DataEncryptionPtrOutput) Elem() DataEncryptionOutput {
+	return o.ApplyT(func(v *DataEncryption) DataEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DataEncryption
+		return ret
+	}).(DataEncryptionOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionPtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionPtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionPtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionPtrOutput) Type() DataEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *DataEncryption) *DataEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(DataEncryptionTypePtrOutput)
+}
+
+// The date encryption for cmk.
+type DataEncryptionResponse struct {
+	// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+	GeoBackupKeyUri *string `pulumi:"geoBackupKeyUri"`
+	// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
+	// Primary key uri
+	PrimaryKeyUri *string `pulumi:"primaryKeyUri"`
+	// Primary user identity resource id
+	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
+	// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+	Type *string `pulumi:"type"`
+}
+
+// The date encryption for cmk.
+type DataEncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataEncryptionResponseOutput) ToDataEncryptionResponseOutput() DataEncryptionResponseOutput {
+	return o
+}
+
+func (o DataEncryptionResponseOutput) ToDataEncryptionResponseOutputWithContext(ctx context.Context) DataEncryptionResponseOutput {
+	return o
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionResponseOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionResponseOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionResponseOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionResponseOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataEncryptionResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DataEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DataEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataEncryptionResponse)(nil)).Elem()
+}
+
+func (o DataEncryptionResponsePtrOutput) ToDataEncryptionResponsePtrOutput() DataEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataEncryptionResponsePtrOutput) ToDataEncryptionResponsePtrOutputWithContext(ctx context.Context) DataEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o DataEncryptionResponsePtrOutput) Elem() DataEncryptionResponseOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) DataEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataEncryptionResponse
+		return ret
+	}).(DataEncryptionResponseOutput)
+}
+
+// Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+func (o DataEncryptionResponsePtrOutput) GeoBackupKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+func (o DataEncryptionResponsePtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoBackupUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary key uri
+func (o DataEncryptionResponsePtrOutput) PrimaryKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryKeyUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Primary user identity resource id
+func (o DataEncryptionResponsePtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryUserAssignedIdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+func (o DataEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network related properties of a server
 type HighAvailability struct {
 	// High availability mode for a server.
@@ -514,6 +858,276 @@ func (o HighAvailabilityResponsePtrOutput) State() pulumi.StringPtrOutput {
 		}
 		return &v.State
 	}).(pulumi.StringPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type Identity struct {
+	// Type of managed service identity.
+	Type *ManagedServiceIdentityType `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+// IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
+// You can construct a concrete instance of `IdentityInput` via:
+//
+//          IdentityArgs{...}
+type IdentityInput interface {
+	pulumi.Input
+
+	ToIdentityOutput() IdentityOutput
+	ToIdentityOutputWithContext(context.Context) IdentityOutput
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityArgs struct {
+	// Type of managed service identity.
+	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (IdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (i IdentityArgs) ToIdentityOutput() IdentityOutput {
+	return i.ToIdentityOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput)
+}
+
+func (i IdentityArgs) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityArgs) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityOutput).ToIdentityPtrOutputWithContext(ctx)
+}
+
+// IdentityPtrInput is an input type that accepts IdentityArgs, IdentityPtr and IdentityPtrOutput values.
+// You can construct a concrete instance of `IdentityPtrInput` via:
+//
+//          IdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityPtrInput interface {
+	pulumi.Input
+
+	ToIdentityPtrOutput() IdentityPtrOutput
+	ToIdentityPtrOutputWithContext(context.Context) IdentityPtrOutput
+}
+
+type identityPtrType IdentityArgs
+
+func IdentityPtr(v *IdentityArgs) IdentityPtrInput {
+	return (*identityPtrType)(v)
+}
+
+func (*identityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (i *identityPtrType) ToIdentityPtrOutput() IdentityPtrOutput {
+	return i.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *identityPtrType) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityPtrOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityOutput struct{ *pulumi.OutputState }
+
+func (IdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Identity)(nil)).Elem()
+}
+
+func (o IdentityOutput) ToIdentityOutput() IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityOutputWithContext(ctx context.Context) IdentityOutput {
+	return o
+}
+
+func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o.ToIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
+		return &v
+	}).(IdentityPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v Identity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type IdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Identity)(nil)).Elem()
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutput() IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
+	return o
+}
+
+func (o IdentityPtrOutput) Elem() IdentityOutput {
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ManagedServiceIdentityType {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(ManagedServiceIdentityTypePtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *Identity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponse struct {
+	// ObjectId from the KeyVault
+	PrincipalId string `pulumi:"principalId"`
+	// TenantId from the KeyVault
+	TenantId string `pulumi:"tenantId"`
+	// Type of managed service identity.
+	Type *string `pulumi:"type"`
+	// Metadata of user assigned identity.
+	UserAssignedIdentities map[string][]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// Properties to configure Identity for Bring your Own Keys
+type IdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutput() IdentityResponseOutput {
+	return o
+}
+
+func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.Context) IdentityResponseOutput {
+	return o
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseArrayMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string][]UserAssignedIdentityResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityResponseArrayMapOutput)
+}
+
+type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityResponse)(nil)).Elem()
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutput() IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
+	return o
+}
+
+func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
+}
+
+// ObjectId from the KeyVault
+func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// TenantId from the KeyVault
+func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of managed service identity.
+func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Metadata of user assigned identity.
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseArrayMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string][]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseArrayMapOutput)
 }
 
 // Maintenance window of a server.
@@ -1663,15 +2277,96 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// Metadata of user assigned identity.
+type UserAssignedIdentityResponse struct {
+	// Client Id of user assigned identity
+	ClientId string `pulumi:"clientId"`
+	// Principal Id of user assigned identity
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// Metadata of user assigned identity.
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// Client Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id of user assigned identity
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) ToUserAssignedIdentityResponseArrayOutput() UserAssignedIdentityResponseArrayOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) ToUserAssignedIdentityResponseArrayOutputWithContext(ctx context.Context) UserAssignedIdentityResponseArrayOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayOutput) Index(i pulumi.IntInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].([]UserAssignedIdentityResponse)[vs[1].(int)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
+type UserAssignedIdentityResponseArrayMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string][]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) ToUserAssignedIdentityResponseArrayMapOutput() UserAssignedIdentityResponseArrayMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) ToUserAssignedIdentityResponseArrayMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseArrayMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseArrayMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) []UserAssignedIdentityResponse {
+		return vs[0].(map[string][]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupOutput{})
 	pulumi.RegisterOutputType(BackupPtrOutput{})
 	pulumi.RegisterOutputType(BackupResponseOutput{})
 	pulumi.RegisterOutputType(BackupResponsePtrOutput{})
+	pulumi.RegisterOutputType(DataEncryptionOutput{})
+	pulumi.RegisterOutputType(DataEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DataEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(DataEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(HighAvailabilityOutput{})
 	pulumi.RegisterOutputType(HighAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(HighAvailabilityResponseOutput{})
 	pulumi.RegisterOutputType(HighAvailabilityResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityOutput{})
+	pulumi.RegisterOutputType(IdentityPtrOutput{})
+	pulumi.RegisterOutputType(IdentityResponseOutput{})
+	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowResponseOutput{})
@@ -1689,4 +2384,7 @@ func init() {
 	pulumi.RegisterOutputType(StorageResponseOutput{})
 	pulumi.RegisterOutputType(StorageResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseArrayMapOutput{})
 }

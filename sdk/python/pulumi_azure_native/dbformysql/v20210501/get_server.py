@@ -21,7 +21,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, backup=None, fully_qualified_domain_name=None, high_availability=None, id=None, location=None, maintenance_window=None, name=None, network=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, name=None, network=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -31,6 +31,9 @@ class GetServerResult:
         if backup and not isinstance(backup, dict):
             raise TypeError("Expected argument 'backup' to be a dict")
         pulumi.set(__self__, "backup", backup)
+        if data_encryption and not isinstance(data_encryption, dict):
+            raise TypeError("Expected argument 'data_encryption' to be a dict")
+        pulumi.set(__self__, "data_encryption", data_encryption)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -40,6 +43,9 @@ class GetServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -108,6 +114,14 @@ class GetServerResult:
         return pulumi.get(self, "backup")
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> Optional['outputs.DataEncryptionResponse']:
+        """
+        The Data Encryption for CMK.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> str:
         """
@@ -130,6 +144,14 @@ class GetServerResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The cmk identity for the server.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -253,9 +275,11 @@ class AwaitableGetServerResult(GetServerResult):
             administrator_login=self.administrator_login,
             availability_zone=self.availability_zone,
             backup=self.backup,
+            data_encryption=self.data_encryption,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             high_availability=self.high_availability,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             maintenance_window=self.maintenance_window,
             name=self.name,
@@ -295,9 +319,11 @@ def get_server(resource_group_name: Optional[str] = None,
         administrator_login=__ret__.administrator_login,
         availability_zone=__ret__.availability_zone,
         backup=__ret__.backup,
+        data_encryption=__ret__.data_encryption,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         high_availability=__ret__.high_availability,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         maintenance_window=__ret__.maintenance_window,
         name=__ret__.name,

@@ -28,6 +28,14 @@ const (
 	AppProtocolGrpc = AppProtocol("grpc")
 )
 
+// <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+type AuthConfigState string
+
+const (
+	AuthConfigStateEnabled  = AuthConfigState("Enabled")
+	AuthConfigStateDisabled = AuthConfigState("Disabled")
+)
+
 // Custom Domain binding type.
 type BindingType string
 
@@ -42,14 +50,6 @@ type DisableWwwAuthenticateMode string
 const (
 	DisableWwwAuthenticateModeTrue  = DisableWwwAuthenticateMode("True")
 	DisableWwwAuthenticateModeFalse = DisableWwwAuthenticateMode("False")
-)
-
-// <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-type EasyAuthState string
-
-const (
-	EasyAuthStateEnabled  = EasyAuthState("Enabled")
-	EasyAuthStateDisabled = EasyAuthState("Disabled")
 )
 
 // <code>Disabled</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.

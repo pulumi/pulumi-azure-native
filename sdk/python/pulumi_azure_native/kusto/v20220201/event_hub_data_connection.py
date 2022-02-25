@@ -44,7 +44,7 @@ class EventHubDataConnectionArgs:
         :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: System properties of the event hub
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
@@ -224,7 +224,7 @@ class EventHubDataConnectionArgs:
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 
@@ -295,7 +295,7 @@ class EventHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
                Expected value is 'EventHub'.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        :param pulumi.Input[str] managed_identity_resource_id: Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
@@ -502,7 +502,7 @@ class EventHubDataConnection(pulumi.CustomResource):
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         """
         return pulumi.get(self, "managed_identity_resource_id")
 

@@ -38,3 +38,13 @@ export const ClientType = {
  * The application client type
  */
 export type ClientType = (typeof ClientType)[keyof typeof ClientType];
+
+export const VNetSolutionType = {
+    ServiceEndpoint: "serviceEndpoint",
+    PrivateLink: "privateLink",
+} as const;
+
+/**
+ * Type of VNet solution.
+ */
+export type VNetSolutionType = (typeof VNetSolutionType)[keyof typeof VNetSolutionType];

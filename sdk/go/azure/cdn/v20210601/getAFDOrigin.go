@@ -59,7 +59,7 @@ type LookupAFDOriginResult struct {
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource []SharedPrivateLinkResourcePropertiesResponse `pulumi:"sharedPrivateLinkResource"`
+	SharedPrivateLinkResource *SharedPrivateLinkResourcePropertiesResponse `pulumi:"sharedPrivateLinkResource"`
 	// Read only system data
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
@@ -172,10 +172,10 @@ func (o LookupAFDOriginResultOutput) ProvisioningState() pulumi.StringOutput {
 }
 
 // The properties of the private link resource for private origin.
-func (o LookupAFDOriginResultOutput) SharedPrivateLinkResource() SharedPrivateLinkResourcePropertiesResponseArrayOutput {
-	return o.ApplyT(func(v LookupAFDOriginResult) []SharedPrivateLinkResourcePropertiesResponse {
+func (o LookupAFDOriginResultOutput) SharedPrivateLinkResource() SharedPrivateLinkResourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupAFDOriginResult) *SharedPrivateLinkResourcePropertiesResponse {
 		return v.SharedPrivateLinkResource
-	}).(SharedPrivateLinkResourcePropertiesResponseArrayOutput)
+	}).(SharedPrivateLinkResourcePropertiesResponsePtrOutput)
 }
 
 // Read only system data

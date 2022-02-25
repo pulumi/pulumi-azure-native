@@ -70,6 +70,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210701
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20211001preview:BackupInstance"},
                     new Pulumi.Alias { Type = "azure-native:dataprotection/v20211201preview:BackupInstance"},
+                    new Pulumi.Alias { Type = "azure-native:dataprotection/v20220101:BackupInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

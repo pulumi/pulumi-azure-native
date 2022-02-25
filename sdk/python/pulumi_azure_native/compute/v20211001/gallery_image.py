@@ -21,6 +21,7 @@ class GalleryImageArgs:
                  os_state: pulumi.Input['OperatingSystemStateTypes'],
                  os_type: pulumi.Input['OperatingSystemTypes'],
                  resource_group_name: pulumi.Input[str],
+                 architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input['DisallowedArgs']] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,7 @@ class GalleryImageArgs:
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
         :param pulumi.Input['DisallowedArgs'] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
@@ -60,6 +62,8 @@ class GalleryImageArgs:
         pulumi.set(__self__, "os_state", os_state)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disallowed is not None:
@@ -146,6 +150,18 @@ class GalleryImageArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[Union[str, 'Architecture']]]:
+        """
+        The architecture of the image. Applicable to OS disks only.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[Union[str, 'Architecture']]]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter
@@ -309,6 +325,7 @@ class GalleryImage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -333,6 +350,7 @@ class GalleryImage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
         :param pulumi.Input[str] description: The description of this gallery image definition resource. This property is updatable.
         :param pulumi.Input[pulumi.InputType['DisallowedArgs']] disallowed: Describes the disallowed disk types.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
@@ -376,6 +394,7 @@ class GalleryImage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disallowed: Optional[pulumi.Input[pulumi.InputType['DisallowedArgs']]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -406,6 +425,7 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
+            __props__.__dict__["architecture"] = architecture
             __props__.__dict__["description"] = description
             __props__.__dict__["disallowed"] = disallowed
             __props__.__dict__["end_of_life_date"] = end_of_life_date
@@ -461,6 +481,7 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
+        __props__.__dict__["architecture"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disallowed"] = None
         __props__.__dict__["end_of_life_date"] = None
@@ -480,6 +501,14 @@ class GalleryImage(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Output[Optional[str]]:
+        """
+        The architecture of the image. Applicable to OS disks only.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter

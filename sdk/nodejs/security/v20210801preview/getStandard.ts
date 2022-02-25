@@ -76,6 +76,10 @@ export interface GetStandardResult {
      */
     readonly standardType: string;
     /**
+     * List of all standard supported clouds.
+     */
+    readonly supportedClouds?: string[];
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.security.v20210801preview.SystemDataResponse;

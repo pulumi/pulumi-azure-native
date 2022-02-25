@@ -33,6 +33,16 @@ export const AppProtocol = {
  */
 export type AppProtocol = (typeof AppProtocol)[keyof typeof AppProtocol];
 
+export const AuthConfigState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+ */
+export type AuthConfigState = (typeof AuthConfigState)[keyof typeof AuthConfigState];
+
 export const BindingType = {
     Disabled: "Disabled",
     SniEnabled: "SniEnabled",
@@ -52,16 +62,6 @@ export const DisableWwwAuthenticateMode = {
  * <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
  */
 export type DisableWwwAuthenticateMode = (typeof DisableWwwAuthenticateMode)[keyof typeof DisableWwwAuthenticateMode];
-
-export const EasyAuthState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
- */
-export type EasyAuthState = (typeof EasyAuthState)[keyof typeof EasyAuthState];
 
 export const IdentityProviderState = {
     Enabled: "Enabled",

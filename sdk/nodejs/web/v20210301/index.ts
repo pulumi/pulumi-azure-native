@@ -101,7 +101,6 @@ export * from "./webAppApplicationSettings";
 export * from "./webAppApplicationSettingsSlot";
 export * from "./webAppAuthSettings";
 export * from "./webAppAuthSettingsSlot";
-export * from "./webAppAuthSettingsV2Slot";
 export * from "./webAppAzureStorageAccounts";
 export * from "./webAppAzureStorageAccountsSlot";
 export * from "./webAppBackupConfiguration";
@@ -163,7 +162,6 @@ import { WebAppApplicationSettings } from "./webAppApplicationSettings";
 import { WebAppApplicationSettingsSlot } from "./webAppApplicationSettingsSlot";
 import { WebAppAuthSettings } from "./webAppAuthSettings";
 import { WebAppAuthSettingsSlot } from "./webAppAuthSettingsSlot";
-import { WebAppAuthSettingsV2Slot } from "./webAppAuthSettingsV2Slot";
 import { WebAppAzureStorageAccounts } from "./webAppAzureStorageAccounts";
 import { WebAppAzureStorageAccountsSlot } from "./webAppAzureStorageAccountsSlot";
 import { WebAppBackupConfiguration } from "./webAppBackupConfiguration";
@@ -242,8 +240,6 @@ const _module = {
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppAuthSettingsSlot":
                 return new WebAppAuthSettingsSlot(name, <any>undefined, { urn })
-            case "azure-native:web/v20210301:WebAppAuthSettingsV2Slot":
-                return new WebAppAuthSettingsV2Slot(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppAzureStorageAccounts":
                 return new WebAppAzureStorageAccounts(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot":

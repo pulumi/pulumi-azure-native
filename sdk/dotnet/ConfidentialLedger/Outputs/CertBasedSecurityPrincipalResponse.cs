@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
     public sealed class CertBasedSecurityPrincipalResponse
     {
         /// <summary>
-        /// Base64 encoded public key of the user cert (.pem or .cer)
+        /// Public key of the user cert (.pem or .cer)
         /// </summary>
         public readonly string? Cert;
         /// <summary>

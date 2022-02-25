@@ -188,12 +188,12 @@ class ActivatedResourceReferenceArgs:
 @pulumi.input_type
 class AfdRouteCacheConfigurationArgs:
     def __init__(__self__, *,
-                 compression_settings: Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]] = None,
+                 compression_settings: Optional[pulumi.Input['CompressionSettingsArgs']] = None,
                  query_parameters: Optional[pulumi.Input[str]] = None,
                  query_string_caching_behavior: Optional[pulumi.Input[Union[str, 'AfdQueryStringCachingBehavior']]] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
-        :param pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]] compression_settings: compression settings.
+        :param pulumi.Input['CompressionSettingsArgs'] compression_settings: compression settings.
         :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
         :param pulumi.Input[Union[str, 'AfdQueryStringCachingBehavior']] query_string_caching_behavior: Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
         """
@@ -206,14 +206,14 @@ class AfdRouteCacheConfigurationArgs:
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]]:
+    def compression_settings(self) -> Optional[pulumi.Input['CompressionSettingsArgs']]:
         """
         compression settings.
         """
         return pulumi.get(self, "compression_settings")
 
     @compression_settings.setter
-    def compression_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CompressionSettingsArgs']]]]):
+    def compression_settings(self, value: Optional[pulumi.Input['CompressionSettingsArgs']]):
         pulumi.set(self, "compression_settings", value)
 
     @property

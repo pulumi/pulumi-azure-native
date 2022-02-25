@@ -5,6 +5,7 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .assignment import *
 from .get_assignment import *
 from .get_standard import *

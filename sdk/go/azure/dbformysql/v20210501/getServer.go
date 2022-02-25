@@ -35,12 +35,16 @@ type LookupServerResult struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Backup related properties of a server.
 	Backup *BackupResponse `pulumi:"backup"`
+	// The Data Encryption for CMK.
+	DataEncryption *DataEncryptionResponse `pulumi:"dataEncryption"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// High availability related properties of a server.
 	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// The cmk identity for the server.
+	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maintenance window of a server.
@@ -121,6 +125,11 @@ func (o LookupServerResultOutput) Backup() BackupResponsePtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *BackupResponse { return v.Backup }).(BackupResponsePtrOutput)
 }
 
+// The Data Encryption for CMK.
+func (o LookupServerResultOutput) DataEncryption() DataEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *DataEncryptionResponse { return v.DataEncryption }).(DataEncryptionResponsePtrOutput)
+}
+
 // The fully qualified domain name of a server.
 func (o LookupServerResultOutput) FullyQualifiedDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
@@ -134,6 +143,11 @@ func (o LookupServerResultOutput) HighAvailability() HighAvailabilityResponsePtr
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The cmk identity for the server.
+func (o LookupServerResultOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives

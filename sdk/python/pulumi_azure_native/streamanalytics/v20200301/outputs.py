@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AvroSerializationResponse',
     'AzureDataLakeStoreOutputDataSourceResponse',
+    'AzureFunctionOutputDataSourceResponse',
     'AzureMachineLearningWebServiceFunctionBindingResponse',
     'AzureMachineLearningWebServiceInputColumnResponse',
     'AzureMachineLearningWebServiceInputsResponse',
@@ -247,6 +248,115 @@ class AzureDataLakeStoreOutputDataSourceResponse(dict):
         The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.
         """
         return pulumi.get(self, "token_user_principal_name")
+
+
+@pulumi.output_type
+class AzureFunctionOutputDataSourceResponse(dict):
+    """
+    Defines the metadata of AzureFunctionOutputDataSource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "functionAppName":
+            suggest = "function_app_name"
+        elif key == "functionName":
+            suggest = "function_name"
+        elif key == "maxBatchCount":
+            suggest = "max_batch_count"
+        elif key == "maxBatchSize":
+            suggest = "max_batch_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureFunctionOutputDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureFunctionOutputDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureFunctionOutputDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 api_key: Optional[str] = None,
+                 function_app_name: Optional[str] = None,
+                 function_name: Optional[str] = None,
+                 max_batch_count: Optional[float] = None,
+                 max_batch_size: Optional[float] = None):
+        """
+        Defines the metadata of AzureFunctionOutputDataSource
+        :param str type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.AzureFunction'.
+        :param str api_key: If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+        :param str function_app_name: The name of your Azure Functions app.
+        :param str function_name: The name of the function in your Azure Functions app.
+        :param float max_batch_count: A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+        :param float max_batch_size: A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+        """
+        pulumi.set(__self__, "type", 'Microsoft.AzureFunction')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if function_app_name is not None:
+            pulumi.set(__self__, "function_app_name", function_app_name)
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
+        if max_batch_count is not None:
+            pulumi.set(__self__, "max_batch_count", max_batch_count)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.AzureFunction'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="functionAppName")
+    def function_app_name(self) -> Optional[str]:
+        """
+        The name of your Azure Functions app.
+        """
+        return pulumi.get(self, "function_app_name")
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> Optional[str]:
+        """
+        The name of the function in your Azure Functions app.
+        """
+        return pulumi.get(self, "function_name")
+
+    @property
+    @pulumi.getter(name="maxBatchCount")
+    def max_batch_count(self) -> Optional[float]:
+        """
+        A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+        """
+        return pulumi.get(self, "max_batch_count")
+
+    @property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[float]:
+        """
+        A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+        """
+        return pulumi.get(self, "max_batch_size")
 
 
 @pulumi.output_type
@@ -1166,7 +1276,9 @@ class BlobReferenceInputDataSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dateFormat":
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "dateFormat":
             suggest = "date_format"
         elif key == "pathPattern":
             suggest = "path_pattern"
@@ -1188,6 +1300,7 @@ class BlobReferenceInputDataSourceResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 authentication_mode: Optional[str] = None,
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
                  path_pattern: Optional[str] = None,
@@ -1197,6 +1310,7 @@ class BlobReferenceInputDataSourceResponse(dict):
         Describes a blob input data source that contains reference data.
         :param str type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
+        :param str authentication_mode: Authentication Mode.
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1204,6 +1318,8 @@ class BlobReferenceInputDataSourceResponse(dict):
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
@@ -1223,6 +1339,14 @@ class BlobReferenceInputDataSourceResponse(dict):
         Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter
@@ -1273,7 +1397,9 @@ class BlobStreamInputDataSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dateFormat":
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "dateFormat":
             suggest = "date_format"
         elif key == "pathPattern":
             suggest = "path_pattern"
@@ -1297,6 +1423,7 @@ class BlobStreamInputDataSourceResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 authentication_mode: Optional[str] = None,
                  container: Optional[str] = None,
                  date_format: Optional[str] = None,
                  path_pattern: Optional[str] = None,
@@ -1307,6 +1434,7 @@ class BlobStreamInputDataSourceResponse(dict):
         Describes a blob input data source that contains stream data.
         :param str type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
+        :param str authentication_mode: Authentication Mode.
         :param str container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param str date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param str path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1315,6 +1443,8 @@ class BlobStreamInputDataSourceResponse(dict):
         :param str time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
@@ -1336,6 +1466,14 @@ class BlobStreamInputDataSourceResponse(dict):
         Expected value is 'Microsoft.Storage/Blob'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[str]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
 
     @property
     @pulumi.getter
@@ -2855,7 +2993,7 @@ class OutputResponse(dict):
         :param str etag: The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         :param str id: Resource Id
         :param str type: Resource type
-        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param Union['AzureDataLakeStoreOutputDataSourceResponse', 'AzureFunctionOutputDataSourceResponse', 'AzureSqlDatabaseOutputDataSourceResponse', 'AzureSynapseOutputDataSourceResponse', 'AzureTableOutputDataSourceResponse', 'BlobOutputDataSourceResponse', 'DocumentDbOutputDataSourceResponse', 'EventHubOutputDataSourceResponse', 'EventHubV2OutputDataSourceResponse', 'PowerBIOutputDataSourceResponse', 'ServiceBusQueueOutputDataSourceResponse', 'ServiceBusTopicOutputDataSourceResponse'] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param str name: Resource name
         :param Union['AvroSerializationResponse', 'CsvSerializationResponse', 'JsonSerializationResponse', 'ParquetSerializationResponse'] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param float size_window: The size window to constrain a Stream Analytics output to.

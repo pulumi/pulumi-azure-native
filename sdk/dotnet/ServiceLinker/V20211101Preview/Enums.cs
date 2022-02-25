@@ -79,4 +79,35 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Type of VNet solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct VNetSolutionType : IEquatable<VNetSolutionType>
+    {
+        private readonly string _value;
+
+        private VNetSolutionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VNetSolutionType ServiceEndpoint { get; } = new VNetSolutionType("serviceEndpoint");
+        public static VNetSolutionType PrivateLink { get; } = new VNetSolutionType("privateLink");
+
+        public static bool operator ==(VNetSolutionType left, VNetSolutionType right) => left.Equals(right);
+        public static bool operator !=(VNetSolutionType left, VNetSolutionType right) => !left.Equals(right);
+
+        public static explicit operator string(VNetSolutionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VNetSolutionType other && Equals(other);
+        public bool Equals(VNetSolutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -14,6 +14,16 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const DataEncryptionType = {
+    AzureKeyVault: "AzureKeyVault",
+    SystemManaged: "SystemManaged",
+} as const;
+
+/**
+ * The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+ */
+export type DataEncryptionType = (typeof DataEncryptionType)[keyof typeof DataEncryptionType];
+
 export const EnableStatusEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -34,6 +44,15 @@ export const HighAvailabilityMode = {
  * High availability mode for a server.
  */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
+
+export const ManagedServiceIdentityType = {
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const ReplicationRole = {
     None: "None",

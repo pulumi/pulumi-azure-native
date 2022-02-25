@@ -46,10 +46,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly Outputs.GoogleResponse? Google;
         /// <summary>
-        /// The configuration settings of the legacy Microsoft Account provider.
-        /// </summary>
-        public readonly Outputs.LegacyMicrosoftAccountResponse? LegacyMicrosoftAccount;
-        /// <summary>
         /// The configuration settings of the Twitter provider.
         /// </summary>
         public readonly Outputs.TwitterResponse? Twitter;
@@ -70,8 +66,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
 
             Outputs.GoogleResponse? google,
 
-            Outputs.LegacyMicrosoftAccountResponse? legacyMicrosoftAccount,
-
             Outputs.TwitterResponse? twitter)
         {
             Apple = apple;
@@ -81,7 +75,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
             Facebook = facebook;
             GitHub = gitHub;
             Google = google;
-            LegacyMicrosoftAccount = legacyMicrosoftAccount;
             Twitter = twitter;
         }
     }

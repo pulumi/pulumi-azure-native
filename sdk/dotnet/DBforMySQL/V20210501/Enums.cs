@@ -41,6 +41,37 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
     }
 
     /// <summary>
+    /// The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataEncryptionType : IEquatable<DataEncryptionType>
+    {
+        private readonly string _value;
+
+        private DataEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataEncryptionType AzureKeyVault { get; } = new DataEncryptionType("AzureKeyVault");
+        public static DataEncryptionType SystemManaged { get; } = new DataEncryptionType("SystemManaged");
+
+        public static bool operator ==(DataEncryptionType left, DataEncryptionType right) => left.Equals(right);
+        public static bool operator !=(DataEncryptionType left, DataEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(DataEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataEncryptionType other && Equals(other);
+        public bool Equals(DataEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enable Storage Auto Grow or not.
     /// </summary>
     [EnumType]
@@ -96,6 +127,36 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HighAvailabilityMode other && Equals(other);
         public bool Equals(HighAvailabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

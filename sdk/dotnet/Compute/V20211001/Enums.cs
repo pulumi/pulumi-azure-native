@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Compute.V20211001
 {
     /// <summary>
+    /// The architecture of the image. Applicable to OS disks only.
+    /// </summary>
+    [EnumType]
+    public readonly struct Architecture : IEquatable<Architecture>
+    {
+        private readonly string _value;
+
+        private Architecture(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Architecture X64 { get; } = new Architecture("x64");
+        public static Architecture Arm64 { get; } = new Architecture("Arm64");
+
+        public static bool operator ==(Architecture left, Architecture right) => left.Equals(right);
+        public static bool operator !=(Architecture left, Architecture right) => !left.Equals(right);
+
+        public static explicit operator string(Architecture value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Architecture other && Equals(other);
+        public bool Equals(Architecture other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// confidential VM encryption types
     /// </summary>
     [EnumType]

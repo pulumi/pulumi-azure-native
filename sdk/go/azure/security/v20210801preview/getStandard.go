@@ -49,6 +49,8 @@ type LookupStandardResult struct {
 	Name string `pulumi:"name"`
 	// standard type (Custom or BuiltIn only currently)
 	StandardType string `pulumi:"standardType"`
+	// List of all standard supported clouds.
+	SupportedClouds []string `pulumi:"supportedClouds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// A list of key value pairs that describe the resource.
@@ -140,6 +142,11 @@ func (o LookupStandardResultOutput) Name() pulumi.StringOutput {
 // standard type (Custom or BuiltIn only currently)
 func (o LookupStandardResultOutput) StandardType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StandardType }).(pulumi.StringOutput)
+}
+
+// List of all standard supported clouds.
+func (o LookupStandardResultOutput) SupportedClouds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupStandardResult) []string { return v.SupportedClouds }).(pulumi.StringArrayOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.

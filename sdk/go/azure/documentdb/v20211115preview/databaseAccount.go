@@ -53,6 +53,8 @@ type DatabaseAccount struct {
 	EnableCassandraConnector pulumi.BoolPtrOutput `pulumi:"enableCassandraConnector"`
 	// Flag to indicate whether Free Tier is enabled.
 	EnableFreeTier pulumi.BoolPtrOutput `pulumi:"enableFreeTier"`
+	// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+	EnableMaterializedViews pulumi.BoolPtrOutput `pulumi:"enableMaterializedViews"`
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations pulumi.BoolPtrOutput `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
@@ -262,6 +264,8 @@ type databaseAccountArgs struct {
 	EnableCassandraConnector *bool `pulumi:"enableCassandraConnector"`
 	// Flag to indicate whether Free Tier is enabled.
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
+	// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+	EnableMaterializedViews *bool `pulumi:"enableMaterializedViews"`
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// Identity for the resource.
@@ -334,6 +338,8 @@ type DatabaseAccountArgs struct {
 	EnableCassandraConnector pulumi.BoolPtrInput
 	// Flag to indicate whether Free Tier is enabled.
 	EnableFreeTier pulumi.BoolPtrInput
+	// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+	EnableMaterializedViews pulumi.BoolPtrInput
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations pulumi.BoolPtrInput
 	// Identity for the resource.

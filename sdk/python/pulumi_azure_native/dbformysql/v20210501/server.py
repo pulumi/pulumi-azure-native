@@ -22,7 +22,9 @@ class ServerArgs:
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup: Optional[pulumi.Input['BackupArgs']] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
                  high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  network: Optional[pulumi.Input['NetworkArgs']] = None,
@@ -42,7 +44,9 @@ class ServerArgs:
         :param pulumi.Input[str] availability_zone: availability Zone information of the server.
         :param pulumi.Input['BackupArgs'] backup: Backup related properties of a server.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new MySQL server.
+        :param pulumi.Input['DataEncryptionArgs'] data_encryption: The Data Encryption for CMK.
         :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability related properties of a server.
+        :param pulumi.Input['IdentityArgs'] identity: The cmk identity for the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a server.
         :param pulumi.Input['NetworkArgs'] network: Network related properties of a server.
@@ -66,8 +70,12 @@ class ServerArgs:
             pulumi.set(__self__, "backup", backup)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if data_encryption is not None:
+            pulumi.set(__self__, "data_encryption", data_encryption)
         if high_availability is not None:
             pulumi.set(__self__, "high_availability", high_availability)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
@@ -164,6 +172,18 @@ class ServerArgs:
         pulumi.set(self, "create_mode", value)
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
+        """
+        The Data Encryption for CMK.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @data_encryption.setter
+    def data_encryption(self, value: Optional[pulumi.Input['DataEncryptionArgs']]):
+        pulumi.set(self, "data_encryption", value)
+
+    @property
     @pulumi.getter(name="highAvailability")
     def high_availability(self) -> Optional[pulumi.Input['HighAvailabilityArgs']]:
         """
@@ -174,6 +194,18 @@ class ServerArgs:
     @high_availability.setter
     def high_availability(self, value: Optional[pulumi.Input['HighAvailabilityArgs']]):
         pulumi.set(self, "high_availability", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        The cmk identity for the server.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -318,7 +350,9 @@ class Server(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
@@ -342,7 +376,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: availability Zone information of the server.
         :param pulumi.Input[pulumi.InputType['BackupArgs']] backup: Backup related properties of a server.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new MySQL server.
+        :param pulumi.Input[pulumi.InputType['DataEncryptionArgs']] data_encryption: The Data Encryption for CMK.
         :param pulumi.Input[pulumi.InputType['HighAvailabilityArgs']] high_availability: High availability related properties of a server.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The cmk identity for the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[pulumi.InputType['NetworkArgs']] network: Network related properties of a server.
@@ -385,7 +421,9 @@ class Server(pulumi.CustomResource):
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
+                 data_encryption: Optional[pulumi.Input[pulumi.InputType['DataEncryptionArgs']]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
@@ -415,7 +453,9 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup"] = backup
             __props__.__dict__["create_mode"] = create_mode
+            __props__.__dict__["data_encryption"] = data_encryption
             __props__.__dict__["high_availability"] = high_availability
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["network"] = network
@@ -463,8 +503,10 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["backup"] = None
+        __props__.__dict__["data_encryption"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["high_availability"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
@@ -506,6 +548,14 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "backup")
 
     @property
+    @pulumi.getter(name="dataEncryption")
+    def data_encryption(self) -> pulumi.Output[Optional['outputs.DataEncryptionResponse']]:
+        """
+        The Data Encryption for CMK.
+        """
+        return pulumi.get(self, "data_encryption")
+
+    @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[str]:
         """
@@ -520,6 +570,14 @@ class Server(pulumi.CustomResource):
         High availability related properties of a server.
         """
         return pulumi.get(self, "high_availability")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        The cmk identity for the server.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Compute.V20211001
     public sealed class GetGalleryImageResult
     {
         /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        public readonly string? Architecture;
+        /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
         public readonly string? Description;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.Compute.V20211001
 
         [OutputConstructor]
         private GetGalleryImageResult(
+            string? architecture,
+
             string? description,
 
             Outputs.DisallowedResponse? disallowed,
@@ -196,6 +202,7 @@ namespace Pulumi.AzureNative.Compute.V20211001
 
             string type)
         {
+            Architecture = architecture;
             Description = description;
             Disallowed = disallowed;
             EndOfLifeDate = endOfLifeDate;

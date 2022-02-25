@@ -74,6 +74,40 @@ type AzureDataLakeStoreOutputDataSourceResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Defines the metadata of AzureFunctionOutputDataSource
+type AzureFunctionOutputDataSource struct {
+	// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+	ApiKey *string `pulumi:"apiKey"`
+	// The name of your Azure Functions app.
+	FunctionAppName *string `pulumi:"functionAppName"`
+	// The name of the function in your Azure Functions app.
+	FunctionName *string `pulumi:"functionName"`
+	// A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+	MaxBatchSize *float64 `pulumi:"maxBatchSize"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.AzureFunction'.
+	Type string `pulumi:"type"`
+}
+
+// Defines the metadata of AzureFunctionOutputDataSource
+type AzureFunctionOutputDataSourceResponse struct {
+	// If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function.
+	ApiKey *string `pulumi:"apiKey"`
+	// The name of your Azure Functions app.
+	FunctionAppName *string `pulumi:"functionAppName"`
+	// The name of the function in your Azure Functions app.
+	FunctionName *string `pulumi:"functionName"`
+	// A property that lets you specify the maximum number of events in each batch that's sent to Azure Functions. The default value is 100.
+	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
+	// A property that lets you set the maximum size for each output batch that's sent to your Azure function. The input unit is in bytes. By default, this value is 262,144 bytes (256 KB).
+	MaxBatchSize *float64 `pulumi:"maxBatchSize"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.AzureFunction'.
+	Type string `pulumi:"type"`
+}
+
 // The binding to an Azure Machine Learning web service.
 type AzureMachineLearningWebServiceFunctionBinding struct {
 	// The API key used to authenticate with Request-Response endpoint.
@@ -372,6 +406,8 @@ type BlobOutputDataSourceResponse struct {
 
 // Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -389,6 +425,8 @@ type BlobReferenceInputDataSource struct {
 
 // Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -406,6 +444,8 @@ type BlobReferenceInputDataSourceResponse struct {
 
 // Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -425,6 +465,8 @@ type BlobStreamInputDataSource struct {
 
 // Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.

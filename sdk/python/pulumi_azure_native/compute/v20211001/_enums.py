@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'Architecture',
     'ConfidentialVMEncryptionType',
     'GalleryExtendedLocationType',
     'GallerySharingPermissionTypes',
@@ -15,6 +16,14 @@ __all__ = [
     'ReplicationMode',
     'StorageAccountType',
 ]
+
+
+class Architecture(str, Enum):
+    """
+    The architecture of the image. Applicable to OS disks only.
+    """
+    X64 = "x64"
+    ARM64 = "Arm64"
 
 
 class ConfidentialVMEncryptionType(str, Enum):

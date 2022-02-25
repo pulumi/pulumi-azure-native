@@ -23,12 +23,16 @@ type Linker struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// An option to store secret value in secure place
+	SecretStore SecretStoreResponsePtrOutput `pulumi:"secretStore"`
 	// The system data.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource Id of target service.
 	TargetId pulumi.StringPtrOutput `pulumi:"targetId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The VNet solution.
+	VNetSolution VNetSolutionResponsePtrOutput `pulumi:"vNetSolution"`
 }
 
 // NewLinker registers a new resource with the given unique name, arguments, and options.
@@ -87,8 +91,12 @@ type linkerArgs struct {
 	LinkerName *string `pulumi:"linkerName"`
 	// The fully qualified Azure Resource manager identifier of the resource to be connected.
 	ResourceUri string `pulumi:"resourceUri"`
+	// An option to store secret value in secure place
+	SecretStore *SecretStore `pulumi:"secretStore"`
 	// The resource Id of target service.
 	TargetId *string `pulumi:"targetId"`
+	// The VNet solution.
+	VNetSolution *VNetSolution `pulumi:"vNetSolution"`
 }
 
 // The set of arguments for constructing a Linker resource.
@@ -101,8 +109,12 @@ type LinkerArgs struct {
 	LinkerName pulumi.StringPtrInput
 	// The fully qualified Azure Resource manager identifier of the resource to be connected.
 	ResourceUri pulumi.StringInput
+	// An option to store secret value in secure place
+	SecretStore SecretStorePtrInput
 	// The resource Id of target service.
 	TargetId pulumi.StringPtrInput
+	// The VNet solution.
+	VNetSolution VNetSolutionPtrInput
 }
 
 func (LinkerArgs) ElementType() reflect.Type {

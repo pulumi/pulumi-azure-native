@@ -11,7 +11,9 @@ from ._enums import *
 
 __all__ = [
     'BackupArgs',
+    'DataEncryptionArgs',
     'HighAvailabilityArgs',
+    'IdentityArgs',
     'MaintenanceWindowArgs',
     'NetworkArgs',
     'SkuArgs',
@@ -59,6 +61,94 @@ class BackupArgs:
 
 
 @pulumi.input_type
+class DataEncryptionArgs:
+    def __init__(__self__, *,
+                 geo_backup_key_uri: Optional[pulumi.Input[str]] = None,
+                 geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+                 primary_key_uri: Optional[pulumi.Input[str]] = None,
+                 primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataEncryptionType']] = None):
+        """
+        The date encryption for cmk.
+        :param pulumi.Input[str] geo_backup_key_uri: Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+        :param pulumi.Input[str] geo_backup_user_assigned_identity_id: Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+        :param pulumi.Input[str] primary_key_uri: Primary key uri
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Primary user identity resource id
+        :param pulumi.Input['DataEncryptionType'] type: The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+        """
+        if geo_backup_key_uri is not None:
+            pulumi.set(__self__, "geo_backup_key_uri", geo_backup_key_uri)
+        if geo_backup_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
+        if primary_key_uri is not None:
+            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="geoBackupKeyUri")
+    def geo_backup_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+        """
+        return pulumi.get(self, "geo_backup_key_uri")
+
+    @geo_backup_key_uri.setter
+    def geo_backup_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_backup_key_uri", value)
+
+    @property
+    @pulumi.getter(name="geoBackupUserAssignedIdentityId")
+    def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+        """
+        return pulumi.get(self, "geo_backup_user_assigned_identity_id")
+
+    @geo_backup_user_assigned_identity_id.setter
+    def geo_backup_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "geo_backup_user_assigned_identity_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKeyUri")
+    def primary_key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary key uri
+        """
+        return pulumi.get(self, "primary_key_uri")
+
+    @primary_key_uri.setter
+    def primary_key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key_uri", value)
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary user identity resource id
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @primary_user_assigned_identity_id.setter
+    def primary_user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_user_assigned_identity_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['DataEncryptionType']]:
+        """
+        The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['DataEncryptionType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class HighAvailabilityArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[Union[str, 'HighAvailabilityMode']]] = None,
@@ -96,6 +186,46 @@ class HighAvailabilityArgs:
     @standby_availability_zone.setter
     def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_availability_zone", value)
+
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Metadata of user assigned identity.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Metadata of user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

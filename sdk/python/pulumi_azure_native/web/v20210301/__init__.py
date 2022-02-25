@@ -102,7 +102,6 @@ from .web_app_application_settings import *
 from .web_app_application_settings_slot import *
 from .web_app_auth_settings import *
 from .web_app_auth_settings_slot import *
-from .web_app_auth_settings_v2_slot import *
 from .web_app_azure_storage_accounts import *
 from .web_app_azure_storage_accounts_slot import *
 from .web_app_backup_configuration import *

@@ -498,7 +498,7 @@ func (o LinkedDatabaseResponseArrayOutput) Index(i pulumi.IntInput) LinkedDataba
 
 // Specifies configuration of a redis module
 type Module struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name string `pulumi:"name"`
@@ -517,7 +517,7 @@ type ModuleInput interface {
 
 // Specifies configuration of a redis module
 type ModuleArgs struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args pulumi.StringPtrInput `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name pulumi.StringInput `pulumi:"name"`
@@ -575,7 +575,7 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 func (o ModuleOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Module) *string { return v.Args }).(pulumi.StringPtrOutput)
 }
@@ -607,7 +607,7 @@ func (o ModuleArrayOutput) Index(i pulumi.IntInput) ModuleOutput {
 
 // Specifies configuration of a redis module
 type ModuleResponse struct {
-	// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+	// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 	Args *string `pulumi:"args"`
 	// The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
 	Name string `pulumi:"name"`
@@ -630,7 +630,7 @@ func (o ModuleResponseOutput) ToModuleResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+// Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
 func (o ModuleResponseOutput) Args() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModuleResponse) *string { return v.Args }).(pulumi.StringPtrOutput)
 }

@@ -259,12 +259,12 @@ class AfdRouteCacheConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compression_settings: Optional[Sequence['outputs.CompressionSettingsResponse']] = None,
+                 compression_settings: Optional['outputs.CompressionSettingsResponse'] = None,
                  query_parameters: Optional[str] = None,
                  query_string_caching_behavior: Optional[str] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
-        :param Sequence['CompressionSettingsResponse'] compression_settings: compression settings.
+        :param 'CompressionSettingsResponse' compression_settings: compression settings.
         :param str query_parameters: query parameters to include or exclude (comma separated).
         :param str query_string_caching_behavior: Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
         """
@@ -277,7 +277,7 @@ class AfdRouteCacheConfigurationResponse(dict):
 
     @property
     @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional[Sequence['outputs.CompressionSettingsResponse']]:
+    def compression_settings(self) -> Optional['outputs.CompressionSettingsResponse']:
         """
         compression settings.
         """

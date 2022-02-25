@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
     /// </summary>
     public sealed class AfdRouteCacheConfigurationArgs : Pulumi.ResourceArgs
     {
-        [Input("compressionSettings")]
-        private InputList<Inputs.CompressionSettingsArgs>? _compressionSettings;
-
         /// <summary>
         /// compression settings.
         /// </summary>
-        public InputList<Inputs.CompressionSettingsArgs> CompressionSettings
-        {
-            get => _compressionSettings ?? (_compressionSettings = new InputList<Inputs.CompressionSettingsArgs>());
-            set => _compressionSettings = value;
-        }
+        [Input("compressionSettings")]
+        public Input<Inputs.CompressionSettingsArgs>? CompressionSettings { get; set; }
 
         /// <summary>
         /// query parameters to include or exclude (comma separated).

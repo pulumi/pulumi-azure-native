@@ -144,6 +144,10 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         /// </summary>
         public readonly bool? EnableFreeTier;
         /// <summary>
+        /// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        /// </summary>
+        public readonly bool? EnableMaterializedViews;
+        /// <summary>
         /// Enables the account to write in multiple locations
         /// </summary>
         public readonly bool? EnableMultipleWriteLocations;
@@ -280,6 +284,8 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
 
             bool? enableFreeTier,
 
+            bool? enableMaterializedViews,
+
             bool? enableMultipleWriteLocations,
 
             ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
@@ -347,6 +353,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
             EnableAutomaticFailover = enableAutomaticFailover;
             EnableCassandraConnector = enableCassandraConnector;
             EnableFreeTier = enableFreeTier;
+            EnableMaterializedViews = enableMaterializedViews;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
             Id = id;

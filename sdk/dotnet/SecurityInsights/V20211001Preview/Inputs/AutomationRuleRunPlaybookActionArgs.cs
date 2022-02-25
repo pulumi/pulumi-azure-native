@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// </summary>
     public sealed class AutomationRuleRunPlaybookActionArgs : Pulumi.ResourceArgs
     {
+        [Input("actionConfiguration")]
+        public Input<Inputs.PlaybookActionPropertiesArgs>? ActionConfiguration { get; set; }
+
         /// <summary>
         /// The type of the automation rule action
         /// Expected value is 'RunPlaybook'.
@@ -22,20 +25,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
-        /// <summary>
-        /// The resource id of the playbook resource
-        /// </summary>
-        [Input("logicAppResourceId")]
-        public Input<string>? LogicAppResourceId { get; set; }
-
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
-
-        /// <summary>
-        /// The tenant id of the playbook resource
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
 
         public AutomationRuleRunPlaybookActionArgs()
         {

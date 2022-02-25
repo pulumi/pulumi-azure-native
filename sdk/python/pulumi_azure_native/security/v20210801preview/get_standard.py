@@ -21,7 +21,7 @@ class GetStandardResult:
     """
     Security Standard on a resource
     """
-    def __init__(__self__, category=None, components=None, description=None, display_name=None, etag=None, id=None, kind=None, location=None, name=None, standard_type=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, category=None, components=None, description=None, display_name=None, etag=None, id=None, kind=None, location=None, name=None, standard_type=None, supported_clouds=None, system_data=None, tags=None, type=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -52,6 +52,9 @@ class GetStandardResult:
         if standard_type and not isinstance(standard_type, str):
             raise TypeError("Expected argument 'standard_type' to be a str")
         pulumi.set(__self__, "standard_type", standard_type)
+        if supported_clouds and not isinstance(supported_clouds, list):
+            raise TypeError("Expected argument 'supported_clouds' to be a list")
+        pulumi.set(__self__, "supported_clouds", supported_clouds)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -143,6 +146,14 @@ class GetStandardResult:
         return pulumi.get(self, "standard_type")
 
     @property
+    @pulumi.getter(name="supportedClouds")
+    def supported_clouds(self) -> Optional[Sequence[str]]:
+        """
+        List of all standard supported clouds.
+        """
+        return pulumi.get(self, "supported_clouds")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -183,6 +194,7 @@ class AwaitableGetStandardResult(GetStandardResult):
             location=self.location,
             name=self.name,
             standard_type=self.standard_type,
+            supported_clouds=self.supported_clouds,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -218,6 +230,7 @@ def get_standard(resource_group_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         standard_type=__ret__.standard_type,
+        supported_clouds=__ret__.supported_clouds,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

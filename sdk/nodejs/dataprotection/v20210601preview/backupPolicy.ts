@@ -83,7 +83,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupPolicy" }, { type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection:BackupPolicy" }, { type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220101:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }

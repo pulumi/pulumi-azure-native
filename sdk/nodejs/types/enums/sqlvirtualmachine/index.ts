@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20170301preview from "./v20170301preview";
+import * as v20211101preview from "./v20211101preview";
 
 export {
     v20170301preview,
+    v20211101preview,
 };
 
 export const BackupScheduleType = {

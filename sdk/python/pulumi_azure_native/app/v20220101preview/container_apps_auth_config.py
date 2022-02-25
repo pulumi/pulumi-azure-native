@@ -23,7 +23,7 @@ class ContainerAppsAuthConfigArgs:
                  identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
                  login: Optional[pulumi.Input['LoginArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EasyAuthState']]] = None):
+                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None):
         """
         The set of arguments for constructing a ContainerAppsAuthConfig resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
@@ -33,7 +33,7 @@ class ContainerAppsAuthConfigArgs:
         :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
         :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
         :param pulumi.Input[str] name: Name of the Container App AuthConfig.
-        :param pulumi.Input[Union[str, 'EasyAuthState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        :param pulumi.Input[Union[str, 'AuthConfigState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -136,14 +136,14 @@ class ContainerAppsAuthConfigArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'EasyAuthState']]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'AuthConfigState']]]:
         """
         <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'EasyAuthState']]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'AuthConfigState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -159,7 +159,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EasyAuthState']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None,
                  __props__=None):
         """
         Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
@@ -173,7 +173,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
         :param pulumi.Input[str] name: Name of the Container App AuthConfig.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'EasyAuthState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        :param pulumi.Input[Union[str, 'AuthConfigState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
         """
         ...
     @overload
@@ -206,7 +206,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'EasyAuthState']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()

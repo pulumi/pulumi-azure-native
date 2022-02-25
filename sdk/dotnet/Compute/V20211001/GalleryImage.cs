@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Compute.V20211001
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        [Output("architecture")]
+        public Output<string?> Architecture { get; private set; } = null!;
+
+        /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
         [Output("description")]
@@ -178,6 +184,12 @@ namespace Pulumi.AzureNative.Compute.V20211001
 
     public sealed class GalleryImageArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The architecture of the image. Applicable to OS disks only.
+        /// </summary>
+        [Input("architecture")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.V20211001.Architecture>? Architecture { get; set; }
+
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>

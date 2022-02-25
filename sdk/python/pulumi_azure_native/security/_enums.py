@@ -32,6 +32,7 @@ __all__ = [
     'Severity',
     'SeverityEnum',
     'Source',
+    'StandardSupportedClouds',
     'State',
     'Status',
     'StatusReason',
@@ -443,6 +444,14 @@ class Source(str, Enum):
     """
     SQL Resource in an on premise machine connected to Azure cloud
     """
+
+
+class StandardSupportedClouds(str, Enum):
+    """
+    The cloud that the standard is supported on.
+    """
+    AWS = "AWS"
+    GCP = "GCP"
 
 
 class State(str, Enum):

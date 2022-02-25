@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// An option to store secret value in secure place
+        /// </summary>
+        public readonly Outputs.SecretStoreResponse? SecretStore;
+        /// <summary>
         /// The system data.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -99,6 +103,10 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VNet solution.
+        /// </summary>
+        public readonly Outputs.VNetSolutionResponse? VNetSolution;
 
         [OutputConstructor]
         private GetLinkerResult(
@@ -112,20 +120,26 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
 
             string provisioningState,
 
+            Outputs.SecretStoreResponse? secretStore,
+
             Outputs.SystemDataResponse systemData,
 
             string? targetId,
 
-            string type)
+            string type,
+
+            Outputs.VNetSolutionResponse? vNetSolution)
         {
             AuthInfo = authInfo;
             ClientType = clientType;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            SecretStore = secretStore;
             SystemData = systemData;
             TargetId = targetId;
             Type = type;
+            VNetSolution = vNetSolution;
         }
     }
 }

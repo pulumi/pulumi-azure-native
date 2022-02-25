@@ -438,7 +438,7 @@ func (o ActivatedResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) 
 // Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type AfdRouteCacheConfiguration struct {
 	// compression settings.
-	CompressionSettings []CompressionSettings `pulumi:"compressionSettings"`
+	CompressionSettings *CompressionSettings `pulumi:"compressionSettings"`
 	// query parameters to include or exclude (comma separated).
 	QueryParameters *string `pulumi:"queryParameters"`
 	// Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
@@ -459,7 +459,7 @@ type AfdRouteCacheConfigurationInput interface {
 // Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type AfdRouteCacheConfigurationArgs struct {
 	// compression settings.
-	CompressionSettings CompressionSettingsArrayInput `pulumi:"compressionSettings"`
+	CompressionSettings CompressionSettingsPtrInput `pulumi:"compressionSettings"`
 	// query parameters to include or exclude (comma separated).
 	QueryParameters pulumi.StringPtrInput `pulumi:"queryParameters"`
 	// Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
@@ -545,8 +545,8 @@ func (o AfdRouteCacheConfigurationOutput) ToAfdRouteCacheConfigurationPtrOutputW
 }
 
 // compression settings.
-func (o AfdRouteCacheConfigurationOutput) CompressionSettings() CompressionSettingsArrayOutput {
-	return o.ApplyT(func(v AfdRouteCacheConfiguration) []CompressionSettings { return v.CompressionSettings }).(CompressionSettingsArrayOutput)
+func (o AfdRouteCacheConfigurationOutput) CompressionSettings() CompressionSettingsPtrOutput {
+	return o.ApplyT(func(v AfdRouteCacheConfiguration) *CompressionSettings { return v.CompressionSettings }).(CompressionSettingsPtrOutput)
 }
 
 // query parameters to include or exclude (comma separated).
@@ -584,13 +584,13 @@ func (o AfdRouteCacheConfigurationPtrOutput) Elem() AfdRouteCacheConfigurationOu
 }
 
 // compression settings.
-func (o AfdRouteCacheConfigurationPtrOutput) CompressionSettings() CompressionSettingsArrayOutput {
-	return o.ApplyT(func(v *AfdRouteCacheConfiguration) []CompressionSettings {
+func (o AfdRouteCacheConfigurationPtrOutput) CompressionSettings() CompressionSettingsPtrOutput {
+	return o.ApplyT(func(v *AfdRouteCacheConfiguration) *CompressionSettings {
 		if v == nil {
 			return nil
 		}
 		return v.CompressionSettings
-	}).(CompressionSettingsArrayOutput)
+	}).(CompressionSettingsPtrOutput)
 }
 
 // query parameters to include or exclude (comma separated).
@@ -616,7 +616,7 @@ func (o AfdRouteCacheConfigurationPtrOutput) QueryStringCachingBehavior() pulumi
 // Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
 type AfdRouteCacheConfigurationResponse struct {
 	// compression settings.
-	CompressionSettings []CompressionSettingsResponse `pulumi:"compressionSettings"`
+	CompressionSettings *CompressionSettingsResponse `pulumi:"compressionSettings"`
 	// query parameters to include or exclude (comma separated).
 	QueryParameters *string `pulumi:"queryParameters"`
 	// Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
@@ -639,8 +639,8 @@ func (o AfdRouteCacheConfigurationResponseOutput) ToAfdRouteCacheConfigurationRe
 }
 
 // compression settings.
-func (o AfdRouteCacheConfigurationResponseOutput) CompressionSettings() CompressionSettingsResponseArrayOutput {
-	return o.ApplyT(func(v AfdRouteCacheConfigurationResponse) []CompressionSettingsResponse { return v.CompressionSettings }).(CompressionSettingsResponseArrayOutput)
+func (o AfdRouteCacheConfigurationResponseOutput) CompressionSettings() CompressionSettingsResponsePtrOutput {
+	return o.ApplyT(func(v AfdRouteCacheConfigurationResponse) *CompressionSettingsResponse { return v.CompressionSettings }).(CompressionSettingsResponsePtrOutput)
 }
 
 // query parameters to include or exclude (comma separated).
@@ -678,13 +678,13 @@ func (o AfdRouteCacheConfigurationResponsePtrOutput) Elem() AfdRouteCacheConfigu
 }
 
 // compression settings.
-func (o AfdRouteCacheConfigurationResponsePtrOutput) CompressionSettings() CompressionSettingsResponseArrayOutput {
-	return o.ApplyT(func(v *AfdRouteCacheConfigurationResponse) []CompressionSettingsResponse {
+func (o AfdRouteCacheConfigurationResponsePtrOutput) CompressionSettings() CompressionSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *AfdRouteCacheConfigurationResponse) *CompressionSettingsResponse {
 		if v == nil {
 			return nil
 		}
 		return v.CompressionSettings
-	}).(CompressionSettingsResponseArrayOutput)
+	}).(CompressionSettingsResponsePtrOutput)
 }
 
 // query parameters to include or exclude (comma separated).
@@ -920,29 +920,45 @@ func (i CompressionSettingsArgs) ToCompressionSettingsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsOutput)
 }
 
-// CompressionSettingsArrayInput is an input type that accepts CompressionSettingsArray and CompressionSettingsArrayOutput values.
-// You can construct a concrete instance of `CompressionSettingsArrayInput` via:
+func (i CompressionSettingsArgs) ToCompressionSettingsPtrOutput() CompressionSettingsPtrOutput {
+	return i.ToCompressionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i CompressionSettingsArgs) ToCompressionSettingsPtrOutputWithContext(ctx context.Context) CompressionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsOutput).ToCompressionSettingsPtrOutputWithContext(ctx)
+}
+
+// CompressionSettingsPtrInput is an input type that accepts CompressionSettingsArgs, CompressionSettingsPtr and CompressionSettingsPtrOutput values.
+// You can construct a concrete instance of `CompressionSettingsPtrInput` via:
 //
-//          CompressionSettingsArray{ CompressionSettingsArgs{...} }
-type CompressionSettingsArrayInput interface {
+//          CompressionSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type CompressionSettingsPtrInput interface {
 	pulumi.Input
 
-	ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput
-	ToCompressionSettingsArrayOutputWithContext(context.Context) CompressionSettingsArrayOutput
+	ToCompressionSettingsPtrOutput() CompressionSettingsPtrOutput
+	ToCompressionSettingsPtrOutputWithContext(context.Context) CompressionSettingsPtrOutput
 }
 
-type CompressionSettingsArray []CompressionSettingsInput
+type compressionSettingsPtrType CompressionSettingsArgs
 
-func (CompressionSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompressionSettings)(nil)).Elem()
+func CompressionSettingsPtr(v *CompressionSettingsArgs) CompressionSettingsPtrInput {
+	return (*compressionSettingsPtrType)(v)
 }
 
-func (i CompressionSettingsArray) ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput {
-	return i.ToCompressionSettingsArrayOutputWithContext(context.Background())
+func (*compressionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompressionSettings)(nil)).Elem()
 }
 
-func (i CompressionSettingsArray) ToCompressionSettingsArrayOutputWithContext(ctx context.Context) CompressionSettingsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsArrayOutput)
+func (i *compressionSettingsPtrType) ToCompressionSettingsPtrOutput() CompressionSettingsPtrOutput {
+	return i.ToCompressionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *compressionSettingsPtrType) ToCompressionSettingsPtrOutputWithContext(ctx context.Context) CompressionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompressionSettingsPtrOutput)
 }
 
 // settings for compression.
@@ -960,6 +976,16 @@ func (o CompressionSettingsOutput) ToCompressionSettingsOutputWithContext(ctx co
 	return o
 }
 
+func (o CompressionSettingsOutput) ToCompressionSettingsPtrOutput() CompressionSettingsPtrOutput {
+	return o.ToCompressionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o CompressionSettingsOutput) ToCompressionSettingsPtrOutputWithContext(ctx context.Context) CompressionSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompressionSettings) *CompressionSettings {
+		return &v
+	}).(CompressionSettingsPtrOutput)
+}
+
 // List of content types on which compression applies. The value should be a valid MIME type.
 func (o CompressionSettingsOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CompressionSettings) []string { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
@@ -970,24 +996,48 @@ func (o CompressionSettingsOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CompressionSettings) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type CompressionSettingsArrayOutput struct{ *pulumi.OutputState }
+type CompressionSettingsPtrOutput struct{ *pulumi.OutputState }
 
-func (CompressionSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompressionSettings)(nil)).Elem()
+func (CompressionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompressionSettings)(nil)).Elem()
 }
 
-func (o CompressionSettingsArrayOutput) ToCompressionSettingsArrayOutput() CompressionSettingsArrayOutput {
+func (o CompressionSettingsPtrOutput) ToCompressionSettingsPtrOutput() CompressionSettingsPtrOutput {
 	return o
 }
 
-func (o CompressionSettingsArrayOutput) ToCompressionSettingsArrayOutputWithContext(ctx context.Context) CompressionSettingsArrayOutput {
+func (o CompressionSettingsPtrOutput) ToCompressionSettingsPtrOutputWithContext(ctx context.Context) CompressionSettingsPtrOutput {
 	return o
 }
 
-func (o CompressionSettingsArrayOutput) Index(i pulumi.IntInput) CompressionSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompressionSettings {
-		return vs[0].([]CompressionSettings)[vs[1].(int)]
+func (o CompressionSettingsPtrOutput) Elem() CompressionSettingsOutput {
+	return o.ApplyT(func(v *CompressionSettings) CompressionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CompressionSettings
+		return ret
 	}).(CompressionSettingsOutput)
+}
+
+// List of content types on which compression applies. The value should be a valid MIME type.
+func (o CompressionSettingsPtrOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompressionSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTypesToCompress
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+func (o CompressionSettingsPtrOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CompressionSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCompressionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // settings for compression.
@@ -1023,24 +1073,48 @@ func (o CompressionSettingsResponseOutput) IsCompressionEnabled() pulumi.BoolPtr
 	return o.ApplyT(func(v CompressionSettingsResponse) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-type CompressionSettingsResponseArrayOutput struct{ *pulumi.OutputState }
+type CompressionSettingsResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (CompressionSettingsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompressionSettingsResponse)(nil)).Elem()
+func (CompressionSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CompressionSettingsResponse)(nil)).Elem()
 }
 
-func (o CompressionSettingsResponseArrayOutput) ToCompressionSettingsResponseArrayOutput() CompressionSettingsResponseArrayOutput {
+func (o CompressionSettingsResponsePtrOutput) ToCompressionSettingsResponsePtrOutput() CompressionSettingsResponsePtrOutput {
 	return o
 }
 
-func (o CompressionSettingsResponseArrayOutput) ToCompressionSettingsResponseArrayOutputWithContext(ctx context.Context) CompressionSettingsResponseArrayOutput {
+func (o CompressionSettingsResponsePtrOutput) ToCompressionSettingsResponsePtrOutputWithContext(ctx context.Context) CompressionSettingsResponsePtrOutput {
 	return o
 }
 
-func (o CompressionSettingsResponseArrayOutput) Index(i pulumi.IntInput) CompressionSettingsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompressionSettingsResponse {
-		return vs[0].([]CompressionSettingsResponse)[vs[1].(int)]
+func (o CompressionSettingsResponsePtrOutput) Elem() CompressionSettingsResponseOutput {
+	return o.ApplyT(func(v *CompressionSettingsResponse) CompressionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CompressionSettingsResponse
+		return ret
 	}).(CompressionSettingsResponseOutput)
+}
+
+// List of content types on which compression applies. The value should be a valid MIME type.
+func (o CompressionSettingsResponsePtrOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CompressionSettingsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTypesToCompress
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether content compression is enabled on AzureFrontDoor. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.
+func (o CompressionSettingsResponsePtrOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CompressionSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsCompressionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Defines the parameters for Cookies match conditions
@@ -7869,29 +7943,45 @@ func (i SharedPrivateLinkResourcePropertiesArgs) ToSharedPrivateLinkResourceProp
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesOutput)
 }
 
-// SharedPrivateLinkResourcePropertiesArrayInput is an input type that accepts SharedPrivateLinkResourcePropertiesArray and SharedPrivateLinkResourcePropertiesArrayOutput values.
-// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesArrayInput` via:
+func (i SharedPrivateLinkResourcePropertiesArgs) ToSharedPrivateLinkResourcePropertiesPtrOutput() SharedPrivateLinkResourcePropertiesPtrOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SharedPrivateLinkResourcePropertiesArgs) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesOutput).ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// SharedPrivateLinkResourcePropertiesPtrInput is an input type that accepts SharedPrivateLinkResourcePropertiesArgs, SharedPrivateLinkResourcePropertiesPtr and SharedPrivateLinkResourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `SharedPrivateLinkResourcePropertiesPtrInput` via:
 //
-//          SharedPrivateLinkResourcePropertiesArray{ SharedPrivateLinkResourcePropertiesArgs{...} }
-type SharedPrivateLinkResourcePropertiesArrayInput interface {
+//          SharedPrivateLinkResourcePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SharedPrivateLinkResourcePropertiesPtrInput interface {
 	pulumi.Input
 
-	ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput
-	ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesArrayOutput
+	ToSharedPrivateLinkResourcePropertiesPtrOutput() SharedPrivateLinkResourcePropertiesPtrOutput
+	ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(context.Context) SharedPrivateLinkResourcePropertiesPtrOutput
 }
 
-type SharedPrivateLinkResourcePropertiesArray []SharedPrivateLinkResourcePropertiesInput
+type sharedPrivateLinkResourcePropertiesPtrType SharedPrivateLinkResourcePropertiesArgs
 
-func (SharedPrivateLinkResourcePropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedPrivateLinkResourceProperties)(nil)).Elem()
+func SharedPrivateLinkResourcePropertiesPtr(v *SharedPrivateLinkResourcePropertiesArgs) SharedPrivateLinkResourcePropertiesPtrInput {
+	return (*sharedPrivateLinkResourcePropertiesPtrType)(v)
 }
 
-func (i SharedPrivateLinkResourcePropertiesArray) ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput {
-	return i.ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(context.Background())
+func (*sharedPrivateLinkResourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedPrivateLinkResourceProperties)(nil)).Elem()
 }
 
-func (i SharedPrivateLinkResourcePropertiesArray) ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesArrayOutput)
+func (i *sharedPrivateLinkResourcePropertiesPtrType) ToSharedPrivateLinkResourcePropertiesPtrOutput() SharedPrivateLinkResourcePropertiesPtrOutput {
+	return i.ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedPrivateLinkResourcePropertiesPtrType) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
 
 // Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
@@ -7907,6 +7997,16 @@ func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePr
 
 func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesOutput {
 	return o
+}
+
+func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesPtrOutput() SharedPrivateLinkResourcePropertiesPtrOutput {
+	return o.ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SharedPrivateLinkResourcePropertiesOutput) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceProperties {
+		return &v
+	}).(SharedPrivateLinkResourcePropertiesPtrOutput)
 }
 
 // The group id from the provider of resource the shared private link resource is for.
@@ -7934,24 +8034,78 @@ func (o SharedPrivateLinkResourcePropertiesOutput) Status() SharedPrivateLinkRes
 	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceStatus { return v.Status }).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
-type SharedPrivateLinkResourcePropertiesArrayOutput struct{ *pulumi.OutputState }
+type SharedPrivateLinkResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (SharedPrivateLinkResourcePropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedPrivateLinkResourceProperties)(nil)).Elem()
+func (SharedPrivateLinkResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedPrivateLinkResourceProperties)(nil)).Elem()
 }
 
-func (o SharedPrivateLinkResourcePropertiesArrayOutput) ToSharedPrivateLinkResourcePropertiesArrayOutput() SharedPrivateLinkResourcePropertiesArrayOutput {
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) ToSharedPrivateLinkResourcePropertiesPtrOutput() SharedPrivateLinkResourcePropertiesPtrOutput {
 	return o
 }
 
-func (o SharedPrivateLinkResourcePropertiesArrayOutput) ToSharedPrivateLinkResourcePropertiesArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesArrayOutput {
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) ToSharedPrivateLinkResourcePropertiesPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesPtrOutput {
 	return o
 }
 
-func (o SharedPrivateLinkResourcePropertiesArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkResourcePropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedPrivateLinkResourceProperties {
-		return vs[0].([]SharedPrivateLinkResourceProperties)[vs[1].(int)]
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) Elem() SharedPrivateLinkResourcePropertiesOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) SharedPrivateLinkResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SharedPrivateLinkResourceProperties
+		return ret
 	}).(SharedPrivateLinkResourcePropertiesOutput)
+}
+
+// The group id from the provider of resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) PrivateLink() ResourceReferencePtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLink
+	}).(ResourceReferencePtrOutput)
+}
+
+// The location of the shared private link resource
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) PrivateLinkLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The request message for requesting approval of the shared private link resource.
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+func (o SharedPrivateLinkResourcePropertiesPtrOutput) Status() SharedPrivateLinkResourceStatusPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
 // Describes the properties of an existing Shared Private Link Resource to use when connecting to a private origin.
@@ -8008,24 +8162,78 @@ func (o SharedPrivateLinkResourcePropertiesResponseOutput) Status() pulumi.Strin
 	return o.ApplyT(func(v SharedPrivateLinkResourcePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type SharedPrivateLinkResourcePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+type SharedPrivateLinkResourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (SharedPrivateLinkResourcePropertiesResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
+func (SharedPrivateLinkResourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedPrivateLinkResourcePropertiesResponse)(nil)).Elem()
 }
 
-func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) ToSharedPrivateLinkResourcePropertiesResponseArrayOutput() SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ToSharedPrivateLinkResourcePropertiesResponsePtrOutput() SharedPrivateLinkResourcePropertiesResponsePtrOutput {
 	return o
 }
 
-func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) ToSharedPrivateLinkResourcePropertiesResponseArrayOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponseArrayOutput {
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) ToSharedPrivateLinkResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertiesResponsePtrOutput {
 	return o
 }
 
-func (o SharedPrivateLinkResourcePropertiesResponseArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkResourcePropertiesResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedPrivateLinkResourcePropertiesResponse {
-		return vs[0].([]SharedPrivateLinkResourcePropertiesResponse)[vs[1].(int)]
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Elem() SharedPrivateLinkResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) SharedPrivateLinkResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SharedPrivateLinkResourcePropertiesResponse
+		return ret
 	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
+}
+
+// The group id from the provider of resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the resource the shared private link resource is for.
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) PrivateLink() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLink
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// The location of the shared private link resource
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) PrivateLinkLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLinkLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The request message for requesting approval of the shared private link resource.
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestMessage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
+func (o SharedPrivateLinkResourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResourcePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // Standard_Verizon = The SKU name for a Standard Verizon CDN profile.
@@ -8774,9 +8982,9 @@ func init() {
 	pulumi.RegisterOutputType(CdnEndpointResponseOutput{})
 	pulumi.RegisterOutputType(CdnEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(CompressionSettingsOutput{})
-	pulumi.RegisterOutputType(CompressionSettingsArrayOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CompressionSettingsResponseOutput{})
-	pulumi.RegisterOutputType(CompressionSettingsResponseArrayOutput{})
+	pulumi.RegisterOutputType(CompressionSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomRuleOutput{})
@@ -8881,9 +9089,9 @@ func init() {
 	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersResponseOutput{})
 	pulumi.RegisterOutputType(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesOutput{})
-	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesArrayOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponseArrayOutput{})
+	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})

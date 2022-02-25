@@ -53,7 +53,6 @@ __all__ = [
     'HttpSettingsRouteResponse',
     'IdentityProvidersResponse',
     'IngressResponse',
-    'LegacyMicrosoftAccountResponse',
     'LogAnalyticsConfigurationResponse',
     'LoginResponse',
     'LoginRouteResponse',
@@ -821,6 +820,8 @@ class CertificateResponseProperties(dict):
             suggest = "expiration_date"
         elif key == "issueDate":
             suggest = "issue_date"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "publicKeyHash":
             suggest = "public_key_hash"
         elif key == "subjectName":
@@ -841,6 +842,7 @@ class CertificateResponseProperties(dict):
                  expiration_date: str,
                  issue_date: str,
                  issuer: str,
+                 provisioning_state: str,
                  public_key_hash: str,
                  subject_name: str,
                  thumbprint: str,
@@ -850,6 +852,7 @@ class CertificateResponseProperties(dict):
         :param str expiration_date: Certificate expiration date.
         :param str issue_date: Certificate issue Date.
         :param str issuer: Certificate issuer.
+        :param str provisioning_state: Provisioning state of the certificate.
         :param str public_key_hash: Public key hash.
         :param str subject_name: Subject name of the certificate.
         :param str thumbprint: Certificate thumbprint.
@@ -858,6 +861,7 @@ class CertificateResponseProperties(dict):
         pulumi.set(__self__, "expiration_date", expiration_date)
         pulumi.set(__self__, "issue_date", issue_date)
         pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "public_key_hash", public_key_hash)
         pulumi.set(__self__, "subject_name", subject_name)
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -886,6 +890,14 @@ class CertificateResponseProperties(dict):
         Certificate issuer.
         """
         return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the certificate.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="publicKeyHash")
@@ -2584,8 +2596,6 @@ class IdentityProvidersResponse(dict):
             suggest = "custom_open_id_connect_providers"
         elif key == "gitHub":
             suggest = "git_hub"
-        elif key == "legacyMicrosoftAccount":
-            suggest = "legacy_microsoft_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdentityProvidersResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2606,7 +2616,6 @@ class IdentityProvidersResponse(dict):
                  facebook: Optional['outputs.FacebookResponse'] = None,
                  git_hub: Optional['outputs.GitHubResponse'] = None,
                  google: Optional['outputs.GoogleResponse'] = None,
-                 legacy_microsoft_account: Optional['outputs.LegacyMicrosoftAccountResponse'] = None,
                  twitter: Optional['outputs.TwitterResponse'] = None):
         """
         The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
@@ -2618,7 +2627,6 @@ class IdentityProvidersResponse(dict):
         :param 'FacebookResponse' facebook: The configuration settings of the Facebook provider.
         :param 'GitHubResponse' git_hub: The configuration settings of the GitHub provider.
         :param 'GoogleResponse' google: The configuration settings of the Google provider.
-        :param 'LegacyMicrosoftAccountResponse' legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
         :param 'TwitterResponse' twitter: The configuration settings of the Twitter provider.
         """
         if apple is not None:
@@ -2635,8 +2643,6 @@ class IdentityProvidersResponse(dict):
             pulumi.set(__self__, "git_hub", git_hub)
         if google is not None:
             pulumi.set(__self__, "google", google)
-        if legacy_microsoft_account is not None:
-            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
         if twitter is not None:
             pulumi.set(__self__, "twitter", twitter)
 
@@ -2696,14 +2702,6 @@ class IdentityProvidersResponse(dict):
         The configuration settings of the Google provider.
         """
         return pulumi.get(self, "google")
-
-    @property
-    @pulumi.getter(name="legacyMicrosoftAccount")
-    def legacy_microsoft_account(self) -> Optional['outputs.LegacyMicrosoftAccountResponse']:
-        """
-        The configuration settings of the legacy Microsoft Account provider.
-        """
-        return pulumi.get(self, "legacy_microsoft_account")
 
     @property
     @pulumi.getter
@@ -2829,65 +2827,6 @@ class IngressResponse(dict):
         Ingress transport protocol
         """
         return pulumi.get(self, "transport")
-
-
-@pulumi.output_type
-class LegacyMicrosoftAccountResponse(dict):
-    """
-    The configuration settings of the legacy Microsoft Account provider.
-    """
-    def __init__(__self__, *,
-                 login: Optional['outputs.LoginScopesResponse'] = None,
-                 registration: Optional['outputs.ClientRegistrationResponse'] = None,
-                 state: Optional[str] = None,
-                 validation: Optional['outputs.AllowedAudiencesValidationResponse'] = None):
-        """
-        The configuration settings of the legacy Microsoft Account provider.
-        :param 'LoginScopesResponse' login: The configuration settings of the login flow.
-        :param 'ClientRegistrationResponse' registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
-        :param str state: <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-        :param 'AllowedAudiencesValidationResponse' validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
-        """
-        if login is not None:
-            pulumi.set(__self__, "login", login)
-        if registration is not None:
-            pulumi.set(__self__, "registration", registration)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if validation is not None:
-            pulumi.set(__self__, "validation", validation)
-
-    @property
-    @pulumi.getter
-    def login(self) -> Optional['outputs.LoginScopesResponse']:
-        """
-        The configuration settings of the login flow.
-        """
-        return pulumi.get(self, "login")
-
-    @property
-    @pulumi.getter
-    def registration(self) -> Optional['outputs.ClientRegistrationResponse']:
-        """
-        The configuration settings of the app registration for the legacy Microsoft Account provider.
-        """
-        return pulumi.get(self, "registration")
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[str]:
-        """
-        <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def validation(self) -> Optional['outputs.AllowedAudiencesValidationResponse']:
-        """
-        The configuration settings of the legacy Microsoft Account provider token validation flow.
-        """
-        return pulumi.get(self, "validation")
 
 
 @pulumi.output_type

@@ -41,6 +41,10 @@ export interface GetGalleryImageArgs {
  */
 export interface GetGalleryImageResult {
     /**
+     * The architecture of the image. Applicable to OS disks only.
+     */
+    readonly architecture?: string;
+    /**
      * The description of this gallery image definition resource. This property is updatable.
      */
     readonly description?: string;

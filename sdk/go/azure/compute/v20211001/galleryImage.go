@@ -15,6 +15,8 @@ import (
 type GalleryImage struct {
 	pulumi.CustomResourceState
 
+	// The architecture of the image. Applicable to OS disks only.
+	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// The description of this gallery image definition resource. This property is updatable.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Describes the disallowed disk types.
@@ -131,6 +133,8 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
+	// The architecture of the image. Applicable to OS disks only.
+	Architecture *string `pulumi:"architecture"`
 	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
@@ -171,6 +175,8 @@ type galleryImageArgs struct {
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
+	// The architecture of the image. Applicable to OS disks only.
+	Architecture pulumi.StringPtrInput
 	// The description of this gallery image definition resource. This property is updatable.
 	Description pulumi.StringPtrInput
 	// Describes the disallowed disk types.

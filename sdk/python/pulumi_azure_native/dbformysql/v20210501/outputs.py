@@ -7,16 +7,20 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'BackupResponse',
+    'DataEncryptionResponse',
     'HighAvailabilityResponse',
+    'IdentityResponse',
     'MaintenanceWindowResponse',
     'NetworkResponse',
     'SkuResponse',
     'StorageResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -87,6 +91,100 @@ class BackupResponse(dict):
 
 
 @pulumi.output_type
+class DataEncryptionResponse(dict):
+    """
+    The date encryption for cmk.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "geoBackupKeyUri":
+            suggest = "geo_backup_key_uri"
+        elif key == "geoBackupUserAssignedIdentityId":
+            suggest = "geo_backup_user_assigned_identity_id"
+        elif key == "primaryKeyUri":
+            suggest = "primary_key_uri"
+        elif key == "primaryUserAssignedIdentityId":
+            suggest = "primary_user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataEncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataEncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataEncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 geo_backup_key_uri: Optional[str] = None,
+                 geo_backup_user_assigned_identity_id: Optional[str] = None,
+                 primary_key_uri: Optional[str] = None,
+                 primary_user_assigned_identity_id: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The date encryption for cmk.
+        :param str geo_backup_key_uri: Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+        :param str geo_backup_user_assigned_identity_id: Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+        :param str primary_key_uri: Primary key uri
+        :param str primary_user_assigned_identity_id: Primary user identity resource id
+        :param str type: The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+        """
+        if geo_backup_key_uri is not None:
+            pulumi.set(__self__, "geo_backup_key_uri", geo_backup_key_uri)
+        if geo_backup_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "geo_backup_user_assigned_identity_id", geo_backup_user_assigned_identity_id)
+        if primary_key_uri is not None:
+            pulumi.set(__self__, "primary_key_uri", primary_key_uri)
+        if primary_user_assigned_identity_id is not None:
+            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="geoBackupKeyUri")
+    def geo_backup_key_uri(self) -> Optional[str]:
+        """
+        Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup
+        """
+        return pulumi.get(self, "geo_backup_key_uri")
+
+    @property
+    @pulumi.getter(name="geoBackupUserAssignedIdentityId")
+    def geo_backup_user_assigned_identity_id(self) -> Optional[str]:
+        """
+        Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup
+        """
+        return pulumi.get(self, "geo_backup_user_assigned_identity_id")
+
+    @property
+    @pulumi.getter(name="primaryKeyUri")
+    def primary_key_uri(self) -> Optional[str]:
+        """
+        Primary key uri
+        """
+        return pulumi.get(self, "primary_key_uri")
+
+    @property
+    @pulumi.getter(name="primaryUserAssignedIdentityId")
+    def primary_user_assigned_identity_id(self) -> Optional[str]:
+        """
+        Primary user identity resource id
+        """
+        return pulumi.get(self, "primary_user_assigned_identity_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class HighAvailabilityResponse(dict):
     """
     Network related properties of a server
@@ -147,6 +245,84 @@ class HighAvailabilityResponse(dict):
         Availability zone of the standby server.
         """
         return pulumi.get(self, "standby_availability_zone")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Properties to configure Identity for Bring your Own Keys
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param str principal_id: ObjectId from the KeyVault
+        :param str tenant_id: TenantId from the KeyVault
+        :param str type: Type of managed service identity.
+        :param Mapping[str, Sequence['UserAssignedIdentityResponse']] user_assigned_identities: Metadata of user assigned identity.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, Sequence['outputs.UserAssignedIdentityResponse']]]:
+        """
+        Metadata of user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -518,5 +694,57 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    Metadata of user assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Metadata of user assigned identity.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
 

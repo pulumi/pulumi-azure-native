@@ -112,7 +112,7 @@ class CertBasedSecurityPrincipalResponse(dict):
                  ledger_role_name: Optional[str] = None):
         """
         Cert based security principal with Ledger RoleName
-        :param str cert: Base64 encoded public key of the user cert (.pem or .cer)
+        :param str cert: Public key of the user cert (.pem or .cer)
         :param str ledger_role_name: LedgerRole associated with the Security Principal of Ledger
         """
         if cert is not None:
@@ -124,7 +124,7 @@ class CertBasedSecurityPrincipalResponse(dict):
     @pulumi.getter
     def cert(self) -> Optional[str]:
         """
-        Base64 encoded public key of the user cert (.pem or .cer)
+        Public key of the user cert (.pem or .cer)
         """
         return pulumi.get(self, "cert")
 

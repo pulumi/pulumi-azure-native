@@ -40,12 +40,16 @@ type LookupLinkerResult struct {
 	Name string `pulumi:"name"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// An option to store secret value in secure place
+	SecretStore *SecretStoreResponse `pulumi:"secretStore"`
 	// The system data.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource Id of target service.
 	TargetId *string `pulumi:"targetId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+	// The VNet solution.
+	VNetSolution *VNetSolutionResponse `pulumi:"vNetSolution"`
 }
 
 func LookupLinkerOutput(ctx *pulumi.Context, args LookupLinkerOutputArgs, opts ...pulumi.InvokeOption) LookupLinkerResultOutput {
@@ -108,6 +112,11 @@ func (o LookupLinkerResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkerResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// An option to store secret value in secure place
+func (o LookupLinkerResultOutput) SecretStore() SecretStoreResponsePtrOutput {
+	return o.ApplyT(func(v LookupLinkerResult) *SecretStoreResponse { return v.SecretStore }).(SecretStoreResponsePtrOutput)
+}
+
 // The system data.
 func (o LookupLinkerResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupLinkerResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
@@ -121,6 +130,11 @@ func (o LookupLinkerResultOutput) TargetId() pulumi.StringPtrOutput {
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupLinkerResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkerResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VNet solution.
+func (o LookupLinkerResultOutput) VNetSolution() VNetSolutionResponsePtrOutput {
+	return o.ApplyT(func(v LookupLinkerResult) *VNetSolutionResponse { return v.VNetSolution }).(VNetSolutionResponsePtrOutput)
 }
 
 func init() {

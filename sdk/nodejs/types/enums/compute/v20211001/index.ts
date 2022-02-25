@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const Architecture = {
+    X64: "x64",
+    Arm64: "Arm64",
+} as const;
+
+/**
+ * The architecture of the image. Applicable to OS disks only.
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
+
 export const ConfidentialVMEncryptionType = {
     EncryptedVMGuestStateOnlyWithPmk: "EncryptedVMGuestStateOnlyWithPmk",
     EncryptedWithPmk: "EncryptedWithPmk",

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StandardArgs', 'Standard']
@@ -23,6 +24,7 @@ class StandardArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  standard_id: Optional[pulumi.Input[str]] = None,
+                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Standard resource.
@@ -34,6 +36,7 @@ class StandardArgs:
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
         :param pulumi.Input[str] standard_id: The Security Standard key - unique key for the standard type
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,6 +54,8 @@ class StandardArgs:
             pulumi.set(__self__, "location", location)
         if standard_id is not None:
             pulumi.set(__self__, "standard_id", standard_id)
+        if supported_clouds is not None:
+            pulumi.set(__self__, "supported_clouds", supported_clouds)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -151,6 +156,18 @@ class StandardArgs:
         pulumi.set(self, "standard_id", value)
 
     @property
+    @pulumi.getter(name="supportedClouds")
+    def supported_clouds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]]:
+        """
+        List of all standard supported clouds.
+        """
+        return pulumi.get(self, "supported_clouds")
+
+    @supported_clouds.setter
+    def supported_clouds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]]):
+        pulumi.set(self, "supported_clouds", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -176,6 +193,7 @@ class Standard(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  standard_id: Optional[pulumi.Input[str]] = None,
+                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -192,6 +210,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location where the resource is stored
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] standard_id: The Security Standard key - unique key for the standard type
+        :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
         ...
@@ -227,6 +246,7 @@ class Standard(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  standard_id: Optional[pulumi.Input[str]] = None,
+                 supported_clouds: Optional[pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -250,6 +270,7 @@ class Standard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["standard_id"] = standard_id
+            __props__.__dict__["supported_clouds"] = supported_clouds
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -289,6 +310,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["standard_type"] = None
+        __props__.__dict__["supported_clouds"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -365,6 +387,14 @@ class Standard(pulumi.CustomResource):
         standard type (Custom or BuiltIn only currently)
         """
         return pulumi.get(self, "standard_type")
+
+    @property
+    @pulumi.getter(name="supportedClouds")
+    def supported_clouds(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of all standard supported clouds.
+        """
+        return pulumi.get(self, "supported_clouds")
 
     @property
     @pulumi.getter(name="systemData")

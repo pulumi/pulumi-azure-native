@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AuthType',
     'ClientType',
+    'VNetSolutionType',
 ]
 
 
@@ -35,3 +36,11 @@ class ClientType(str, Enum):
     DJANGO = "django"
     NODEJS = "nodejs"
     SPRING_BOOT = "springBoot"
+
+
+class VNetSolutionType(str, Enum):
+    """
+    Type of VNet solution.
+    """
+    SERVICE_ENDPOINT = "serviceEndpoint"
+    PRIVATE_LINK = "privateLink"

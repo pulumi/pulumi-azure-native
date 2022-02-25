@@ -72,6 +72,10 @@ export class Standard extends pulumi.CustomResource {
      */
     public /*out*/ readonly standardType!: pulumi.Output<string>;
     /**
+     * List of all standard supported clouds.
+     */
+    public readonly supportedClouds!: pulumi.Output<string[] | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.security.v20210801preview.SystemDataResponse>;
@@ -106,6 +110,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["standardId"] = args ? args.standardId : undefined;
+            resourceInputs["supportedClouds"] = args ? args.supportedClouds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -122,6 +127,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["standardType"] = undefined /*out*/;
+            resourceInputs["supportedClouds"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -169,6 +175,10 @@ export interface StandardArgs {
      * The Security Standard key - unique key for the standard type
      */
     standardId?: pulumi.Input<string>;
+    /**
+     * List of all standard supported clouds.
+     */
+    supportedClouds?: pulumi.Input<pulumi.Input<enums.security.v20210801preview.StandardSupportedClouds>[]>;
     /**
      * A list of key value pairs that describe the resource.
      */

@@ -15,29 +15,15 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// </summary>
     public sealed class PropertyConditionPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("conditionProperties")]
+        public Input<Inputs.AutomationRulePropertyValuesConditionArgs>? ConditionProperties { get; set; }
+
         /// <summary>
         /// 
         /// Expected value is 'Property'.
         /// </summary>
         [Input("conditionType", required: true)]
         public Input<string> ConditionType { get; set; } = null!;
-
-        [Input("operator")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.AutomationRulePropertyConditionSupportedOperator>? Operator { get; set; }
-
-        /// <summary>
-        /// The property to evaluate in an automation rule property condition
-        /// </summary>
-        [Input("propertyName")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.AutomationRulePropertyConditionSupportedProperty>? PropertyName { get; set; }
-
-        [Input("propertyValues")]
-        private InputList<string>? _propertyValues;
-        public InputList<string> PropertyValues
-        {
-            get => _propertyValues ?? (_propertyValues = new InputList<string>());
-            set => _propertyValues = value;
-        }
 
         public PropertyConditionPropertiesArgs()
         {

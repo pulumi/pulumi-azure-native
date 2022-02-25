@@ -34,6 +34,8 @@ type Standard struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// standard type (Custom or BuiltIn only currently)
 	StandardType pulumi.StringOutput `pulumi:"standardType"`
+	// List of all standard supported clouds.
+	SupportedClouds pulumi.StringArrayOutput `pulumi:"supportedClouds"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// A list of key value pairs that describe the resource.
@@ -106,6 +108,8 @@ type standardArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Security Standard key - unique key for the standard type
 	StandardId *string `pulumi:"standardId"`
+	// List of all standard supported clouds.
+	SupportedClouds []StandardSupportedClouds `pulumi:"supportedClouds"`
 	// A list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -128,6 +132,8 @@ type StandardArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The Security Standard key - unique key for the standard type
 	StandardId pulumi.StringPtrInput
+	// List of all standard supported clouds.
+	SupportedClouds StandardSupportedCloudsArrayInput
 	// A list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
 }

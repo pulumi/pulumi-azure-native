@@ -56,6 +56,10 @@ export interface GetLinkerResult {
      */
     readonly provisioningState: string;
     /**
+     * An option to store secret value in secure place
+     */
+    readonly secretStore?: outputs.servicelinker.v20211101preview.SecretStoreResponse;
+    /**
      * The system data.
      */
     readonly systemData: outputs.servicelinker.v20211101preview.SystemDataResponse;
@@ -67,6 +71,10 @@ export interface GetLinkerResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The VNet solution.
+     */
+    readonly vNetSolution?: outputs.servicelinker.v20211101preview.VNetSolutionResponse;
 }
 
 export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {

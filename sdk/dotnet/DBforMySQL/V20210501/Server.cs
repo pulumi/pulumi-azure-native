@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         public Output<Outputs.BackupResponse?> Backup { get; private set; } = null!;
 
         /// <summary>
+        /// The Data Encryption for CMK.
+        /// </summary>
+        [Output("dataEncryption")]
+        public Output<Outputs.DataEncryptionResponse?> DataEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         /// </summary>
         [Output("highAvailability")]
         public Output<Outputs.HighAvailabilityResponse?> HighAvailability { get; private set; } = null!;
+
+        /// <summary>
+        /// The cmk identity for the server.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -211,10 +223,22 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         public InputUnion<string, Pulumi.AzureNative.DBforMySQL.V20210501.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
+        /// The Data Encryption for CMK.
+        /// </summary>
+        [Input("dataEncryption")]
+        public Input<Inputs.DataEncryptionArgs>? DataEncryption { get; set; }
+
+        /// <summary>
         /// High availability related properties of a server.
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.HighAvailabilityArgs>? HighAvailability { get; set; }
+
+        /// <summary>
+        /// The cmk identity for the server.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

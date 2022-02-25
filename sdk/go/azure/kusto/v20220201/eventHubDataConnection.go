@@ -34,7 +34,7 @@ type EventHubDataConnection struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The object ID of the managedIdentityResourceId
 	ManagedIdentityObjectId pulumi.StringOutput `pulumi:"managedIdentityObjectId"`
-	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"managedIdentityResourceId"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName pulumi.StringPtrOutput `pulumi:"mappingRuleName"`
@@ -165,7 +165,7 @@ type eventHubDataConnectionArgs struct {
 	Kind string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
-	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
@@ -200,7 +200,7 @@ type EventHubDataConnectionArgs struct {
 	Kind pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
-	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId pulumi.StringPtrInput
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName pulumi.StringPtrInput

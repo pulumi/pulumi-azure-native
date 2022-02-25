@@ -130,6 +130,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         public Output<bool?> EnableFreeTier { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        /// </summary>
+        [Output("enableMaterializedViews")]
+        public Output<bool?> EnableMaterializedViews { get; private set; } = null!;
+
+        /// <summary>
         /// Enables the account to write in multiple locations
         /// </summary>
         [Output("enableMultipleWriteLocations")]
@@ -462,6 +468,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
         /// </summary>
         [Input("enableFreeTier")]
         public Input<bool>? EnableFreeTier { get; set; }
+
+        /// <summary>
+        /// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        /// </summary>
+        [Input("enableMaterializedViews")]
+        public Input<bool>? EnableMaterializedViews { get; set; }
 
         /// <summary>
         /// Enables the account to write in multiple locations

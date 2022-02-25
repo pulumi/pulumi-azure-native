@@ -16,70 +16,25 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Outputs
     [OutputType]
     public sealed class AutomationRuleModifyPropertiesActionResponse
     {
+        public readonly Outputs.IncidentPropertiesActionResponse? ActionConfiguration;
         /// <summary>
         /// The type of the automation rule action
         /// Expected value is 'ModifyProperties'.
         /// </summary>
         public readonly string ActionType;
-        /// <summary>
-        /// The reason the incident was closed
-        /// </summary>
-        public readonly string? Classification;
-        /// <summary>
-        /// Describes the reason the incident was closed
-        /// </summary>
-        public readonly string? ClassificationComment;
-        /// <summary>
-        /// The classification reason the incident was closed with
-        /// </summary>
-        public readonly string? ClassificationReason;
-        /// <summary>
-        /// List of labels to add to the incident
-        /// </summary>
-        public readonly ImmutableArray<Outputs.IncidentLabelResponse> Labels;
         public readonly int Order;
-        /// <summary>
-        /// Information on the user an incident is assigned to
-        /// </summary>
-        public readonly Outputs.IncidentOwnerInfoResponse? Owner;
-        /// <summary>
-        /// The severity of the incident
-        /// </summary>
-        public readonly string? Severity;
-        /// <summary>
-        /// The status of the incident
-        /// </summary>
-        public readonly string? Status;
 
         [OutputConstructor]
         private AutomationRuleModifyPropertiesActionResponse(
+            Outputs.IncidentPropertiesActionResponse? actionConfiguration,
+
             string actionType,
 
-            string? classification,
-
-            string? classificationComment,
-
-            string? classificationReason,
-
-            ImmutableArray<Outputs.IncidentLabelResponse> labels,
-
-            int order,
-
-            Outputs.IncidentOwnerInfoResponse? owner,
-
-            string? severity,
-
-            string? status)
+            int order)
         {
+            ActionConfiguration = actionConfiguration;
             ActionType = actionType;
-            Classification = classification;
-            ClassificationComment = classificationComment;
-            ClassificationReason = classificationReason;
-            Labels = labels;
             Order = order;
-            Owner = owner;
-            Severity = severity;
-            Status = status;
         }
     }
 }

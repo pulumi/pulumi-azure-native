@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
     /// </summary>
     public sealed class AutomationRuleModifyPropertiesActionArgs : Pulumi.ResourceArgs
     {
+        [Input("actionConfiguration")]
+        public Input<Inputs.IncidentPropertiesActionArgs>? ActionConfiguration { get; set; }
+
         /// <summary>
         /// The type of the automation rule action
         /// Expected value is 'ModifyProperties'.
@@ -22,56 +25,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Inputs
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
-        /// <summary>
-        /// The reason the incident was closed
-        /// </summary>
-        [Input("classification")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.IncidentClassification>? Classification { get; set; }
-
-        /// <summary>
-        /// Describes the reason the incident was closed
-        /// </summary>
-        [Input("classificationComment")]
-        public Input<string>? ClassificationComment { get; set; }
-
-        /// <summary>
-        /// The classification reason the incident was closed with
-        /// </summary>
-        [Input("classificationReason")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.IncidentClassificationReason>? ClassificationReason { get; set; }
-
-        [Input("labels")]
-        private InputList<Inputs.IncidentLabelArgs>? _labels;
-
-        /// <summary>
-        /// List of labels to add to the incident
-        /// </summary>
-        public InputList<Inputs.IncidentLabelArgs> Labels
-        {
-            get => _labels ?? (_labels = new InputList<Inputs.IncidentLabelArgs>());
-            set => _labels = value;
-        }
-
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
-
-        /// <summary>
-        /// Information on the user an incident is assigned to
-        /// </summary>
-        [Input("owner")]
-        public Input<Inputs.IncidentOwnerInfoArgs>? Owner { get; set; }
-
-        /// <summary>
-        /// The severity of the incident
-        /// </summary>
-        [Input("severity")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.IncidentSeverity>? Severity { get; set; }
-
-        /// <summary>
-        /// The status of the incident
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001Preview.IncidentStatus>? Status { get; set; }
 
         public AutomationRuleModifyPropertiesActionArgs()
         {

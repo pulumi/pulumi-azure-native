@@ -741,70 +741,291 @@ func (o AlertsDataTypeOfDataConnectorResponsePtrOutput) Alerts() DataConnectorDa
 
 // Describes an automation rule action to modify an object's properties
 type AutomationRuleModifyPropertiesAction struct {
+	ActionConfiguration *IncidentPropertiesAction `pulumi:"actionConfiguration"`
 	// The type of the automation rule action
 	// Expected value is 'ModifyProperties'.
 	ActionType string `pulumi:"actionType"`
-	// The reason the incident was closed
-	Classification *string `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment *string `pulumi:"classificationComment"`
-	// The classification reason the incident was closed with
-	ClassificationReason *string `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels []IncidentLabel `pulumi:"labels"`
-	Order  int             `pulumi:"order"`
-	// Information on the user an incident is assigned to
-	Owner *IncidentOwnerInfo `pulumi:"owner"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The status of the incident
-	Status *string `pulumi:"status"`
+	Order      int    `pulumi:"order"`
 }
 
 // Describes an automation rule action to modify an object's properties
 type AutomationRuleModifyPropertiesActionResponse struct {
+	ActionConfiguration *IncidentPropertiesActionResponse `pulumi:"actionConfiguration"`
 	// The type of the automation rule action
 	// Expected value is 'ModifyProperties'.
 	ActionType string `pulumi:"actionType"`
-	// The reason the incident was closed
-	Classification *string `pulumi:"classification"`
-	// Describes the reason the incident was closed
-	ClassificationComment *string `pulumi:"classificationComment"`
-	// The classification reason the incident was closed with
-	ClassificationReason *string `pulumi:"classificationReason"`
-	// List of labels to add to the incident
-	Labels []IncidentLabelResponse `pulumi:"labels"`
-	Order  int                     `pulumi:"order"`
-	// Information on the user an incident is assigned to
-	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
-	// The severity of the incident
-	Severity *string `pulumi:"severity"`
-	// The status of the incident
-	Status *string `pulumi:"status"`
+	Order      int    `pulumi:"order"`
+}
+
+type AutomationRulePropertyValuesCondition struct {
+	Operator *string `pulumi:"operator"`
+	// The property to evaluate in an automation rule property condition
+	PropertyName   *string  `pulumi:"propertyName"`
+	PropertyValues []string `pulumi:"propertyValues"`
+}
+
+// AutomationRulePropertyValuesConditionInput is an input type that accepts AutomationRulePropertyValuesConditionArgs and AutomationRulePropertyValuesConditionOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionInput` via:
+//
+//          AutomationRulePropertyValuesConditionArgs{...}
+type AutomationRulePropertyValuesConditionInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput
+	ToAutomationRulePropertyValuesConditionOutputWithContext(context.Context) AutomationRulePropertyValuesConditionOutput
+}
+
+type AutomationRulePropertyValuesConditionArgs struct {
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// The property to evaluate in an automation rule property condition
+	PropertyName   pulumi.StringPtrInput   `pulumi:"propertyName"`
+	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+}
+
+func (AutomationRulePropertyValuesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput {
+	return i.ToAutomationRulePropertyValuesConditionOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionOutput)
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionPtrOutput() AutomationRulePropertyValuesConditionPtrOutput {
+	return i.ToAutomationRulePropertyValuesConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRulePropertyValuesConditionArgs) ToAutomationRulePropertyValuesConditionPtrOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionOutput).ToAutomationRulePropertyValuesConditionPtrOutputWithContext(ctx)
+}
+
+// AutomationRulePropertyValuesConditionPtrInput is an input type that accepts AutomationRulePropertyValuesConditionArgs, AutomationRulePropertyValuesConditionPtr and AutomationRulePropertyValuesConditionPtrOutput values.
+// You can construct a concrete instance of `AutomationRulePropertyValuesConditionPtrInput` via:
+//
+//          AutomationRulePropertyValuesConditionArgs{...}
+//
+//  or:
+//
+//          nil
+type AutomationRulePropertyValuesConditionPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRulePropertyValuesConditionPtrOutput() AutomationRulePropertyValuesConditionPtrOutput
+	ToAutomationRulePropertyValuesConditionPtrOutputWithContext(context.Context) AutomationRulePropertyValuesConditionPtrOutput
+}
+
+type automationRulePropertyValuesConditionPtrType AutomationRulePropertyValuesConditionArgs
+
+func AutomationRulePropertyValuesConditionPtr(v *AutomationRulePropertyValuesConditionArgs) AutomationRulePropertyValuesConditionPtrInput {
+	return (*automationRulePropertyValuesConditionPtrType)(v)
+}
+
+func (*automationRulePropertyValuesConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (i *automationRulePropertyValuesConditionPtrType) ToAutomationRulePropertyValuesConditionPtrOutput() AutomationRulePropertyValuesConditionPtrOutput {
+	return i.ToAutomationRulePropertyValuesConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRulePropertyValuesConditionPtrType) ToAutomationRulePropertyValuesConditionPtrOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulePropertyValuesConditionPtrOutput)
+}
+
+type AutomationRulePropertyValuesConditionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionOutput() AutomationRulePropertyValuesConditionOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionPtrOutput() AutomationRulePropertyValuesConditionPtrOutput {
+	return o.ToAutomationRulePropertyValuesConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) ToAutomationRulePropertyValuesConditionPtrOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRulePropertyValuesCondition) *AutomationRulePropertyValuesCondition {
+		return &v
+	}).(AutomationRulePropertyValuesConditionPtrOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate in an automation rule property condition
+func (o AutomationRulePropertyValuesConditionOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesCondition) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+type AutomationRulePropertyValuesConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRulePropertyValuesCondition)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionPtrOutput) ToAutomationRulePropertyValuesConditionPtrOutput() AutomationRulePropertyValuesConditionPtrOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionPtrOutput) ToAutomationRulePropertyValuesConditionPtrOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionPtrOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionPtrOutput) Elem() AutomationRulePropertyValuesConditionOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesCondition) AutomationRulePropertyValuesCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRulePropertyValuesCondition
+		return ret
+	}).(AutomationRulePropertyValuesConditionOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate in an automation rule property condition
+func (o AutomationRulePropertyValuesConditionPtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionPtrOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyValues
+	}).(pulumi.StringArrayOutput)
+}
+
+type AutomationRulePropertyValuesConditionResponse struct {
+	Operator *string `pulumi:"operator"`
+	// The property to evaluate in an automation rule property condition
+	PropertyName   *string  `pulumi:"propertyName"`
+	PropertyValues []string `pulumi:"propertyValues"`
+}
+
+type AutomationRulePropertyValuesConditionResponseOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) ToAutomationRulePropertyValuesConditionResponseOutput() AutomationRulePropertyValuesConditionResponseOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) ToAutomationRulePropertyValuesConditionResponseOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponseOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate in an automation rule property condition
+func (o AutomationRulePropertyValuesConditionResponseOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionResponseOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutomationRulePropertyValuesConditionResponse) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
+}
+
+type AutomationRulePropertyValuesConditionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRulePropertyValuesConditionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRulePropertyValuesConditionResponse)(nil)).Elem()
+}
+
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) ToAutomationRulePropertyValuesConditionResponsePtrOutput() AutomationRulePropertyValuesConditionResponsePtrOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) ToAutomationRulePropertyValuesConditionResponsePtrOutputWithContext(ctx context.Context) AutomationRulePropertyValuesConditionResponsePtrOutput {
+	return o
+}
+
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) Elem() AutomationRulePropertyValuesConditionResponseOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesConditionResponse) AutomationRulePropertyValuesConditionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRulePropertyValuesConditionResponse
+		return ret
+	}).(AutomationRulePropertyValuesConditionResponseOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesConditionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// The property to evaluate in an automation rule property condition
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesConditionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutomationRulePropertyValuesConditionResponsePtrOutput) PropertyValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutomationRulePropertyValuesConditionResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PropertyValues
+	}).(pulumi.StringArrayOutput)
 }
 
 // Describes an automation rule action to run a playbook
 type AutomationRuleRunPlaybookAction struct {
+	ActionConfiguration *PlaybookActionProperties `pulumi:"actionConfiguration"`
 	// The type of the automation rule action
 	// Expected value is 'RunPlaybook'.
 	ActionType string `pulumi:"actionType"`
-	// The resource id of the playbook resource
-	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	Order              int     `pulumi:"order"`
-	// The tenant id of the playbook resource
-	TenantId *string `pulumi:"tenantId"`
+	Order      int    `pulumi:"order"`
 }
 
 // Describes an automation rule action to run a playbook
 type AutomationRuleRunPlaybookActionResponse struct {
+	ActionConfiguration *PlaybookActionPropertiesResponse `pulumi:"actionConfiguration"`
 	// The type of the automation rule action
 	// Expected value is 'RunPlaybook'.
 	ActionType string `pulumi:"actionType"`
-	// The resource id of the playbook resource
-	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
-	Order              int     `pulumi:"order"`
-	// The tenant id of the playbook resource
-	TenantId *string `pulumi:"tenantId"`
+	Order      int    `pulumi:"order"`
 }
 
 // Describes automation rule triggering logic
@@ -9349,6 +9570,40 @@ func (o IncidentOwnerInfoResponsePtrOutput) UserPrincipalName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type IncidentPropertiesAction struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels []IncidentLabel `pulumi:"labels"`
+	// Information on the user an incident is assigned to
+	Owner *IncidentOwnerInfo `pulumi:"owner"`
+	// The severity of the incident
+	Severity *string `pulumi:"severity"`
+	// The status of the incident
+	Status *string `pulumi:"status"`
+}
+
+type IncidentPropertiesActionResponse struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// List of labels to add to the incident
+	Labels []IncidentLabelResponse `pulumi:"labels"`
+	// Information on the user an incident is assigned to
+	Owner *IncidentOwnerInfoResponse `pulumi:"owner"`
+	// The severity of the incident
+	Severity *string `pulumi:"severity"`
+	// The status of the incident
+	Status *string `pulumi:"status"`
+}
+
 // Query results for table insights query.
 type InsightsTableResultResponse struct {
 	// Columns Metadata of the table
@@ -13035,14 +13290,25 @@ func (o PermissionsResponseResourceProviderArrayOutput) Index(i pulumi.IntInput)
 	}).(PermissionsResponseResourceProviderOutput)
 }
 
+type PlaybookActionProperties struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId *string `pulumi:"tenantId"`
+}
+
+type PlaybookActionPropertiesResponse struct {
+	// The resource id of the playbook resource
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// The tenant id of the playbook resource
+	TenantId *string `pulumi:"tenantId"`
+}
+
 // Describes an automation rule condition that evaluates a property's value
 type PropertyConditionProperties struct {
+	ConditionProperties *AutomationRulePropertyValuesCondition `pulumi:"conditionProperties"`
 	// Expected value is 'Property'.
-	ConditionType string  `pulumi:"conditionType"`
-	Operator      *string `pulumi:"operator"`
-	// The property to evaluate in an automation rule property condition
-	PropertyName   *string  `pulumi:"propertyName"`
-	PropertyValues []string `pulumi:"propertyValues"`
+	ConditionType string `pulumi:"conditionType"`
 }
 
 // PropertyConditionPropertiesInput is an input type that accepts PropertyConditionPropertiesArgs and PropertyConditionPropertiesOutput values.
@@ -13058,12 +13324,9 @@ type PropertyConditionPropertiesInput interface {
 
 // Describes an automation rule condition that evaluates a property's value
 type PropertyConditionPropertiesArgs struct {
+	ConditionProperties AutomationRulePropertyValuesConditionPtrInput `pulumi:"conditionProperties"`
 	// Expected value is 'Property'.
-	ConditionType pulumi.StringInput    `pulumi:"conditionType"`
-	Operator      pulumi.StringPtrInput `pulumi:"operator"`
-	// The property to evaluate in an automation rule property condition
-	PropertyName   pulumi.StringPtrInput   `pulumi:"propertyName"`
-	PropertyValues pulumi.StringArrayInput `pulumi:"propertyValues"`
+	ConditionType pulumi.StringInput `pulumi:"conditionType"`
 }
 
 func (PropertyConditionPropertiesArgs) ElementType() reflect.Type {
@@ -13118,22 +13381,15 @@ func (o PropertyConditionPropertiesOutput) ToPropertyConditionPropertiesOutputWi
 	return o
 }
 
+func (o PropertyConditionPropertiesOutput) ConditionProperties() AutomationRulePropertyValuesConditionPtrOutput {
+	return o.ApplyT(func(v PropertyConditionProperties) *AutomationRulePropertyValuesCondition {
+		return v.ConditionProperties
+	}).(AutomationRulePropertyValuesConditionPtrOutput)
+}
+
 // Expected value is 'Property'.
 func (o PropertyConditionPropertiesOutput) ConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyConditionProperties) string { return v.ConditionType }).(pulumi.StringOutput)
-}
-
-func (o PropertyConditionPropertiesOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertyConditionProperties) *string { return v.Operator }).(pulumi.StringPtrOutput)
-}
-
-// The property to evaluate in an automation rule property condition
-func (o PropertyConditionPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertyConditionProperties) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
-}
-
-func (o PropertyConditionPropertiesOutput) PropertyValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PropertyConditionProperties) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
 }
 
 type PropertyConditionPropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -13158,12 +13414,9 @@ func (o PropertyConditionPropertiesArrayOutput) Index(i pulumi.IntInput) Propert
 
 // Describes an automation rule condition that evaluates a property's value
 type PropertyConditionPropertiesResponse struct {
+	ConditionProperties *AutomationRulePropertyValuesConditionResponse `pulumi:"conditionProperties"`
 	// Expected value is 'Property'.
-	ConditionType string  `pulumi:"conditionType"`
-	Operator      *string `pulumi:"operator"`
-	// The property to evaluate in an automation rule property condition
-	PropertyName   *string  `pulumi:"propertyName"`
-	PropertyValues []string `pulumi:"propertyValues"`
+	ConditionType string `pulumi:"conditionType"`
 }
 
 // Describes an automation rule condition that evaluates a property's value
@@ -13181,22 +13434,15 @@ func (o PropertyConditionPropertiesResponseOutput) ToPropertyConditionProperties
 	return o
 }
 
+func (o PropertyConditionPropertiesResponseOutput) ConditionProperties() AutomationRulePropertyValuesConditionResponsePtrOutput {
+	return o.ApplyT(func(v PropertyConditionPropertiesResponse) *AutomationRulePropertyValuesConditionResponse {
+		return v.ConditionProperties
+	}).(AutomationRulePropertyValuesConditionResponsePtrOutput)
+}
+
 // Expected value is 'Property'.
 func (o PropertyConditionPropertiesResponseOutput) ConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v PropertyConditionPropertiesResponse) string { return v.ConditionType }).(pulumi.StringOutput)
-}
-
-func (o PropertyConditionPropertiesResponseOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertyConditionPropertiesResponse) *string { return v.Operator }).(pulumi.StringPtrOutput)
-}
-
-// The property to evaluate in an automation rule property condition
-func (o PropertyConditionPropertiesResponseOutput) PropertyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PropertyConditionPropertiesResponse) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
-}
-
-func (o PropertyConditionPropertiesResponseOutput) PropertyValues() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PropertyConditionPropertiesResponse) []string { return v.PropertyValues }).(pulumi.StringArrayOutput)
 }
 
 type PropertyConditionPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
@@ -15545,6 +15791,10 @@ func init() {
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorPtrOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorResponseOutput{})
 	pulumi.RegisterOutputType(AlertsDataTypeOfDataConnectorResponsePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionResponseOutput{})
+	pulumi.RegisterOutputType(AutomationRulePropertyValuesConditionResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicOutput{})
 	pulumi.RegisterOutputType(AutomationRuleTriggeringLogicResponseOutput{})
 	pulumi.RegisterOutputType(AvailabilityOutput{})

@@ -16,35 +16,25 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Outputs
     [OutputType]
     public sealed class AutomationRuleRunPlaybookActionResponse
     {
+        public readonly Outputs.PlaybookActionPropertiesResponse? ActionConfiguration;
         /// <summary>
         /// The type of the automation rule action
         /// Expected value is 'RunPlaybook'.
         /// </summary>
         public readonly string ActionType;
-        /// <summary>
-        /// The resource id of the playbook resource
-        /// </summary>
-        public readonly string? LogicAppResourceId;
         public readonly int Order;
-        /// <summary>
-        /// The tenant id of the playbook resource
-        /// </summary>
-        public readonly string? TenantId;
 
         [OutputConstructor]
         private AutomationRuleRunPlaybookActionResponse(
+            Outputs.PlaybookActionPropertiesResponse? actionConfiguration,
+
             string actionType,
 
-            string? logicAppResourceId,
-
-            int order,
-
-            string? tenantId)
+            int order)
         {
+            ActionConfiguration = actionConfiguration;
             ActionType = actionType;
-            LogicAppResourceId = logicAppResourceId;
             Order = order;
-            TenantId = tenantId;
         }
     }
 }

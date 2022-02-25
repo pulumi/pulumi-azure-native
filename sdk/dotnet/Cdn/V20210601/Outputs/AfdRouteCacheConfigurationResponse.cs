@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Outputs
         /// <summary>
         /// compression settings.
         /// </summary>
-        public readonly ImmutableArray<Outputs.CompressionSettingsResponse> CompressionSettings;
+        public readonly Outputs.CompressionSettingsResponse? CompressionSettings;
         /// <summary>
         /// query parameters to include or exclude (comma separated).
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Outputs
 
         [OutputConstructor]
         private AfdRouteCacheConfigurationResponse(
-            ImmutableArray<Outputs.CompressionSettingsResponse> compressionSettings,
+            Outputs.CompressionSettingsResponse? compressionSettings,
 
             string? queryParameters,
 

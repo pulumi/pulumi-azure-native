@@ -52,6 +52,10 @@ export class Linker extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * An option to store secret value in secure place
+     */
+    public readonly secretStore!: pulumi.Output<outputs.servicelinker.v20211101preview.SecretStoreResponse | undefined>;
+    /**
      * The system data.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.v20211101preview.SystemDataResponse>;
@@ -63,6 +67,10 @@ export class Linker extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VNet solution.
+     */
+    public readonly vNetSolution!: pulumi.Output<outputs.servicelinker.v20211101preview.VNetSolutionResponse | undefined>;
 
     /**
      * Create a Linker resource with the given unique name, arguments, and options.
@@ -82,7 +90,9 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["clientType"] = args ? args.clientType : undefined;
             resourceInputs["linkerName"] = args ? args.linkerName : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -92,9 +102,11 @@ export class Linker extends pulumi.CustomResource {
             resourceInputs["clientType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secretStore"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["targetId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vNetSolution"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:servicelinker:Linker" }] };
@@ -124,7 +136,15 @@ export interface LinkerArgs {
      */
     resourceUri: pulumi.Input<string>;
     /**
+     * An option to store secret value in secure place
+     */
+    secretStore?: pulumi.Input<inputs.servicelinker.v20211101preview.SecretStoreArgs>;
+    /**
      * The resource Id of target service.
      */
     targetId?: pulumi.Input<string>;
+    /**
+     * The VNet solution.
+     */
+    vNetSolution?: pulumi.Input<inputs.servicelinker.v20211101preview.VNetSolutionArgs>;
 }

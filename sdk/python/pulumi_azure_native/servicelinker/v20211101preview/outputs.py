@@ -11,12 +11,14 @@ from ._enums import *
 
 __all__ = [
     'SecretAuthInfoResponse',
+    'SecretStoreResponse',
     'ServicePrincipalCertificateAuthInfoResponse',
     'ServicePrincipalSecretAuthInfoResponse',
     'SourceConfigurationResponse',
     'SystemAssignedIdentityAuthInfoResponse',
     'SystemDataResponse',
     'UserAssignedIdentityAuthInfoResponse',
+    'VNetSolutionResponse',
 ]
 
 @pulumi.output_type
@@ -82,6 +84,46 @@ class SecretAuthInfoResponse(dict):
         Password or account key for secret auth.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class SecretStoreResponse(dict):
+    """
+    An option to store secret value in secure place
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretStoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretStoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretStoreResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_id: Optional[str] = None):
+        """
+        An option to store secret value in secure place
+        :param str key_vault_id: The key vault id to store secret
+        """
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
+        """
+        The key vault id to store secret
+        """
+        return pulumi.get(self, "key_vault_id")
 
 
 @pulumi.output_type
@@ -491,5 +533,28 @@ class UserAssignedIdentityAuthInfoResponse(dict):
         Subscription id for userAssignedIdentity.
         """
         return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class VNetSolutionResponse(dict):
+    """
+    The VNet solution for linker
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        The VNet solution for linker
+        :param str type: Type of VNet solution.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of VNet solution.
+        """
+        return pulumi.get(self, "type")
 
 

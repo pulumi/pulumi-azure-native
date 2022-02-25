@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.App
         /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.EasyAuthState>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.App.AuthConfigState>? State { get; set; }
 
         public ContainerAppsAuthConfigArgs()
         {

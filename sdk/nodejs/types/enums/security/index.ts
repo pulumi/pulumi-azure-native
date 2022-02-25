@@ -10,6 +10,7 @@ import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
+import * as v20210801preview from "./v20210801preview";
 
 export {
     v20150601preview,
@@ -20,6 +21,7 @@ export {
     v20200101preview,
     v20210601,
     v20210701preview,
+    v20210801preview,
 };
 
 export const ActionType = {
@@ -478,6 +480,16 @@ export const Source = {
  * The platform where the assessed resource resides
  */
 export type Source = (typeof Source)[keyof typeof Source];
+
+export const StandardSupportedClouds = {
+    AWS: "AWS",
+    GCP: "GCP",
+} as const;
+
+/**
+ * The cloud that the standard is supported on.
+ */
+export type StandardSupportedClouds = (typeof StandardSupportedClouds)[keyof typeof StandardSupportedClouds];
 
 export const State = {
     /**

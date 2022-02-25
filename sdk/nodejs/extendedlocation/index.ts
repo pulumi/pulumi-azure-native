@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customLocation";
 export * from "./getCustomLocation";
+export * from "./getResourceSyncRule";
+export * from "./resourceSyncRule";
 
 // Export enums:
 export * from "../types/enums/extendedlocation";
@@ -14,14 +16,17 @@ export * from "../types/enums/extendedlocation";
 // Export sub-modules:
 import * as v20210315preview from "./v20210315preview";
 import * as v20210815 from "./v20210815";
+import * as v20210831preview from "./v20210831preview";
 
 export {
     v20210315preview,
     v20210815,
+    v20210831preview,
 };
 
 // Import resources to register:
 import { CustomLocation } from "./customLocation";
+import { ResourceSyncRule } from "./resourceSyncRule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -29,6 +34,8 @@ const _module = {
         switch (type) {
             case "azure-native:extendedlocation:CustomLocation":
                 return new CustomLocation(name, <any>undefined, { urn })
+            case "azure-native:extendedlocation:ResourceSyncRule":
+                return new ResourceSyncRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

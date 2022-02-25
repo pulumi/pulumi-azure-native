@@ -11,10 +11,12 @@ from ._enums import *
 
 __all__ = [
     'SecretAuthInfoArgs',
+    'SecretStoreArgs',
     'ServicePrincipalCertificateAuthInfoArgs',
     'ServicePrincipalSecretAuthInfoArgs',
     'SystemAssignedIdentityAuthInfoArgs',
     'UserAssignedIdentityAuthInfoArgs',
+    'VNetSolutionArgs',
 ]
 
 @pulumi.input_type
@@ -72,6 +74,30 @@ class SecretAuthInfoArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class SecretStoreArgs:
+    def __init__(__self__, *,
+                 key_vault_id: Optional[pulumi.Input[str]] = None):
+        """
+        An option to store secret value in secure place
+        :param pulumi.Input[str] key_vault_id: The key vault id to store secret
+        """
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key vault id to store secret
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
 
 
 @pulumi.input_type
@@ -292,5 +318,29 @@ class UserAssignedIdentityAuthInfoArgs:
     @subscription_id.setter
     def subscription_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subscription_id", value)
+
+
+@pulumi.input_type
+class VNetSolutionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'VNetSolutionType']]] = None):
+        """
+        The VNet solution for linker
+        :param pulumi.Input[Union[str, 'VNetSolutionType']] type: Type of VNet solution.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'VNetSolutionType']]]:
+        """
+        Type of VNet solution.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'VNetSolutionType']]]):
+        pulumi.set(self, "type", value)
 
 

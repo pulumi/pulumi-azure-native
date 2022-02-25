@@ -48,6 +48,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly backup!: pulumi.Output<outputs.dbformysql.v20210501.BackupResponse | undefined>;
     /**
+     * The Data Encryption for CMK.
+     */
+    public readonly dataEncryption!: pulumi.Output<outputs.dbformysql.v20210501.DataEncryptionResponse | undefined>;
+    /**
      * The fully qualified domain name of a server.
      */
     public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
@@ -55,6 +59,10 @@ export class Server extends pulumi.CustomResource {
      * High availability related properties of a server.
      */
     public readonly highAvailability!: pulumi.Output<outputs.dbformysql.v20210501.HighAvailabilityResponse | undefined>;
+    /**
+     * The cmk identity for the server.
+     */
+    public readonly identity!: pulumi.Output<outputs.dbformysql.v20210501.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -131,7 +139,9 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
             resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
@@ -154,8 +164,10 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["backup"] = undefined /*out*/;
+            resourceInputs["dataEncryption"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["highAvailability"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -203,9 +215,17 @@ export interface ServerArgs {
      */
     createMode?: pulumi.Input<string | enums.dbformysql.v20210501.CreateMode>;
     /**
+     * The Data Encryption for CMK.
+     */
+    dataEncryption?: pulumi.Input<inputs.dbformysql.v20210501.DataEncryptionArgs>;
+    /**
      * High availability related properties of a server.
      */
     highAvailability?: pulumi.Input<inputs.dbformysql.v20210501.HighAvailabilityArgs>;
+    /**
+     * The cmk identity for the server.
+     */
+    identity?: pulumi.Input<inputs.dbformysql.v20210501.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

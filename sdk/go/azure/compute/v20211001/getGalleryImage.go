@@ -31,6 +31,8 @@ type LookupGalleryImageArgs struct {
 
 // Specifies information about the gallery image definition that you want to create or update.
 type LookupGalleryImageResult struct {
+	// The architecture of the image. Applicable to OS disks only.
+	Architecture *string `pulumi:"architecture"`
 	// The description of this gallery image definition resource. This property is updatable.
 	Description *string `pulumi:"description"`
 	// Describes the disallowed disk types.
@@ -106,6 +108,11 @@ func (o LookupGalleryImageResultOutput) ToLookupGalleryImageResultOutput() Looku
 
 func (o LookupGalleryImageResultOutput) ToLookupGalleryImageResultOutputWithContext(ctx context.Context) LookupGalleryImageResultOutput {
 	return o
+}
+
+// The architecture of the image. Applicable to OS disks only.
+func (o LookupGalleryImageResultOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGalleryImageResult) *string { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
 // The description of this gallery image definition resource. This property is updatable.

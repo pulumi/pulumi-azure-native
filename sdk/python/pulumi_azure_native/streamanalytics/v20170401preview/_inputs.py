@@ -1509,7 +1509,7 @@ class BlobOutputDataSourceArgs:
         Describes a blob output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
-        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode. 
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1547,7 +1547,7 @@ class BlobOutputDataSourceArgs:
     @pulumi.getter(name="authenticationMode")
     def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
-        Authentication Mode.
+        Authentication Mode. 
         """
         return pulumi.get(self, "authentication_mode")
 
@@ -1620,6 +1620,7 @@ class BlobOutputDataSourceArgs:
 class BlobReferenceInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -1629,6 +1630,7 @@ class BlobReferenceInputDataSourceArgs:
         Describes a blob input data source that contains reference data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode. 
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1636,6 +1638,8 @@ class BlobReferenceInputDataSourceArgs:
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
@@ -1659,6 +1663,18 @@ class BlobReferenceInputDataSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode. 
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter
@@ -1725,6 +1741,7 @@ class BlobReferenceInputDataSourceArgs:
 class BlobStreamInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -1735,6 +1752,7 @@ class BlobStreamInputDataSourceArgs:
         Describes a blob input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode. 
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1743,6 +1761,8 @@ class BlobStreamInputDataSourceArgs:
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
@@ -1768,6 +1788,18 @@ class BlobStreamInputDataSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode. 
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter

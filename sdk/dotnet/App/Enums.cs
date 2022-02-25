@@ -102,6 +102,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthConfigState : IEquatable<AuthConfigState>
+    {
+        private readonly string _value;
+
+        private AuthConfigState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthConfigState Enabled { get; } = new AuthConfigState("Enabled");
+        public static AuthConfigState Disabled { get; } = new AuthConfigState("Disabled");
+
+        public static bool operator ==(AuthConfigState left, AuthConfigState right) => left.Equals(right);
+        public static bool operator !=(AuthConfigState left, AuthConfigState right) => !left.Equals(right);
+
+        public static explicit operator string(AuthConfigState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthConfigState other && Equals(other);
+        public bool Equals(AuthConfigState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Custom Domain binding type.
     /// </summary>
     [EnumType]
@@ -156,37 +187,6 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DisableWwwAuthenticateMode other && Equals(other);
         public bool Equals(DisableWwwAuthenticateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
-    /// </summary>
-    [EnumType]
-    public readonly struct EasyAuthState : IEquatable<EasyAuthState>
-    {
-        private readonly string _value;
-
-        private EasyAuthState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EasyAuthState Enabled { get; } = new EasyAuthState("Enabled");
-        public static EasyAuthState Disabled { get; } = new EasyAuthState("Disabled");
-
-        public static bool operator ==(EasyAuthState left, EasyAuthState right) => left.Equals(right);
-        public static bool operator !=(EasyAuthState left, EasyAuthState right) => !left.Equals(right);
-
-        public static explicit operator string(EasyAuthState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EasyAuthState other && Equals(other);
-        public bool Equals(EasyAuthState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

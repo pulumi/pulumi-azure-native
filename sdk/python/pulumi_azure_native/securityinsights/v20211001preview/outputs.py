@@ -16,6 +16,7 @@ __all__ = [
     'AlertDetailsOverrideResponse',
     'AlertsDataTypeOfDataConnectorResponse',
     'AutomationRuleModifyPropertiesActionResponse',
+    'AutomationRulePropertyValuesConditionResponse',
     'AutomationRuleRunPlaybookActionResponse',
     'AutomationRuleTriggeringLogicResponse',
     'AvailabilityResponse',
@@ -60,6 +61,7 @@ __all__ = [
     'IncidentInfoResponse',
     'IncidentLabelResponse',
     'IncidentOwnerInfoResponse',
+    'IncidentPropertiesActionResponse',
     'InsightsTableResultResponse',
     'InsightsTableResultResponseColumns',
     'InstructionStepsResponseInstructions',
@@ -85,6 +87,7 @@ __all__ = [
     'PermissionsResponse',
     'PermissionsResponseCustoms',
     'PermissionsResponseResourceProvider',
+    'PlaybookActionPropertiesResponse',
     'PropertyConditionPropertiesResponse',
     'RepoResponse',
     'RepositoryResponse',
@@ -341,10 +344,8 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
         suggest = None
         if key == "actionType":
             suggest = "action_type"
-        elif key == "classificationComment":
-            suggest = "classification_comment"
-        elif key == "classificationReason":
-            suggest = "classification_reason"
+        elif key == "actionConfiguration":
+            suggest = "action_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutomationRuleModifyPropertiesActionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -360,41 +361,16 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
     def __init__(__self__, *,
                  action_type: str,
                  order: int,
-                 classification: Optional[str] = None,
-                 classification_comment: Optional[str] = None,
-                 classification_reason: Optional[str] = None,
-                 labels: Optional[Sequence['outputs.IncidentLabelResponse']] = None,
-                 owner: Optional['outputs.IncidentOwnerInfoResponse'] = None,
-                 severity: Optional[str] = None,
-                 status: Optional[str] = None):
+                 action_configuration: Optional['outputs.IncidentPropertiesActionResponse'] = None):
         """
         Describes an automation rule action to modify an object's properties
         :param str action_type: The type of the automation rule action
                Expected value is 'ModifyProperties'.
-        :param str classification: The reason the incident was closed
-        :param str classification_comment: Describes the reason the incident was closed
-        :param str classification_reason: The classification reason the incident was closed with
-        :param Sequence['IncidentLabelResponse'] labels: List of labels to add to the incident
-        :param 'IncidentOwnerInfoResponse' owner: Information on the user an incident is assigned to
-        :param str severity: The severity of the incident
-        :param str status: The status of the incident
         """
         pulumi.set(__self__, "action_type", 'ModifyProperties')
         pulumi.set(__self__, "order", order)
-        if classification is not None:
-            pulumi.set(__self__, "classification", classification)
-        if classification_comment is not None:
-            pulumi.set(__self__, "classification_comment", classification_comment)
-        if classification_reason is not None:
-            pulumi.set(__self__, "classification_reason", classification_reason)
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-        if owner is not None:
-            pulumi.set(__self__, "owner", owner)
-        if severity is not None:
-            pulumi.set(__self__, "severity", severity)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
 
     @property
     @pulumi.getter(name="actionType")
@@ -411,60 +387,63 @@ class AutomationRuleModifyPropertiesActionResponse(dict):
         return pulumi.get(self, "order")
 
     @property
-    @pulumi.getter
-    def classification(self) -> Optional[str]:
-        """
-        The reason the incident was closed
-        """
-        return pulumi.get(self, "classification")
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.IncidentPropertiesActionResponse']:
+        return pulumi.get(self, "action_configuration")
 
-    @property
-    @pulumi.getter(name="classificationComment")
-    def classification_comment(self) -> Optional[str]:
-        """
-        Describes the reason the incident was closed
-        """
-        return pulumi.get(self, "classification_comment")
 
-    @property
-    @pulumi.getter(name="classificationReason")
-    def classification_reason(self) -> Optional[str]:
-        """
-        The classification reason the incident was closed with
-        """
-        return pulumi.get(self, "classification_reason")
+@pulumi.output_type
+class AutomationRulePropertyValuesConditionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyName":
+            suggest = "property_name"
+        elif key == "propertyValues":
+            suggest = "property_values"
 
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
-        """
-        List of labels to add to the incident
-        """
-        return pulumi.get(self, "labels")
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRulePropertyValuesConditionResponse. Access the value via the '{suggest}' property getter instead.")
 
-    @property
-    @pulumi.getter
-    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
-        """
-        Information on the user an incident is assigned to
-        """
-        return pulumi.get(self, "owner")
+    def __getitem__(self, key: str) -> Any:
+        AutomationRulePropertyValuesConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
 
-    @property
-    @pulumi.getter
-    def severity(self) -> Optional[str]:
+    def get(self, key: str, default = None) -> Any:
+        AutomationRulePropertyValuesConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: Optional[str] = None,
+                 property_name: Optional[str] = None,
+                 property_values: Optional[Sequence[str]] = None):
         """
-        The severity of the incident
+        :param str property_name: The property to evaluate in an automation rule property condition
         """
-        return pulumi.get(self, "severity")
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+        if property_values is not None:
+            pulumi.set(__self__, "property_values", property_values)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def operator(self) -> Optional[str]:
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[str]:
         """
-        The status of the incident
+        The property to evaluate in an automation rule property condition
         """
-        return pulumi.get(self, "status")
+        return pulumi.get(self, "property_name")
+
+    @property
+    @pulumi.getter(name="propertyValues")
+    def property_values(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "property_values")
 
 
 @pulumi.output_type
@@ -477,10 +456,8 @@ class AutomationRuleRunPlaybookActionResponse(dict):
         suggest = None
         if key == "actionType":
             suggest = "action_type"
-        elif key == "logicAppResourceId":
-            suggest = "logic_app_resource_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
+        elif key == "actionConfiguration":
+            suggest = "action_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutomationRuleRunPlaybookActionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -496,21 +473,16 @@ class AutomationRuleRunPlaybookActionResponse(dict):
     def __init__(__self__, *,
                  action_type: str,
                  order: int,
-                 logic_app_resource_id: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 action_configuration: Optional['outputs.PlaybookActionPropertiesResponse'] = None):
         """
         Describes an automation rule action to run a playbook
         :param str action_type: The type of the automation rule action
                Expected value is 'RunPlaybook'.
-        :param str logic_app_resource_id: The resource id of the playbook resource
-        :param str tenant_id: The tenant id of the playbook resource
         """
         pulumi.set(__self__, "action_type", 'RunPlaybook')
         pulumi.set(__self__, "order", order)
-        if logic_app_resource_id is not None:
-            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+        if action_configuration is not None:
+            pulumi.set(__self__, "action_configuration", action_configuration)
 
     @property
     @pulumi.getter(name="actionType")
@@ -527,20 +499,9 @@ class AutomationRuleRunPlaybookActionResponse(dict):
         return pulumi.get(self, "order")
 
     @property
-    @pulumi.getter(name="logicAppResourceId")
-    def logic_app_resource_id(self) -> Optional[str]:
-        """
-        The resource id of the playbook resource
-        """
-        return pulumi.get(self, "logic_app_resource_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenant id of the playbook resource
-        """
-        return pulumi.get(self, "tenant_id")
+    @pulumi.getter(name="actionConfiguration")
+    def action_configuration(self) -> Optional['outputs.PlaybookActionPropertiesResponse']:
+        return pulumi.get(self, "action_configuration")
 
 
 @pulumi.output_type
@@ -3391,6 +3352,116 @@ class IncidentOwnerInfoResponse(dict):
 
 
 @pulumi.output_type
+class IncidentPropertiesActionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationComment":
+            suggest = "classification_comment"
+        elif key == "classificationReason":
+            suggest = "classification_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentPropertiesActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentPropertiesActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentPropertiesActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification: Optional[str] = None,
+                 classification_comment: Optional[str] = None,
+                 classification_reason: Optional[str] = None,
+                 labels: Optional[Sequence['outputs.IncidentLabelResponse']] = None,
+                 owner: Optional['outputs.IncidentOwnerInfoResponse'] = None,
+                 severity: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        :param str classification: The reason the incident was closed
+        :param str classification_comment: Describes the reason the incident was closed
+        :param str classification_reason: The classification reason the incident was closed with
+        :param Sequence['IncidentLabelResponse'] labels: List of labels to add to the incident
+        :param 'IncidentOwnerInfoResponse' owner: Information on the user an incident is assigned to
+        :param str severity: The severity of the incident
+        :param str status: The status of the incident
+        """
+        if classification is not None:
+            pulumi.set(__self__, "classification", classification)
+        if classification_comment is not None:
+            pulumi.set(__self__, "classification_comment", classification_comment)
+        if classification_reason is not None:
+            pulumi.set(__self__, "classification_reason", classification_reason)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> Optional[str]:
+        """
+        The reason the incident was closed
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter(name="classificationComment")
+    def classification_comment(self) -> Optional[str]:
+        """
+        Describes the reason the incident was closed
+        """
+        return pulumi.get(self, "classification_comment")
+
+    @property
+    @pulumi.getter(name="classificationReason")
+    def classification_reason(self) -> Optional[str]:
+        """
+        The classification reason the incident was closed with
+        """
+        return pulumi.get(self, "classification_reason")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence['outputs.IncidentLabelResponse']]:
+        """
+        List of labels to add to the incident
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional['outputs.IncidentOwnerInfoResponse']:
+        """
+        Information on the user an incident is assigned to
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[str]:
+        """
+        The severity of the incident
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The status of the incident
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class InsightsTableResultResponse(dict):
     """
     Query results for table insights query.
@@ -4423,6 +4494,56 @@ class PermissionsResponseResourceProvider(dict):
 
 
 @pulumi.output_type
+class PlaybookActionPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logicAppResourceId":
+            suggest = "logic_app_resource_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlaybookActionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlaybookActionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlaybookActionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logic_app_resource_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str logic_app_resource_id: The resource id of the playbook resource
+        :param str tenant_id: The tenant id of the playbook resource
+        """
+        if logic_app_resource_id is not None:
+            pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="logicAppResourceId")
+    def logic_app_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the playbook resource
+        """
+        return pulumi.get(self, "logic_app_resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the playbook resource
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class PropertyConditionPropertiesResponse(dict):
     """
     Describes an automation rule condition that evaluates a property's value
@@ -4432,10 +4553,8 @@ class PropertyConditionPropertiesResponse(dict):
         suggest = None
         if key == "conditionType":
             suggest = "condition_type"
-        elif key == "propertyName":
-            suggest = "property_name"
-        elif key == "propertyValues":
-            suggest = "property_values"
+        elif key == "conditionProperties":
+            suggest = "condition_properties"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PropertyConditionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4450,22 +4569,15 @@ class PropertyConditionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  condition_type: str,
-                 operator: Optional[str] = None,
-                 property_name: Optional[str] = None,
-                 property_values: Optional[Sequence[str]] = None):
+                 condition_properties: Optional['outputs.AutomationRulePropertyValuesConditionResponse'] = None):
         """
         Describes an automation rule condition that evaluates a property's value
         :param str condition_type: 
                Expected value is 'Property'.
-        :param str property_name: The property to evaluate in an automation rule property condition
         """
         pulumi.set(__self__, "condition_type", 'Property')
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
-        if property_values is not None:
-            pulumi.set(__self__, "property_values", property_values)
+        if condition_properties is not None:
+            pulumi.set(__self__, "condition_properties", condition_properties)
 
     @property
     @pulumi.getter(name="conditionType")
@@ -4477,22 +4589,9 @@ class PropertyConditionPropertiesResponse(dict):
         return pulumi.get(self, "condition_type")
 
     @property
-    @pulumi.getter
-    def operator(self) -> Optional[str]:
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[str]:
-        """
-        The property to evaluate in an automation rule property condition
-        """
-        return pulumi.get(self, "property_name")
-
-    @property
-    @pulumi.getter(name="propertyValues")
-    def property_values(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "property_values")
+    @pulumi.getter(name="conditionProperties")
+    def condition_properties(self) -> Optional['outputs.AutomationRulePropertyValuesConditionResponse']:
+        return pulumi.get(self, "condition_properties")
 
 
 @pulumi.output_type

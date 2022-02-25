@@ -21,7 +21,10 @@ class GetGalleryImageResult:
     """
     Specifies information about the gallery image definition that you want to create or update.
     """
-    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+    def __init__(__self__, architecture=None, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+        if architecture and not isinstance(architecture, str):
+            raise TypeError("Expected argument 'architecture' to be a str")
+        pulumi.set(__self__, "architecture", architecture)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -79,6 +82,14 @@ class GetGalleryImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[str]:
+        """
+        The architecture of the image. Applicable to OS disks only.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -239,6 +250,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
         if False:
             yield self
         return GetGalleryImageResult(
+            architecture=self.architecture,
             description=self.description,
             disallowed=self.disallowed,
             end_of_life_date=self.end_of_life_date,
@@ -283,6 +295,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20211001:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult).value
 
     return AwaitableGetGalleryImageResult(
+        architecture=__ret__.architecture,
         description=__ret__.description,
         disallowed=__ret__.disallowed,
         end_of_life_date=__ret__.end_of_life_date,

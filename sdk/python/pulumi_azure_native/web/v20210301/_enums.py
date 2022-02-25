@@ -11,13 +11,10 @@ __all__ = [
     'AzureStorageType',
     'BuiltInAuthenticationProvider',
     'ClientCertMode',
-    'ClientCredentialMethod',
     'ConnectionStringType',
-    'CookieExpirationConvention',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
     'EnterpriseGradeCdnStatus',
-    'ForwardProxyConvention',
     'FrequencyUnit',
     'FrontEndServiceType',
     'FtpsState',
@@ -39,7 +36,6 @@ __all__ = [
     'StorageType',
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
-    'UnauthenticatedClientActionV2',
 ]
 
 
@@ -103,13 +99,6 @@ class ClientCertMode(str, Enum):
     OPTIONAL_INTERACTIVE_USER = "OptionalInteractiveUser"
 
 
-class ClientCredentialMethod(str, Enum):
-    """
-    The method that should be used to authenticate the user.
-    """
-    CLIENT_SECRET_POST = "ClientSecretPost"
-
-
 class ConnectionStringType(str, Enum):
     """
     Type of database.
@@ -125,14 +114,6 @@ class ConnectionStringType(str, Enum):
     DOC_DB = "DocDb"
     REDIS_CACHE = "RedisCache"
     POSTGRE_SQL = "PostgreSQL"
-
-
-class CookieExpirationConvention(str, Enum):
-    """
-    The convention used when determining the session cookie's expiration.
-    """
-    FIXED_TIME = "FixedTime"
-    IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
 
 
 class CustomHostNameDnsRecordType(str, Enum):
@@ -161,15 +142,6 @@ class EnterpriseGradeCdnStatus(str, Enum):
     ENABLING = "Enabling"
     DISABLED = "Disabled"
     DISABLING = "Disabling"
-
-
-class ForwardProxyConvention(str, Enum):
-    """
-    The convention used to determine the url of the request made.
-    """
-    NO_PROXY = "NoProxy"
-    STANDARD = "Standard"
-    CUSTOM = "Custom"
 
 
 class FrequencyUnit(str, Enum):
@@ -370,13 +342,3 @@ class UnauthenticatedClientAction(str, Enum):
     """
     REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
     ALLOW_ANONYMOUS = "AllowAnonymous"
-
-
-class UnauthenticatedClientActionV2(str, Enum):
-    """
-    The action to take when an unauthenticated client attempts to access the app.
-    """
-    REDIRECT_TO_LOGIN_PAGE = "RedirectToLoginPage"
-    ALLOW_ANONYMOUS = "AllowAnonymous"
-    RETURN401 = "Return401"
-    RETURN403 = "Return403"

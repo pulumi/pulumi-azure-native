@@ -21,10 +21,14 @@ type Server struct {
 	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
 	// Backup related properties of a server.
 	Backup BackupResponsePtrOutput `pulumi:"backup"`
+	// The Data Encryption for CMK.
+	DataEncryption DataEncryptionResponsePtrOutput `pulumi:"dataEncryption"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// High availability related properties of a server.
 	HighAvailability HighAvailabilityResponsePtrOutput `pulumi:"highAvailability"`
+	// The cmk identity for the server.
+	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maintenance window of a server.
@@ -119,8 +123,12 @@ type serverArgs struct {
 	Backup *Backup `pulumi:"backup"`
 	// The mode to create a new MySQL server.
 	CreateMode *string `pulumi:"createMode"`
+	// The Data Encryption for CMK.
+	DataEncryption *DataEncryption `pulumi:"dataEncryption"`
 	// High availability related properties of a server.
 	HighAvailability *HighAvailability `pulumi:"highAvailability"`
+	// The cmk identity for the server.
+	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maintenance window of a server.
@@ -159,8 +167,12 @@ type ServerArgs struct {
 	Backup BackupPtrInput
 	// The mode to create a new MySQL server.
 	CreateMode pulumi.StringPtrInput
+	// The Data Encryption for CMK.
+	DataEncryption DataEncryptionPtrInput
 	// High availability related properties of a server.
 	HighAvailability HighAvailabilityPtrInput
+	// The cmk identity for the server.
+	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maintenance window of a server.

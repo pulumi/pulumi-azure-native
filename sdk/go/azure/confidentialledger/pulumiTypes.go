@@ -190,7 +190,7 @@ func (o AADBasedSecurityPrincipalResponseArrayOutput) Index(i pulumi.IntInput) A
 
 // Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipal struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
+	// Public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
@@ -209,7 +209,7 @@ type CertBasedSecurityPrincipalInput interface {
 
 // Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalArgs struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
+	// Public key of the user cert (.pem or .cer)
 	Cert pulumi.StringPtrInput `pulumi:"cert"`
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName pulumi.StringPtrInput `pulumi:"ledgerRoleName"`
@@ -267,7 +267,7 @@ func (o CertBasedSecurityPrincipalOutput) ToCertBasedSecurityPrincipalOutputWith
 	return o
 }
 
-// Base64 encoded public key of the user cert (.pem or .cer)
+// Public key of the user cert (.pem or .cer)
 func (o CertBasedSecurityPrincipalOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipal) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
@@ -299,7 +299,7 @@ func (o CertBasedSecurityPrincipalArrayOutput) Index(i pulumi.IntInput) CertBase
 
 // Cert based security principal with Ledger RoleName
 type CertBasedSecurityPrincipalResponse struct {
-	// Base64 encoded public key of the user cert (.pem or .cer)
+	// Public key of the user cert (.pem or .cer)
 	Cert *string `pulumi:"cert"`
 	// LedgerRole associated with the Security Principal of Ledger
 	LedgerRoleName *string `pulumi:"ledgerRoleName"`
@@ -320,7 +320,7 @@ func (o CertBasedSecurityPrincipalResponseOutput) ToCertBasedSecurityPrincipalRe
 	return o
 }
 
-// Base64 encoded public key of the user cert (.pem or .cer)
+// Public key of the user cert (.pem or .cer)
 func (o CertBasedSecurityPrincipalResponseOutput) Cert() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertBasedSecurityPrincipalResponse) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }

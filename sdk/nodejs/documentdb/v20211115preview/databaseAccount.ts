@@ -112,6 +112,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
     /**
+     * Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+     */
+    public readonly enableMaterializedViews!: pulumi.Output<boolean | undefined>;
+    /**
      * Enables the account to write in multiple locations
      */
     public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
@@ -243,6 +247,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
             resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
+            resourceInputs["enableMaterializedViews"] = args ? args.enableMaterializedViews : undefined;
             resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ipRules"] = args ? args.ipRules : undefined;
@@ -288,6 +293,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["enableAutomaticFailover"] = undefined /*out*/;
             resourceInputs["enableCassandraConnector"] = undefined /*out*/;
             resourceInputs["enableFreeTier"] = undefined /*out*/;
+            resourceInputs["enableMaterializedViews"] = undefined /*out*/;
             resourceInputs["enableMultipleWriteLocations"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -399,6 +405,10 @@ export interface DatabaseAccountArgs {
      * Flag to indicate whether Free Tier is enabled.
      */
     enableFreeTier?: pulumi.Input<boolean>;
+    /**
+     * Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+     */
+    enableMaterializedViews?: pulumi.Input<boolean>;
     /**
      * Enables the account to write in multiple locations
      */

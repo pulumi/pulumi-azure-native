@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'CustomLocationPropertiesResponseAuthentication',
+    'ResourceSyncRulePropertiesResponseSelector',
     'SystemDataResponse',
 ]
 
@@ -35,6 +36,46 @@ class CustomLocationPropertiesResponseAuthentication(dict):
         The type of the Custom Locations authentication
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceSyncRulePropertiesResponseSelector(dict):
+    """
+    A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchLabels":
+            suggest = "match_labels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceSyncRulePropertiesResponseSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceSyncRulePropertiesResponseSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceSyncRulePropertiesResponseSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_labels: Optional[Mapping[str, str]] = None):
+        """
+        A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+        :param Mapping[str, str] match_labels: MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+        """
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> Optional[Mapping[str, str]]:
+        """
+        MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+        """
+        return pulumi.get(self, "match_labels")
 
 
 @pulumi.output_type

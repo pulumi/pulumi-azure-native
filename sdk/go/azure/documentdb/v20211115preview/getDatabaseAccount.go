@@ -67,6 +67,8 @@ type LookupDatabaseAccountResult struct {
 	EnableCassandraConnector *bool `pulumi:"enableCassandraConnector"`
 	// Flag to indicate whether Free Tier is enabled.
 	EnableFreeTier *bool `pulumi:"enableFreeTier"`
+	// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+	EnableMaterializedViews *bool `pulumi:"enableMaterializedViews"`
 	// Enables the account to write in multiple locations
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
@@ -264,6 +266,11 @@ func (o LookupDatabaseAccountResultOutput) EnableCassandraConnector() pulumi.Boo
 // Flag to indicate whether Free Tier is enabled.
 func (o LookupDatabaseAccountResultOutput) EnableFreeTier() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDatabaseAccountResult) *bool { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+func (o LookupDatabaseAccountResultOutput) EnableMaterializedViews() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDatabaseAccountResult) *bool { return v.EnableMaterializedViews }).(pulumi.BoolPtrOutput)
 }
 
 // Enables the account to write in multiple locations

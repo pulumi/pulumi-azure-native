@@ -129,7 +129,7 @@ class ModuleArgs:
         """
         Specifies configuration of a redis module
         :param pulumi.Input[str] name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         pulumi.set(__self__, "name", name)
         if args is not None:
@@ -151,7 +151,7 @@ class ModuleArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
 

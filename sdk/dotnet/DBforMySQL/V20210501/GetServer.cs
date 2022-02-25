@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         /// </summary>
         public readonly Outputs.BackupResponse? Backup;
         /// <summary>
+        /// The Data Encryption for CMK.
+        /// </summary>
+        public readonly Outputs.DataEncryptionResponse? DataEncryption;
+        /// <summary>
         /// The fully qualified domain name of a server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
@@ -91,6 +95,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The cmk identity for the server.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -156,11 +164,15 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
 
             Outputs.BackupResponse? backup,
 
+            Outputs.DataEncryptionResponse? dataEncryption,
+
             string fullyQualifiedDomainName,
 
             Outputs.HighAvailabilityResponse? highAvailability,
 
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string location,
 
@@ -193,9 +205,11 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501
             AdministratorLogin = administratorLogin;
             AvailabilityZone = availabilityZone;
             Backup = backup;
+            DataEncryption = dataEncryption;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HighAvailability = highAvailability;
             Id = id;
+            Identity = identity;
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             Name = name;

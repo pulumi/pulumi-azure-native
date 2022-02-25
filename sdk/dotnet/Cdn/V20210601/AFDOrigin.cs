@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// The properties of the private link resource for private origin.
         /// </summary>
         [Output("sharedPrivateLinkResource")]
-        public Output<ImmutableArray<Outputs.SharedPrivateLinkResourcePropertiesResponse>> SharedPrivateLinkResource { get; private set; } = null!;
+        public Output<Outputs.SharedPrivateLinkResourcePropertiesResponse?> SharedPrivateLinkResource { get; private set; } = null!;
 
         /// <summary>
         /// Read only system data
@@ -230,17 +230,11 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("sharedPrivateLinkResource")]
-        private InputList<Inputs.SharedPrivateLinkResourcePropertiesArgs>? _sharedPrivateLinkResource;
-
         /// <summary>
         /// The properties of the private link resource for private origin.
         /// </summary>
-        public InputList<Inputs.SharedPrivateLinkResourcePropertiesArgs> SharedPrivateLinkResource
-        {
-            get => _sharedPrivateLinkResource ?? (_sharedPrivateLinkResource = new InputList<Inputs.SharedPrivateLinkResourcePropertiesArgs>());
-            set => _sharedPrivateLinkResource = value;
-        }
+        [Input("sharedPrivateLinkResource")]
+        public Input<Inputs.SharedPrivateLinkResourcePropertiesArgs>? SharedPrivateLinkResource { get; set; }
 
         /// <summary>
         /// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000

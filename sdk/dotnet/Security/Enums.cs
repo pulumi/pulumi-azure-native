@@ -1032,6 +1032,37 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// The cloud that the standard is supported on.
+    /// </summary>
+    [EnumType]
+    public readonly struct StandardSupportedClouds : IEquatable<StandardSupportedClouds>
+    {
+        private readonly string _value;
+
+        private StandardSupportedClouds(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StandardSupportedClouds AWS { get; } = new StandardSupportedClouds("AWS");
+        public static StandardSupportedClouds GCP { get; } = new StandardSupportedClouds("GCP");
+
+        public static bool operator ==(StandardSupportedClouds left, StandardSupportedClouds right) => left.Equals(right);
+        public static bool operator !=(StandardSupportedClouds left, StandardSupportedClouds right) => !left.Equals(right);
+
+        public static explicit operator string(StandardSupportedClouds value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StandardSupportedClouds other && Equals(other);
+        public bool Equals(StandardSupportedClouds other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
     /// </summary>
     [EnumType]

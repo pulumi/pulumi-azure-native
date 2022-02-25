@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The architecture of the image. Applicable to OS disks only.
+type Architecture string
+
+const (
+	ArchitectureX64   = Architecture("x64")
+	ArchitectureArm64 = Architecture("Arm64")
+)
+
 // confidential VM encryption types
 type ConfidentialVMEncryptionType string
 

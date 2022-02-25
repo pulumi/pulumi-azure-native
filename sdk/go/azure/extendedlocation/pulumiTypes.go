@@ -229,6 +229,206 @@ func (o CustomLocationPropertiesResponseAuthenticationPtrOutput) Type() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+type ResourceSyncRulePropertiesResponseSelector struct {
+	// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+	MatchLabels map[string]string `pulumi:"matchLabels"`
+}
+
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+type ResourceSyncRulePropertiesResponseSelectorOutput struct{ *pulumi.OutputState }
+
+func (ResourceSyncRulePropertiesResponseSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSyncRulePropertiesResponseSelector)(nil)).Elem()
+}
+
+func (o ResourceSyncRulePropertiesResponseSelectorOutput) ToResourceSyncRulePropertiesResponseSelectorOutput() ResourceSyncRulePropertiesResponseSelectorOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesResponseSelectorOutput) ToResourceSyncRulePropertiesResponseSelectorOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesResponseSelectorOutput {
+	return o
+}
+
+// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+func (o ResourceSyncRulePropertiesResponseSelectorOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ResourceSyncRulePropertiesResponseSelector) map[string]string { return v.MatchLabels }).(pulumi.StringMapOutput)
+}
+
+type ResourceSyncRulePropertiesResponseSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceSyncRulePropertiesResponseSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSyncRulePropertiesResponseSelector)(nil)).Elem()
+}
+
+func (o ResourceSyncRulePropertiesResponseSelectorPtrOutput) ToResourceSyncRulePropertiesResponseSelectorPtrOutput() ResourceSyncRulePropertiesResponseSelectorPtrOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesResponseSelectorPtrOutput) ToResourceSyncRulePropertiesResponseSelectorPtrOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesResponseSelectorPtrOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesResponseSelectorPtrOutput) Elem() ResourceSyncRulePropertiesResponseSelectorOutput {
+	return o.ApplyT(func(v *ResourceSyncRulePropertiesResponseSelector) ResourceSyncRulePropertiesResponseSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSyncRulePropertiesResponseSelector
+		return ret
+	}).(ResourceSyncRulePropertiesResponseSelectorOutput)
+}
+
+// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+func (o ResourceSyncRulePropertiesResponseSelectorPtrOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceSyncRulePropertiesResponseSelector) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchLabels
+	}).(pulumi.StringMapOutput)
+}
+
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+type ResourceSyncRulePropertiesSelector struct {
+	// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+	MatchLabels map[string]string `pulumi:"matchLabels"`
+}
+
+// ResourceSyncRulePropertiesSelectorInput is an input type that accepts ResourceSyncRulePropertiesSelectorArgs and ResourceSyncRulePropertiesSelectorOutput values.
+// You can construct a concrete instance of `ResourceSyncRulePropertiesSelectorInput` via:
+//
+//          ResourceSyncRulePropertiesSelectorArgs{...}
+type ResourceSyncRulePropertiesSelectorInput interface {
+	pulumi.Input
+
+	ToResourceSyncRulePropertiesSelectorOutput() ResourceSyncRulePropertiesSelectorOutput
+	ToResourceSyncRulePropertiesSelectorOutputWithContext(context.Context) ResourceSyncRulePropertiesSelectorOutput
+}
+
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+type ResourceSyncRulePropertiesSelectorArgs struct {
+	// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+	MatchLabels pulumi.StringMapInput `pulumi:"matchLabels"`
+}
+
+func (ResourceSyncRulePropertiesSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSyncRulePropertiesSelector)(nil)).Elem()
+}
+
+func (i ResourceSyncRulePropertiesSelectorArgs) ToResourceSyncRulePropertiesSelectorOutput() ResourceSyncRulePropertiesSelectorOutput {
+	return i.ToResourceSyncRulePropertiesSelectorOutputWithContext(context.Background())
+}
+
+func (i ResourceSyncRulePropertiesSelectorArgs) ToResourceSyncRulePropertiesSelectorOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSyncRulePropertiesSelectorOutput)
+}
+
+func (i ResourceSyncRulePropertiesSelectorArgs) ToResourceSyncRulePropertiesSelectorPtrOutput() ResourceSyncRulePropertiesSelectorPtrOutput {
+	return i.ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceSyncRulePropertiesSelectorArgs) ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSyncRulePropertiesSelectorOutput).ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(ctx)
+}
+
+// ResourceSyncRulePropertiesSelectorPtrInput is an input type that accepts ResourceSyncRulePropertiesSelectorArgs, ResourceSyncRulePropertiesSelectorPtr and ResourceSyncRulePropertiesSelectorPtrOutput values.
+// You can construct a concrete instance of `ResourceSyncRulePropertiesSelectorPtrInput` via:
+//
+//          ResourceSyncRulePropertiesSelectorArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceSyncRulePropertiesSelectorPtrInput interface {
+	pulumi.Input
+
+	ToResourceSyncRulePropertiesSelectorPtrOutput() ResourceSyncRulePropertiesSelectorPtrOutput
+	ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(context.Context) ResourceSyncRulePropertiesSelectorPtrOutput
+}
+
+type resourceSyncRulePropertiesSelectorPtrType ResourceSyncRulePropertiesSelectorArgs
+
+func ResourceSyncRulePropertiesSelectorPtr(v *ResourceSyncRulePropertiesSelectorArgs) ResourceSyncRulePropertiesSelectorPtrInput {
+	return (*resourceSyncRulePropertiesSelectorPtrType)(v)
+}
+
+func (*resourceSyncRulePropertiesSelectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSyncRulePropertiesSelector)(nil)).Elem()
+}
+
+func (i *resourceSyncRulePropertiesSelectorPtrType) ToResourceSyncRulePropertiesSelectorPtrOutput() ResourceSyncRulePropertiesSelectorPtrOutput {
+	return i.ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceSyncRulePropertiesSelectorPtrType) ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSyncRulePropertiesSelectorPtrOutput)
+}
+
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+type ResourceSyncRulePropertiesSelectorOutput struct{ *pulumi.OutputState }
+
+func (ResourceSyncRulePropertiesSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSyncRulePropertiesSelector)(nil)).Elem()
+}
+
+func (o ResourceSyncRulePropertiesSelectorOutput) ToResourceSyncRulePropertiesSelectorOutput() ResourceSyncRulePropertiesSelectorOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesSelectorOutput) ToResourceSyncRulePropertiesSelectorOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesSelectorOutput) ToResourceSyncRulePropertiesSelectorPtrOutput() ResourceSyncRulePropertiesSelectorPtrOutput {
+	return o.ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceSyncRulePropertiesSelectorOutput) ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSyncRulePropertiesSelector) *ResourceSyncRulePropertiesSelector {
+		return &v
+	}).(ResourceSyncRulePropertiesSelectorPtrOutput)
+}
+
+// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+func (o ResourceSyncRulePropertiesSelectorOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ResourceSyncRulePropertiesSelector) map[string]string { return v.MatchLabels }).(pulumi.StringMapOutput)
+}
+
+type ResourceSyncRulePropertiesSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceSyncRulePropertiesSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceSyncRulePropertiesSelector)(nil)).Elem()
+}
+
+func (o ResourceSyncRulePropertiesSelectorPtrOutput) ToResourceSyncRulePropertiesSelectorPtrOutput() ResourceSyncRulePropertiesSelectorPtrOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesSelectorPtrOutput) ToResourceSyncRulePropertiesSelectorPtrOutputWithContext(ctx context.Context) ResourceSyncRulePropertiesSelectorPtrOutput {
+	return o
+}
+
+func (o ResourceSyncRulePropertiesSelectorPtrOutput) Elem() ResourceSyncRulePropertiesSelectorOutput {
+	return o.ApplyT(func(v *ResourceSyncRulePropertiesSelector) ResourceSyncRulePropertiesSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSyncRulePropertiesSelector
+		return ret
+	}).(ResourceSyncRulePropertiesSelectorOutput)
+}
+
+// MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'.
+func (o ResourceSyncRulePropertiesSelectorPtrOutput) MatchLabels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceSyncRulePropertiesSelector) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchLabels
+	}).(pulumi.StringMapOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -295,5 +495,9 @@ func init() {
 	pulumi.RegisterOutputType(CustomLocationPropertiesAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(CustomLocationPropertiesResponseAuthenticationOutput{})
 	pulumi.RegisterOutputType(CustomLocationPropertiesResponseAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSyncRulePropertiesResponseSelectorOutput{})
+	pulumi.RegisterOutputType(ResourceSyncRulePropertiesResponseSelectorPtrOutput{})
+	pulumi.RegisterOutputType(ResourceSyncRulePropertiesSelectorOutput{})
+	pulumi.RegisterOutputType(ResourceSyncRulePropertiesSelectorPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

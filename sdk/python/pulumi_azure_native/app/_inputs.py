@@ -48,7 +48,6 @@ __all__ = [
     'HttpSettingsArgs',
     'IdentityProvidersArgs',
     'IngressArgs',
-    'LegacyMicrosoftAccountArgs',
     'LogAnalyticsConfigurationArgs',
     'LoginRouteArgs',
     'LoginScopesArgs',
@@ -2221,7 +2220,6 @@ class IdentityProvidersArgs:
                  facebook: Optional[pulumi.Input['FacebookArgs']] = None,
                  git_hub: Optional[pulumi.Input['GitHubArgs']] = None,
                  google: Optional[pulumi.Input['GoogleArgs']] = None,
-                 legacy_microsoft_account: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']] = None,
                  twitter: Optional[pulumi.Input['TwitterArgs']] = None):
         """
         The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
@@ -2233,7 +2231,6 @@ class IdentityProvidersArgs:
         :param pulumi.Input['FacebookArgs'] facebook: The configuration settings of the Facebook provider.
         :param pulumi.Input['GitHubArgs'] git_hub: The configuration settings of the GitHub provider.
         :param pulumi.Input['GoogleArgs'] google: The configuration settings of the Google provider.
-        :param pulumi.Input['LegacyMicrosoftAccountArgs'] legacy_microsoft_account: The configuration settings of the legacy Microsoft Account provider.
         :param pulumi.Input['TwitterArgs'] twitter: The configuration settings of the Twitter provider.
         """
         if apple is not None:
@@ -2250,8 +2247,6 @@ class IdentityProvidersArgs:
             pulumi.set(__self__, "git_hub", git_hub)
         if google is not None:
             pulumi.set(__self__, "google", google)
-        if legacy_microsoft_account is not None:
-            pulumi.set(__self__, "legacy_microsoft_account", legacy_microsoft_account)
         if twitter is not None:
             pulumi.set(__self__, "twitter", twitter)
 
@@ -2339,18 +2334,6 @@ class IdentityProvidersArgs:
     @google.setter
     def google(self, value: Optional[pulumi.Input['GoogleArgs']]):
         pulumi.set(self, "google", value)
-
-    @property
-    @pulumi.getter(name="legacyMicrosoftAccount")
-    def legacy_microsoft_account(self) -> Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]:
-        """
-        The configuration settings of the legacy Microsoft Account provider.
-        """
-        return pulumi.get(self, "legacy_microsoft_account")
-
-    @legacy_microsoft_account.setter
-    def legacy_microsoft_account(self, value: Optional[pulumi.Input['LegacyMicrosoftAccountArgs']]):
-        pulumi.set(self, "legacy_microsoft_account", value)
 
     @property
     @pulumi.getter
@@ -2469,78 +2452,6 @@ class IngressArgs:
     @transport.setter
     def transport(self, value: Optional[pulumi.Input[Union[str, 'IngressTransportMethod']]]):
         pulumi.set(self, "transport", value)
-
-
-@pulumi.input_type
-class LegacyMicrosoftAccountArgs:
-    def __init__(__self__, *,
-                 login: Optional[pulumi.Input['LoginScopesArgs']] = None,
-                 registration: Optional[pulumi.Input['ClientRegistrationArgs']] = None,
-                 state: Optional[pulumi.Input[Union[str, 'IdentityProviderState']]] = None,
-                 validation: Optional[pulumi.Input['AllowedAudiencesValidationArgs']] = None):
-        """
-        The configuration settings of the legacy Microsoft Account provider.
-        :param pulumi.Input['LoginScopesArgs'] login: The configuration settings of the login flow.
-        :param pulumi.Input['ClientRegistrationArgs'] registration: The configuration settings of the app registration for the legacy Microsoft Account provider.
-        :param pulumi.Input[Union[str, 'IdentityProviderState']] state: <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-        :param pulumi.Input['AllowedAudiencesValidationArgs'] validation: The configuration settings of the legacy Microsoft Account provider token validation flow.
-        """
-        if login is not None:
-            pulumi.set(__self__, "login", login)
-        if registration is not None:
-            pulumi.set(__self__, "registration", registration)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
-        if validation is not None:
-            pulumi.set(__self__, "validation", validation)
-
-    @property
-    @pulumi.getter
-    def login(self) -> Optional[pulumi.Input['LoginScopesArgs']]:
-        """
-        The configuration settings of the login flow.
-        """
-        return pulumi.get(self, "login")
-
-    @login.setter
-    def login(self, value: Optional[pulumi.Input['LoginScopesArgs']]):
-        pulumi.set(self, "login", value)
-
-    @property
-    @pulumi.getter
-    def registration(self) -> Optional[pulumi.Input['ClientRegistrationArgs']]:
-        """
-        The configuration settings of the app registration for the legacy Microsoft Account provider.
-        """
-        return pulumi.get(self, "registration")
-
-    @registration.setter
-    def registration(self, value: Optional[pulumi.Input['ClientRegistrationArgs']]):
-        pulumi.set(self, "registration", value)
-
-    @property
-    @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'IdentityProviderState']]]:
-        """
-        <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'IdentityProviderState']]]):
-        pulumi.set(self, "state", value)
-
-    @property
-    @pulumi.getter
-    def validation(self) -> Optional[pulumi.Input['AllowedAudiencesValidationArgs']]:
-        """
-        The configuration settings of the legacy Microsoft Account provider token validation flow.
-        """
-        return pulumi.get(self, "validation")
-
-    @validation.setter
-    def validation(self, value: Optional[pulumi.Input['AllowedAudiencesValidationArgs']]):
-        pulumi.set(self, "validation", value)
 
 
 @pulumi.input_type

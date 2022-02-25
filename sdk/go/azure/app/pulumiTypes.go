@@ -3558,6 +3558,8 @@ type CertificateResponseProperties struct {
 	IssueDate string `pulumi:"issueDate"`
 	// Certificate issuer.
 	Issuer string `pulumi:"issuer"`
+	// Provisioning state of the certificate.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Public key hash.
 	PublicKeyHash string `pulumi:"publicKeyHash"`
 	// Subject name of the certificate.
@@ -3596,6 +3598,11 @@ func (o CertificateResponsePropertiesOutput) IssueDate() pulumi.StringOutput {
 // Certificate issuer.
 func (o CertificateResponsePropertiesOutput) Issuer() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateResponseProperties) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the certificate.
+func (o CertificateResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Public key hash.
@@ -9453,8 +9460,6 @@ type IdentityProviders struct {
 	GitHub *GitHub `pulumi:"gitHub"`
 	// The configuration settings of the Google provider.
 	Google *Google `pulumi:"google"`
-	// The configuration settings of the legacy Microsoft Account provider.
-	LegacyMicrosoftAccount *LegacyMicrosoftAccount `pulumi:"legacyMicrosoftAccount"`
 	// The configuration settings of the Twitter provider.
 	Twitter *Twitter `pulumi:"twitter"`
 }
@@ -9487,8 +9492,6 @@ type IdentityProvidersArgs struct {
 	GitHub GitHubPtrInput `pulumi:"gitHub"`
 	// The configuration settings of the Google provider.
 	Google GooglePtrInput `pulumi:"google"`
-	// The configuration settings of the legacy Microsoft Account provider.
-	LegacyMicrosoftAccount LegacyMicrosoftAccountPtrInput `pulumi:"legacyMicrosoftAccount"`
 	// The configuration settings of the Twitter provider.
 	Twitter TwitterPtrInput `pulumi:"twitter"`
 }
@@ -9609,11 +9612,6 @@ func (o IdentityProvidersOutput) Google() GooglePtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Google { return v.Google }).(GooglePtrOutput)
 }
 
-// The configuration settings of the legacy Microsoft Account provider.
-func (o IdentityProvidersOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
-	return o.ApplyT(func(v IdentityProviders) *LegacyMicrosoftAccount { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountPtrOutput)
-}
-
 // The configuration settings of the Twitter provider.
 func (o IdentityProvidersOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v IdentityProviders) *Twitter { return v.Twitter }).(TwitterPtrOutput)
@@ -9714,16 +9712,6 @@ func (o IdentityProvidersPtrOutput) Google() GooglePtrOutput {
 	}).(GooglePtrOutput)
 }
 
-// The configuration settings of the legacy Microsoft Account provider.
-func (o IdentityProvidersPtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountPtrOutput {
-	return o.ApplyT(func(v *IdentityProviders) *LegacyMicrosoftAccount {
-		if v == nil {
-			return nil
-		}
-		return v.LegacyMicrosoftAccount
-	}).(LegacyMicrosoftAccountPtrOutput)
-}
-
 // The configuration settings of the Twitter provider.
 func (o IdentityProvidersPtrOutput) Twitter() TwitterPtrOutput {
 	return o.ApplyT(func(v *IdentityProviders) *Twitter {
@@ -9751,8 +9739,6 @@ type IdentityProvidersResponse struct {
 	GitHub *GitHubResponse `pulumi:"gitHub"`
 	// The configuration settings of the Google provider.
 	Google *GoogleResponse `pulumi:"google"`
-	// The configuration settings of the legacy Microsoft Account provider.
-	LegacyMicrosoftAccount *LegacyMicrosoftAccountResponse `pulumi:"legacyMicrosoftAccount"`
 	// The configuration settings of the Twitter provider.
 	Twitter *TwitterResponse `pulumi:"twitter"`
 }
@@ -9808,11 +9794,6 @@ func (o IdentityProvidersResponseOutput) GitHub() GitHubResponsePtrOutput {
 // The configuration settings of the Google provider.
 func (o IdentityProvidersResponseOutput) Google() GoogleResponsePtrOutput {
 	return o.ApplyT(func(v IdentityProvidersResponse) *GoogleResponse { return v.Google }).(GoogleResponsePtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-func (o IdentityProvidersResponseOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
-	return o.ApplyT(func(v IdentityProvidersResponse) *LegacyMicrosoftAccountResponse { return v.LegacyMicrosoftAccount }).(LegacyMicrosoftAccountResponsePtrOutput)
 }
 
 // The configuration settings of the Twitter provider.
@@ -9913,16 +9894,6 @@ func (o IdentityProvidersResponsePtrOutput) Google() GoogleResponsePtrOutput {
 		}
 		return v.Google
 	}).(GoogleResponsePtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-func (o IdentityProvidersResponsePtrOutput) LegacyMicrosoftAccount() LegacyMicrosoftAccountResponsePtrOutput {
-	return o.ApplyT(func(v *IdentityProvidersResponse) *LegacyMicrosoftAccountResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LegacyMicrosoftAccount
-	}).(LegacyMicrosoftAccountResponsePtrOutput)
 }
 
 // The configuration settings of the Twitter provider.
@@ -10356,314 +10327,6 @@ func (o IngressResponsePtrOutput) Transport() pulumi.StringPtrOutput {
 		}
 		return v.Transport
 	}).(pulumi.StringPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-type LegacyMicrosoftAccount struct {
-	// The configuration settings of the login flow.
-	Login *LoginScopes `pulumi:"login"`
-	// The configuration settings of the app registration for the legacy Microsoft Account provider.
-	Registration *ClientRegistration `pulumi:"registration"`
-	// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-	State *string `pulumi:"state"`
-	// The configuration settings of the legacy Microsoft Account provider token validation flow.
-	Validation *AllowedAudiencesValidation `pulumi:"validation"`
-}
-
-// LegacyMicrosoftAccountInput is an input type that accepts LegacyMicrosoftAccountArgs and LegacyMicrosoftAccountOutput values.
-// You can construct a concrete instance of `LegacyMicrosoftAccountInput` via:
-//
-//          LegacyMicrosoftAccountArgs{...}
-type LegacyMicrosoftAccountInput interface {
-	pulumi.Input
-
-	ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput
-	ToLegacyMicrosoftAccountOutputWithContext(context.Context) LegacyMicrosoftAccountOutput
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-type LegacyMicrosoftAccountArgs struct {
-	// The configuration settings of the login flow.
-	Login LoginScopesPtrInput `pulumi:"login"`
-	// The configuration settings of the app registration for the legacy Microsoft Account provider.
-	Registration ClientRegistrationPtrInput `pulumi:"registration"`
-	// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// The configuration settings of the legacy Microsoft Account provider token validation flow.
-	Validation AllowedAudiencesValidationPtrInput `pulumi:"validation"`
-}
-
-func (LegacyMicrosoftAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LegacyMicrosoftAccount)(nil)).Elem()
-}
-
-func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput {
-	return i.ToLegacyMicrosoftAccountOutputWithContext(context.Background())
-}
-
-func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountOutputWithContext(ctx context.Context) LegacyMicrosoftAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountOutput)
-}
-
-func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
-	return i.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
-}
-
-func (i LegacyMicrosoftAccountArgs) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountOutput).ToLegacyMicrosoftAccountPtrOutputWithContext(ctx)
-}
-
-// LegacyMicrosoftAccountPtrInput is an input type that accepts LegacyMicrosoftAccountArgs, LegacyMicrosoftAccountPtr and LegacyMicrosoftAccountPtrOutput values.
-// You can construct a concrete instance of `LegacyMicrosoftAccountPtrInput` via:
-//
-//          LegacyMicrosoftAccountArgs{...}
-//
-//  or:
-//
-//          nil
-type LegacyMicrosoftAccountPtrInput interface {
-	pulumi.Input
-
-	ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput
-	ToLegacyMicrosoftAccountPtrOutputWithContext(context.Context) LegacyMicrosoftAccountPtrOutput
-}
-
-type legacyMicrosoftAccountPtrType LegacyMicrosoftAccountArgs
-
-func LegacyMicrosoftAccountPtr(v *LegacyMicrosoftAccountArgs) LegacyMicrosoftAccountPtrInput {
-	return (*legacyMicrosoftAccountPtrType)(v)
-}
-
-func (*legacyMicrosoftAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LegacyMicrosoftAccount)(nil)).Elem()
-}
-
-func (i *legacyMicrosoftAccountPtrType) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
-	return i.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *legacyMicrosoftAccountPtrType) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LegacyMicrosoftAccountPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-type LegacyMicrosoftAccountOutput struct{ *pulumi.OutputState }
-
-func (LegacyMicrosoftAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LegacyMicrosoftAccount)(nil)).Elem()
-}
-
-func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountOutput() LegacyMicrosoftAccountOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountOutputWithContext(ctx context.Context) LegacyMicrosoftAccountOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
-	return o.ToLegacyMicrosoftAccountPtrOutputWithContext(context.Background())
-}
-
-func (o LegacyMicrosoftAccountOutput) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegacyMicrosoftAccount) *LegacyMicrosoftAccount {
-		return &v
-	}).(LegacyMicrosoftAccountPtrOutput)
-}
-
-// The configuration settings of the login flow.
-func (o LegacyMicrosoftAccountOutput) Login() LoginScopesPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccount) *LoginScopes { return v.Login }).(LoginScopesPtrOutput)
-}
-
-// The configuration settings of the app registration for the legacy Microsoft Account provider.
-func (o LegacyMicrosoftAccountOutput) Registration() ClientRegistrationPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccount) *ClientRegistration { return v.Registration }).(ClientRegistrationPtrOutput)
-}
-
-// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-func (o LegacyMicrosoftAccountOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccount) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider token validation flow.
-func (o LegacyMicrosoftAccountOutput) Validation() AllowedAudiencesValidationPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccount) *AllowedAudiencesValidation { return v.Validation }).(AllowedAudiencesValidationPtrOutput)
-}
-
-type LegacyMicrosoftAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (LegacyMicrosoftAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LegacyMicrosoftAccount)(nil)).Elem()
-}
-
-func (o LegacyMicrosoftAccountPtrOutput) ToLegacyMicrosoftAccountPtrOutput() LegacyMicrosoftAccountPtrOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountPtrOutput) ToLegacyMicrosoftAccountPtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountPtrOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountPtrOutput) Elem() LegacyMicrosoftAccountOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) LegacyMicrosoftAccount {
-		if v != nil {
-			return *v
-		}
-		var ret LegacyMicrosoftAccount
-		return ret
-	}).(LegacyMicrosoftAccountOutput)
-}
-
-// The configuration settings of the login flow.
-func (o LegacyMicrosoftAccountPtrOutput) Login() LoginScopesPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) *LoginScopes {
-		if v == nil {
-			return nil
-		}
-		return v.Login
-	}).(LoginScopesPtrOutput)
-}
-
-// The configuration settings of the app registration for the legacy Microsoft Account provider.
-func (o LegacyMicrosoftAccountPtrOutput) Registration() ClientRegistrationPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) *ClientRegistration {
-		if v == nil {
-			return nil
-		}
-		return v.Registration
-	}).(ClientRegistrationPtrOutput)
-}
-
-// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-func (o LegacyMicrosoftAccountPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider token validation flow.
-func (o LegacyMicrosoftAccountPtrOutput) Validation() AllowedAudiencesValidationPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccount) *AllowedAudiencesValidation {
-		if v == nil {
-			return nil
-		}
-		return v.Validation
-	}).(AllowedAudiencesValidationPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-type LegacyMicrosoftAccountResponse struct {
-	// The configuration settings of the login flow.
-	Login *LoginScopesResponse `pulumi:"login"`
-	// The configuration settings of the app registration for the legacy Microsoft Account provider.
-	Registration *ClientRegistrationResponse `pulumi:"registration"`
-	// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-	State *string `pulumi:"state"`
-	// The configuration settings of the legacy Microsoft Account provider token validation flow.
-	Validation *AllowedAudiencesValidationResponse `pulumi:"validation"`
-}
-
-// The configuration settings of the legacy Microsoft Account provider.
-type LegacyMicrosoftAccountResponseOutput struct{ *pulumi.OutputState }
-
-func (LegacyMicrosoftAccountResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LegacyMicrosoftAccountResponse)(nil)).Elem()
-}
-
-func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponseOutput() LegacyMicrosoftAccountResponseOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountResponseOutput) ToLegacyMicrosoftAccountResponseOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponseOutput {
-	return o
-}
-
-// The configuration settings of the login flow.
-func (o LegacyMicrosoftAccountResponseOutput) Login() LoginScopesResponsePtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *LoginScopesResponse { return v.Login }).(LoginScopesResponsePtrOutput)
-}
-
-// The configuration settings of the app registration for the legacy Microsoft Account provider.
-func (o LegacyMicrosoftAccountResponseOutput) Registration() ClientRegistrationResponsePtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *ClientRegistrationResponse { return v.Registration }).(ClientRegistrationResponsePtrOutput)
-}
-
-// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-func (o LegacyMicrosoftAccountResponseOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider token validation flow.
-func (o LegacyMicrosoftAccountResponseOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
-	return o.ApplyT(func(v LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse { return v.Validation }).(AllowedAudiencesValidationResponsePtrOutput)
-}
-
-type LegacyMicrosoftAccountResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LegacyMicrosoftAccountResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LegacyMicrosoftAccountResponse)(nil)).Elem()
-}
-
-func (o LegacyMicrosoftAccountResponsePtrOutput) ToLegacyMicrosoftAccountResponsePtrOutput() LegacyMicrosoftAccountResponsePtrOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountResponsePtrOutput) ToLegacyMicrosoftAccountResponsePtrOutputWithContext(ctx context.Context) LegacyMicrosoftAccountResponsePtrOutput {
-	return o
-}
-
-func (o LegacyMicrosoftAccountResponsePtrOutput) Elem() LegacyMicrosoftAccountResponseOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) LegacyMicrosoftAccountResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LegacyMicrosoftAccountResponse
-		return ret
-	}).(LegacyMicrosoftAccountResponseOutput)
-}
-
-// The configuration settings of the login flow.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Login() LoginScopesResponsePtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *LoginScopesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Login
-	}).(LoginScopesResponsePtrOutput)
-}
-
-// The configuration settings of the app registration for the legacy Microsoft Account provider.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Registration() ClientRegistrationResponsePtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *ClientRegistrationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Registration
-	}).(ClientRegistrationResponsePtrOutput)
-}
-
-// <code>Disabled</code> if the legacy Microsoft Account provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
-func (o LegacyMicrosoftAccountResponsePtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-// The configuration settings of the legacy Microsoft Account provider token validation flow.
-func (o LegacyMicrosoftAccountResponsePtrOutput) Validation() AllowedAudiencesValidationResponsePtrOutput {
-	return o.ApplyT(func(v *LegacyMicrosoftAccountResponse) *AllowedAudiencesValidationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Validation
-	}).(AllowedAudiencesValidationResponsePtrOutput)
 }
 
 // Log analytics configuration
@@ -16596,10 +16259,6 @@ func init() {
 	pulumi.RegisterOutputType(IngressPtrOutput{})
 	pulumi.RegisterOutputType(IngressResponseOutput{})
 	pulumi.RegisterOutputType(IngressResponsePtrOutput{})
-	pulumi.RegisterOutputType(LegacyMicrosoftAccountOutput{})
-	pulumi.RegisterOutputType(LegacyMicrosoftAccountPtrOutput{})
-	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponseOutput{})
-	pulumi.RegisterOutputType(LegacyMicrosoftAccountResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsConfigurationResponseOutput{})

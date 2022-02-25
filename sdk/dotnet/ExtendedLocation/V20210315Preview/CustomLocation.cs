@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:extendedlocation:CustomLocation"},
                     new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210815:CustomLocation"},
+                    new Pulumi.Alias { Type = "azure-native:extendedlocation/v20210831preview:CustomLocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

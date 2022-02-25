@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'CreateMode',
+    'DataEncryptionType',
     'EnableStatusEnum',
     'HighAvailabilityMode',
+    'ManagedServiceIdentityType',
     'ReplicationRole',
     'ServerVersion',
     'SkuTier',
@@ -22,6 +24,14 @@ class CreateMode(str, Enum):
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
     REPLICA = "Replica"
     GEO_RESTORE = "GeoRestore"
+
+
+class DataEncryptionType(str, Enum):
+    """
+    The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
+    """
+    AZURE_KEY_VAULT = "AzureKeyVault"
+    SYSTEM_MANAGED = "SystemManaged"
 
 
 class EnableStatusEnum(str, Enum):
@@ -39,6 +49,13 @@ class HighAvailabilityMode(str, Enum):
     DISABLED = "Disabled"
     ZONE_REDUNDANT = "ZoneRedundant"
     SAME_ZONE = "SameZone"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    USER_ASSIGNED = "UserAssigned"
 
 
 class ReplicationRole(str, Enum):

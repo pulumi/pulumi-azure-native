@@ -10,6 +10,9 @@ export * from "./getAssignment";
 export * from "./getStandard";
 export * from "./standard";
 
+// Export enums:
+export * from "../../types/enums/security/v20210801preview";
+
 // Import resources to register:
 import { Assignment } from "./assignment";
 import { Standard } from "./standard";

@@ -21,7 +21,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, default_identity=None, diagnostic_log_settings=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, analytical_storage_configuration=None, api_properties=None, backup_policy=None, capabilities=None, capacity=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, default_identity=None, diagnostic_log_settings=None, disable_key_based_metadata_write_access=None, disable_local_auth=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_materialized_views=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, network_acl_bypass=None, network_acl_bypass_resource_ids=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if analytical_storage_configuration and not isinstance(analytical_storage_configuration, dict):
             raise TypeError("Expected argument 'analytical_storage_configuration' to be a dict")
         pulumi.set(__self__, "analytical_storage_configuration", analytical_storage_configuration)
@@ -79,6 +79,9 @@ class GetDatabaseAccountResult:
         if enable_free_tier and not isinstance(enable_free_tier, bool):
             raise TypeError("Expected argument 'enable_free_tier' to be a bool")
         pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_materialized_views and not isinstance(enable_materialized_views, bool):
+            raise TypeError("Expected argument 'enable_materialized_views' to be a bool")
+        pulumi.set(__self__, "enable_materialized_views", enable_materialized_views)
         if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
             raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
         pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
@@ -305,6 +308,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "enable_free_tier")
 
     @property
+    @pulumi.getter(name="enableMaterializedViews")
+    def enable_materialized_views(self) -> Optional[bool]:
+        """
+        Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        """
+        return pulumi.get(self, "enable_materialized_views")
+
+    @property
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[bool]:
         """
@@ -522,6 +533,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_automatic_failover=self.enable_automatic_failover,
             enable_cassandra_connector=self.enable_cassandra_connector,
             enable_free_tier=self.enable_free_tier,
+            enable_materialized_views=self.enable_materialized_views,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             failover_policies=self.failover_policies,
             id=self.id,
@@ -587,6 +599,7 @@ def get_database_account(account_name: Optional[str] = None,
         enable_automatic_failover=__ret__.enable_automatic_failover,
         enable_cassandra_connector=__ret__.enable_cassandra_connector,
         enable_free_tier=__ret__.enable_free_tier,
+        enable_materialized_views=__ret__.enable_materialized_views,
         enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
         failover_policies=__ret__.failover_policies,
         id=__ret__.id,

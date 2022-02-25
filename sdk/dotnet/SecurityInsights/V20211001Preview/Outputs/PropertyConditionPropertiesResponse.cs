@@ -16,32 +16,21 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview.Outputs
     [OutputType]
     public sealed class PropertyConditionPropertiesResponse
     {
+        public readonly Outputs.AutomationRulePropertyValuesConditionResponse? ConditionProperties;
         /// <summary>
         /// 
         /// Expected value is 'Property'.
         /// </summary>
         public readonly string ConditionType;
-        public readonly string? Operator;
-        /// <summary>
-        /// The property to evaluate in an automation rule property condition
-        /// </summary>
-        public readonly string? PropertyName;
-        public readonly ImmutableArray<string> PropertyValues;
 
         [OutputConstructor]
         private PropertyConditionPropertiesResponse(
-            string conditionType,
+            Outputs.AutomationRulePropertyValuesConditionResponse? conditionProperties,
 
-            string? @operator,
-
-            string? propertyName,
-
-            ImmutableArray<string> propertyValues)
+            string conditionType)
         {
+            ConditionProperties = conditionProperties;
             ConditionType = conditionType;
-            Operator = @operator;
-            PropertyName = propertyName;
-            PropertyValues = propertyValues;
         }
     }
 }

@@ -101,6 +101,8 @@ if typing.TYPE_CHECKING:
     customerinsights = __customerinsights
     import pulumi_azure_native.customproviders as __customproviders
     customproviders = __customproviders
+    import pulumi_azure_native.dashboard as __dashboard
+    dashboard = __dashboard
     import pulumi_azure_native.databox as __databox
     databox = __databox
     import pulumi_azure_native.databoxedge as __databoxedge
@@ -249,6 +251,8 @@ if typing.TYPE_CHECKING:
     migrate = __migrate
     import pulumi_azure_native.mixedreality as __mixedreality
     mixedreality = __mixedreality
+    import pulumi_azure_native.mobilenetwork as __mobilenetwork
+    mobilenetwork = __mobilenetwork
     import pulumi_azure_native.netapp as __netapp
     netapp = __netapp
     import pulumi_azure_native.network as __network
@@ -414,6 +418,7 @@ else:
     costmanagement = _utilities.lazy_import('pulumi_azure_native.costmanagement')
     customerinsights = _utilities.lazy_import('pulumi_azure_native.customerinsights')
     customproviders = _utilities.lazy_import('pulumi_azure_native.customproviders')
+    dashboard = _utilities.lazy_import('pulumi_azure_native.dashboard')
     databox = _utilities.lazy_import('pulumi_azure_native.databox')
     databoxedge = _utilities.lazy_import('pulumi_azure_native.databoxedge')
     databricks = _utilities.lazy_import('pulumi_azure_native.databricks')
@@ -488,6 +493,7 @@ else:
     media = _utilities.lazy_import('pulumi_azure_native.media')
     migrate = _utilities.lazy_import('pulumi_azure_native.migrate')
     mixedreality = _utilities.lazy_import('pulumi_azure_native.mixedreality')
+    mobilenetwork = _utilities.lazy_import('pulumi_azure_native.mobilenetwork')
     netapp = _utilities.lazy_import('pulumi_azure_native.netapp')
     network = _utilities.lazy_import('pulumi_azure_native.network')
     notebooks = _utilities.lazy_import('pulumi_azure_native.notebooks')
@@ -3876,6 +3882,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20211201",
+  "fqn": "pulumi_azure_native.compute.v20211201",
+  "classes": {
+   "azure-native:compute/v20211201:Disk": "Disk",
+   "azure-native:compute/v20211201:DiskAccess": "DiskAccess",
+   "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection": "DiskAccessAPrivateEndpointConnection",
+   "azure-native:compute/v20211201:DiskEncryptionSet": "DiskEncryptionSet",
+   "azure-native:compute/v20211201:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -4998,6 +5016,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dashboard",
+  "fqn": "pulumi_azure_native.dashboard",
+  "classes": {
+   "azure-native:dashboard:Grafana": "Grafana"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dashboard/v20210901preview",
+  "fqn": "pulumi_azure_native.dashboard.v20210901preview",
+  "classes": {
+   "azure-native:dashboard/v20210901preview:Grafana": "Grafana"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databox",
   "fqn": "pulumi_azure_native.databox",
   "classes": {
@@ -5689,6 +5723,17 @@ _utilities.register(
    "azure-native:dataprotection/v20211201preview:BackupPolicy": "BackupPolicy",
    "azure-native:dataprotection/v20211201preview:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20211201preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20220101",
+  "fqn": "pulumi_azure_native.dataprotection.v20220101",
+  "classes": {
+   "azure-native:dataprotection/v20220101:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20220101:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20220101:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20220101:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -8112,7 +8157,8 @@ _utilities.register(
   "mod": "extendedlocation",
   "fqn": "pulumi_azure_native.extendedlocation",
   "classes": {
-   "azure-native:extendedlocation:CustomLocation": "CustomLocation"
+   "azure-native:extendedlocation:CustomLocation": "CustomLocation",
+   "azure-native:extendedlocation:ResourceSyncRule": "ResourceSyncRule"
   }
  },
  {
@@ -8129,6 +8175,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.extendedlocation.v20210815",
   "classes": {
    "azure-native:extendedlocation/v20210815:CustomLocation": "CustomLocation"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "extendedlocation/v20210831preview",
+  "fqn": "pulumi_azure_native.extendedlocation.v20210831preview",
+  "classes": {
+   "azure-native:extendedlocation/v20210831preview:CustomLocation": "CustomLocation",
+   "azure-native:extendedlocation/v20210831preview:ResourceSyncRule": "ResourceSyncRule"
   }
  },
  {
@@ -10860,6 +10915,40 @@ _utilities.register(
    "azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount": "ObjectAnchorsAccount",
    "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount": "RemoteRenderingAccount",
    "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount": "SpatialAnchorsAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "mobilenetwork",
+  "fqn": "pulumi_azure_native.mobilenetwork",
+  "classes": {
+   "azure-native:mobilenetwork:AttachedDataNetwork": "AttachedDataNetwork",
+   "azure-native:mobilenetwork:DataNetwork": "DataNetwork",
+   "azure-native:mobilenetwork:MobileNetwork": "MobileNetwork",
+   "azure-native:mobilenetwork:PacketCoreControlPlane": "PacketCoreControlPlane",
+   "azure-native:mobilenetwork:PacketCoreDataPlane": "PacketCoreDataPlane",
+   "azure-native:mobilenetwork:Service": "Service",
+   "azure-native:mobilenetwork:Sim": "Sim",
+   "azure-native:mobilenetwork:SimPolicy": "SimPolicy",
+   "azure-native:mobilenetwork:Site": "Site",
+   "azure-native:mobilenetwork:Slice": "Slice"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "mobilenetwork/v20220101preview",
+  "fqn": "pulumi_azure_native.mobilenetwork.v20220101preview",
+  "classes": {
+   "azure-native:mobilenetwork/v20220101preview:AttachedDataNetwork": "AttachedDataNetwork",
+   "azure-native:mobilenetwork/v20220101preview:DataNetwork": "DataNetwork",
+   "azure-native:mobilenetwork/v20220101preview:MobileNetwork": "MobileNetwork",
+   "azure-native:mobilenetwork/v20220101preview:PacketCoreControlPlane": "PacketCoreControlPlane",
+   "azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane": "PacketCoreDataPlane",
+   "azure-native:mobilenetwork/v20220101preview:Service": "Service",
+   "azure-native:mobilenetwork/v20220101preview:Sim": "Sim",
+   "azure-native:mobilenetwork/v20220101preview:SimPolicy": "SimPolicy",
+   "azure-native:mobilenetwork/v20220101preview:Site": "Site",
+   "azure-native:mobilenetwork/v20220101preview:Slice": "Slice"
   }
  },
  {
@@ -16658,6 +16747,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20211101preview",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20211101preview",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storage",
   "fqn": "pulumi_azure_native.storage",
   "classes": {
@@ -18660,7 +18759,6 @@ _utilities.register(
    "azure-native:web/v20210301:WebAppApplicationSettingsSlot": "WebAppApplicationSettingsSlot",
    "azure-native:web/v20210301:WebAppAuthSettings": "WebAppAuthSettings",
    "azure-native:web/v20210301:WebAppAuthSettingsSlot": "WebAppAuthSettingsSlot",
-   "azure-native:web/v20210301:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot",
    "azure-native:web/v20210301:WebAppAzureStorageAccounts": "WebAppAzureStorageAccounts",
    "azure-native:web/v20210301:WebAppAzureStorageAccountsSlot": "WebAppAzureStorageAccountsSlot",
    "azure-native:web/v20210301:WebAppBackupConfiguration": "WebAppBackupConfiguration",

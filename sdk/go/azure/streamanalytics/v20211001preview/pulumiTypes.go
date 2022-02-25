@@ -510,6 +510,8 @@ type BlobOutputDataSourceResponse struct {
 
 // Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -527,6 +529,8 @@ type BlobReferenceInputDataSource struct {
 
 // Describes a blob input data source that contains reference data.
 type BlobReferenceInputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -544,6 +548,8 @@ type BlobReferenceInputDataSourceResponse struct {
 
 // Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -563,6 +569,8 @@ type BlobStreamInputDataSource struct {
 
 // Describes a blob input data source that contains stream data.
 type BlobStreamInputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.

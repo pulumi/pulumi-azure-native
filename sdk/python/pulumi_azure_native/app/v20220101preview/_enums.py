@@ -8,9 +8,9 @@ __all__ = [
     'AccessMode',
     'ActiveRevisionsMode',
     'AppProtocol',
+    'AuthConfigState',
     'BindingType',
     'DisableWwwAuthenticateMode',
-    'EasyAuthState',
     'IdentityProviderState',
     'IngressTransportMethod',
     'ManagedServiceIdentityType',
@@ -47,6 +47,14 @@ class AppProtocol(str, Enum):
     GRPC = "grpc"
 
 
+class AuthConfigState(str, Enum):
+    """
+    <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class BindingType(str, Enum):
     """
     Custom Domain binding type.
@@ -61,14 +69,6 @@ class DisableWwwAuthenticateMode(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
-
-
-class EasyAuthState(str, Enum):
-    """
-    <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class IdentityProviderState(str, Enum):

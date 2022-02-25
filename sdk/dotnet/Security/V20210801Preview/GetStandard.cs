@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         /// </summary>
         public readonly string StandardType;
         /// <summary>
+        /// List of all standard supported clouds.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedClouds;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
 
             string standardType,
 
+            ImmutableArray<string> supportedClouds,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
             Location = location;
             Name = name;
             StandardType = standardType;
+            SupportedClouds = supportedClouds;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -147,5 +147,5 @@ export interface ContainerAppsAuthConfigArgs {
     /**
      * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
      */
-    state?: pulumi.Input<string | enums.app.v20220101preview.EasyAuthState>;
+    state?: pulumi.Input<string | enums.app.v20220101preview.AuthConfigState>;
 }

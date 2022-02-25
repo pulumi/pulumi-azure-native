@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string Issuer;
         /// <summary>
+        /// Provisioning state of the certificate.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Public key hash.
         /// </summary>
         public readonly string PublicKeyHash;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string issuer,
 
+            string provisioningState,
+
             string publicKeyHash,
 
             string subjectName,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.App.Outputs
             ExpirationDate = expirationDate;
             IssueDate = issueDate;
             Issuer = issuer;
+            ProvisioningState = provisioningState;
             PublicKeyHash = publicKeyHash;
             SubjectName = subjectName;
             Thumbprint = thumbprint;

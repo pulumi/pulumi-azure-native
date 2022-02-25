@@ -30,5 +30,13 @@ const (
 	ClientTypeSpringBoot = ClientType("springBoot")
 )
 
+// Type of VNet solution.
+type VNetSolutionType string
+
+const (
+	VNetSolutionTypeServiceEndpoint = VNetSolutionType("serviceEndpoint")
+	VNetSolutionTypePrivateLink     = VNetSolutionType("privateLink")
+)
+
 func init() {
 }

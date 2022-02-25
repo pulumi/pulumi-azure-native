@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.Security
         public Output<string> StandardType { get; private set; } = null!;
 
         /// <summary>
+        /// List of all standard supported clouds.
+        /// </summary>
+        [Output("supportedClouds")]
+        public Output<ImmutableArray<string>> SupportedClouds { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -190,6 +196,18 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Input("standardId")]
         public Input<string>? StandardId { get; set; }
+
+        [Input("supportedClouds")]
+        private InputList<Pulumi.AzureNative.Security.StandardSupportedClouds>? _supportedClouds;
+
+        /// <summary>
+        /// List of all standard supported clouds.
+        /// </summary>
+        public InputList<Pulumi.AzureNative.Security.StandardSupportedClouds> SupportedClouds
+        {
+            get => _supportedClouds ?? (_supportedClouds = new InputList<Pulumi.AzureNative.Security.StandardSupportedClouds>());
+            set => _supportedClouds = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

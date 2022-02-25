@@ -37,6 +37,7 @@ class DatabaseAccountArgs:
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_materialized_views: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]]] = None,
@@ -73,6 +74,7 @@ class DatabaseAccountArgs:
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
+        :param pulumi.Input[bool] enable_materialized_views: Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['IpAddressOrRangeArgs']]] ip_rules: List of IpRules.
@@ -128,6 +130,8 @@ class DatabaseAccountArgs:
             pulumi.set(__self__, "enable_cassandra_connector", enable_cassandra_connector)
         if enable_free_tier is not None:
             pulumi.set(__self__, "enable_free_tier", enable_free_tier)
+        if enable_materialized_views is not None:
+            pulumi.set(__self__, "enable_materialized_views", enable_materialized_views)
         if enable_multiple_write_locations is not None:
             pulumi.set(__self__, "enable_multiple_write_locations", enable_multiple_write_locations)
         if identity is not None:
@@ -410,6 +414,18 @@ class DatabaseAccountArgs:
         pulumi.set(self, "enable_free_tier", value)
 
     @property
+    @pulumi.getter(name="enableMaterializedViews")
+    def enable_materialized_views(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        """
+        return pulumi.get(self, "enable_materialized_views")
+
+    @enable_materialized_views.setter
+    def enable_materialized_views(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_materialized_views", value)
+
+    @property
     @pulumi.getter(name="enableMultipleWriteLocations")
     def enable_multiple_write_locations(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -590,6 +606,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_materialized_views: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
@@ -630,6 +647,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
+        :param pulumi.Input[bool] enable_materialized_views: Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]] ip_rules: List of IpRules.
@@ -689,6 +707,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_free_tier: Optional[pulumi.Input[bool]] = None,
+                 enable_materialized_views: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpAddressOrRangeArgs']]]]] = None,
@@ -739,6 +758,7 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__.__dict__["enable_automatic_failover"] = enable_automatic_failover
             __props__.__dict__["enable_cassandra_connector"] = enable_cassandra_connector
             __props__.__dict__["enable_free_tier"] = enable_free_tier
+            __props__.__dict__["enable_materialized_views"] = enable_materialized_views
             __props__.__dict__["enable_multiple_write_locations"] = enable_multiple_write_locations
             __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_rules"] = ip_rules
@@ -813,6 +833,7 @@ class DatabaseAccount(pulumi.CustomResource):
         __props__.__dict__["enable_automatic_failover"] = None
         __props__.__dict__["enable_cassandra_connector"] = None
         __props__.__dict__["enable_free_tier"] = None
+        __props__.__dict__["enable_materialized_views"] = None
         __props__.__dict__["enable_multiple_write_locations"] = None
         __props__.__dict__["failover_policies"] = None
         __props__.__dict__["identity"] = None
@@ -989,6 +1010,14 @@ class DatabaseAccount(pulumi.CustomResource):
         Flag to indicate whether Free Tier is enabled.
         """
         return pulumi.get(self, "enable_free_tier")
+
+    @property
+    @pulumi.getter(name="enableMaterializedViews")
+    def enable_materialized_views(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate whether to enable MaterializedViews on the Cosmos DB account
+        """
+        return pulumi.get(self, "enable_materialized_views")
 
     @property
     @pulumi.getter(name="enableMultipleWriteLocations")
