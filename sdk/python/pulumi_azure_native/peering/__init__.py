@@ -39,6 +39,8 @@ if typing.TYPE_CHECKING:
     v20210101 = __v20210101
     import pulumi_azure_native.peering.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.peering.v20220101 as __v20220101
+    v20220101 = __v20220101
 else:
     v20190801preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190801preview')
     v20190901preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190901preview')
@@ -47,4 +49,5 @@ else:
     v20201001 = _utilities.lazy_import('pulumi_azure_native.peering.v20201001')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.peering.v20210101')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.peering.v20210601')
+    v20220101 = _utilities.lazy_import('pulumi_azure_native.peering.v20220101')
 

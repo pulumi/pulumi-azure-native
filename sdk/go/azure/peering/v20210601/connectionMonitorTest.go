@@ -52,6 +52,9 @@ func NewConnectionMonitorTest(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:peering:ConnectionMonitorTest"),
 		},
+		{
+			Type: pulumi.String("azure-native:peering/v20220101:ConnectionMonitorTest"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConnectionMonitorTest

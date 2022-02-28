@@ -13915,6 +13915,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "peering/v20220101",
+  "fqn": "pulumi_azure_native.peering.v20220101",
+  "classes": {
+   "azure-native:peering/v20220101:ConnectionMonitorTest": "ConnectionMonitorTest",
+   "azure-native:peering/v20220101:PeerAsn": "PeerAsn",
+   "azure-native:peering/v20220101:Peering": "Peering",
+   "azure-native:peering/v20220101:PeeringService": "PeeringService",
+   "azure-native:peering/v20220101:Prefix": "Prefix",
+   "azure-native:peering/v20220101:RegisteredAsn": "RegisteredAsn",
+   "azure-native:peering/v20220101:RegisteredPrefix": "RegisteredPrefix"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "policyinsights",
   "fqn": "pulumi_azure_native.policyinsights",
   "classes": {
