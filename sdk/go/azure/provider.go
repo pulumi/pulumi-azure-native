@@ -28,6 +28,15 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.UseMsi) {
 		args.UseMsi = pulumi.BoolPtr(false)
 	}
+	if args.ClientCertificatePassword != nil {
+		args.ClientCertificatePassword = pulumi.ToSecret(args.ClientCertificatePassword).(pulumi.StringPtrOutput)
+	}
+	if args.ClientId != nil {
+		args.ClientId = pulumi.ToSecret(args.ClientId).(pulumi.StringPtrOutput)
+	}
+	if args.ClientSecret != nil {
+		args.ClientSecret = pulumi.ToSecret(args.ClientSecret).(pulumi.StringPtrOutput)
+	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azure-native", name, args, &resource, opts...)
 	if err != nil {
