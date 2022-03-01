@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Update pulumi codegen dependency to fix secret property handling in Go SDK
+
 ## 1.60.0 (2020-02-25)
 
 - Fix property names starting with numbers [#1528](https://github.com/pulumi/pulumi-azure-native/issues/1528)
