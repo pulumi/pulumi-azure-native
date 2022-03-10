@@ -241,6 +241,7 @@ var lockedTypeVersions = map[string]string{
 	"network:LocalNetworkGateway":                         "v20201101",
 	"network:NatGateway":                                  "v20201101",
 	"network:NatRule":                                     "v20201101",
+	"network:NetworkGroup":                                "v20210201preview",
 	"network:NetworkInterface":                            "v20201101",
 	"network:NetworkInterfaceTapConfiguration":            "v20201101",
 	"network:NetworkProfile":                              "v20201101",
