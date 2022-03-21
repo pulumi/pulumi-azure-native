@@ -65,7 +65,11 @@ func main() {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			err = emitMetadata(meta, arm2pulumiDir, "main", false)
+			if err = emitMetadata(meta, arm2pulumiDir, "main", false); err != nil {
+				break
+			}
+			err = emitDefaultVersions(azureProviders, path.Join(".", "azure-provider-versions"))
+
 		case "docs":
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-native")
 			docsProviders := openapi.SingleVersion(azureProviders)
@@ -177,6 +181,26 @@ var azureApiResources = %#v
 		}
 	}
 	return nil
+}
+
+func emitDefaultVersions(azureProviders openapi.AzureProviders, outDir string) error {
+	summary := make(map[string]map[string]string)
+	for providerName, pkgSpec := range azureProviders {
+		providerSummary := make(map[string]string)
+		for k, resource := range pkgSpec[""].Resources {
+			providerSummary[k] = resource.Swagger.Info.Version
+		}
+		for k, invoke := range pkgSpec[""].Invokes {
+			providerSummary[k] = invoke.Swagger.Info.Version
+		}
+		summary[providerName] = providerSummary
+	}
+
+	content, err := json.MarshalIndent(summary, "", "    ")
+	if err != nil {
+		return err
+	}
+	return emitFile(outDir, "default_versions.json", content)
 }
 
 func generate(ppkg *schema.Package, language string) (map[string][]byte, error) {
