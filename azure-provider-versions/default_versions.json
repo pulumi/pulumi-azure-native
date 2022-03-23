@@ -44,7 +44,6 @@
     },
     "AlertsManagement": {
         "ActionRuleByName": "2019-05-05-preview",
-        "HealthAlert": "2020-08-04-preview",
         "SmartDetectorAlertRule": "2019-06-01"
     },
     "AnalysisServices": {
@@ -173,8 +172,9 @@
         "PolicyExemption": "2020-07-01-preview",
         "PolicySetDefinition": "2020-09-01",
         "PolicySetDefinitionAtManagementGroup": "2020-09-01",
+        "PrivateLinkAssociation": "2020-05-01",
         "ResourceManagementPrivateLink": "2020-05-01",
-        "RoleAssignment": "2020-08-01-preview",
+        "RoleAssignment": "2020-10-01-preview",
         "RoleDefinition": "2018-01-01-preview",
         "RoleManagementPolicyAssignment": "2020-10-01-preview"
     },
@@ -215,6 +215,7 @@
         "GuestUsage": "2020-05-01-preview"
     },
     "AzureArcData": {
+        "ActiveDirectoryConnector": "2022-03-01-preview",
         "DataController": "2021-06-01-preview",
         "PostgresInstance": "2021-06-01-preview",
         "SqlManagedInstance": "2021-06-01-preview",
@@ -421,6 +422,7 @@
         "AgentPool": "2021-03-01",
         "MaintenanceConfiguration": "2021-03-01",
         "ManagedCluster": "2021-03-01",
+        "ManagedClusterSnapshot": "2022-02-02-preview",
         "OpenShiftManagedCluster": "2019-04-30",
         "PrivateEndpointConnection": "2021-03-01",
         "Snapshot": "2021-08-01",
@@ -817,13 +819,14 @@
         "Bot": "2020-12-08"
     },
     "HealthcareApis": {
-        "DicomService": "2021-06-01-preview",
-        "FhirService": "2021-06-01-preview",
-        "IotConnector": "2021-06-01-preview",
-        "IotConnectorFhirDestination": "2021-06-01-preview",
-        "PrivateEndpointConnection": "2020-03-30",
-        "Service": "2021-01-11",
-        "Workspace": "2021-06-01-preview"
+        "DicomService": "2021-11-01",
+        "FhirService": "2021-11-01",
+        "IotConnector": "2021-11-01",
+        "IotConnectorFhirDestination": "2021-11-01",
+        "PrivateEndpointConnection": "2021-11-01",
+        "Service": "2021-11-01",
+        "Workspace": "2021-11-01",
+        "WorkspacePrivateEndpointConnection": "2021-11-01"
     },
     "HybridCompute": {
         "Machine": "2020-08-02",
@@ -863,7 +866,7 @@
         "Component": "2015-05-01",
         "ComponentCurrentBillingFeature": "2015-05-01",
         "ComponentLinkedStorageAccount": "2020-03-01-preview",
-        "DataCollectionEndpoint": "2021-04-01",
+        "DataCollectionEndpoint": "2021-09-01-preview",
         "DataCollectionRule": "2019-11-01-preview",
         "DataCollectionRuleAssociation": "2019-11-01-preview",
         "DiagnosticSetting": "2017-05-01-preview",
@@ -1071,7 +1074,8 @@
         "MaintenanceConfiguration": "2020-04-01"
     },
     "ManagedIdentity": {
-        "UserAssignedIdentity": "2018-11-30"
+        "UserAssignedIdentity": "2018-11-30",
+        "listUserAssignedIdentityAssociatedResources": "2021-09-30-preview"
     },
     "ManagedNetwork": {
         "ManagedNetwork": "2019-06-01-preview",
@@ -1100,10 +1104,13 @@
         "listAccountSas": "2021-12-01-preview"
     },
     "Marketplace": {
-        "PrivateStore": "2021-06-01",
-        "PrivateStoreCollection": "2021-06-01",
-        "PrivateStoreCollectionOffer": "2021-06-01",
-        "PrivateStoreOffer": "2020-01-01"
+        "PrivateStore": "2021-12-01",
+        "PrivateStoreCollection": "2021-12-01",
+        "PrivateStoreCollectionOffer": "2021-12-01",
+        "PrivateStoreOffer": "2020-01-01",
+        "listPrivateStoreNewPlansNotifications": "2021-12-01",
+        "listPrivateStoreStopSellOffersPlansNotifications": "2021-12-01",
+        "listPrivateStoreSubscriptionsContext": "2021-12-01"
     },
     "MarketplaceNotifications": {},
     "MarketplaceOrdering": {},
@@ -1121,6 +1128,7 @@
         "StreamingEndpoint": "2020-05-01",
         "StreamingLocator": "2020-05-01",
         "StreamingPolicy": "2020-05-01",
+        "Track": "2021-11-01",
         "Transform": "2020-05-01",
         "getAssetEncryptionKey": "2020-05-01",
         "getContentKeyPolicyPropertiesWithSecrets": "2020-05-01",
@@ -1280,8 +1288,8 @@
         "VirtualNetworkLink": "2020-06-01",
         "VirtualNetworkPeering": "2020-11-01",
         "VirtualNetworkTap": "2020-11-01",
-        "VirtualRouter": "2020-08-01",
-        "VirtualRouterPeering": "2020-08-01",
+        "VirtualRouter": "2021-05-01",
+        "VirtualRouterPeering": "2021-05-01",
         "VirtualWan": "2020-11-01",
         "VpnConnection": "2020-11-01",
         "VpnGateway": "2020-11-01",
@@ -1346,8 +1354,8 @@
         "LinkedService": "2020-08-01",
         "LinkedStorageAccount": "2020-08-01",
         "MachineGroup": "2015-11-01-preview",
-        "Query": "2019-09-01-preview",
-        "QueryPack": "2019-09-01-preview",
+        "Query": "2019-09-01",
+        "QueryPack": "2019-09-01",
         "SavedSearch": "2020-08-01",
         "StorageInsightConfig": "2020-08-01",
         "Table": "2021-12-01-preview",
@@ -1431,6 +1439,11 @@
         "Workspace": "2019-11-04-preview"
     },
     "Quota": {},
+    "RecommendationsService": {
+        "Account": "2022-02-01",
+        "Modeling": "2022-02-01",
+        "ServiceEndpoint": "2022-02-01"
+    },
     "RecoveryServices": {
         "PrivateEndpointConnection": "2021-02-01",
         "ProtectedItem": "2021-02-01",
@@ -1569,23 +1582,23 @@
         "SerialPort": "2018-05-01"
     },
     "ServiceBus": {
-        "DisasterRecoveryConfig": "2017-04-01",
-        "MigrationConfig": "2017-04-01",
-        "Namespace": "2017-04-01",
+        "DisasterRecoveryConfig": "2021-11-01",
+        "MigrationConfig": "2021-11-01",
+        "Namespace": "2021-11-01",
         "NamespaceAuthorizationRule": "2017-04-01",
         "NamespaceIpFilterRule": "2018-01-01-preview",
         "NamespaceNetworkRuleSet": "2017-04-01",
         "NamespaceVirtualNetworkRule": "2018-01-01-preview",
         "PrivateEndpointConnection": "2018-01-01-preview",
         "Queue": "2017-04-01",
-        "QueueAuthorizationRule": "2017-04-01",
-        "Rule": "2017-04-01",
-        "Subscription": "2017-04-01",
-        "Topic": "2017-04-01",
+        "QueueAuthorizationRule": "2021-11-01",
+        "Rule": "2021-11-01",
+        "Subscription": "2021-11-01",
+        "Topic": "2021-11-01",
         "TopicAuthorizationRule": "2017-04-01",
-        "listDisasterRecoveryConfigKeys": "2017-04-01",
+        "listDisasterRecoveryConfigKeys": "2021-11-01",
         "listNamespaceKeys": "2017-04-01",
-        "listQueueKeys": "2017-04-01",
+        "listQueueKeys": "2021-11-01",
         "listTopicKeys": "2017-04-01"
     },
     "ServiceFabric": {
@@ -1613,6 +1626,8 @@
     },
     "SignalRService": {
         "SignalR": "2020-05-01",
+        "SignalRCustomCertificate": "2022-02-01",
+        "SignalRCustomDomain": "2022-02-01",
         "SignalRPrivateEndpointConnection": "2020-05-01",
         "SignalRSharedPrivateLinkResource": "2021-04-01-preview",
         "listSignalRKeys": "2020-05-01"
