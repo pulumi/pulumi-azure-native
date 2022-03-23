@@ -89,27 +89,6 @@ export const IPAction = {
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
 
-export const KeySource = {
-    Microsoft_KeyVault: "Microsoft.KeyVault",
-} as const;
-
-/**
- * Enumerates the possible value of keySource for Encryption
- */
-export type KeySource = (typeof KeySource)[keyof typeof KeySource];
-
-export const ManagedServiceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * Type of managed service identity.
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const NetworkRuleIPAction = {
     Allow: "Allow",
 } as const;

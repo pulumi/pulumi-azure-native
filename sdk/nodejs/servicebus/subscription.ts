@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of subscription resource.
- * API Version: 2021-11-01.
+ * API Version: 2017-04-01.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -45,10 +45,6 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
     /**
-     * Properties specific to client affine subscriptions.
-     */
-    public readonly clientAffineProperties!: pulumi.Output<outputs.servicebus.SBClientAffinePropertiesResponse | undefined>;
-    /**
      * Message count details
      */
     public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.MessageCountDetailsResponse>;
@@ -85,14 +81,6 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
-     * Value that indicates whether the subscription has an affinity to the client id.
-     */
-    public readonly isClientAffine!: pulumi.Output<boolean | undefined>;
-    /**
-     * The geo-location where the resource lives
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
     public readonly lockDuration!: pulumi.Output<string | undefined>;
@@ -105,7 +93,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly messageCount!: pulumi.Output<number>;
     /**
-     * The name of the resource
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -117,11 +105,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string | undefined>;
     /**
-     * The system meta data relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
-    /**
-     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+     * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -150,7 +134,6 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["clientAffineProperties"] = args ? args.clientAffineProperties : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
             resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
@@ -158,7 +141,6 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
             resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["isClientAffine"] = args ? args.isClientAffine : undefined;
             resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
             resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -170,16 +152,13 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["messageCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
-            resourceInputs["clientAffineProperties"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = undefined /*out*/;
@@ -189,15 +168,12 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["enableBatchedOperations"] = undefined /*out*/;
             resourceInputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
             resourceInputs["forwardTo"] = undefined /*out*/;
-            resourceInputs["isClientAffine"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["lockDuration"] = undefined /*out*/;
             resourceInputs["maxDeliveryCount"] = undefined /*out*/;
             resourceInputs["messageCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["requiresSession"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -216,10 +192,6 @@ export interface SubscriptionArgs {
      * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
-    /**
-     * Properties specific to client affine subscriptions.
-     */
-    clientAffineProperties?: pulumi.Input<inputs.servicebus.SBClientAffinePropertiesArgs>;
     /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
@@ -248,10 +220,6 @@ export interface SubscriptionArgs {
      * Queue/Topic name to forward the messages
      */
     forwardTo?: pulumi.Input<string>;
-    /**
-     * Value that indicates whether the subscription has an affinity to the client id.
-     */
-    isClientAffine?: pulumi.Input<boolean>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */

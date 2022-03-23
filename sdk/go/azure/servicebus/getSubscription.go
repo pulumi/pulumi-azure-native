@@ -11,7 +11,7 @@ import (
 )
 
 // Description of subscription resource.
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
 	var rv LookupSubscriptionResult
 	err := ctx.Invoke("azure-native:servicebus:getSubscription", args, &rv, opts...)
@@ -38,8 +38,6 @@ type LookupSubscriptionResult struct {
 	AccessedAt string `pulumi:"accessedAt"`
 	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// Properties specific to client affine subscriptions.
-	ClientAffineProperties *SBClientAffinePropertiesResponse `pulumi:"clientAffineProperties"`
 	// Message count details
 	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
 	// Exact time the message was created.
@@ -58,27 +56,21 @@ type LookupSubscriptionResult struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo *string `pulumi:"forwardTo"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Resource Id
 	Id string `pulumi:"id"`
-	// Value that indicates whether the subscription has an affinity to the client id.
-	IsClientAffine *bool `pulumi:"isClientAffine"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// Number of maximum deliveries.
 	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// Number of messages.
 	MessageCount float64 `pulumi:"messageCount"`
-	// The name of the resource
+	// Resource name
 	Name string `pulumi:"name"`
 	// Value indicating if a subscription supports the concept of sessions.
 	RequiresSession *bool `pulumi:"requiresSession"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status *string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -133,11 +125,6 @@ func (o LookupSubscriptionResultOutput) AutoDeleteOnIdle() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
 }
 
-// Properties specific to client affine subscriptions.
-func (o LookupSubscriptionResultOutput) ClientAffineProperties() SBClientAffinePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) *SBClientAffinePropertiesResponse { return v.ClientAffineProperties }).(SBClientAffinePropertiesResponsePtrOutput)
-}
-
 // Message count details
 func (o LookupSubscriptionResultOutput) CountDetails() MessageCountDetailsResponseOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) MessageCountDetailsResponse { return v.CountDetails }).(MessageCountDetailsResponseOutput)
@@ -183,19 +170,9 @@ func (o LookupSubscriptionResultOutput) ForwardTo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.ForwardTo }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Resource Id
 func (o LookupSubscriptionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Value that indicates whether the subscription has an affinity to the client id.
-func (o LookupSubscriptionResultOutput) IsClientAffine() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) *bool { return v.IsClientAffine }).(pulumi.BoolPtrOutput)
-}
-
-// The geo-location where the resource lives
-func (o LookupSubscriptionResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 // ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
@@ -213,7 +190,7 @@ func (o LookupSubscriptionResultOutput) MessageCount() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupSubscriptionResult) float64 { return v.MessageCount }).(pulumi.Float64Output)
 }
 
-// The name of the resource
+// Resource name
 func (o LookupSubscriptionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -228,12 +205,7 @@ func (o LookupSubscriptionResultOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// The system meta data relating to this resource.
-func (o LookupSubscriptionResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupSubscriptionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+// Resource type
 func (o LookupSubscriptionResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) string { return v.Type }).(pulumi.StringOutput)
 }

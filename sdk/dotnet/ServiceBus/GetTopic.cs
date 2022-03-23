@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Description of topic resource.
-        /// API Version: 2021-11-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of topic resource.
-        /// API Version: 2021-11-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -118,23 +118,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly bool? EnablePartitioning;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-        /// </summary>
-        public readonly double? MaxMessageSizeInKilobytes;
         /// <summary>
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         /// </summary>
         public readonly int? MaxSizeInMegabytes;
         /// <summary>
-        /// The name of the resource
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -158,11 +150,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly bool? SupportOrdering;
         /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        /// Resource type
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -192,10 +180,6 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string id,
 
-            string location,
-
-            double? maxMessageSizeInKilobytes,
-
             int? maxSizeInMegabytes,
 
             string name,
@@ -209,8 +193,6 @@ namespace Pulumi.AzureNative.ServiceBus
             int subscriptionCount,
 
             bool? supportOrdering,
-
-            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -226,8 +208,6 @@ namespace Pulumi.AzureNative.ServiceBus
             EnableExpress = enableExpress;
             EnablePartitioning = enablePartitioning;
             Id = id;
-            Location = location;
-            MaxMessageSizeInKilobytes = maxMessageSizeInKilobytes;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
             RequiresDuplicateDetection = requiresDuplicateDetection;
@@ -235,7 +215,6 @@ namespace Pulumi.AzureNative.ServiceBus
             Status = status;
             SubscriptionCount = subscriptionCount;
             SupportOrdering = supportOrdering;
-            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
         }

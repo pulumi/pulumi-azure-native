@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
- * API Version: 2021-11-01.
+ * API Version: 2017-04-01.
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
@@ -41,11 +40,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
     /**
-     * The geo-location where the resource lives
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
-     * The name of the resource
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -65,11 +60,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly role!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
-    /**
-     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+     * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -95,22 +86,18 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alternateName"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerNamespace"] = undefined /*out*/;
             resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["role"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

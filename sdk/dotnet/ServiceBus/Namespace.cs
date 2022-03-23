@@ -11,40 +11,16 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of a namespace resource.
-    /// API Version: 2021-11-01.
+    /// API Version: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Namespace")]
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
-        /// Alternate name for namespace
-        /// </summary>
-        [Output("alternateName")]
-        public Output<string?> AlternateName { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the namespace was created
+        /// The time the namespace was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// This property disables SAS authentication for the Service Bus namespace.
-        /// </summary>
-        [Output("disableLocalAuth")]
-        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of BYOK Encryption description
-        /// </summary>
-        [Output("encryption")]
-        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
-
-        /// <summary>
-        /// Properties of BYOK Identity description
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Geo-location where the resource lives
@@ -65,12 +41,6 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections.
-        /// </summary>
-        [Output("privateEndpointConnections")]
-        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
-
-        /// <summary>
         /// Provisioning state of the namespace.
         /// </summary>
         [Output("provisioningState")]
@@ -83,22 +53,10 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of SKU
+        /// Properties of Sku
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SBSkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Status of the namespace.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -117,12 +75,6 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-        /// </summary>
-        [Output("zoneRedundant")]
-        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -180,30 +132,6 @@ namespace Pulumi.AzureNative.ServiceBus
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Alternate name for namespace
-        /// </summary>
-        [Input("alternateName")]
-        public Input<string>? AlternateName { get; set; }
-
-        /// <summary>
-        /// This property disables SAS authentication for the Service Bus namespace.
-        /// </summary>
-        [Input("disableLocalAuth")]
-        public Input<bool>? DisableLocalAuth { get; set; }
-
-        /// <summary>
-        /// Properties of BYOK Encryption description
-        /// </summary>
-        [Input("encryption")]
-        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
-
-        /// <summary>
-        /// Properties of BYOK Identity description
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
-
-        /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -215,18 +143,6 @@ namespace Pulumi.AzureNative.ServiceBus
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
-        [Input("privateEndpointConnections")]
-        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
-
-        /// <summary>
-        /// List of private endpoint connections.
-        /// </summary>
-        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
-        {
-            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
-            set => _privateEndpointConnections = value;
-        }
-
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
@@ -234,7 +150,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of SKU
+        /// Properties of Sku
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SBSkuArgs>? Sku { get; set; }
@@ -250,12 +166,6 @@ namespace Pulumi.AzureNative.ServiceBus
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-        /// </summary>
-        [Input("zoneRedundant")]
-        public Input<bool>? ZoneRedundant { get; set; }
 
         public NamespaceArgs()
         {

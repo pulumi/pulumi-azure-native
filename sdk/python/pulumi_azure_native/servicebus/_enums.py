@@ -11,8 +11,6 @@ __all__ = [
     'EntityStatus',
     'FilterType',
     'IPAction',
-    'KeySource',
-    'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
     'SkuName',
@@ -75,23 +73,6 @@ class IPAction(str, Enum):
     """
     ACCEPT = "Accept"
     REJECT = "Reject"
-
-
-class KeySource(str, Enum):
-    """
-    Enumerates the possible value of keySource for Encryption
-    """
-    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
-
-
-class ManagedServiceIdentityType(str, Enum):
-    """
-    Type of managed service identity.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
-    NONE = "None"
 
 
 class NetworkRuleIPAction(str, Enum):

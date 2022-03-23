@@ -12,7 +12,7 @@ import (
 )
 
 // Description of subscription resource.
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 type Subscription struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type Subscription struct {
 	AccessedAt pulumi.StringOutput `pulumi:"accessedAt"`
 	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle pulumi.StringPtrOutput `pulumi:"autoDeleteOnIdle"`
-	// Properties specific to client affine subscriptions.
-	ClientAffineProperties SBClientAffinePropertiesResponsePtrOutput `pulumi:"clientAffineProperties"`
 	// Message count details
 	CountDetails MessageCountDetailsResponseOutput `pulumi:"countDetails"`
 	// Exact time the message was created.
@@ -40,25 +38,19 @@ type Subscription struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo pulumi.StringPtrOutput `pulumi:"forwardTo"`
-	// Value that indicates whether the subscription has an affinity to the client id.
-	IsClientAffine pulumi.BoolPtrOutput `pulumi:"isClientAffine"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
 	// Number of maximum deliveries.
 	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
 	// Number of messages.
 	MessageCount pulumi.Float64Output `pulumi:"messageCount"`
-	// The name of the resource
+	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Value indicating if a subscription supports the concept of sessions.
 	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
 	// Enumerates the possible values for the status of a messaging entity.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -138,8 +130,6 @@ func (SubscriptionState) ElementType() reflect.Type {
 type subscriptionArgs struct {
 	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// Properties specific to client affine subscriptions.
-	ClientAffineProperties *SBClientAffineProperties `pulumi:"clientAffineProperties"`
 	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
 	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
 	// Value that indicates whether a subscription has dead letter support when a message expires.
@@ -154,8 +144,6 @@ type subscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo *string `pulumi:"forwardTo"`
-	// Value that indicates whether the subscription has an affinity to the client id.
-	IsClientAffine *bool `pulumi:"isClientAffine"`
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// Number of maximum deliveries.
@@ -178,8 +166,6 @@ type subscriptionArgs struct {
 type SubscriptionArgs struct {
 	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle pulumi.StringPtrInput
-	// Properties specific to client affine subscriptions.
-	ClientAffineProperties SBClientAffinePropertiesPtrInput
 	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
 	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
 	// Value that indicates whether a subscription has dead letter support when a message expires.
@@ -194,8 +180,6 @@ type SubscriptionArgs struct {
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// Queue/Topic name to forward the messages
 	ForwardTo pulumi.StringPtrInput
-	// Value that indicates whether the subscription has an affinity to the client id.
-	IsClientAffine pulumi.BoolPtrInput
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration pulumi.StringPtrInput
 	// Number of maximum deliveries.

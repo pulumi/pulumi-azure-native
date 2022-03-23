@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Description of subscription resource.
-        /// API Version: 2021-11-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of subscription resource.
-        /// API Version: 2021-11-01.
+        /// API Version: 2017-04-01.
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure-native:servicebus:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
@@ -102,10 +102,6 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? AutoDeleteOnIdle;
         /// <summary>
-        /// Properties specific to client affine subscriptions.
-        /// </summary>
-        public readonly Outputs.SBClientAffinePropertiesResponse? ClientAffineProperties;
-        /// <summary>
         /// Message count details
         /// </summary>
         public readonly Outputs.MessageCountDetailsResponse CountDetails;
@@ -142,17 +138,9 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? ForwardTo;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource Id
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Value that indicates whether the subscription has an affinity to the client id.
-        /// </summary>
-        public readonly bool? IsClientAffine;
-        /// <summary>
-        /// The geo-location where the resource lives
-        /// </summary>
-        public readonly string Location;
         /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         /// </summary>
@@ -166,7 +154,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly double MessageCount;
         /// <summary>
-        /// The name of the resource
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -178,11 +166,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        /// Resource type
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -195,8 +179,6 @@ namespace Pulumi.AzureNative.ServiceBus
             string accessedAt,
 
             string? autoDeleteOnIdle,
-
-            Outputs.SBClientAffinePropertiesResponse? clientAffineProperties,
 
             Outputs.MessageCountDetailsResponse countDetails,
 
@@ -218,10 +200,6 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string id,
 
-            bool? isClientAffine,
-
-            string location,
-
             string? lockDuration,
 
             int? maxDeliveryCount,
@@ -234,15 +212,12 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string? status,
 
-            Outputs.SystemDataResponse systemData,
-
             string type,
 
             string updatedAt)
         {
             AccessedAt = accessedAt;
             AutoDeleteOnIdle = autoDeleteOnIdle;
-            ClientAffineProperties = clientAffineProperties;
             CountDetails = countDetails;
             CreatedAt = createdAt;
             DeadLetteringOnFilterEvaluationExceptions = deadLetteringOnFilterEvaluationExceptions;
@@ -253,15 +228,12 @@ namespace Pulumi.AzureNative.ServiceBus
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
             Id = id;
-            IsClientAffine = isClientAffine;
-            Location = location;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             MessageCount = messageCount;
             Name = name;
             RequiresSession = requiresSession;
             Status = status;
-            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
         }

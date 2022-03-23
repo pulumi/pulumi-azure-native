@@ -12,15 +12,13 @@ import (
 )
 
 // Single item in List or Get Migration Config operation
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 type MigrationConfig struct {
 	pulumi.CustomResourceState
 
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
 	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
 	MigrationState pulumi.StringOutput `pulumi:"migrationState"`
-	// The name of the resource
+	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of entities pending to be replicated.
 	PendingReplicationOperationsCount pulumi.Float64Output `pulumi:"pendingReplicationOperationsCount"`
@@ -28,11 +26,9 @@ type MigrationConfig struct {
 	PostMigrationName pulumi.StringOutput `pulumi:"postMigrationName"`
 	// Provisioning state of Migration Configuration
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
 	TargetNamespace pulumi.StringOutput `pulumi:"targetNamespace"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 

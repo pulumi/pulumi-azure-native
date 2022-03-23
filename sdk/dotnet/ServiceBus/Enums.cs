@@ -203,69 +203,6 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
     /// <summary>
-    /// Enumerates the possible value of keySource for Encryption
-    /// </summary>
-    [EnumType]
-    public readonly struct KeySource : IEquatable<KeySource>
-    {
-        private readonly string _value;
-
-        private KeySource(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static KeySource Microsoft_KeyVault { get; } = new KeySource("Microsoft.KeyVault");
-
-        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
-        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
-
-        public static explicit operator string(KeySource value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
-        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of managed service identity.
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
-    {
-        private readonly string _value;
-
-        private ManagedServiceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
-        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
-        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
-
-        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
-        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The IP Filter Action
     /// </summary>
     [EnumType]

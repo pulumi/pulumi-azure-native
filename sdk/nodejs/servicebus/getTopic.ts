@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of topic resource.
- * API Version: 2021-11-01.
+ * API Version: 2017-04-01.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     if (!opts) {
@@ -78,23 +78,15 @@ export interface GetTopicResult {
      */
     readonly enablePartitioning?: boolean;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource Id
      */
     readonly id: string;
-    /**
-     * The geo-location where the resource lives
-     */
-    readonly location: string;
-    /**
-     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-     */
-    readonly maxMessageSizeInKilobytes?: number;
     /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     readonly maxSizeInMegabytes?: number;
     /**
-     * The name of the resource
+     * Resource name
      */
     readonly name: string;
     /**
@@ -118,11 +110,7 @@ export interface GetTopicResult {
      */
     readonly supportOrdering?: boolean;
     /**
-     * The system meta data relating to this resource.
-     */
-    readonly systemData: outputs.servicebus.SystemDataResponse;
-    /**
-     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+     * Resource type
      */
     readonly type: string;
     /**

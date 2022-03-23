@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of Rule Resource.
- * API Version: 2021-11-01.
+ * API Version: 2017-04-01.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     if (!opts) {
@@ -64,15 +64,11 @@ export interface GetRuleResult {
      */
     readonly filterType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource Id
      */
     readonly id: string;
     /**
-     * The geo-location where the resource lives
-     */
-    readonly location: string;
-    /**
-     * The name of the resource
+     * Resource name
      */
     readonly name: string;
     /**
@@ -80,11 +76,7 @@ export interface GetRuleResult {
      */
     readonly sqlFilter?: outputs.servicebus.SqlFilterResponse;
     /**
-     * The system meta data relating to this resource.
-     */
-    readonly systemData: outputs.servicebus.SystemDataResponse;
-    /**
-     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+     * Resource type
      */
     readonly type: string;
 }

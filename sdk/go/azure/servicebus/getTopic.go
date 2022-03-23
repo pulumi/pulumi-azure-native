@@ -11,7 +11,7 @@ import (
 )
 
 // Description of topic resource.
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.InvokeOption) (*LookupTopicResult, error) {
 	var rv LookupTopicResult
 	err := ctx.Invoke("azure-native:servicebus:getTopic", args, &rv, opts...)
@@ -50,15 +50,11 @@ type LookupTopicResult struct {
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Resource Id
 	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
-	// The name of the resource
+	// Resource name
 	Name string `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
@@ -70,9 +66,7 @@ type LookupTopicResult struct {
 	SubscriptionCount int `pulumi:"subscriptionCount"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type string `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -160,19 +154,9 @@ func (o LookupTopicResultOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *bool { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Resource Id
 func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The geo-location where the resource lives
-func (o LookupTopicResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTopicResult) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-func (o LookupTopicResultOutput) MaxMessageSizeInKilobytes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v LookupTopicResult) *float64 { return v.MaxMessageSizeInKilobytes }).(pulumi.Float64PtrOutput)
 }
 
 // Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
@@ -180,7 +164,7 @@ func (o LookupTopicResultOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *int { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
 }
 
-// The name of the resource
+// Resource name
 func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -210,12 +194,7 @@ func (o LookupTopicResultOutput) SupportOrdering() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *bool { return v.SupportOrdering }).(pulumi.BoolPtrOutput)
 }
 
-// The system meta data relating to this resource.
-func (o LookupTopicResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupTopicResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+// Resource type
 func (o LookupTopicResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTopicResult) string { return v.Type }).(pulumi.StringOutput)
 }

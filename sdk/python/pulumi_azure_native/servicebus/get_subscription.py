@@ -21,16 +21,13 @@ class GetSubscriptionResult:
     """
     Description of subscription resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, client_affine_properties=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, is_client_affine=None, location=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
-        if client_affine_properties and not isinstance(client_affine_properties, dict):
-            raise TypeError("Expected argument 'client_affine_properties' to be a dict")
-        pulumi.set(__self__, "client_affine_properties", client_affine_properties)
         if count_details and not isinstance(count_details, dict):
             raise TypeError("Expected argument 'count_details' to be a dict")
         pulumi.set(__self__, "count_details", count_details)
@@ -61,12 +58,6 @@ class GetSubscriptionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_client_affine and not isinstance(is_client_affine, bool):
-            raise TypeError("Expected argument 'is_client_affine' to be a bool")
-        pulumi.set(__self__, "is_client_affine", is_client_affine)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if lock_duration and not isinstance(lock_duration, str):
             raise TypeError("Expected argument 'lock_duration' to be a str")
         pulumi.set(__self__, "lock_duration", lock_duration)
@@ -85,9 +76,6 @@ class GetSubscriptionResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -110,14 +98,6 @@ class GetSubscriptionResult:
         ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
-
-    @property
-    @pulumi.getter(name="clientAffineProperties")
-    def client_affine_properties(self) -> Optional['outputs.SBClientAffinePropertiesResponse']:
-        """
-        Properties specific to client affine subscriptions.
-        """
-        return pulumi.get(self, "client_affine_properties")
 
     @property
     @pulumi.getter(name="countDetails")
@@ -195,25 +175,9 @@ class GetSubscriptionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource Id
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isClientAffine")
-    def is_client_affine(self) -> Optional[bool]:
-        """
-        Value that indicates whether the subscription has an affinity to the client id.
-        """
-        return pulumi.get(self, "is_client_affine")
-
-    @property
-    @pulumi.getter
-    def location(self) -> str:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="lockDuration")
@@ -243,7 +207,7 @@ class GetSubscriptionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -264,18 +228,10 @@ class GetSubscriptionResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        Resource type
         """
         return pulumi.get(self, "type")
 
@@ -296,7 +252,6 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
         return GetSubscriptionResult(
             accessed_at=self.accessed_at,
             auto_delete_on_idle=self.auto_delete_on_idle,
-            client_affine_properties=self.client_affine_properties,
             count_details=self.count_details,
             created_at=self.created_at,
             dead_lettering_on_filter_evaluation_exceptions=self.dead_lettering_on_filter_evaluation_exceptions,
@@ -307,15 +262,12 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
             forward_to=self.forward_to,
             id=self.id,
-            is_client_affine=self.is_client_affine,
-            location=self.location,
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
             message_count=self.message_count,
             name=self.name,
             requires_session=self.requires_session,
             status=self.status,
-            system_data=self.system_data,
             type=self.type,
             updated_at=self.updated_at)
 
@@ -327,7 +279,7 @@ def get_subscription(namespace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Description of subscription resource.
-    API Version: 2021-11-01.
+    API Version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name
@@ -349,7 +301,6 @@ def get_subscription(namespace_name: Optional[str] = None,
     return AwaitableGetSubscriptionResult(
         accessed_at=__ret__.accessed_at,
         auto_delete_on_idle=__ret__.auto_delete_on_idle,
-        client_affine_properties=__ret__.client_affine_properties,
         count_details=__ret__.count_details,
         created_at=__ret__.created_at,
         dead_lettering_on_filter_evaluation_exceptions=__ret__.dead_lettering_on_filter_evaluation_exceptions,
@@ -360,15 +311,12 @@ def get_subscription(namespace_name: Optional[str] = None,
         forward_dead_lettered_messages_to=__ret__.forward_dead_lettered_messages_to,
         forward_to=__ret__.forward_to,
         id=__ret__.id,
-        is_client_affine=__ret__.is_client_affine,
-        location=__ret__.location,
         lock_duration=__ret__.lock_duration,
         max_delivery_count=__ret__.max_delivery_count,
         message_count=__ret__.message_count,
         name=__ret__.name,
         requires_session=__ret__.requires_session,
         status=__ret__.status,
-        system_data=__ret__.system_data,
         type=__ret__.type,
         updated_at=__ret__.updated_at)
 
@@ -381,7 +329,7 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Description of subscription resource.
-    API Version: 2021-11-01.
+    API Version: 2017-04-01.
 
 
     :param str namespace_name: The namespace name

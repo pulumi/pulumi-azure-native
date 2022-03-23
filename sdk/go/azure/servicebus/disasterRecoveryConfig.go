@@ -12,15 +12,13 @@ import (
 )
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 type DisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
 
 	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	AlternateName pulumi.StringPtrOutput `pulumi:"alternateName"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the resource
+	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace pulumi.StringPtrOutput `pulumi:"partnerNamespace"`
@@ -30,9 +28,7 @@ type DisasterRecoveryConfig struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
 	Role pulumi.StringOutput `pulumi:"role"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 

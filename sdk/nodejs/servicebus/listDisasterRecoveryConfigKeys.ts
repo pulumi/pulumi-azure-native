@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace/ServiceBus Connection String
- * API Version: 2021-11-01.
+ * API Version: 2017-04-01.
  */
 export function listDisasterRecoveryConfigKeys(args: ListDisasterRecoveryConfigKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDisasterRecoveryConfigKeysResult> {
     if (!opts) {

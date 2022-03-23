@@ -11,7 +11,7 @@ import (
 )
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 func LookupDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupDisasterRecoveryConfigResult, error) {
 	var rv LookupDisasterRecoveryConfigResult
 	err := ctx.Invoke("azure-native:servicebus:getDisasterRecoveryConfig", args, &rv, opts...)
@@ -34,11 +34,9 @@ type LookupDisasterRecoveryConfigArgs struct {
 type LookupDisasterRecoveryConfigResult struct {
 	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	AlternateName *string `pulumi:"alternateName"`
-	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	// Resource Id
 	Id string `pulumi:"id"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
+	// Resource name
 	Name string `pulumi:"name"`
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	PartnerNamespace *string `pulumi:"partnerNamespace"`
@@ -48,9 +46,7 @@ type LookupDisasterRecoveryConfigResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
 	Role string `pulumi:"role"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type string `pulumi:"type"`
 }
 
@@ -96,17 +92,12 @@ func (o LookupDisasterRecoveryConfigResultOutput) AlternateName() pulumi.StringP
 	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) *string { return v.AlternateName }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+// Resource Id
 func (o LookupDisasterRecoveryConfigResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The geo-location where the resource lives
-func (o LookupDisasterRecoveryConfigResultOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
+// Resource name
 func (o LookupDisasterRecoveryConfigResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -131,12 +122,7 @@ func (o LookupDisasterRecoveryConfigResultOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) string { return v.Role }).(pulumi.StringOutput)
 }
 
-// The system meta data relating to this resource.
-func (o LookupDisasterRecoveryConfigResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+// Resource type
 func (o LookupDisasterRecoveryConfigResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDisasterRecoveryConfigResult) string { return v.Type }).(pulumi.StringOutput)
 }

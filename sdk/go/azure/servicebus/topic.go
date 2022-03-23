@@ -12,7 +12,7 @@ import (
 )
 
 // Description of topic resource.
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 type Topic struct {
 	pulumi.CustomResourceState
 
@@ -34,13 +34,9 @@ type Topic struct {
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
-	// The geo-location where the resource lives
-	Location pulumi.StringOutput `pulumi:"location"`
-	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-	MaxMessageSizeInKilobytes pulumi.Float64PtrOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrOutput `pulumi:"maxSizeInMegabytes"`
-	// The name of the resource
+	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Value indicating if this topic requires duplicate detection.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
@@ -52,9 +48,7 @@ type Topic struct {
 	SubscriptionCount pulumi.IntOutput `pulumi:"subscriptionCount"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrOutput `pulumi:"supportOrdering"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The exact time the message was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -141,8 +135,6 @@ type topicArgs struct {
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-	MaxMessageSizeInKilobytes *float64 `pulumi:"maxMessageSizeInKilobytes"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The namespace name
@@ -173,8 +165,6 @@ type TopicArgs struct {
 	EnableExpress pulumi.BoolPtrInput
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrInput
-	// Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
-	MaxMessageSizeInKilobytes pulumi.Float64PtrInput
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The namespace name

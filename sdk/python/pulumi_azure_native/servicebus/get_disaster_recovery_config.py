@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetDisasterRecoveryConfigResult',
@@ -21,16 +20,13 @@ class GetDisasterRecoveryConfigResult:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
     """
-    def __init__(__self__, alternate_name=None, id=None, location=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, system_data=None, type=None):
+    def __init__(__self__, alternate_name=None, id=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, type=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,9 +42,6 @@ class GetDisasterRecoveryConfigResult:
         if role and not isinstance(role, str):
             raise TypeError("Expected argument 'role' to be a str")
         pulumi.set(__self__, "role", role)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -65,23 +58,15 @@ class GetDisasterRecoveryConfigResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource Id
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -118,18 +103,10 @@ class GetDisasterRecoveryConfigResult:
         return pulumi.get(self, "role")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        Resource type
         """
         return pulumi.get(self, "type")
 
@@ -142,13 +119,11 @@ class AwaitableGetDisasterRecoveryConfigResult(GetDisasterRecoveryConfigResult):
         return GetDisasterRecoveryConfigResult(
             alternate_name=self.alternate_name,
             id=self.id,
-            location=self.location,
             name=self.name,
             partner_namespace=self.partner_namespace,
             pending_replication_operations_count=self.pending_replication_operations_count,
             provisioning_state=self.provisioning_state,
             role=self.role,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -158,7 +133,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDisasterRecoveryConfigResult:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
-    API Version: 2021-11-01.
+    API Version: 2017-04-01.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -178,13 +153,11 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
     return AwaitableGetDisasterRecoveryConfigResult(
         alternate_name=__ret__.alternate_name,
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
         partner_namespace=__ret__.partner_namespace,
         pending_replication_operations_count=__ret__.pending_replication_operations_count,
         provisioning_state=__ret__.provisioning_state,
         role=__ret__.role,
-        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -195,7 +168,7 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
-    API Version: 2021-11-01.
+    API Version: 2017-04-01.
 
 
     :param str alias: The Disaster Recovery configuration name

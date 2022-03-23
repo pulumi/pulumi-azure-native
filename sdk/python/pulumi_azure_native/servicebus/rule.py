@@ -178,7 +178,7 @@ class Rule(pulumi.CustomResource):
                  __props__=None):
         """
         Description of Rule Resource.
-        API Version: 2021-11-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +200,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of Rule Resource.
-        API Version: 2021-11-01.
+        API Version: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -255,9 +255,7 @@ class Rule(pulumi.CustomResource):
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
-            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:Rule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -286,10 +284,8 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["action"] = None
         __props__.__dict__["correlation_filter"] = None
         __props__.__dict__["filter_type"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sql_filter"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Rule(resource_name, opts=opts, __props__=__props__)
 
@@ -319,17 +315,9 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[str]:
-        """
-        The geo-location where the resource lives
-        """
-        return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -342,18 +330,10 @@ class Rule(pulumi.CustomResource):
         return pulumi.get(self, "sql_filter")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        Resource type
         """
         return pulumi.get(self, "type")
 

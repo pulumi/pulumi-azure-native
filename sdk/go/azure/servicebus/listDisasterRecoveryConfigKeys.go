@@ -11,7 +11,7 @@ import (
 )
 
 // Namespace/ServiceBus Connection String
-// API Version: 2021-11-01.
+// API Version: 2017-04-01.
 func ListDisasterRecoveryConfigKeys(ctx *pulumi.Context, args *ListDisasterRecoveryConfigKeysArgs, opts ...pulumi.InvokeOption) (*ListDisasterRecoveryConfigKeysResult, error) {
 	var rv ListDisasterRecoveryConfigKeysResult
 	err := ctx.Invoke("azure-native:servicebus:listDisasterRecoveryConfigKeys", args, &rv, opts...)
