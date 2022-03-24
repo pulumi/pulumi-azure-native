@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
+
 ## 1.61.0 (2020-03-24)
 
 - Update pulumi codegen dependency to fix secret property handling in Go SDK
