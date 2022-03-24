@@ -5,10 +5,10 @@ package examples
 
 import (
 	"encoding/json"
-	"path/filepath"
-	"testing"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
+	"path/filepath"
+	"testing"
 )
 
 func TestAccApiTs(t *testing.T) {
@@ -30,6 +30,7 @@ func TestAccAppServiceTs(t *testing.T) {
 }
 
 func TestAccCosmosDBTs(t *testing.T) {
+	t.Skip("Skipping due to CosmosDB failing with ServiceUnavailable due to high demand")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
