@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Fhir Service
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
     if (!opts) {
@@ -62,6 +62,10 @@ export interface GetFhirServiceResult {
      */
     readonly etag?: string;
     /**
+     * Fhir Service event support status.
+     */
+    readonly eventState: string;
+    /**
      * Fhir Service export configuration.
      */
     readonly exportConfiguration?: outputs.healthcareapis.FhirServiceExportConfigurationResponse;
@@ -86,9 +90,21 @@ export interface GetFhirServiceResult {
      */
     readonly name: string;
     /**
+     * The list of private endpoint connections that are set up for this resource.
+     */
+    readonly privateEndpointConnections: outputs.healthcareapis.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    readonly publicNetworkAccess: string;
+    /**
+     * Determines tracking of history for resources.
+     */
+    readonly resourceVersionPolicyConfiguration?: outputs.healthcareapis.ResourceVersionPolicyConfigurationResponse;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */

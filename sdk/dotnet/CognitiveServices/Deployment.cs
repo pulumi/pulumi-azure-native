@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Deployment"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

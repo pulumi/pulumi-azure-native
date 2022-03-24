@@ -12,7 +12,7 @@ import (
 )
 
 // IoT Connector definition.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type IotConnector struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +54,9 @@ func NewIotConnector(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:IotConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:IotConnector"),
 		},
 	})
 	opts = append(opts, aliases)

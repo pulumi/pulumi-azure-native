@@ -25,6 +25,18 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Original resource ID needed by Microsoft.Network.
+        /// </summary>
+        public readonly string? ImmutableResourceId;
+        /// <summary>
+        /// Original subscription ID needed by Microsoft.Network.
+        /// </summary>
+        public readonly string? ImmutableSubscriptionId;
+        /// <summary>
+        /// ARM location of the remote private endpoint.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// List of private link service connections that need manual approval.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> ManualPrivateLinkServiceConnections;
@@ -39,7 +51,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
         /// <summary>
         /// Virtual network traffic tag.
         /// </summary>
-        public readonly string VnetTrafficTag;
+        public readonly string? VnetTrafficTag;
 
         [OutputConstructor]
         private RemotePrivateEndpointResponse(
@@ -47,16 +59,25 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
 
             string? id,
 
+            string? immutableResourceId,
+
+            string? immutableSubscriptionId,
+
+            string? location,
+
             ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
 
             ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> privateLinkServiceConnections,
 
             ImmutableArray<Outputs.PrivateLinkServiceProxyResponse> privateLinkServiceProxies,
 
-            string vnetTrafficTag)
+            string? vnetTrafficTag)
         {
             ConnectionDetails = connectionDetails;
             Id = id;
+            ImmutableResourceId = immutableResourceId;
+            ImmutableSubscriptionId = immutableSubscriptionId;
+            Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             PrivateLinkServiceConnections = privateLinkServiceConnections;
             PrivateLinkServiceProxies = privateLinkServiceProxies;

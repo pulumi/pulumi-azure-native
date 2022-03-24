@@ -9,11 +9,13 @@ export * from "./getManagementLockAtResourceGroupLevel";
 export * from "./getManagementLockAtResourceLevel";
 export * from "./getManagementLockAtSubscriptionLevel";
 export * from "./getManagementLockByScope";
+export * from "./getPrivateLinkAssociation";
 export * from "./getResourceManagementPrivateLink";
 export * from "./managementLockAtResourceGroupLevel";
 export * from "./managementLockAtResourceLevel";
 export * from "./managementLockAtSubscriptionLevel";
 export * from "./managementLockByScope";
+export * from "./privateLinkAssociation";
 export * from "./resourceManagementPrivateLink";
 
 // Export enums:
@@ -24,6 +26,7 @@ import { ManagementLockAtResourceGroupLevel } from "./managementLockAtResourceGr
 import { ManagementLockAtResourceLevel } from "./managementLockAtResourceLevel";
 import { ManagementLockAtSubscriptionLevel } from "./managementLockAtSubscriptionLevel";
 import { ManagementLockByScope } from "./managementLockByScope";
+import { PrivateLinkAssociation } from "./privateLinkAssociation";
 import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
 
 const _module = {
@@ -38,6 +41,8 @@ const _module = {
                 return new ManagementLockAtSubscriptionLevel(name, <any>undefined, { urn })
             case "azure-native:authorization/v20200501:ManagementLockByScope":
                 return new ManagementLockByScope(name, <any>undefined, { urn })
+            case "azure-native:authorization/v20200501:PrivateLinkAssociation":
+                return new PrivateLinkAssociation(name, <any>undefined, { urn })
             case "azure-native:authorization/v20200501:ResourceManagementPrivateLink":
                 return new ResourceManagementPrivateLink(name, <any>undefined, { urn })
             default:

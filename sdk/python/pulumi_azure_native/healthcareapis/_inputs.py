@@ -19,6 +19,7 @@ __all__ = [
     'IotMappingPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ResourceVersionPolicyConfigurationArgs',
     'ServiceAccessPolicyEntryArgs',
     'ServiceAcrConfigurationInfoArgs',
     'ServiceAuthenticationConfigurationInfoArgs',
@@ -26,6 +27,7 @@ __all__ = [
     'ServiceCosmosDbConfigurationInfoArgs',
     'ServiceExportConfigurationInfoArgs',
     'ServiceManagedIdentityIdentityArgs',
+    'ServiceOciArtifactEntryArgs',
     'ServicesPropertiesArgs',
     'ServicesResourceIdentityArgs',
 ]
@@ -56,13 +58,17 @@ class FhirServiceAccessPolicyEntryArgs:
 @pulumi.input_type
 class FhirServiceAcrConfigurationArgs:
     def __init__(__self__, *,
-                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_servers: The list of the Azure container registry login servers.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
         if login_servers is not None:
             pulumi.set(__self__, "login_servers", login_servers)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
 
     @property
     @pulumi.getter(name="loginServers")
@@ -75,6 +81,18 @@ class FhirServiceAcrConfigurationArgs:
     @login_servers.setter
     def login_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_servers", value)
+
+    @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+        return pulumi.get(self, "oci_artifacts")
+
+    @oci_artifacts.setter
+    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
+        pulumi.set(self, "oci_artifacts", value)
 
 
 @pulumi.input_type
@@ -405,6 +423,46 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class ResourceVersionPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]] = None,
+                 resource_type_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]]] = None):
+        """
+        The settings for history tracking for FHIR resources.
+        :param pulumi.Input[Union[str, 'FhirResourceVersionPolicy']] default: The default value for tracking history across all resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]] resource_type_overrides: A list of FHIR Resources and their version policy overrides.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if resource_type_overrides is not None:
+            pulumi.set(__self__, "resource_type_overrides", resource_type_overrides)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]:
+        """
+        The default value for tracking history across all resources.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter(name="resourceTypeOverrides")
+    def resource_type_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]]]:
+        """
+        A list of FHIR Resources and their version policy overrides.
+        """
+        return pulumi.get(self, "resource_type_overrides")
+
+    @resource_type_overrides.setter
+    def resource_type_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'FhirResourceVersionPolicy']]]]]):
+        pulumi.set(self, "resource_type_overrides", value)
+
+
+@pulumi.input_type
 class ServiceAccessPolicyEntryArgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str]):
@@ -430,13 +488,17 @@ class ServiceAccessPolicyEntryArgs:
 @pulumi.input_type
 class ServiceAcrConfigurationInfoArgs:
     def __init__(__self__, *,
-                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]] = None):
         """
         Azure container registry configuration information
         :param pulumi.Input[Sequence[pulumi.Input[str]]] login_servers: The list of the ACR login servers.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
         if login_servers is not None:
             pulumi.set(__self__, "login_servers", login_servers)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
 
     @property
     @pulumi.getter(name="loginServers")
@@ -449,6 +511,18 @@ class ServiceAcrConfigurationInfoArgs:
     @login_servers.setter
     def login_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_servers", value)
+
+    @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]:
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+        return pulumi.get(self, "oci_artifacts")
+
+    @oci_artifacts.setter
+    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOciArtifactEntryArgs']]]]):
+        pulumi.set(self, "oci_artifacts", value)
 
 
 @pulumi.input_type
@@ -662,25 +736,96 @@ class ServiceExportConfigurationInfoArgs:
 @pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None):
+                 type: pulumi.Input[Union[str, 'ServiceManagedIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        :param pulumi.Input[Union[str, 'ServiceManagedIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
+    def type(self) -> pulumi.Input[Union[str, 'ServiceManagedIdentityType']]:
         """
         Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
+    def type(self, value: pulumi.Input[Union[str, 'ServiceManagedIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ServiceOciArtifactEntryArgs:
+    def __init__(__self__, *,
+                 digest: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None,
+                 login_server: Optional[pulumi.Input[str]] = None):
+        """
+        An Open Container Initiative (OCI) artifact.
+        :param pulumi.Input[str] digest: The artifact digest.
+        :param pulumi.Input[str] image_name: The artifact name.
+        :param pulumi.Input[str] login_server: The Azure Container Registry login server.
+        """
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if login_server is not None:
+            pulumi.set(__self__, "login_server", login_server)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        The artifact digest.
+        """
+        return pulumi.get(self, "digest")
+
+    @digest.setter
+    def digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digest", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The artifact name.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="loginServer")
+    def login_server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Container Registry login server.
+        """
+        return pulumi.get(self, "login_server")
+
+    @login_server.setter
+    def login_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login_server", value)
 
 
 @pulumi.input_type

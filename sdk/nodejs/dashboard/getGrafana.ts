@@ -27,7 +27,7 @@ export interface GetGrafanaArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of Azure Managed Workspace for Grafana.
+     * The workspace name of Azure Managed Grafana.
      */
     workspaceName: string;
 }
@@ -55,7 +55,7 @@ export interface GetGrafanaResult {
     /**
      * Properties specific to the grafana resource.
      */
-    readonly properties: outputs.dashboard.GrafanaResourcePropertiesResponse;
+    readonly properties: outputs.dashboard.ManagedGrafanaPropertiesResponse;
     /**
      * The Sku of the grafana resource.
      */
@@ -84,7 +84,7 @@ export interface GetGrafanaOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of Azure Managed Workspace for Grafana.
+     * The workspace name of Azure Managed Grafana.
      */
     workspaceName: pulumi.Input<string>;
 }

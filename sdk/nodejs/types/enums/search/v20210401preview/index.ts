@@ -103,10 +103,14 @@ export const SearchBypass = {
      * Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
      */
     None: "None",
+    /**
+     * Indicates that requests originating from the Azure portal can bypass the rules defined in the 'ipRules' section.
+     */
+    AzurePortal: "AzurePortal",
 } as const;
 
 /**
- * A specific data exfiltration scenario that is disabled for the service.
+ * Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
  */
 export type SearchBypass = (typeof SearchBypass)[keyof typeof SearchBypass];
 

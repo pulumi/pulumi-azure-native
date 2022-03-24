@@ -12,7 +12,7 @@ import (
 )
 
 // The description of Dicom Service
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type DicomService struct {
 	pulumi.CustomResourceState
 
@@ -20,12 +20,18 @@ type DicomService struct {
 	AuthenticationConfiguration DicomServiceAuthenticationConfigurationResponsePtrOutput `pulumi:"authenticationConfiguration"`
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity ServiceManagedIdentityResponseIdentityPtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The url of the Dicom Services.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// Metadata pertaining to creation and last modification of the resource.
@@ -52,6 +58,9 @@ func NewDicomService(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:DicomService"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:DicomService"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -89,6 +98,8 @@ func (DicomServiceState) ElementType() reflect.Type {
 type dicomServiceArgs struct {
 	// The name of DICOM Service resource.
 	DicomServiceName *string `pulumi:"dicomServiceName"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity *ServiceManagedIdentityIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the service instance.
@@ -103,6 +114,8 @@ type dicomServiceArgs struct {
 type DicomServiceArgs struct {
 	// The name of DICOM Service resource.
 	DicomServiceName pulumi.StringPtrInput
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity ServiceManagedIdentityIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the service instance.

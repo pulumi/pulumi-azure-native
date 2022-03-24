@@ -11,144 +11,144 @@ import (
 )
 
 // Properties specific to the grafana resource.
-type GrafanaResourceProperties struct {
+type ManagedGrafanaProperties struct {
 	// Provisioning state of the resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	ZoneRedundancy    *string `pulumi:"zoneRedundancy"`
 }
 
-// GrafanaResourcePropertiesInput is an input type that accepts GrafanaResourcePropertiesArgs and GrafanaResourcePropertiesOutput values.
-// You can construct a concrete instance of `GrafanaResourcePropertiesInput` via:
+// ManagedGrafanaPropertiesInput is an input type that accepts ManagedGrafanaPropertiesArgs and ManagedGrafanaPropertiesOutput values.
+// You can construct a concrete instance of `ManagedGrafanaPropertiesInput` via:
 //
-//          GrafanaResourcePropertiesArgs{...}
-type GrafanaResourcePropertiesInput interface {
+//          ManagedGrafanaPropertiesArgs{...}
+type ManagedGrafanaPropertiesInput interface {
 	pulumi.Input
 
-	ToGrafanaResourcePropertiesOutput() GrafanaResourcePropertiesOutput
-	ToGrafanaResourcePropertiesOutputWithContext(context.Context) GrafanaResourcePropertiesOutput
+	ToManagedGrafanaPropertiesOutput() ManagedGrafanaPropertiesOutput
+	ToManagedGrafanaPropertiesOutputWithContext(context.Context) ManagedGrafanaPropertiesOutput
 }
 
 // Properties specific to the grafana resource.
-type GrafanaResourcePropertiesArgs struct {
+type ManagedGrafanaPropertiesArgs struct {
 	// Provisioning state of the resource.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	ZoneRedundancy    pulumi.StringPtrInput `pulumi:"zoneRedundancy"`
 }
 
-func (GrafanaResourcePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GrafanaResourceProperties)(nil)).Elem()
+func (ManagedGrafanaPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedGrafanaProperties)(nil)).Elem()
 }
 
-func (i GrafanaResourcePropertiesArgs) ToGrafanaResourcePropertiesOutput() GrafanaResourcePropertiesOutput {
-	return i.ToGrafanaResourcePropertiesOutputWithContext(context.Background())
+func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesOutput() ManagedGrafanaPropertiesOutput {
+	return i.ToManagedGrafanaPropertiesOutputWithContext(context.Background())
 }
 
-func (i GrafanaResourcePropertiesArgs) ToGrafanaResourcePropertiesOutputWithContext(ctx context.Context) GrafanaResourcePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GrafanaResourcePropertiesOutput)
+func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedGrafanaPropertiesOutput)
 }
 
-func (i GrafanaResourcePropertiesArgs) ToGrafanaResourcePropertiesPtrOutput() GrafanaResourcePropertiesPtrOutput {
-	return i.ToGrafanaResourcePropertiesPtrOutputWithContext(context.Background())
+func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesPtrOutput() ManagedGrafanaPropertiesPtrOutput {
+	return i.ToManagedGrafanaPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i GrafanaResourcePropertiesArgs) ToGrafanaResourcePropertiesPtrOutputWithContext(ctx context.Context) GrafanaResourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GrafanaResourcePropertiesOutput).ToGrafanaResourcePropertiesPtrOutputWithContext(ctx)
+func (i ManagedGrafanaPropertiesArgs) ToManagedGrafanaPropertiesPtrOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedGrafanaPropertiesOutput).ToManagedGrafanaPropertiesPtrOutputWithContext(ctx)
 }
 
-// GrafanaResourcePropertiesPtrInput is an input type that accepts GrafanaResourcePropertiesArgs, GrafanaResourcePropertiesPtr and GrafanaResourcePropertiesPtrOutput values.
-// You can construct a concrete instance of `GrafanaResourcePropertiesPtrInput` via:
+// ManagedGrafanaPropertiesPtrInput is an input type that accepts ManagedGrafanaPropertiesArgs, ManagedGrafanaPropertiesPtr and ManagedGrafanaPropertiesPtrOutput values.
+// You can construct a concrete instance of `ManagedGrafanaPropertiesPtrInput` via:
 //
-//          GrafanaResourcePropertiesArgs{...}
+//          ManagedGrafanaPropertiesArgs{...}
 //
 //  or:
 //
 //          nil
-type GrafanaResourcePropertiesPtrInput interface {
+type ManagedGrafanaPropertiesPtrInput interface {
 	pulumi.Input
 
-	ToGrafanaResourcePropertiesPtrOutput() GrafanaResourcePropertiesPtrOutput
-	ToGrafanaResourcePropertiesPtrOutputWithContext(context.Context) GrafanaResourcePropertiesPtrOutput
+	ToManagedGrafanaPropertiesPtrOutput() ManagedGrafanaPropertiesPtrOutput
+	ToManagedGrafanaPropertiesPtrOutputWithContext(context.Context) ManagedGrafanaPropertiesPtrOutput
 }
 
-type grafanaResourcePropertiesPtrType GrafanaResourcePropertiesArgs
+type managedGrafanaPropertiesPtrType ManagedGrafanaPropertiesArgs
 
-func GrafanaResourcePropertiesPtr(v *GrafanaResourcePropertiesArgs) GrafanaResourcePropertiesPtrInput {
-	return (*grafanaResourcePropertiesPtrType)(v)
+func ManagedGrafanaPropertiesPtr(v *ManagedGrafanaPropertiesArgs) ManagedGrafanaPropertiesPtrInput {
+	return (*managedGrafanaPropertiesPtrType)(v)
 }
 
-func (*grafanaResourcePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GrafanaResourceProperties)(nil)).Elem()
+func (*managedGrafanaPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedGrafanaProperties)(nil)).Elem()
 }
 
-func (i *grafanaResourcePropertiesPtrType) ToGrafanaResourcePropertiesPtrOutput() GrafanaResourcePropertiesPtrOutput {
-	return i.ToGrafanaResourcePropertiesPtrOutputWithContext(context.Background())
+func (i *managedGrafanaPropertiesPtrType) ToManagedGrafanaPropertiesPtrOutput() ManagedGrafanaPropertiesPtrOutput {
+	return i.ToManagedGrafanaPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *grafanaResourcePropertiesPtrType) ToGrafanaResourcePropertiesPtrOutputWithContext(ctx context.Context) GrafanaResourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GrafanaResourcePropertiesPtrOutput)
+func (i *managedGrafanaPropertiesPtrType) ToManagedGrafanaPropertiesPtrOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedGrafanaPropertiesPtrOutput)
 }
 
 // Properties specific to the grafana resource.
-type GrafanaResourcePropertiesOutput struct{ *pulumi.OutputState }
+type ManagedGrafanaPropertiesOutput struct{ *pulumi.OutputState }
 
-func (GrafanaResourcePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GrafanaResourceProperties)(nil)).Elem()
+func (ManagedGrafanaPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedGrafanaProperties)(nil)).Elem()
 }
 
-func (o GrafanaResourcePropertiesOutput) ToGrafanaResourcePropertiesOutput() GrafanaResourcePropertiesOutput {
+func (o ManagedGrafanaPropertiesOutput) ToManagedGrafanaPropertiesOutput() ManagedGrafanaPropertiesOutput {
 	return o
 }
 
-func (o GrafanaResourcePropertiesOutput) ToGrafanaResourcePropertiesOutputWithContext(ctx context.Context) GrafanaResourcePropertiesOutput {
+func (o ManagedGrafanaPropertiesOutput) ToManagedGrafanaPropertiesOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesOutput {
 	return o
 }
 
-func (o GrafanaResourcePropertiesOutput) ToGrafanaResourcePropertiesPtrOutput() GrafanaResourcePropertiesPtrOutput {
-	return o.ToGrafanaResourcePropertiesPtrOutputWithContext(context.Background())
+func (o ManagedGrafanaPropertiesOutput) ToManagedGrafanaPropertiesPtrOutput() ManagedGrafanaPropertiesPtrOutput {
+	return o.ToManagedGrafanaPropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o GrafanaResourcePropertiesOutput) ToGrafanaResourcePropertiesPtrOutputWithContext(ctx context.Context) GrafanaResourcePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrafanaResourceProperties) *GrafanaResourceProperties {
+func (o ManagedGrafanaPropertiesOutput) ToManagedGrafanaPropertiesPtrOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedGrafanaProperties) *ManagedGrafanaProperties {
 		return &v
-	}).(GrafanaResourcePropertiesPtrOutput)
+	}).(ManagedGrafanaPropertiesPtrOutput)
 }
 
 // Provisioning state of the resource.
-func (o GrafanaResourcePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GrafanaResourceProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o ManagedGrafanaPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-func (o GrafanaResourcePropertiesOutput) ZoneRedundancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GrafanaResourceProperties) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
+func (o ManagedGrafanaPropertiesOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaProperties) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
 }
 
-type GrafanaResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+type ManagedGrafanaPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (GrafanaResourcePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GrafanaResourceProperties)(nil)).Elem()
+func (ManagedGrafanaPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedGrafanaProperties)(nil)).Elem()
 }
 
-func (o GrafanaResourcePropertiesPtrOutput) ToGrafanaResourcePropertiesPtrOutput() GrafanaResourcePropertiesPtrOutput {
+func (o ManagedGrafanaPropertiesPtrOutput) ToManagedGrafanaPropertiesPtrOutput() ManagedGrafanaPropertiesPtrOutput {
 	return o
 }
 
-func (o GrafanaResourcePropertiesPtrOutput) ToGrafanaResourcePropertiesPtrOutputWithContext(ctx context.Context) GrafanaResourcePropertiesPtrOutput {
+func (o ManagedGrafanaPropertiesPtrOutput) ToManagedGrafanaPropertiesPtrOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesPtrOutput {
 	return o
 }
 
-func (o GrafanaResourcePropertiesPtrOutput) Elem() GrafanaResourcePropertiesOutput {
-	return o.ApplyT(func(v *GrafanaResourceProperties) GrafanaResourceProperties {
+func (o ManagedGrafanaPropertiesPtrOutput) Elem() ManagedGrafanaPropertiesOutput {
+	return o.ApplyT(func(v *ManagedGrafanaProperties) ManagedGrafanaProperties {
 		if v != nil {
 			return *v
 		}
-		var ret GrafanaResourceProperties
+		var ret ManagedGrafanaProperties
 		return ret
-	}).(GrafanaResourcePropertiesOutput)
+	}).(ManagedGrafanaPropertiesOutput)
 }
 
 // Provisioning state of the resource.
-func (o GrafanaResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GrafanaResourceProperties) *string {
+func (o ManagedGrafanaPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedGrafanaProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -156,8 +156,8 @@ func (o GrafanaResourcePropertiesPtrOutput) ProvisioningState() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o GrafanaResourcePropertiesPtrOutput) ZoneRedundancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GrafanaResourceProperties) *string {
+func (o ManagedGrafanaPropertiesPtrOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedGrafanaProperties) *string {
 		if v == nil {
 			return nil
 		}
@@ -166,7 +166,7 @@ func (o GrafanaResourcePropertiesPtrOutput) ZoneRedundancy() pulumi.StringPtrOut
 }
 
 // Properties specific to the grafana resource.
-type GrafanaResourcePropertiesResponse struct {
+type ManagedGrafanaPropertiesResponse struct {
 	// The endpoint of the Grafana instance.
 	Endpoint string `pulumi:"endpoint"`
 	// The Grafana software version.
@@ -177,37 +177,37 @@ type GrafanaResourcePropertiesResponse struct {
 }
 
 // Properties specific to the grafana resource.
-type GrafanaResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
+type ManagedGrafanaPropertiesResponseOutput struct{ *pulumi.OutputState }
 
-func (GrafanaResourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GrafanaResourcePropertiesResponse)(nil)).Elem()
+func (ManagedGrafanaPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedGrafanaPropertiesResponse)(nil)).Elem()
 }
 
-func (o GrafanaResourcePropertiesResponseOutput) ToGrafanaResourcePropertiesResponseOutput() GrafanaResourcePropertiesResponseOutput {
+func (o ManagedGrafanaPropertiesResponseOutput) ToManagedGrafanaPropertiesResponseOutput() ManagedGrafanaPropertiesResponseOutput {
 	return o
 }
 
-func (o GrafanaResourcePropertiesResponseOutput) ToGrafanaResourcePropertiesResponseOutputWithContext(ctx context.Context) GrafanaResourcePropertiesResponseOutput {
+func (o ManagedGrafanaPropertiesResponseOutput) ToManagedGrafanaPropertiesResponseOutputWithContext(ctx context.Context) ManagedGrafanaPropertiesResponseOutput {
 	return o
 }
 
 // The endpoint of the Grafana instance.
-func (o GrafanaResourcePropertiesResponseOutput) Endpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GrafanaResourcePropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
+func (o ManagedGrafanaPropertiesResponseOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
 // The Grafana software version.
-func (o GrafanaResourcePropertiesResponseOutput) GrafanaVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GrafanaResourcePropertiesResponse) string { return v.GrafanaVersion }).(pulumi.StringOutput)
+func (o ManagedGrafanaPropertiesResponseOutput) GrafanaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) string { return v.GrafanaVersion }).(pulumi.StringOutput)
 }
 
 // Provisioning state of the resource.
-func (o GrafanaResourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GrafanaResourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o ManagedGrafanaPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
-func (o GrafanaResourcePropertiesResponseOutput) ZoneRedundancy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GrafanaResourcePropertiesResponse) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
+func (o ManagedGrafanaPropertiesResponseOutput) ZoneRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedGrafanaPropertiesResponse) *string { return v.ZoneRedundancy }).(pulumi.StringPtrOutput)
 }
 
 // The managed identity of a resource.
@@ -771,9 +771,9 @@ func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) Us
 }
 
 func init() {
-	pulumi.RegisterOutputType(GrafanaResourcePropertiesOutput{})
-	pulumi.RegisterOutputType(GrafanaResourcePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(GrafanaResourcePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ManagedGrafanaPropertiesOutput{})
+	pulumi.RegisterOutputType(ManagedGrafanaPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedGrafanaPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityResponseOutput{})

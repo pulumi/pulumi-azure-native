@@ -21,7 +21,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, federated_client_id=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, primary_delegated_identity_client_id=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, federated_client_id=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -106,9 +106,6 @@ class GetDatabaseResult:
         if paused_date and not isinstance(paused_date, str):
             raise TypeError("Expected argument 'paused_date' to be a str")
         pulumi.set(__self__, "paused_date", paused_date)
-        if primary_delegated_identity_client_id and not isinstance(primary_delegated_identity_client_id, str):
-            raise TypeError("Expected argument 'primary_delegated_identity_client_id' to be a str")
-        pulumi.set(__self__, "primary_delegated_identity_client_id", primary_delegated_identity_client_id)
         if read_scale and not isinstance(read_scale, str):
             raise TypeError("Expected argument 'read_scale' to be a str")
         pulumi.set(__self__, "read_scale", read_scale)
@@ -248,7 +245,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[int]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -365,18 +362,10 @@ class GetDatabaseResult:
         return pulumi.get(self, "paused_date")
 
     @property
-    @pulumi.getter(name="primaryDelegatedIdentityClientId")
-    def primary_delegated_identity_client_id(self) -> Optional[str]:
-        """
-        The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        """
-        return pulumi.get(self, "primary_delegated_identity_client_id")
-
-    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[str]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 
@@ -497,7 +486,6 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             min_capacity=self.min_capacity,
             name=self.name,
             paused_date=self.paused_date,
-            primary_delegated_identity_client_id=self.primary_delegated_identity_client_id,
             read_scale=self.read_scale,
             requested_backup_storage_redundancy=self.requested_backup_storage_redundancy,
             requested_service_objective_name=self.requested_service_objective_name,
@@ -561,7 +549,6 @@ def get_database(database_name: Optional[str] = None,
         min_capacity=__ret__.min_capacity,
         name=__ret__.name,
         paused_date=__ret__.paused_date,
-        primary_delegated_identity_client_id=__ret__.primary_delegated_identity_client_id,
         read_scale=__ret__.read_scale,
         requested_backup_storage_redundancy=__ret__.requested_backup_storage_redundancy,
         requested_service_objective_name=__ret__.requested_service_objective_name,

@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform:BuildpackBinding"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildpackBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

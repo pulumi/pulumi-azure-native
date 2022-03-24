@@ -198,7 +198,7 @@ class AATPDataConnector(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AATPDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:AATPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:AATPDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AATPDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20200101:AATPDataConnector',

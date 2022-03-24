@@ -69,7 +69,13 @@ func NewMTPDataConnector(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:MTPDataConnector"),
 		},
 		{
+			Type: pulumi.String("azure-native:securityinsights/v20211001:MTPDataConnector"),
+		},
+		{
 			Type: pulumi.String("azure-native:securityinsights/v20211001preview:MTPDataConnector"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220101preview:MTPDataConnector"),
 		},
 	})
 	opts = append(opts, aliases)

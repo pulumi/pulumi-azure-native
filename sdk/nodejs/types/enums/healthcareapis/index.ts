@@ -8,6 +8,7 @@ import * as v20200315 from "./v20200315";
 import * as v20200330 from "./v20200330";
 import * as v20210111 from "./v20210111";
 import * as v20210601preview from "./v20210601preview";
+import * as v20211101 from "./v20211101";
 
 export {
     v20180820preview,
@@ -16,7 +17,19 @@ export {
     v20200330,
     v20210111,
     v20210601preview,
+    v20211101,
 };
+
+export const FhirResourceVersionPolicy = {
+    No_version: "no-version",
+    Versioned: "versioned",
+    Versioned_update: "versioned-update",
+} as const;
+
+/**
+ * Controls how resources are versioned on the FHIR service
+ */
+export type FhirResourceVersionPolicy = (typeof FhirResourceVersionPolicy)[keyof typeof FhirResourceVersionPolicy];
 
 export const FhirServiceKind = {
     Fhir_Stu3: "fhir-Stu3",
@@ -79,3 +92,15 @@ export const PublicNetworkAccess = {
  * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const ServiceManagedIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of identity being specified, currently SystemAssigned and None are allowed.
+ */
+export type ServiceManagedIdentityType = (typeof ServiceManagedIdentityType)[keyof typeof ServiceManagedIdentityType];

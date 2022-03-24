@@ -213,6 +213,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
         public static ContainerType SQLAGWorkLoadContainer { get; } = new ContainerType("SQLAGWorkLoadContainer");
         public static ContainerType StorageContainer { get; } = new ContainerType("StorageContainer");
         public static ContainerType GenericContainer { get; } = new ContainerType("GenericContainer");
+        public static ContainerType AzureWorkloadContainer { get; } = new ContainerType("AzureWorkloadContainer");
+        public static ContainerType Microsoft_ClassicCompute_virtualMachines { get; } = new ContainerType("Microsoft.ClassicCompute/virtualMachines");
+        public static ContainerType Microsoft_Compute_virtualMachines { get; } = new ContainerType("Microsoft.Compute/virtualMachines");
 
         public static bool operator ==(ContainerType left, ContainerType right) => left.Equals(right);
         public static bool operator !=(ContainerType left, ContainerType right) => !left.Equals(right);
@@ -1135,7 +1138,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
     }
 
     /// <summary>
-    /// Retention duration type of retention policy.
+    /// Retention duration type: days/weeks/months/years
+    /// Used only if TieringMode is set to TierAfter
     /// </summary>
     [EnumType]
     public readonly struct RetentionDurationType : IEquatable<RetentionDurationType>
@@ -1321,6 +1325,42 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SqlServerLicenseType other && Equals(other);
         public bool Equals(SqlServerLicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    /// 1. TierRecommended: Tier all recovery points recommended to be tiered
+    /// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    /// 3. DoNotTier: Do not tier any recovery points
+    /// </summary>
+    [EnumType]
+    public readonly struct TieringMode : IEquatable<TieringMode>
+    {
+        private readonly string _value;
+
+        private TieringMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TieringMode Invalid { get; } = new TieringMode("Invalid");
+        public static TieringMode TierRecommended { get; } = new TieringMode("TierRecommended");
+        public static TieringMode TierAfter { get; } = new TieringMode("TierAfter");
+        public static TieringMode DoNotTier { get; } = new TieringMode("DoNotTier");
+
+        public static bool operator ==(TieringMode left, TieringMode right) => left.Equals(right);
+        public static bool operator !=(TieringMode left, TieringMode right) => !left.Equals(right);
+
+        public static explicit operator string(TieringMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TieringMode other && Equals(other);
+        public bool Equals(TieringMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

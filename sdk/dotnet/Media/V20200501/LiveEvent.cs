@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveEvent"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210601:LiveEvent"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:LiveEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

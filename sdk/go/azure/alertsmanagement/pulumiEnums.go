@@ -28,21 +28,6 @@ const (
 	AlertRuleStateDisabled = AlertRuleState("Disabled")
 )
 
-// specifies the type of the alert criterion.
-type HealthAlertsNamespace string
-
-const (
-	HealthAlertsNamespaceGuestVmHealth = HealthAlertsNamespace("GuestVmHealth")
-)
-
-// Health state name
-type HealthStateName string
-
-const (
-	HealthStateNameWarning  = HealthStateName("Warning")
-	HealthStateNameCritical = HealthStateName("Critical")
-)
-
 // operator for a given condition
 type Operator string
 

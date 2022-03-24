@@ -6,12 +6,14 @@ import * as v20210601preview from "./v20210601preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
 import * as v20211101 from "./v20211101";
+import * as v20220301preview from "./v20220301preview";
 
 export {
     v20210601preview,
     v20210701preview,
     v20210801,
     v20211101,
+    v20220301preview,
 };
 
 export const ExtendedLocationTypes = {

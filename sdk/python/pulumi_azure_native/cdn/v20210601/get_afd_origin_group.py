@@ -21,7 +21,7 @@ class GetAFDOriginGroupResult:
     """
     AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, response_based_afd_origin_error_detection_settings=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -43,9 +43,6 @@ class GetAFDOriginGroupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if response_based_afd_origin_error_detection_settings and not isinstance(response_based_afd_origin_error_detection_settings, dict):
-            raise TypeError("Expected argument 'response_based_afd_origin_error_detection_settings' to be a dict")
-        pulumi.set(__self__, "response_based_afd_origin_error_detection_settings", response_based_afd_origin_error_detection_settings)
         if session_affinity_state and not isinstance(session_affinity_state, str):
             raise TypeError("Expected argument 'session_affinity_state' to be a str")
         pulumi.set(__self__, "session_affinity_state", session_affinity_state)
@@ -113,14 +110,6 @@ class GetAFDOriginGroupResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="responseBasedAfdOriginErrorDetectionSettings")
-    def response_based_afd_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']:
-        """
-        The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        """
-        return pulumi.get(self, "response_based_afd_origin_error_detection_settings")
-
-    @property
     @pulumi.getter(name="sessionAffinityState")
     def session_affinity_state(self) -> Optional[str]:
         """
@@ -166,7 +155,6 @@ class AwaitableGetAFDOriginGroupResult(GetAFDOriginGroupResult):
             name=self.name,
             profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
-            response_based_afd_origin_error_detection_settings=self.response_based_afd_origin_error_detection_settings,
             session_affinity_state=self.session_affinity_state,
             system_data=self.system_data,
             traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=self.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
@@ -203,7 +191,6 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
         name=__ret__.name,
         profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
-        response_based_afd_origin_error_detection_settings=__ret__.response_based_afd_origin_error_detection_settings,
         session_affinity_state=__ret__.session_affinity_state,
         system_data=__ret__.system_data,
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,

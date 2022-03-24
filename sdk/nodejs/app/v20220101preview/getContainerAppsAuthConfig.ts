@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+ * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
     if (!opts) {
@@ -37,15 +37,15 @@ export interface GetContainerAppsAuthConfigArgs {
 }
 
 /**
- * Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+ * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
 export interface GetContainerAppsAuthConfigResult {
     /**
-     * The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
      */
     readonly globalValidation?: outputs.app.v20220101preview.GlobalValidationResponse;
     /**
-     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
      */
     readonly httpSettings?: outputs.app.v20220101preview.HttpSettingsResponse;
     /**
@@ -53,11 +53,11 @@ export interface GetContainerAppsAuthConfigResult {
      */
     readonly id: string;
     /**
-     * The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+     * The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
      */
     readonly identityProviders?: outputs.app.v20220101preview.IdentityProvidersResponse;
     /**
-     * The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
     readonly login?: outputs.app.v20220101preview.LoginResponse;
     /**
@@ -65,9 +65,9 @@ export interface GetContainerAppsAuthConfigResult {
      */
     readonly name: string;
     /**
-     * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+     * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */
-    readonly state?: string;
+    readonly platform?: outputs.app.v20220101preview.AuthPlatformResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

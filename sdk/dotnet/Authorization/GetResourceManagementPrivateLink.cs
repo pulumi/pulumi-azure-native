@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetResourceManagementPrivateLinkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group the template will be deployed to. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetResourceManagementPrivateLinkInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group the template will be deployed to. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

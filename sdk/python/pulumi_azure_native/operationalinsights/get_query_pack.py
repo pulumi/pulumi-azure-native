@@ -144,7 +144,7 @@ def get_query_pack(query_pack_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryPackResult:
     """
     An Log Analytics QueryPack definition.
-    API Version: 2019-09-01-preview.
+    API Version: 2019-09-01.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.
@@ -177,7 +177,7 @@ def get_query_pack_output(query_pack_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryPackResult]:
     """
     An Log Analytics QueryPack definition.
-    API Version: 2019-09-01-preview.
+    API Version: 2019-09-01.
 
 
     :param str query_pack_name: The name of the Log Analytics QueryPack resource.

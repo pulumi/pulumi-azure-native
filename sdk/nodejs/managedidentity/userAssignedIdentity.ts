@@ -97,7 +97,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20181130:UserAssignedIdentity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedidentity/v20150831preview:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20181130:UserAssignedIdentity" }, { type: "azure-native:managedidentity/v20210930preview:UserAssignedIdentity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts);
     }

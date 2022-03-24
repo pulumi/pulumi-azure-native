@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
     if (!opts) {
@@ -54,6 +54,10 @@ export interface GetDicomServiceResult {
      */
     readonly id: string;
     /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    readonly identity?: outputs.healthcareapis.ServiceManagedIdentityResponseIdentity;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -62,9 +66,17 @@ export interface GetDicomServiceResult {
      */
     readonly name: string;
     /**
+     * The list of private endpoint connections that are set up for this resource.
+     */
+    readonly privateEndpointConnections: outputs.healthcareapis.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    readonly publicNetworkAccess: string;
     /**
      * The url of the Dicom Services.
      */

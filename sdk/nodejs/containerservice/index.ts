@@ -9,6 +9,7 @@ export * from "./agentPool";
 export * from "./getAgentPool";
 export * from "./getMaintenanceConfiguration";
 export * from "./getManagedCluster";
+export * from "./getManagedClusterSnapshot";
 export * from "./getOpenShiftManagedCluster";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSnapshot";
@@ -18,6 +19,7 @@ export * from "./listManagedClusterMonitoringUserCredentials";
 export * from "./listManagedClusterUserCredentials";
 export * from "./maintenanceConfiguration";
 export * from "./managedCluster";
+export * from "./managedClusterSnapshot";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
 export * from "./snapshot";
@@ -62,6 +64,8 @@ import * as v20211001 from "./v20211001";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101 from "./v20220101";
 import * as v20220102preview from "./v20220102preview";
+import * as v20220201 from "./v20220201";
+import * as v20220202preview from "./v20220202preview";
 
 export {
     v20151101preview,
@@ -100,12 +104,15 @@ export {
     v20211101preview,
     v20220101,
     v20220102preview,
+    v20220201,
+    v20220202preview,
 };
 
 // Import resources to register:
 import { AgentPool } from "./agentPool";
 import { MaintenanceConfiguration } from "./maintenanceConfiguration";
 import { ManagedCluster } from "./managedCluster";
+import { ManagedClusterSnapshot } from "./managedClusterSnapshot";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Snapshot } from "./snapshot";
@@ -120,6 +127,8 @@ const _module = {
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
+            case "azure-native:containerservice:ManagedClusterSnapshot":
+                return new ManagedClusterSnapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:OpenShiftManagedCluster":
                 return new OpenShiftManagedCluster(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":

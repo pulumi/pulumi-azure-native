@@ -111,7 +111,7 @@ export class Office365ProjectDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20200101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20200101:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20211001:Office365ProjectDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Office365ProjectDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Office365ProjectDataConnector.__pulumiType, name, resourceInputs, opts);
     }

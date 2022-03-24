@@ -20,11 +20,26 @@ namespace Pulumi.AzureNative.App.Outputs
         /// The list of audiences that can make successful authentication/authorization requests.
         /// </summary>
         public readonly ImmutableArray<string> AllowedAudiences;
+        /// <summary>
+        /// The configuration settings of the default authorization policy.
+        /// </summary>
+        public readonly Outputs.DefaultAuthorizationPolicyResponse? DefaultAuthorizationPolicy;
+        /// <summary>
+        /// The configuration settings of the checks that should be made while validating the JWT Claims.
+        /// </summary>
+        public readonly Outputs.JwtClaimChecksResponse? JwtClaimChecks;
 
         [OutputConstructor]
-        private AzureActiveDirectoryValidationResponse(ImmutableArray<string> allowedAudiences)
+        private AzureActiveDirectoryValidationResponse(
+            ImmutableArray<string> allowedAudiences,
+
+            Outputs.DefaultAuthorizationPolicyResponse? defaultAuthorizationPolicy,
+
+            Outputs.JwtClaimChecksResponse? jwtClaimChecks)
         {
             AllowedAudiences = allowedAudiences;
+            DefaultAuthorizationPolicy = defaultAuthorizationPolicy;
+            JwtClaimChecks = jwtClaimChecks;
         }
     }
 }

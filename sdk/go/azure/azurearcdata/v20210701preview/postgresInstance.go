@@ -56,6 +56,9 @@ func NewPostgresInstance(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210601preview:PostgresInstance"),
 		},
+		{
+			Type: pulumi.String("azure-native:azurearcdata/v20220301preview:PostgresInstance"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PostgresInstance

@@ -17,8 +17,6 @@ type Profile struct {
 
 	// The Id of the frontdoor.
 	FrontDoorId pulumi.StringOutput `pulumi:"frontDoorId"`
-	// Managed service identity.
-	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
@@ -128,8 +126,6 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
-	// Managed service identity.
-	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -146,8 +142,6 @@ type profileArgs struct {
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
-	// Managed service identity.
-	Identity ManagedServiceIdentityPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.

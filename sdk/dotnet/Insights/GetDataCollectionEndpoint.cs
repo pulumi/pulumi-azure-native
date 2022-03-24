@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Task<GetDataCollectionEndpointResult> InvokeAsync(GetDataCollectionEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-09-01-preview.
         /// </summary>
         public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure-native:insights:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetDataCollectionEndpointResult
     {
         /// <summary>
-        /// The endpoint used by agents to access their configuration.
+        /// The endpoint used by clients to access their configuration.
         /// </summary>
         public readonly Outputs.DataCollectionEndpointResponseConfigurationAccess? ConfigurationAccess;
         /// <summary>

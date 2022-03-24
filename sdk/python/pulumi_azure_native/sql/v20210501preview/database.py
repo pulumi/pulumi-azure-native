@@ -34,7 +34,6 @@ class DatabaseArgs:
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -46,6 +45,7 @@ class DatabaseArgs:
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -75,7 +75,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
-        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input['DatabaseIdentityArgs'] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -84,8 +84,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
-        :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this database.
@@ -106,6 +105,19 @@ class DatabaseArgs:
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
+               
+               When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+               
+               When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+               
+               When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+               
+               When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+               
+               This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+               
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -143,8 +155,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
-        if primary_delegated_identity_client_id is not None:
-            pulumi.set(__self__, "primary_delegated_identity_client_id", primary_delegated_identity_client_id)
         if read_scale is not None:
             pulumi.set(__self__, "read_scale", read_scale)
         if recoverable_database_id is not None:
@@ -167,6 +177,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
             pulumi.set(__self__, "source_database_id", source_database_id)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
@@ -300,7 +312,7 @@ class DatabaseArgs:
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -405,22 +417,10 @@ class DatabaseArgs:
         pulumi.set(self, "min_capacity", value)
 
     @property
-    @pulumi.getter(name="primaryDelegatedIdentityClientId")
-    def primary_delegated_identity_client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        """
-        return pulumi.get(self, "primary_delegated_identity_client_id")
-
-    @primary_delegated_identity_client_id.setter
-    def primary_delegated_identity_client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_delegated_identity_client_id", value)
-
-    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 
@@ -559,6 +559,30 @@ class DatabaseArgs:
         pulumi.set(self, "source_database_id", value)
 
     @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource identifier of the source associated with the create operation of this database.
+        
+        When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+        
+        When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+        
+        When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+        
+        When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+        
+        This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+        
+        When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -604,7 +628,6 @@ class Database(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -618,6 +641,7 @@ class Database(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -649,7 +673,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant per database CMK scenario
-        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability.
+        :param pulumi.Input[int] high_availability_replica_count: The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[pulumi.InputType['DatabaseIdentityArgs']] identity: The Azure Active Directory identity of the database.
         :param pulumi.Input[bool] is_ledger_on: Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
         :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
@@ -658,8 +682,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
-        :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this database.
@@ -682,6 +705,19 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
+               
+               When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+               
+               When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+               
+               When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+               
+               When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+               
+               This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+               
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
@@ -725,7 +761,6 @@ class Database(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -739,6 +774,7 @@ class Database(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -769,7 +805,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["min_capacity"] = min_capacity
-            __props__.__dict__["primary_delegated_identity_client_id"] = primary_delegated_identity_client_id
             __props__.__dict__["read_scale"] = read_scale
             __props__.__dict__["recoverable_database_id"] = recoverable_database_id
             __props__.__dict__["recovery_services_recovery_point_id"] = recovery_services_recovery_point_id
@@ -787,6 +822,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
+            __props__.__dict__["source_resource_id"] = source_resource_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["creation_date"] = None
@@ -858,7 +894,6 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["min_capacity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["paused_date"] = None
-        __props__.__dict__["primary_delegated_identity_client_id"] = None
         __props__.__dict__["read_scale"] = None
         __props__.__dict__["requested_backup_storage_redundancy"] = None
         __props__.__dict__["requested_service_objective_name"] = None
@@ -979,7 +1014,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="highAvailabilityReplicaCount")
     def high_availability_replica_count(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of secondary replicas associated with the database that are used to provide high availability.
+        The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
@@ -1088,18 +1123,10 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "paused_date")
 
     @property
-    @pulumi.getter(name="primaryDelegatedIdentityClientId")
-    def primary_delegated_identity_client_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        """
-        return pulumi.get(self, "primary_delegated_identity_client_id")
-
-    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> pulumi.Output[Optional[str]]:
         """
-        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         """
         return pulumi.get(self, "read_scale")
 

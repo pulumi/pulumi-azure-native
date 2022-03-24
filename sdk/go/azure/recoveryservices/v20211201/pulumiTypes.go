@@ -1484,8 +1484,14 @@ type AzureIaaSVMProtectedItem struct {
 
 // Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this backup item.
+	// The latest backup copy available for this backup item in archive tier
+	NewestRecoveryPointInArchive *string `pulumi:"newestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item across all tiers.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// The oldest backup copy available for this backup item in archive tier
+	OldestRecoveryPointInArchive *string `pulumi:"oldestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item in vault tier
+	OldestRecoveryPointInVault *string `pulumi:"oldestRecoveryPointInVault"`
 	// Specifies if backup policy associated with the backup item is inconsistent.
 	PolicyInconsistent *bool `pulumi:"policyInconsistent"`
 	// Number of backup copies available for this backup item.
@@ -1494,8 +1500,14 @@ type AzureIaaSVMProtectedItemExtendedInfo struct {
 
 // Additional information on Azure IaaS VM specific backup item.
 type AzureIaaSVMProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this backup item.
+	// The latest backup copy available for this backup item in archive tier
+	NewestRecoveryPointInArchive *string `pulumi:"newestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item across all tiers.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// The oldest backup copy available for this backup item in archive tier
+	OldestRecoveryPointInArchive *string `pulumi:"oldestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item in vault tier
+	OldestRecoveryPointInVault *string `pulumi:"oldestRecoveryPointInVault"`
 	// Specifies if backup policy associated with the backup item is inconsistent.
 	PolicyInconsistent *bool `pulumi:"policyInconsistent"`
 	// Number of backup copies available for this backup item.
@@ -1582,6 +1594,10 @@ type AzureIaaSVMProtectionPolicy struct {
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// Tiering policy to automatically move RPs to another tier
+	// Key is Target Tier, defined in RecoveryPointTierType enum.
+	// Tiering policy specifies the criteria to move RP to the target tier.
+	TieringPolicy map[string]TieringPolicy `pulumi:"tieringPolicy"`
 	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
 	TimeZone *string `pulumi:"timeZone"`
 }
@@ -1603,6 +1619,10 @@ type AzureIaaSVMProtectionPolicyResponse struct {
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// Tiering policy to automatically move RPs to another tier
+	// Key is Target Tier, defined in RecoveryPointTierType enum.
+	// Tiering policy specifies the criteria to move RP to the target tier.
+	TieringPolicy map[string]TieringPolicyResponse `pulumi:"tieringPolicy"`
 	// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
 	TimeZone *string `pulumi:"timeZone"`
 }
@@ -2152,8 +2172,14 @@ type AzureVmWorkloadProtectedItem struct {
 
 // Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfo struct {
-	// The oldest backup copy available for this backup item.
+	// The latest backup copy available for this backup item in archive tier
+	NewestRecoveryPointInArchive *string `pulumi:"newestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item across all tiers.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// The oldest backup copy available for this backup item in archive tier
+	OldestRecoveryPointInArchive *string `pulumi:"oldestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item in vault tier
+	OldestRecoveryPointInVault *string `pulumi:"oldestRecoveryPointInVault"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Indicates consistency of policy object and policy applied to this backup item.
@@ -2164,8 +2190,14 @@ type AzureVmWorkloadProtectedItemExtendedInfo struct {
 
 // Additional information on Azure Workload for SQL specific backup item.
 type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
-	// The oldest backup copy available for this backup item.
+	// The latest backup copy available for this backup item in archive tier
+	NewestRecoveryPointInArchive *string `pulumi:"newestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item across all tiers.
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
+	// The oldest backup copy available for this backup item in archive tier
+	OldestRecoveryPointInArchive *string `pulumi:"oldestRecoveryPointInArchive"`
+	// The oldest backup copy available for this backup item in vault tier
+	OldestRecoveryPointInVault *string `pulumi:"oldestRecoveryPointInVault"`
 	// Indicates consistency of policy object and policy applied to this backup item.
 	PolicyState *string `pulumi:"policyState"`
 	// Indicates consistency of policy object and policy applied to this backup item.
@@ -5871,7 +5903,7 @@ type IaaSVMContainer struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'IaasVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -5897,7 +5929,7 @@ type IaaSVMContainerResponse struct {
 	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 	// Backup is VMAppContainer
-	// Expected value is 'IaaSVMContainer'.
+	// Expected value is 'IaasVMContainer'.
 	ContainerType string `pulumi:"containerType"`
 	// Friendly name of the container.
 	FriendlyName *string `pulumi:"friendlyName"`
@@ -11901,6 +11933,10 @@ type SubProtectionPolicy struct {
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// Tiering policy to automatically move RPs to another tier.
+	// Key is Target Tier, defined in RecoveryPointTierType enum.
+	// Tiering policy specifies the criteria to move RP to the target tier.
+	TieringPolicy map[string]TieringPolicy `pulumi:"tieringPolicy"`
 }
 
 // Sub-protection policy which includes schedule and retention
@@ -11911,6 +11947,10 @@ type SubProtectionPolicyResponse struct {
 	RetentionPolicy interface{} `pulumi:"retentionPolicy"`
 	// Backup schedule specified as part of backup policy.
 	SchedulePolicy interface{} `pulumi:"schedulePolicy"`
+	// Tiering policy to automatically move RPs to another tier.
+	// Key is Target Tier, defined in RecoveryPointTierType enum.
+	// Tiering policy specifies the criteria to move RP to the target tier.
+	TieringPolicy map[string]TieringPolicyResponse `pulumi:"tieringPolicy"`
 }
 
 // Metadata pertaining to creation and last modification of the resource.
@@ -11972,6 +12012,38 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 // The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Tiering Policy for a target tier.
+// If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+type TieringPolicy struct {
+	// Number of days/weeks/months/years to retain backups in current tier before tiering.
+	// Used only if TieringMode is set to TierAfter
+	Duration *int `pulumi:"duration"`
+	// Retention duration type: days/weeks/months/years
+	// Used only if TieringMode is set to TierAfter
+	DurationType *string `pulumi:"durationType"`
+	// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+	// 1. TierRecommended: Tier all recovery points recommended to be tiered
+	// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+	// 3. DoNotTier: Do not tier any recovery points
+	TieringMode *string `pulumi:"tieringMode"`
+}
+
+// Tiering Policy for a target tier.
+// If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+type TieringPolicyResponse struct {
+	// Number of days/weeks/months/years to retain backups in current tier before tiering.
+	// Used only if TieringMode is set to TierAfter
+	Duration *int `pulumi:"duration"`
+	// Retention duration type: days/weeks/months/years
+	// Used only if TieringMode is set to TierAfter
+	DurationType *string `pulumi:"durationType"`
+	// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+	// 1. TierRecommended: Tier all recovery points recommended to be tiered
+	// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+	// 3. DoNotTier: Do not tier any recovery points
+	TieringMode *string `pulumi:"tieringMode"`
 }
 
 // Details for upgrading vault.

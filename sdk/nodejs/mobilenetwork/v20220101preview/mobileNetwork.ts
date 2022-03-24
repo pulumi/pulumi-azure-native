@@ -136,7 +136,7 @@ export class MobileNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:MobileNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:MobileNetwork" }, { type: "azure-native:mobilenetwork/v20220301preview:MobileNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MobileNetwork.__pulumiType, name, resourceInputs, opts);
     }

@@ -34,6 +34,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.mobilenetwork.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
+    import pulumi_azure_native.mobilenetwork.v20220301preview as __v20220301preview
+    v20220301preview = __v20220301preview
 else:
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220101preview')
+    v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
 

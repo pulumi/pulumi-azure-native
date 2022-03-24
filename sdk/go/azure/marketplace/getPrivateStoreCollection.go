@@ -11,7 +11,7 @@ import (
 )
 
 // The Collection data structure.
-// API Version: 2021-06-01.
+// API Version: 2021-12-01.
 func LookupPrivateStoreCollection(ctx *pulumi.Context, args *LookupPrivateStoreCollectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateStoreCollectionResult, error) {
 	var rv LookupPrivateStoreCollectionResult
 	err := ctx.Invoke("azure-native:marketplace:getPrivateStoreCollection", args, &rv, opts...)

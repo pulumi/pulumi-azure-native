@@ -56,7 +56,7 @@ type LookupEventGridDataConnectionResult struct {
 	Location *string `pulumi:"location"`
 	// The object ID of managedIdentityResourceId
 	ManagedIdentityObjectId string `pulumi:"managedIdentityObjectId"`
-	// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+	// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 	ManagedIdentityResourceId *string `pulumi:"managedIdentityResourceId"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
 	MappingRuleName *string `pulumi:"mappingRuleName"`
@@ -180,7 +180,7 @@ func (o LookupEventGridDataConnectionResultOutput) ManagedIdentityObjectId() pul
 	return o.ApplyT(func(v LookupEventGridDataConnectionResult) string { return v.ManagedIdentityObjectId }).(pulumi.StringOutput)
 }
 
-// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
 func (o LookupEventGridDataConnectionResultOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventGridDataConnectionResult) *string { return v.ManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }

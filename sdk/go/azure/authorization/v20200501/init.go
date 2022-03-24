@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagementLockAtSubscriptionLevel{}
 	case "azure-native:authorization/v20200501:ManagementLockByScope":
 		r = &ManagementLockByScope{}
+	case "azure-native:authorization/v20200501:PrivateLinkAssociation":
+		r = &PrivateLinkAssociation{}
 	case "azure-native:authorization/v20200501:ResourceManagementPrivateLink":
 		r = &ResourceManagementPrivateLink{}
 	default:

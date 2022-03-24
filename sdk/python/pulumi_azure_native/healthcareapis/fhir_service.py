@@ -27,6 +27,7 @@ class FhirServiceArgs:
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 resource_version_policy_configuration: Optional[pulumi.Input['ResourceVersionPolicyConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FhirService resource.
@@ -41,6 +42,7 @@ class FhirServiceArgs:
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[Union[str, 'FhirServiceKind']] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input['ResourceVersionPolicyConfigurationArgs'] resource_version_policy_configuration: Determines tracking of history for resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -63,6 +65,8 @@ class FhirServiceArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_version_policy_configuration is not None:
+            pulumi.set(__self__, "resource_version_policy_configuration", resource_version_policy_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -199,6 +203,18 @@ class FhirServiceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="resourceVersionPolicyConfiguration")
+    def resource_version_policy_configuration(self) -> Optional[pulumi.Input['ResourceVersionPolicyConfigurationArgs']]:
+        """
+        Determines tracking of history for resources.
+        """
+        return pulumi.get(self, "resource_version_policy_configuration")
+
+    @resource_version_policy_configuration.setter
+    def resource_version_policy_configuration(self, value: Optional[pulumi.Input['ResourceVersionPolicyConfigurationArgs']]):
+        pulumi.set(self, "resource_version_policy_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -226,12 +242,13 @@ class FhirService(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_version_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The description of Fhir Service
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +262,7 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'FhirServiceKind']] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
+        :param pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']] resource_version_policy_configuration: Determines tracking of history for resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
         """
@@ -256,7 +274,7 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Fhir Service
-        API Version: 2021-06-01-preview.
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.
@@ -283,6 +301,7 @@ class FhirService(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_version_policy_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceVersionPolicyConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -309,16 +328,20 @@ class FhirService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_version_policy_configuration"] = resource_version_policy_configuration
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
+            __props__.__dict__["event_state"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis:FhirService',
@@ -347,12 +370,16 @@ class FhirService(pulumi.CustomResource):
         __props__.__dict__["authentication_configuration"] = None
         __props__.__dict__["cors_configuration"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["event_state"] = None
         __props__.__dict__["export_configuration"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["resource_version_policy_configuration"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -399,6 +426,14 @@ class FhirService(pulumi.CustomResource):
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="eventState")
+    def event_state(self) -> pulumi.Output[str]:
+        """
+        Fhir Service event support status.
+        """
+        return pulumi.get(self, "event_state")
+
+    @property
     @pulumi.getter(name="exportConfiguration")
     def export_configuration(self) -> pulumi.Output[Optional['outputs.FhirServiceExportConfigurationResponse']]:
         """
@@ -439,12 +474,36 @@ class FhirService(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        The list of private endpoint connections that are set up for this resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[str]:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="resourceVersionPolicyConfiguration")
+    def resource_version_policy_configuration(self) -> pulumi.Output[Optional['outputs.ResourceVersionPolicyConfigurationResponse']]:
+        """
+        Determines tracking of history for resources.
+        """
+        return pulumi.get(self, "resource_version_policy_configuration")
 
     @property
     @pulumi.getter(name="systemData")

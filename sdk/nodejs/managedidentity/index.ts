@@ -6,15 +6,18 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getUserAssignedIdentity";
+export * from "./listUserAssignedIdentityAssociatedResources";
 export * from "./userAssignedIdentity";
 
 // Export sub-modules:
 import * as v20150831preview from "./v20150831preview";
 import * as v20181130 from "./v20181130";
+import * as v20210930preview from "./v20210930preview";
 
 export {
     v20150831preview,
     v20181130,
+    v20210930preview,
 };
 
 // Import resources to register:

@@ -25,7 +25,7 @@ type Workbook struct {
 	Etag pulumi.StringMapOutput `pulumi:"etag"`
 	// Identity used for BYOS
 	Identity WorkbookResourceResponseIdentityPtrOutput `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
+	// The kind of workbook. Only valid value is shared.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -130,7 +130,7 @@ type workbookArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Identity used for BYOS
 	Identity *WorkbookResourceIdentity `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
+	// The kind of workbook. Only valid value is shared.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -160,7 +160,7 @@ type WorkbookArgs struct {
 	DisplayName pulumi.StringInput
 	// Identity used for BYOS
 	Identity WorkbookResourceIdentityPtrInput
-	// The kind of workbook. Choices are user and shared.
+	// The kind of workbook. Only valid value is shared.
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

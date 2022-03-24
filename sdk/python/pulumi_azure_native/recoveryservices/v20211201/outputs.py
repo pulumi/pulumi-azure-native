@@ -191,6 +191,7 @@ __all__ = [
     'StorageClassificationMappingPropertiesResponse',
     'SubProtectionPolicyResponse',
     'SystemDataResponse',
+    'TieringPolicyResponse',
     'UpgradeDetailsResponse',
     'UserIdentityResponse',
     'VCenterPropertiesResponse',
@@ -4513,8 +4514,14 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "oldestRecoveryPoint":
+        if key == "newestRecoveryPointInArchive":
+            suggest = "newest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPoint":
             suggest = "oldest_recovery_point"
+        elif key == "oldestRecoveryPointInArchive":
+            suggest = "oldest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPointInVault":
+            suggest = "oldest_recovery_point_in_vault"
         elif key == "policyInconsistent":
             suggest = "policy_inconsistent"
         elif key == "recoveryPointCount":
@@ -4532,29 +4539,65 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 newest_recovery_point_in_archive: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
+                 oldest_recovery_point_in_archive: Optional[str] = None,
+                 oldest_recovery_point_in_vault: Optional[str] = None,
                  policy_inconsistent: Optional[bool] = None,
                  recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
-        :param str oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
+        :param str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point_in_vault: The oldest backup copy available for this backup item in vault tier
         :param bool policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
         :param int recovery_point_count: Number of backup copies available for this backup item.
         """
+        if newest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "newest_recovery_point_in_archive", newest_recovery_point_in_archive)
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if oldest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_archive", oldest_recovery_point_in_archive)
+        if oldest_recovery_point_in_vault is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_vault", oldest_recovery_point_in_vault)
         if policy_inconsistent is not None:
             pulumi.set(__self__, "policy_inconsistent", policy_inconsistent)
         if recovery_point_count is not None:
             pulumi.set(__self__, "recovery_point_count", recovery_point_count)
 
     @property
+    @pulumi.getter(name="newestRecoveryPointInArchive")
+    def newest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "newest_recovery_point_in_archive")
+
+    @property
     @pulumi.getter(name="oldestRecoveryPoint")
     def oldest_recovery_point(self) -> Optional[str]:
         """
-        The oldest backup copy available for this backup item.
+        The oldest backup copy available for this backup item across all tiers.
         """
         return pulumi.get(self, "oldest_recovery_point")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInArchive")
+    def oldest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_archive")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInVault")
+    def oldest_recovery_point_in_vault(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_vault")
 
     @property
     @pulumi.getter(name="policyInconsistent")
@@ -5030,6 +5073,8 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
             suggest = "retention_policy"
         elif key == "schedulePolicy":
             suggest = "schedule_policy"
+        elif key == "tieringPolicy":
+            suggest = "tiering_policy"
         elif key == "timeZone":
             suggest = "time_zone"
 
@@ -5053,6 +5098,7 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                  resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None,
+                 tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None,
                  time_zone: Optional[str] = None):
         """
         IaaS VM workload-specific backup policy.
@@ -5063,6 +5109,9 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Mapping[str, 'TieringPolicyResponse'] tiering_policy: Tiering policy to automatically move RPs to another tier
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
@@ -5080,6 +5129,8 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
 
@@ -5141,6 +5192,16 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         Backup schedule specified as part of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[Mapping[str, 'outputs.TieringPolicyResponse']]:
+        """
+        Tiering policy to automatically move RPs to another tier
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
 
     @property
     @pulumi.getter(name="timeZone")
@@ -6818,8 +6879,14 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "oldestRecoveryPoint":
+        if key == "newestRecoveryPointInArchive":
+            suggest = "newest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPoint":
             suggest = "oldest_recovery_point"
+        elif key == "oldestRecoveryPointInArchive":
+            suggest = "oldest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPointInVault":
+            suggest = "oldest_recovery_point_in_vault"
         elif key == "policyState":
             suggest = "policy_state"
         elif key == "recoveryModel":
@@ -6839,19 +6906,31 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 newest_recovery_point_in_archive: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
+                 oldest_recovery_point_in_archive: Optional[str] = None,
+                 oldest_recovery_point_in_vault: Optional[str] = None,
                  policy_state: Optional[str] = None,
                  recovery_model: Optional[str] = None,
                  recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
-        :param str oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
+        :param str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point_in_vault: The oldest backup copy available for this backup item in vault tier
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param str recovery_model: Indicates consistency of policy object and policy applied to this backup item.
         :param int recovery_point_count: Number of backup copies available for this backup item.
         """
+        if newest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "newest_recovery_point_in_archive", newest_recovery_point_in_archive)
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if oldest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_archive", oldest_recovery_point_in_archive)
+        if oldest_recovery_point_in_vault is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_vault", oldest_recovery_point_in_vault)
         if policy_state is not None:
             pulumi.set(__self__, "policy_state", policy_state)
         if recovery_model is not None:
@@ -6860,12 +6939,36 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
             pulumi.set(__self__, "recovery_point_count", recovery_point_count)
 
     @property
+    @pulumi.getter(name="newestRecoveryPointInArchive")
+    def newest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "newest_recovery_point_in_archive")
+
+    @property
     @pulumi.getter(name="oldestRecoveryPoint")
     def oldest_recovery_point(self) -> Optional[str]:
         """
-        The oldest backup copy available for this backup item.
+        The oldest backup copy available for this backup item across all tiers.
         """
         return pulumi.get(self, "oldest_recovery_point")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInArchive")
+    def oldest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_archive")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInVault")
+    def oldest_recovery_point_in_vault(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_vault")
 
     @property
     @pulumi.getter(name="policyState")
@@ -14448,7 +14551,7 @@ class IaaSVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'IaasVMContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
@@ -14458,7 +14561,7 @@ class IaaSVMContainerResponse(dict):
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
         :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
         """
-        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        pulumi.set(__self__, "container_type", 'IaasVMContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
@@ -14484,7 +14587,7 @@ class IaaSVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'IaasVMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -28164,6 +28267,8 @@ class SubProtectionPolicyResponse(dict):
             suggest = "retention_policy"
         elif key == "schedulePolicy":
             suggest = "schedule_policy"
+        elif key == "tieringPolicy":
+            suggest = "tiering_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SubProtectionPolicyResponse. Access the value via the '{suggest}' property getter instead.")
@@ -28179,12 +28284,16 @@ class SubProtectionPolicyResponse(dict):
     def __init__(__self__, *,
                  policy_type: Optional[str] = None,
                  retention_policy: Optional[Any] = None,
-                 schedule_policy: Optional[Any] = None):
+                 schedule_policy: Optional[Any] = None,
+                 tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None):
         """
         Sub-protection policy which includes schedule and retention
         :param str policy_type: Type of backup policy type
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Mapping[str, 'TieringPolicyResponse'] tiering_policy: Tiering policy to automatically move RPs to another tier.
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
         """
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
@@ -28192,6 +28301,8 @@ class SubProtectionPolicyResponse(dict):
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
 
     @property
     @pulumi.getter(name="policyType")
@@ -28216,6 +28327,16 @@ class SubProtectionPolicyResponse(dict):
         Backup schedule specified as part of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[Mapping[str, 'outputs.TieringPolicyResponse']]:
+        """
+        Tiering policy to automatically move RPs to another tier.
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
 
 
 @pulumi.output_type
@@ -28326,6 +28447,84 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TieringPolicyResponse(dict):
+    """
+    Tiering Policy for a target tier.
+    If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationType":
+            suggest = "duration_type"
+        elif key == "tieringMode":
+            suggest = "tiering_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TieringPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TieringPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TieringPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[int] = None,
+                 duration_type: Optional[str] = None,
+                 tiering_mode: Optional[str] = None):
+        """
+        Tiering Policy for a target tier.
+        If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+        :param int duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
+               Used only if TieringMode is set to TierAfter
+        :param str duration_type: Retention duration type: days/weeks/months/years
+               Used only if TieringMode is set to TierAfter
+        :param str tiering_mode: Tiering Mode to control automatic tiering of recovery points. Supported values are:
+               1. TierRecommended: Tier all recovery points recommended to be tiered
+               2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+               3. DoNotTier: Do not tier any recovery points
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+        if tiering_mode is not None:
+            pulumi.set(__self__, "tiering_mode", tiering_mode)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        Number of days/weeks/months/years to retain backups in current tier before tiering.
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[str]:
+        """
+        Retention duration type: days/weeks/months/years
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration_type")
+
+    @property
+    @pulumi.getter(name="tieringMode")
+    def tiering_mode(self) -> Optional[str]:
+        """
+        Tiering Mode to control automatic tiering of recovery points. Supported values are:
+        1. TierRecommended: Tier all recovery points recommended to be tiered
+        2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+        3. DoNotTier: Do not tier any recovery points
+        """
+        return pulumi.get(self, "tiering_mode")
 
 
 @pulumi.output_type

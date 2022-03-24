@@ -11,21 +11,27 @@ namespace Pulumi.AzureNative.App.Inputs
 {
 
     /// <summary>
-    /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+    /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
     /// </summary>
     public sealed class HttpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The configuration settings of a forward proxy used to make the requests.
+        /// </summary>
+        [Input("forwardProxy")]
+        public Input<Inputs.ForwardProxyArgs>? ForwardProxy { get; set; }
+
+        /// <summary>
         /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
         /// </summary>
         [Input("requireHttps")]
-        public InputUnion<string, Pulumi.AzureNative.App.RequireHttpsMode>? RequireHttps { get; set; }
+        public Input<bool>? RequireHttps { get; set; }
 
         /// <summary>
         /// The configuration settings of the paths HTTP requests.
         /// </summary>
-        [Input("route")]
-        public Input<Inputs.HttpSettingsRouteArgs>? Route { get; set; }
+        [Input("routes")]
+        public Input<Inputs.HttpSettingsRoutesArgs>? Routes { get; set; }
 
         public HttpSettingsArgs()
         {

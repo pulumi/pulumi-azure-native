@@ -6,10 +6,14 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getSignalR";
+export * from "./getSignalRCustomCertificate";
+export * from "./getSignalRCustomDomain";
 export * from "./getSignalRPrivateEndpointConnection";
 export * from "./getSignalRSharedPrivateLinkResource";
 export * from "./listSignalRKeys";
 export * from "./signalR";
+export * from "./signalRCustomCertificate";
+export * from "./signalRCustomDomain";
 export * from "./signalRPrivateEndpointConnection";
 export * from "./signalRSharedPrivateLinkResource";
 
@@ -25,6 +29,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
 import * as v20211001 from "./v20211001";
+import * as v20220201 from "./v20220201";
 
 export {
     v20180301preview,
@@ -35,10 +40,13 @@ export {
     v20210601preview,
     v20210901preview,
     v20211001,
+    v20220201,
 };
 
 // Import resources to register:
 import { SignalR } from "./signalR";
+import { SignalRCustomCertificate } from "./signalRCustomCertificate";
+import { SignalRCustomDomain } from "./signalRCustomDomain";
 import { SignalRPrivateEndpointConnection } from "./signalRPrivateEndpointConnection";
 import { SignalRSharedPrivateLinkResource } from "./signalRSharedPrivateLinkResource";
 
@@ -48,6 +56,10 @@ const _module = {
         switch (type) {
             case "azure-native:signalrservice:SignalR":
                 return new SignalR(name, <any>undefined, { urn })
+            case "azure-native:signalrservice:SignalRCustomCertificate":
+                return new SignalRCustomCertificate(name, <any>undefined, { urn })
+            case "azure-native:signalrservice:SignalRCustomDomain":
+                return new SignalRCustomDomain(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
                 return new SignalRPrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":

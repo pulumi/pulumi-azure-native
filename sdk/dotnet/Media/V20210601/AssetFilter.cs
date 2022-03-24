@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Media.V20210601
                     new Pulumi.Alias { Type = "azure-native:media:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:AssetFilter"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:AssetFilter"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:AssetFilter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

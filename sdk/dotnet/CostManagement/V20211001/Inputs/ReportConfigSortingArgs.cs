@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001.Inputs
         /// Direction of sort.
         /// </summary>
         [Input("direction")]
-        public Input<string>? Direction { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.CostManagement.V20211001.ReportConfigSortingType>? Direction { get; set; }
 
         /// <summary>
         /// The name of the column to sort.

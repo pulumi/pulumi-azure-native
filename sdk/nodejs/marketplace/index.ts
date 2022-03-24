@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./getPrivateStoreCollection";
 export * from "./getPrivateStoreCollectionOffer";
 export * from "./getPrivateStoreOffer";
+export * from "./listPrivateStoreNewPlansNotifications";
+export * from "./listPrivateStoreStopSellOffersPlansNotifications";
+export * from "./listPrivateStoreSubscriptionsContext";
 export * from "./privateStoreCollection";
 export * from "./privateStoreCollectionOffer";
 export * from "./privateStoreOffer";
@@ -18,10 +21,12 @@ export * from "../types/enums/marketplace";
 // Export sub-modules:
 import * as v20200101 from "./v20200101";
 import * as v20210601 from "./v20210601";
+import * as v20211201 from "./v20211201";
 
 export {
     v20200101,
     v20210601,
+    v20211201,
 };
 
 // Import resources to register:

@@ -30,12 +30,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         }
 
         /// <summary>
-        /// Dapr configuration for the Container App.
-        /// </summary>
-        [Input("dapr")]
-        public Input<Inputs.DaprArgs>? Dapr { get; set; }
-
-        /// <summary>
         /// User friendly suffix that is appended to the revision name
         /// </summary>
         [Input("revisionSuffix")]

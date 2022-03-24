@@ -84,7 +84,7 @@ class GetGrafanaResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GrafanaResourcePropertiesResponse':
+    def properties(self) -> 'outputs.ManagedGrafanaPropertiesResponse':
         """
         Properties specific to the grafana resource.
         """
@@ -148,7 +148,7 @@ def get_grafana(resource_group_name: Optional[str] = None,
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of Azure Managed Workspace for Grafana.
+    :param str workspace_name: The workspace name of Azure Managed Grafana.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -180,6 +180,6 @@ def get_grafana_output(resource_group_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of Azure Managed Workspace for Grafana.
+    :param str workspace_name: The workspace name of Azure Managed Grafana.
     """
     ...

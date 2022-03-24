@@ -56,7 +56,7 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.insights.v20210801.WorkbookResourceResponseIdentity | undefined>;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -199,7 +199,7 @@ export interface WorkbookArgs {
      */
     identity?: pulumi.Input<inputs.insights.v20210801.WorkbookResourceIdentityArgs>;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
     kind?: pulumi.Input<string | enums.insights.v20210801.Kind>;
     /**

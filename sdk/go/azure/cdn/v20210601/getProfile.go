@@ -33,8 +33,6 @@ type LookupProfileResult struct {
 	FrontDoorId string `pulumi:"frontDoorId"`
 	// Resource ID.
 	Id string `pulumi:"id"`
-	// Managed service identity.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
 	Kind string `pulumi:"kind"`
 	// Resource location.
@@ -100,11 +98,6 @@ func (o LookupProfileResultOutput) FrontDoorId() pulumi.StringOutput {
 // Resource ID.
 func (o LookupProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProfileResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// Managed service identity.
-func (o LookupProfileResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupProfileResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.

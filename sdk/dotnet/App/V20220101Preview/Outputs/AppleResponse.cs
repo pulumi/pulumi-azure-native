@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
     public sealed class AppleResponse
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Apple provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// The configuration settings of the login flow.
         /// </summary>
         public readonly Outputs.LoginScopesResponse? Login;
@@ -24,22 +28,18 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// The configuration settings of the Apple registration.
         /// </summary>
         public readonly Outputs.AppleRegistrationResponse? Registration;
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Apple provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        public readonly string? State;
 
         [OutputConstructor]
         private AppleResponse(
+            bool? enabled,
+
             Outputs.LoginScopesResponse? login,
 
-            Outputs.AppleRegistrationResponse? registration,
-
-            string? state)
+            Outputs.AppleRegistrationResponse? registration)
         {
+            Enabled = enabled;
             Login = login;
             Registration = registration;
-            State = state;
         }
     }
 }

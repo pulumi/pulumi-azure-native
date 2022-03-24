@@ -11,7 +11,7 @@ import (
 )
 
 // Role Assignments
-// API Version: 2020-08-01-preview.
+// API Version: 2020-10-01-preview.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
 	err := ctx.Invoke("azure-native:authorization:getRoleAssignment", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 )
 
 // VirtualRouter Resource.
-// API Version: 2020-08-01.
+// API Version: 2021-05-01.
 type VirtualRouter struct {
 	pulumi.CustomResourceState
 

@@ -19,7 +19,7 @@ class ResourceManagementPrivateLinkArgs:
                  rmpl_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceManagementPrivateLink resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group the template will be deployed to. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: the region to create private link association.
         :param pulumi.Input[str] rmpl_name: The name of the resource management private link.
         """
@@ -33,7 +33,7 @@ class ResourceManagementPrivateLinkArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group the template will be deployed to. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -81,7 +81,7 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: the region to create private link association.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group the template will be deployed to. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rmpl_name: The name of the resource management private link.
         """
         ...

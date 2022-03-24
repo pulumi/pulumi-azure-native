@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
             set => _loginServers = value;
         }
 
+        [Input("ociArtifacts")]
+        private InputList<Inputs.ServiceOciArtifactEntryArgs>? _ociArtifacts;
+
+        /// <summary>
+        /// The list of Open Container Initiative (OCI) artifacts.
+        /// </summary>
+        public InputList<Inputs.ServiceOciArtifactEntryArgs> OciArtifacts
+        {
+            get => _ociArtifacts ?? (_ociArtifacts = new InputList<Inputs.ServiceOciArtifactEntryArgs>());
+            set => _ociArtifacts = value;
+        }
+
         public FhirServiceAcrConfigurationArgs()
         {
         }

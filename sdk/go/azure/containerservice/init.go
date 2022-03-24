@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MaintenanceConfiguration{}
 	case "azure-native:containerservice:ManagedCluster":
 		r = &ManagedCluster{}
+	case "azure-native:containerservice:ManagedClusterSnapshot":
+		r = &ManagedClusterSnapshot{}
 	case "azure-native:containerservice:OpenShiftManagedCluster":
 		r = &OpenShiftManagedCluster{}
 	case "azure-native:containerservice:PrivateEndpointConnection":

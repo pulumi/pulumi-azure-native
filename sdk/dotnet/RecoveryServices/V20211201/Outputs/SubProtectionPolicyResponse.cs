@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         public readonly object? SchedulePolicy;
+        /// <summary>
+        /// Tiering policy to automatically move RPs to another tier.
+        /// Key is Target Tier, defined in RecoveryPointTierType enum.
+        /// Tiering policy specifies the criteria to move RP to the target tier.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.TieringPolicyResponse>? TieringPolicy;
 
         [OutputConstructor]
         private SubProtectionPolicyResponse(
@@ -35,11 +41,14 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
 
             Union<Outputs.LongTermRetentionPolicyResponse, Outputs.SimpleRetentionPolicyResponse>? retentionPolicy,
 
-            object? schedulePolicy)
+            object? schedulePolicy,
+
+            ImmutableDictionary<string, Outputs.TieringPolicyResponse>? tieringPolicy)
         {
             PolicyType = policyType;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            TieringPolicy = tieringPolicy;
         }
     }
 }

@@ -34,7 +34,7 @@ class DimensionOperator(str, Enum):
 
 class Kind(str, Enum):
     """
-    The kind of workbook. Choices are user and shared.
+    The kind of workbook. Only valid value is shared.
     """
     USER = "user"
     SHARED = "shared"

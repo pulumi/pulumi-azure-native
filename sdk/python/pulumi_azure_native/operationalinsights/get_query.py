@@ -194,7 +194,7 @@ def get_query(id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
     A Log Analytics QueryPack-Query definition.
-    API Version: 2019-09-01-preview.
+    API Version: 2019-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
@@ -234,7 +234,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryResult]:
     """
     A Log Analytics QueryPack-Query definition.
-    API Version: 2019-09-01-preview.
+    API Version: 2019-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack

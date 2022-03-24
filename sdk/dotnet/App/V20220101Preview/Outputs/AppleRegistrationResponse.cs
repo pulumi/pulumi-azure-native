@@ -21,18 +21,18 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// The app secret ref name that contains the client secret.
+        /// The app setting name that contains the client secret.
         /// </summary>
-        public readonly string? ClientSecretRefName;
+        public readonly string? ClientSecretSettingName;
 
         [OutputConstructor]
         private AppleRegistrationResponse(
             string? clientId,
 
-            string? clientSecretRefName)
+            string? clientSecretSettingName)
         {
             ClientId = clientId;
-            ClientSecretRefName = clientSecretRefName;
+            ClientSecretSettingName = clientSecretSettingName;
         }
     }
 }

@@ -44,10 +44,6 @@ export interface GetProfileResult {
      */
     readonly id: string;
     /**
-     * Managed service identity.
-     */
-    readonly identity?: outputs.cdn.v20210601.ManagedServiceIdentityResponse;
-    /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
     readonly kind: string;

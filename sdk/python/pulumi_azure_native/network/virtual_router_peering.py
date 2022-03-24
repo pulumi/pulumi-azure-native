@@ -143,7 +143,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Router Peering resource.
-        API Version: 2020-08-01.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Router Peering resource.
-        API Version: 2020-08-01.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualRouterPeeringArgs args: The arguments to use to populate this resource's properties.

@@ -178,12 +178,20 @@ export const PrincipalType = {
     Group: "Group",
     ServicePrincipal: "ServicePrincipal",
     ForeignGroup: "ForeignGroup",
+    Device: "Device",
 } as const;
 
 /**
  * The principal type of the assigned principal ID.
  */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+export const PublicNetworkAccessOptions = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type PublicNetworkAccessOptions = (typeof PublicNetworkAccessOptions)[keyof typeof PublicNetworkAccessOptions];
 
 export const ResourceIdentityType = {
     /**

@@ -121,7 +121,7 @@ export class TIDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20200101:TIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001:TIDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:TIDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:TIDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TIDataConnector.__pulumiType, name, resourceInputs, opts);
     }

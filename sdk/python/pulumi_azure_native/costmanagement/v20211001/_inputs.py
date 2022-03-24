@@ -836,11 +836,11 @@ class ReportConfigGroupingArgs:
 class ReportConfigSortingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 direction: Optional[pulumi.Input[str]] = None):
+                 direction: Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]] = None):
         """
         The order by expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to sort.
-        :param pulumi.Input[str] direction: Direction of sort.
+        :param pulumi.Input[Union[str, 'ReportConfigSortingType']] direction: Direction of sort.
         """
         pulumi.set(__self__, "name", name)
         if direction is not None:
@@ -860,14 +860,14 @@ class ReportConfigSortingArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[str]]:
+    def direction(self) -> Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]]:
         """
         Direction of sort.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[str]]):
+    def direction(self, value: Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]]):
         pulumi.set(self, "direction", value)
 
 

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class FacebookResponse
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// The version of the Facebook api to be used while logging in.
         /// </summary>
         public readonly string? GraphApiVersion;
@@ -28,25 +32,21 @@ namespace Pulumi.AzureNative.App.Outputs
         /// The configuration settings of the app registration for the Facebook provider.
         /// </summary>
         public readonly Outputs.AppRegistrationResponse? Registration;
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        public readonly string? State;
 
         [OutputConstructor]
         private FacebookResponse(
+            bool? enabled,
+
             string? graphApiVersion,
 
             Outputs.LoginScopesResponse? login,
 
-            Outputs.AppRegistrationResponse? registration,
-
-            string? state)
+            Outputs.AppRegistrationResponse? registration)
         {
+            Enabled = enabled;
             GraphApiVersion = graphApiVersion;
             Login = login;
             Registration = registration;
-            State = state;
         }
     }
 }

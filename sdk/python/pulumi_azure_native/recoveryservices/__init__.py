@@ -98,6 +98,8 @@ if typing.TYPE_CHECKING:
     v20211115 = __v20211115
     import pulumi_azure_native.recoveryservices.v20211201 as __v20211201
     v20211201 = __v20211201
+    import pulumi_azure_native.recoveryservices.v20220101 as __v20220101
+    v20220101 = __v20220101
 else:
     v20160601 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20160601')
     v20160810 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20160810')
@@ -125,4 +127,5 @@ else:
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20211101preview')
     v20211115 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20211115')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20211201')
+    v20220101 = _utilities.lazy_import('pulumi_azure_native.recoveryservices.v20220101')
 

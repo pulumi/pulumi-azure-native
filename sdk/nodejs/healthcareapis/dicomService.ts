@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export class DicomService extends pulumi.CustomResource {
     /**
@@ -45,6 +45,10 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    public readonly identity!: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -53,9 +57,17 @@ export class DicomService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The list of private endpoint connections that are set up for this resource.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The url of the Dicom Services.
      */
@@ -91,6 +103,7 @@ export class DicomService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["dicomServiceName"] = args ? args.dicomServiceName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -98,23 +111,28 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceUrl"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DicomService.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,6 +146,10 @@ export interface DicomServiceArgs {
      * The name of DICOM Service resource.
      */
     dicomServiceName?: pulumi.Input<string>;
+    /**
+     * Setting indicating whether the service has a managed identity associated with it.
+     */
+    identity?: pulumi.Input<inputs.healthcareapis.ServiceManagedIdentityIdentityArgs>;
     /**
      * The resource location.
      */

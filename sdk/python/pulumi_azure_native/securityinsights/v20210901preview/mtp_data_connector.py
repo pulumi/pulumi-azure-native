@@ -201,7 +201,7 @@ class MTPDataConnector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MTPDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MTPDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:MTPDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MTPDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20210901preview:MTPDataConnector',

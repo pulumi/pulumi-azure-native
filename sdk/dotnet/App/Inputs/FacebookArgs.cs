@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class FacebookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The version of the Facebook api to be used while logging in.
         /// </summary>
         [Input("graphApiVersion")]
@@ -32,12 +38,6 @@ namespace Pulumi.AzureNative.App.Inputs
         /// </summary>
         [Input("registration")]
         public Input<Inputs.AppRegistrationArgs>? Registration { get; set; }
-
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Facebook provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.IdentityProviderState>? State { get; set; }
 
         public FacebookArgs()
         {

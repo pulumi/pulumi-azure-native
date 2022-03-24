@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.AzureArcData.V20210701Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:azurearcdata:PostgresInstance"},
                     new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:PostgresInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20220301preview:PostgresInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,37 +102,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
     /// <summary>
-    /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
-    /// </summary>
-    [EnumType]
-    public readonly struct AuthConfigState : IEquatable<AuthConfigState>
-    {
-        private readonly string _value;
-
-        private AuthConfigState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AuthConfigState Enabled { get; } = new AuthConfigState("Enabled");
-        public static AuthConfigState Disabled { get; } = new AuthConfigState("Disabled");
-
-        public static bool operator ==(AuthConfigState left, AuthConfigState right) => left.Equals(right);
-        public static bool operator !=(AuthConfigState left, AuthConfigState right) => !left.Equals(right);
-
-        public static explicit operator string(AuthConfigState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AuthConfigState other && Equals(other);
-        public bool Equals(AuthConfigState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Custom Domain binding type.
     /// </summary>
     [EnumType]
@@ -164,29 +133,28 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
     /// <summary>
-    /// &lt;code&gt;true&lt;/code&gt; if the www-authenticate provider should be omitted from the request; otherwise, &lt;code&gt;false&lt;/code&gt;.
+    /// The method that should be used to authenticate the user.
     /// </summary>
     [EnumType]
-    public readonly struct DisableWwwAuthenticateMode : IEquatable<DisableWwwAuthenticateMode>
+    public readonly struct ClientCredentialMethod : IEquatable<ClientCredentialMethod>
     {
         private readonly string _value;
 
-        private DisableWwwAuthenticateMode(string value)
+        private ClientCredentialMethod(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DisableWwwAuthenticateMode True { get; } = new DisableWwwAuthenticateMode("True");
-        public static DisableWwwAuthenticateMode False { get; } = new DisableWwwAuthenticateMode("False");
+        public static ClientCredentialMethod ClientSecretPost { get; } = new ClientCredentialMethod("ClientSecretPost");
 
-        public static bool operator ==(DisableWwwAuthenticateMode left, DisableWwwAuthenticateMode right) => left.Equals(right);
-        public static bool operator !=(DisableWwwAuthenticateMode left, DisableWwwAuthenticateMode right) => !left.Equals(right);
+        public static bool operator ==(ClientCredentialMethod left, ClientCredentialMethod right) => left.Equals(right);
+        public static bool operator !=(ClientCredentialMethod left, ClientCredentialMethod right) => !left.Equals(right);
 
-        public static explicit operator string(DisableWwwAuthenticateMode value) => value._value;
+        public static explicit operator string(ClientCredentialMethod value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DisableWwwAuthenticateMode other && Equals(other);
-        public bool Equals(DisableWwwAuthenticateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ClientCredentialMethod other && Equals(other);
+        public bool Equals(ClientCredentialMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -195,29 +163,61 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     }
 
     /// <summary>
-    /// &lt;code&gt;Disabled&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
+    /// The convention used when determining the session cookie's expiration.
     /// </summary>
     [EnumType]
-    public readonly struct IdentityProviderState : IEquatable<IdentityProviderState>
+    public readonly struct CookieExpirationConvention : IEquatable<CookieExpirationConvention>
     {
         private readonly string _value;
 
-        private IdentityProviderState(string value)
+        private CookieExpirationConvention(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IdentityProviderState Enabled { get; } = new IdentityProviderState("Enabled");
-        public static IdentityProviderState Disabled { get; } = new IdentityProviderState("Disabled");
+        public static CookieExpirationConvention FixedTime { get; } = new CookieExpirationConvention("FixedTime");
+        public static CookieExpirationConvention IdentityProviderDerived { get; } = new CookieExpirationConvention("IdentityProviderDerived");
 
-        public static bool operator ==(IdentityProviderState left, IdentityProviderState right) => left.Equals(right);
-        public static bool operator !=(IdentityProviderState left, IdentityProviderState right) => !left.Equals(right);
+        public static bool operator ==(CookieExpirationConvention left, CookieExpirationConvention right) => left.Equals(right);
+        public static bool operator !=(CookieExpirationConvention left, CookieExpirationConvention right) => !left.Equals(right);
 
-        public static explicit operator string(IdentityProviderState value) => value._value;
+        public static explicit operator string(CookieExpirationConvention value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityProviderState other && Equals(other);
-        public bool Equals(IdentityProviderState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is CookieExpirationConvention other && Equals(other);
+        public bool Equals(CookieExpirationConvention other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The convention used to determine the url of the request made.
+    /// </summary>
+    [EnumType]
+    public readonly struct ForwardProxyConvention : IEquatable<ForwardProxyConvention>
+    {
+        private readonly string _value;
+
+        private ForwardProxyConvention(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ForwardProxyConvention NoProxy { get; } = new ForwardProxyConvention("NoProxy");
+        public static ForwardProxyConvention Standard { get; } = new ForwardProxyConvention("Standard");
+        public static ForwardProxyConvention Custom { get; } = new ForwardProxyConvention("Custom");
+
+        public static bool operator ==(ForwardProxyConvention left, ForwardProxyConvention right) => left.Equals(right);
+        public static bool operator !=(ForwardProxyConvention left, ForwardProxyConvention right) => !left.Equals(right);
+
+        public static explicit operator string(ForwardProxyConvention value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ForwardProxyConvention other && Equals(other);
+        public bool Equals(ForwardProxyConvention other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -283,68 +283,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// &lt;code&gt;True&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;False&lt;/code&gt;.
-    /// </summary>
-    [EnumType]
-    public readonly struct PreserveUrlFragmentsForLoginsMode : IEquatable<PreserveUrlFragmentsForLoginsMode>
-    {
-        private readonly string _value;
-
-        private PreserveUrlFragmentsForLoginsMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PreserveUrlFragmentsForLoginsMode True { get; } = new PreserveUrlFragmentsForLoginsMode("True");
-        public static PreserveUrlFragmentsForLoginsMode False { get; } = new PreserveUrlFragmentsForLoginsMode("False");
-
-        public static bool operator ==(PreserveUrlFragmentsForLoginsMode left, PreserveUrlFragmentsForLoginsMode right) => left.Equals(right);
-        public static bool operator !=(PreserveUrlFragmentsForLoginsMode left, PreserveUrlFragmentsForLoginsMode right) => !left.Equals(right);
-
-        public static explicit operator string(PreserveUrlFragmentsForLoginsMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PreserveUrlFragmentsForLoginsMode other && Equals(other);
-        public bool Equals(PreserveUrlFragmentsForLoginsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// &lt;code&gt;false&lt;/code&gt; if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, &lt;code&gt;true&lt;/code&gt;.
-    /// </summary>
-    [EnumType]
-    public readonly struct RequireHttpsMode : IEquatable<RequireHttpsMode>
-    {
-        private readonly string _value;
-
-        private RequireHttpsMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RequireHttpsMode True { get; } = new RequireHttpsMode("True");
-        public static RequireHttpsMode False { get; } = new RequireHttpsMode("False");
-
-        public static bool operator ==(RequireHttpsMode left, RequireHttpsMode right) => left.Equals(right);
-        public static bool operator !=(RequireHttpsMode left, RequireHttpsMode right) => !left.Equals(right);
-
-        public static explicit operator string(RequireHttpsMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RequireHttpsMode other && Equals(other);
-        public bool Equals(RequireHttpsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -419,28 +357,28 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     /// The action to take when an unauthenticated client attempts to access the app.
     /// </summary>
     [EnumType]
-    public readonly struct UnauthenticatedClientAction : IEquatable<UnauthenticatedClientAction>
+    public readonly struct UnauthenticatedClientActionV2 : IEquatable<UnauthenticatedClientActionV2>
     {
         private readonly string _value;
 
-        private UnauthenticatedClientAction(string value)
+        private UnauthenticatedClientActionV2(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static UnauthenticatedClientAction RedirectToLoginPage { get; } = new UnauthenticatedClientAction("RedirectToLoginPage");
-        public static UnauthenticatedClientAction AllowAnonymous { get; } = new UnauthenticatedClientAction("AllowAnonymous");
-        public static UnauthenticatedClientAction Return401 { get; } = new UnauthenticatedClientAction("Return401");
-        public static UnauthenticatedClientAction Return403 { get; } = new UnauthenticatedClientAction("Return403");
+        public static UnauthenticatedClientActionV2 RedirectToLoginPage { get; } = new UnauthenticatedClientActionV2("RedirectToLoginPage");
+        public static UnauthenticatedClientActionV2 AllowAnonymous { get; } = new UnauthenticatedClientActionV2("AllowAnonymous");
+        public static UnauthenticatedClientActionV2 Return401 { get; } = new UnauthenticatedClientActionV2("Return401");
+        public static UnauthenticatedClientActionV2 Return403 { get; } = new UnauthenticatedClientActionV2("Return403");
 
-        public static bool operator ==(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => left.Equals(right);
-        public static bool operator !=(UnauthenticatedClientAction left, UnauthenticatedClientAction right) => !left.Equals(right);
+        public static bool operator ==(UnauthenticatedClientActionV2 left, UnauthenticatedClientActionV2 right) => left.Equals(right);
+        public static bool operator !=(UnauthenticatedClientActionV2 left, UnauthenticatedClientActionV2 right) => !left.Equals(right);
 
-        public static explicit operator string(UnauthenticatedClientAction value) => value._value;
+        public static explicit operator string(UnauthenticatedClientActionV2 value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is UnauthenticatedClientAction other && Equals(other);
-        public bool Equals(UnauthenticatedClientAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
+        public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

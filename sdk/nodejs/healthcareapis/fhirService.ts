@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Fhir Service
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export class FhirService extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class FhirService extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
+     * Fhir Service event support status.
+     */
+    public /*out*/ readonly eventState!: pulumi.Output<string>;
+    /**
      * Fhir Service export configuration.
      */
     public readonly exportConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceExportConfigurationResponse | undefined>;
@@ -77,9 +81,21 @@ export class FhirService extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The list of private endpoint connections that are set up for this resource.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    /**
+     * Determines tracking of history for resources.
+     */
+    public readonly resourceVersionPolicyConfiguration!: pulumi.Output<outputs.healthcareapis.ResourceVersionPolicyConfigurationResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
@@ -120,11 +136,15 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceVersionPolicyConfiguration"] = args ? args.resourceVersionPolicyConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -133,18 +153,22 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["corsConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["exportConfiguration"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["resourceVersionPolicyConfiguration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20211101:FhirService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FhirService.__pulumiType, name, resourceInputs, opts);
     }
@@ -194,6 +218,10 @@ export interface FhirServiceArgs {
      * The name of the resource group that contains the service instance.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Determines tracking of history for resources.
+     */
+    resourceVersionPolicyConfiguration?: pulumi.Input<inputs.healthcareapis.ResourceVersionPolicyConfigurationArgs>;
     /**
      * Resource tags.
      */

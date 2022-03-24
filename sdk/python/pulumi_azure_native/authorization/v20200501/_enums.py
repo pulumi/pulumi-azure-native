@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'LockLevel',
+    'PublicNetworkAccessOptions',
 ]
 
 
@@ -16,3 +17,8 @@ class LockLevel(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     CAN_NOT_DELETE = "CanNotDelete"
     READ_ONLY = "ReadOnly"
+
+
+class PublicNetworkAccessOptions(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

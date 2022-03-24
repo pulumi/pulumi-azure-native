@@ -12,5 +12,12 @@ const (
 	LockLevelReadOnly     = LockLevel("ReadOnly")
 )
 
+type PublicNetworkAccessOptions string
+
+const (
+	PublicNetworkAccessOptionsEnabled  = PublicNetworkAccessOptions("Enabled")
+	PublicNetworkAccessOptionsDisabled = PublicNetworkAccessOptions("Disabled")
+)
+
 func init() {
 }

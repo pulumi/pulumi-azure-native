@@ -1461,12 +1461,12 @@ class DataCollectionEndpointResourceResponseSystemData(dict):
 @pulumi.output_type
 class DataCollectionEndpointResponseConfigurationAccess(dict):
     """
-    The endpoint used by agents to access their configuration.
+    The endpoint used by clients to access their configuration.
     """
     def __init__(__self__, *,
                  endpoint: str):
         """
-        The endpoint used by agents to access their configuration.
+        The endpoint used by clients to access their configuration.
         :param str endpoint: The endpoint. This property is READ-ONLY.
         """
         pulumi.set(__self__, "endpoint", endpoint)

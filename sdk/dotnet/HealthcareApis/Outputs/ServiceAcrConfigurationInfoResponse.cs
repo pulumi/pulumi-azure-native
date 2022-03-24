@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
         /// The list of the ACR login servers.
         /// </summary>
         public readonly ImmutableArray<string> LoginServers;
+        /// <summary>
+        /// The list of Open Container Initiative (OCI) artifacts.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceOciArtifactEntryResponse> OciArtifacts;
 
         [OutputConstructor]
-        private ServiceAcrConfigurationInfoResponse(ImmutableArray<string> loginServers)
+        private ServiceAcrConfigurationInfoResponse(
+            ImmutableArray<string> loginServers,
+
+            ImmutableArray<Outputs.ServiceOciArtifactEntryResponse> ociArtifacts)
         {
             LoginServers = loginServers;
+            OciArtifacts = ociArtifacts;
         }
     }
 }

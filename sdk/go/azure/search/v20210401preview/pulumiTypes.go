@@ -1083,7 +1083,7 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSet struct {
-	// A specific data exfiltration scenario that is disabled for the service.
+	// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 	Bypass *string `pulumi:"bypass"`
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules []IpRule `pulumi:"ipRules"`
@@ -1102,7 +1102,7 @@ type NetworkRuleSetInput interface {
 
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetArgs struct {
-	// A specific data exfiltration scenario that is disabled for the service.
+	// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules IpRuleArrayInput `pulumi:"ipRules"`
@@ -1186,7 +1186,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.C
 	}).(NetworkRuleSetPtrOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
+// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSet) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -1220,7 +1220,7 @@ func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
 	}).(NetworkRuleSetOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
+// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
@@ -1242,7 +1242,7 @@ func (o NetworkRuleSetPtrOutput) IpRules() IpRuleArrayOutput {
 
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetResponse struct {
-	// A specific data exfiltration scenario that is disabled for the service.
+	// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 	Bypass *string `pulumi:"bypass"`
 	// A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
 	IpRules []IpRuleResponse `pulumi:"ipRules"`
@@ -1263,7 +1263,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponseOutputWithContext(
 	return o
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
+// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 func (o NetworkRuleSetResponseOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkRuleSetResponse) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -1297,7 +1297,7 @@ func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
 	}).(NetworkRuleSetResponseOutput)
 }
 
-// A specific data exfiltration scenario that is disabled for the service.
+// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 func (o NetworkRuleSetResponsePtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkRuleSetResponse) *string {
 		if v == nil {

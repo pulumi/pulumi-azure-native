@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2021-04-01.
+ * API Version: 2021-09-01-preview.
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
     if (!opts) {
@@ -37,7 +37,7 @@ export interface GetDataCollectionEndpointArgs {
  */
 export interface GetDataCollectionEndpointResult {
     /**
-     * The endpoint used by agents to access their configuration.
+     * The endpoint used by clients to access their configuration.
      */
     readonly configurationAccess?: outputs.insights.DataCollectionEndpointResponseConfigurationAccess;
     /**

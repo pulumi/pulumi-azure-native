@@ -206,6 +206,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
@@ -386,6 +387,22 @@ export interface DatabaseArgs {
      * The resource identifier of the source database associated with create operation of this database.
      */
     sourceDatabaseId?: pulumi.Input<string>;
+    /**
+     * The resource identifier of the source associated with the create operation of this database.
+     * 
+     * When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+     * 
+     * When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+     * 
+     * When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+     * 
+     * When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+     * 
+     * This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+     * 
+     * When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+     */
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * The storage account type used to store backups for this database.
      */

@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly federatedClientId!: pulumi.Output<string | undefined>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
     /**
@@ -144,11 +144,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly pausedDate!: pulumi.Output<string>;
     /**
-     * The Primary Delegated Identity Client id used for per database CMK - for internal use only
-     */
-    public readonly primaryDelegatedIdentityClientId!: pulumi.Output<string | undefined>;
-    /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
     /**
@@ -231,7 +227,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["primaryDelegatedIdentityClientId"] = args ? args.primaryDelegatedIdentityClientId : undefined;
             resourceInputs["readScale"] = args ? args.readScale : undefined;
             resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
             resourceInputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
@@ -245,6 +240,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -293,7 +289,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pausedDate"] = undefined /*out*/;
-            resourceInputs["primaryDelegatedIdentityClientId"] = undefined /*out*/;
             resourceInputs["readScale"] = undefined /*out*/;
             resourceInputs["requestedBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["requestedServiceObjectiveName"] = undefined /*out*/;
@@ -361,7 +356,7 @@ export interface DatabaseArgs {
      */
     federatedClientId?: pulumi.Input<string>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
@@ -397,11 +392,7 @@ export interface DatabaseArgs {
      */
     minCapacity?: pulumi.Input<number>;
     /**
-     * The Primary Delegated Identity Client id used for per database CMK - for internal use only
-     */
-    primaryDelegatedIdentityClientId?: pulumi.Input<string>;
-    /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readScale?: pulumi.Input<string | enums.sql.v20210501preview.DatabaseReadScale>;
     /**
@@ -462,6 +453,22 @@ export interface DatabaseArgs {
      * The resource identifier of the source database associated with create operation of this database.
      */
     sourceDatabaseId?: pulumi.Input<string>;
+    /**
+     * The resource identifier of the source associated with the create operation of this database.
+     * 
+     * When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+     * 
+     * When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+     * 
+     * When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+     * 
+     * When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+     * 
+     * This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+     * 
+     * When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+     */
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

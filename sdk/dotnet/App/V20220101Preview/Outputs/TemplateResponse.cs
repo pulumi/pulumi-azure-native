@@ -23,10 +23,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
         /// <summary>
-        /// Dapr configuration for the Container App.
-        /// </summary>
-        public readonly Outputs.DaprResponse? Dapr;
-        /// <summary>
         /// User friendly suffix that is appended to the revision name
         /// </summary>
         public readonly string? RevisionSuffix;
@@ -43,8 +39,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         private TemplateResponse(
             ImmutableArray<Outputs.ContainerResponse> containers,
 
-            Outputs.DaprResponse? dapr,
-
             string? revisionSuffix,
 
             Outputs.ScaleResponse? scale,
@@ -52,7 +46,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
             ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
-            Dapr = dapr;
             RevisionSuffix = revisionSuffix;
             Scale = scale;
             Volumes = volumes;

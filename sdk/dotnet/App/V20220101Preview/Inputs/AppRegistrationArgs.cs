@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The app secret ref name that contains the app secret.
+        /// The app setting name that contains the app secret.
         /// </summary>
-        [Input("appSecretRefName")]
-        public Input<string>? AppSecretRefName { get; set; }
+        [Input("appSecretSettingName")]
+        public Input<string>? AppSecretSettingName { get; set; }
 
         public AppRegistrationArgs()
         {

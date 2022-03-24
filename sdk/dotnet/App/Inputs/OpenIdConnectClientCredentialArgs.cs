@@ -18,8 +18,14 @@ namespace Pulumi.AzureNative.App.Inputs
         /// <summary>
         /// The app setting that contains the client secret for the custom Open ID Connect provider.
         /// </summary>
-        [Input("clientSecretRefName")]
-        public Input<string>? ClientSecretRefName { get; set; }
+        [Input("clientSecretSettingName")]
+        public Input<string>? ClientSecretSettingName { get; set; }
+
+        /// <summary>
+        /// The method that should be used to authenticate the user.
+        /// </summary>
+        [Input("method")]
+        public Input<Pulumi.AzureNative.App.ClientCredentialMethod>? Method { get; set; }
 
         public OpenIdConnectClientCredentialArgs()
         {

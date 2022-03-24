@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// When set to true, Certificate validation will be disabled.
+        /// </summary>
+        [Input("disableCertValidation")]
+        public Input<bool>? DisableCertValidation { get; set; }
+
+        /// <summary>
         /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("headers")]

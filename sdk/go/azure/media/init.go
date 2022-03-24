@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StreamingLocator{}
 	case "azure-native:media:StreamingPolicy":
 		r = &StreamingPolicy{}
+	case "azure-native:media:Track":
+		r = &Track{}
 	case "azure-native:media:Transform":
 		r = &Transform{}
 	default:

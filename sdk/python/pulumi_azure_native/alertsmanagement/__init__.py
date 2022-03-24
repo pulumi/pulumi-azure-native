@@ -8,9 +8,7 @@ import typing
 from ._enums import *
 from .action_rule_by_name import *
 from .get_action_rule_by_name import *
-from .get_health_alert import *
 from .get_smart_detector_alert_rule import *
-from .health_alert import *
 from .smart_detector_alert_rule import *
 from ._inputs import *
 from . import outputs
@@ -25,8 +23,6 @@ if typing.TYPE_CHECKING:
     v20190505preview = __v20190505preview
     import pulumi_azure_native.alertsmanagement.v20190601 as __v20190601
     v20190601 = __v20190601
-    import pulumi_azure_native.alertsmanagement.v20200804preview as __v20200804preview
-    v20200804preview = __v20200804preview
     import pulumi_azure_native.alertsmanagement.v20210401 as __v20210401
     v20210401 = __v20210401
     import pulumi_azure_native.alertsmanagement.v20210808 as __v20210808
@@ -38,7 +34,6 @@ else:
     v20190301 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190301')
     v20190505preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190505preview')
     v20190601 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20190601')
-    v20200804preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20200804preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210401')
     v20210808 = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210808')
     v20210808preview = _utilities.lazy_import('pulumi_azure_native.alertsmanagement.v20210808preview')

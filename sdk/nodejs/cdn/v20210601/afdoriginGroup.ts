@@ -57,10 +57,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    public readonly responseBasedAfdOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.v20210601.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
-    /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
     public readonly sessionAffinityState!: pulumi.Output<string | undefined>;
@@ -99,7 +95,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
             resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = args ? args.responseBasedAfdOriginErrorDetectionSettings : undefined;
             resourceInputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
             resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
@@ -114,7 +109,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = undefined /*out*/;
             resourceInputs["sessionAffinityState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
@@ -151,10 +145,6 @@ export interface AFDOriginGroupArgs {
      * Name of the Resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20210601.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */

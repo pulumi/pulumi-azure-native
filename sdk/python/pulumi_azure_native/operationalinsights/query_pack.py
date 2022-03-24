@@ -93,7 +93,7 @@ class QueryPack(pulumi.CustomResource):
                  __props__=None):
         """
         An Log Analytics QueryPack definition.
-        API Version: 2019-09-01-preview.
+        API Version: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class QueryPack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Log Analytics QueryPack definition.
-        API Version: 2019-09-01-preview.
+        API Version: 2019-09-01.
 
         :param str resource_name: The name of the resource.
         :param QueryPackArgs args: The arguments to use to populate this resource's properties.
@@ -155,7 +155,7 @@ class QueryPack(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueryPack, __self__).__init__(
             'azure-native:operationalinsights:QueryPack',

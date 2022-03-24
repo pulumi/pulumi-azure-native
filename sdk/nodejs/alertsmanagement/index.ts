@@ -7,9 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./actionRuleByName";
 export * from "./getActionRuleByName";
-export * from "./getHealthAlert";
 export * from "./getSmartDetectorAlertRule";
-export * from "./healthAlert";
 export * from "./smartDetectorAlertRule";
 
 // Export enums:
@@ -20,7 +18,6 @@ import * as v20181102privatepreview from "./v20181102privatepreview";
 import * as v20190301 from "./v20190301";
 import * as v20190505preview from "./v20190505preview";
 import * as v20190601 from "./v20190601";
-import * as v20200804preview from "./v20200804preview";
 import * as v20210401 from "./v20210401";
 import * as v20210808 from "./v20210808";
 import * as v20210808preview from "./v20210808preview";
@@ -30,7 +27,6 @@ export {
     v20190301,
     v20190505preview,
     v20190601,
-    v20200804preview,
     v20210401,
     v20210808,
     v20210808preview,
@@ -38,7 +34,6 @@ export {
 
 // Import resources to register:
 import { ActionRuleByName } from "./actionRuleByName";
-import { HealthAlert } from "./healthAlert";
 import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
 const _module = {
@@ -47,8 +42,6 @@ const _module = {
         switch (type) {
             case "azure-native:alertsmanagement:ActionRuleByName":
                 return new ActionRuleByName(name, <any>undefined, { urn })
-            case "azure-native:alertsmanagement:HealthAlert":
-                return new HealthAlert(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:SmartDetectorAlertRule":
                 return new SmartDetectorAlertRule(name, <any>undefined, { urn })
             default:

@@ -17,6 +17,7 @@ __all__ = [
     'PivotTypeType',
     'RecurrenceType',
     'ReportConfigColumnType',
+    'ReportConfigSortingType',
     'ReportGranularityType',
     'ReportTimeframeType',
     'ReportType',
@@ -123,6 +124,14 @@ class ReportConfigColumnType(str, Enum):
     """
     TAG = "Tag"
     DIMENSION = "Dimension"
+
+
+class ReportConfigSortingType(str, Enum):
+    """
+    Direction of sort.
+    """
+    ASCENDING = "Ascending"
+    DESCENDING = "Descending"
 
 
 class ReportGranularityType(str, Enum):

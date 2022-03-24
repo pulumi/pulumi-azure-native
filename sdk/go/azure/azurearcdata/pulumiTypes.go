@@ -10,6 +10,1177 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// DNS server details
+type ActiveDirectoryConnectorDNSDetails struct {
+	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+	DomainName *string `pulumi:"domainName"`
+	// List of Active Directory DNS server IP addresses.
+	NameserverIPAddresses []string `pulumi:"nameserverIPAddresses"`
+	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+	PreferK8sDnsForPtrLookups *bool `pulumi:"preferK8sDnsForPtrLookups"`
+	// Replica count for DNS proxy service. Default value is 1.
+	Replicas *float64 `pulumi:"replicas"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetails
+func (val *ActiveDirectoryConnectorDNSDetails) Defaults() *ActiveDirectoryConnectorDNSDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PreferK8sDnsForPtrLookups) {
+		preferK8sDnsForPtrLookups_ := true
+		tmp.PreferK8sDnsForPtrLookups = &preferK8sDnsForPtrLookups_
+	}
+	if isZero(tmp.Replicas) {
+		replicas_ := 1.0
+		tmp.Replicas = &replicas_
+	}
+	return &tmp
+}
+
+// ActiveDirectoryConnectorDNSDetailsInput is an input type that accepts ActiveDirectoryConnectorDNSDetailsArgs and ActiveDirectoryConnectorDNSDetailsOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorDNSDetailsInput` via:
+//
+//          ActiveDirectoryConnectorDNSDetailsArgs{...}
+type ActiveDirectoryConnectorDNSDetailsInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput
+	ToActiveDirectoryConnectorDNSDetailsOutputWithContext(context.Context) ActiveDirectoryConnectorDNSDetailsOutput
+}
+
+// DNS server details
+type ActiveDirectoryConnectorDNSDetailsArgs struct {
+	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
+	// List of Active Directory DNS server IP addresses.
+	NameserverIPAddresses pulumi.StringArrayInput `pulumi:"nameserverIPAddresses"`
+	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+	PreferK8sDnsForPtrLookups pulumi.BoolPtrInput `pulumi:"preferK8sDnsForPtrLookups"`
+	// Replica count for DNS proxy service. Default value is 1.
+	Replicas pulumi.Float64PtrInput `pulumi:"replicas"`
+}
+
+func (ActiveDirectoryConnectorDNSDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetails)(nil)).Elem()
+}
+
+func (i ActiveDirectoryConnectorDNSDetailsArgs) ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput {
+	return i.ToActiveDirectoryConnectorDNSDetailsOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorDNSDetailsArgs) ToActiveDirectoryConnectorDNSDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorDNSDetailsOutput)
+}
+
+// DNS server details
+type ActiveDirectoryConnectorDNSDetailsOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorDNSDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetails)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorDNSDetailsOutput) ToActiveDirectoryConnectorDNSDetailsOutput() ActiveDirectoryConnectorDNSDetailsOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorDNSDetailsOutput) ToActiveDirectoryConnectorDNSDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsOutput {
+	return o
+}
+
+// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+func (o ActiveDirectoryConnectorDNSDetailsOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// List of Active Directory DNS server IP addresses.
+func (o ActiveDirectoryConnectorDNSDetailsOutput) NameserverIPAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) []string { return v.NameserverIPAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+func (o ActiveDirectoryConnectorDNSDetailsOutput) PreferK8sDnsForPtrLookups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *bool { return v.PreferK8sDnsForPtrLookups }).(pulumi.BoolPtrOutput)
+}
+
+// Replica count for DNS proxy service. Default value is 1.
+func (o ActiveDirectoryConnectorDNSDetailsOutput) Replicas() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetails) *float64 { return v.Replicas }).(pulumi.Float64PtrOutput)
+}
+
+// DNS server details
+type ActiveDirectoryConnectorDNSDetailsResponse struct {
+	// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+	DomainName *string `pulumi:"domainName"`
+	// List of Active Directory DNS server IP addresses.
+	NameserverIPAddresses []string `pulumi:"nameserverIPAddresses"`
+	// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+	PreferK8sDnsForPtrLookups *bool `pulumi:"preferK8sDnsForPtrLookups"`
+	// Replica count for DNS proxy service. Default value is 1.
+	Replicas *float64 `pulumi:"replicas"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetailsResponse
+func (val *ActiveDirectoryConnectorDNSDetailsResponse) Defaults() *ActiveDirectoryConnectorDNSDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PreferK8sDnsForPtrLookups) {
+		preferK8sDnsForPtrLookups_ := true
+		tmp.PreferK8sDnsForPtrLookups = &preferK8sDnsForPtrLookups_
+	}
+	if isZero(tmp.Replicas) {
+		replicas_ := 1.0
+		tmp.Replicas = &replicas_
+	}
+	return &tmp
+}
+
+// DNS server details
+type ActiveDirectoryConnectorDNSDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorDNSDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetailsResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) ToActiveDirectoryConnectorDNSDetailsResponseOutput() ActiveDirectoryConnectorDNSDetailsResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) ToActiveDirectoryConnectorDNSDetailsResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDNSDetailsResponseOutput {
+	return o
+}
+
+// DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *string { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// List of Active Directory DNS server IP addresses.
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) NameserverIPAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) []string { return v.NameserverIPAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) PreferK8sDnsForPtrLookups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *bool { return v.PreferK8sDnsForPtrLookups }).(pulumi.BoolPtrOutput)
+}
+
+// Replica count for DNS proxy service. Default value is 1.
+func (o ActiveDirectoryConnectorDNSDetailsResponseOutput) Replicas() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDNSDetailsResponse) *float64 { return v.Replicas }).(pulumi.Float64PtrOutput)
+}
+
+// Active Directory domain details
+type ActiveDirectoryConnectorDomainDetails struct {
+	// null
+	DomainControllers ActiveDirectoryDomainControllers `pulumi:"domainControllers"`
+	// NETBIOS name of the Active Directory domain.
+	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
+	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+	Realm string `pulumi:"realm"`
+}
+
+// ActiveDirectoryConnectorDomainDetailsInput is an input type that accepts ActiveDirectoryConnectorDomainDetailsArgs and ActiveDirectoryConnectorDomainDetailsOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorDomainDetailsInput` via:
+//
+//          ActiveDirectoryConnectorDomainDetailsArgs{...}
+type ActiveDirectoryConnectorDomainDetailsInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput
+	ToActiveDirectoryConnectorDomainDetailsOutputWithContext(context.Context) ActiveDirectoryConnectorDomainDetailsOutput
+}
+
+// Active Directory domain details
+type ActiveDirectoryConnectorDomainDetailsArgs struct {
+	// null
+	DomainControllers ActiveDirectoryDomainControllersInput `pulumi:"domainControllers"`
+	// NETBIOS name of the Active Directory domain.
+	NetbiosDomainName pulumi.StringPtrInput `pulumi:"netbiosDomainName"`
+	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+	Realm pulumi.StringInput `pulumi:"realm"`
+}
+
+func (ActiveDirectoryConnectorDomainDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetails)(nil)).Elem()
+}
+
+func (i ActiveDirectoryConnectorDomainDetailsArgs) ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput {
+	return i.ToActiveDirectoryConnectorDomainDetailsOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorDomainDetailsArgs) ToActiveDirectoryConnectorDomainDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorDomainDetailsOutput)
+}
+
+// Active Directory domain details
+type ActiveDirectoryConnectorDomainDetailsOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorDomainDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetails)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorDomainDetailsOutput) ToActiveDirectoryConnectorDomainDetailsOutput() ActiveDirectoryConnectorDomainDetailsOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorDomainDetailsOutput) ToActiveDirectoryConnectorDomainDetailsOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsOutput {
+	return o
+}
+
+// null
+func (o ActiveDirectoryConnectorDomainDetailsOutput) DomainControllers() ActiveDirectoryDomainControllersOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) ActiveDirectoryDomainControllers {
+		return v.DomainControllers
+	}).(ActiveDirectoryDomainControllersOutput)
+}
+
+// NETBIOS name of the Active Directory domain.
+func (o ActiveDirectoryConnectorDomainDetailsOutput) NetbiosDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+func (o ActiveDirectoryConnectorDomainDetailsOutput) Realm() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) string { return v.Realm }).(pulumi.StringOutput)
+}
+
+// Active Directory domain details
+type ActiveDirectoryConnectorDomainDetailsResponse struct {
+	// null
+	DomainControllers ActiveDirectoryDomainControllersResponse `pulumi:"domainControllers"`
+	// NETBIOS name of the Active Directory domain.
+	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
+	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+	Realm string `pulumi:"realm"`
+}
+
+// Active Directory domain details
+type ActiveDirectoryConnectorDomainDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorDomainDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetailsResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ToActiveDirectoryConnectorDomainDetailsResponseOutput() ActiveDirectoryConnectorDomainDetailsResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ToActiveDirectoryConnectorDomainDetailsResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorDomainDetailsResponseOutput {
+	return o
+}
+
+// null
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) DomainControllers() ActiveDirectoryDomainControllersResponseOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) ActiveDirectoryDomainControllersResponse {
+		return v.DomainControllers
+	}).(ActiveDirectoryDomainControllersResponseOutput)
+}
+
+// NETBIOS name of the Active Directory domain.
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) NetbiosDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) Realm() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) string { return v.Realm }).(pulumi.StringOutput)
+}
+
+// The properties of an Active Directory connector resource
+type ActiveDirectoryConnectorProperties struct {
+	// null
+	Spec ActiveDirectoryConnectorSpec `pulumi:"spec"`
+	// null
+	Status *ActiveDirectoryConnectorStatus `pulumi:"status"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorProperties
+func (val *ActiveDirectoryConnectorProperties) Defaults() *ActiveDirectoryConnectorProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Spec = *tmp.Spec.Defaults()
+
+	return &tmp
+}
+
+// ActiveDirectoryConnectorPropertiesInput is an input type that accepts ActiveDirectoryConnectorPropertiesArgs and ActiveDirectoryConnectorPropertiesOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorPropertiesInput` via:
+//
+//          ActiveDirectoryConnectorPropertiesArgs{...}
+type ActiveDirectoryConnectorPropertiesInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput
+	ToActiveDirectoryConnectorPropertiesOutputWithContext(context.Context) ActiveDirectoryConnectorPropertiesOutput
+}
+
+// The properties of an Active Directory connector resource
+type ActiveDirectoryConnectorPropertiesArgs struct {
+	// null
+	Spec ActiveDirectoryConnectorSpecInput `pulumi:"spec"`
+	// null
+	Status ActiveDirectoryConnectorStatusPtrInput `pulumi:"status"`
+}
+
+func (ActiveDirectoryConnectorPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorProperties)(nil)).Elem()
+}
+
+func (i ActiveDirectoryConnectorPropertiesArgs) ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput {
+	return i.ToActiveDirectoryConnectorPropertiesOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorPropertiesArgs) ToActiveDirectoryConnectorPropertiesOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorPropertiesOutput)
+}
+
+// The properties of an Active Directory connector resource
+type ActiveDirectoryConnectorPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorProperties)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorPropertiesOutput) ToActiveDirectoryConnectorPropertiesOutput() ActiveDirectoryConnectorPropertiesOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorPropertiesOutput) ToActiveDirectoryConnectorPropertiesOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesOutput {
+	return o
+}
+
+// null
+func (o ActiveDirectoryConnectorPropertiesOutput) Spec() ActiveDirectoryConnectorSpecOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) ActiveDirectoryConnectorSpec { return v.Spec }).(ActiveDirectoryConnectorSpecOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorPropertiesOutput) Status() ActiveDirectoryConnectorStatusPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) *ActiveDirectoryConnectorStatus { return v.Status }).(ActiveDirectoryConnectorStatusPtrOutput)
+}
+
+// The properties of an Active Directory connector resource
+type ActiveDirectoryConnectorPropertiesResponse struct {
+	// The provisioning state of the Active Directory connector resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// null
+	Spec ActiveDirectoryConnectorSpecResponse `pulumi:"spec"`
+	// null
+	Status *ActiveDirectoryConnectorStatusResponse `pulumi:"status"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorPropertiesResponse
+func (val *ActiveDirectoryConnectorPropertiesResponse) Defaults() *ActiveDirectoryConnectorPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Spec = *tmp.Spec.Defaults()
+
+	return &tmp
+}
+
+// The properties of an Active Directory connector resource
+type ActiveDirectoryConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorPropertiesResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) ToActiveDirectoryConnectorPropertiesResponseOutput() ActiveDirectoryConnectorPropertiesResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) ToActiveDirectoryConnectorPropertiesResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorPropertiesResponseOutput {
+	return o
+}
+
+// The provisioning state of the Active Directory connector resource.
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) Spec() ActiveDirectoryConnectorSpecResponseOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) ActiveDirectoryConnectorSpecResponse { return v.Spec }).(ActiveDirectoryConnectorSpecResponseOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) Status() ActiveDirectoryConnectorStatusResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) *ActiveDirectoryConnectorStatusResponse {
+		return v.Status
+	}).(ActiveDirectoryConnectorStatusResponsePtrOutput)
+}
+
+// The specifications of the AD Kubernetes resource.
+type ActiveDirectoryConnectorSpec struct {
+	// null
+	ActiveDirectory ActiveDirectoryConnectorDomainDetails `pulumi:"activeDirectory"`
+	// null
+	Dns ActiveDirectoryConnectorDNSDetails `pulumi:"dns"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpec
+func (val *ActiveDirectoryConnectorSpec) Defaults() *ActiveDirectoryConnectorSpec {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Dns = *tmp.Dns.Defaults()
+
+	return &tmp
+}
+
+// ActiveDirectoryConnectorSpecInput is an input type that accepts ActiveDirectoryConnectorSpecArgs and ActiveDirectoryConnectorSpecOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorSpecInput` via:
+//
+//          ActiveDirectoryConnectorSpecArgs{...}
+type ActiveDirectoryConnectorSpecInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput
+	ToActiveDirectoryConnectorSpecOutputWithContext(context.Context) ActiveDirectoryConnectorSpecOutput
+}
+
+// The specifications of the AD Kubernetes resource.
+type ActiveDirectoryConnectorSpecArgs struct {
+	// null
+	ActiveDirectory ActiveDirectoryConnectorDomainDetailsInput `pulumi:"activeDirectory"`
+	// null
+	Dns ActiveDirectoryConnectorDNSDetailsInput `pulumi:"dns"`
+}
+
+func (ActiveDirectoryConnectorSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorSpec)(nil)).Elem()
+}
+
+func (i ActiveDirectoryConnectorSpecArgs) ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput {
+	return i.ToActiveDirectoryConnectorSpecOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorSpecArgs) ToActiveDirectoryConnectorSpecOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorSpecOutput)
+}
+
+// The specifications of the AD Kubernetes resource.
+type ActiveDirectoryConnectorSpecOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorSpec)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorSpecOutput) ToActiveDirectoryConnectorSpecOutput() ActiveDirectoryConnectorSpecOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorSpecOutput) ToActiveDirectoryConnectorSpecOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecOutput {
+	return o
+}
+
+// null
+func (o ActiveDirectoryConnectorSpecOutput) ActiveDirectory() ActiveDirectoryConnectorDomainDetailsOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorSpec) ActiveDirectoryConnectorDomainDetails { return v.ActiveDirectory }).(ActiveDirectoryConnectorDomainDetailsOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorSpecOutput) Dns() ActiveDirectoryConnectorDNSDetailsOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorSpec) ActiveDirectoryConnectorDNSDetails { return v.Dns }).(ActiveDirectoryConnectorDNSDetailsOutput)
+}
+
+// The specifications of the AD Kubernetes resource.
+type ActiveDirectoryConnectorSpecResponse struct {
+	// null
+	ActiveDirectory ActiveDirectoryConnectorDomainDetailsResponse `pulumi:"activeDirectory"`
+	// null
+	Dns ActiveDirectoryConnectorDNSDetailsResponse `pulumi:"dns"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpecResponse
+func (val *ActiveDirectoryConnectorSpecResponse) Defaults() *ActiveDirectoryConnectorSpecResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Dns = *tmp.Dns.Defaults()
+
+	return &tmp
+}
+
+// The specifications of the AD Kubernetes resource.
+type ActiveDirectoryConnectorSpecResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorSpecResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorSpecResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorSpecResponseOutput) ToActiveDirectoryConnectorSpecResponseOutput() ActiveDirectoryConnectorSpecResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorSpecResponseOutput) ToActiveDirectoryConnectorSpecResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorSpecResponseOutput {
+	return o
+}
+
+// null
+func (o ActiveDirectoryConnectorSpecResponseOutput) ActiveDirectory() ActiveDirectoryConnectorDomainDetailsResponseOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorSpecResponse) ActiveDirectoryConnectorDomainDetailsResponse {
+		return v.ActiveDirectory
+	}).(ActiveDirectoryConnectorDomainDetailsResponseOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorSpecResponseOutput) Dns() ActiveDirectoryConnectorDNSDetailsResponseOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorSpecResponse) ActiveDirectoryConnectorDNSDetailsResponse { return v.Dns }).(ActiveDirectoryConnectorDNSDetailsResponseOutput)
+}
+
+// The status of the Kubernetes custom resource.
+type ActiveDirectoryConnectorStatus struct {
+	// The time that the custom resource was last updated.
+	LastUpdateTime *string `pulumi:"lastUpdateTime"`
+	// The version of the replicaSet associated with the AD connector custom resource.
+	ObservedGeneration *float64 `pulumi:"observedGeneration"`
+	// The state of the AD connector custom resource.
+	State *string `pulumi:"state"`
+}
+
+// ActiveDirectoryConnectorStatusInput is an input type that accepts ActiveDirectoryConnectorStatusArgs and ActiveDirectoryConnectorStatusOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorStatusInput` via:
+//
+//          ActiveDirectoryConnectorStatusArgs{...}
+type ActiveDirectoryConnectorStatusInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput
+	ToActiveDirectoryConnectorStatusOutputWithContext(context.Context) ActiveDirectoryConnectorStatusOutput
+}
+
+// The status of the Kubernetes custom resource.
+type ActiveDirectoryConnectorStatusArgs struct {
+	// The time that the custom resource was last updated.
+	LastUpdateTime pulumi.StringPtrInput `pulumi:"lastUpdateTime"`
+	// The version of the replicaSet associated with the AD connector custom resource.
+	ObservedGeneration pulumi.Float64PtrInput `pulumi:"observedGeneration"`
+	// The state of the AD connector custom resource.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (ActiveDirectoryConnectorStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorStatus)(nil)).Elem()
+}
+
+func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput {
+	return i.ToActiveDirectoryConnectorStatusOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusOutput)
+}
+
+func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
+	return i.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryConnectorStatusArgs) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusOutput).ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryConnectorStatusPtrInput is an input type that accepts ActiveDirectoryConnectorStatusArgs, ActiveDirectoryConnectorStatusPtr and ActiveDirectoryConnectorStatusPtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryConnectorStatusPtrInput` via:
+//
+//          ActiveDirectoryConnectorStatusArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryConnectorStatusPtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput
+	ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Context) ActiveDirectoryConnectorStatusPtrOutput
+}
+
+type activeDirectoryConnectorStatusPtrType ActiveDirectoryConnectorStatusArgs
+
+func ActiveDirectoryConnectorStatusPtr(v *ActiveDirectoryConnectorStatusArgs) ActiveDirectoryConnectorStatusPtrInput {
+	return (*activeDirectoryConnectorStatusPtrType)(v)
+}
+
+func (*activeDirectoryConnectorStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryConnectorStatus)(nil)).Elem()
+}
+
+func (i *activeDirectoryConnectorStatusPtrType) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
+	return i.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryConnectorStatusPtrType) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryConnectorStatusPtrOutput)
+}
+
+// The status of the Kubernetes custom resource.
+type ActiveDirectoryConnectorStatusOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorStatus)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusOutput() ActiveDirectoryConnectorStatusOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
+	return o.ToActiveDirectoryConnectorStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryConnectorStatusOutput) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryConnectorStatus) *ActiveDirectoryConnectorStatus {
+		return &v
+	}).(ActiveDirectoryConnectorStatusPtrOutput)
+}
+
+// The time that the custom resource was last updated.
+func (o ActiveDirectoryConnectorStatusOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
+}
+
+// The version of the replicaSet associated with the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusOutput) ObservedGeneration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *float64 { return v.ObservedGeneration }).(pulumi.Float64PtrOutput)
+}
+
+// The state of the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatus) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryConnectorStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryConnectorStatus)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorStatusPtrOutput) ToActiveDirectoryConnectorStatusPtrOutput() ActiveDirectoryConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusPtrOutput) ToActiveDirectoryConnectorStatusPtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusPtrOutput) Elem() ActiveDirectoryConnectorStatusOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) ActiveDirectoryConnectorStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryConnectorStatus
+		return ret
+	}).(ActiveDirectoryConnectorStatusOutput)
+}
+
+// The time that the custom resource was last updated.
+func (o ActiveDirectoryConnectorStatusPtrOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the replicaSet associated with the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusPtrOutput) ObservedGeneration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ObservedGeneration
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The state of the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the Kubernetes custom resource.
+type ActiveDirectoryConnectorStatusResponse struct {
+	// The time that the custom resource was last updated.
+	LastUpdateTime *string `pulumi:"lastUpdateTime"`
+	// The version of the replicaSet associated with the AD connector custom resource.
+	ObservedGeneration *float64 `pulumi:"observedGeneration"`
+	// The state of the AD connector custom resource.
+	State *string `pulumi:"state"`
+}
+
+// The status of the Kubernetes custom resource.
+type ActiveDirectoryConnectorStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryConnectorStatusResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorStatusResponseOutput) ToActiveDirectoryConnectorStatusResponseOutput() ActiveDirectoryConnectorStatusResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusResponseOutput) ToActiveDirectoryConnectorStatusResponseOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusResponseOutput {
+	return o
+}
+
+// The time that the custom resource was last updated.
+func (o ActiveDirectoryConnectorStatusResponseOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
+}
+
+// The version of the replicaSet associated with the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusResponseOutput) ObservedGeneration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *float64 { return v.ObservedGeneration }).(pulumi.Float64PtrOutput)
+}
+
+// The state of the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusResponseOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorStatusResponse) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryConnectorStatusResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryConnectorStatusResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryConnectorStatusResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ToActiveDirectoryConnectorStatusResponsePtrOutput() ActiveDirectoryConnectorStatusResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ToActiveDirectoryConnectorStatusResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryConnectorStatusResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) Elem() ActiveDirectoryConnectorStatusResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) ActiveDirectoryConnectorStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryConnectorStatusResponse
+		return ret
+	}).(ActiveDirectoryConnectorStatusResponseOutput)
+}
+
+// The time that the custom resource was last updated.
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastUpdateTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the replicaSet associated with the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) ObservedGeneration() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ObservedGeneration
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The state of the AD connector custom resource.
+func (o ActiveDirectoryConnectorStatusResponsePtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnectorStatusResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about a domain controller in the AD domain.
+type ActiveDirectoryDomainController struct {
+	// Fully-qualified domain name of a domain controller in the AD domain.
+	Hostname string `pulumi:"hostname"`
+}
+
+// ActiveDirectoryDomainControllerInput is an input type that accepts ActiveDirectoryDomainControllerArgs and ActiveDirectoryDomainControllerOutput values.
+// You can construct a concrete instance of `ActiveDirectoryDomainControllerInput` via:
+//
+//          ActiveDirectoryDomainControllerArgs{...}
+type ActiveDirectoryDomainControllerInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput
+	ToActiveDirectoryDomainControllerOutputWithContext(context.Context) ActiveDirectoryDomainControllerOutput
+}
+
+// Information about a domain controller in the AD domain.
+type ActiveDirectoryDomainControllerArgs struct {
+	// Fully-qualified domain name of a domain controller in the AD domain.
+	Hostname pulumi.StringInput `pulumi:"hostname"`
+}
+
+func (ActiveDirectoryDomainControllerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput {
+	return i.ToActiveDirectoryDomainControllerOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerOutput)
+}
+
+func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
+	return i.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryDomainControllerArgs) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerOutput).ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryDomainControllerPtrInput is an input type that accepts ActiveDirectoryDomainControllerArgs, ActiveDirectoryDomainControllerPtr and ActiveDirectoryDomainControllerPtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryDomainControllerPtrInput` via:
+//
+//          ActiveDirectoryDomainControllerArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryDomainControllerPtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput
+	ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Context) ActiveDirectoryDomainControllerPtrOutput
+}
+
+type activeDirectoryDomainControllerPtrType ActiveDirectoryDomainControllerArgs
+
+func ActiveDirectoryDomainControllerPtr(v *ActiveDirectoryDomainControllerArgs) ActiveDirectoryDomainControllerPtrInput {
+	return (*activeDirectoryDomainControllerPtrType)(v)
+}
+
+func (*activeDirectoryDomainControllerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (i *activeDirectoryDomainControllerPtrType) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
+	return i.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryDomainControllerPtrType) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerPtrOutput)
+}
+
+// ActiveDirectoryDomainControllerArrayInput is an input type that accepts ActiveDirectoryDomainControllerArray and ActiveDirectoryDomainControllerArrayOutput values.
+// You can construct a concrete instance of `ActiveDirectoryDomainControllerArrayInput` via:
+//
+//          ActiveDirectoryDomainControllerArray{ ActiveDirectoryDomainControllerArgs{...} }
+type ActiveDirectoryDomainControllerArrayInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput
+	ToActiveDirectoryDomainControllerArrayOutputWithContext(context.Context) ActiveDirectoryDomainControllerArrayOutput
+}
+
+type ActiveDirectoryDomainControllerArray []ActiveDirectoryDomainControllerInput
+
+func (ActiveDirectoryDomainControllerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (i ActiveDirectoryDomainControllerArray) ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput {
+	return i.ToActiveDirectoryDomainControllerArrayOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryDomainControllerArray) ToActiveDirectoryDomainControllerArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllerArrayOutput)
+}
+
+// Information about a domain controller in the AD domain.
+type ActiveDirectoryDomainControllerOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerOutput() ActiveDirectoryDomainControllerOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
+	return o.ToActiveDirectoryDomainControllerPtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryDomainControllerOutput) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryDomainController) *ActiveDirectoryDomainController {
+		return &v
+	}).(ActiveDirectoryDomainControllerPtrOutput)
+}
+
+// Fully-qualified domain name of a domain controller in the AD domain.
+func (o ActiveDirectoryDomainControllerOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainController) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+type ActiveDirectoryDomainControllerPtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerPtrOutput) ToActiveDirectoryDomainControllerPtrOutput() ActiveDirectoryDomainControllerPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerPtrOutput) ToActiveDirectoryDomainControllerPtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerPtrOutput) Elem() ActiveDirectoryDomainControllerOutput {
+	return o.ApplyT(func(v *ActiveDirectoryDomainController) ActiveDirectoryDomainController {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryDomainController
+		return ret
+	}).(ActiveDirectoryDomainControllerOutput)
+}
+
+// Fully-qualified domain name of a domain controller in the AD domain.
+func (o ActiveDirectoryDomainControllerPtrOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryDomainController) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Hostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryDomainControllerArrayOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveDirectoryDomainController)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerArrayOutput) ToActiveDirectoryDomainControllerArrayOutput() ActiveDirectoryDomainControllerArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerArrayOutput) ToActiveDirectoryDomainControllerArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryDomainControllerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryDomainController {
+		return vs[0].([]ActiveDirectoryDomainController)[vs[1].(int)]
+	}).(ActiveDirectoryDomainControllerOutput)
+}
+
+// Information about a domain controller in the AD domain.
+type ActiveDirectoryDomainControllerResponse struct {
+	// Fully-qualified domain name of a domain controller in the AD domain.
+	Hostname string `pulumi:"hostname"`
+}
+
+// Information about a domain controller in the AD domain.
+type ActiveDirectoryDomainControllerResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainControllerResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerResponseOutput) ToActiveDirectoryDomainControllerResponseOutput() ActiveDirectoryDomainControllerResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerResponseOutput) ToActiveDirectoryDomainControllerResponseOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponseOutput {
+	return o
+}
+
+// Fully-qualified domain name of a domain controller in the AD domain.
+func (o ActiveDirectoryDomainControllerResponseOutput) Hostname() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainControllerResponse) string { return v.Hostname }).(pulumi.StringOutput)
+}
+
+type ActiveDirectoryDomainControllerResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryDomainControllerResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerResponsePtrOutput) ToActiveDirectoryDomainControllerResponsePtrOutput() ActiveDirectoryDomainControllerResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerResponsePtrOutput) ToActiveDirectoryDomainControllerResponsePtrOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponsePtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerResponsePtrOutput) Elem() ActiveDirectoryDomainControllerResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryDomainControllerResponse) ActiveDirectoryDomainControllerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryDomainControllerResponse
+		return ret
+	}).(ActiveDirectoryDomainControllerResponseOutput)
+}
+
+// Fully-qualified domain name of a domain controller in the AD domain.
+func (o ActiveDirectoryDomainControllerResponsePtrOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryDomainControllerResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Hostname
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActiveDirectoryDomainControllerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveDirectoryDomainControllerResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllerResponseArrayOutput) ToActiveDirectoryDomainControllerResponseArrayOutput() ActiveDirectoryDomainControllerResponseArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerResponseArrayOutput) ToActiveDirectoryDomainControllerResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllerResponseArrayOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllerResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryDomainControllerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryDomainControllerResponse {
+		return vs[0].([]ActiveDirectoryDomainControllerResponse)[vs[1].(int)]
+	}).(ActiveDirectoryDomainControllerResponseOutput)
+}
+
+// Details about the Active Directory domain controllers associated with this AD connector instance
+type ActiveDirectoryDomainControllers struct {
+	// Information about the Primary Domain Controller (PDC) in the AD domain.
+	PrimaryDomainController *ActiveDirectoryDomainController `pulumi:"primaryDomainController"`
+	// null
+	SecondaryDomainControllers []ActiveDirectoryDomainController `pulumi:"secondaryDomainControllers"`
+}
+
+// ActiveDirectoryDomainControllersInput is an input type that accepts ActiveDirectoryDomainControllersArgs and ActiveDirectoryDomainControllersOutput values.
+// You can construct a concrete instance of `ActiveDirectoryDomainControllersInput` via:
+//
+//          ActiveDirectoryDomainControllersArgs{...}
+type ActiveDirectoryDomainControllersInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput
+	ToActiveDirectoryDomainControllersOutputWithContext(context.Context) ActiveDirectoryDomainControllersOutput
+}
+
+// Details about the Active Directory domain controllers associated with this AD connector instance
+type ActiveDirectoryDomainControllersArgs struct {
+	// Information about the Primary Domain Controller (PDC) in the AD domain.
+	PrimaryDomainController ActiveDirectoryDomainControllerPtrInput `pulumi:"primaryDomainController"`
+	// null
+	SecondaryDomainControllers ActiveDirectoryDomainControllerArrayInput `pulumi:"secondaryDomainControllers"`
+}
+
+func (ActiveDirectoryDomainControllersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainControllers)(nil)).Elem()
+}
+
+func (i ActiveDirectoryDomainControllersArgs) ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput {
+	return i.ToActiveDirectoryDomainControllersOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryDomainControllersArgs) ToActiveDirectoryDomainControllersOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryDomainControllersOutput)
+}
+
+// Details about the Active Directory domain controllers associated with this AD connector instance
+type ActiveDirectoryDomainControllersOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainControllers)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllersOutput) ToActiveDirectoryDomainControllersOutput() ActiveDirectoryDomainControllersOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllersOutput) ToActiveDirectoryDomainControllersOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersOutput {
+	return o
+}
+
+// Information about the Primary Domain Controller (PDC) in the AD domain.
+func (o ActiveDirectoryDomainControllersOutput) PrimaryDomainController() ActiveDirectoryDomainControllerPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainControllers) *ActiveDirectoryDomainController {
+		return v.PrimaryDomainController
+	}).(ActiveDirectoryDomainControllerPtrOutput)
+}
+
+// null
+func (o ActiveDirectoryDomainControllersOutput) SecondaryDomainControllers() ActiveDirectoryDomainControllerArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainControllers) []ActiveDirectoryDomainController {
+		return v.SecondaryDomainControllers
+	}).(ActiveDirectoryDomainControllerArrayOutput)
+}
+
+// Details about the Active Directory domain controllers associated with this AD connector instance
+type ActiveDirectoryDomainControllersResponse struct {
+	// Information about the Primary Domain Controller (PDC) in the AD domain.
+	PrimaryDomainController *ActiveDirectoryDomainControllerResponse `pulumi:"primaryDomainController"`
+	// null
+	SecondaryDomainControllers []ActiveDirectoryDomainControllerResponse `pulumi:"secondaryDomainControllers"`
+}
+
+// Details about the Active Directory domain controllers associated with this AD connector instance
+type ActiveDirectoryDomainControllersResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryDomainControllersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryDomainControllersResponse)(nil)).Elem()
+}
+
+func (o ActiveDirectoryDomainControllersResponseOutput) ToActiveDirectoryDomainControllersResponseOutput() ActiveDirectoryDomainControllersResponseOutput {
+	return o
+}
+
+func (o ActiveDirectoryDomainControllersResponseOutput) ToActiveDirectoryDomainControllersResponseOutputWithContext(ctx context.Context) ActiveDirectoryDomainControllersResponseOutput {
+	return o
+}
+
+// Information about the Primary Domain Controller (PDC) in the AD domain.
+func (o ActiveDirectoryDomainControllersResponseOutput) PrimaryDomainController() ActiveDirectoryDomainControllerResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainControllersResponse) *ActiveDirectoryDomainControllerResponse {
+		return v.PrimaryDomainController
+	}).(ActiveDirectoryDomainControllerResponsePtrOutput)
+}
+
+// null
+func (o ActiveDirectoryDomainControllersResponseOutput) SecondaryDomainControllers() ActiveDirectoryDomainControllerResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDirectoryDomainControllersResponse) []ActiveDirectoryDomainControllerResponse {
+		return v.SecondaryDomainControllers
+	}).(ActiveDirectoryDomainControllerResponseArrayOutput)
+}
+
 // Username and password for basic login authentication.
 type BasicLoginInformation struct {
 	// Login password.
@@ -3423,6 +4594,26 @@ func (o UploadWatermarkResponsePtrOutput) Usages() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorDNSDetailsOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorDNSDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorDomainDetailsOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorDomainDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorPropertiesOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorSpecOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorSpecResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusPtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryConnectorStatusResponsePtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerPtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerArrayOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponsePtrOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersResponseOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationPtrOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationResponseOutput{})

@@ -12,7 +12,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-01-11.
+// API Version: 2021-11-01.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -67,6 +67,9 @@ func NewService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:Service"),
 		},
 	})
 	opts = append(opts, aliases)

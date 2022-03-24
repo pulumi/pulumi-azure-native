@@ -102,7 +102,7 @@ export class ScopeConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeConnection.__pulumiType, name, resourceInputs, opts);
     }

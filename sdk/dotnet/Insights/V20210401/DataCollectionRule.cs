@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.Insights.V20210401
                 {
                     new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRule"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

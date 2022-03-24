@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Log Analytics QueryPack definition.
- * API Version: 2019-09-01-preview.
+ * API Version: 2019-09-01.
  */
 export function getQueryPack(args: GetQueryPackArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryPackResult> {
     if (!opts) {

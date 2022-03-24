@@ -50,6 +50,9 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:managedidentity/v20181130:UserAssignedIdentity"),
 		},
+		{
+			Type: pulumi.String("azure-native:managedidentity/v20210930preview:UserAssignedIdentity"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource UserAssignedIdentity

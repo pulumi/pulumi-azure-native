@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20220101preview from "./v20220101preview";
+import * as v20220301preview from "./v20220301preview";
 
 export {
     v20220101preview,
+    v20220301preview,
 };
 
 export const CoreNetworkType = {

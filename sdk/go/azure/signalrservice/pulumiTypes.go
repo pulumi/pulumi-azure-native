@@ -979,6 +979,87 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Reference to a resource.
+type ResourceReference struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// ResourceReferenceInput is an input type that accepts ResourceReferenceArgs and ResourceReferenceOutput values.
+// You can construct a concrete instance of `ResourceReferenceInput` via:
+//
+//          ResourceReferenceArgs{...}
+type ResourceReferenceInput interface {
+	pulumi.Input
+
+	ToResourceReferenceOutput() ResourceReferenceOutput
+	ToResourceReferenceOutputWithContext(context.Context) ResourceReferenceOutput
+}
+
+// Reference to a resource.
+type ResourceReferenceArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ResourceReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReference)(nil)).Elem()
+}
+
+func (i ResourceReferenceArgs) ToResourceReferenceOutput() ResourceReferenceOutput {
+	return i.ToResourceReferenceOutputWithContext(context.Background())
+}
+
+func (i ResourceReferenceArgs) ToResourceReferenceOutputWithContext(ctx context.Context) ResourceReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceOutput)
+}
+
+// Reference to a resource.
+type ResourceReferenceOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReference)(nil)).Elem()
+}
+
+func (o ResourceReferenceOutput) ToResourceReferenceOutput() ResourceReferenceOutput {
+	return o
+}
+
+func (o ResourceReferenceOutput) ToResourceReferenceOutputWithContext(ctx context.Context) ResourceReferenceOutput {
+	return o
+}
+
+// Resource ID.
+func (o ResourceReferenceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReference) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Reference to a resource.
+type ResourceReferenceResponse struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// Reference to a resource.
+type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceReferenceResponse)(nil)).Elem()
+}
+
+func (o ResourceReferenceResponseOutput) ToResourceReferenceResponseOutput() ResourceReferenceResponseOutput {
+	return o
+}
+
+func (o ResourceReferenceResponseOutput) ToResourceReferenceResponseOutputWithContext(ctx context.Context) ResourceReferenceResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o ResourceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // The billing information of the SignalR resource.
 type ResourceSku struct {
 	// Optional, integer. The unit count of SignalR resource. 1 by default.
@@ -2571,6 +2652,8 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceOutput{})
+	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuOutput{})
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})

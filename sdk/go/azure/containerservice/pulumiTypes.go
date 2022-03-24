@@ -7500,6 +7500,55 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) SkipNodesWithSystemP
 	}).(pulumi.StringPtrOutput)
 }
 
+// managed cluster properties for snapshot, these properties are read only.
+type ManagedClusterPropertiesForSnapshotResponse struct {
+	// Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+	EnableRbac *bool `pulumi:"enableRbac"`
+	// The current kubernetes version.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// The current network profile.
+	NetworkProfile NetworkProfileForSnapshotResponse `pulumi:"networkProfile"`
+	// The current managed cluster sku.
+	Sku *ManagedClusterSKUResponse `pulumi:"sku"`
+}
+
+// managed cluster properties for snapshot, these properties are read only.
+type ManagedClusterPropertiesForSnapshotResponseOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesForSnapshotResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesForSnapshotResponse)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) ToManagedClusterPropertiesForSnapshotResponseOutput() ManagedClusterPropertiesForSnapshotResponseOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) ToManagedClusterPropertiesForSnapshotResponseOutputWithContext(ctx context.Context) ManagedClusterPropertiesForSnapshotResponseOutput {
+	return o
+}
+
+// Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) EnableRbac() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesForSnapshotResponse) *bool { return v.EnableRbac }).(pulumi.BoolPtrOutput)
+}
+
+// The current kubernetes version.
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesForSnapshotResponse) *string { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+// The current network profile.
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) NetworkProfile() NetworkProfileForSnapshotResponseOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesForSnapshotResponse) NetworkProfileForSnapshotResponse {
+		return v.NetworkProfile
+	}).(NetworkProfileForSnapshotResponseOutput)
+}
+
+// The current managed cluster sku.
+func (o ManagedClusterPropertiesForSnapshotResponseOutput) Sku() ManagedClusterSKUResponsePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesForSnapshotResponse) *ManagedClusterSKUResponse { return v.Sku }).(ManagedClusterSKUResponsePtrOutput)
+}
+
 type ManagedClusterPropertiesIdentityProfile struct {
 	// The client id of the user assigned identity.
 	ClientId *string `pulumi:"clientId"`
@@ -8112,13 +8161,15 @@ func (o ManagedClusterSKUPtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The SKU of a Managed Cluster.
 type ManagedClusterSKUResponse struct {
-	// Name of a managed cluster SKU.
+	// The name of a managed cluster SKU.
 	Name *string `pulumi:"name"`
-	// Tier of a managed cluster SKU.
+	// If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
 	Tier *string `pulumi:"tier"`
 }
 
+// The SKU of a Managed Cluster.
 type ManagedClusterSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterSKUResponseOutput) ElementType() reflect.Type {
@@ -8133,12 +8184,12 @@ func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponseOutputWithCo
 	return o
 }
 
-// Name of a managed cluster SKU.
+// The name of a managed cluster SKU.
 func (o ManagedClusterSKUResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKUResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
+// If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
 func (o ManagedClusterSKUResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedClusterSKUResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
@@ -8167,7 +8218,7 @@ func (o ManagedClusterSKUResponsePtrOutput) Elem() ManagedClusterSKUResponseOutp
 	}).(ManagedClusterSKUResponseOutput)
 }
 
-// Name of a managed cluster SKU.
+// The name of a managed cluster SKU.
 func (o ManagedClusterSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKUResponse) *string {
 		if v == nil {
@@ -8177,7 +8228,7 @@ func (o ManagedClusterSKUResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Tier of a managed cluster SKU.
+// If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
 func (o ManagedClusterSKUResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedClusterSKUResponse) *string {
 		if v == nil {
@@ -8920,6 +8971,53 @@ func (o NetworkProfilePtrOutput) VnetId() pulumi.StringPtrOutput {
 		}
 		return v.VnetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// network profile for managed cluster snapshot, these properties are read only.
+type NetworkProfileForSnapshotResponse struct {
+	// loadBalancerSku for managed cluster snapshot.
+	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
+	// networkMode for managed cluster snapshot.
+	NetworkMode *string `pulumi:"networkMode"`
+	// networkPlugin for managed cluster snapshot.
+	NetworkPlugin *string `pulumi:"networkPlugin"`
+	// networkPolicy for managed cluster snapshot.
+	NetworkPolicy *string `pulumi:"networkPolicy"`
+}
+
+// network profile for managed cluster snapshot, these properties are read only.
+type NetworkProfileForSnapshotResponseOutput struct{ *pulumi.OutputState }
+
+func (NetworkProfileForSnapshotResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkProfileForSnapshotResponse)(nil)).Elem()
+}
+
+func (o NetworkProfileForSnapshotResponseOutput) ToNetworkProfileForSnapshotResponseOutput() NetworkProfileForSnapshotResponseOutput {
+	return o
+}
+
+func (o NetworkProfileForSnapshotResponseOutput) ToNetworkProfileForSnapshotResponseOutputWithContext(ctx context.Context) NetworkProfileForSnapshotResponseOutput {
+	return o
+}
+
+// loadBalancerSku for managed cluster snapshot.
+func (o NetworkProfileForSnapshotResponseOutput) LoadBalancerSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileForSnapshotResponse) *string { return v.LoadBalancerSku }).(pulumi.StringPtrOutput)
+}
+
+// networkMode for managed cluster snapshot.
+func (o NetworkProfileForSnapshotResponseOutput) NetworkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileForSnapshotResponse) *string { return v.NetworkMode }).(pulumi.StringPtrOutput)
+}
+
+// networkPlugin for managed cluster snapshot.
+func (o NetworkProfileForSnapshotResponseOutput) NetworkPlugin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileForSnapshotResponse) *string { return v.NetworkPlugin }).(pulumi.StringPtrOutput)
+}
+
+// networkPolicy for managed cluster snapshot.
+func (o NetworkProfileForSnapshotResponseOutput) NetworkPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkProfileForSnapshotResponse) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
 // Represents the OpenShift networking configuration
@@ -13271,6 +13369,7 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterPodIdentityResponseProvisioningInfoOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfilePtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesForSnapshotResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseAutoScalerProfileOutput{})
@@ -13291,6 +13390,7 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterWindowsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(NetworkProfileForSnapshotResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAADIdentityProviderOutput{})

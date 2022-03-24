@@ -539,12 +539,14 @@ const (
 	PublicNetworkAccessDisabled = PublicNetworkAccess("disabled")
 )
 
-// A specific data exfiltration scenario that is disabled for the service.
+// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
 type SearchBypass string
 
 const (
 	// Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
 	SearchBypassNone = SearchBypass("None")
+	// Indicates that requests originating from the Azure portal can bypass the rules defined in the 'ipRules' section.
+	SearchBypassAzurePortal = SearchBypass("AzurePortal")
 )
 
 // A specific data exfiltration scenario that is disabled for the service.

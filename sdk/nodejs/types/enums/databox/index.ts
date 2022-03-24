@@ -9,6 +9,7 @@ import * as v20201101 from "./v20201101";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211201 from "./v20211201";
 
 export {
     v20180101,
@@ -18,6 +19,7 @@ export {
     v20210301,
     v20210501,
     v20210801preview,
+    v20211201,
 };
 
 export const AddressType = {

@@ -924,6 +924,13 @@ type AudioResponse struct {
 	SamplingRate *int `pulumi:"samplingRate"`
 }
 
+// Represents an audio track in the asset.
+type AudioTrack struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioTrack'.
+	OdataType string `pulumi:"odataType"`
+}
+
 // A TrackSelection to select audio tracks.
 type AudioTrackDescriptor struct {
 	// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
@@ -939,6 +946,13 @@ type AudioTrackDescriptorResponse struct {
 	ChannelMapping *string `pulumi:"channelMapping"`
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.AudioTrackDescriptor'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// Represents an audio track in the asset.
+type AudioTrackResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.AudioTrack'.
 	OdataType string `pulumi:"odataType"`
 }
 
@@ -5066,6 +5080,26 @@ func (o HlsResponsePtrOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
 		}
 		return v.FragmentsPerTsSegment
 	}).(pulumi.IntPtrOutput)
+}
+
+// The HLS setting for a text track.
+type HlsSettings struct {
+	// The characteristics for the HLS setting.
+	Characteristics *string `pulumi:"characteristics"`
+	// The default for the HLS setting.
+	Default *bool `pulumi:"default"`
+	// The forced for the HLS setting.
+	Forced *bool `pulumi:"forced"`
+}
+
+// The HLS setting for a text track.
+type HlsSettingsResponse struct {
+	// The characteristics for the HLS setting.
+	Characteristics *string `pulumi:"characteristics"`
+	// The default for the HLS setting.
+	Default *bool `pulumi:"default"`
+	// The forced for the HLS setting.
+	Forced *bool `pulumi:"forced"`
 }
 
 // The IP access control.
@@ -11820,6 +11854,38 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
+type TextTrack struct {
+	// The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+	DisplayName *string `pulumi:"displayName"`
+	// The file name to the source file. This file is located in the storage container of the asset.
+	FileName *string `pulumi:"fileName"`
+	// The HLS specific setting for the text track.
+	HlsSettings *HlsSettings `pulumi:"hlsSettings"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.TextTrack'.
+	OdataType string `pulumi:"odataType"`
+	// When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+	PlayerVisibility *string `pulumi:"playerVisibility"`
+}
+
+// Represents a text track in an asset. A text track is usually used for sparse data related to the audio or video tracks.
+type TextTrackResponse struct {
+	// The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.
+	DisplayName *string `pulumi:"displayName"`
+	// The file name to the source file. This file is located in the storage container of the asset.
+	FileName *string `pulumi:"fileName"`
+	// The HLS specific setting for the text track.
+	HlsSettings *HlsSettingsResponse `pulumi:"hlsSettings"`
+	// The RFC5646 language code for the text track.
+	LanguageCode string `pulumi:"languageCode"`
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.TextTrack'.
+	OdataType string `pulumi:"odataType"`
+	// When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+	PlayerVisibility *string `pulumi:"playerVisibility"`
+}
+
 // Class to specify one track property condition
 type TrackPropertyCondition struct {
 	// Track property condition operation
@@ -12472,6 +12538,13 @@ type VideoResponse struct {
 	SyncMode *string `pulumi:"syncMode"`
 }
 
+// Represents a video track in the asset.
+type VideoTrack struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoTrack'.
+	OdataType string `pulumi:"odataType"`
+}
+
 // A TrackSelection to select video tracks.
 type VideoTrackDescriptor struct {
 	// The discriminator for derived types.
@@ -12483,6 +12556,13 @@ type VideoTrackDescriptor struct {
 type VideoTrackDescriptorResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.VideoTrackDescriptor'.
+	OdataType string `pulumi:"odataType"`
+}
+
+// Represents a video track in the asset.
+type VideoTrackResponse struct {
+	// The discriminator for derived types.
+	// Expected value is '#Microsoft.Media.VideoTrack'.
 	OdataType string `pulumi:"odataType"`
 }
 

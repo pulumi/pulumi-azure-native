@@ -92,7 +92,7 @@ export class BuildpackBinding extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:BuildpackBinding" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:BuildpackBinding" }, { type: "azure-native:appplatform/v20220301preview:BuildpackBinding" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildpackBinding.__pulumiType, name, resourceInputs, opts);
     }

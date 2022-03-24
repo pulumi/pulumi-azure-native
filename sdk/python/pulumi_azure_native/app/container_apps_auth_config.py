@@ -23,17 +23,17 @@ class ContainerAppsAuthConfigArgs:
                  identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
                  login: Optional[pulumi.Input['LoginArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None):
+                 platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a ContainerAppsAuthConfig resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
-        :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
-        :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
-        :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
+        :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[str] name: Name of the Container App AuthConfig.
-        :param pulumi.Input[Union[str, 'AuthConfigState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -47,8 +47,8 @@ class ContainerAppsAuthConfigArgs:
             pulumi.set(__self__, "login", login)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if state is not None:
-            pulumi.set(__self__, "state", state)
+        if platform is not None:
+            pulumi.set(__self__, "platform", platform)
 
     @property
     @pulumi.getter(name="containerAppName")
@@ -78,7 +78,7 @@ class ContainerAppsAuthConfigArgs:
     @pulumi.getter(name="globalValidation")
     def global_validation(self) -> Optional[pulumi.Input['GlobalValidationArgs']]:
         """
-        The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         """
         return pulumi.get(self, "global_validation")
 
@@ -90,7 +90,7 @@ class ContainerAppsAuthConfigArgs:
     @pulumi.getter(name="httpSettings")
     def http_settings(self) -> Optional[pulumi.Input['HttpSettingsArgs']]:
         """
-        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "http_settings")
 
@@ -102,7 +102,7 @@ class ContainerAppsAuthConfigArgs:
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> Optional[pulumi.Input['IdentityProvidersArgs']]:
         """
-        The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
@@ -114,7 +114,7 @@ class ContainerAppsAuthConfigArgs:
     @pulumi.getter
     def login(self) -> Optional[pulumi.Input['LoginArgs']]:
         """
-        The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "login")
 
@@ -136,15 +136,15 @@ class ContainerAppsAuthConfigArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[str, 'AuthConfigState']]]:
+    def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
         """
-        <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "platform")
 
-    @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[str, 'AuthConfigState']]]):
-        pulumi.set(self, "state", value)
+    @platform.setter
+    def platform(self, value: Optional[pulumi.Input['AuthPlatformArgs']]):
+        pulumi.set(self, "platform", value)
 
 
 class ContainerAppsAuthConfig(pulumi.CustomResource):
@@ -158,23 +158,23 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None,
                  __props__=None):
         """
-        Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         API Version: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
-        :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
-        :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+        :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[str] name: Name of the Container App AuthConfig.
+        :param pulumi.Input[pulumi.InputType['AuthPlatformArgs']] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'AuthConfigState']] state: <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
         """
         ...
     @overload
@@ -183,7 +183,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  args: ContainerAppsAuthConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         API Version: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -207,8 +207,8 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[Union[str, 'AuthConfigState']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -229,10 +229,10 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             __props__.__dict__["identity_providers"] = identity_providers
             __props__.__dict__["login"] = login
             __props__.__dict__["name"] = name
+            __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["state"] = state
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsAuthConfig")])
@@ -264,7 +264,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         __props__.__dict__["identity_providers"] = None
         __props__.__dict__["login"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["state"] = None
+        __props__.__dict__["platform"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ContainerAppsAuthConfig(resource_name, opts=opts, __props__=__props__)
@@ -273,7 +273,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     @pulumi.getter(name="globalValidation")
     def global_validation(self) -> pulumi.Output[Optional['outputs.GlobalValidationResponse']]:
         """
-        The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         """
         return pulumi.get(self, "global_validation")
 
@@ -281,7 +281,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     @pulumi.getter(name="httpSettings")
     def http_settings(self) -> pulumi.Output[Optional['outputs.HttpSettingsResponse']]:
         """
-        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "http_settings")
 
@@ -289,7 +289,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> pulumi.Output[Optional['outputs.IdentityProvidersResponse']]:
         """
-        The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
@@ -297,7 +297,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     @pulumi.getter
     def login(self) -> pulumi.Output[Optional['outputs.LoginResponse']]:
         """
-        The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "login")
 
@@ -311,11 +311,11 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> pulumi.Output[Optional[str]]:
+    def platform(self) -> pulumi.Output[Optional['outputs.AuthPlatformResponse']]:
         """
-        <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="systemData")

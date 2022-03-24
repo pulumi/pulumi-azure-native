@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : Pulumi.CustomResource
     {
         /// <summary>
-        /// The endpoint used by agents to access their configuration.
+        /// The endpoint used by clients to access their configuration.
         /// </summary>
         [Output("configurationAccess")]
         public Output<Outputs.DataCollectionEndpointResponseConfigurationAccess?> ConfigurationAccess { get; private set; } = null!;
@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Insights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210901preview:DataCollectionEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

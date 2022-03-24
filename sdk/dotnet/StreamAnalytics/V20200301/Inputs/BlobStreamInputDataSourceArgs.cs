@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         public Input<string>? PathPattern { get; set; }
 
         /// <summary>
-        /// The partition count of the blob input data source. Range 1 - 256.
+        /// The partition count of the blob input data source. Range 1 - 1024.
         /// </summary>
         [Input("sourcePartitionCount")]
         public Input<int>? SourcePartitionCount { get; set; }

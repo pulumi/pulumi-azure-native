@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Router Peering resource.
- * API Version: 2020-08-01.
+ * API Version: 2021-05-01.
  */
 export class VirtualRouterPeering extends pulumi.CustomResource {
     /**

@@ -14,7 +14,6 @@ __all__ = [
     'DatabaseIdentityResponse',
     'DatabaseUserIdentityResponse',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemResponse',
-    'DelegationResponse',
     'ElasticPoolPerDatabaseSettingsResponse',
     'FailoverGroupReadOnlyEndpointResponse',
     'FailoverGroupReadWriteEndpointResponse',
@@ -66,8 +65,6 @@ class DatabaseIdentityResponse(dict):
         suggest = None
         if key == "tenantId":
             suggest = "tenant_id"
-        elif key == "delegatedResources":
-            suggest = "delegated_resources"
         elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
@@ -84,19 +81,15 @@ class DatabaseIdentityResponse(dict):
 
     def __init__(__self__, *,
                  tenant_id: str,
-                 delegated_resources: Optional[Mapping[str, 'outputs.DelegationResponse']] = None,
                  type: Optional[str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.DatabaseUserIdentityResponse']] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param str tenant_id: The Azure Active Directory tenant id.
-        :param Mapping[str, 'DelegationResponse'] delegated_resources: Resources delegated to the database - Internal Use Only
         :param str type: The identity type
         :param Mapping[str, 'DatabaseUserIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         pulumi.set(__self__, "tenant_id", tenant_id)
-        if delegated_resources is not None:
-            pulumi.set(__self__, "delegated_resources", delegated_resources)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -109,14 +102,6 @@ class DatabaseIdentityResponse(dict):
         The Azure Active Directory tenant id.
         """
         return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter(name="delegatedResources")
-    def delegated_resources(self) -> Optional[Mapping[str, 'outputs.DelegationResponse']]:
-        """
-        Resources delegated to the database - Internal Use Only
-        """
-        return pulumi.get(self, "delegated_resources")
 
     @property
     @pulumi.getter
@@ -207,59 +192,6 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
         The rule baseline result
         """
         return pulumi.get(self, "result")
-
-
-@pulumi.output_type
-class DelegationResponse(dict):
-    """
-    Delegated Resource Properties - Internal Use Only
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "resourceId":
-            suggest = "resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DelegationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DelegationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DelegationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 tenant_id: str,
-                 resource_id: Optional[str] = None):
-        """
-        Delegated Resource Properties - Internal Use Only
-        :param str tenant_id: AAD tenant guid of the source resource identity - Internal Use Only.
-        :param str resource_id: The resource id of the source resource - Internal Use Only
-        """
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        AAD tenant guid of the source resource identity - Internal Use Only.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
-        """
-        The resource id of the source resource - Internal Use Only
-        """
-        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

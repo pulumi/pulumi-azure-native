@@ -19,9 +19,9 @@ __all__ = [
 @pulumi.output_type
 class GetContainerAppsAuthConfigResult:
     """
-    Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+    Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     """
-    def __init__(__self__, global_validation=None, http_settings=None, id=None, identity_providers=None, login=None, name=None, state=None, system_data=None, type=None):
+    def __init__(__self__, global_validation=None, http_settings=None, id=None, identity_providers=None, login=None, name=None, platform=None, system_data=None, type=None):
         if global_validation and not isinstance(global_validation, dict):
             raise TypeError("Expected argument 'global_validation' to be a dict")
         pulumi.set(__self__, "global_validation", global_validation)
@@ -40,9 +40,9 @@ class GetContainerAppsAuthConfigResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if state and not isinstance(state, str):
-            raise TypeError("Expected argument 'state' to be a str")
-        pulumi.set(__self__, "state", state)
+        if platform and not isinstance(platform, dict):
+            raise TypeError("Expected argument 'platform' to be a dict")
+        pulumi.set(__self__, "platform", platform)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -54,7 +54,7 @@ class GetContainerAppsAuthConfigResult:
     @pulumi.getter(name="globalValidation")
     def global_validation(self) -> Optional['outputs.GlobalValidationResponse']:
         """
-        The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         """
         return pulumi.get(self, "global_validation")
 
@@ -62,7 +62,7 @@ class GetContainerAppsAuthConfigResult:
     @pulumi.getter(name="httpSettings")
     def http_settings(self) -> Optional['outputs.HttpSettingsResponse']:
         """
-        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "http_settings")
 
@@ -78,7 +78,7 @@ class GetContainerAppsAuthConfigResult:
     @pulumi.getter(name="identityProviders")
     def identity_providers(self) -> Optional['outputs.IdentityProvidersResponse']:
         """
-        The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "identity_providers")
 
@@ -86,7 +86,7 @@ class GetContainerAppsAuthConfigResult:
     @pulumi.getter
     def login(self) -> Optional['outputs.LoginResponse']:
         """
-        The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         """
         return pulumi.get(self, "login")
 
@@ -100,11 +100,11 @@ class GetContainerAppsAuthConfigResult:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def platform(self) -> Optional['outputs.AuthPlatformResponse']:
         """
-        <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+        The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="systemData")
@@ -135,7 +135,7 @@ class AwaitableGetContainerAppsAuthConfigResult(GetContainerAppsAuthConfigResult
             identity_providers=self.identity_providers,
             login=self.login,
             name=self.name,
-            state=self.state,
+            platform=self.platform,
             system_data=self.system_data,
             type=self.type)
 
@@ -145,7 +145,7 @@ def get_container_apps_auth_config(container_app_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsAuthConfigResult:
     """
-    Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+    Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 
 
     :param str container_app_name: Name of the Container App.
@@ -169,7 +169,7 @@ def get_container_apps_auth_config(container_app_name: Optional[str] = None,
         identity_providers=__ret__.identity_providers,
         login=__ret__.login,
         name=__ret__.name,
-        state=__ret__.state,
+        platform=__ret__.platform,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -180,7 +180,7 @@ def get_container_apps_auth_config_output(container_app_name: Optional[pulumi.In
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
     """
-    Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+    Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 
 
     :param str container_app_name: Name of the Container App.

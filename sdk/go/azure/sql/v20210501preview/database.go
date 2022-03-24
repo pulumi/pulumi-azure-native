@@ -41,7 +41,7 @@ type Database struct {
 	FailoverGroupId pulumi.StringOutput `pulumi:"failoverGroupId"`
 	// The Client id used for cross tenant per database CMK scenario
 	FederatedClientId pulumi.StringPtrOutput `pulumi:"federatedClientId"`
-	// The number of secondary replicas associated with the database that are used to provide high availability.
+	// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 	HighAvailabilityReplicaCount pulumi.IntPtrOutput `pulumi:"highAvailabilityReplicaCount"`
 	// The Azure Active Directory identity of the database.
 	Identity DatabaseIdentityResponsePtrOutput `pulumi:"identity"`
@@ -69,9 +69,7 @@ type Database struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 	PausedDate pulumi.StringOutput `pulumi:"pausedDate"`
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId pulumi.StringPtrOutput `pulumi:"primaryDelegatedIdentityClientId"`
-	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale pulumi.StringPtrOutput `pulumi:"readScale"`
 	// The storage account type to be used to store backups for this database.
 	RequestedBackupStorageRedundancy pulumi.StringPtrOutput `pulumi:"requestedBackupStorageRedundancy"`
@@ -203,7 +201,7 @@ type databaseArgs struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// The Client id used for cross tenant per database CMK scenario
 	FederatedClientId *string `pulumi:"federatedClientId"`
-	// The number of secondary replicas associated with the database that are used to provide high availability.
+	// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 	HighAvailabilityReplicaCount *int `pulumi:"highAvailabilityReplicaCount"`
 	// The Azure Active Directory identity of the database.
 	Identity *DatabaseIdentity `pulumi:"identity"`
@@ -221,9 +219,7 @@ type databaseArgs struct {
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId *string `pulumi:"primaryDelegatedIdentityClientId"`
-	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale *string `pulumi:"readScale"`
 	// The resource identifier of the recoverable database associated with create operation of this database.
 	RecoverableDatabaseId *string `pulumi:"recoverableDatabaseId"`
@@ -251,6 +247,20 @@ type databaseArgs struct {
 	SourceDatabaseDeletionDate *string `pulumi:"sourceDatabaseDeletionDate"`
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId *string `pulumi:"sourceDatabaseId"`
+	// The resource identifier of the source associated with the create operation of this database.
+	//
+	// When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+	//
+	// When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+	//
+	// When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+	//
+	// When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+	//
+	// This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+	//
+	// When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant
+	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -289,7 +299,7 @@ type DatabaseArgs struct {
 	ElasticPoolId pulumi.StringPtrInput
 	// The Client id used for cross tenant per database CMK scenario
 	FederatedClientId pulumi.StringPtrInput
-	// The number of secondary replicas associated with the database that are used to provide high availability.
+	// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
 	HighAvailabilityReplicaCount pulumi.IntPtrInput
 	// The Azure Active Directory identity of the database.
 	Identity DatabaseIdentityPtrInput
@@ -307,9 +317,7 @@ type DatabaseArgs struct {
 	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId pulumi.StringPtrInput
-	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale pulumi.StringPtrInput
 	// The resource identifier of the recoverable database associated with create operation of this database.
 	RecoverableDatabaseId pulumi.StringPtrInput
@@ -337,6 +345,20 @@ type DatabaseArgs struct {
 	SourceDatabaseDeletionDate pulumi.StringPtrInput
 	// The resource identifier of the source database associated with create operation of this database.
 	SourceDatabaseId pulumi.StringPtrInput
+	// The resource identifier of the source associated with the create operation of this database.
+	//
+	// When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+	//
+	// When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+	//
+	// When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+	//
+	// When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+	//
+	// This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+	//
+	// When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant
+	SourceResourceId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.

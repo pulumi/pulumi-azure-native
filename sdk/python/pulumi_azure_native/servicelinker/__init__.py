@@ -16,6 +16,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicelinker.v20211101preview as __v20211101preview
     v20211101preview = __v20211101preview
+    import pulumi_azure_native.servicelinker.v20220101preview as __v20220101preview
+    v20220101preview = __v20220101preview
 else:
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20211101preview')
+    v20220101preview = _utilities.lazy_import('pulumi_azure_native.servicelinker.v20220101preview')
 

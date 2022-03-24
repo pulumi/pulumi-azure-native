@@ -46,10 +46,10 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? ClientSecretCertificateThumbprint { get; set; }
 
         /// <summary>
-        /// The app secret ref name that contains the client secret of the relying party application.
+        /// The app setting name that contains the client secret of the relying party application.
         /// </summary>
-        [Input("clientSecretRefName")]
-        public Input<string>? ClientSecretRefName { get; set; }
+        [Input("clientSecretSettingName")]
+        public Input<string>? ClientSecretSettingName { get; set; }
 
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.

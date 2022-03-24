@@ -297,7 +297,7 @@ class MobileNetwork(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["service_key"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:MobileNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:MobileNetwork"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:MobileNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MobileNetwork, __self__).__init__(
             'azure-native:mobilenetwork:MobileNetwork',

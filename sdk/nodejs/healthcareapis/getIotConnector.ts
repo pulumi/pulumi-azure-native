@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector definition.
- * API Version: 2021-06-01-preview.
+ * API Version: 2021-11-01.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
     if (!opts) {

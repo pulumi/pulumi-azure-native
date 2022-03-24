@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The privateStore offer data structure.
- * API Version: 2021-06-01.
+ * API Version: 2021-12-01.
  */
 export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             resourceInputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer" }, { type: "azure-native:marketplace/v20211201:PrivateStoreCollectionOffer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreCollectionOffer.__pulumiType, name, resourceInputs, opts);
     }

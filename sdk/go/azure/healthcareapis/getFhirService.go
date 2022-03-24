@@ -11,7 +11,7 @@ import (
 )
 
 // The description of Fhir Service
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 func LookupFhirService(ctx *pulumi.Context, args *LookupFhirServiceArgs, opts ...pulumi.InvokeOption) (*LookupFhirServiceResult, error) {
 	var rv LookupFhirServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis:getFhirService", args, &rv, opts...)
@@ -42,6 +42,8 @@ type LookupFhirServiceResult struct {
 	CorsConfiguration *FhirServiceCorsConfigurationResponse `pulumi:"corsConfiguration"`
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
+	// Fhir Service event support status.
+	EventState string `pulumi:"eventState"`
 	// Fhir Service export configuration.
 	ExportConfiguration *FhirServiceExportConfigurationResponse `pulumi:"exportConfiguration"`
 	// The resource identifier.
@@ -54,8 +56,14 @@ type LookupFhirServiceResult struct {
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	// Determines tracking of history for resources.
+	ResourceVersionPolicyConfiguration *ResourceVersionPolicyConfigurationResponse `pulumi:"resourceVersionPolicyConfiguration"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -128,6 +136,11 @@ func (o LookupFhirServiceResultOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFhirServiceResult) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+// Fhir Service event support status.
+func (o LookupFhirServiceResultOutput) EventState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFhirServiceResult) string { return v.EventState }).(pulumi.StringOutput)
+}
+
 // Fhir Service export configuration.
 func (o LookupFhirServiceResultOutput) ExportConfiguration() FhirServiceExportConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v LookupFhirServiceResult) *FhirServiceExportConfigurationResponse { return v.ExportConfiguration }).(FhirServiceExportConfigurationResponsePtrOutput)
@@ -158,9 +171,28 @@ func (o LookupFhirServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFhirServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The list of private endpoint connections that are set up for this resource.
+func (o LookupFhirServiceResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupFhirServiceResult) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The provisioning state.
 func (o LookupFhirServiceResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFhirServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o LookupFhirServiceResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFhirServiceResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// Determines tracking of history for resources.
+func (o LookupFhirServiceResultOutput) ResourceVersionPolicyConfiguration() ResourceVersionPolicyConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupFhirServiceResult) *ResourceVersionPolicyConfigurationResponse {
+		return v.ResourceVersionPolicyConfiguration
+	}).(ResourceVersionPolicyConfigurationResponsePtrOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.

@@ -24,7 +24,7 @@ func LookupGrafana(ctx *pulumi.Context, args *LookupGrafanaArgs, opts ...pulumi.
 type LookupGrafanaArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of Azure Managed Workspace for Grafana.
+	// The workspace name of Azure Managed Grafana.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
@@ -39,7 +39,7 @@ type LookupGrafanaResult struct {
 	// Name of the grafana resource.
 	Name string `pulumi:"name"`
 	// Properties specific to the grafana resource.
-	Properties GrafanaResourcePropertiesResponse `pulumi:"properties"`
+	Properties ManagedGrafanaPropertiesResponse `pulumi:"properties"`
 	// The Sku of the grafana resource.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// The system meta data relating to this grafana resource.
@@ -62,7 +62,7 @@ func LookupGrafanaOutput(ctx *pulumi.Context, args LookupGrafanaOutputArgs, opts
 type LookupGrafanaOutputArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// The name of Azure Managed Workspace for Grafana.
+	// The workspace name of Azure Managed Grafana.
 	WorkspaceName pulumi.StringInput `pulumi:"workspaceName"`
 }
 
@@ -106,8 +106,8 @@ func (o LookupGrafanaResultOutput) Name() pulumi.StringOutput {
 }
 
 // Properties specific to the grafana resource.
-func (o LookupGrafanaResultOutput) Properties() GrafanaResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v LookupGrafanaResult) GrafanaResourcePropertiesResponse { return v.Properties }).(GrafanaResourcePropertiesResponseOutput)
+func (o LookupGrafanaResultOutput) Properties() ManagedGrafanaPropertiesResponseOutput {
+	return o.ApplyT(func(v LookupGrafanaResult) ManagedGrafanaPropertiesResponse { return v.Properties }).(ManagedGrafanaPropertiesResponseOutput)
 }
 
 // The Sku of the grafana resource.

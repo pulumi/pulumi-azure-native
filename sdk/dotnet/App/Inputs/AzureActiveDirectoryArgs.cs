@@ -16,6 +16,20 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class AzureActiveDirectoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+        /// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+        /// read or write to this property.
+        /// </summary>
+        [Input("isAutoProvisioned")]
+        public Input<bool>? IsAutoProvisioned { get; set; }
+
+        /// <summary>
         /// The configuration settings of the Azure Active Directory login flow.
         /// </summary>
         [Input("login")]
@@ -26,12 +40,6 @@ namespace Pulumi.AzureNative.App.Inputs
         /// </summary>
         [Input("registration")]
         public Input<Inputs.AzureActiveDirectoryRegistrationArgs>? Registration { get; set; }
-
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.IdentityProviderState>? State { get; set; }
 
         /// <summary>
         /// The configuration settings of the Azure Active Directory token validation flow.

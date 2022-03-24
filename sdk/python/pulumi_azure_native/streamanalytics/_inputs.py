@@ -935,7 +935,7 @@ class BlobStreamInputDataSourceArgs:
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
-        :param pulumi.Input[int] source_partition_count: The partition count of the blob input data source. Range 1 - 256.
+        :param pulumi.Input[int] source_partition_count: The partition count of the blob input data source. Range 1 - 1024.
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
@@ -1006,7 +1006,7 @@ class BlobStreamInputDataSourceArgs:
     @pulumi.getter(name="sourcePartitionCount")
     def source_partition_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The partition count of the blob input data source. Range 1 - 256.
+        The partition count of the blob input data source. Range 1 - 1024.
         """
         return pulumi.get(self, "source_partition_count")
 

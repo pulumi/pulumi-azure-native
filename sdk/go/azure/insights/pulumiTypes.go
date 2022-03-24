@@ -3294,13 +3294,13 @@ func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedByTy
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-// The endpoint used by agents to access their configuration.
+// The endpoint used by clients to access their configuration.
 type DataCollectionEndpointResponseConfigurationAccess struct {
 	// The endpoint. This property is READ-ONLY.
 	Endpoint string `pulumi:"endpoint"`
 }
 
-// The endpoint used by agents to access their configuration.
+// The endpoint used by clients to access their configuration.
 type DataCollectionEndpointResponseConfigurationAccessOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointResponseConfigurationAccessOutput) ElementType() reflect.Type {

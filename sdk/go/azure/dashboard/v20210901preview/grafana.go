@@ -22,7 +22,7 @@ type Grafana struct {
 	// Name of the grafana resource.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties specific to the grafana resource.
-	Properties GrafanaResourcePropertiesResponseOutput `pulumi:"properties"`
+	Properties ManagedGrafanaPropertiesResponseOutput `pulumi:"properties"`
 	// The Sku of the grafana resource.
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
 	// The system meta data relating to this grafana resource.
@@ -86,14 +86,14 @@ type grafanaArgs struct {
 	// The geo-location where the grafana resource lives
 	Location *string `pulumi:"location"`
 	// Properties specific to the grafana resource.
-	Properties *GrafanaResourceProperties `pulumi:"properties"`
+	Properties *ManagedGrafanaProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Sku of the grafana resource.
 	Sku *ResourceSku `pulumi:"sku"`
 	// The tags for grafana resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The name of Azure Managed Workspace for Grafana.
+	// The workspace name of Azure Managed Grafana.
 	WorkspaceName *string `pulumi:"workspaceName"`
 }
 
@@ -104,14 +104,14 @@ type GrafanaArgs struct {
 	// The geo-location where the grafana resource lives
 	Location pulumi.StringPtrInput
 	// Properties specific to the grafana resource.
-	Properties GrafanaResourcePropertiesPtrInput
+	Properties ManagedGrafanaPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The Sku of the grafana resource.
 	Sku ResourceSkuPtrInput
 	// The tags for grafana resource.
 	Tags pulumi.StringMapInput
-	// The name of Azure Managed Workspace for Grafana.
+	// The workspace name of Azure Managed Grafana.
 	WorkspaceName pulumi.StringPtrInput
 }
 

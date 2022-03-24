@@ -12,8 +12,6 @@ import (
 
 // Azure Active Directory identity configuration for a resource.
 type DatabaseIdentity struct {
-	// Resources delegated to the database - Internal Use Only
-	DelegatedResources map[string]Delegation `pulumi:"delegatedResources"`
 	// The identity type
 	Type *string `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
@@ -33,8 +31,6 @@ type DatabaseIdentityInput interface {
 
 // Azure Active Directory identity configuration for a resource.
 type DatabaseIdentityArgs struct {
-	// Resources delegated to the database - Internal Use Only
-	DelegatedResources DelegationMapInput `pulumi:"delegatedResources"`
 	// The identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The resource ids of the user assigned identities to use
@@ -119,11 +115,6 @@ func (o DatabaseIdentityOutput) ToDatabaseIdentityPtrOutputWithContext(ctx conte
 	}).(DatabaseIdentityPtrOutput)
 }
 
-// Resources delegated to the database - Internal Use Only
-func (o DatabaseIdentityOutput) DelegatedResources() DelegationMapOutput {
-	return o.ApplyT(func(v DatabaseIdentity) map[string]Delegation { return v.DelegatedResources }).(DelegationMapOutput)
-}
-
 // The identity type
 func (o DatabaseIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -158,16 +149,6 @@ func (o DatabaseIdentityPtrOutput) Elem() DatabaseIdentityOutput {
 	}).(DatabaseIdentityOutput)
 }
 
-// Resources delegated to the database - Internal Use Only
-func (o DatabaseIdentityPtrOutput) DelegatedResources() DelegationMapOutput {
-	return o.ApplyT(func(v *DatabaseIdentity) map[string]Delegation {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedResources
-	}).(DelegationMapOutput)
-}
-
 // The identity type
 func (o DatabaseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatabaseIdentity) *string {
@@ -190,8 +171,6 @@ func (o DatabaseIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
 
 // Azure Active Directory identity configuration for a resource.
 type DatabaseIdentityResponse struct {
-	// Resources delegated to the database - Internal Use Only
-	DelegatedResources map[string]DelegationResponse `pulumi:"delegatedResources"`
 	// The Azure Active Directory tenant id.
 	TenantId string `pulumi:"tenantId"`
 	// The identity type
@@ -213,11 +192,6 @@ func (o DatabaseIdentityResponseOutput) ToDatabaseIdentityResponseOutput() Datab
 
 func (o DatabaseIdentityResponseOutput) ToDatabaseIdentityResponseOutputWithContext(ctx context.Context) DatabaseIdentityResponseOutput {
 	return o
-}
-
-// Resources delegated to the database - Internal Use Only
-func (o DatabaseIdentityResponseOutput) DelegatedResources() DelegationResponseMapOutput {
-	return o.ApplyT(func(v DatabaseIdentityResponse) map[string]DelegationResponse { return v.DelegatedResources }).(DelegationResponseMapOutput)
 }
 
 // The Azure Active Directory tenant id.
@@ -259,16 +233,6 @@ func (o DatabaseIdentityResponsePtrOutput) Elem() DatabaseIdentityResponseOutput
 		var ret DatabaseIdentityResponse
 		return ret
 	}).(DatabaseIdentityResponseOutput)
-}
-
-// Resources delegated to the database - Internal Use Only
-func (o DatabaseIdentityResponsePtrOutput) DelegatedResources() DelegationResponseMapOutput {
-	return o.ApplyT(func(v *DatabaseIdentityResponse) map[string]DelegationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DelegatedResources
-	}).(DelegationResponseMapOutput)
 }
 
 // The Azure Active Directory tenant id.
@@ -498,159 +462,6 @@ func (o DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput) Inde
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseVulnerabilityAssessmentRuleBaselineItemResponse {
 		return vs[0].([]DatabaseVulnerabilityAssessmentRuleBaselineItemResponse)[vs[1].(int)]
 	}).(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput)
-}
-
-// Delegated Resource Properties - Internal Use Only
-type Delegation struct {
-	// The resource id of the source resource - Internal Use Only
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-// DelegationInput is an input type that accepts DelegationArgs and DelegationOutput values.
-// You can construct a concrete instance of `DelegationInput` via:
-//
-//          DelegationArgs{...}
-type DelegationInput interface {
-	pulumi.Input
-
-	ToDelegationOutput() DelegationOutput
-	ToDelegationOutputWithContext(context.Context) DelegationOutput
-}
-
-// Delegated Resource Properties - Internal Use Only
-type DelegationArgs struct {
-	// The resource id of the source resource - Internal Use Only
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (DelegationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Delegation)(nil)).Elem()
-}
-
-func (i DelegationArgs) ToDelegationOutput() DelegationOutput {
-	return i.ToDelegationOutputWithContext(context.Background())
-}
-
-func (i DelegationArgs) ToDelegationOutputWithContext(ctx context.Context) DelegationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegationOutput)
-}
-
-// DelegationMapInput is an input type that accepts DelegationMap and DelegationMapOutput values.
-// You can construct a concrete instance of `DelegationMapInput` via:
-//
-//          DelegationMap{ "key": DelegationArgs{...} }
-type DelegationMapInput interface {
-	pulumi.Input
-
-	ToDelegationMapOutput() DelegationMapOutput
-	ToDelegationMapOutputWithContext(context.Context) DelegationMapOutput
-}
-
-type DelegationMap map[string]DelegationInput
-
-func (DelegationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Delegation)(nil)).Elem()
-}
-
-func (i DelegationMap) ToDelegationMapOutput() DelegationMapOutput {
-	return i.ToDelegationMapOutputWithContext(context.Background())
-}
-
-func (i DelegationMap) ToDelegationMapOutputWithContext(ctx context.Context) DelegationMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DelegationMapOutput)
-}
-
-// Delegated Resource Properties - Internal Use Only
-type DelegationOutput struct{ *pulumi.OutputState }
-
-func (DelegationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Delegation)(nil)).Elem()
-}
-
-func (o DelegationOutput) ToDelegationOutput() DelegationOutput {
-	return o
-}
-
-func (o DelegationOutput) ToDelegationOutputWithContext(ctx context.Context) DelegationOutput {
-	return o
-}
-
-// The resource id of the source resource - Internal Use Only
-func (o DelegationOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Delegation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
-type DelegationMapOutput struct{ *pulumi.OutputState }
-
-func (DelegationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Delegation)(nil)).Elem()
-}
-
-func (o DelegationMapOutput) ToDelegationMapOutput() DelegationMapOutput {
-	return o
-}
-
-func (o DelegationMapOutput) ToDelegationMapOutputWithContext(ctx context.Context) DelegationMapOutput {
-	return o
-}
-
-func (o DelegationMapOutput) MapIndex(k pulumi.StringInput) DelegationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Delegation {
-		return vs[0].(map[string]Delegation)[vs[1].(string)]
-	}).(DelegationOutput)
-}
-
-// Delegated Resource Properties - Internal Use Only
-type DelegationResponse struct {
-	// The resource id of the source resource - Internal Use Only
-	ResourceId *string `pulumi:"resourceId"`
-	// AAD tenant guid of the source resource identity - Internal Use Only.
-	TenantId string `pulumi:"tenantId"`
-}
-
-// Delegated Resource Properties - Internal Use Only
-type DelegationResponseOutput struct{ *pulumi.OutputState }
-
-func (DelegationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DelegationResponse)(nil)).Elem()
-}
-
-func (o DelegationResponseOutput) ToDelegationResponseOutput() DelegationResponseOutput {
-	return o
-}
-
-func (o DelegationResponseOutput) ToDelegationResponseOutputWithContext(ctx context.Context) DelegationResponseOutput {
-	return o
-}
-
-// The resource id of the source resource - Internal Use Only
-func (o DelegationResponseOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DelegationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
-// AAD tenant guid of the source resource identity - Internal Use Only.
-func (o DelegationResponseOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v DelegationResponse) string { return v.TenantId }).(pulumi.StringOutput)
-}
-
-type DelegationResponseMapOutput struct{ *pulumi.OutputState }
-
-func (DelegationResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DelegationResponse)(nil)).Elem()
-}
-
-func (o DelegationResponseMapOutput) ToDelegationResponseMapOutput() DelegationResponseMapOutput {
-	return o
-}
-
-func (o DelegationResponseMapOutput) ToDelegationResponseMapOutputWithContext(ctx context.Context) DelegationResponseMapOutput {
-	return o
-}
-
-func (o DelegationResponseMapOutput) MapIndex(k pulumi.StringInput) DelegationResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DelegationResponse {
-		return vs[0].(map[string]DelegationResponse)[vs[1].(string)]
-	}).(DelegationResponseOutput)
 }
 
 // Per database settings of an elastic pool.
@@ -8005,10 +7816,6 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseVulnerabilityAssessmentRuleBaselineItemResponseArrayOutput{})
-	pulumi.RegisterOutputType(DelegationOutput{})
-	pulumi.RegisterOutputType(DelegationMapOutput{})
-	pulumi.RegisterOutputType(DelegationResponseOutput{})
-	pulumi.RegisterOutputType(DelegationResponseMapOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ElasticPoolPerDatabaseSettingsResponseOutput{})

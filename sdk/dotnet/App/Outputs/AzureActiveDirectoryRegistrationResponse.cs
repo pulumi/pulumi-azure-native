@@ -39,9 +39,9 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? ClientSecretCertificateThumbprint;
         /// <summary>
-        /// The app secret ref name that contains the client secret of the relying party application.
+        /// The app setting name that contains the client secret of the relying party application.
         /// </summary>
-        public readonly string? ClientSecretRefName;
+        public readonly string? ClientSecretSettingName;
         /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string? clientSecretCertificateThumbprint,
 
-            string? clientSecretRefName,
+            string? clientSecretSettingName,
 
             string? openIdIssuer)
         {
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.App.Outputs
             ClientSecretCertificateIssuer = clientSecretCertificateIssuer;
             ClientSecretCertificateSubjectAlternativeName = clientSecretCertificateSubjectAlternativeName;
             ClientSecretCertificateThumbprint = clientSecretCertificateThumbprint;
-            ClientSecretRefName = clientSecretRefName;
+            ClientSecretSettingName = clientSecretSettingName;
             OpenIdIssuer = openIdIssuer;
         }
     }

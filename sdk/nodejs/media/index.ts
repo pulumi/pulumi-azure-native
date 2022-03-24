@@ -24,6 +24,7 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getStreamingEndpoint";
 export * from "./getStreamingLocator";
 export * from "./getStreamingPolicy";
+export * from "./getTrack";
 export * from "./getTransform";
 export * from "./job";
 export * from "./listAssetContainerSas";
@@ -40,6 +41,7 @@ export * from "./privateEndpointConnection";
 export * from "./streamingEndpoint";
 export * from "./streamingLocator";
 export * from "./streamingPolicy";
+export * from "./track";
 export * from "./transform";
 
 // Export enums:
@@ -56,6 +58,7 @@ import * as v20200201preview from "./v20200201preview";
 import * as v20200501 from "./v20200501";
 import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
+import * as v20211101 from "./v20211101";
 
 export {
     v20151001,
@@ -68,6 +71,7 @@ export {
     v20200501,
     v20210501,
     v20210601,
+    v20211101,
 };
 
 // Import resources to register:
@@ -84,6 +88,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { StreamingEndpoint } from "./streamingEndpoint";
 import { StreamingLocator } from "./streamingLocator";
 import { StreamingPolicy } from "./streamingPolicy";
+import { Track } from "./track";
 import { Transform } from "./transform";
 
 const _module = {
@@ -116,6 +121,8 @@ const _module = {
                 return new StreamingLocator(name, <any>undefined, { urn })
             case "azure-native:media:StreamingPolicy":
                 return new StreamingPolicy(name, <any>undefined, { urn })
+            case "azure-native:media:Track":
+                return new Track(name, <any>undefined, { urn })
             case "azure-native:media:Transform":
                 return new Transform(name, <any>undefined, { urn })
             default:

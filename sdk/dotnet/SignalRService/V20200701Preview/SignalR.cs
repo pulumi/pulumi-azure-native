@@ -167,6 +167,7 @@ namespace Pulumi.AzureNative.SignalRService.V20200701Preview
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20210601preview:SignalR"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20210901preview:SignalR"},
                     new Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalR"},
+                    new Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalR"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

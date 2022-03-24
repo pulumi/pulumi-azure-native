@@ -33,16 +33,6 @@ export const AppProtocol = {
  */
 export type AppProtocol = (typeof AppProtocol)[keyof typeof AppProtocol];
 
-export const AuthConfigState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
- */
-export type AuthConfigState = (typeof AuthConfigState)[keyof typeof AuthConfigState];
-
 export const BindingType = {
     Disabled: "Disabled",
     SniEnabled: "SniEnabled",
@@ -53,25 +43,35 @@ export const BindingType = {
  */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
 
-export const DisableWwwAuthenticateMode = {
-    True: "True",
-    False: "False",
+export const ClientCredentialMethod = {
+    ClientSecretPost: "ClientSecretPost",
 } as const;
 
 /**
- * <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
+ * The method that should be used to authenticate the user.
  */
-export type DisableWwwAuthenticateMode = (typeof DisableWwwAuthenticateMode)[keyof typeof DisableWwwAuthenticateMode];
+export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
 
-export const IdentityProviderState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const CookieExpirationConvention = {
+    FixedTime: "FixedTime",
+    IdentityProviderDerived: "IdentityProviderDerived",
 } as const;
 
 /**
- * <code>Disabled</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
+ * The convention used when determining the session cookie's expiration.
  */
-export type IdentityProviderState = (typeof IdentityProviderState)[keyof typeof IdentityProviderState];
+export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
+
+export const ForwardProxyConvention = {
+    NoProxy: "NoProxy",
+    Standard: "Standard",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The convention used to determine the url of the request made.
+ */
+export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
 export const IngressTransportMethod = {
     Auto: "auto",
@@ -96,26 +96,6 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
-export const PreserveUrlFragmentsForLoginsMode = {
-    True: "True",
-    False: "False",
-} as const;
-
-/**
- * <code>True</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>False</code>.
- */
-export type PreserveUrlFragmentsForLoginsMode = (typeof PreserveUrlFragmentsForLoginsMode)[keyof typeof PreserveUrlFragmentsForLoginsMode];
-
-export const RequireHttpsMode = {
-    True: "True",
-    False: "False",
-} as const;
-
-/**
- * <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
- */
-export type RequireHttpsMode = (typeof RequireHttpsMode)[keyof typeof RequireHttpsMode];
-
 export const StorageType = {
     AzureFile: "AzureFile",
     EmptyDir: "EmptyDir",
@@ -137,7 +117,7 @@ export const Type = {
  */
 export type Type = (typeof Type)[keyof typeof Type];
 
-export const UnauthenticatedClientAction = {
+export const UnauthenticatedClientActionV2 = {
     RedirectToLoginPage: "RedirectToLoginPage",
     AllowAnonymous: "AllowAnonymous",
     Return401: "Return401",
@@ -147,4 +127,4 @@ export const UnauthenticatedClientAction = {
 /**
  * The action to take when an unauthenticated client attempts to access the app.
  */
-export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];
+export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];

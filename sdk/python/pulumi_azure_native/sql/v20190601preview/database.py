@@ -39,6 +39,7 @@ class DatabaseArgs:
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
@@ -93,6 +94,19 @@ class DatabaseArgs:
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
+               
+               When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+               
+               When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+               
+               When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+               
+               When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+               
+               This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+               
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -141,6 +155,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if source_database_id is not None:
             pulumi.set(__self__, "source_database_id", source_database_id)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
         if tags is not None:
@@ -451,6 +467,30 @@ class DatabaseArgs:
         pulumi.set(self, "source_database_id", value)
 
     @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource identifier of the source associated with the create operation of this database.
+        
+        When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+        
+        When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+        
+        When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+        
+        When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+        
+        This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+        
+        When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @source_resource_id.setter
+    def source_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_resource_id", value)
+
+    @property
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
         """
@@ -515,6 +555,7 @@ class Database(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
@@ -573,6 +614,19 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[str] source_resource_id: The resource identifier of the source associated with the create operation of this database.
+               
+               When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+               
+               When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+               
+               When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+               
+               When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+               
+               This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+               
+               When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
@@ -624,6 +678,7 @@ class Database(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
+                 source_resource_id: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
@@ -666,6 +721,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_database_deletion_date"] = source_database_deletion_date
             __props__.__dict__["source_database_id"] = source_database_id
+            __props__.__dict__["source_resource_id"] = source_resource_id
             __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundant"] = zone_redundant

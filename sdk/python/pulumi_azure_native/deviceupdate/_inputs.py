@@ -436,24 +436,40 @@ class PrivateLinkServiceProxyArgs:
 class RemotePrivateEndpointArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
+                 immutable_resource_id: Optional[pulumi.Input[str]] = None,
+                 immutable_subscription_id: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
                  private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
-                 private_link_service_proxies: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]] = None):
+                 private_link_service_proxies: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]] = None,
+                 vnet_traffic_tag: Optional[pulumi.Input[str]] = None):
         """
         Remote private endpoint details.
         :param pulumi.Input[str] id: Remote endpoint resource ID.
+        :param pulumi.Input[str] immutable_resource_id: Original resource ID needed by Microsoft.Network.
+        :param pulumi.Input[str] immutable_subscription_id: Original subscription ID needed by Microsoft.Network.
+        :param pulumi.Input[str] location: ARM location of the remote private endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: List of private link service connections that need manual approval.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: List of automatically approved private link service connections.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]] private_link_service_proxies: List of private link service proxies.
+        :param pulumi.Input[str] vnet_traffic_tag: Virtual network traffic tag.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if immutable_resource_id is not None:
+            pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
+        if immutable_subscription_id is not None:
+            pulumi.set(__self__, "immutable_subscription_id", immutable_subscription_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if manual_private_link_service_connections is not None:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
         if private_link_service_proxies is not None:
             pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
+        if vnet_traffic_tag is not None:
+            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
 
     @property
     @pulumi.getter
@@ -466,6 +482,42 @@ class RemotePrivateEndpointArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="immutableResourceId")
+    def immutable_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Original resource ID needed by Microsoft.Network.
+        """
+        return pulumi.get(self, "immutable_resource_id")
+
+    @immutable_resource_id.setter
+    def immutable_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutable_resource_id", value)
+
+    @property
+    @pulumi.getter(name="immutableSubscriptionId")
+    def immutable_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Original subscription ID needed by Microsoft.Network.
+        """
+        return pulumi.get(self, "immutable_subscription_id")
+
+    @immutable_subscription_id.setter
+    def immutable_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutable_subscription_id", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM location of the remote private endpoint.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
@@ -502,5 +554,17 @@ class RemotePrivateEndpointArgs:
     @private_link_service_proxies.setter
     def private_link_service_proxies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceProxyArgs']]]]):
         pulumi.set(self, "private_link_service_proxies", value)
+
+    @property
+    @pulumi.getter(name="vnetTrafficTag")
+    def vnet_traffic_tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Virtual network traffic tag.
+        """
+        return pulumi.get(self, "vnet_traffic_tag")
+
+    @vnet_traffic_tag.setter
+    def vnet_traffic_tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vnet_traffic_tag", value)
 
 

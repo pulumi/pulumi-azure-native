@@ -156,6 +156,203 @@ func (o ManagementLockOwnerResponseArrayOutput) Index(i pulumi.IntInput) Managem
 	}).(ManagementLockOwnerResponseOutput)
 }
 
+type PrivateLinkAssociationProperties struct {
+	// The rmpl Resource ID.
+	PrivateLink         *string `pulumi:"privateLink"`
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// PrivateLinkAssociationPropertiesInput is an input type that accepts PrivateLinkAssociationPropertiesArgs and PrivateLinkAssociationPropertiesOutput values.
+// You can construct a concrete instance of `PrivateLinkAssociationPropertiesInput` via:
+//
+//          PrivateLinkAssociationPropertiesArgs{...}
+type PrivateLinkAssociationPropertiesInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAssociationPropertiesOutput() PrivateLinkAssociationPropertiesOutput
+	ToPrivateLinkAssociationPropertiesOutputWithContext(context.Context) PrivateLinkAssociationPropertiesOutput
+}
+
+type PrivateLinkAssociationPropertiesArgs struct {
+	// The rmpl Resource ID.
+	PrivateLink         pulumi.StringPtrInput `pulumi:"privateLink"`
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (PrivateLinkAssociationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAssociationProperties)(nil)).Elem()
+}
+
+func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationPropertiesOutput() PrivateLinkAssociationPropertiesOutput {
+	return i.ToPrivateLinkAssociationPropertiesOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationPropertiesOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationPropertiesOutput)
+}
+
+func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationPropertiesPtrOutput() PrivateLinkAssociationPropertiesPtrOutput {
+	return i.ToPrivateLinkAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkAssociationPropertiesArgs) ToPrivateLinkAssociationPropertiesPtrOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationPropertiesOutput).ToPrivateLinkAssociationPropertiesPtrOutputWithContext(ctx)
+}
+
+// PrivateLinkAssociationPropertiesPtrInput is an input type that accepts PrivateLinkAssociationPropertiesArgs, PrivateLinkAssociationPropertiesPtr and PrivateLinkAssociationPropertiesPtrOutput values.
+// You can construct a concrete instance of `PrivateLinkAssociationPropertiesPtrInput` via:
+//
+//          PrivateLinkAssociationPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateLinkAssociationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkAssociationPropertiesPtrOutput() PrivateLinkAssociationPropertiesPtrOutput
+	ToPrivateLinkAssociationPropertiesPtrOutputWithContext(context.Context) PrivateLinkAssociationPropertiesPtrOutput
+}
+
+type privateLinkAssociationPropertiesPtrType PrivateLinkAssociationPropertiesArgs
+
+func PrivateLinkAssociationPropertiesPtr(v *PrivateLinkAssociationPropertiesArgs) PrivateLinkAssociationPropertiesPtrInput {
+	return (*privateLinkAssociationPropertiesPtrType)(v)
+}
+
+func (*privateLinkAssociationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAssociationProperties)(nil)).Elem()
+}
+
+func (i *privateLinkAssociationPropertiesPtrType) ToPrivateLinkAssociationPropertiesPtrOutput() PrivateLinkAssociationPropertiesPtrOutput {
+	return i.ToPrivateLinkAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkAssociationPropertiesPtrType) ToPrivateLinkAssociationPropertiesPtrOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkAssociationPropertiesPtrOutput)
+}
+
+type PrivateLinkAssociationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAssociationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAssociationProperties)(nil)).Elem()
+}
+
+func (o PrivateLinkAssociationPropertiesOutput) ToPrivateLinkAssociationPropertiesOutput() PrivateLinkAssociationPropertiesOutput {
+	return o
+}
+
+func (o PrivateLinkAssociationPropertiesOutput) ToPrivateLinkAssociationPropertiesOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesOutput {
+	return o
+}
+
+func (o PrivateLinkAssociationPropertiesOutput) ToPrivateLinkAssociationPropertiesPtrOutput() PrivateLinkAssociationPropertiesPtrOutput {
+	return o.ToPrivateLinkAssociationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkAssociationPropertiesOutput) ToPrivateLinkAssociationPropertiesPtrOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkAssociationProperties) *PrivateLinkAssociationProperties {
+		return &v
+	}).(PrivateLinkAssociationPropertiesPtrOutput)
+}
+
+// The rmpl Resource ID.
+func (o PrivateLinkAssociationPropertiesOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationProperties) *string { return v.PrivateLink }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAssociationPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkAssociationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAssociationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkAssociationProperties)(nil)).Elem()
+}
+
+func (o PrivateLinkAssociationPropertiesPtrOutput) ToPrivateLinkAssociationPropertiesPtrOutput() PrivateLinkAssociationPropertiesPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAssociationPropertiesPtrOutput) ToPrivateLinkAssociationPropertiesPtrOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesPtrOutput {
+	return o
+}
+
+func (o PrivateLinkAssociationPropertiesPtrOutput) Elem() PrivateLinkAssociationPropertiesOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociationProperties) PrivateLinkAssociationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkAssociationProperties
+		return ret
+	}).(PrivateLinkAssociationPropertiesOutput)
+}
+
+// The rmpl Resource ID.
+func (o PrivateLinkAssociationPropertiesPtrOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateLink
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAssociationPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Private Link Association Properties.
+type PrivateLinkAssociationPropertiesExpandedResponse struct {
+	// The rmpl Resource ID.
+	PrivateLink         *string `pulumi:"privateLink"`
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The scope of the private link association.
+	Scope *string `pulumi:"scope"`
+	// The TenantID.
+	TenantID *string `pulumi:"tenantID"`
+}
+
+// Private Link Association Properties.
+type PrivateLinkAssociationPropertiesExpandedResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkAssociationPropertiesExpandedResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkAssociationPropertiesExpandedResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) ToPrivateLinkAssociationPropertiesExpandedResponseOutput() PrivateLinkAssociationPropertiesExpandedResponseOutput {
+	return o
+}
+
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) ToPrivateLinkAssociationPropertiesExpandedResponseOutputWithContext(ctx context.Context) PrivateLinkAssociationPropertiesExpandedResponseOutput {
+	return o
+}
+
+// The rmpl Resource ID.
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) PrivateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationPropertiesExpandedResponse) *string { return v.PrivateLink }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationPropertiesExpandedResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The scope of the private link association.
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationPropertiesExpandedResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The TenantID.
+func (o PrivateLinkAssociationPropertiesExpandedResponseOutput) TenantID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkAssociationPropertiesExpandedResponse) *string { return v.TenantID }).(pulumi.StringPtrOutput)
+}
+
 type ResourceManagementPrivateLinkEndpointConnectionsResponse struct {
 	// The private endpoint connections.
 	PrivateEndpointConnections []string `pulumi:"privateEndpointConnections"`
@@ -248,6 +445,9 @@ func init() {
 	pulumi.RegisterOutputType(ManagementLockOwnerArrayOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseOutput{})
 	pulumi.RegisterOutputType(ManagementLockOwnerResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAssociationPropertiesOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAssociationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkAssociationPropertiesExpandedResponseOutput{})
 	pulumi.RegisterOutputType(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

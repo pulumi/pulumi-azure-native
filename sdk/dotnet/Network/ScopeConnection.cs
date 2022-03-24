@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220201preview:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

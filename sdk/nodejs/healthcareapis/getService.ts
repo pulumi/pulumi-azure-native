@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * API Version: 2021-01-11.
+ * API Version: 2021-11-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {

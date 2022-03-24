@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// When set to true, Certificate validation will be disabled.
+        /// </summary>
+        public readonly bool? DisableCertValidation;
+        /// <summary>
         /// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Headers;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            bool? disableCertValidation,
+
             object? headers,
 
             Outputs.LinkedServiceReferenceResponse? linkedServiceName,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Datasets = datasets;
             DependsOn = dependsOn;
             Description = description;
+            DisableCertValidation = disableCertValidation;
             Headers = headers;
             LinkedServiceName = linkedServiceName;
             LinkedServices = linkedServices;

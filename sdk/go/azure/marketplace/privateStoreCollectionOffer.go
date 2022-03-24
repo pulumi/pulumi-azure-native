@@ -12,7 +12,7 @@ import (
 )
 
 // The privateStore offer data structure.
-// API Version: 2021-06-01.
+// API Version: 2021-12-01.
 type PrivateStoreCollectionOffer struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +62,9 @@ func NewPrivateStoreCollectionOffer(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:marketplace/v20210601:PrivateStoreCollectionOffer"),
+		},
+		{
+			Type: pulumi.String("azure-native:marketplace/v20211201:PrivateStoreCollectionOffer"),
 		},
 	})
 	opts = append(opts, aliases)

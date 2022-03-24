@@ -40,10 +40,6 @@ export class Profile extends pulumi.CustomResource {
      */
     public /*out*/ readonly frontDoorId!: pulumi.Output<string>;
     /**
-     * Managed service identity.
-     */
-    public readonly identity!: pulumi.Output<outputs.cdn.v20210601.ManagedServiceIdentityResponse | undefined>;
-    /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -101,7 +97,6 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
@@ -117,7 +112,6 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["frontDoorId"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -140,10 +134,6 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
-    /**
-     * Managed service identity.
-     */
-    identity?: pulumi.Input<inputs.cdn.v20210601.ManagedServiceIdentityArgs>;
     /**
      * Resource location.
      */

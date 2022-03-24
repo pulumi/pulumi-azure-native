@@ -12,11 +12,11 @@ import (
 )
 
 // Definition of ARM tracked top level resource.
-// API Version: 2021-04-01.
+// API Version: 2021-09-01-preview.
 type DataCollectionEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The endpoint used by agents to access their configuration.
+	// The endpoint used by clients to access their configuration.
 	ConfigurationAccess DataCollectionEndpointResponseConfigurationAccessPtrOutput `pulumi:"configurationAccess"`
 	// Description of the data collection endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -57,6 +57,9 @@ func NewDataCollectionEndpoint(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:insights/v20210401:DataCollectionEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210901preview:DataCollectionEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

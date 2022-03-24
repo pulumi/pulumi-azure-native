@@ -21,18 +21,18 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly string? AppId;
         /// <summary>
-        /// The app secret ref name that contains the app secret.
+        /// The app setting name that contains the app secret.
         /// </summary>
-        public readonly string? AppSecretRefName;
+        public readonly string? AppSecretSettingName;
 
         [OutputConstructor]
         private AppRegistrationResponse(
             string? appId,
 
-            string? appSecretRefName)
+            string? appSecretSettingName)
         {
             AppId = appId;
-            AppSecretRefName = appSecretRefName;
+            AppSecretSettingName = appSecretSettingName;
         }
     }
 }

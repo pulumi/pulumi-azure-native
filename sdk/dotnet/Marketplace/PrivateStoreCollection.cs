@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Marketplace
 {
     /// <summary>
     /// The Collection data structure.
-    /// API Version: 2021-06-01.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : Pulumi.CustomResource
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.Marketplace
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:marketplace/v20210601:PrivateStoreCollection"},
+                    new Pulumi.Alias { Type = "azure-native:marketplace/v20211201:PrivateStoreCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

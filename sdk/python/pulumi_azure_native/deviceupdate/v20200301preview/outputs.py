@@ -821,16 +821,20 @@ class RemotePrivateEndpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vnetTrafficTag":
-            suggest = "vnet_traffic_tag"
-        elif key == "connectionDetails":
+        if key == "connectionDetails":
             suggest = "connection_details"
+        elif key == "immutableResourceId":
+            suggest = "immutable_resource_id"
+        elif key == "immutableSubscriptionId":
+            suggest = "immutable_subscription_id"
         elif key == "manualPrivateLinkServiceConnections":
             suggest = "manual_private_link_service_connections"
         elif key == "privateLinkServiceConnections":
             suggest = "private_link_service_connections"
         elif key == "privateLinkServiceProxies":
             suggest = "private_link_service_proxies"
+        elif key == "vnetTrafficTag":
+            suggest = "vnet_traffic_tag"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -844,40 +848,45 @@ class RemotePrivateEndpointResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 vnet_traffic_tag: str,
                  connection_details: Optional[Sequence['outputs.ConnectionDetailsResponse']] = None,
                  id: Optional[str] = None,
+                 immutable_resource_id: Optional[str] = None,
+                 immutable_subscription_id: Optional[str] = None,
+                 location: Optional[str] = None,
                  manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
                  private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
-                 private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None):
+                 private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None,
+                 vnet_traffic_tag: Optional[str] = None):
         """
         Remote private endpoint details.
-        :param str vnet_traffic_tag: Virtual network traffic tag.
         :param Sequence['ConnectionDetailsResponse'] connection_details: List of connection details.
         :param str id: Remote endpoint resource ID.
+        :param str immutable_resource_id: Original resource ID needed by Microsoft.Network.
+        :param str immutable_subscription_id: Original subscription ID needed by Microsoft.Network.
+        :param str location: ARM location of the remote private endpoint.
         :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: List of private link service connections that need manual approval.
         :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: List of automatically approved private link service connections.
         :param Sequence['PrivateLinkServiceProxyResponse'] private_link_service_proxies: List of private link service proxies.
+        :param str vnet_traffic_tag: Virtual network traffic tag.
         """
-        pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
         if connection_details is not None:
             pulumi.set(__self__, "connection_details", connection_details)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if immutable_resource_id is not None:
+            pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
+        if immutable_subscription_id is not None:
+            pulumi.set(__self__, "immutable_subscription_id", immutable_subscription_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if manual_private_link_service_connections is not None:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
         if private_link_service_proxies is not None:
             pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
-
-    @property
-    @pulumi.getter(name="vnetTrafficTag")
-    def vnet_traffic_tag(self) -> str:
-        """
-        Virtual network traffic tag.
-        """
-        return pulumi.get(self, "vnet_traffic_tag")
+        if vnet_traffic_tag is not None:
+            pulumi.set(__self__, "vnet_traffic_tag", vnet_traffic_tag)
 
     @property
     @pulumi.getter(name="connectionDetails")
@@ -894,6 +903,30 @@ class RemotePrivateEndpointResponse(dict):
         Remote endpoint resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="immutableResourceId")
+    def immutable_resource_id(self) -> Optional[str]:
+        """
+        Original resource ID needed by Microsoft.Network.
+        """
+        return pulumi.get(self, "immutable_resource_id")
+
+    @property
+    @pulumi.getter(name="immutableSubscriptionId")
+    def immutable_subscription_id(self) -> Optional[str]:
+        """
+        Original subscription ID needed by Microsoft.Network.
+        """
+        return pulumi.get(self, "immutable_subscription_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        ARM location of the remote private endpoint.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="manualPrivateLinkServiceConnections")
@@ -918,6 +951,14 @@ class RemotePrivateEndpointResponse(dict):
         List of private link service proxies.
         """
         return pulumi.get(self, "private_link_service_proxies")
+
+    @property
+    @pulumi.getter(name="vnetTrafficTag")
+    def vnet_traffic_tag(self) -> Optional[str]:
+        """
+        Virtual network traffic tag.
+        """
+        return pulumi.get(self, "vnet_traffic_tag")
 
 
 @pulumi.output_type

@@ -21,6 +21,8 @@ func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulum
 }
 
 type LookupWorkbookArgs struct {
+	// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+	CanFetchContent *bool `pulumi:"canFetchContent"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
@@ -41,7 +43,7 @@ type LookupWorkbookResult struct {
 	Id string `pulumi:"id"`
 	// Identity used for BYOS
 	Identity *WorkbookResourceResponseIdentity `pulumi:"identity"`
-	// The kind of workbook. Choices are user and shared.
+	// The kind of workbook. Only valid value is shared.
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
@@ -79,6 +81,8 @@ func LookupWorkbookOutput(ctx *pulumi.Context, args LookupWorkbookOutputArgs, op
 }
 
 type LookupWorkbookOutputArgs struct {
+	// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+	CanFetchContent pulumi.BoolPtrInput `pulumi:"canFetchContent"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
@@ -134,7 +138,7 @@ func (o LookupWorkbookResultOutput) Identity() WorkbookResourceResponseIdentityP
 	return o.ApplyT(func(v LookupWorkbookResult) *WorkbookResourceResponseIdentity { return v.Identity }).(WorkbookResourceResponseIdentityPtrOutput)
 }
 
-// The kind of workbook. Choices are user and shared.
+// The kind of workbook. Only valid value is shared.
 func (o LookupWorkbookResultOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWorkbookResult) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }

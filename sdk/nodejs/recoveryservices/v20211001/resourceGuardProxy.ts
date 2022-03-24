@@ -92,7 +92,7 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210701:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210801:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20211201:ResourceGuardProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210701:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210801:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20211201:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20220101:ResourceGuardProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourceGuardProxy.__pulumiType, name, resourceInputs, opts);
     }

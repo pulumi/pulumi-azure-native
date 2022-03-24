@@ -115,7 +115,7 @@ export class Dynamics365DataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20200101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20200101:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20210901preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20211001preview:Dynamics365DataConnector" }, { type: "azure-native:securityinsights/v20220101preview:Dynamics365DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Dynamics365DataConnector.__pulumiType, name, resourceInputs, opts);
     }

@@ -38,4 +38,32 @@ namespace Pulumi.AzureNative.Authorization.V20200501
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct PublicNetworkAccessOptions : IEquatable<PublicNetworkAccessOptions>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessOptions Enabled { get; } = new PublicNetworkAccessOptions("Enabled");
+        public static PublicNetworkAccessOptions Disabled { get; } = new PublicNetworkAccessOptions("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessOptions left, PublicNetworkAccessOptions right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessOptions left, PublicNetworkAccessOptions right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessOptions other && Equals(other);
+        public bool Equals(PublicNetworkAccessOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

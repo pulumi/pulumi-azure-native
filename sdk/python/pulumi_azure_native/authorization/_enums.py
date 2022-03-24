@@ -15,6 +15,7 @@ __all__ = [
     'ParameterType',
     'PolicyType',
     'PrincipalType',
+    'PublicNetworkAccessOptions',
     'ResourceIdentityType',
 ]
 
@@ -124,6 +125,12 @@ class PrincipalType(str, Enum):
     GROUP = "Group"
     SERVICE_PRINCIPAL = "ServicePrincipal"
     FOREIGN_GROUP = "ForeignGroup"
+    DEVICE = "Device"
+
+
+class PublicNetworkAccessOptions(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):

@@ -14,11 +14,13 @@ export * from "./getIotConnectorFhirDestination";
 export * from "./getPrivateEndpointConnection";
 export * from "./getService";
 export * from "./getWorkspace";
+export * from "./getWorkspacePrivateEndpointConnection";
 export * from "./iotConnector";
 export * from "./iotConnectorFhirDestination";
 export * from "./privateEndpointConnection";
 export * from "./service";
 export * from "./workspace";
+export * from "./workspacePrivateEndpointConnection";
 
 // Export enums:
 export * from "../types/enums/healthcareapis";
@@ -30,6 +32,7 @@ import * as v20200315 from "./v20200315";
 import * as v20200330 from "./v20200330";
 import * as v20210111 from "./v20210111";
 import * as v20210601preview from "./v20210601preview";
+import * as v20211101 from "./v20211101";
 
 export {
     v20180820preview,
@@ -38,6 +41,7 @@ export {
     v20200330,
     v20210111,
     v20210601preview,
+    v20211101,
 };
 
 // Import resources to register:
@@ -48,6 +52,7 @@ import { IotConnectorFhirDestination } from "./iotConnectorFhirDestination";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Service } from "./service";
 import { Workspace } from "./workspace";
+import { WorkspacePrivateEndpointConnection } from "./workspacePrivateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -67,6 +72,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "azure-native:healthcareapis:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
+            case "azure-native:healthcareapis:WorkspacePrivateEndpointConnection":
+                return new WorkspacePrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

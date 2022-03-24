@@ -19,12 +19,20 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// <summary>
         /// The app setting that contains the client secret for the custom Open ID Connect provider.
         /// </summary>
-        public readonly string? ClientSecretRefName;
+        public readonly string? ClientSecretSettingName;
+        /// <summary>
+        /// The method that should be used to authenticate the user.
+        /// </summary>
+        public readonly string? Method;
 
         [OutputConstructor]
-        private OpenIdConnectClientCredentialResponse(string? clientSecretRefName)
+        private OpenIdConnectClientCredentialResponse(
+            string? clientSecretSettingName,
+
+            string? method)
         {
-            ClientSecretRefName = clientSecretRefName;
+            ClientSecretSettingName = clientSecretSettingName;
+            Method = method;
         }
     }
 }

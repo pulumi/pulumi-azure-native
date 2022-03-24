@@ -124,7 +124,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["virtualSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Service" }, { type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20210630:Service" }, { type: "azure-native:datamigration/v20211030preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Service" }, { type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20210630:Service" }, { type: "azure-native:datamigration/v20211030preview:Service" }, { type: "azure-native:datamigration/v20220130preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

@@ -122,7 +122,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             }
             resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["enforceCertificateNameCheck"] = args ? args.enforceCertificateNameCheck : undefined;
+            resourceInputs["enforceCertificateNameCheck"] = (args ? args.enforceCertificateNameCheck : undefined) ?? true;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["httpPort"] = args ? args.httpPort : undefined;
             resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;

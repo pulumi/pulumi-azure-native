@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.App.V20220101Preview.ActiveRevisionsMode>? ActiveRevisionsMode { get; set; }
 
         /// <summary>
+        /// Dapr configuration for the Container App.
+        /// </summary>
+        [Input("dapr")]
+        public Input<Inputs.DaprArgs>? Dapr { get; set; }
+
+        /// <summary>
         /// Ingress configurations.
         /// </summary>
         [Input("ingress")]

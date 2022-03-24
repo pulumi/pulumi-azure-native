@@ -99,7 +99,7 @@ export class AssetFilter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:AssetFilter" }, { type: "azure-native:media/v20180701:AssetFilter" }, { type: "azure-native:media/v20210601:AssetFilter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:AssetFilter" }, { type: "azure-native:media/v20180701:AssetFilter" }, { type: "azure-native:media/v20210601:AssetFilter" }, { type: "azure-native:media/v20211101:AssetFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssetFilter.__pulumiType, name, resourceInputs, opts);
     }

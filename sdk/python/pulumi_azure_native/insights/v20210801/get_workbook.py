@@ -132,7 +132,7 @@ class GetWorkbookResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 
@@ -260,17 +260,20 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             version=self.version)
 
 
-def get_workbook(resource_group_name: Optional[str] = None,
+def get_workbook(can_fetch_content: Optional[bool] = None,
+                 resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkbookResult:
     """
     An Application Insights workbook definition.
 
 
+    :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
     __args__ = dict()
+    __args__['canFetchContent'] = can_fetch_content
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:
@@ -302,13 +305,15 @@ def get_workbook(resource_group_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_workbook)
-def get_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]] = None,
+                        resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     An Application Insights workbook definition.
 
 
+    :param bool can_fetch_content: Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """

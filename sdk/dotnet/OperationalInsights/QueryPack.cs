@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// An Log Analytics QueryPack definition.
-    /// API Version: 2019-09-01-preview.
+    /// API Version: 2019-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:QueryPack")]
     public partial class QueryPack : Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:QueryPack"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901preview:QueryPack"},
                 },
             };

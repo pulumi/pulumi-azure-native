@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AppPlatform
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:BuildServiceBuilder"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:BuildServiceBuilder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -524,5 +524,15 @@ const (
 	VideoSyncModeVfr = VideoSyncMode("Vfr")
 )
 
+// When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+type Visibility string
+
+const (
+	// The track is hidden to video player.
+	VisibilityHidden = Visibility("Hidden")
+	// The track is visible to video player.
+	VisibilityVisible = Visibility("Visible")
+)
+
 func init() {
 }

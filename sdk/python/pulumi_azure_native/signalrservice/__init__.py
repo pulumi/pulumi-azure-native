@@ -7,10 +7,14 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_signal_r import *
+from .get_signal_r_custom_certificate import *
+from .get_signal_r_custom_domain import *
 from .get_signal_r_private_endpoint_connection import *
 from .get_signal_r_shared_private_link_resource import *
 from .list_signal_r_keys import *
 from .signal_r import *
+from .signal_r_custom_certificate import *
+from .signal_r_custom_domain import *
 from .signal_r_private_endpoint_connection import *
 from .signal_r_shared_private_link_resource import *
 from ._inputs import *
@@ -34,6 +38,8 @@ if typing.TYPE_CHECKING:
     v20210901preview = __v20210901preview
     import pulumi_azure_native.signalrservice.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.signalrservice.v20220201 as __v20220201
+    v20220201 = __v20220201
 else:
     v20180301preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20180301preview')
     v20181001 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20181001')
@@ -43,4 +49,5 @@ else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210601preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210901preview')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20211001')
+    v20220201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220201')
 

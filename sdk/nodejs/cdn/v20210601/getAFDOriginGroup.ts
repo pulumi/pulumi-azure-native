@@ -66,10 +66,6 @@ export interface GetAFDOriginGroupResult {
      */
     readonly provisioningState: string;
     /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    readonly responseBasedAfdOriginErrorDetectionSettings?: outputs.cdn.v20210601.ResponseBasedOriginErrorDetectionParametersResponse;
-    /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
     readonly sessionAffinityState?: string;

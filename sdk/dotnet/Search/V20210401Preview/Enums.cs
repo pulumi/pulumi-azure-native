@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
     }
 
     /// <summary>
-    /// A specific data exfiltration scenario that is disabled for the service.
+    /// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
     /// </summary>
     [EnumType]
     public readonly struct SearchBypass : IEquatable<SearchBypass>
@@ -225,6 +225,10 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         /// Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
         /// </summary>
         public static SearchBypass None { get; } = new SearchBypass("None");
+        /// <summary>
+        /// Indicates that requests originating from the Azure portal can bypass the rules defined in the 'ipRules' section.
+        /// </summary>
+        public static SearchBypass AzurePortal { get; } = new SearchBypass("AzurePortal");
 
         public static bool operator ==(SearchBypass left, SearchBypass right) => left.Equals(right);
         public static bool operator !=(SearchBypass left, SearchBypass right) => !left.Equals(right);

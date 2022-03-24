@@ -384,6 +384,37 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
     }
 
     /// <summary>
+    /// Direction of sort.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReportConfigSortingType : IEquatable<ReportConfigSortingType>
+    {
+        private readonly string _value;
+
+        private ReportConfigSortingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportConfigSortingType Ascending { get; } = new ReportConfigSortingType("Ascending");
+        public static ReportConfigSortingType Descending { get; } = new ReportConfigSortingType("Descending");
+
+        public static bool operator ==(ReportConfigSortingType left, ReportConfigSortingType right) => left.Equals(right);
+        public static bool operator !=(ReportConfigSortingType left, ReportConfigSortingType right) => !left.Equals(right);
+
+        public static explicit operator string(ReportConfigSortingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportConfigSortingType other && Equals(other);
+        public bool Equals(ReportConfigSortingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The granularity of rows in the report.
     /// </summary>
     [EnumType]

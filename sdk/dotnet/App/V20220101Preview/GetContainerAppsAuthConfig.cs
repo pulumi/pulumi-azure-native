@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     public static class GetContainerAppsAuthConfig
     {
         /// <summary>
-        /// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
@@ -80,11 +80,11 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     public sealed class GetContainerAppsAuthConfigResult
     {
         /// <summary>
-        /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.GlobalValidationResponse? GlobalValidation;
         /// <summary>
-        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.HttpSettingsResponse? HttpSettings;
         /// <summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.IdentityProvidersResponse? IdentityProviders;
         /// <summary>
-        /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.LoginResponse? Login;
         /// <summary>
@@ -104,9 +104,9 @@ namespace Pulumi.AzureNative.App.V20220101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
+        /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         /// </summary>
-        public readonly string? State;
+        public readonly Outputs.AuthPlatformResponse? Platform;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 
             string name,
 
-            string? state,
+            Outputs.AuthPlatformResponse? platform,
 
             Outputs.SystemDataResponse systemData,
 
@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
             IdentityProviders = identityProviders;
             Login = login;
             Name = name;
-            State = state;
+            Platform = platform;
             SystemData = systemData;
             Type = type;
         }

@@ -10,13 +10,13 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'GrafanaResourcePropertiesArgs',
+    'ManagedGrafanaPropertiesArgs',
     'ManagedIdentityArgs',
     'ResourceSkuArgs',
 ]
 
 @pulumi.input_type
-class GrafanaResourcePropertiesArgs:
+class ManagedGrafanaPropertiesArgs:
     def __init__(__self__, *,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None):

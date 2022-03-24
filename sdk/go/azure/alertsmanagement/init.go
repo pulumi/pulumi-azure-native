@@ -23,8 +23,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:alertsmanagement:ActionRuleByName":
 		r = &ActionRuleByName{}
-	case "azure-native:alertsmanagement:HealthAlert":
-		r = &HealthAlert{}
 	case "azure-native:alertsmanagement:SmartDetectorAlertRule":
 		r = &SmartDetectorAlertRule{}
 	default:

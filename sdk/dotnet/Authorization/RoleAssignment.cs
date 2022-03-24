@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role Assignments
-    /// API Version: 2020-08-01-preview.
+    /// API Version: 2020-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource

@@ -15,12 +15,17 @@ export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:insights/v20210801:getWorkbook", {
+        "canFetchContent": args.canFetchContent,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
 }
 
 export interface GetWorkbookArgs {
+    /**
+     * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+     */
+    canFetchContent?: boolean;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -60,7 +65,7 @@ export interface GetWorkbookResult {
      */
     readonly identity?: outputs.insights.v20210801.WorkbookResourceResponseIdentity;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
     readonly kind?: string;
     /**
@@ -118,6 +123,10 @@ export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetWorkbookOutputArgs {
+    /**
+     * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+     */
+    canFetchContent?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

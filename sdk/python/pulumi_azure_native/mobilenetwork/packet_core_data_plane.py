@@ -317,7 +317,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220101preview:PacketCoreDataPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCoreDataPlane, __self__).__init__(
             'azure-native:mobilenetwork:PacketCoreDataPlane',

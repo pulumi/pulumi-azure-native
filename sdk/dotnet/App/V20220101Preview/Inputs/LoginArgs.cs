@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
 {
 
     /// <summary>
-    /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+    /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
     public sealed class LoginArgs : Pulumi.ResourceArgs
     {
@@ -30,16 +30,28 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         }
 
         /// <summary>
-        /// &lt;code&gt;True&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;False&lt;/code&gt;.
+        /// The configuration settings of the session cookie's expiration.
         /// </summary>
-        [Input("preserveUrlFragmentsForLogins")]
-        public InputUnion<string, Pulumi.AzureNative.App.V20220101Preview.PreserveUrlFragmentsForLoginsMode>? PreserveUrlFragmentsForLogins { get; set; }
+        [Input("cookieExpiration")]
+        public Input<Inputs.CookieExpirationArgs>? CookieExpiration { get; set; }
 
         /// <summary>
-        /// The route that specify the endpoint used for login and logout requests.
+        /// The configuration settings of the nonce used in the login flow.
         /// </summary>
-        [Input("route")]
-        public Input<Inputs.LoginRouteArgs>? Route { get; set; }
+        [Input("nonce")]
+        public Input<Inputs.NonceArgs>? Nonce { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("preserveUrlFragmentsForLogins")]
+        public Input<bool>? PreserveUrlFragmentsForLogins { get; set; }
+
+        /// <summary>
+        /// The routes that specify the endpoints used for login and logout requests.
+        /// </summary>
+        [Input("routes")]
+        public Input<Inputs.LoginRoutesArgs>? Routes { get; set; }
 
         public LoginArgs()
         {

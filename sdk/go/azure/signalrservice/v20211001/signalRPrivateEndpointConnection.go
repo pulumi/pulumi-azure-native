@@ -63,6 +63,9 @@ func NewSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SignalRPrivateEndpointConnection

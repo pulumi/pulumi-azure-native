@@ -29,6 +29,7 @@ __all__ = [
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PrincipalResponse',
+    'PrivateLinkAssociationPropertiesExpandedResponse',
     'ResourceManagementPrivateLinkEndpointConnectionsResponse',
     'SystemDataResponse',
 ]
@@ -1366,6 +1367,82 @@ class PrincipalResponse(dict):
         Type of principal such as user , group etc
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PrivateLinkAssociationPropertiesExpandedResponse(dict):
+    """
+    Private Link Association Properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLink":
+            suggest = "private_link"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "tenantID":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkAssociationPropertiesExpandedResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkAssociationPropertiesExpandedResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkAssociationPropertiesExpandedResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_link: Optional[str] = None,
+                 public_network_access: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Private Link Association Properties.
+        :param str private_link: The rmpl Resource ID.
+        :param str scope: The scope of the private link association.
+        :param str tenant_id: The TenantID.
+        """
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional[str]:
+        """
+        The rmpl Resource ID.
+        """
+        return pulumi.get(self, "private_link")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The scope of the private link association.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="tenantID")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The TenantID.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type

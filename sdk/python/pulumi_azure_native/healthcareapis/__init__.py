@@ -15,11 +15,13 @@ from .get_iot_connector_fhir_destination import *
 from .get_private_endpoint_connection import *
 from .get_service import *
 from .get_workspace import *
+from .get_workspace_private_endpoint_connection import *
 from .iot_connector import *
 from .iot_connector_fhir_destination import *
 from .private_endpoint_connection import *
 from .service import *
 from .workspace import *
+from .workspace_private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -37,6 +39,8 @@ if typing.TYPE_CHECKING:
     v20210111 = __v20210111
     import pulumi_azure_native.healthcareapis.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
+    import pulumi_azure_native.healthcareapis.v20211101 as __v20211101
+    v20211101 = __v20211101
 else:
     v20180820preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20180820preview')
     v20190916 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20190916')
@@ -44,4 +48,5 @@ else:
     v20200330 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20200330')
     v20210111 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210111')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210601preview')
+    v20211101 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20211101')
 

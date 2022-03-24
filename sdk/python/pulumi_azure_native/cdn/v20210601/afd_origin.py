@@ -55,6 +55,8 @@ class AFDOriginArgs:
             pulumi.set(__self__, "azure_origin", azure_origin)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
+        if enforce_certificate_name_check is None:
+            enforce_certificate_name_check = True
         if enforce_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
         if http_port is not None:
@@ -333,6 +335,8 @@ class AFDOrigin(pulumi.CustomResource):
 
             __props__.__dict__["azure_origin"] = azure_origin
             __props__.__dict__["enabled_state"] = enabled_state
+            if enforce_certificate_name_check is None:
+                enforce_certificate_name_check = True
             __props__.__dict__["enforce_certificate_name_check"] = enforce_certificate_name_check
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")

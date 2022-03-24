@@ -31,7 +31,7 @@ export const Kind = {
 } as const;
 
 /**
- * The kind of workbook. Choices are user and shared.
+ * The kind of workbook. Only valid value is shared.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 

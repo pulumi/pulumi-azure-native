@@ -244,6 +244,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
 
         public AFDOriginArgs()
         {
+            EnforceCertificateNameCheck = true;
         }
     }
 }

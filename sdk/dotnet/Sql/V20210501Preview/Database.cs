@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("highAvailabilityReplicaCount")]
         public Output<int?> HighAvailabilityReplicaCount { get; private set; } = null!;
@@ -178,13 +178,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public Output<string> PausedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        /// </summary>
-        [Output("primaryDelegatedIdentityClientId")]
-        public Output<string?> PrimaryDelegatedIdentityClientId { get; private set; } = null!;
-
-        /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Output("readScale")]
         public Output<string?> ReadScale { get; private set; } = null!;
@@ -370,7 +364,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("highAvailabilityReplicaCount")]
         public Input<int>? HighAvailabilityReplicaCount { get; set; }
@@ -424,13 +418,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         public Input<double>? MinCapacity { get; set; }
 
         /// <summary>
-        /// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        /// </summary>
-        [Input("primaryDelegatedIdentityClientId")]
-        public Input<string>? PrimaryDelegatedIdentityClientId { get; set; }
-
-        /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         [Input("readScale")]
         public InputUnion<string, Pulumi.AzureNative.Sql.V20210501Preview.DatabaseReadScale>? ReadScale { get; set; }
@@ -516,6 +504,24 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
         /// </summary>
         [Input("sourceDatabaseId")]
         public Input<string>? SourceDatabaseId { get; set; }
+
+        /// <summary>
+        /// The resource identifier of the source associated with the create operation of this database.
+        /// 
+        /// When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+        /// 
+        /// When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of an existing database or existing sql pool, and restorePointInTime must be specified.
+        /// 
+        /// When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+        /// 
+        /// When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+        /// 
+        /// This property allows to restore across subscriptions which is only supported for DataWarehouse edition.
+        /// 
+        /// When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+        /// </summary>
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

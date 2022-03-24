@@ -108,11 +108,15 @@ class PublicNetworkAccess(str, Enum):
 
 class SearchBypass(str, Enum):
     """
-    A specific data exfiltration scenario that is disabled for the service.
+    Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
     """
     NONE = "None"
     """
     Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
+    """
+    AZURE_PORTAL = "AzurePortal"
+    """
+    Indicates that requests originating from the Azure portal can bypass the rules defined in the 'ipRules' section.
     """
 
 

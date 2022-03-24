@@ -21,16 +21,13 @@ class GetProfileResult:
     """
     A profile is a logical grouping of endpoints that share the same settings.
     """
-    def __init__(__self__, front_door_id=None, id=None, identity=None, kind=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, front_door_id=None, id=None, kind=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
         if front_door_id and not isinstance(front_door_id, str):
             raise TypeError("Expected argument 'front_door_id' to be a str")
         pulumi.set(__self__, "front_door_id", front_door_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -77,14 +74,6 @@ class GetProfileResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
-        """
-        Managed service identity.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -175,7 +164,6 @@ class AwaitableGetProfileResult(GetProfileResult):
         return GetProfileResult(
             front_door_id=self.front_door_id,
             id=self.id,
-            identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -210,7 +198,6 @@ def get_profile(profile_name: Optional[str] = None,
     return AwaitableGetProfileResult(
         front_door_id=__ret__.front_door_id,
         id=__ret__.id,
-        identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

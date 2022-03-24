@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Inputs
     public sealed class NetworkRuleSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A specific data exfiltration scenario that is disabled for the service.
+        /// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         /// </summary>
         [Input("bypass")]
         public InputUnion<string, Pulumi.AzureNative.Search.V20210401Preview.SearchBypass>? Bypass { get; set; }

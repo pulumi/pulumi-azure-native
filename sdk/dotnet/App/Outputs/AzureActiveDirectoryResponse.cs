@@ -17,6 +17,16 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class AzureActiveDirectoryResponse
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
+        /// Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.
+        /// This is an internal flag primarily intended to support the Azure Management Portal. Users should not
+        /// read or write to this property.
+        /// </summary>
+        public readonly bool? IsAutoProvisioned;
+        /// <summary>
         /// The configuration settings of the Azure Active Directory login flow.
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryLoginResponse? Login;
@@ -25,27 +35,26 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryRegistrationResponse? Registration;
         /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        public readonly string? State;
-        /// <summary>
         /// The configuration settings of the Azure Active Directory token validation flow.
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryValidationResponse? Validation;
 
         [OutputConstructor]
         private AzureActiveDirectoryResponse(
+            bool? enabled,
+
+            bool? isAutoProvisioned,
+
             Outputs.AzureActiveDirectoryLoginResponse? login,
 
             Outputs.AzureActiveDirectoryRegistrationResponse? registration,
 
-            string? state,
-
             Outputs.AzureActiveDirectoryValidationResponse? validation)
         {
+            Enabled = enabled;
+            IsAutoProvisioned = isAutoProvisioned;
             Login = login;
             Registration = registration;
-            State = state;
             Validation = validation;
         }
     }

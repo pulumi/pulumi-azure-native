@@ -50,7 +50,7 @@ export class Grafana extends pulumi.CustomResource {
     /**
      * Properties specific to the grafana resource.
      */
-    public readonly properties!: pulumi.Output<outputs.dashboard.v20210901preview.GrafanaResourcePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.dashboard.v20210901preview.ManagedGrafanaPropertiesResponse>;
     /**
      * The Sku of the grafana resource.
      */
@@ -124,7 +124,7 @@ export interface GrafanaArgs {
     /**
      * Properties specific to the grafana resource.
      */
-    properties?: pulumi.Input<inputs.dashboard.v20210901preview.GrafanaResourcePropertiesArgs>;
+    properties?: pulumi.Input<inputs.dashboard.v20210901preview.ManagedGrafanaPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,7 +138,7 @@ export interface GrafanaArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of Azure Managed Workspace for Grafana.
+     * The workspace name of Azure Managed Grafana.
      */
     workspaceName?: pulumi.Input<string>;
 }

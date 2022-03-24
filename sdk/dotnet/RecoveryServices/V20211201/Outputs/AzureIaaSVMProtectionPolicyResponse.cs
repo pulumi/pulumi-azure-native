@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
         /// </summary>
         public readonly object? SchedulePolicy;
         /// <summary>
+        /// Tiering policy to automatically move RPs to another tier
+        /// Key is Target Tier, defined in RecoveryPointTierType enum.
+        /// Tiering policy specifies the criteria to move RP to the target tier.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.TieringPolicyResponse>? TieringPolicy;
+        /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         /// </summary>
         public readonly string? TimeZone;
@@ -66,6 +72,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
 
             object? schedulePolicy,
 
+            ImmutableDictionary<string, Outputs.TieringPolicyResponse>? tieringPolicy,
+
             string? timeZone)
         {
             BackupManagementType = backupManagementType;
@@ -76,6 +84,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
             ResourceGuardOperationRequests = resourceGuardOperationRequests;
             RetentionPolicy = retentionPolicy;
             SchedulePolicy = schedulePolicy;
+            TieringPolicy = tieringPolicy;
             TimeZone = timeZone;
         }
     }

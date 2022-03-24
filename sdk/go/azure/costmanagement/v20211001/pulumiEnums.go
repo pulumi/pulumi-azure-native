@@ -103,6 +103,14 @@ const (
 	ReportConfigColumnTypeDimension = ReportConfigColumnType("Dimension")
 )
 
+// Direction of sort.
+type ReportConfigSortingType string
+
+const (
+	ReportConfigSortingTypeAscending  = ReportConfigSortingType("Ascending")
+	ReportConfigSortingTypeDescending = ReportConfigSortingType("Descending")
+)
+
 // The granularity of rows in the report.
 type ReportGranularityType string
 

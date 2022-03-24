@@ -64,6 +64,9 @@ func NewQuery(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:operationalinsights:Query"),
 		},
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190901:Query"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Query

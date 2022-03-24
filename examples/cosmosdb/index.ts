@@ -13,6 +13,6 @@ export const cosmosdbAccount = new cosmosdb.DatabaseAccount("da", {
     consisencyPolicy: { defaultConsistencyLevel: "Session" },
     location: { 
         type: "single",
-        region: "westeurope",
+        region: "westus2",
     },    
 });

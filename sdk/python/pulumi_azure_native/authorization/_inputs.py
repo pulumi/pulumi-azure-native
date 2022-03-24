@@ -23,6 +23,7 @@ __all__ = [
     'PermissionArgs',
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
+    'PrivateLinkAssociationPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -716,5 +717,40 @@ class PolicyDefinitionReferenceArgs:
     @policy_definition_reference_id.setter
     def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
+
+
+@pulumi.input_type
+class PrivateLinkAssociationPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]] = None):
+        """
+        :param pulumi.Input[str] private_link: The rmpl Resource ID.
+        """
+        if private_link is not None:
+            pulumi.set(__self__, "private_link", private_link)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="privateLink")
+    def private_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        The rmpl Resource ID.
+        """
+        return pulumi.get(self, "private_link")
+
+    @private_link.setter
+    def private_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]:
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]):
+        pulumi.set(self, "public_network_access", value)
 
 

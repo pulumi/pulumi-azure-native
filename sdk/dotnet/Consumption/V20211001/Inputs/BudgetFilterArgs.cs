@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.Consumption.V20211001.Inputs
         public Input<Inputs.BudgetComparisonExpressionArgs>? Dimensions { get; set; }
 
         /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        [Input("not")]
-        public Input<Inputs.BudgetFilterPropertiesArgs>? Not { get; set; }
-
-        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
         [Input("tags")]

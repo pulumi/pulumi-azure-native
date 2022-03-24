@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2021-04-01.
+ * API Version: 2021-09-01-preview.
  */
 export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The endpoint used by agents to access their configuration.
+     * The endpoint used by clients to access their configuration.
      */
     public /*out*/ readonly configurationAccess!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseConfigurationAccess | undefined>;
     /**
@@ -134,7 +134,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210401:DataCollectionEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20210401:DataCollectionEndpoint" }, { type: "azure-native:insights/v20210901preview:DataCollectionEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
     }

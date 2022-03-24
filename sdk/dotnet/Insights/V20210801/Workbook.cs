@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
         public Output<Outputs.WorkbookResourceResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
         public Input<Inputs.WorkbookResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         [Input("kind")]
         public InputUnion<string, Pulumi.AzureNative.Insights.V20210801.Kind>? Kind { get; set; }

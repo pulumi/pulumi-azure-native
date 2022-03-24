@@ -21,6 +21,24 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Original resource ID needed by Microsoft.Network.
+        /// </summary>
+        [Input("immutableResourceId")]
+        public Input<string>? ImmutableResourceId { get; set; }
+
+        /// <summary>
+        /// Original subscription ID needed by Microsoft.Network.
+        /// </summary>
+        [Input("immutableSubscriptionId")]
+        public Input<string>? ImmutableSubscriptionId { get; set; }
+
+        /// <summary>
+        /// ARM location of the remote private endpoint.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         [Input("manualPrivateLinkServiceConnections")]
         private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _manualPrivateLinkServiceConnections;
 
@@ -56,6 +74,12 @@ namespace Pulumi.AzureNative.DeviceUpdate.Inputs
             get => _privateLinkServiceProxies ?? (_privateLinkServiceProxies = new InputList<Inputs.PrivateLinkServiceProxyArgs>());
             set => _privateLinkServiceProxies = value;
         }
+
+        /// <summary>
+        /// Virtual network traffic tag.
+        /// </summary>
+        [Input("vnetTrafficTag")]
+        public Input<string>? VnetTrafficTag { get; set; }
 
         public RemotePrivateEndpointArgs()
         {

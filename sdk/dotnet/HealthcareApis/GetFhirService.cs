@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// The description of Fhir Service
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Fhir Service
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fhir Service event support status.
+        /// </summary>
+        public readonly string EventState;
+        /// <summary>
         /// Fhir Service export configuration.
         /// </summary>
         public readonly Outputs.FhirServiceExportConfigurationResponse? ExportConfiguration;
@@ -126,9 +130,21 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
+        /// <summary>
+        /// Determines tracking of history for resources.
+        /// </summary>
+        public readonly Outputs.ResourceVersionPolicyConfigurationResponse? ResourceVersionPolicyConfiguration;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -154,6 +170,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string? etag,
 
+            string eventState,
+
             Outputs.FhirServiceExportConfigurationResponse? exportConfiguration,
 
             string id,
@@ -166,7 +184,13 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string publicNetworkAccess,
+
+            Outputs.ResourceVersionPolicyConfigurationResponse? resourceVersionPolicyConfiguration,
 
             Outputs.SystemDataResponse systemData,
 
@@ -179,13 +203,17 @@ namespace Pulumi.AzureNative.HealthcareApis
             AuthenticationConfiguration = authenticationConfiguration;
             CorsConfiguration = corsConfiguration;
             Etag = etag;
+            EventState = eventState;
             ExportConfiguration = exportConfiguration;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            ResourceVersionPolicyConfiguration = resourceVersionPolicyConfiguration;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
     }
 
     /// <summary>
-    /// The kind of workbook. Choices are user and shared.
+    /// The kind of workbook. Only valid value is shared.
     /// </summary>
     [EnumType]
     public readonly struct Kind : IEquatable<Kind>

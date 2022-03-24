@@ -37,7 +37,7 @@ class WorkbookArgs:
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] description: The description of the workbook.
         :param pulumi.Input['WorkbookResourceIdentityArgs'] identity: Identity used for BYOS
-        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Only valid value is shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
@@ -144,7 +144,7 @@ class WorkbookArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'Kind']]]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 
@@ -253,7 +253,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the workbook.
         :param pulumi.Input[str] display_name: The user-defined name (display name) of the workbook.
         :param pulumi.Input[pulumi.InputType['WorkbookResourceIdentityArgs']] identity: Identity used for BYOS
-        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of workbook. Only valid value is shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
@@ -428,7 +428,7 @@ class Workbook(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of workbook. Choices are user and shared.
+        The kind of workbook. Only valid value is shared.
         """
         return pulumi.get(self, "kind")
 

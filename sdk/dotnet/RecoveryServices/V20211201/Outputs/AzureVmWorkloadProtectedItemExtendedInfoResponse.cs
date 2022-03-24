@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
     public sealed class AzureVmWorkloadProtectedItemExtendedInfoResponse
     {
         /// <summary>
-        /// The oldest backup copy available for this backup item.
+        /// The latest backup copy available for this backup item in archive tier
+        /// </summary>
+        public readonly string? NewestRecoveryPointInArchive;
+        /// <summary>
+        /// The oldest backup copy available for this backup item across all tiers.
         /// </summary>
         public readonly string? OldestRecoveryPoint;
+        /// <summary>
+        /// The oldest backup copy available for this backup item in archive tier
+        /// </summary>
+        public readonly string? OldestRecoveryPointInArchive;
+        /// <summary>
+        /// The oldest backup copy available for this backup item in vault tier
+        /// </summary>
+        public readonly string? OldestRecoveryPointInVault;
         /// <summary>
         /// Indicates consistency of policy object and policy applied to this backup item.
         /// </summary>
@@ -35,7 +47,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
 
         [OutputConstructor]
         private AzureVmWorkloadProtectedItemExtendedInfoResponse(
+            string? newestRecoveryPointInArchive,
+
             string? oldestRecoveryPoint,
+
+            string? oldestRecoveryPointInArchive,
+
+            string? oldestRecoveryPointInVault,
 
             string? policyState,
 
@@ -43,7 +61,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
 
             int? recoveryPointCount)
         {
+            NewestRecoveryPointInArchive = newestRecoveryPointInArchive;
             OldestRecoveryPoint = oldestRecoveryPoint;
+            OldestRecoveryPointInArchive = oldestRecoveryPointInArchive;
+            OldestRecoveryPointInVault = oldestRecoveryPointInVault;
             PolicyState = policyState;
             RecoveryModel = recoveryModel;
             RecoveryPointCount = recoveryPointCount;

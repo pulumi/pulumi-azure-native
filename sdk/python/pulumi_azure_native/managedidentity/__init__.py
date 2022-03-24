@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_user_assigned_identity import *
+from .list_user_assigned_identity_associated_resources import *
 from .user_assigned_identity import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
@@ -14,7 +16,10 @@ if typing.TYPE_CHECKING:
     v20150831preview = __v20150831preview
     import pulumi_azure_native.managedidentity.v20181130 as __v20181130
     v20181130 = __v20181130
+    import pulumi_azure_native.managedidentity.v20210930preview as __v20210930preview
+    v20210930preview = __v20210930preview
 else:
     v20150831preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20150831preview')
     v20181130 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20181130')
+    v20210930preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20210930preview')
 

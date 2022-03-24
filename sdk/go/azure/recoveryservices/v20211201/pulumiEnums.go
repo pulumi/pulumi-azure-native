@@ -70,21 +70,24 @@ const (
 type ContainerType string
 
 const (
-	ContainerTypeInvalid                    = ContainerType("Invalid")
-	ContainerTypeUnknown                    = ContainerType("Unknown")
-	ContainerTypeIaasVMContainer            = ContainerType("IaasVMContainer")
-	ContainerTypeIaasVMServiceContainer     = ContainerType("IaasVMServiceContainer")
-	ContainerTypeDPMContainer               = ContainerType("DPMContainer")
-	ContainerTypeAzureBackupServerContainer = ContainerType("AzureBackupServerContainer")
-	ContainerTypeMABContainer               = ContainerType("MABContainer")
-	ContainerTypeCluster                    = ContainerType("Cluster")
-	ContainerTypeAzureSqlContainer          = ContainerType("AzureSqlContainer")
-	ContainerTypeWindows                    = ContainerType("Windows")
-	ContainerTypeVCenter                    = ContainerType("VCenter")
-	ContainerTypeVMAppContainer             = ContainerType("VMAppContainer")
-	ContainerTypeSQLAGWorkLoadContainer     = ContainerType("SQLAGWorkLoadContainer")
-	ContainerTypeStorageContainer           = ContainerType("StorageContainer")
-	ContainerTypeGenericContainer           = ContainerType("GenericContainer")
+	ContainerTypeInvalid                                   = ContainerType("Invalid")
+	ContainerTypeUnknown                                   = ContainerType("Unknown")
+	ContainerTypeIaasVMContainer                           = ContainerType("IaasVMContainer")
+	ContainerTypeIaasVMServiceContainer                    = ContainerType("IaasVMServiceContainer")
+	ContainerTypeDPMContainer                              = ContainerType("DPMContainer")
+	ContainerTypeAzureBackupServerContainer                = ContainerType("AzureBackupServerContainer")
+	ContainerTypeMABContainer                              = ContainerType("MABContainer")
+	ContainerTypeCluster                                   = ContainerType("Cluster")
+	ContainerTypeAzureSqlContainer                         = ContainerType("AzureSqlContainer")
+	ContainerTypeWindows                                   = ContainerType("Windows")
+	ContainerTypeVCenter                                   = ContainerType("VCenter")
+	ContainerTypeVMAppContainer                            = ContainerType("VMAppContainer")
+	ContainerTypeSQLAGWorkLoadContainer                    = ContainerType("SQLAGWorkLoadContainer")
+	ContainerTypeStorageContainer                          = ContainerType("StorageContainer")
+	ContainerTypeGenericContainer                          = ContainerType("GenericContainer")
+	ContainerTypeAzureWorkloadContainer                    = ContainerType("AzureWorkloadContainer")
+	ContainerType_Microsoft_ClassicCompute_virtualMachines = ContainerType("Microsoft.ClassicCompute/virtualMachines")
+	ContainerType_Microsoft_Compute_virtualMachines        = ContainerType("Microsoft.Compute/virtualMachines")
 )
 
 // Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -381,7 +384,8 @@ const (
 	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned, UserAssigned")
 )
 
-// Retention duration type of retention policy.
+// Retention duration type: days/weeks/months/years
+// Used only if TieringMode is set to TierAfter
 type RetentionDurationType string
 
 const (
@@ -435,6 +439,19 @@ const (
 	SqlServerLicenseTypeNoLicenseType = SqlServerLicenseType("NoLicenseType")
 	SqlServerLicenseTypePAYG          = SqlServerLicenseType("PAYG")
 	SqlServerLicenseTypeAHUB          = SqlServerLicenseType("AHUB")
+)
+
+// Tiering Mode to control automatic tiering of recovery points. Supported values are:
+// 1. TierRecommended: Tier all recovery points recommended to be tiered
+// 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+// 3. DoNotTier: Do not tier any recovery points
+type TieringMode string
+
+const (
+	TieringModeInvalid         = TieringMode("Invalid")
+	TieringModeTierRecommended = TieringMode("TierRecommended")
+	TieringModeTierAfter       = TieringMode("TierAfter")
+	TieringModeDoNotTier       = TieringMode("DoNotTier")
 )
 
 type WeekOfMonth string

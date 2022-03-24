@@ -160,6 +160,7 @@ var cutoffProviderVersions = map[string]string{
 	"recoveryservices":              "v20210201preview",
 	"security":                      "v20200101preview",
 	"securityinsights":              "v20210301preview",
+	"servicebus":                    "v20170401", // This might be able to be lifted https://github.com/pulumi/pulumi-azure-native/pull/1592#issuecomment-1076447550
 	"servicefabric":                 "v20200301",
 	"servicelinker":                 "v20211101preview",
 	"signalrservice":                "v20210401preview",

@@ -22,6 +22,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ResourceVersionPolicyConfigurationResponse',
     'ServiceAccessPolicyEntryResponse',
     'ServiceAcrConfigurationInfoResponse',
     'ServiceAuthenticationConfigurationInfoResponse',
@@ -29,9 +30,11 @@ __all__ = [
     'ServiceCosmosDbConfigurationInfoResponse',
     'ServiceExportConfigurationInfoResponse',
     'ServiceManagedIdentityResponseIdentity',
+    'ServiceOciArtifactEntryResponse',
     'ServicesPropertiesResponse',
     'ServicesResourceResponseIdentity',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'WorkspaceResponseProperties',
 ]
 
@@ -117,6 +120,8 @@ class FhirServiceAcrConfigurationResponse(dict):
         suggest = None
         if key == "loginServers":
             suggest = "login_servers"
+        elif key == "ociArtifacts":
+            suggest = "oci_artifacts"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FhirServiceAcrConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -130,13 +135,17 @@ class FhirServiceAcrConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 login_servers: Optional[Sequence[str]] = None):
+                 login_servers: Optional[Sequence[str]] = None,
+                 oci_artifacts: Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']] = None):
         """
         Azure container registry configuration information
         :param Sequence[str] login_servers: The list of the Azure container registry login servers.
+        :param Sequence['ServiceOciArtifactEntryResponse'] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
         if login_servers is not None:
             pulumi.set(__self__, "login_servers", login_servers)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
 
     @property
     @pulumi.getter(name="loginServers")
@@ -145,6 +154,14 @@ class FhirServiceAcrConfigurationResponse(dict):
         The list of the Azure container registry login servers.
         """
         return pulumi.get(self, "login_servers")
+
+    @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']]:
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+        return pulumi.get(self, "oci_artifacts")
 
 
 @pulumi.output_type
@@ -618,6 +635,58 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class ResourceVersionPolicyConfigurationResponse(dict):
+    """
+    The settings for history tracking for FHIR resources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceTypeOverrides":
+            suggest = "resource_type_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceVersionPolicyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceVersionPolicyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceVersionPolicyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 resource_type_overrides: Optional[Mapping[str, str]] = None):
+        """
+        The settings for history tracking for FHIR resources.
+        :param str default: The default value for tracking history across all resources.
+        :param Mapping[str, str] resource_type_overrides: A list of FHIR Resources and their version policy overrides.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if resource_type_overrides is not None:
+            pulumi.set(__self__, "resource_type_overrides", resource_type_overrides)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        """
+        The default value for tracking history across all resources.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter(name="resourceTypeOverrides")
+    def resource_type_overrides(self) -> Optional[Mapping[str, str]]:
+        """
+        A list of FHIR Resources and their version policy overrides.
+        """
+        return pulumi.get(self, "resource_type_overrides")
+
+
+@pulumi.output_type
 class ServiceAccessPolicyEntryResponse(dict):
     """
     An access policy entry.
@@ -666,6 +735,8 @@ class ServiceAcrConfigurationInfoResponse(dict):
         suggest = None
         if key == "loginServers":
             suggest = "login_servers"
+        elif key == "ociArtifacts":
+            suggest = "oci_artifacts"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceAcrConfigurationInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -679,13 +750,17 @@ class ServiceAcrConfigurationInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 login_servers: Optional[Sequence[str]] = None):
+                 login_servers: Optional[Sequence[str]] = None,
+                 oci_artifacts: Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']] = None):
         """
         Azure container registry configuration information
         :param Sequence[str] login_servers: The list of the ACR login servers.
+        :param Sequence['ServiceOciArtifactEntryResponse'] oci_artifacts: The list of Open Container Initiative (OCI) artifacts.
         """
         if login_servers is not None:
             pulumi.set(__self__, "login_servers", login_servers)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
 
     @property
     @pulumi.getter(name="loginServers")
@@ -694,6 +769,14 @@ class ServiceAcrConfigurationInfoResponse(dict):
         The list of the ACR login servers.
         """
         return pulumi.get(self, "login_servers")
+
+    @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[Sequence['outputs.ServiceOciArtifactEntryResponse']]:
+        """
+        The list of Open Container Initiative (OCI) artifacts.
+        """
+        return pulumi.get(self, "oci_artifacts")
 
 
 @pulumi.output_type
@@ -949,22 +1032,142 @@ class ServiceManagedIdentityResponseIdentity(dict):
     """
     Setting indicating whether the service has a managed identity associated with it.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceManagedIdentityResponseIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceManagedIdentityResponseIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceManagedIdentityResponseIdentity.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 type: Optional[str] = None):
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
         :param str type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> str:
         """
         Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ServiceOciArtifactEntryResponse(dict):
+    """
+    An Open Container Initiative (OCI) artifact.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageName":
+            suggest = "image_name"
+        elif key == "loginServer":
+            suggest = "login_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceOciArtifactEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceOciArtifactEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceOciArtifactEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digest: Optional[str] = None,
+                 image_name: Optional[str] = None,
+                 login_server: Optional[str] = None):
+        """
+        An Open Container Initiative (OCI) artifact.
+        :param str digest: The artifact digest.
+        :param str image_name: The artifact name.
+        :param str login_server: The Azure Container Registry login server.
+        """
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+        if login_server is not None:
+            pulumi.set(__self__, "login_server", login_server)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[str]:
+        """
+        The artifact digest.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[str]:
+        """
+        The artifact name.
+        """
+        return pulumi.get(self, "image_name")
+
+    @property
+    @pulumi.getter(name="loginServer")
+    def login_server(self) -> Optional[str]:
+        """
+        The Azure Container Registry login server.
+        """
+        return pulumi.get(self, "login_server")
 
 
 @pulumi.output_type
@@ -1293,6 +1496,58 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class WorkspaceResponseProperties(dict):
     """
     Workspaces resource specific properties.
@@ -1300,8 +1555,12 @@ class WorkspaceResponseProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkspaceResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -1315,12 +1574,26 @@ class WorkspaceResponseProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provisioning_state: str):
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str,
+                 public_network_access: str):
         """
         Workspaces resource specific properties.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param str provisioning_state: The provisioning state.
+        :param str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of private endpoint connections that are set up for this resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1329,5 +1602,13 @@ class WorkspaceResponseProperties(dict):
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> str:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
 
 

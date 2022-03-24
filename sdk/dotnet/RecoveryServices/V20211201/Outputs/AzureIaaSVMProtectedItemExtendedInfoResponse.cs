@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
     public sealed class AzureIaaSVMProtectedItemExtendedInfoResponse
     {
         /// <summary>
-        /// The oldest backup copy available for this backup item.
+        /// The latest backup copy available for this backup item in archive tier
+        /// </summary>
+        public readonly string? NewestRecoveryPointInArchive;
+        /// <summary>
+        /// The oldest backup copy available for this backup item across all tiers.
         /// </summary>
         public readonly string? OldestRecoveryPoint;
+        /// <summary>
+        /// The oldest backup copy available for this backup item in archive tier
+        /// </summary>
+        public readonly string? OldestRecoveryPointInArchive;
+        /// <summary>
+        /// The oldest backup copy available for this backup item in vault tier
+        /// </summary>
+        public readonly string? OldestRecoveryPointInVault;
         /// <summary>
         /// Specifies if backup policy associated with the backup item is inconsistent.
         /// </summary>
@@ -31,13 +43,22 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Outputs
 
         [OutputConstructor]
         private AzureIaaSVMProtectedItemExtendedInfoResponse(
+            string? newestRecoveryPointInArchive,
+
             string? oldestRecoveryPoint,
+
+            string? oldestRecoveryPointInArchive,
+
+            string? oldestRecoveryPointInVault,
 
             bool? policyInconsistent,
 
             int? recoveryPointCount)
         {
+            NewestRecoveryPointInArchive = newestRecoveryPointInArchive;
             OldestRecoveryPoint = oldestRecoveryPoint;
+            OldestRecoveryPointInArchive = oldestRecoveryPointInArchive;
+            OldestRecoveryPointInVault = oldestRecoveryPointInVault;
             PolicyInconsistent = policyInconsistent;
             RecoveryPointCount = recoveryPointCount;
         }

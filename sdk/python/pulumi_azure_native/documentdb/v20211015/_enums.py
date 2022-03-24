@@ -243,6 +243,7 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
+    SERVER_VERSION_4_2 = "4.2"
 
 
 class SpatialType(str, Enum):

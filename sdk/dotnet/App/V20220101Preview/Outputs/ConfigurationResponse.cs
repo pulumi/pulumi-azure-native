@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly string? ActiveRevisionsMode;
         /// <summary>
+        /// Dapr configuration for the Container App.
+        /// </summary>
+        public readonly Outputs.DaprResponse? Dapr;
+        /// <summary>
         /// Ingress configurations.
         /// </summary>
         public readonly Outputs.IngressResponse? Ingress;
@@ -38,6 +42,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         private ConfigurationResponse(
             string? activeRevisionsMode,
 
+            Outputs.DaprResponse? dapr,
+
             Outputs.IngressResponse? ingress,
 
             ImmutableArray<Outputs.RegistryCredentialsResponse> registries,
@@ -45,6 +51,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
             ImmutableArray<Outputs.SecretResponse> secrets)
         {
             ActiveRevisionsMode = activeRevisionsMode;
+            Dapr = dapr;
             Ingress = ingress;
             Registries = registries;
             Secrets = secrets;

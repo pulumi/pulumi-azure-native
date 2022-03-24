@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public Output<string> FrontDoorId { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
         /// </summary>
         [Output("kind")]
@@ -148,12 +142,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
 
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Managed service identity.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
-
         /// <summary>
         /// Resource location.
         /// </summary>

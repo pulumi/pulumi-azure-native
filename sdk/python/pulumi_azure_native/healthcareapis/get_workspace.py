@@ -133,7 +133,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Workspace resource.
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -165,7 +165,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Workspace resource.
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

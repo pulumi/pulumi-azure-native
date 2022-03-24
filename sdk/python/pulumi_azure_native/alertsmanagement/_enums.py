@@ -8,8 +8,6 @@ __all__ = [
     'ActionRuleStatus',
     'ActionRuleType',
     'AlertRuleState',
-    'HealthAlertsNamespace',
-    'HealthStateName',
     'Operator',
     'ScopeType',
     'Severity',
@@ -40,21 +38,6 @@ class AlertRuleState(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class HealthAlertsNamespace(str, Enum):
-    """
-    specifies the type of the alert criterion.
-    """
-    GUEST_VM_HEALTH = "GuestVmHealth"
-
-
-class HealthStateName(str, Enum):
-    """
-    Health state name
-    """
-    WARNING = "Warning"
-    CRITICAL = "Critical"
 
 
 class Operator(str, Enum):

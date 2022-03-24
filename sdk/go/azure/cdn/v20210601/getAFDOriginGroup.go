@@ -44,8 +44,6 @@ type LookupAFDOriginGroupResult struct {
 	ProfileName string `pulumi:"profileName"`
 	// Provisioning status
 	ProvisioningState string `pulumi:"provisioningState"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedAfdOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
 	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
 	SessionAffinityState *string `pulumi:"sessionAffinityState"`
 	// Read only system data
@@ -127,13 +125,6 @@ func (o LookupAFDOriginGroupResultOutput) ProfileName() pulumi.StringOutput {
 // Provisioning status
 func (o LookupAFDOriginGroupResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAFDOriginGroupResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-func (o LookupAFDOriginGroupResultOutput) ResponseBasedAfdOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
-	return o.ApplyT(func(v LookupAFDOriginGroupResult) *ResponseBasedOriginErrorDetectionParametersResponse {
-		return v.ResponseBasedAfdOriginErrorDetectionSettings
-	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
 }
 
 // Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'

@@ -10,6 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Controls how resources are versioned on the FHIR service
+type FhirResourceVersionPolicy string
+
+const (
+	FhirResourceVersionPolicy_No_version       = FhirResourceVersionPolicy("no-version")
+	FhirResourceVersionPolicyVersioned         = FhirResourceVersionPolicy("versioned")
+	FhirResourceVersionPolicy_Versioned_update = FhirResourceVersionPolicy("versioned-update")
+)
+
 // The kind of the service.
 type FhirServiceKind string
 
@@ -215,6 +224,16 @@ type PublicNetworkAccess string
 const (
 	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
 	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+type ServiceManagedIdentityType string
+
+const (
+	ServiceManagedIdentityTypeNone                         = ServiceManagedIdentityType("None")
+	ServiceManagedIdentityTypeSystemAssigned               = ServiceManagedIdentityType("SystemAssigned")
+	ServiceManagedIdentityTypeUserAssigned                 = ServiceManagedIdentityType("UserAssigned")
+	ServiceManagedIdentityType_SystemAssigned_UserAssigned = ServiceManagedIdentityType("SystemAssigned,UserAssigned")
 )
 
 func init() {

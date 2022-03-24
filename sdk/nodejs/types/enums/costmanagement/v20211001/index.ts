@@ -126,6 +126,16 @@ export const ReportConfigColumnType = {
  */
 export type ReportConfigColumnType = (typeof ReportConfigColumnType)[keyof typeof ReportConfigColumnType];
 
+export const ReportConfigSortingType = {
+    Ascending: "Ascending",
+    Descending: "Descending",
+} as const;
+
+/**
+ * Direction of sort.
+ */
+export type ReportConfigSortingType = (typeof ReportConfigSortingType)[keyof typeof ReportConfigSortingType];
+
 export const ReportGranularityType = {
     Daily: "Daily",
     Monthly: "Monthly",

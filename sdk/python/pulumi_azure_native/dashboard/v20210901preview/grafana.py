@@ -19,7 +19,7 @@ class GrafanaArgs:
                  resource_group_name: pulumi.Input[str],
                  identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['GrafanaResourcePropertiesArgs']] = None,
+                 properties: Optional[pulumi.Input['ManagedGrafanaPropertiesArgs']] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None):
@@ -28,10 +28,10 @@ class GrafanaArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity of the grafana resource.
         :param pulumi.Input[str] location: The geo-location where the grafana resource lives
-        :param pulumi.Input['GrafanaResourcePropertiesArgs'] properties: Properties specific to the grafana resource.
+        :param pulumi.Input['ManagedGrafanaPropertiesArgs'] properties: Properties specific to the grafana resource.
         :param pulumi.Input['ResourceSkuArgs'] sku: The Sku of the grafana resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for grafana resource.
-        :param pulumi.Input[str] workspace_name: The name of Azure Managed Workspace for Grafana.
+        :param pulumi.Input[str] workspace_name: The workspace name of Azure Managed Grafana.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
@@ -85,14 +85,14 @@ class GrafanaArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GrafanaResourcePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ManagedGrafanaPropertiesArgs']]:
         """
         Properties specific to the grafana resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GrafanaResourcePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ManagedGrafanaPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -123,7 +123,7 @@ class GrafanaArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of Azure Managed Workspace for Grafana.
+        The workspace name of Azure Managed Grafana.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -139,7 +139,7 @@ class Grafana(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GrafanaResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedGrafanaPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -152,11 +152,11 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity of the grafana resource.
         :param pulumi.Input[str] location: The geo-location where the grafana resource lives
-        :param pulumi.Input[pulumi.InputType['GrafanaResourcePropertiesArgs']] properties: Properties specific to the grafana resource.
+        :param pulumi.Input[pulumi.InputType['ManagedGrafanaPropertiesArgs']] properties: Properties specific to the grafana resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The Sku of the grafana resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for grafana resource.
-        :param pulumi.Input[str] workspace_name: The name of Azure Managed Workspace for Grafana.
+        :param pulumi.Input[str] workspace_name: The workspace name of Azure Managed Grafana.
         """
         ...
     @overload
@@ -184,7 +184,7 @@ class Grafana(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['GrafanaResourcePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['ManagedGrafanaPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -273,7 +273,7 @@ class Grafana(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.GrafanaResourcePropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.ManagedGrafanaPropertiesResponse']:
         """
         Properties specific to the grafana resource.
         """

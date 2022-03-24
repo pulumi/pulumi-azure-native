@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     public sealed class AppleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Apple provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The configuration settings of the login flow.
         /// </summary>
         [Input("login")]
@@ -26,12 +32,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         /// </summary>
         [Input("registration")]
         public Input<Inputs.AppleRegistrationArgs>? Registration { get; set; }
-
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Apple provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.V20220101Preview.IdentityProviderState>? State { get; set; }
 
         public AppleArgs()
         {

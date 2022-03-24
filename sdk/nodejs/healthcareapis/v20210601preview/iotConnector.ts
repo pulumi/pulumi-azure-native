@@ -119,7 +119,7 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:IotConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnector.__pulumiType, name, resourceInputs, opts);
     }

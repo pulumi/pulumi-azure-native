@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
 {
 
     /// <summary>
-    /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+    /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
     [OutputType]
     public sealed class LoginResponse
@@ -23,25 +23,39 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedExternalRedirectUrls;
         /// <summary>
-        /// &lt;code&gt;True&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;False&lt;/code&gt;.
+        /// The configuration settings of the session cookie's expiration.
         /// </summary>
-        public readonly string? PreserveUrlFragmentsForLogins;
+        public readonly Outputs.CookieExpirationResponse? CookieExpiration;
         /// <summary>
-        /// The route that specify the endpoint used for login and logout requests.
+        /// The configuration settings of the nonce used in the login flow.
         /// </summary>
-        public readonly Outputs.LoginRouteResponse? Route;
+        public readonly Outputs.NonceResponse? Nonce;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the fragments from the request are preserved after the login request is made; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? PreserveUrlFragmentsForLogins;
+        /// <summary>
+        /// The routes that specify the endpoints used for login and logout requests.
+        /// </summary>
+        public readonly Outputs.LoginRoutesResponse? Routes;
 
         [OutputConstructor]
         private LoginResponse(
             ImmutableArray<string> allowedExternalRedirectUrls,
 
-            string? preserveUrlFragmentsForLogins,
+            Outputs.CookieExpirationResponse? cookieExpiration,
 
-            Outputs.LoginRouteResponse? route)
+            Outputs.NonceResponse? nonce,
+
+            bool? preserveUrlFragmentsForLogins,
+
+            Outputs.LoginRoutesResponse? routes)
         {
             AllowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            CookieExpiration = cookieExpiration;
+            Nonce = nonce;
             PreserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
-            Route = route;
+            Routes = routes;
         }
     }
 }

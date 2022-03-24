@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+ * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  * API Version: 2022-01-01-preview.
  */
 export class ContainerAppsAuthConfig extends pulumi.CustomResource {
@@ -37,19 +37,19 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
      */
     public readonly globalValidation!: pulumi.Output<outputs.app.GlobalValidationResponse | undefined>;
     /**
-     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
      */
     public readonly httpSettings!: pulumi.Output<outputs.app.HttpSettingsResponse | undefined>;
     /**
-     * The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+     * The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
      */
     public readonly identityProviders!: pulumi.Output<outputs.app.IdentityProvidersResponse | undefined>;
     /**
-     * The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
     public readonly login!: pulumi.Output<outputs.app.LoginResponse | undefined>;
     /**
@@ -57,9 +57,9 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
+     * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly platform!: pulumi.Output<outputs.app.AuthPlatformResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -92,8 +92,8 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
             resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
             resourceInputs["login"] = args ? args.login : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -102,7 +102,7 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
             resourceInputs["identityProviders"] = undefined /*out*/;
             resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -122,19 +122,19 @@ export interface ContainerAppsAuthConfigArgs {
      */
     containerAppName: pulumi.Input<string>;
     /**
-     * The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
      */
     globalValidation?: pulumi.Input<inputs.app.GlobalValidationArgs>;
     /**
-     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+     * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
      */
     httpSettings?: pulumi.Input<inputs.app.HttpSettingsArgs>;
     /**
-     * The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+     * The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
      */
     identityProviders?: pulumi.Input<inputs.app.IdentityProvidersArgs>;
     /**
-     * The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+     * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
     login?: pulumi.Input<inputs.app.LoginArgs>;
     /**
@@ -142,11 +142,11 @@ export interface ContainerAppsAuthConfigArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+     */
+    platform?: pulumi.Input<inputs.app.AuthPlatformArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-     */
-    state?: pulumi.Input<string | enums.app.AuthConfigState>;
 }

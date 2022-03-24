@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

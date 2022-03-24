@@ -113,7 +113,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:DicomService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:DicomService" }, { type: "azure-native:healthcareapis/v20211101:DicomService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DicomService.__pulumiType, name, resourceInputs, opts);
     }

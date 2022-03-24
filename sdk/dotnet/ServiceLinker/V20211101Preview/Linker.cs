@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:servicelinker:Linker"},
+                    new Pulumi.Alias { Type = "azure-native:servicelinker/v20220101preview:Linker"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

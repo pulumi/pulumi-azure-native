@@ -55,6 +55,9 @@ func NewSecurityAdminConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210501preview:SecurityAdminConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220201preview:SecurityAdminConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityAdminConfiguration

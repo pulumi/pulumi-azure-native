@@ -106,7 +106,7 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AwsCloudTrailDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AwsCloudTrailDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AwsCloudTrailDataConnector.__pulumiType, name, resourceInputs, opts);
     }

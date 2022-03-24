@@ -160,7 +160,7 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["userPlaneDataInterface"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:AttachedDataNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:AttachedDataNetwork" }, { type: "azure-native:mobilenetwork/v20220301preview:AttachedDataNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDataNetwork.__pulumiType, name, resourceInputs, opts);
     }

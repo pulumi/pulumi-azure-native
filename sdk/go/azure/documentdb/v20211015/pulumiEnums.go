@@ -1003,6 +1003,7 @@ const (
 	ServerVersion_3_2 = ServerVersion("3.2")
 	ServerVersion_3_6 = ServerVersion("3.6")
 	ServerVersion_4_0 = ServerVersion("4.0")
+	ServerVersion_4_2 = ServerVersion("4.2")
 )
 
 // Indicates the spatial type of index.

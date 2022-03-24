@@ -74,7 +74,7 @@ func (ResourceManagementPrivateLinkState) ElementType() reflect.Type {
 type resourceManagementPrivateLinkArgs struct {
 	// the region to create private link association.
 	Location *string `pulumi:"location"`
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource management private link.
 	RmplName *string `pulumi:"rmplName"`
@@ -84,7 +84,7 @@ type resourceManagementPrivateLinkArgs struct {
 type ResourceManagementPrivateLinkArgs struct {
 	// the region to create private link association.
 	Location pulumi.StringPtrInput
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource management private link.
 	RmplName pulumi.StringPtrInput

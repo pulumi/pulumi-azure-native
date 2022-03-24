@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Insights.V20210801
     public sealed class GetWorkbookArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+        /// </summary>
+        [Input("canFetchContent")]
+        public bool? CanFetchContent { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -46,6 +52,12 @@ namespace Pulumi.AzureNative.Insights.V20210801
 
     public sealed class GetWorkbookInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+        /// </summary>
+        [Input("canFetchContent")]
+        public Input<bool>? CanFetchContent { get; set; }
+
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -92,7 +104,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
         /// </summary>
         public readonly Outputs.WorkbookResourceResponseIdentity? Identity;
         /// <summary>
-        /// The kind of workbook. Choices are user and shared.
+        /// The kind of workbook. Only valid value is shared.
         /// </summary>
         public readonly string? Kind;
         /// <summary>

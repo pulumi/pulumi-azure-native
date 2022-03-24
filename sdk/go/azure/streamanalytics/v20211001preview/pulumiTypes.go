@@ -556,7 +556,7 @@ type BlobStreamInputDataSource struct {
 	DateFormat *string `pulumi:"dateFormat"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
 	PathPattern *string `pulumi:"pathPattern"`
-	// The partition count of the blob input data source. Range 1 - 256.
+	// The partition count of the blob input data source. Range 1 - 1024.
 	SourcePartitionCount *int `pulumi:"sourcePartitionCount"`
 	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
 	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
@@ -577,7 +577,7 @@ type BlobStreamInputDataSourceResponse struct {
 	DateFormat *string `pulumi:"dateFormat"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
 	PathPattern *string `pulumi:"pathPattern"`
-	// The partition count of the blob input data source. Range 1 - 256.
+	// The partition count of the blob input data source. Range 1 - 1024.
 	SourcePartitionCount *int `pulumi:"sourcePartitionCount"`
 	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
 	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`

@@ -88,6 +88,9 @@ export const ContainerType = {
     SQLAGWorkLoadContainer: "SQLAGWorkLoadContainer",
     StorageContainer: "StorageContainer",
     GenericContainer: "GenericContainer",
+    AzureWorkloadContainer: "AzureWorkloadContainer",
+    Microsoft_ClassicCompute_virtualMachines: "Microsoft.ClassicCompute/virtualMachines",
+    Microsoft_Compute_virtualMachines: "Microsoft.Compute/virtualMachines",
 } as const;
 
 /**
@@ -445,7 +448,8 @@ export const RetentionDurationType = {
 } as const;
 
 /**
- * Retention duration type of retention policy.
+ * Retention duration type: days/weeks/months/years
+ * Used only if TieringMode is set to TierAfter
  */
 export type RetentionDurationType = (typeof RetentionDurationType)[keyof typeof RetentionDurationType];
 
@@ -503,6 +507,21 @@ export const SqlServerLicenseType = {
  * The SQL Server license type.
  */
 export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
+
+export const TieringMode = {
+    Invalid: "Invalid",
+    TierRecommended: "TierRecommended",
+    TierAfter: "TierAfter",
+    DoNotTier: "DoNotTier",
+} as const;
+
+/**
+ * Tiering Mode to control automatic tiering of recovery points. Supported values are:
+ * 1. TierRecommended: Tier all recovery points recommended to be tiered
+ * 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+ * 3. DoNotTier: Do not tier any recovery points
+ */
+export type TieringMode = (typeof TieringMode)[keyof typeof TieringMode];
 
 export const WeekOfMonth = {
     First: "First",

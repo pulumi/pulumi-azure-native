@@ -10,32 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.App
 {
     /// <summary>
-    /// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+    /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     /// API Version: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : Pulumi.CustomResource
     {
         /// <summary>
-        /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         /// </summary>
         [Output("globalValidation")]
         public Output<Outputs.GlobalValidationResponse?> GlobalValidation { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Output("httpSettings")]
         public Output<Outputs.HttpSettingsResponse?> HttpSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Output("identityProviders")]
         public Output<Outputs.IdentityProvidersResponse?> IdentityProviders { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Output("login")]
         public Output<Outputs.LoginResponse?> Login { get; private set; } = null!;
@@ -47,10 +47,10 @@ namespace Pulumi.AzureNative.App
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
+        /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         /// </summary>
-        [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        [Output("platform")]
+        public Output<Outputs.AuthPlatformResponse?> Platform { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -120,25 +120,25 @@ namespace Pulumi.AzureNative.App
         public Input<string> ContainerAppName { get; set; } = null!;
 
         /// <summary>
-        /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         /// </summary>
         [Input("globalValidation")]
         public Input<Inputs.GlobalValidationArgs>? GlobalValidation { get; set; }
 
         /// <summary>
-        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Input("httpSettings")]
         public Input<Inputs.HttpSettingsArgs>? HttpSettings { get; set; }
 
         /// <summary>
-        /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Input("identityProviders")]
         public Input<Inputs.IdentityProvidersArgs>? IdentityProviders { get; set; }
 
         /// <summary>
-        /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         /// </summary>
         [Input("login")]
         public Input<Inputs.LoginArgs>? Login { get; set; }
@@ -150,16 +150,16 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+        /// </summary>
+        [Input("platform")]
+        public Input<Inputs.AuthPlatformArgs>? Platform { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
-        /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.AuthConfigState>? State { get; set; }
 
         public ContainerAppsAuthConfigArgs()
         {

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of the service.
-    /// API Version: 2021-01-11.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Service")]
     public partial class Service : Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

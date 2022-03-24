@@ -49,12 +49,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        /// </summary>
-        [Output("responseBasedAfdOriginErrorDetectionSettings")]
-        public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponse?> ResponseBasedAfdOriginErrorDetectionSettings { get; private set; } = null!;
-
-        /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         [Output("sessionAffinityState")]
@@ -157,12 +151,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        /// </summary>
-        [Input("responseBasedAfdOriginErrorDetectionSettings")]
-        public Input<Inputs.ResponseBasedOriginErrorDetectionParametersArgs>? ResponseBasedAfdOriginErrorDetectionSettings { get; set; }
 
         /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'

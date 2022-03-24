@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.App.Inputs
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the www-authenticate provider should be omitted from the request; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        [Input("disableWwwAuthenticate")]
-        public InputUnion<string, Pulumi.AzureNative.App.DisableWwwAuthenticateMode>? DisableWwwAuthenticate { get; set; }
+        [Input("disableWWWAuthenticate")]
+        public Input<bool>? DisableWWWAuthenticate { get; set; }
 
         [Input("loginParameters")]
         private InputList<string>? _loginParameters;

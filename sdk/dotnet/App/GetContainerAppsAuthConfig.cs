@@ -12,14 +12,14 @@ namespace Pulumi.AzureNative.App
     public static class GetContainerAppsAuthConfig
     {
         /// <summary>
-        /// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+        /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         /// API Version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.App
     public sealed class GetContainerAppsAuthConfigResult
     {
         /// <summary>
-        /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.GlobalValidationResponse? GlobalValidation;
         /// <summary>
-        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+        /// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.HttpSettingsResponse? HttpSettings;
         /// <summary>
@@ -94,11 +94,11 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+        /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.IdentityProvidersResponse? IdentityProviders;
         /// <summary>
-        /// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+        /// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
         /// </summary>
         public readonly Outputs.LoginResponse? Login;
         /// <summary>
@@ -106,9 +106,9 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// &lt;code&gt;Enabled&lt;/code&gt; if the Authentication / Authorization feature is enabled for the current app; otherwise, &lt;code&gt;Disabled&lt;/code&gt;.
+        /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         /// </summary>
-        public readonly string? State;
+        public readonly Outputs.AuthPlatformResponse? Platform;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.App
 
             string name,
 
-            string? state,
+            Outputs.AuthPlatformResponse? platform,
 
             Outputs.SystemDataResponse systemData,
 
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.App
             IdentityProviders = identityProviders;
             Login = login;
             Name = name;
-            State = state;
+            Platform = platform;
             SystemData = systemData;
             Type = type;
         }

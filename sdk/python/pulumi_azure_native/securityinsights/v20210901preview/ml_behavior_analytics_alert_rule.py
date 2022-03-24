@@ -204,7 +204,7 @@ class MLBehaviorAnalyticsAlertRule(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["tactics"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:MLBehaviorAnalyticsAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:MLBehaviorAnalyticsAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MLBehaviorAnalyticsAlertRule, __self__).__init__(
             'azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule',

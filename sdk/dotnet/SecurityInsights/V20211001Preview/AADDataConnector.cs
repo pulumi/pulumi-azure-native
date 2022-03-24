@@ -95,6 +95,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AADDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:AADDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AADDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:AADDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:AADDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

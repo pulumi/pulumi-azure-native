@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20211101preview from "./v20211101preview";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20211101preview,
+    v20220101preview,
 };
 
 export const AuthType = {

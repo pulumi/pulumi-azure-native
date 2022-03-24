@@ -8,17 +8,15 @@ __all__ = [
     'AccessMode',
     'ActiveRevisionsMode',
     'AppProtocol',
-    'AuthConfigState',
     'BindingType',
-    'DisableWwwAuthenticateMode',
-    'IdentityProviderState',
+    'ClientCredentialMethod',
+    'CookieExpirationConvention',
+    'ForwardProxyConvention',
     'IngressTransportMethod',
     'ManagedServiceIdentityType',
-    'PreserveUrlFragmentsForLoginsMode',
-    'RequireHttpsMode',
     'StorageType',
     'Type',
-    'UnauthenticatedClientAction',
+    'UnauthenticatedClientActionV2',
 ]
 
 
@@ -47,14 +45,6 @@ class AppProtocol(str, Enum):
     GRPC = "grpc"
 
 
-class AuthConfigState(str, Enum):
-    """
-    <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class BindingType(str, Enum):
     """
     Custom Domain binding type.
@@ -63,20 +53,28 @@ class BindingType(str, Enum):
     SNI_ENABLED = "SniEnabled"
 
 
-class DisableWwwAuthenticateMode(str, Enum):
+class ClientCredentialMethod(str, Enum):
     """
-    <code>true</code> if the www-authenticate provider should be omitted from the request; otherwise, <code>false</code>.
+    The method that should be used to authenticate the user.
     """
-    TRUE = "True"
-    FALSE = "False"
+    CLIENT_SECRET_POST = "ClientSecretPost"
 
 
-class IdentityProviderState(str, Enum):
+class CookieExpirationConvention(str, Enum):
     """
-    <code>Disabled</code> if the Twitter provider should not be enabled despite the set registration; otherwise, <code>Enabled</code>.
+    The convention used when determining the session cookie's expiration.
     """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
+    FIXED_TIME = "FixedTime"
+    IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
+
+
+class ForwardProxyConvention(str, Enum):
+    """
+    The convention used to determine the url of the request made.
+    """
+    NO_PROXY = "NoProxy"
+    STANDARD = "Standard"
+    CUSTOM = "Custom"
 
 
 class IngressTransportMethod(str, Enum):
@@ -98,22 +96,6 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
-class PreserveUrlFragmentsForLoginsMode(str, Enum):
-    """
-    <code>True</code> if the fragments from the request are preserved after the login request is made; otherwise, <code>False</code>.
-    """
-    TRUE = "True"
-    FALSE = "False"
-
-
-class RequireHttpsMode(str, Enum):
-    """
-    <code>false</code> if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, <code>true</code>.
-    """
-    TRUE = "True"
-    FALSE = "False"
-
-
 class StorageType(str, Enum):
     """
     Storage type for the volume. If not provided, use EmptyDir.
@@ -131,7 +113,7 @@ class Type(str, Enum):
     STARTUP = "startup"
 
 
-class UnauthenticatedClientAction(str, Enum):
+class UnauthenticatedClientActionV2(str, Enum):
     """
     The action to take when an unauthenticated client attempts to access the app.
     """

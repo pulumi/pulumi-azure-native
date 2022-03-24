@@ -17,22 +17,22 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class TwitterResponse
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// The configuration settings of the app registration for the Twitter provider.
         /// </summary>
         public readonly Outputs.TwitterRegistrationResponse? Registration;
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        public readonly string? State;
 
         [OutputConstructor]
         private TwitterResponse(
-            Outputs.TwitterRegistrationResponse? registration,
+            bool? enabled,
 
-            string? state)
+            Outputs.TwitterRegistrationResponse? registration)
         {
+            Enabled = enabled;
             Registration = registration;
-            State = state;
         }
     }
 }

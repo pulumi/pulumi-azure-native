@@ -11,7 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'GrafanaResourcePropertiesResponse',
+    'ManagedGrafanaPropertiesResponse',
     'ManagedIdentityResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GrafanaResourcePropertiesResponse(dict):
+class ManagedGrafanaPropertiesResponse(dict):
     """
     Properties specific to the grafana resource.
     """
@@ -34,14 +34,14 @@ class GrafanaResourcePropertiesResponse(dict):
             suggest = "zone_redundancy"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GrafanaResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ManagedGrafanaPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        GrafanaResourcePropertiesResponse.__key_warning(key)
+        ManagedGrafanaPropertiesResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        GrafanaResourcePropertiesResponse.__key_warning(key)
+        ManagedGrafanaPropertiesResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

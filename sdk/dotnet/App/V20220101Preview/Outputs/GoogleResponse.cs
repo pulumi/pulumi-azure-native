@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
     public sealed class GoogleResponse
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Google provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// The configuration settings of the login flow.
         /// </summary>
         public readonly Outputs.LoginScopesResponse? Login;
@@ -25,27 +29,23 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// </summary>
         public readonly Outputs.ClientRegistrationResponse? Registration;
         /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Google provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        public readonly string? State;
-        /// <summary>
         /// The configuration settings of the Azure Active Directory token validation flow.
         /// </summary>
         public readonly Outputs.AllowedAudiencesValidationResponse? Validation;
 
         [OutputConstructor]
         private GoogleResponse(
+            bool? enabled,
+
             Outputs.LoginScopesResponse? login,
 
             Outputs.ClientRegistrationResponse? registration,
 
-            string? state,
-
             Outputs.AllowedAudiencesValidationResponse? validation)
         {
+            Enabled = enabled;
             Login = login;
             Registration = registration;
-            State = state;
             Validation = validation;
         }
     }

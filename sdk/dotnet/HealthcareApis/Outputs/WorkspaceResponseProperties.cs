@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
     public sealed class WorkspaceResponseProperties
     {
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
 
         [OutputConstructor]
-        private WorkspaceResponseProperties(string provisioningState)
+        private WorkspaceResponseProperties(
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string provisioningState,
+
+            string publicNetworkAccess)
         {
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
         }
     }
 }

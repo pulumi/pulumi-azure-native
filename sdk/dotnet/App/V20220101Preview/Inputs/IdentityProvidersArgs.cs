@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
 {
 
     /// <summary>
-    /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+    /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
     /// </summary>
     public sealed class IdentityProvidersArgs : Pulumi.ResourceArgs
     {
@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
         /// <summary>
         /// The configuration settings of the Azure Static Web Apps provider.
         /// </summary>
-        [Input("azureStaticWebApp")]
-        public Input<Inputs.AzureStaticWebAppArgs>? AzureStaticWebApp { get; set; }
+        [Input("azureStaticWebApps")]
+        public Input<Inputs.AzureStaticWebAppsArgs>? AzureStaticWebApps { get; set; }
 
         [Input("customOpenIdConnectProviders")]
         private InputMap<Inputs.CustomOpenIdConnectProviderArgs>? _customOpenIdConnectProviders;

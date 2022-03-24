@@ -14,6 +14,7 @@ __all__ = [
     'PrivateEndpointACLArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ResourceReferenceArgs',
     'ResourceSkuArgs',
     'ServerlessUpstreamSettingsArgs',
     'SignalRCorsSettingsArgs',
@@ -195,6 +196,30 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class ResourceReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Reference to a resource.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     public sealed class TwitterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;false&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The configuration settings of the app registration for the Twitter provider.
         /// </summary>
         [Input("registration")]
         public Input<Inputs.TwitterRegistrationArgs>? Registration { get; set; }
-
-        /// <summary>
-        /// &lt;code&gt;Disabled&lt;/code&gt; if the Twitter provider should not be enabled despite the set registration; otherwise, &lt;code&gt;Enabled&lt;/code&gt;.
-        /// </summary>
-        [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.App.V20220101Preview.IdentityProviderState>? State { get; set; }
 
         public TwitterArgs()
         {

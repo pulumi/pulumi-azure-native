@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .active_directory_connector import *
 from .data_controller import *
+from .get_active_directory_connector import *
 from .get_data_controller import *
 from .get_postgres_instance import *
 from .get_sql_managed_instance import *
@@ -27,9 +29,12 @@ if typing.TYPE_CHECKING:
     v20210801 = __v20210801
     import pulumi_azure_native.azurearcdata.v20211101 as __v20211101
     v20211101 = __v20211101
+    import pulumi_azure_native.azurearcdata.v20220301preview as __v20220301preview
+    v20220301preview = __v20220301preview
 else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210601preview')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210701preview')
     v20210801 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210801')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20211101')
+    v20220301preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220301preview')
 

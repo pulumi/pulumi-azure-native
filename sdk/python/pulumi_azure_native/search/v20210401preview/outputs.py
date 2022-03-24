@@ -300,7 +300,7 @@ class NetworkRuleSetResponse(dict):
                  ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None):
         """
         Network specific rules that determine how the Azure Cognitive Search service may be reached.
-        :param str bypass: A specific data exfiltration scenario that is disabled for the service.
+        :param str bypass: Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         :param Sequence['IpRuleResponse'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
         if bypass is not None:
@@ -312,7 +312,7 @@ class NetworkRuleSetResponse(dict):
     @pulumi.getter
     def bypass(self) -> Optional[str]:
         """
-        A specific data exfiltration scenario that is disabled for the service.
+        Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         """
         return pulumi.get(self, "bypass")
 

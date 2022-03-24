@@ -237,6 +237,8 @@ func (o FhirServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput
 type FhirServiceAcrConfiguration struct {
 	// The list of the Azure container registry login servers.
 	LoginServers []string `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts []ServiceOciArtifactEntry `pulumi:"ociArtifacts"`
 }
 
 // FhirServiceAcrConfigurationInput is an input type that accepts FhirServiceAcrConfigurationArgs and FhirServiceAcrConfigurationOutput values.
@@ -254,6 +256,8 @@ type FhirServiceAcrConfigurationInput interface {
 type FhirServiceAcrConfigurationArgs struct {
 	// The list of the Azure container registry login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts ServiceOciArtifactEntryArrayInput `pulumi:"ociArtifacts"`
 }
 
 func (FhirServiceAcrConfigurationArgs) ElementType() reflect.Type {
@@ -339,6 +343,11 @@ func (o FhirServiceAcrConfigurationOutput) LoginServers() pulumi.StringArrayOutp
 	return o.ApplyT(func(v FhirServiceAcrConfiguration) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
 }
 
+// The list of Open Container Initiative (OCI) artifacts.
+func (o FhirServiceAcrConfigurationOutput) OciArtifacts() ServiceOciArtifactEntryArrayOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfiguration) []ServiceOciArtifactEntry { return v.OciArtifacts }).(ServiceOciArtifactEntryArrayOutput)
+}
+
 type FhirServiceAcrConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceAcrConfigurationPtrOutput) ElementType() reflect.Type {
@@ -373,10 +382,22 @@ func (o FhirServiceAcrConfigurationPtrOutput) LoginServers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of Open Container Initiative (OCI) artifacts.
+func (o FhirServiceAcrConfigurationPtrOutput) OciArtifacts() ServiceOciArtifactEntryArrayOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfiguration) []ServiceOciArtifactEntry {
+		if v == nil {
+			return nil
+		}
+		return v.OciArtifacts
+	}).(ServiceOciArtifactEntryArrayOutput)
+}
+
 // Azure container registry configuration information
 type FhirServiceAcrConfigurationResponse struct {
 	// The list of the Azure container registry login servers.
 	LoginServers []string `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts []ServiceOciArtifactEntryResponse `pulumi:"ociArtifacts"`
 }
 
 // Azure container registry configuration information
@@ -397,6 +418,11 @@ func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfiguration
 // The list of the Azure container registry login servers.
 func (o FhirServiceAcrConfigurationResponseOutput) LoginServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FhirServiceAcrConfigurationResponse) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+// The list of Open Container Initiative (OCI) artifacts.
+func (o FhirServiceAcrConfigurationResponseOutput) OciArtifacts() ServiceOciArtifactEntryResponseArrayOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfigurationResponse) []ServiceOciArtifactEntryResponse { return v.OciArtifacts }).(ServiceOciArtifactEntryResponseArrayOutput)
 }
 
 type FhirServiceAcrConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -431,6 +457,16 @@ func (o FhirServiceAcrConfigurationResponsePtrOutput) LoginServers() pulumi.Stri
 		}
 		return v.LoginServers
 	}).(pulumi.StringArrayOutput)
+}
+
+// The list of Open Container Initiative (OCI) artifacts.
+func (o FhirServiceAcrConfigurationResponsePtrOutput) OciArtifacts() ServiceOciArtifactEntryResponseArrayOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfigurationResponse) []ServiceOciArtifactEntryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OciArtifacts
+	}).(ServiceOciArtifactEntryResponseArrayOutput)
 }
 
 // Authentication configuration information
@@ -2081,6 +2117,242 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringP
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
+// The settings for history tracking for FHIR resources.
+type ResourceVersionPolicyConfiguration struct {
+	// The default value for tracking history across all resources.
+	Default *string `pulumi:"default"`
+	// A list of FHIR Resources and their version policy overrides.
+	ResourceTypeOverrides map[string]string `pulumi:"resourceTypeOverrides"`
+}
+
+// ResourceVersionPolicyConfigurationInput is an input type that accepts ResourceVersionPolicyConfigurationArgs and ResourceVersionPolicyConfigurationOutput values.
+// You can construct a concrete instance of `ResourceVersionPolicyConfigurationInput` via:
+//
+//          ResourceVersionPolicyConfigurationArgs{...}
+type ResourceVersionPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToResourceVersionPolicyConfigurationOutput() ResourceVersionPolicyConfigurationOutput
+	ToResourceVersionPolicyConfigurationOutputWithContext(context.Context) ResourceVersionPolicyConfigurationOutput
+}
+
+// The settings for history tracking for FHIR resources.
+type ResourceVersionPolicyConfigurationArgs struct {
+	// The default value for tracking history across all resources.
+	Default pulumi.StringPtrInput `pulumi:"default"`
+	// A list of FHIR Resources and their version policy overrides.
+	ResourceTypeOverrides pulumi.StringMapInput `pulumi:"resourceTypeOverrides"`
+}
+
+func (ResourceVersionPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceVersionPolicyConfiguration)(nil)).Elem()
+}
+
+func (i ResourceVersionPolicyConfigurationArgs) ToResourceVersionPolicyConfigurationOutput() ResourceVersionPolicyConfigurationOutput {
+	return i.ToResourceVersionPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ResourceVersionPolicyConfigurationArgs) ToResourceVersionPolicyConfigurationOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionPolicyConfigurationOutput)
+}
+
+func (i ResourceVersionPolicyConfigurationArgs) ToResourceVersionPolicyConfigurationPtrOutput() ResourceVersionPolicyConfigurationPtrOutput {
+	return i.ToResourceVersionPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceVersionPolicyConfigurationArgs) ToResourceVersionPolicyConfigurationPtrOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionPolicyConfigurationOutput).ToResourceVersionPolicyConfigurationPtrOutputWithContext(ctx)
+}
+
+// ResourceVersionPolicyConfigurationPtrInput is an input type that accepts ResourceVersionPolicyConfigurationArgs, ResourceVersionPolicyConfigurationPtr and ResourceVersionPolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `ResourceVersionPolicyConfigurationPtrInput` via:
+//
+//          ResourceVersionPolicyConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceVersionPolicyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToResourceVersionPolicyConfigurationPtrOutput() ResourceVersionPolicyConfigurationPtrOutput
+	ToResourceVersionPolicyConfigurationPtrOutputWithContext(context.Context) ResourceVersionPolicyConfigurationPtrOutput
+}
+
+type resourceVersionPolicyConfigurationPtrType ResourceVersionPolicyConfigurationArgs
+
+func ResourceVersionPolicyConfigurationPtr(v *ResourceVersionPolicyConfigurationArgs) ResourceVersionPolicyConfigurationPtrInput {
+	return (*resourceVersionPolicyConfigurationPtrType)(v)
+}
+
+func (*resourceVersionPolicyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceVersionPolicyConfiguration)(nil)).Elem()
+}
+
+func (i *resourceVersionPolicyConfigurationPtrType) ToResourceVersionPolicyConfigurationPtrOutput() ResourceVersionPolicyConfigurationPtrOutput {
+	return i.ToResourceVersionPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceVersionPolicyConfigurationPtrType) ToResourceVersionPolicyConfigurationPtrOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionPolicyConfigurationPtrOutput)
+}
+
+// The settings for history tracking for FHIR resources.
+type ResourceVersionPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceVersionPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ResourceVersionPolicyConfigurationOutput) ToResourceVersionPolicyConfigurationOutput() ResourceVersionPolicyConfigurationOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationOutput) ToResourceVersionPolicyConfigurationOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationOutput) ToResourceVersionPolicyConfigurationPtrOutput() ResourceVersionPolicyConfigurationPtrOutput {
+	return o.ToResourceVersionPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceVersionPolicyConfigurationOutput) ToResourceVersionPolicyConfigurationPtrOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceVersionPolicyConfiguration) *ResourceVersionPolicyConfiguration {
+		return &v
+	}).(ResourceVersionPolicyConfigurationPtrOutput)
+}
+
+// The default value for tracking history across all resources.
+func (o ResourceVersionPolicyConfigurationOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceVersionPolicyConfiguration) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+// A list of FHIR Resources and their version policy overrides.
+func (o ResourceVersionPolicyConfigurationOutput) ResourceTypeOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ResourceVersionPolicyConfiguration) map[string]string { return v.ResourceTypeOverrides }).(pulumi.StringMapOutput)
+}
+
+type ResourceVersionPolicyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionPolicyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceVersionPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ResourceVersionPolicyConfigurationPtrOutput) ToResourceVersionPolicyConfigurationPtrOutput() ResourceVersionPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationPtrOutput) ToResourceVersionPolicyConfigurationPtrOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationPtrOutput) Elem() ResourceVersionPolicyConfigurationOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfiguration) ResourceVersionPolicyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceVersionPolicyConfiguration
+		return ret
+	}).(ResourceVersionPolicyConfigurationOutput)
+}
+
+// The default value for tracking history across all resources.
+func (o ResourceVersionPolicyConfigurationPtrOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of FHIR Resources and their version policy overrides.
+func (o ResourceVersionPolicyConfigurationPtrOutput) ResourceTypeOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypeOverrides
+	}).(pulumi.StringMapOutput)
+}
+
+// The settings for history tracking for FHIR resources.
+type ResourceVersionPolicyConfigurationResponse struct {
+	// The default value for tracking history across all resources.
+	Default *string `pulumi:"default"`
+	// A list of FHIR Resources and their version policy overrides.
+	ResourceTypeOverrides map[string]string `pulumi:"resourceTypeOverrides"`
+}
+
+// The settings for history tracking for FHIR resources.
+type ResourceVersionPolicyConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionPolicyConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceVersionPolicyConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceVersionPolicyConfigurationResponseOutput) ToResourceVersionPolicyConfigurationResponseOutput() ResourceVersionPolicyConfigurationResponseOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationResponseOutput) ToResourceVersionPolicyConfigurationResponseOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationResponseOutput {
+	return o
+}
+
+// The default value for tracking history across all resources.
+func (o ResourceVersionPolicyConfigurationResponseOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceVersionPolicyConfigurationResponse) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+// A list of FHIR Resources and their version policy overrides.
+func (o ResourceVersionPolicyConfigurationResponseOutput) ResourceTypeOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ResourceVersionPolicyConfigurationResponse) map[string]string { return v.ResourceTypeOverrides }).(pulumi.StringMapOutput)
+}
+
+type ResourceVersionPolicyConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceVersionPolicyConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceVersionPolicyConfigurationResponse)(nil)).Elem()
+}
+
+func (o ResourceVersionPolicyConfigurationResponsePtrOutput) ToResourceVersionPolicyConfigurationResponsePtrOutput() ResourceVersionPolicyConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationResponsePtrOutput) ToResourceVersionPolicyConfigurationResponsePtrOutputWithContext(ctx context.Context) ResourceVersionPolicyConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o ResourceVersionPolicyConfigurationResponsePtrOutput) Elem() ResourceVersionPolicyConfigurationResponseOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfigurationResponse) ResourceVersionPolicyConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceVersionPolicyConfigurationResponse
+		return ret
+	}).(ResourceVersionPolicyConfigurationResponseOutput)
+}
+
+// The default value for tracking history across all resources.
+func (o ResourceVersionPolicyConfigurationResponsePtrOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Default
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of FHIR Resources and their version policy overrides.
+func (o ResourceVersionPolicyConfigurationResponsePtrOutput) ResourceTypeOverrides() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceVersionPolicyConfigurationResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypeOverrides
+	}).(pulumi.StringMapOutput)
+}
+
 // An access policy entry.
 type ServiceAccessPolicyEntry struct {
 	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
@@ -2231,6 +2503,8 @@ func (o ServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) Se
 type ServiceAcrConfigurationInfo struct {
 	// The list of the ACR login servers.
 	LoginServers []string `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts []ServiceOciArtifactEntry `pulumi:"ociArtifacts"`
 }
 
 // ServiceAcrConfigurationInfoInput is an input type that accepts ServiceAcrConfigurationInfoArgs and ServiceAcrConfigurationInfoOutput values.
@@ -2248,6 +2522,8 @@ type ServiceAcrConfigurationInfoInput interface {
 type ServiceAcrConfigurationInfoArgs struct {
 	// The list of the ACR login servers.
 	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts ServiceOciArtifactEntryArrayInput `pulumi:"ociArtifacts"`
 }
 
 func (ServiceAcrConfigurationInfoArgs) ElementType() reflect.Type {
@@ -2333,6 +2609,11 @@ func (o ServiceAcrConfigurationInfoOutput) LoginServers() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ServiceAcrConfigurationInfo) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
 }
 
+// The list of Open Container Initiative (OCI) artifacts.
+func (o ServiceAcrConfigurationInfoOutput) OciArtifacts() ServiceOciArtifactEntryArrayOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfo) []ServiceOciArtifactEntry { return v.OciArtifacts }).(ServiceOciArtifactEntryArrayOutput)
+}
+
 type ServiceAcrConfigurationInfoPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceAcrConfigurationInfoPtrOutput) ElementType() reflect.Type {
@@ -2367,10 +2648,22 @@ func (o ServiceAcrConfigurationInfoPtrOutput) LoginServers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of Open Container Initiative (OCI) artifacts.
+func (o ServiceAcrConfigurationInfoPtrOutput) OciArtifacts() ServiceOciArtifactEntryArrayOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfo) []ServiceOciArtifactEntry {
+		if v == nil {
+			return nil
+		}
+		return v.OciArtifacts
+	}).(ServiceOciArtifactEntryArrayOutput)
+}
+
 // Azure container registry configuration information
 type ServiceAcrConfigurationInfoResponse struct {
 	// The list of the ACR login servers.
 	LoginServers []string `pulumi:"loginServers"`
+	// The list of Open Container Initiative (OCI) artifacts.
+	OciArtifacts []ServiceOciArtifactEntryResponse `pulumi:"ociArtifacts"`
 }
 
 // Azure container registry configuration information
@@ -2391,6 +2684,11 @@ func (o ServiceAcrConfigurationInfoResponseOutput) ToServiceAcrConfigurationInfo
 // The list of the ACR login servers.
 func (o ServiceAcrConfigurationInfoResponseOutput) LoginServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAcrConfigurationInfoResponse) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+// The list of Open Container Initiative (OCI) artifacts.
+func (o ServiceAcrConfigurationInfoResponseOutput) OciArtifacts() ServiceOciArtifactEntryResponseArrayOutput {
+	return o.ApplyT(func(v ServiceAcrConfigurationInfoResponse) []ServiceOciArtifactEntryResponse { return v.OciArtifacts }).(ServiceOciArtifactEntryResponseArrayOutput)
 }
 
 type ServiceAcrConfigurationInfoResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2425,6 +2723,16 @@ func (o ServiceAcrConfigurationInfoResponsePtrOutput) LoginServers() pulumi.Stri
 		}
 		return v.LoginServers
 	}).(pulumi.StringArrayOutput)
+}
+
+// The list of Open Container Initiative (OCI) artifacts.
+func (o ServiceAcrConfigurationInfoResponsePtrOutput) OciArtifacts() ServiceOciArtifactEntryResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceAcrConfigurationInfoResponse) []ServiceOciArtifactEntryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OciArtifacts
+	}).(ServiceOciArtifactEntryResponseArrayOutput)
 }
 
 // Authentication configuration information
@@ -3482,7 +3790,9 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) StorageAccountName() pu
 // Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityIdentity struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ServiceManagedIdentityIdentityInput is an input type that accepts ServiceManagedIdentityIdentityArgs and ServiceManagedIdentityIdentityOutput values.
@@ -3499,7 +3809,9 @@ type ServiceManagedIdentityIdentityInput interface {
 // Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityIdentityArgs struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type pulumi.StringInput `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ServiceManagedIdentityIdentityArgs) ElementType() reflect.Type {
@@ -3581,8 +3893,13 @@ func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityPt
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ServiceManagedIdentityIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceManagedIdentityIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceManagedIdentityIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ServiceManagedIdentityIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
 }
 
 type ServiceManagedIdentityIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3615,14 +3932,30 @@ func (o ServiceManagedIdentityIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ServiceManagedIdentityIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
 type ServiceManagedIdentityResponseIdentity struct {
+	// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+	TenantId string `pulumi:"tenantId"`
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
+	// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
@@ -3640,9 +3973,26 @@ func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityRe
 	return o
 }
 
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ServiceManagedIdentityResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ServiceManagedIdentityResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ServiceManagedIdentityResponseIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ServiceManagedIdentityResponseIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ServiceManagedIdentityResponseIdentityOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 type ServiceManagedIdentityResponseIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3669,14 +4019,222 @@ func (o ServiceManagedIdentityResponseIdentityPtrOutput) Elem() ServiceManagedId
 	}).(ServiceManagedIdentityResponseIdentityOutput)
 }
 
+// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of identity being specified, currently SystemAssigned and None are allowed.
 func (o ServiceManagedIdentityResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Type
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+// An Open Container Initiative (OCI) artifact.
+type ServiceOciArtifactEntry struct {
+	// The artifact digest.
+	Digest *string `pulumi:"digest"`
+	// The artifact name.
+	ImageName *string `pulumi:"imageName"`
+	// The Azure Container Registry login server.
+	LoginServer *string `pulumi:"loginServer"`
+}
+
+// ServiceOciArtifactEntryInput is an input type that accepts ServiceOciArtifactEntryArgs and ServiceOciArtifactEntryOutput values.
+// You can construct a concrete instance of `ServiceOciArtifactEntryInput` via:
+//
+//          ServiceOciArtifactEntryArgs{...}
+type ServiceOciArtifactEntryInput interface {
+	pulumi.Input
+
+	ToServiceOciArtifactEntryOutput() ServiceOciArtifactEntryOutput
+	ToServiceOciArtifactEntryOutputWithContext(context.Context) ServiceOciArtifactEntryOutput
+}
+
+// An Open Container Initiative (OCI) artifact.
+type ServiceOciArtifactEntryArgs struct {
+	// The artifact digest.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// The artifact name.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// The Azure Container Registry login server.
+	LoginServer pulumi.StringPtrInput `pulumi:"loginServer"`
+}
+
+func (ServiceOciArtifactEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOciArtifactEntry)(nil)).Elem()
+}
+
+func (i ServiceOciArtifactEntryArgs) ToServiceOciArtifactEntryOutput() ServiceOciArtifactEntryOutput {
+	return i.ToServiceOciArtifactEntryOutputWithContext(context.Background())
+}
+
+func (i ServiceOciArtifactEntryArgs) ToServiceOciArtifactEntryOutputWithContext(ctx context.Context) ServiceOciArtifactEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOciArtifactEntryOutput)
+}
+
+// ServiceOciArtifactEntryArrayInput is an input type that accepts ServiceOciArtifactEntryArray and ServiceOciArtifactEntryArrayOutput values.
+// You can construct a concrete instance of `ServiceOciArtifactEntryArrayInput` via:
+//
+//          ServiceOciArtifactEntryArray{ ServiceOciArtifactEntryArgs{...} }
+type ServiceOciArtifactEntryArrayInput interface {
+	pulumi.Input
+
+	ToServiceOciArtifactEntryArrayOutput() ServiceOciArtifactEntryArrayOutput
+	ToServiceOciArtifactEntryArrayOutputWithContext(context.Context) ServiceOciArtifactEntryArrayOutput
+}
+
+type ServiceOciArtifactEntryArray []ServiceOciArtifactEntryInput
+
+func (ServiceOciArtifactEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceOciArtifactEntry)(nil)).Elem()
+}
+
+func (i ServiceOciArtifactEntryArray) ToServiceOciArtifactEntryArrayOutput() ServiceOciArtifactEntryArrayOutput {
+	return i.ToServiceOciArtifactEntryArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceOciArtifactEntryArray) ToServiceOciArtifactEntryArrayOutputWithContext(ctx context.Context) ServiceOciArtifactEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceOciArtifactEntryArrayOutput)
+}
+
+// An Open Container Initiative (OCI) artifact.
+type ServiceOciArtifactEntryOutput struct{ *pulumi.OutputState }
+
+func (ServiceOciArtifactEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOciArtifactEntry)(nil)).Elem()
+}
+
+func (o ServiceOciArtifactEntryOutput) ToServiceOciArtifactEntryOutput() ServiceOciArtifactEntryOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryOutput) ToServiceOciArtifactEntryOutputWithContext(ctx context.Context) ServiceOciArtifactEntryOutput {
+	return o
+}
+
+// The artifact digest.
+func (o ServiceOciArtifactEntryOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntry) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The artifact name.
+func (o ServiceOciArtifactEntryOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntry) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Container Registry login server.
+func (o ServiceOciArtifactEntryOutput) LoginServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntry) *string { return v.LoginServer }).(pulumi.StringPtrOutput)
+}
+
+type ServiceOciArtifactEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceOciArtifactEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceOciArtifactEntry)(nil)).Elem()
+}
+
+func (o ServiceOciArtifactEntryArrayOutput) ToServiceOciArtifactEntryArrayOutput() ServiceOciArtifactEntryArrayOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryArrayOutput) ToServiceOciArtifactEntryArrayOutputWithContext(ctx context.Context) ServiceOciArtifactEntryArrayOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryArrayOutput) Index(i pulumi.IntInput) ServiceOciArtifactEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceOciArtifactEntry {
+		return vs[0].([]ServiceOciArtifactEntry)[vs[1].(int)]
+	}).(ServiceOciArtifactEntryOutput)
+}
+
+// An Open Container Initiative (OCI) artifact.
+type ServiceOciArtifactEntryResponse struct {
+	// The artifact digest.
+	Digest *string `pulumi:"digest"`
+	// The artifact name.
+	ImageName *string `pulumi:"imageName"`
+	// The Azure Container Registry login server.
+	LoginServer *string `pulumi:"loginServer"`
+}
+
+// An Open Container Initiative (OCI) artifact.
+type ServiceOciArtifactEntryResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceOciArtifactEntryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceOciArtifactEntryResponse)(nil)).Elem()
+}
+
+func (o ServiceOciArtifactEntryResponseOutput) ToServiceOciArtifactEntryResponseOutput() ServiceOciArtifactEntryResponseOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryResponseOutput) ToServiceOciArtifactEntryResponseOutputWithContext(ctx context.Context) ServiceOciArtifactEntryResponseOutput {
+	return o
+}
+
+// The artifact digest.
+func (o ServiceOciArtifactEntryResponseOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntryResponse) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// The artifact name.
+func (o ServiceOciArtifactEntryResponseOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntryResponse) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Container Registry login server.
+func (o ServiceOciArtifactEntryResponseOutput) LoginServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceOciArtifactEntryResponse) *string { return v.LoginServer }).(pulumi.StringPtrOutput)
+}
+
+type ServiceOciArtifactEntryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceOciArtifactEntryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceOciArtifactEntryResponse)(nil)).Elem()
+}
+
+func (o ServiceOciArtifactEntryResponseArrayOutput) ToServiceOciArtifactEntryResponseArrayOutput() ServiceOciArtifactEntryResponseArrayOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryResponseArrayOutput) ToServiceOciArtifactEntryResponseArrayOutputWithContext(ctx context.Context) ServiceOciArtifactEntryResponseArrayOutput {
+	return o
+}
+
+func (o ServiceOciArtifactEntryResponseArrayOutput) Index(i pulumi.IntInput) ServiceOciArtifactEntryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceOciArtifactEntryResponse {
+		return vs[0].([]ServiceOciArtifactEntryResponse)[vs[1].(int)]
+	}).(ServiceOciArtifactEntryResponseOutput)
 }
 
 // The properties of a service instance.
@@ -4339,10 +4897,67 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// User assigned identity properties
+type UserAssignedIdentityResponse struct {
+	// The client ID of the assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID of the assigned identity.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// User assigned identity properties
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+// The client ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID of the assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
 // Workspaces resource specific properties.
 type WorkspaceResponseProperties struct {
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 }
 
 // Workspaces resource specific properties.
@@ -4360,9 +4975,21 @@ func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesOutputWi
 	return o
 }
 
+// The list of private endpoint connections that are set up for this resource.
+func (o WorkspaceResponsePropertiesOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v WorkspaceResponseProperties) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The provisioning state.
 func (o WorkspaceResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o WorkspaceResponsePropertiesOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceResponseProperties) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 func init() {
@@ -4404,6 +5031,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(ResourceVersionPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(ResourceVersionPolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceVersionPolicyConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ResourceVersionPolicyConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseOutput{})
@@ -4432,6 +5063,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceManagedIdentityIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceManagedIdentityResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ServiceManagedIdentityResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ServiceOciArtifactEntryOutput{})
+	pulumi.RegisterOutputType(ServiceOciArtifactEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceOciArtifactEntryResponseOutput{})
+	pulumi.RegisterOutputType(ServiceOciArtifactEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesResponseOutput{})
@@ -4440,5 +5075,7 @@ func init() {
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityOutput{})
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(WorkspaceResponsePropertiesOutput{})
 }

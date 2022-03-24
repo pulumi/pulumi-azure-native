@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity.
-        /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
-        /// <summary>
         /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
         /// </summary>
         public readonly string Kind;
@@ -126,8 +122,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
-
             string kind,
 
             string location,
@@ -150,7 +144,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         {
             FrontDoorId = frontDoorId;
             Id = id;
-            Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;

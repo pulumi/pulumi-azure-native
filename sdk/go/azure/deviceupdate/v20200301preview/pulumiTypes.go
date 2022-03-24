@@ -1980,12 +1980,20 @@ func (o PrivateLinkServiceProxyResponseRemotePrivateEndpointConnectionPtrOutput)
 type RemotePrivateEndpoint struct {
 	// Remote endpoint resource ID.
 	Id *string `pulumi:"id"`
+	// Original resource ID needed by Microsoft.Network.
+	ImmutableResourceId *string `pulumi:"immutableResourceId"`
+	// Original subscription ID needed by Microsoft.Network.
+	ImmutableSubscriptionId *string `pulumi:"immutableSubscriptionId"`
+	// ARM location of the remote private endpoint.
+	Location *string `pulumi:"location"`
 	// List of private link service connections that need manual approval.
 	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
 	// List of automatically approved private link service connections.
 	PrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
 	// List of private link service proxies.
 	PrivateLinkServiceProxies []PrivateLinkServiceProxy `pulumi:"privateLinkServiceProxies"`
+	// Virtual network traffic tag.
+	VnetTrafficTag *string `pulumi:"vnetTrafficTag"`
 }
 
 // RemotePrivateEndpointInput is an input type that accepts RemotePrivateEndpointArgs and RemotePrivateEndpointOutput values.
@@ -2003,12 +2011,20 @@ type RemotePrivateEndpointInput interface {
 type RemotePrivateEndpointArgs struct {
 	// Remote endpoint resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Original resource ID needed by Microsoft.Network.
+	ImmutableResourceId pulumi.StringPtrInput `pulumi:"immutableResourceId"`
+	// Original subscription ID needed by Microsoft.Network.
+	ImmutableSubscriptionId pulumi.StringPtrInput `pulumi:"immutableSubscriptionId"`
+	// ARM location of the remote private endpoint.
+	Location pulumi.StringPtrInput `pulumi:"location"`
 	// List of private link service connections that need manual approval.
 	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput `pulumi:"manualPrivateLinkServiceConnections"`
 	// List of automatically approved private link service connections.
 	PrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput `pulumi:"privateLinkServiceConnections"`
 	// List of private link service proxies.
 	PrivateLinkServiceProxies PrivateLinkServiceProxyArrayInput `pulumi:"privateLinkServiceProxies"`
+	// Virtual network traffic tag.
+	VnetTrafficTag pulumi.StringPtrInput `pulumi:"vnetTrafficTag"`
 }
 
 func (RemotePrivateEndpointArgs) ElementType() reflect.Type {
@@ -2094,6 +2110,21 @@ func (o RemotePrivateEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Original resource ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointOutput) ImmutableResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.ImmutableResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Original subscription ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointOutput) ImmutableSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.ImmutableSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// ARM location of the remote private endpoint.
+func (o RemotePrivateEndpointOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 // List of private link service connections that need manual approval.
 func (o RemotePrivateEndpointOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
 	return o.ApplyT(func(v RemotePrivateEndpoint) []PrivateLinkServiceConnection {
@@ -2109,6 +2140,11 @@ func (o RemotePrivateEndpointOutput) PrivateLinkServiceConnections() PrivateLink
 // List of private link service proxies.
 func (o RemotePrivateEndpointOutput) PrivateLinkServiceProxies() PrivateLinkServiceProxyArrayOutput {
 	return o.ApplyT(func(v RemotePrivateEndpoint) []PrivateLinkServiceProxy { return v.PrivateLinkServiceProxies }).(PrivateLinkServiceProxyArrayOutput)
+}
+
+// Virtual network traffic tag.
+func (o RemotePrivateEndpointOutput) VnetTrafficTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpoint) *string { return v.VnetTrafficTag }).(pulumi.StringPtrOutput)
 }
 
 type RemotePrivateEndpointPtrOutput struct{ *pulumi.OutputState }
@@ -2145,6 +2181,36 @@ func (o RemotePrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Original resource ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointPtrOutput) ImmutableResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Original subscription ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointPtrOutput) ImmutableSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARM location of the remote private endpoint.
+func (o RemotePrivateEndpointPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
 // List of private link service connections that need manual approval.
 func (o RemotePrivateEndpointPtrOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionArrayOutput {
 	return o.ApplyT(func(v *RemotePrivateEndpoint) []PrivateLinkServiceConnection {
@@ -2175,12 +2241,28 @@ func (o RemotePrivateEndpointPtrOutput) PrivateLinkServiceProxies() PrivateLinkS
 	}).(PrivateLinkServiceProxyArrayOutput)
 }
 
+// Virtual network traffic tag.
+func (o RemotePrivateEndpointPtrOutput) VnetTrafficTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VnetTrafficTag
+	}).(pulumi.StringPtrOutput)
+}
+
 // Remote private endpoint details.
 type RemotePrivateEndpointResponse struct {
 	// List of connection details.
 	ConnectionDetails []ConnectionDetailsResponse `pulumi:"connectionDetails"`
 	// Remote endpoint resource ID.
 	Id *string `pulumi:"id"`
+	// Original resource ID needed by Microsoft.Network.
+	ImmutableResourceId *string `pulumi:"immutableResourceId"`
+	// Original subscription ID needed by Microsoft.Network.
+	ImmutableSubscriptionId *string `pulumi:"immutableSubscriptionId"`
+	// ARM location of the remote private endpoint.
+	Location *string `pulumi:"location"`
 	// List of private link service connections that need manual approval.
 	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
 	// List of automatically approved private link service connections.
@@ -2188,7 +2270,7 @@ type RemotePrivateEndpointResponse struct {
 	// List of private link service proxies.
 	PrivateLinkServiceProxies []PrivateLinkServiceProxyResponse `pulumi:"privateLinkServiceProxies"`
 	// Virtual network traffic tag.
-	VnetTrafficTag string `pulumi:"vnetTrafficTag"`
+	VnetTrafficTag *string `pulumi:"vnetTrafficTag"`
 }
 
 // Remote private endpoint details.
@@ -2216,6 +2298,21 @@ func (o RemotePrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Original resource ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointResponseOutput) ImmutableResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.ImmutableResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Original subscription ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointResponseOutput) ImmutableSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.ImmutableSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// ARM location of the remote private endpoint.
+func (o RemotePrivateEndpointResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 // List of private link service connections that need manual approval.
 func (o RemotePrivateEndpointResponseOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
 	return o.ApplyT(func(v RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
@@ -2238,8 +2335,8 @@ func (o RemotePrivateEndpointResponseOutput) PrivateLinkServiceProxies() Private
 }
 
 // Virtual network traffic tag.
-func (o RemotePrivateEndpointResponseOutput) VnetTrafficTag() pulumi.StringOutput {
-	return o.ApplyT(func(v RemotePrivateEndpointResponse) string { return v.VnetTrafficTag }).(pulumi.StringOutput)
+func (o RemotePrivateEndpointResponseOutput) VnetTrafficTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RemotePrivateEndpointResponse) *string { return v.VnetTrafficTag }).(pulumi.StringPtrOutput)
 }
 
 type RemotePrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2286,6 +2383,36 @@ func (o RemotePrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Original resource ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointResponsePtrOutput) ImmutableResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Original subscription ID needed by Microsoft.Network.
+func (o RemotePrivateEndpointResponsePtrOutput) ImmutableSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImmutableSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARM location of the remote private endpoint.
+func (o RemotePrivateEndpointResponsePtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemotePrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
 // List of private link service connections that need manual approval.
 func (o RemotePrivateEndpointResponsePtrOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *RemotePrivateEndpointResponse) []PrivateLinkServiceConnectionResponse {
@@ -2322,7 +2449,7 @@ func (o RemotePrivateEndpointResponsePtrOutput) VnetTrafficTag() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return &v.VnetTrafficTag
+		return v.VnetTrafficTag
 	}).(pulumi.StringPtrOutput)
 }
 

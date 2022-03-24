@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Media
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:Transform"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:Transform"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210601:Transform"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:Transform"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

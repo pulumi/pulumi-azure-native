@@ -25,6 +25,7 @@ from .get_private_endpoint_connection import *
 from .get_streaming_endpoint import *
 from .get_streaming_locator import *
 from .get_streaming_policy import *
+from .get_track import *
 from .get_transform import *
 from .job import *
 from .list_asset_container_sas import *
@@ -41,6 +42,7 @@ from .private_endpoint_connection import *
 from .streaming_endpoint import *
 from .streaming_locator import *
 from .streaming_policy import *
+from .track import *
 from .transform import *
 from ._inputs import *
 from . import outputs
@@ -67,6 +69,8 @@ if typing.TYPE_CHECKING:
     v20210501 = __v20210501
     import pulumi_azure_native.media.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.media.v20211101 as __v20211101
+    v20211101 = __v20211101
 else:
     v20151001 = _utilities.lazy_import('pulumi_azure_native.media.v20151001')
     v20180330preview = _utilities.lazy_import('pulumi_azure_native.media.v20180330preview')
@@ -78,4 +82,5 @@ else:
     v20200501 = _utilities.lazy_import('pulumi_azure_native.media.v20200501')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.media.v20210501')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.media.v20210601')
+    v20211101 = _utilities.lazy_import('pulumi_azure_native.media.v20211101')
 

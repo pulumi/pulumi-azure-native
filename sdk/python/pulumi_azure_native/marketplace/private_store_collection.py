@@ -145,7 +145,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
                  __props__=None):
         """
         The Collection data structure.
-        API Version: 2021-06-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Collection data structure.
-        API Version: 2021-06-01.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class PrivateStoreCollection(pulumi.CustomResource):
             __props__.__dict__["number_of_offers"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:marketplace/v20210601:PrivateStoreCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:marketplace/v20210601:PrivateStoreCollection"), pulumi.Alias(type_="azure-native:marketplace/v20211201:PrivateStoreCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateStoreCollection, __self__).__init__(
             'azure-native:marketplace:PrivateStoreCollection',

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// The description of Dicom Service
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Dicom Service
-        /// API Version: 2021-06-01-preview.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        public readonly Outputs.ServiceManagedIdentityResponseIdentity? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -102,9 +106,17 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// The url of the Dicom Services.
         /// </summary>
@@ -130,11 +142,17 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string id,
 
+            Outputs.ServiceManagedIdentityResponseIdentity? identity,
+
             string? location,
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string publicNetworkAccess,
 
             string serviceUrl,
 
@@ -147,9 +165,12 @@ namespace Pulumi.AzureNative.HealthcareApis
             AuthenticationConfiguration = authenticationConfiguration;
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceUrl = serviceUrl;
             SystemData = systemData;
             Tags = tags;

@@ -91,7 +91,7 @@ export interface ResourceManagementPrivateLinkArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group the template will be deployed to. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -180,7 +180,7 @@ class VirtualRouter(pulumi.CustomResource):
                  __props__=None):
         """
         VirtualRouter Resource.
-        API Version: 2020-08-01.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +202,7 @@ class VirtualRouter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualRouter Resource.
-        API Version: 2020-08-01.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualRouterArgs args: The arguments to use to populate this resource's properties.

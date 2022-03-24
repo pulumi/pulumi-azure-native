@@ -10,6 +10,7 @@ import * as v20200201preview from "./v20200201preview";
 import * as v20200501 from "./v20200501";
 import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
+import * as v20211101 from "./v20211101";
 
 export {
     v20180330preview,
@@ -20,6 +21,7 @@ export {
     v20200501,
     v20210501,
     v20210601,
+    v20211101,
 };
 
 export const AacAudioProfile = {
@@ -892,3 +894,19 @@ export const VideoSyncMode = {
  * The Video Sync Mode
  */
 export type VideoSyncMode = (typeof VideoSyncMode)[keyof typeof VideoSyncMode];
+
+export const Visibility = {
+    /**
+     * The track is hidden to video player.
+     */
+    Hidden: "Hidden",
+    /**
+     * The track is visible to video player.
+     */
+    Visible: "Visible",
+} as const;
+
+/**
+ * When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];

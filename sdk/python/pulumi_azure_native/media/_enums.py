@@ -46,6 +46,7 @@ __all__ = [
     'TrackPropertyCompareOperation',
     'TrackPropertyType',
     'VideoSyncMode',
+    'Visibility',
 ]
 
 
@@ -835,4 +836,18 @@ class VideoSyncMode(str, Enum):
     VFR = "Vfr"
     """
     Similar to the Passthrough mode, but if the input has frames that have duplicate timestamps, then only one frame is passed through to the output, and others are dropped. Recommended when the number of output frames is expected to be equal to the number of input frames. For example, the output is used to calculate a quality metric like PSNR against the input
+    """
+
+
+class Visibility(str, Enum):
+    """
+    When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+    """
+    HIDDEN = "Hidden"
+    """
+    The track is hidden to video player.
+    """
+    VISIBLE = "Visible"
+    """
+    The track is visible to video player.
     """

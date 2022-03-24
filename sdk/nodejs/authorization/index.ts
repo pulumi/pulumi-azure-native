@@ -21,6 +21,7 @@ export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./getPolicyExemption";
 export * from "./getPolicySetDefinition";
 export * from "./getPolicySetDefinitionAtManagementGroup";
+export * from "./getPrivateLinkAssociation";
 export * from "./getResourceManagementPrivateLink";
 export * from "./getRoleAssignment";
 export * from "./getRoleDefinition";
@@ -35,6 +36,7 @@ export * from "./policyDefinitionAtManagementGroup";
 export * from "./policyExemption";
 export * from "./policySetDefinition";
 export * from "./policySetDefinitionAtManagementGroup";
+export * from "./privateLinkAssociation";
 export * from "./resourceManagementPrivateLink";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
@@ -119,6 +121,7 @@ import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagemen
 import { PolicyExemption } from "./policyExemption";
 import { PolicySetDefinition } from "./policySetDefinition";
 import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
+import { PrivateLinkAssociation } from "./privateLinkAssociation";
 import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
 import { RoleAssignment } from "./roleAssignment";
 import { RoleDefinition } from "./roleDefinition";
@@ -152,6 +155,8 @@ const _module = {
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
                 return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:PrivateLinkAssociation":
+                return new PrivateLinkAssociation(name, <any>undefined, { urn })
             case "azure-native:authorization:ResourceManagementPrivateLink":
                 return new ResourceManagementPrivateLink(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleAssignment":

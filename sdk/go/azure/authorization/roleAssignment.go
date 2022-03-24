@@ -12,7 +12,7 @@ import (
 )
 
 // Role Assignments
-// API Version: 2020-08-01-preview.
+// API Version: 2020-10-01-preview.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
 {
 
     /// <summary>
-    /// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+    /// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
     /// </summary>
     [OutputType]
     public sealed class IdentityProvidersResponse
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         /// <summary>
         /// The configuration settings of the Azure Static Web Apps provider.
         /// </summary>
-        public readonly Outputs.AzureStaticWebAppResponse? AzureStaticWebApp;
+        public readonly Outputs.AzureStaticWebAppsResponse? AzureStaticWebApps;
         /// <summary>
         /// The map of the name of the alias of each custom Open ID Connect provider to the
         /// configuration settings of the custom Open ID Connect provider.
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
 
             Outputs.AzureActiveDirectoryResponse? azureActiveDirectory,
 
-            Outputs.AzureStaticWebAppResponse? azureStaticWebApp,
+            Outputs.AzureStaticWebAppsResponse? azureStaticWebApps,
 
             ImmutableDictionary<string, Outputs.CustomOpenIdConnectProviderResponse>? customOpenIdConnectProviders,
 
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Outputs
         {
             Apple = apple;
             AzureActiveDirectory = azureActiveDirectory;
-            AzureStaticWebApp = azureStaticWebApp;
+            AzureStaticWebApps = azureStaticWebApps;
             CustomOpenIdConnectProviders = customOpenIdConnectProviders;
             Facebook = facebook;
             GitHub = gitHub;

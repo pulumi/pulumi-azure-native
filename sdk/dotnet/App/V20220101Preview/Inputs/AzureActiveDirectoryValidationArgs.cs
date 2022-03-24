@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
             set => _allowedAudiences = value;
         }
 
+        /// <summary>
+        /// The configuration settings of the default authorization policy.
+        /// </summary>
+        [Input("defaultAuthorizationPolicy")]
+        public Input<Inputs.DefaultAuthorizationPolicyArgs>? DefaultAuthorizationPolicy { get; set; }
+
+        /// <summary>
+        /// The configuration settings of the checks that should be made while validating the JWT Claims.
+        /// </summary>
+        [Input("jwtClaimChecks")]
+        public Input<Inputs.JwtClaimChecksArgs>? JwtClaimChecks { get; set; }
+
         public AzureActiveDirectoryValidationArgs()
         {
         }

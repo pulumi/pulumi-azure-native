@@ -21,7 +21,7 @@ class GetFhirServiceResult:
     """
     The description of Fhir Service
     """
-    def __init__(__self__, access_policies=None, acr_configuration=None, authentication_configuration=None, cors_configuration=None, etag=None, export_configuration=None, id=None, identity=None, kind=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, access_policies=None, acr_configuration=None, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, export_configuration=None, id=None, identity=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, resource_version_policy_configuration=None, system_data=None, tags=None, type=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -37,6 +37,9 @@ class GetFhirServiceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if event_state and not isinstance(event_state, str):
+            raise TypeError("Expected argument 'event_state' to be a str")
+        pulumi.set(__self__, "event_state", event_state)
         if export_configuration and not isinstance(export_configuration, dict):
             raise TypeError("Expected argument 'export_configuration' to be a dict")
         pulumi.set(__self__, "export_configuration", export_configuration)
@@ -55,9 +58,18 @@ class GetFhirServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
+        if resource_version_policy_configuration and not isinstance(resource_version_policy_configuration, dict):
+            raise TypeError("Expected argument 'resource_version_policy_configuration' to be a dict")
+        pulumi.set(__self__, "resource_version_policy_configuration", resource_version_policy_configuration)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -109,6 +121,14 @@ class GetFhirServiceResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter(name="eventState")
+    def event_state(self) -> str:
+        """
+        Fhir Service event support status.
+        """
+        return pulumi.get(self, "event_state")
+
+    @property
     @pulumi.getter(name="exportConfiguration")
     def export_configuration(self) -> Optional['outputs.FhirServiceExportConfigurationResponse']:
         """
@@ -157,12 +177,36 @@ class GetFhirServiceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        The list of private endpoint connections that are set up for this resource.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> str:
+        """
+        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="resourceVersionPolicyConfiguration")
+    def resource_version_policy_configuration(self) -> Optional['outputs.ResourceVersionPolicyConfigurationResponse']:
+        """
+        Determines tracking of history for resources.
+        """
+        return pulumi.get(self, "resource_version_policy_configuration")
 
     @property
     @pulumi.getter(name="systemData")
@@ -200,13 +244,17 @@ class AwaitableGetFhirServiceResult(GetFhirServiceResult):
             authentication_configuration=self.authentication_configuration,
             cors_configuration=self.cors_configuration,
             etag=self.etag,
+            event_state=self.event_state,
             export_configuration=self.export_configuration,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
+            resource_version_policy_configuration=self.resource_version_policy_configuration,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -218,7 +266,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
     The description of Fhir Service
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -241,13 +289,17 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
         authentication_configuration=__ret__.authentication_configuration,
         cors_configuration=__ret__.cors_configuration,
         etag=__ret__.etag,
+        event_state=__ret__.event_state,
         export_configuration=__ret__.export_configuration,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
+        resource_version_policy_configuration=__ret__.resource_version_policy_configuration,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -260,7 +312,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     The description of Fhir Service
-    API Version: 2021-06-01-preview.
+    API Version: 2021-11-01.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.

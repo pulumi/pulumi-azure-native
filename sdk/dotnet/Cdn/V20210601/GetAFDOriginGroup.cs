@@ -105,10 +105,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        /// </summary>
-        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponse? ResponseBasedAfdOriginErrorDetectionSettings;
-        /// <summary>
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         public readonly string? SessionAffinityState;
@@ -141,8 +137,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
 
             string provisioningState,
 
-            Outputs.ResponseBasedOriginErrorDetectionParametersResponse? responseBasedAfdOriginErrorDetectionSettings,
-
             string? sessionAffinityState,
 
             Outputs.SystemDataResponse systemData,
@@ -158,7 +152,6 @@ namespace Pulumi.AzureNative.Cdn.V20210601
             Name = name;
             ProfileName = profileName;
             ProvisioningState = provisioningState;
-            ResponseBasedAfdOriginErrorDetectionSettings = responseBasedAfdOriginErrorDetectionSettings;
             SessionAffinityState = sessionAffinityState;
             SystemData = systemData;
             TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = trafficRestorationTimeToHealedOrNewEndpointsInMinutes;

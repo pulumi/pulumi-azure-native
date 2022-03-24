@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     v20211101preview = __v20211101preview
     import pulumi_azure_native.kubernetesconfiguration.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
+    import pulumi_azure_native.kubernetesconfiguration.v20220301 as __v20220301
+    v20220301 = __v20220301
 else:
     v20191101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20191101preview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20200701preview')
@@ -42,4 +44,5 @@ else:
     v20210901 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20210901')
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20211101preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220101preview')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220301')
 

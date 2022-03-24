@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         public Output<string> ManagedIdentityObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Output("managedIdentityResourceId")]
         public Output<string?> ManagedIdentityResourceId { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.AzureNative.Kusto.V20220201
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id.  For user assigned identity (UAI) provide the UAI resource Id.
         /// </summary>
         [Input("managedIdentityResourceId")]
         public Input<string>? ManagedIdentityResourceId { get; set; }

@@ -279,7 +279,7 @@ class LiveOutput(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20200501:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20210601:LiveOutput")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180330preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180601preview:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20180701:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20200501:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20210601:LiveOutput"), pulumi.Alias(type_="azure-native:media/v20211101:LiveOutput")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LiveOutput, __self__).__init__(
             'azure-native:media/v20190501preview:LiveOutput',

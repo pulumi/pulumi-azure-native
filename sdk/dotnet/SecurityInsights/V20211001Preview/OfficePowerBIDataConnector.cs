@@ -95,6 +95,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:OfficePowerBIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:OfficePowerBIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:OfficePowerBIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficePowerBIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficePowerBIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

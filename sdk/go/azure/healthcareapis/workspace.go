@@ -12,7 +12,7 @@ import (
 )
 
 // Workspace resource.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type Workspace struct {
 	pulumi.CustomResourceState
 
@@ -45,6 +45,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:Workspace"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

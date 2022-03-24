@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "azure-native:healthcareapis:Workspace":
 		r = &Workspace{}
+	case "azure-native:healthcareapis:WorkspacePrivateEndpointConnection":
+		r = &WorkspacePrivateEndpointConnection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Dicom Service
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ServiceManagedIdentityResponseIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -41,10 +47,22 @@ namespace Pulumi.AzureNative.HealthcareApis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The url of the Dicom Services.
@@ -96,6 +114,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:DicomService"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:DicomService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,6 +143,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Input("dicomServiceName")]
         public Input<string>? DicomServiceName { get; set; }
+
+        /// <summary>
+        /// Setting indicating whether the service has a managed identity associated with it.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ServiceManagedIdentityIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The resource location.

@@ -44,6 +44,7 @@ __all__ = [
     'SetMultiVmSyncStatus',
     'SkuName',
     'SqlServerLicenseType',
+    'TieringMode',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
@@ -132,6 +133,9 @@ class ContainerType(str, Enum):
     SQLAG_WORK_LOAD_CONTAINER = "SQLAGWorkLoadContainer"
     STORAGE_CONTAINER = "StorageContainer"
     GENERIC_CONTAINER = "GenericContainer"
+    AZURE_WORKLOAD_CONTAINER = "AzureWorkloadContainer"
+    MICROSOFT_CLASSIC_COMPUTE_VIRTUAL_MACHINES = "Microsoft.ClassicCompute/virtualMachines"
+    MICROSOFT_COMPUTE_VIRTUAL_MACHINES = "Microsoft.Compute/virtualMachines"
 
 
 class CreateMode(str, Enum):
@@ -420,7 +424,8 @@ class ResourceIdentityType(str, Enum):
 
 class RetentionDurationType(str, Enum):
     """
-    Retention duration type of retention policy.
+    Retention duration type: days/weeks/months/years
+    Used only if TieringMode is set to TierAfter
     """
     INVALID = "Invalid"
     DAYS = "Days"
@@ -472,6 +477,19 @@ class SqlServerLicenseType(str, Enum):
     NO_LICENSE_TYPE = "NoLicenseType"
     PAYG = "PAYG"
     AHUB = "AHUB"
+
+
+class TieringMode(str, Enum):
+    """
+    Tiering Mode to control automatic tiering of recovery points. Supported values are:
+    1. TierRecommended: Tier all recovery points recommended to be tiered
+    2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+    3. DoNotTier: Do not tier any recovery points
+    """
+    INVALID = "Invalid"
+    TIER_RECOMMENDED = "TierRecommended"
+    TIER_AFTER = "TierAfter"
+    DO_NOT_TIER = "DoNotTier"
 
 
 class WeekOfMonth(str, Enum):

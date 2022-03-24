@@ -22,7 +22,7 @@ export function getResourceManagementPrivateLink(args: GetResourceManagementPriv
 
 export interface GetResourceManagementPrivateLinkArgs {
     /**
-     * The name of the resource group the template will be deployed to. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -57,7 +57,7 @@ export function getResourceManagementPrivateLinkOutput(args: GetResourceManageme
 
 export interface GetResourceManagementPrivateLinkOutputArgs {
     /**
-     * The name of the resource group the template will be deployed to. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

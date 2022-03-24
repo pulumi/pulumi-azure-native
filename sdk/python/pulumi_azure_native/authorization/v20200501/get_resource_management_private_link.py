@@ -92,7 +92,7 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
     """
     Use this data source to access information about an existing resource.
 
-    :param str resource_group_name: The name of the resource group the template will be deployed to. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rmpl_name: The name of the resource management private link.
     """
     __args__ = dict()
@@ -119,7 +119,7 @@ def get_resource_management_private_link_output(resource_group_name: Optional[pu
     """
     Use this data source to access information about an existing resource.
 
-    :param str resource_group_name: The name of the resource group the template will be deployed to. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rmpl_name: The name of the resource management private link.
     """
     ...

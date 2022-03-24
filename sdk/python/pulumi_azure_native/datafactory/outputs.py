@@ -74221,6 +74221,8 @@ class WebActivityResponse(dict):
             suggest = "connect_via"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "disableCertValidation":
+            suggest = "disable_cert_validation"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
         elif key == "linkedServices":
@@ -74250,6 +74252,7 @@ class WebActivityResponse(dict):
                  datasets: Optional[Sequence['outputs.DatasetReferenceResponse']] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 disable_cert_validation: Optional[bool] = None,
                  headers: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
@@ -74268,6 +74271,7 @@ class WebActivityResponse(dict):
         :param Sequence['DatasetReferenceResponse'] datasets: List of datasets passed to web endpoint.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param bool disable_cert_validation: When set to true, Certificate validation will be disabled.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
@@ -74290,6 +74294,8 @@ class WebActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_cert_validation is not None:
+            pulumi.set(__self__, "disable_cert_validation", disable_cert_validation)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
         if linked_service_name is not None:
@@ -74381,6 +74387,14 @@ class WebActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableCertValidation")
+    def disable_cert_validation(self) -> Optional[bool]:
+        """
+        When set to true, Certificate validation will be disabled.
+        """
+        return pulumi.get(self, "disable_cert_validation")
 
     @property
     @pulumi.getter

@@ -21,7 +21,7 @@ func LookupResourceManagementPrivateLink(ctx *pulumi.Context, args *LookupResour
 }
 
 type LookupResourceManagementPrivateLinkArgs struct {
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource management private link.
 	RmplName string `pulumi:"rmplName"`
@@ -49,7 +49,7 @@ func LookupResourceManagementPrivateLinkOutput(ctx *pulumi.Context, args LookupR
 }
 
 type LookupResourceManagementPrivateLinkOutputArgs struct {
-	// The name of the resource group the template will be deployed to. The name is case insensitive.
+	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of the resource management private link.
 	RmplName pulumi.StringInput `pulumi:"rmplName"`

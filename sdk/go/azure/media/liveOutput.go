@@ -83,6 +83,9 @@ func NewLiveOutput(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20210601:LiveOutput"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20211101:LiveOutput"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource LiveOutput

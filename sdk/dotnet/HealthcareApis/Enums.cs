@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
+    /// Controls how resources are versioned on the FHIR service
+    /// </summary>
+    [EnumType]
+    public readonly struct FhirResourceVersionPolicy : IEquatable<FhirResourceVersionPolicy>
+    {
+        private readonly string _value;
+
+        private FhirResourceVersionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FhirResourceVersionPolicy No_version { get; } = new FhirResourceVersionPolicy("no-version");
+        public static FhirResourceVersionPolicy Versioned { get; } = new FhirResourceVersionPolicy("versioned");
+        public static FhirResourceVersionPolicy Versioned_update { get; } = new FhirResourceVersionPolicy("versioned-update");
+
+        public static bool operator ==(FhirResourceVersionPolicy left, FhirResourceVersionPolicy right) => left.Equals(right);
+        public static bool operator !=(FhirResourceVersionPolicy left, FhirResourceVersionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(FhirResourceVersionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FhirResourceVersionPolicy other && Equals(other);
+        public bool Equals(FhirResourceVersionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of the service.
     /// </summary>
     [EnumType]
@@ -188,6 +220,39 @@ namespace Pulumi.AzureNative.HealthcareApis
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of identity being specified, currently SystemAssigned and None are allowed.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceManagedIdentityType : IEquatable<ServiceManagedIdentityType>
+    {
+        private readonly string _value;
+
+        private ServiceManagedIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceManagedIdentityType None { get; } = new ServiceManagedIdentityType("None");
+        public static ServiceManagedIdentityType SystemAssigned { get; } = new ServiceManagedIdentityType("SystemAssigned");
+        public static ServiceManagedIdentityType UserAssigned { get; } = new ServiceManagedIdentityType("UserAssigned");
+        public static ServiceManagedIdentityType SystemAssigned_UserAssigned { get; } = new ServiceManagedIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ServiceManagedIdentityType left, ServiceManagedIdentityType right) => left.Equals(right);
+        public static bool operator !=(ServiceManagedIdentityType left, ServiceManagedIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceManagedIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceManagedIdentityType other && Equals(other);
+        public bool Equals(ServiceManagedIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

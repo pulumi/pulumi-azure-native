@@ -291,18 +291,6 @@ export const ManagedRuleEnabledState = {
  */
 export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
 
-export const ManagedServiceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-    UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * Type of managed service identity.
- */
-export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
-
 export const MatchProcessingBehavior = {
     Continue: "Continue",
     Stop: "Stop",

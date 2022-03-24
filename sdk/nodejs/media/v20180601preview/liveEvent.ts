@@ -153,7 +153,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["vanityUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveEvent" }, { type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }, { type: "azure-native:media/v20210601:LiveEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveEvent" }, { type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }, { type: "azure-native:media/v20210601:LiveEvent" }, { type: "azure-native:media/v20211101:LiveEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveEvent.__pulumiType, name, resourceInputs, opts);
     }

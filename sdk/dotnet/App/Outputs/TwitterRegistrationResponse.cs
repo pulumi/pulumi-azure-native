@@ -23,19 +23,19 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? ConsumerKey;
         /// <summary>
-        /// The app secret ref name that contains the OAuth 1.0a consumer secret of the Twitter
+        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
         /// application used for sign-in.
         /// </summary>
-        public readonly string? ConsumerSecretRefName;
+        public readonly string? ConsumerSecretSettingName;
 
         [OutputConstructor]
         private TwitterRegistrationResponse(
             string? consumerKey,
 
-            string? consumerSecretRefName)
+            string? consumerSecretSettingName)
         {
             ConsumerKey = consumerKey;
-            ConsumerSecretRefName = consumerSecretRefName;
+            ConsumerSecretSettingName = consumerSecretSettingName;
         }
     }
 }

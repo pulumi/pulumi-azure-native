@@ -33,6 +33,20 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211201.Inputs
         [Input("schedulePolicy")]
         public object? SchedulePolicy { get; set; }
 
+        [Input("tieringPolicy")]
+        private InputMap<Inputs.TieringPolicyArgs>? _tieringPolicy;
+
+        /// <summary>
+        /// Tiering policy to automatically move RPs to another tier.
+        /// Key is Target Tier, defined in RecoveryPointTierType enum.
+        /// Tiering policy specifies the criteria to move RP to the target tier.
+        /// </summary>
+        public InputMap<Inputs.TieringPolicyArgs> TieringPolicy
+        {
+            get => _tieringPolicy ?? (_tieringPolicy = new InputMap<Inputs.TieringPolicyArgs>());
+            set => _tieringPolicy = value;
+        }
+
         public SubProtectionPolicyArgs()
         {
         }

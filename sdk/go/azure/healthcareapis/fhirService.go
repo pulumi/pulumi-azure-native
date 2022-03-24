@@ -12,7 +12,7 @@ import (
 )
 
 // The description of Fhir Service
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type FhirService struct {
 	pulumi.CustomResourceState
 
@@ -26,6 +26,8 @@ type FhirService struct {
 	CorsConfiguration FhirServiceCorsConfigurationResponsePtrOutput `pulumi:"corsConfiguration"`
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Fhir Service event support status.
+	EventState pulumi.StringOutput `pulumi:"eventState"`
 	// Fhir Service export configuration.
 	ExportConfiguration FhirServiceExportConfigurationResponsePtrOutput `pulumi:"exportConfiguration"`
 	// Setting indicating whether the service has a managed identity associated with it.
@@ -36,8 +38,14 @@ type FhirService struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
+	// Determines tracking of history for resources.
+	ResourceVersionPolicyConfiguration ResourceVersionPolicyConfigurationResponsePtrOutput `pulumi:"resourceVersionPolicyConfiguration"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -62,6 +70,9 @@ func NewFhirService(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:FhirService"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:FhirService"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -117,6 +128,8 @@ type fhirServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Determines tracking of history for resources.
+	ResourceVersionPolicyConfiguration *ResourceVersionPolicyConfiguration `pulumi:"resourceVersionPolicyConfiguration"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of workspace resource.
@@ -145,6 +158,8 @@ type FhirServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the service instance.
 	ResourceGroupName pulumi.StringInput
+	// Determines tracking of history for resources.
+	ResourceVersionPolicyConfiguration ResourceVersionPolicyConfigurationPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The name of workspace resource.

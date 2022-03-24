@@ -11,11 +11,15 @@ namespace Pulumi.AzureNative.App.Outputs
 {
 
     /// <summary>
-    /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+    /// The configuration settings that determines the validation flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
     [OutputType]
     public sealed class GlobalValidationResponse
     {
+        /// <summary>
+        /// The paths for which unauthenticated flow would not be redirected to the login page.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludedPaths;
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured.
         /// This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -29,10 +33,13 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private GlobalValidationResponse(
+            ImmutableArray<string> excludedPaths,
+
             string? redirectToProvider,
 
             string? unauthenticatedClientAction)
         {
+            ExcludedPaths = excludedPaths;
             RedirectToProvider = redirectToProvider;
             UnauthenticatedClientAction = unauthenticatedClientAction;
         }

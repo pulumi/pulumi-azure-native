@@ -10,11 +10,13 @@ from .get_management_lock_at_resource_group_level import *
 from .get_management_lock_at_resource_level import *
 from .get_management_lock_at_subscription_level import *
 from .get_management_lock_by_scope import *
+from .get_private_link_association import *
 from .get_resource_management_private_link import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
 from .management_lock_by_scope import *
+from .private_link_association import *
 from .resource_management_private_link import *
 from ._inputs import *
 from . import outputs

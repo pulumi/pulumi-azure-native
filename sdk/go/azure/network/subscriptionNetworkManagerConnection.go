@@ -40,6 +40,9 @@ func NewSubscriptionNetworkManagerConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SubscriptionNetworkManagerConnection

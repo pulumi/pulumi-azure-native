@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"},
+                    new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:CognitiveServicesAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

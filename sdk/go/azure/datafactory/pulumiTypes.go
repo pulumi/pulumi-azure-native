@@ -25926,6 +25926,8 @@ type WebActivity struct {
 	DependsOn []ActivityDependency `pulumi:"dependsOn"`
 	// Activity description.
 	Description *string `pulumi:"description"`
+	// When set to true, Certificate validation will be disabled.
+	DisableCertValidation *bool `pulumi:"disableCertValidation"`
 	// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
 	Headers interface{} `pulumi:"headers"`
 	// Linked service reference.
@@ -25997,6 +25999,8 @@ type WebActivityResponse struct {
 	DependsOn []ActivityDependencyResponse `pulumi:"dependsOn"`
 	// Activity description.
 	Description *string `pulumi:"description"`
+	// When set to true, Certificate validation will be disabled.
+	DisableCertValidation *bool `pulumi:"disableCertValidation"`
 	// Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
 	Headers interface{} `pulumi:"headers"`
 	// Linked service reference.

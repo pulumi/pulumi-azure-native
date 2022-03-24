@@ -11,7 +11,7 @@ import (
 )
 
 // The description of Dicom Service
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts ...pulumi.InvokeOption) (*LookupDicomServiceResult, error) {
 	var rv LookupDicomServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis:getDicomService", args, &rv, opts...)
@@ -38,12 +38,18 @@ type LookupDicomServiceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// Setting indicating whether the service has a managed identity associated with it.
+	Identity *ServiceManagedIdentityResponseIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
 	// The url of the Dicom Services.
 	ServiceUrl string `pulumi:"serviceUrl"`
 	// Metadata pertaining to creation and last modification of the resource.
@@ -108,6 +114,11 @@ func (o LookupDicomServiceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Setting indicating whether the service has a managed identity associated with it.
+func (o LookupDicomServiceResultOutput) Identity() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) *ServiceManagedIdentityResponseIdentity { return v.Identity }).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
 // The resource location.
 func (o LookupDicomServiceResultOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) *string { return v.Location }).(pulumi.StringPtrOutput)
@@ -118,9 +129,21 @@ func (o LookupDicomServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The list of private endpoint connections that are set up for this resource.
+func (o LookupDicomServiceResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
 // The provisioning state.
 func (o LookupDicomServiceResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o LookupDicomServiceResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 // The url of the Dicom Services.

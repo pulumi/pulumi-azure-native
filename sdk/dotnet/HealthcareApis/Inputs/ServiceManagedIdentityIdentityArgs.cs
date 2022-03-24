@@ -18,8 +18,20 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         /// <summary>
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
         /// </summary>
-        [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.HealthcareApis.ManagedServiceIdentityType>? Type { get; set; }
+        [Input("type", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.HealthcareApis.ServiceManagedIdentityType> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        /// </summary>
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
 
         public ServiceManagedIdentityIdentityArgs()
         {

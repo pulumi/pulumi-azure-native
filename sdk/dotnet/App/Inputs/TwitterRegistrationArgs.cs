@@ -24,11 +24,11 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? ConsumerKey { get; set; }
 
         /// <summary>
-        /// The app secret ref name that contains the OAuth 1.0a consumer secret of the Twitter
+        /// The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
         /// application used for sign-in.
         /// </summary>
-        [Input("consumerSecretRefName")]
-        public Input<string>? ConsumerSecretRefName { get; set; }
+        [Input("consumerSecretSettingName")]
+        public Input<string>? ConsumerSecretSettingName { get; set; }
 
         public TwitterRegistrationArgs()
         {

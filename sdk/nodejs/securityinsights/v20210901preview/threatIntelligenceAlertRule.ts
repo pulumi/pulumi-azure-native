@@ -141,7 +141,7 @@ export class ThreatIntelligenceAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThreatIntelligenceAlertRule.__pulumiType, name, resourceInputs, opts);
     }

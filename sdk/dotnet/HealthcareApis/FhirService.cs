@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Fhir Service
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2021-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:FhirService")]
     public partial class FhirService : Pulumi.CustomResource
@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Fhir Service event support status.
+        /// </summary>
+        [Output("eventState")]
+        public Output<string> EventState { get; private set; } = null!;
+
+        /// <summary>
         /// Fhir Service export configuration.
         /// </summary>
         [Output("exportConfiguration")]
@@ -77,10 +83,28 @@ namespace Pulumi.AzureNative.HealthcareApis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The list of private endpoint connections that are set up for this resource.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines tracking of history for resources.
+        /// </summary>
+        [Output("resourceVersionPolicyConfiguration")]
+        public Output<Outputs.ResourceVersionPolicyConfigurationResponse?> ResourceVersionPolicyConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -126,6 +150,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:FhirService"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:FhirService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -214,6 +239,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Determines tracking of history for resources.
+        /// </summary>
+        [Input("resourceVersionPolicyConfiguration")]
+        public Input<Inputs.ResourceVersionPolicyConfigurationArgs>? ResourceVersionPolicyConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

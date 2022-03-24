@@ -69,7 +69,7 @@ class GetDataCollectionEndpointResult:
     @pulumi.getter(name="configurationAccess")
     def configuration_access(self) -> Optional['outputs.DataCollectionEndpointResponseConfigurationAccess']:
         """
-        The endpoint used by agents to access their configuration.
+        The endpoint used by clients to access their configuration.
         """
         return pulumi.get(self, "configuration_access")
 
@@ -205,7 +205,7 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionEndpointResult:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2021-04-01.
+    API Version: 2021-09-01-preview.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
@@ -243,7 +243,7 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2021-04-01.
+    API Version: 2021-09-01-preview.
 
 
     :param str data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.

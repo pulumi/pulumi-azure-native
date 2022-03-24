@@ -9,6 +9,9 @@ from ._enums import *
 from .get_private_store_collection import *
 from .get_private_store_collection_offer import *
 from .get_private_store_offer import *
+from .list_private_store_new_plans_notifications import *
+from .list_private_store_stop_sell_offers_plans_notifications import *
+from .list_private_store_subscriptions_context import *
 from .private_store_collection import *
 from .private_store_collection_offer import *
 from .private_store_offer import *
@@ -21,7 +24,10 @@ if typing.TYPE_CHECKING:
     v20200101 = __v20200101
     import pulumi_azure_native.marketplace.v20210601 as __v20210601
     v20210601 = __v20210601
+    import pulumi_azure_native.marketplace.v20211201 as __v20211201
+    v20211201 = __v20211201
 else:
     v20200101 = _utilities.lazy_import('pulumi_azure_native.marketplace.v20200101')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.marketplace.v20210601')
+    v20211201 = _utilities.lazy_import('pulumi_azure_native.marketplace.v20211201')
 

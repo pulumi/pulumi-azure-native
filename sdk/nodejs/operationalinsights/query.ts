@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Log Analytics QueryPack-Query definition.
- * API Version: 2019-09-01-preview.
+ * API Version: 2019-09-01.
  */
 export class Query extends pulumi.CustomResource {
     /**
@@ -138,7 +138,7 @@ export class Query extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190901preview:Query" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190901:Query" }, { type: "azure-native:operationalinsights/v20190901preview:Query" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Query.__pulumiType, name, resourceInputs, opts);
     }

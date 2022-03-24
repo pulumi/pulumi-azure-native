@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:signalrservice:SignalR":
 		r = &SignalR{}
+	case "azure-native:signalrservice:SignalRCustomCertificate":
+		r = &SignalRCustomCertificate{}
+	case "azure-native:signalrservice:SignalRCustomDomain":
+		r = &SignalRCustomDomain{}
 	case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
 		r = &SignalRPrivateEndpointConnection{}
 	case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":

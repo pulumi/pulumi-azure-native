@@ -12,7 +12,7 @@ import (
 )
 
 // A Log Analytics QueryPack-Query definition.
-// API Version: 2019-09-01-preview.
+// API Version: 2019-09-01.
 type Query struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +62,9 @@ func NewQuery(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:operationalinsights/v20190901:Query"),
+		},
 		{
 			Type: pulumi.String("azure-native:operationalinsights/v20190901preview:Query"),
 		},

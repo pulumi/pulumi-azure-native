@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:Query"},
+                    new Pulumi.Alias { Type = "azure-native:operationalinsights/v20190901:Query"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

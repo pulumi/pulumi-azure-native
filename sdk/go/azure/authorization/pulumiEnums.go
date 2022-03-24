@@ -107,6 +107,14 @@ const (
 	PrincipalTypeGroup            = PrincipalType("Group")
 	PrincipalTypeServicePrincipal = PrincipalType("ServicePrincipal")
 	PrincipalTypeForeignGroup     = PrincipalType("ForeignGroup")
+	PrincipalTypeDevice           = PrincipalType("Device")
+)
+
+type PublicNetworkAccessOptions string
+
+const (
+	PublicNetworkAccessOptionsEnabled  = PublicNetworkAccessOptions("Enabled")
+	PublicNetworkAccessOptionsDisabled = PublicNetworkAccessOptions("Disabled")
 )
 
 // The identity type. This is the only required field when adding a system assigned identity to a resource.

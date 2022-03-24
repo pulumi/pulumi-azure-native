@@ -11,10 +11,22 @@ namespace Pulumi.AzureNative.App.Inputs
 {
 
     /// <summary>
-    /// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+    /// The configuration settings that determines the validation flow of users using ContainerApp Service Authentication/Authorization.
     /// </summary>
     public sealed class GlobalValidationArgs : Pulumi.ResourceArgs
     {
+        [Input("excludedPaths")]
+        private InputList<string>? _excludedPaths;
+
+        /// <summary>
+        /// The paths for which unauthenticated flow would not be redirected to the login page.
+        /// </summary>
+        public InputList<string> ExcludedPaths
+        {
+            get => _excludedPaths ?? (_excludedPaths = new InputList<string>());
+            set => _excludedPaths = value;
+        }
+
         /// <summary>
         /// The default authentication provider to use when multiple providers are configured.
         /// This setting is only needed if multiple providers are configured and the unauthenticated client
@@ -27,7 +39,7 @@ namespace Pulumi.AzureNative.App.Inputs
         /// The action to take when an unauthenticated client attempts to access the app.
         /// </summary>
         [Input("unauthenticatedClientAction")]
-        public InputUnion<string, Pulumi.AzureNative.App.UnauthenticatedClientAction>? UnauthenticatedClientAction { get; set; }
+        public Input<Pulumi.AzureNative.App.UnauthenticatedClientActionV2>? UnauthenticatedClientAction { get; set; }
 
         public GlobalValidationArgs()
         {

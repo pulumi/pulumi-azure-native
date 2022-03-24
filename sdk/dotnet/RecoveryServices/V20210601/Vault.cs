@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211101preview:Vault"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:Vault"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

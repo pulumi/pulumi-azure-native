@@ -253,6 +253,7 @@ export const ServerVersion = {
     ServerVersion_3_2: "3.2",
     ServerVersion_3_6: "3.6",
     ServerVersion_4_0: "4.0",
+    ServerVersion_4_2: "4.2",
 } as const;
 
 /**

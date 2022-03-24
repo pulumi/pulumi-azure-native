@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
     public sealed class NetworkRuleSetResponse
     {
         /// <summary>
-        /// A specific data exfiltration scenario that is disabled for the service.
+        /// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
         /// </summary>
         public readonly string? Bypass;
         /// <summary>

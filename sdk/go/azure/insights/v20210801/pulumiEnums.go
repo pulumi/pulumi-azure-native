@@ -22,7 +22,7 @@ const (
 	DimensionOperatorExclude = DimensionOperator("Exclude")
 )
 
-// The kind of workbook. Choices are user and shared.
+// The kind of workbook. Only valid value is shared.
 type Kind string
 
 const (

@@ -40,11 +40,13 @@ __all__ = [
     'ManagedClusterPodIdentityProfileResponse',
     'ManagedClusterPodIdentityResponse',
     'ManagedClusterPodIdentityResponseProvisioningInfo',
+    'ManagedClusterPropertiesForSnapshotResponse',
     'ManagedClusterPropertiesResponseAutoScalerProfile',
     'ManagedClusterPropertiesResponseIdentityProfile',
     'ManagedClusterSKUResponse',
     'ManagedClusterServicePrincipalProfileResponse',
     'ManagedClusterWindowsProfileResponse',
+    'NetworkProfileForSnapshotResponse',
     'NetworkProfileResponse',
     'OpenShiftManagedClusterAADIdentityProviderResponse',
     'OpenShiftManagedClusterAgentPoolProfileResponse',
@@ -2391,6 +2393,85 @@ class ManagedClusterPodIdentityResponseProvisioningInfo(dict):
 
 
 @pulumi.output_type
+class ManagedClusterPropertiesForSnapshotResponse(dict):
+    """
+    managed cluster properties for snapshot, these properties are read only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "enableRbac":
+            suggest = "enable_rbac"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterPropertiesForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterPropertiesForSnapshotResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_profile: 'outputs.NetworkProfileForSnapshotResponse',
+                 enable_rbac: Optional[bool] = None,
+                 kubernetes_version: Optional[str] = None,
+                 sku: Optional['outputs.ManagedClusterSKUResponse'] = None):
+        """
+        managed cluster properties for snapshot, these properties are read only.
+        :param 'NetworkProfileForSnapshotResponse' network_profile: The current network profile.
+        :param bool enable_rbac: Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+        :param str kubernetes_version: The current kubernetes version.
+        :param 'ManagedClusterSKUResponse' sku: The current managed cluster sku.
+        """
+        pulumi.set(__self__, "network_profile", network_profile)
+        if enable_rbac is not None:
+            pulumi.set(__self__, "enable_rbac", enable_rbac)
+        if kubernetes_version is not None:
+            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> 'outputs.NetworkProfileForSnapshotResponse':
+        """
+        The current network profile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="enableRbac")
+    def enable_rbac(self) -> Optional[bool]:
+        """
+        Whether the cluster has enabled Kubernetes Role-Based Access Control or not.
+        """
+        return pulumi.get(self, "enable_rbac")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> Optional[str]:
+        """
+        The current kubernetes version.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ManagedClusterSKUResponse']:
+        """
+        The current managed cluster sku.
+        """
+        return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
 class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     """
     Parameters to be applied to the cluster-autoscaler when enabled
@@ -2650,12 +2731,16 @@ class ManagedClusterPropertiesResponseIdentityProfile(dict):
 
 @pulumi.output_type
 class ManagedClusterSKUResponse(dict):
+    """
+    The SKU of a Managed Cluster.
+    """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  tier: Optional[str] = None):
         """
-        :param str name: Name of a managed cluster SKU.
-        :param str tier: Tier of a managed cluster SKU.
+        The SKU of a Managed Cluster.
+        :param str name: The name of a managed cluster SKU.
+        :param str tier: If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2666,7 +2751,7 @@ class ManagedClusterSKUResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of a managed cluster SKU.
+        The name of a managed cluster SKU.
         """
         return pulumi.get(self, "name")
 
@@ -2674,7 +2759,7 @@ class ManagedClusterSKUResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[str]:
         """
-        Tier of a managed cluster SKU.
+        If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details.
         """
         return pulumi.get(self, "tier")
 
@@ -2809,6 +2894,88 @@ class ManagedClusterWindowsProfileResponse(dict):
         The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         """
         return pulumi.get(self, "license_type")
+
+
+@pulumi.output_type
+class NetworkProfileForSnapshotResponse(dict):
+    """
+    network profile for managed cluster snapshot, these properties are read only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerSku":
+            suggest = "load_balancer_sku"
+        elif key == "networkMode":
+            suggest = "network_mode"
+        elif key == "networkPlugin":
+            suggest = "network_plugin"
+        elif key == "networkPolicy":
+            suggest = "network_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileForSnapshotResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileForSnapshotResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileForSnapshotResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 load_balancer_sku: Optional[str] = None,
+                 network_mode: Optional[str] = None,
+                 network_plugin: Optional[str] = None,
+                 network_policy: Optional[str] = None):
+        """
+        network profile for managed cluster snapshot, these properties are read only.
+        :param str load_balancer_sku: loadBalancerSku for managed cluster snapshot.
+        :param str network_mode: networkMode for managed cluster snapshot.
+        :param str network_plugin: networkPlugin for managed cluster snapshot.
+        :param str network_policy: networkPolicy for managed cluster snapshot.
+        """
+        if load_balancer_sku is not None:
+            pulumi.set(__self__, "load_balancer_sku", load_balancer_sku)
+        if network_mode is not None:
+            pulumi.set(__self__, "network_mode", network_mode)
+        if network_plugin is not None:
+            pulumi.set(__self__, "network_plugin", network_plugin)
+        if network_policy is not None:
+            pulumi.set(__self__, "network_policy", network_policy)
+
+    @property
+    @pulumi.getter(name="loadBalancerSku")
+    def load_balancer_sku(self) -> Optional[str]:
+        """
+        loadBalancerSku for managed cluster snapshot.
+        """
+        return pulumi.get(self, "load_balancer_sku")
+
+    @property
+    @pulumi.getter(name="networkMode")
+    def network_mode(self) -> Optional[str]:
+        """
+        networkMode for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_mode")
+
+    @property
+    @pulumi.getter(name="networkPlugin")
+    def network_plugin(self) -> Optional[str]:
+        """
+        networkPlugin for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_plugin")
+
+    @property
+    @pulumi.getter(name="networkPolicy")
+    def network_policy(self) -> Optional[str]:
+        """
+        networkPolicy for managed cluster snapshot.
+        """
+        return pulumi.get(self, "network_policy")
 
 
 @pulumi.output_type

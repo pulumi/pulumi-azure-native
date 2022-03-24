@@ -70,6 +70,9 @@ func NewSim(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:mobilenetwork:Sim"),
 		},
+		{
+			Type: pulumi.String("azure-native:mobilenetwork/v20220301preview:Sim"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Sim

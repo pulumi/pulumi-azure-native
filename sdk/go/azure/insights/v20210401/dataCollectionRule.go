@@ -61,6 +61,9 @@ func NewDataCollectionRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:insights/v20191101preview:DataCollectionRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:insights/v20210901preview:DataCollectionRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataCollectionRule

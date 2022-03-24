@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of Azure Managed Workspace for Grafana.
+        /// The workspace name of Azure Managed Grafana.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of Azure Managed Workspace for Grafana.
+        /// The workspace name of Azure Managed Grafana.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
         /// <summary>
         /// Properties specific to the grafana resource.
         /// </summary>
-        public readonly Outputs.GrafanaResourcePropertiesResponse Properties;
+        public readonly Outputs.ManagedGrafanaPropertiesResponse Properties;
         /// <summary>
         /// The Sku of the grafana resource.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
 
             string name,
 
-            Outputs.GrafanaResourcePropertiesResponse properties,
+            Outputs.ManagedGrafanaPropertiesResponse properties,
 
             Outputs.ResourceSkuResponse? sku,
 

@@ -11,22 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Configuration settings for the Azure ContainerApp Authentication / Authorization feature.
+// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 type ContainerAppsAuthConfig struct {
 	pulumi.CustomResourceState
 
-	// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
 	GlobalValidation GlobalValidationResponsePtrOutput `pulumi:"globalValidation"`
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
 	HttpSettings HttpSettingsResponsePtrOutput `pulumi:"httpSettings"`
-	// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+	// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
 	IdentityProviders IdentityProvidersResponsePtrOutput `pulumi:"identityProviders"`
-	// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
 	Login LoginResponsePtrOutput `pulumi:"login"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-	State pulumi.StringPtrOutput `pulumi:"state"`
+	// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+	Platform AuthPlatformResponsePtrOutput `pulumi:"platform"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -86,40 +86,40 @@ func (ContainerAppsAuthConfigState) ElementType() reflect.Type {
 type containerAppsAuthConfigArgs struct {
 	// Name of the Container App.
 	ContainerAppName string `pulumi:"containerAppName"`
-	// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
 	GlobalValidation *GlobalValidation `pulumi:"globalValidation"`
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
 	HttpSettings *HttpSettings `pulumi:"httpSettings"`
-	// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+	// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
 	IdentityProviders *IdentityProviders `pulumi:"identityProviders"`
-	// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
 	Login *Login `pulumi:"login"`
 	// Name of the Container App AuthConfig.
 	Name *string `pulumi:"name"`
+	// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+	Platform *AuthPlatform `pulumi:"platform"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-	State *string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a ContainerAppsAuthConfig resource.
 type ContainerAppsAuthConfigArgs struct {
 	// Name of the Container App.
 	ContainerAppName pulumi.StringInput
-	// The configuration settings that determines the validation flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
 	GlobalValidation GlobalValidationPtrInput
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Authentication/Authorization.
+	// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
 	HttpSettings HttpSettingsPtrInput
-	// The configuration settings of each of the identity providers used to configure ContainerApp Authentication/Authorization.
+	// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
 	IdentityProviders IdentityProvidersPtrInput
-	// The configuration settings of the login flow of users using ContainerApp Authentication/Authorization.
+	// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
 	Login LoginPtrInput
 	// Name of the Container App AuthConfig.
 	Name pulumi.StringPtrInput
+	// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+	Platform AuthPlatformPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// <code>Enabled</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>Disabled</code>.
-	State pulumi.StringPtrInput
 }
 
 func (ContainerAppsAuthConfigArgs) ElementType() reflect.Type {

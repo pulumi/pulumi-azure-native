@@ -12,7 +12,7 @@ import (
 )
 
 // IoT Connector FHIR destination definition.
-// API Version: 2021-06-01-preview.
+// API Version: 2021-11-01.
 type IotConnectorFhirDestination struct {
 	pulumi.CustomResourceState
 
@@ -62,6 +62,9 @@ func NewIotConnectorFhirDestination(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"),
 		},
 	})
 	opts = append(opts, aliases)

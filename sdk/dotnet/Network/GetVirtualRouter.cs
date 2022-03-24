@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VirtualRouter Resource.
-        /// API Version: 2020-08-01.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Task<GetVirtualRouterResult> InvokeAsync(GetVirtualRouterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualRouterResult>("azure-native:network:getVirtualRouter", args ?? new GetVirtualRouterArgs(), options.WithDefaults());
 
         /// <summary>
         /// VirtualRouter Resource.
-        /// API Version: 2020-08-01.
+        /// API Version: 2021-05-01.
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("azure-native:network:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());

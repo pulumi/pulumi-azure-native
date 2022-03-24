@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicySetDefinition{}
 	case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
 		r = &PolicySetDefinitionAtManagementGroup{}
+	case "azure-native:authorization:PrivateLinkAssociation":
+		r = &PrivateLinkAssociation{}
 	case "azure-native:authorization:ResourceManagementPrivateLink":
 		r = &ResourceManagementPrivateLink{}
 	case "azure-native:authorization:RoleAssignment":
