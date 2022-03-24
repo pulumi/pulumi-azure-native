@@ -428,7 +428,9 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 		ResourceSpec: resource,
 		typeName:     typeName,
 	}
-	if len(variants) > 0 {
+	if resource.DeprecationMessage != "" {
+		mainResource.deprecationMessage = resource.DeprecationMessage
+	} else if len(variants) > 0 {
 		// If variants are found, we still want to generate the "base" resource but only for compatibility
 		// reason. We should remove those resources in 2.0, as most of them simply don't work.
 		mainResource.deprecationMessage =
