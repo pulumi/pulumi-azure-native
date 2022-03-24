@@ -2,7 +2,28 @@
 
 ## HEAD (Unreleased)
 
+## 1.61.0 (2020-03-24)
+
 - Update pulumi codegen dependency to fix secret property handling in Go SDK
+
+### Breaking Changes published by Microsoft
+
+- `alertsmanagement` 2020-08-04 preview removed resource in spec
+- `app` is in preview and is still in active development
+- `dashboard` 2021-09-01 preview changed Graphana resource in spec
+
+### New Resources
+
+- `azure-native:authorization:PrivateLinkAssociation`
+- `azure-native:azurearcdata:ActiveDirectoryConnector`
+- `azure-native:containerservice:ManagedClusterSnapshot`
+- `azure-native:healthcareapis:WorkspacePrivateEndpointConnection`
+- `azure-native:media:Track`
+- `azure-native:recommendationsservice:Account`
+- `azure-native:recommendationsservice:Modeling`
+- `azure-native:recommendationsservice:ServiceEndpoint`
+- `azure-native:signalrservice:SignalRCustomCertificate`
+- `azure-native:signalrservice:SignalRCustomDomain`
 
 ## 1.60.0 (2020-02-25)
 
