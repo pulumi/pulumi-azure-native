@@ -6,6 +6,17 @@ name: master
       - "feature-**"
     paths-ignore:
       - CHANGELOG.md
+      - CODE-OF-CONDUCT.md
+      - README.md
+      - .github/arm2pulumi-coverage-report.yml
+      - .github/cleanup-artifacts.yml
+      - .github/nightly-sdk-generation.yml
+      - .github/prerelease.yml
+      - .github/pull_request.yml
+      - .github/release.yml
+      - .github/weekly-pulumi-update.yml
+      - .gitattributes
+      - .gitignore
     tags-ignore:
       - v*
       - sdk/*

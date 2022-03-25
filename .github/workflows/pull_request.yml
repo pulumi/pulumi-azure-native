@@ -5,6 +5,17 @@ name: pull-request
       - master
     paths-ignore:
       - CHANGELOG.md
+      - CODE-OF-CONDUCT.md
+      - README.md
+      - .github/arm2pulumi-coverage-report.yml
+      - .github/cleanup-artifacts.yml
+      - .github/master.yml
+      - .github/nightly-sdk-generation.yml
+      - .github/prerelease.yml
+      - .github/release.yml
+      - .github/weekly-pulumi-update.yml
+      - .gitattributes
+      - .gitignore
 env:
   ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
   ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}

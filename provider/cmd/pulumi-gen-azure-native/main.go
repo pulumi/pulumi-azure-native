@@ -54,6 +54,11 @@ func main() {
 			if err = emitSchema(*pkgSpec, version, outdir, "main", true); err != nil {
 				break
 			}
+			if languages == "schema" {
+				// We can't generate schema.json every time because it's slow and isn't reproducible.
+				// So we warn in case someone's expecting to see changes to schema.json after running this.
+				fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
+			}
 			// Also, emit the resource metadata for the provider.
 			if err = emitMetadata(meta, outdir, "main", true); err != nil {
 				break
