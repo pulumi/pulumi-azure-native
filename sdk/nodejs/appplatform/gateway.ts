@@ -75,7 +75,7 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.gatewayPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;

@@ -6,18 +6,23 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMode',
+    'BlobWriteMode',
     'CompatibilityLevel',
     'CompressionType',
     'ContentStoragePolicy',
     'Encoding',
+    'EventGridEventSchemaType',
     'EventSerializationType',
     'EventsOutOfOrderPolicy',
+    'InputWatermarkMode',
     'JobType',
     'JsonOutputSerializationFormat',
     'OutputErrorPolicy',
     'OutputStartMode',
+    'OutputWatermarkMode',
     'RefreshType',
     'SkuName',
+    'UpdateMode',
 ]
 
 
@@ -28,6 +33,14 @@ class AuthenticationMode(str, Enum):
     MSI = "Msi"
     USER_TOKEN = "UserToken"
     CONNECTION_STRING = "ConnectionString"
+
+
+class BlobWriteMode(str, Enum):
+    """
+    Blob write mode.
+    """
+    APPEND = "Append"
+    ONCE = "Once"
 
 
 class CompatibilityLevel(str, Enum):
@@ -62,6 +75,14 @@ class Encoding(str, Enum):
     UTF8 = "UTF8"
 
 
+class EventGridEventSchemaType(str, Enum):
+    """
+    Indicates the Event Grid schema type.
+    """
+    EVENT_GRID_EVENT_SCHEMA = "EventGridEventSchema"
+    CLOUD_EVENT_SCHEMA = "CloudEventSchema"
+
+
 class EventSerializationType(str, Enum):
     """
     Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -79,6 +100,14 @@ class EventsOutOfOrderPolicy(str, Enum):
     """
     ADJUST = "Adjust"
     DROP = "Drop"
+
+
+class InputWatermarkMode(str, Enum):
+    """
+    The input watermark mode.
+    """
+    NONE = "None"
+    READ_WATERMARK = "ReadWatermark"
 
 
 class JobType(str, Enum):
@@ -114,6 +143,15 @@ class OutputStartMode(str, Enum):
     LAST_OUTPUT_EVENT_TIME = "LastOutputEventTime"
 
 
+class OutputWatermarkMode(str, Enum):
+    """
+    The output watermark mode.
+    """
+    NONE = "None"
+    SEND_CURRENT_PARTITION_WATERMARK = "SendCurrentPartitionWatermark"
+    SEND_LOWEST_WATERMARK_ACROSS_PARTITIONS = "SendLowestWatermarkAcrossPartitions"
+
+
 class RefreshType(str, Enum):
     """
     Indicates the type of data refresh option.
@@ -128,3 +166,11 @@ class SkuName(str, Enum):
     The name of the SKU. Required on PUT (CreateOrReplace) requests.
     """
     STANDARD = "Standard"
+
+
+class UpdateMode(str, Enum):
+    """
+    Refresh modes for Stream Analytics functions.
+    """
+    STATIC = "Static"
+    REFRESHABLE = "Refreshable"

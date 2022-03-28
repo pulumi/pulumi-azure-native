@@ -39,6 +39,8 @@ type LookupOutputResult struct {
 	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+	LastOutputEventTimestamps []LastOutputEventTimestampResponse `pulumi:"lastOutputEventTimestamps"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -49,6 +51,8 @@ type LookupOutputResult struct {
 	TimeWindow *string `pulumi:"timeWindow"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
 }
 
 func LookupOutputOutput(ctx *pulumi.Context, args LookupOutputOutputArgs, opts ...pulumi.InvokeOption) LookupOutputResultOutput {
@@ -108,6 +112,11 @@ func (o LookupOutputResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOutputResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+func (o LookupOutputResultOutput) LastOutputEventTimestamps() LastOutputEventTimestampResponseArrayOutput {
+	return o.ApplyT(func(v LookupOutputResult) []LastOutputEventTimestampResponse { return v.LastOutputEventTimestamps }).(LastOutputEventTimestampResponseArrayOutput)
+}
+
 // Resource name
 func (o LookupOutputResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOutputResult) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -131,6 +140,11 @@ func (o LookupOutputResultOutput) TimeWindow() pulumi.StringPtrOutput {
 // Resource type
 func (o LookupOutputResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOutputResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Settings which determine whether to send watermarks to downstream.
+func (o LookupOutputResultOutput) WatermarkSettings() OutputWatermarkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupOutputResult) *OutputWatermarkPropertiesResponse { return v.WatermarkSettings }).(OutputWatermarkPropertiesResponsePtrOutput)
 }
 
 func init() {

@@ -74,7 +74,7 @@ export class ApiPortal extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["apiPortalName"] = args ? args.apiPortalName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.v20220101preview.apiPortalPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.v20220101preview.skuArgsProvideDefaults) : undefined) : undefined;

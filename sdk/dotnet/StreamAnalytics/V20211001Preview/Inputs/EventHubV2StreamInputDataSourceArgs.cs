@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public Input<string>? EventHubName { get; set; }
 
         /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
+        /// The number of messages that the message receiver can simultaneously request.
+        /// </summary>
+        [Input("prefetchCount")]
+        public Input<int>? PrefetchCount { get; set; }
+
+        /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serviceBusNamespace")]

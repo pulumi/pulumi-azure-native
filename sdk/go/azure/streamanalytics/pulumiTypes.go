@@ -2215,8 +2215,6 @@ type PrivateLinkServiceConnection struct {
 	GroupIds []string `pulumi:"groupIds"`
 	// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
 	PrivateLinkServiceId *string `pulumi:"privateLinkServiceId"`
-	// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-	RequestMessage *string `pulumi:"requestMessage"`
 }
 
 // PrivateLinkServiceConnectionInput is an input type that accepts PrivateLinkServiceConnectionArgs and PrivateLinkServiceConnectionOutput values.
@@ -2236,8 +2234,6 @@ type PrivateLinkServiceConnectionArgs struct {
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
 	// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
 	PrivateLinkServiceId pulumi.StringPtrInput `pulumi:"privateLinkServiceId"`
-	// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 }
 
 func (PrivateLinkServiceConnectionArgs) ElementType() reflect.Type {
@@ -2302,11 +2298,6 @@ func (o PrivateLinkServiceConnectionOutput) PrivateLinkServiceId() pulumi.String
 	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.PrivateLinkServiceId }).(pulumi.StringPtrOutput)
 }
 
-// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-func (o PrivateLinkServiceConnectionOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnection) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
-}
-
 type PrivateLinkServiceConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionArrayOutput) ElementType() reflect.Type {
@@ -2336,7 +2327,7 @@ type PrivateLinkServiceConnectionResponse struct {
 	// The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
 	PrivateLinkServiceId *string `pulumi:"privateLinkServiceId"`
 	// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-	RequestMessage *string `pulumi:"requestMessage"`
+	RequestMessage string `pulumi:"requestMessage"`
 }
 
 // A grouping of information about the connection to the remote resource.
@@ -2372,8 +2363,8 @@ func (o PrivateLinkServiceConnectionResponseOutput) PrivateLinkServiceId() pulum
 }
 
 // A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-func (o PrivateLinkServiceConnectionResponseOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionResponseOutput) RequestMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionResponse) string { return v.RequestMessage }).(pulumi.StringOutput)
 }
 
 type PrivateLinkServiceConnectionResponseArrayOutput struct{ *pulumi.OutputState }

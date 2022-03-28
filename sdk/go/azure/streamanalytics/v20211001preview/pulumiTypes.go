@@ -142,10 +142,14 @@ type AzureMachineLearningServiceFunctionBinding struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// The Request-Response execute endpoint of the Azure Machine Learning web service.
 	Endpoint *string `pulumi:"endpoint"`
+	// Label for the input request object.
+	InputRequestName *string `pulumi:"inputRequestName"`
 	// The inputs for the Azure Machine Learning web service endpoint.
 	Inputs []AzureMachineLearningServiceInputColumn `pulumi:"inputs"`
 	// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
 	NumberOfParallelRequests *int `pulumi:"numberOfParallelRequests"`
+	// Label for the output request object.
+	OutputResponseName *string `pulumi:"outputResponseName"`
 	// A list of outputs from the Azure Machine Learning web service endpoint execution.
 	Outputs []AzureMachineLearningServiceOutputColumn `pulumi:"outputs"`
 	// Indicates the function binding type.
@@ -161,10 +165,14 @@ type AzureMachineLearningServiceFunctionBindingResponse struct {
 	BatchSize *int `pulumi:"batchSize"`
 	// The Request-Response execute endpoint of the Azure Machine Learning web service.
 	Endpoint *string `pulumi:"endpoint"`
+	// Label for the input request object.
+	InputRequestName *string `pulumi:"inputRequestName"`
 	// The inputs for the Azure Machine Learning web service endpoint.
 	Inputs []AzureMachineLearningServiceInputColumnResponse `pulumi:"inputs"`
 	// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
 	NumberOfParallelRequests *int `pulumi:"numberOfParallelRequests"`
+	// Label for the output request object.
+	OutputResponseName *string `pulumi:"outputResponseName"`
 	// A list of outputs from the Azure Machine Learning web service endpoint execution.
 	Outputs []AzureMachineLearningServiceOutputColumnResponse `pulumi:"outputs"`
 	// Indicates the function binding type.
@@ -346,6 +354,8 @@ type AzureSqlDatabaseOutputDataSourceResponse struct {
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database *string `pulumi:"database"`
 	// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
@@ -360,8 +370,6 @@ type AzureSqlReferenceInputDataSource struct {
 	RefreshType *string `pulumi:"refreshType"`
 	// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
 	Server *string `pulumi:"server"`
-	// This element is associated with the datasource element. The name of the table in the Azure SQL database..
-	Table *string `pulumi:"table"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
 	Type string `pulumi:"type"`
@@ -371,6 +379,8 @@ type AzureSqlReferenceInputDataSource struct {
 
 // Describes an Azure SQL database reference input data source.
 type AzureSqlReferenceInputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// This element is associated with the datasource element. This is the name of the database that output will be written to.
 	Database *string `pulumi:"database"`
 	// This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
@@ -385,8 +395,6 @@ type AzureSqlReferenceInputDataSourceResponse struct {
 	RefreshType *string `pulumi:"refreshType"`
 	// This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
 	Server *string `pulumi:"server"`
-	// This element is associated with the datasource element. The name of the table in the Azure SQL database..
-	Table *string `pulumi:"table"`
 	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Microsoft.Sql/Server/Database'.
 	Type string `pulumi:"type"`
@@ -396,6 +404,8 @@ type AzureSqlReferenceInputDataSourceResponse struct {
 
 // Describes an Azure Synapse output data source.
 type AzureSynapseOutputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database *string `pulumi:"database"`
 	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -413,6 +423,8 @@ type AzureSynapseOutputDataSource struct {
 
 // Describes an Azure Synapse output data source.
 type AzureSynapseOutputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
 	Database *string `pulumi:"database"`
 	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -474,6 +486,10 @@ type AzureTableOutputDataSourceResponse struct {
 type BlobOutputDataSource struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// Blob path prefix.
+	BlobPathPrefix *string `pulumi:"blobPathPrefix"`
+	// Blob write mode.
+	BlobWriteMode *string `pulumi:"blobWriteMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -493,6 +509,10 @@ type BlobOutputDataSource struct {
 type BlobOutputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// Blob path prefix.
+	BlobPathPrefix *string `pulumi:"blobPathPrefix"`
+	// Blob write mode.
+	BlobWriteMode *string `pulumi:"blobWriteMode"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -512,12 +532,22 @@ type BlobOutputDataSourceResponse struct {
 type BlobReferenceInputDataSource struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the blob input.
+	BlobName *string `pulumi:"blobName"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
+	// The path pattern of the delta snapshot.
+	DeltaPathPattern *string `pulumi:"deltaPathPattern"`
+	// The interval that the user generates a delta snapshot of this reference blob input data source.
+	DeltaSnapshotRefreshRate *string `pulumi:"deltaSnapshotRefreshRate"`
+	// The refresh interval of the blob input data source.
+	FullSnapshotRefreshRate *string `pulumi:"fullSnapshotRefreshRate"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
 	PathPattern *string `pulumi:"pathPattern"`
+	// The partition count of the blob input data source. Range 1 - 256.
+	SourcePartitionCount *int `pulumi:"sourcePartitionCount"`
 	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
 	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
 	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
@@ -531,12 +561,22 @@ type BlobReferenceInputDataSource struct {
 type BlobReferenceInputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the blob input.
+	BlobName *string `pulumi:"blobName"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
+	// The path pattern of the delta snapshot.
+	DeltaPathPattern *string `pulumi:"deltaPathPattern"`
+	// The interval that the user generates a delta snapshot of this reference blob input data source.
+	DeltaSnapshotRefreshRate *string `pulumi:"deltaSnapshotRefreshRate"`
+	// The refresh interval of the blob input data source.
+	FullSnapshotRefreshRate *string `pulumi:"fullSnapshotRefreshRate"`
 	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
 	PathPattern *string `pulumi:"pathPattern"`
+	// The partition count of the blob input data source. Range 1 - 256.
+	SourcePartitionCount *int `pulumi:"sourcePartitionCount"`
 	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
 	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
 	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
@@ -596,11 +636,11 @@ type CSharpFunctionBinding struct {
 	DllPath *string `pulumi:"dllPath"`
 	// The Csharp code containing a single function definition.
 	Method *string `pulumi:"method"`
-	// The Csharp code containing a single function definition.
-	Script *string `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
 	Type string `pulumi:"type"`
+	// Refresh modes for Stream Analytics functions.
+	UpdateMode *string `pulumi:"updateMode"`
 }
 
 // The binding to a CSharp function.
@@ -611,11 +651,11 @@ type CSharpFunctionBindingResponse struct {
 	DllPath *string `pulumi:"dllPath"`
 	// The Csharp code containing a single function definition.
 	Method *string `pulumi:"method"`
-	// The Csharp code containing a single function definition.
-	Script *string `pulumi:"script"`
 	// Indicates the function binding type.
 	// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
 	Type string `pulumi:"type"`
+	// Refresh modes for Stream Analytics functions.
+	UpdateMode *string `pulumi:"updateMode"`
 }
 
 // The properties associated with a Stream Analytics cluster.
@@ -966,6 +1006,8 @@ type DocumentDbOutputDataSource struct {
 	AccountId *string `pulumi:"accountId"`
 	// The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
 	CollectionNamePattern *string `pulumi:"collectionNamePattern"`
 	// The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
@@ -985,6 +1027,8 @@ type DocumentDbOutputDataSourceResponse struct {
 	AccountId *string `pulumi:"accountId"`
 	// The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
 	CollectionNamePattern *string `pulumi:"collectionNamePattern"`
 	// The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
@@ -998,12 +1042,44 @@ type DocumentDbOutputDataSourceResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Describes an event grid input data source that contains stream data.
+type EventGridStreamInputDataSource struct {
+	// List of Event Types that are supported by the Event Grid adapter.
+	EventTypes []string `pulumi:"eventTypes"`
+	// Indicates the Event Grid schema type.
+	Schema *string `pulumi:"schema"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
+	// Subscribers for the Event Grid. Currently only EventHub Subscriber is supported.
+	Subscriber *EventHubV2StreamInputDataSource `pulumi:"subscriber"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventGrid/EventSubscriptions'.
+	Type string `pulumi:"type"`
+}
+
+// Describes an event grid input data source that contains stream data.
+type EventGridStreamInputDataSourceResponse struct {
+	// List of Event Types that are supported by the Event Grid adapter.
+	EventTypes []string `pulumi:"eventTypes"`
+	// Indicates the Event Grid schema type.
+	Schema *string `pulumi:"schema"`
+	// A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
+	// Subscribers for the Event Grid. Currently only EventHub Subscriber is supported.
+	Subscriber *EventHubV2StreamInputDataSourceResponse `pulumi:"subscriber"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.EventGrid/EventSubscriptions'.
+	Type string `pulumi:"type"`
+}
+
 // Describes an Event Hub output data source.
 type EventHubOutputDataSource struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The key/column that is used to determine to which partition to send event data.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The properties associated with this Event Hub output.
@@ -1025,6 +1101,8 @@ type EventHubOutputDataSourceResponse struct {
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The key/column that is used to determine to which partition to send event data.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The properties associated with this Event Hub output.
@@ -1048,6 +1126,10 @@ type EventHubStreamInputDataSource struct {
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The number of messages that the message receiver can simultaneously request.
+	PrefetchCount *int `pulumi:"prefetchCount"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -1067,6 +1149,10 @@ type EventHubStreamInputDataSourceResponse struct {
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The number of messages that the message receiver can simultaneously request.
+	PrefetchCount *int `pulumi:"prefetchCount"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -1084,6 +1170,8 @@ type EventHubV2OutputDataSource struct {
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The key/column that is used to determine to which partition to send event data.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The properties associated with this Event Hub output.
@@ -1105,6 +1193,8 @@ type EventHubV2OutputDataSourceResponse struct {
 	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The key/column that is used to determine to which partition to send event data.
 	PartitionKey *string `pulumi:"partitionKey"`
 	// The properties associated with this Event Hub output.
@@ -1128,6 +1218,10 @@ type EventHubV2StreamInputDataSource struct {
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The number of messages that the message receiver can simultaneously request.
+	PrefetchCount *int `pulumi:"prefetchCount"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -1147,6 +1241,10 @@ type EventHubV2StreamInputDataSourceResponse struct {
 	ConsumerGroupName *string `pulumi:"consumerGroupName"`
 	// The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
 	EventHubName *string `pulumi:"eventHubName"`
+	// The partition count of the event hub data source. Range 1 - 256.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// The number of messages that the message receiver can simultaneously request.
+	PrefetchCount *int `pulumi:"prefetchCount"`
 	// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
 	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
 	// The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -1160,8 +1258,12 @@ type EventHubV2StreamInputDataSourceResponse struct {
 
 // The storage account where the custom code artifacts are located.
 type External struct {
+	// The UserCustomCode container.
 	Container *string `pulumi:"container"`
-	Path      *string `pulumi:"path"`
+	// The UserCustomCode path.
+	Path *string `pulumi:"path"`
+	// The refresh parameters for any/all updatable user defined functions present in the job config.
+	RefreshConfiguration *RefreshConfiguration `pulumi:"refreshConfiguration"`
 	// The properties that are associated with an Azure Storage account
 	StorageAccount *StorageAccount `pulumi:"storageAccount"`
 }
@@ -1179,8 +1281,12 @@ type ExternalInput interface {
 
 // The storage account where the custom code artifacts are located.
 type ExternalArgs struct {
+	// The UserCustomCode container.
 	Container pulumi.StringPtrInput `pulumi:"container"`
-	Path      pulumi.StringPtrInput `pulumi:"path"`
+	// The UserCustomCode path.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The refresh parameters for any/all updatable user defined functions present in the job config.
+	RefreshConfiguration RefreshConfigurationPtrInput `pulumi:"refreshConfiguration"`
 	// The properties that are associated with an Azure Storage account
 	StorageAccount StorageAccountPtrInput `pulumi:"storageAccount"`
 }
@@ -1263,12 +1369,19 @@ func (o ExternalOutput) ToExternalPtrOutputWithContext(ctx context.Context) Exte
 	}).(ExternalPtrOutput)
 }
 
+// The UserCustomCode container.
 func (o ExternalOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v External) *string { return v.Container }).(pulumi.StringPtrOutput)
 }
 
+// The UserCustomCode path.
 func (o ExternalOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v External) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+func (o ExternalOutput) RefreshConfiguration() RefreshConfigurationPtrOutput {
+	return o.ApplyT(func(v External) *RefreshConfiguration { return v.RefreshConfiguration }).(RefreshConfigurationPtrOutput)
 }
 
 // The properties that are associated with an Azure Storage account
@@ -1300,6 +1413,7 @@ func (o ExternalPtrOutput) Elem() ExternalOutput {
 	}).(ExternalOutput)
 }
 
+// The UserCustomCode container.
 func (o ExternalPtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *External) *string {
 		if v == nil {
@@ -1309,6 +1423,7 @@ func (o ExternalPtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The UserCustomCode path.
 func (o ExternalPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *External) *string {
 		if v == nil {
@@ -1316,6 +1431,16 @@ func (o ExternalPtrOutput) Path() pulumi.StringPtrOutput {
 		}
 		return v.Path
 	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+func (o ExternalPtrOutput) RefreshConfiguration() RefreshConfigurationPtrOutput {
+	return o.ApplyT(func(v *External) *RefreshConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshConfiguration
+	}).(RefreshConfigurationPtrOutput)
 }
 
 // The properties that are associated with an Azure Storage account
@@ -1330,8 +1455,12 @@ func (o ExternalPtrOutput) StorageAccount() StorageAccountPtrOutput {
 
 // The storage account where the custom code artifacts are located.
 type ExternalResponse struct {
+	// The UserCustomCode container.
 	Container *string `pulumi:"container"`
-	Path      *string `pulumi:"path"`
+	// The UserCustomCode path.
+	Path *string `pulumi:"path"`
+	// The refresh parameters for any/all updatable user defined functions present in the job config.
+	RefreshConfiguration *RefreshConfigurationResponse `pulumi:"refreshConfiguration"`
 	// The properties that are associated with an Azure Storage account
 	StorageAccount *StorageAccountResponse `pulumi:"storageAccount"`
 }
@@ -1351,12 +1480,19 @@ func (o ExternalResponseOutput) ToExternalResponseOutputWithContext(ctx context.
 	return o
 }
 
+// The UserCustomCode container.
 func (o ExternalResponseOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalResponse) *string { return v.Container }).(pulumi.StringPtrOutput)
 }
 
+// The UserCustomCode path.
 func (o ExternalResponseOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+func (o ExternalResponseOutput) RefreshConfiguration() RefreshConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ExternalResponse) *RefreshConfigurationResponse { return v.RefreshConfiguration }).(RefreshConfigurationResponsePtrOutput)
 }
 
 // The properties that are associated with an Azure Storage account
@@ -1388,6 +1524,7 @@ func (o ExternalResponsePtrOutput) Elem() ExternalResponseOutput {
 	}).(ExternalResponseOutput)
 }
 
+// The UserCustomCode container.
 func (o ExternalResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalResponse) *string {
 		if v == nil {
@@ -1397,6 +1534,7 @@ func (o ExternalResponsePtrOutput) Container() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The UserCustomCode path.
 func (o ExternalResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalResponse) *string {
 		if v == nil {
@@ -1404,6 +1542,16 @@ func (o ExternalResponsePtrOutput) Path() pulumi.StringPtrOutput {
 		}
 		return v.Path
 	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+func (o ExternalResponsePtrOutput) RefreshConfiguration() RefreshConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ExternalResponse) *RefreshConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshConfiguration
+	}).(RefreshConfigurationResponsePtrOutput)
 }
 
 // The properties that are associated with an Azure Storage account
@@ -1618,6 +1766,42 @@ func (o FunctionResponseArrayOutput) Index(i pulumi.IntInput) FunctionResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionResponse {
 		return vs[0].([]FunctionResponse)[vs[1].(int)]
 	}).(FunctionResponseOutput)
+}
+
+// Describes a Gateway Message Bus output data source.
+type GatewayMessageBusOutputDataSource struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a Gateway Message Bus output data source.
+type GatewayMessageBusOutputDataSourceResponse struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a blob input data source that contains stream data.
+type GatewayMessageBusStreamInputDataSource struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a blob input data source that contains stream data.
+type GatewayMessageBusStreamInputDataSourceResponse struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
 }
 
 // Describes how identity is verified
@@ -2104,6 +2288,18 @@ func (o InputResponseArrayOutput) Index(i pulumi.IntInput) InputResponseOutput {
 	}).(InputResponseOutput)
 }
 
+// Settings which determine whether to read watermark events.
+type InputWatermarkProperties struct {
+	// The input watermark mode.
+	WatermarkMode *string `pulumi:"watermarkMode"`
+}
+
+// Settings which determine whether to read watermark events.
+type InputWatermarkPropertiesResponse struct {
+	// The input watermark mode.
+	WatermarkMode *string `pulumi:"watermarkMode"`
+}
+
 // Describes an IoT Hub input data source that contains stream data.
 type IoTHubStreamInputDataSource struct {
 	// The name of an IoT Hub Consumer Group that should be used to read events from the IoT Hub. If not specified, the input uses the Iot Hub’s default consumer group.
@@ -2450,6 +2646,59 @@ type JsonSerializationResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// An output event timestamp.
+type LastOutputEventTimestampResponse struct {
+	// The last output event time.
+	LastOutputEventTime *string `pulumi:"lastOutputEventTime"`
+	// The time that the last update happened.
+	LastUpdateTime *string `pulumi:"lastUpdateTime"`
+}
+
+// An output event timestamp.
+type LastOutputEventTimestampResponseOutput struct{ *pulumi.OutputState }
+
+func (LastOutputEventTimestampResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LastOutputEventTimestampResponse)(nil)).Elem()
+}
+
+func (o LastOutputEventTimestampResponseOutput) ToLastOutputEventTimestampResponseOutput() LastOutputEventTimestampResponseOutput {
+	return o
+}
+
+func (o LastOutputEventTimestampResponseOutput) ToLastOutputEventTimestampResponseOutputWithContext(ctx context.Context) LastOutputEventTimestampResponseOutput {
+	return o
+}
+
+// The last output event time.
+func (o LastOutputEventTimestampResponseOutput) LastOutputEventTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastOutputEventTimestampResponse) *string { return v.LastOutputEventTime }).(pulumi.StringPtrOutput)
+}
+
+// The time that the last update happened.
+func (o LastOutputEventTimestampResponseOutput) LastUpdateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LastOutputEventTimestampResponse) *string { return v.LastUpdateTime }).(pulumi.StringPtrOutput)
+}
+
+type LastOutputEventTimestampResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LastOutputEventTimestampResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LastOutputEventTimestampResponse)(nil)).Elem()
+}
+
+func (o LastOutputEventTimestampResponseArrayOutput) ToLastOutputEventTimestampResponseArrayOutput() LastOutputEventTimestampResponseArrayOutput {
+	return o
+}
+
+func (o LastOutputEventTimestampResponseArrayOutput) ToLastOutputEventTimestampResponseArrayOutputWithContext(ctx context.Context) LastOutputEventTimestampResponseArrayOutput {
+	return o
+}
+
+func (o LastOutputEventTimestampResponseArrayOutput) Index(i pulumi.IntInput) LastOutputEventTimestampResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LastOutputEventTimestampResponse {
+		return vs[0].([]LastOutputEventTimestampResponse)[vs[1].(int)]
+	}).(LastOutputEventTimestampResponseOutput)
+}
+
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputType struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -2462,6 +2711,8 @@ type OutputType struct {
 	SizeWindow *float64 `pulumi:"sizeWindow"`
 	// The time frame for filtering Stream Analytics job outputs.
 	TimeWindow *string `pulumi:"timeWindow"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkProperties `pulumi:"watermarkSettings"`
 }
 
 // OutputTypeInput is an input type that accepts OutputTypeArgs and OutputTypeOutput values.
@@ -2487,6 +2738,8 @@ type OutputTypeArgs struct {
 	SizeWindow pulumi.Float64PtrInput `pulumi:"sizeWindow"`
 	// The time frame for filtering Stream Analytics job outputs.
 	TimeWindow pulumi.StringPtrInput `pulumi:"timeWindow"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings OutputWatermarkPropertiesPtrInput `pulumi:"watermarkSettings"`
 }
 
 func (OutputTypeArgs) ElementType() reflect.Type {
@@ -2566,6 +2819,11 @@ func (o OutputTypeOutput) TimeWindow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputType) *string { return v.TimeWindow }).(pulumi.StringPtrOutput)
 }
 
+// Settings which determine whether to send watermarks to downstream.
+func (o OutputTypeOutput) WatermarkSettings() OutputWatermarkPropertiesPtrOutput {
+	return o.ApplyT(func(v OutputType) *OutputWatermarkProperties { return v.WatermarkSettings }).(OutputWatermarkPropertiesPtrOutput)
+}
+
 type OutputTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (OutputTypeArrayOutput) ElementType() reflect.Type {
@@ -2596,6 +2854,8 @@ type OutputResponse struct {
 	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+	LastOutputEventTimestamps []LastOutputEventTimestampResponse `pulumi:"lastOutputEventTimestamps"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -2606,6 +2866,8 @@ type OutputResponse struct {
 	TimeWindow *string `pulumi:"timeWindow"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
 }
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
@@ -2643,6 +2905,11 @@ func (o OutputResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+func (o OutputResponseOutput) LastOutputEventTimestamps() LastOutputEventTimestampResponseArrayOutput {
+	return o.ApplyT(func(v OutputResponse) []LastOutputEventTimestampResponse { return v.LastOutputEventTimestamps }).(LastOutputEventTimestampResponseArrayOutput)
+}
+
 // Resource name
 func (o OutputResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -2668,6 +2935,11 @@ func (o OutputResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Settings which determine whether to send watermarks to downstream.
+func (o OutputResponseOutput) WatermarkSettings() OutputWatermarkPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v OutputResponse) *OutputWatermarkPropertiesResponse { return v.WatermarkSettings }).(OutputWatermarkPropertiesResponsePtrOutput)
+}
+
 type OutputResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (OutputResponseArrayOutput) ElementType() reflect.Type {
@@ -2688,6 +2960,242 @@ func (o OutputResponseArrayOutput) Index(i pulumi.IntInput) OutputResponseOutput
 	}).(OutputResponseOutput)
 }
 
+// Settings which determine whether to send watermarks to downstream.
+type OutputWatermarkProperties struct {
+	// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+	MaxWatermarkDifferenceAcrossPartitions *string `pulumi:"maxWatermarkDifferenceAcrossPartitions"`
+	// The output watermark mode.
+	WatermarkMode *string `pulumi:"watermarkMode"`
+}
+
+// OutputWatermarkPropertiesInput is an input type that accepts OutputWatermarkPropertiesArgs and OutputWatermarkPropertiesOutput values.
+// You can construct a concrete instance of `OutputWatermarkPropertiesInput` via:
+//
+//          OutputWatermarkPropertiesArgs{...}
+type OutputWatermarkPropertiesInput interface {
+	pulumi.Input
+
+	ToOutputWatermarkPropertiesOutput() OutputWatermarkPropertiesOutput
+	ToOutputWatermarkPropertiesOutputWithContext(context.Context) OutputWatermarkPropertiesOutput
+}
+
+// Settings which determine whether to send watermarks to downstream.
+type OutputWatermarkPropertiesArgs struct {
+	// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+	MaxWatermarkDifferenceAcrossPartitions pulumi.StringPtrInput `pulumi:"maxWatermarkDifferenceAcrossPartitions"`
+	// The output watermark mode.
+	WatermarkMode pulumi.StringPtrInput `pulumi:"watermarkMode"`
+}
+
+func (OutputWatermarkPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputWatermarkProperties)(nil)).Elem()
+}
+
+func (i OutputWatermarkPropertiesArgs) ToOutputWatermarkPropertiesOutput() OutputWatermarkPropertiesOutput {
+	return i.ToOutputWatermarkPropertiesOutputWithContext(context.Background())
+}
+
+func (i OutputWatermarkPropertiesArgs) ToOutputWatermarkPropertiesOutputWithContext(ctx context.Context) OutputWatermarkPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputWatermarkPropertiesOutput)
+}
+
+func (i OutputWatermarkPropertiesArgs) ToOutputWatermarkPropertiesPtrOutput() OutputWatermarkPropertiesPtrOutput {
+	return i.ToOutputWatermarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OutputWatermarkPropertiesArgs) ToOutputWatermarkPropertiesPtrOutputWithContext(ctx context.Context) OutputWatermarkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputWatermarkPropertiesOutput).ToOutputWatermarkPropertiesPtrOutputWithContext(ctx)
+}
+
+// OutputWatermarkPropertiesPtrInput is an input type that accepts OutputWatermarkPropertiesArgs, OutputWatermarkPropertiesPtr and OutputWatermarkPropertiesPtrOutput values.
+// You can construct a concrete instance of `OutputWatermarkPropertiesPtrInput` via:
+//
+//          OutputWatermarkPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type OutputWatermarkPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOutputWatermarkPropertiesPtrOutput() OutputWatermarkPropertiesPtrOutput
+	ToOutputWatermarkPropertiesPtrOutputWithContext(context.Context) OutputWatermarkPropertiesPtrOutput
+}
+
+type outputWatermarkPropertiesPtrType OutputWatermarkPropertiesArgs
+
+func OutputWatermarkPropertiesPtr(v *OutputWatermarkPropertiesArgs) OutputWatermarkPropertiesPtrInput {
+	return (*outputWatermarkPropertiesPtrType)(v)
+}
+
+func (*outputWatermarkPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputWatermarkProperties)(nil)).Elem()
+}
+
+func (i *outputWatermarkPropertiesPtrType) ToOutputWatermarkPropertiesPtrOutput() OutputWatermarkPropertiesPtrOutput {
+	return i.ToOutputWatermarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *outputWatermarkPropertiesPtrType) ToOutputWatermarkPropertiesPtrOutputWithContext(ctx context.Context) OutputWatermarkPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutputWatermarkPropertiesPtrOutput)
+}
+
+// Settings which determine whether to send watermarks to downstream.
+type OutputWatermarkPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OutputWatermarkPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputWatermarkProperties)(nil)).Elem()
+}
+
+func (o OutputWatermarkPropertiesOutput) ToOutputWatermarkPropertiesOutput() OutputWatermarkPropertiesOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesOutput) ToOutputWatermarkPropertiesOutputWithContext(ctx context.Context) OutputWatermarkPropertiesOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesOutput) ToOutputWatermarkPropertiesPtrOutput() OutputWatermarkPropertiesPtrOutput {
+	return o.ToOutputWatermarkPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OutputWatermarkPropertiesOutput) ToOutputWatermarkPropertiesPtrOutputWithContext(ctx context.Context) OutputWatermarkPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutputWatermarkProperties) *OutputWatermarkProperties {
+		return &v
+	}).(OutputWatermarkPropertiesPtrOutput)
+}
+
+// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+func (o OutputWatermarkPropertiesOutput) MaxWatermarkDifferenceAcrossPartitions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputWatermarkProperties) *string { return v.MaxWatermarkDifferenceAcrossPartitions }).(pulumi.StringPtrOutput)
+}
+
+// The output watermark mode.
+func (o OutputWatermarkPropertiesOutput) WatermarkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputWatermarkProperties) *string { return v.WatermarkMode }).(pulumi.StringPtrOutput)
+}
+
+type OutputWatermarkPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OutputWatermarkPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputWatermarkProperties)(nil)).Elem()
+}
+
+func (o OutputWatermarkPropertiesPtrOutput) ToOutputWatermarkPropertiesPtrOutput() OutputWatermarkPropertiesPtrOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesPtrOutput) ToOutputWatermarkPropertiesPtrOutputWithContext(ctx context.Context) OutputWatermarkPropertiesPtrOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesPtrOutput) Elem() OutputWatermarkPropertiesOutput {
+	return o.ApplyT(func(v *OutputWatermarkProperties) OutputWatermarkProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OutputWatermarkProperties
+		return ret
+	}).(OutputWatermarkPropertiesOutput)
+}
+
+// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+func (o OutputWatermarkPropertiesPtrOutput) MaxWatermarkDifferenceAcrossPartitions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputWatermarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWatermarkDifferenceAcrossPartitions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output watermark mode.
+func (o OutputWatermarkPropertiesPtrOutput) WatermarkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputWatermarkProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WatermarkMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings which determine whether to send watermarks to downstream.
+type OutputWatermarkPropertiesResponse struct {
+	// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+	MaxWatermarkDifferenceAcrossPartitions *string `pulumi:"maxWatermarkDifferenceAcrossPartitions"`
+	// The output watermark mode.
+	WatermarkMode *string `pulumi:"watermarkMode"`
+}
+
+// Settings which determine whether to send watermarks to downstream.
+type OutputWatermarkPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (OutputWatermarkPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutputWatermarkPropertiesResponse)(nil)).Elem()
+}
+
+func (o OutputWatermarkPropertiesResponseOutput) ToOutputWatermarkPropertiesResponseOutput() OutputWatermarkPropertiesResponseOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesResponseOutput) ToOutputWatermarkPropertiesResponseOutputWithContext(ctx context.Context) OutputWatermarkPropertiesResponseOutput {
+	return o
+}
+
+// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+func (o OutputWatermarkPropertiesResponseOutput) MaxWatermarkDifferenceAcrossPartitions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputWatermarkPropertiesResponse) *string { return v.MaxWatermarkDifferenceAcrossPartitions }).(pulumi.StringPtrOutput)
+}
+
+// The output watermark mode.
+func (o OutputWatermarkPropertiesResponseOutput) WatermarkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OutputWatermarkPropertiesResponse) *string { return v.WatermarkMode }).(pulumi.StringPtrOutput)
+}
+
+type OutputWatermarkPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OutputWatermarkPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutputWatermarkPropertiesResponse)(nil)).Elem()
+}
+
+func (o OutputWatermarkPropertiesResponsePtrOutput) ToOutputWatermarkPropertiesResponsePtrOutput() OutputWatermarkPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesResponsePtrOutput) ToOutputWatermarkPropertiesResponsePtrOutputWithContext(ctx context.Context) OutputWatermarkPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o OutputWatermarkPropertiesResponsePtrOutput) Elem() OutputWatermarkPropertiesResponseOutput {
+	return o.ApplyT(func(v *OutputWatermarkPropertiesResponse) OutputWatermarkPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OutputWatermarkPropertiesResponse
+		return ret
+	}).(OutputWatermarkPropertiesResponseOutput)
+}
+
+// Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+func (o OutputWatermarkPropertiesResponsePtrOutput) MaxWatermarkDifferenceAcrossPartitions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputWatermarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxWatermarkDifferenceAcrossPartitions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The output watermark mode.
+func (o OutputWatermarkPropertiesResponsePtrOutput) WatermarkMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputWatermarkPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WatermarkMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes how data from an input is serialized or how data is serialized when written to an output in Parquet format.
 type ParquetSerialization struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
@@ -2700,6 +3208,48 @@ type ParquetSerializationResponse struct {
 	// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Parquet'.
 	Type string `pulumi:"type"`
+}
+
+// Describes a PostgreSQL output data source.
+type PostgreSQLOutputDataSource struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database *string `pulumi:"database"`
+	// Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password *string `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server *string `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.DBForPostgreSQL/servers/databases'.
+	Type string `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User *string `pulumi:"user"`
+}
+
+// Describes a PostgreSQL output data source.
+type PostgreSQLOutputDataSourceResponse struct {
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Database *string `pulumi:"database"`
+	// Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+	MaxWriterCount *float64 `pulumi:"maxWriterCount"`
+	// The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Password *string `pulumi:"password"`
+	// The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Server *string `pulumi:"server"`
+	// The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	Table *string `pulumi:"table"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'Microsoft.DBForPostgreSQL/servers/databases'.
+	Type string `pulumi:"type"`
+	// The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+	User *string `pulumi:"user"`
 }
 
 // Describes a Power BI output data source.
@@ -2823,6 +3373,8 @@ type ReferenceInputProperties struct {
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
 	Type string `pulumi:"type"`
+	// Settings which determine whether to read watermark events.
+	WatermarkSettings *InputWatermarkProperties `pulumi:"watermarkSettings"`
 }
 
 // The properties that are associated with an input containing reference data.
@@ -2842,6 +3394,352 @@ type ReferenceInputPropertiesResponse struct {
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Reference'.
 	Type string `pulumi:"type"`
+	// Settings which determine whether to read watermark events.
+	WatermarkSettings *InputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+type RefreshConfiguration struct {
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern *string `pulumi:"pathPattern"`
+	// The refresh interval.
+	RefreshInterval *string `pulumi:"refreshInterval"`
+	// This property indicates which data refresh option to use, Blocking or Nonblocking.
+	RefreshType *string `pulumi:"refreshType"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+}
+
+// RefreshConfigurationInput is an input type that accepts RefreshConfigurationArgs and RefreshConfigurationOutput values.
+// You can construct a concrete instance of `RefreshConfigurationInput` via:
+//
+//          RefreshConfigurationArgs{...}
+type RefreshConfigurationInput interface {
+	pulumi.Input
+
+	ToRefreshConfigurationOutput() RefreshConfigurationOutput
+	ToRefreshConfigurationOutputWithContext(context.Context) RefreshConfigurationOutput
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+type RefreshConfigurationArgs struct {
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern pulumi.StringPtrInput `pulumi:"pathPattern"`
+	// The refresh interval.
+	RefreshInterval pulumi.StringPtrInput `pulumi:"refreshInterval"`
+	// This property indicates which data refresh option to use, Blocking or Nonblocking.
+	RefreshType pulumi.StringPtrInput `pulumi:"refreshType"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
+}
+
+func (RefreshConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshConfiguration)(nil)).Elem()
+}
+
+func (i RefreshConfigurationArgs) ToRefreshConfigurationOutput() RefreshConfigurationOutput {
+	return i.ToRefreshConfigurationOutputWithContext(context.Background())
+}
+
+func (i RefreshConfigurationArgs) ToRefreshConfigurationOutputWithContext(ctx context.Context) RefreshConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshConfigurationOutput)
+}
+
+func (i RefreshConfigurationArgs) ToRefreshConfigurationPtrOutput() RefreshConfigurationPtrOutput {
+	return i.ToRefreshConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RefreshConfigurationArgs) ToRefreshConfigurationPtrOutputWithContext(ctx context.Context) RefreshConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshConfigurationOutput).ToRefreshConfigurationPtrOutputWithContext(ctx)
+}
+
+// RefreshConfigurationPtrInput is an input type that accepts RefreshConfigurationArgs, RefreshConfigurationPtr and RefreshConfigurationPtrOutput values.
+// You can construct a concrete instance of `RefreshConfigurationPtrInput` via:
+//
+//          RefreshConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RefreshConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRefreshConfigurationPtrOutput() RefreshConfigurationPtrOutput
+	ToRefreshConfigurationPtrOutputWithContext(context.Context) RefreshConfigurationPtrOutput
+}
+
+type refreshConfigurationPtrType RefreshConfigurationArgs
+
+func RefreshConfigurationPtr(v *RefreshConfigurationArgs) RefreshConfigurationPtrInput {
+	return (*refreshConfigurationPtrType)(v)
+}
+
+func (*refreshConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshConfiguration)(nil)).Elem()
+}
+
+func (i *refreshConfigurationPtrType) ToRefreshConfigurationPtrOutput() RefreshConfigurationPtrOutput {
+	return i.ToRefreshConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *refreshConfigurationPtrType) ToRefreshConfigurationPtrOutputWithContext(ctx context.Context) RefreshConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RefreshConfigurationPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+type RefreshConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RefreshConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshConfiguration)(nil)).Elem()
+}
+
+func (o RefreshConfigurationOutput) ToRefreshConfigurationOutput() RefreshConfigurationOutput {
+	return o
+}
+
+func (o RefreshConfigurationOutput) ToRefreshConfigurationOutputWithContext(ctx context.Context) RefreshConfigurationOutput {
+	return o
+}
+
+func (o RefreshConfigurationOutput) ToRefreshConfigurationPtrOutput() RefreshConfigurationPtrOutput {
+	return o.ToRefreshConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RefreshConfigurationOutput) ToRefreshConfigurationPtrOutputWithContext(ctx context.Context) RefreshConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RefreshConfiguration) *RefreshConfiguration {
+		return &v
+	}).(RefreshConfigurationPtrOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o RefreshConfigurationOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfiguration) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o RefreshConfigurationOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfiguration) *string { return v.PathPattern }).(pulumi.StringPtrOutput)
+}
+
+// The refresh interval.
+func (o RefreshConfigurationOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfiguration) *string { return v.RefreshInterval }).(pulumi.StringPtrOutput)
+}
+
+// This property indicates which data refresh option to use, Blocking or Nonblocking.
+func (o RefreshConfigurationOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfiguration) *string { return v.RefreshType }).(pulumi.StringPtrOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o RefreshConfigurationOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfiguration) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+type RefreshConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshConfiguration)(nil)).Elem()
+}
+
+func (o RefreshConfigurationPtrOutput) ToRefreshConfigurationPtrOutput() RefreshConfigurationPtrOutput {
+	return o
+}
+
+func (o RefreshConfigurationPtrOutput) ToRefreshConfigurationPtrOutputWithContext(ctx context.Context) RefreshConfigurationPtrOutput {
+	return o
+}
+
+func (o RefreshConfigurationPtrOutput) Elem() RefreshConfigurationOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) RefreshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshConfiguration
+		return ret
+	}).(RefreshConfigurationOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o RefreshConfigurationPtrOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o RefreshConfigurationPtrOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh interval.
+func (o RefreshConfigurationPtrOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property indicates which data refresh option to use, Blocking or Nonblocking.
+func (o RefreshConfigurationPtrOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o RefreshConfigurationPtrOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+type RefreshConfigurationResponse struct {
+	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+	DateFormat *string `pulumi:"dateFormat"`
+	// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+	PathPattern *string `pulumi:"pathPattern"`
+	// The refresh interval.
+	RefreshInterval *string `pulumi:"refreshInterval"`
+	// This property indicates which data refresh option to use, Blocking or Nonblocking.
+	RefreshType *string `pulumi:"refreshType"`
+	// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+	TimeFormat *string `pulumi:"timeFormat"`
+}
+
+// The refresh parameters for any/all updatable user defined functions present in the job config.
+type RefreshConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (RefreshConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RefreshConfigurationResponse)(nil)).Elem()
+}
+
+func (o RefreshConfigurationResponseOutput) ToRefreshConfigurationResponseOutput() RefreshConfigurationResponseOutput {
+	return o
+}
+
+func (o RefreshConfigurationResponseOutput) ToRefreshConfigurationResponseOutputWithContext(ctx context.Context) RefreshConfigurationResponseOutput {
+	return o
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o RefreshConfigurationResponseOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfigurationResponse) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o RefreshConfigurationResponseOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfigurationResponse) *string { return v.PathPattern }).(pulumi.StringPtrOutput)
+}
+
+// The refresh interval.
+func (o RefreshConfigurationResponseOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfigurationResponse) *string { return v.RefreshInterval }).(pulumi.StringPtrOutput)
+}
+
+// This property indicates which data refresh option to use, Blocking or Nonblocking.
+func (o RefreshConfigurationResponseOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfigurationResponse) *string { return v.RefreshType }).(pulumi.StringPtrOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o RefreshConfigurationResponseOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RefreshConfigurationResponse) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
+}
+
+type RefreshConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RefreshConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RefreshConfigurationResponse)(nil)).Elem()
+}
+
+func (o RefreshConfigurationResponsePtrOutput) ToRefreshConfigurationResponsePtrOutput() RefreshConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o RefreshConfigurationResponsePtrOutput) ToRefreshConfigurationResponsePtrOutputWithContext(ctx context.Context) RefreshConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o RefreshConfigurationResponsePtrOutput) Elem() RefreshConfigurationResponseOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) RefreshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RefreshConfigurationResponse
+		return ret
+	}).(RefreshConfigurationResponseOutput)
+}
+
+// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+func (o RefreshConfigurationResponsePtrOutput) DateFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DateFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+func (o RefreshConfigurationResponsePtrOutput) PathPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PathPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh interval.
+func (o RefreshConfigurationResponsePtrOutput) RefreshInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshInterval
+	}).(pulumi.StringPtrOutput)
+}
+
+// This property indicates which data refresh option to use, Blocking or Nonblocking.
+func (o RefreshConfigurationResponsePtrOutput) RefreshType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+func (o RefreshConfigurationResponsePtrOutput) TimeFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RefreshConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeFormat
+	}).(pulumi.StringPtrOutput)
 }
 
 // The properties that are associated with a scalar function.
@@ -3160,6 +4058,8 @@ type StorageAccount struct {
 	AccountKey *string `pulumi:"accountKey"`
 	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountName *string `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 }
 
 // StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
@@ -3179,6 +4079,8 @@ type StorageAccountArgs struct {
 	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
 	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode pulumi.StringPtrInput `pulumi:"authenticationMode"`
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {
@@ -3269,6 +4171,11 @@ func (o StorageAccountOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccount) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
+// Authentication Mode.
+func (o StorageAccountOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
 type StorageAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPtrOutput) ElementType() reflect.Type {
@@ -3313,12 +4220,24 @@ func (o StorageAccountPtrOutput) AccountName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Authentication Mode.
+func (o StorageAccountPtrOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties that are associated with an Azure Storage account
 type StorageAccountResponse struct {
 	// The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountKey *string `pulumi:"accountKey"`
 	// The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 	AccountName *string `pulumi:"accountName"`
+	// Authentication Mode.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 }
 
 // The properties that are associated with an Azure Storage account
@@ -3344,6 +4263,11 @@ func (o StorageAccountResponseOutput) AccountKey() pulumi.StringPtrOutput {
 // The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
 func (o StorageAccountResponseOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageAccountResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
+}
+
+// Authentication Mode.
+func (o StorageAccountResponseOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 type StorageAccountResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3390,6 +4314,16 @@ func (o StorageAccountResponsePtrOutput) AccountName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Authentication Mode.
+func (o StorageAccountResponsePtrOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties that are associated with an input containing stream data.
 type StreamInputProperties struct {
 	// Describes how input data is compressed
@@ -3403,6 +4337,8 @@ type StreamInputProperties struct {
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
 	Type string `pulumi:"type"`
+	// Settings which determine whether to read watermark events.
+	WatermarkSettings *InputWatermarkProperties `pulumi:"watermarkSettings"`
 }
 
 // The properties that are associated with an input containing stream data.
@@ -3422,6 +4358,8 @@ type StreamInputPropertiesResponse struct {
 	// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
 	// Expected value is 'Stream'.
 	Type string `pulumi:"type"`
+	// Settings which determine whether to read watermark events.
+	WatermarkSettings *InputWatermarkPropertiesResponse `pulumi:"watermarkSettings"`
 }
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
@@ -3811,10 +4749,20 @@ func init() {
 	pulumi.RegisterOutputType(JobStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(JobStorageAccountResponsePtrOutput{})
+	pulumi.RegisterOutputType(LastOutputEventTimestampResponseOutput{})
+	pulumi.RegisterOutputType(LastOutputEventTimestampResponseArrayOutput{})
 	pulumi.RegisterOutputType(OutputTypeOutput{})
 	pulumi.RegisterOutputType(OutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(OutputResponseOutput{})
 	pulumi.RegisterOutputType(OutputResponseArrayOutput{})
+	pulumi.RegisterOutputType(OutputWatermarkPropertiesOutput{})
+	pulumi.RegisterOutputType(OutputWatermarkPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OutputWatermarkPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(OutputWatermarkPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(RefreshConfigurationOutput{})
+	pulumi.RegisterOutputType(RefreshConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RefreshConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(RefreshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

@@ -43,7 +43,7 @@ export interface GetOutputResult {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    readonly datasource?: outputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.BlobOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.RawOutputDatasourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceResponse;
+    readonly datasource?: outputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.BlobOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.v20211001preview.GatewayMessageBusOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PostgreSQLOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.RawOutputDatasourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceResponse;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
@@ -56,6 +56,10 @@ export interface GetOutputResult {
      * Resource Id
      */
     readonly id: string;
+    /**
+     * A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+     */
+    readonly lastOutputEventTimestamps: outputs.streamanalytics.v20211001preview.LastOutputEventTimestampResponse[];
     /**
      * Resource name
      */
@@ -76,6 +80,10 @@ export interface GetOutputResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Settings which determine whether to send watermarks to downstream.
+     */
+    readonly watermarkSettings?: outputs.streamanalytics.v20211001preview.OutputWatermarkPropertiesResponse;
 }
 
 export function getOutputOutput(args: GetOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutputResult> {

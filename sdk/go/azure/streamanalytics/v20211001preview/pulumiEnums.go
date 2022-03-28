@@ -12,6 +12,14 @@ const (
 	AuthenticationModeConnectionString = AuthenticationMode("ConnectionString")
 )
 
+// Blob write mode.
+type BlobWriteMode string
+
+const (
+	BlobWriteModeAppend = BlobWriteMode("Append")
+	BlobWriteModeOnce   = BlobWriteMode("Once")
+)
+
 // Controls certain runtime behaviors of the streaming job.
 type CompatibilityLevel string
 
@@ -44,6 +52,14 @@ const (
 	EncodingUTF8 = Encoding("UTF8")
 )
 
+// Indicates the Event Grid schema type.
+type EventGridEventSchemaType string
+
+const (
+	EventGridEventSchemaTypeEventGridEventSchema = EventGridEventSchemaType("EventGridEventSchema")
+	EventGridEventSchemaTypeCloudEventSchema     = EventGridEventSchemaType("CloudEventSchema")
+)
+
 // Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
 type EventSerializationType string
 
@@ -61,6 +77,14 @@ type EventsOutOfOrderPolicy string
 const (
 	EventsOutOfOrderPolicyAdjust = EventsOutOfOrderPolicy("Adjust")
 	EventsOutOfOrderPolicyDrop   = EventsOutOfOrderPolicy("Drop")
+)
+
+// The input watermark mode.
+type InputWatermarkMode string
+
+const (
+	InputWatermarkModeNone          = InputWatermarkMode("None")
+	InputWatermarkModeReadWatermark = InputWatermarkMode("ReadWatermark")
 )
 
 // Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
@@ -96,6 +120,15 @@ const (
 	OutputStartModeLastOutputEventTime = OutputStartMode("LastOutputEventTime")
 )
 
+// The output watermark mode.
+type OutputWatermarkMode string
+
+const (
+	OutputWatermarkModeNone                                = OutputWatermarkMode("None")
+	OutputWatermarkModeSendCurrentPartitionWatermark       = OutputWatermarkMode("SendCurrentPartitionWatermark")
+	OutputWatermarkModeSendLowestWatermarkAcrossPartitions = OutputWatermarkMode("SendLowestWatermarkAcrossPartitions")
+)
+
 // Indicates the type of data refresh option.
 type RefreshType string
 
@@ -110,6 +143,14 @@ type SkuName string
 
 const (
 	SkuNameStandard = SkuName("Standard")
+)
+
+// Refresh modes for Stream Analytics functions.
+type UpdateMode string
+
+const (
+	UpdateModeStatic      = UpdateMode("Static")
+	UpdateModeRefreshable = UpdateMode("Refreshable")
 )
 
 func init() {

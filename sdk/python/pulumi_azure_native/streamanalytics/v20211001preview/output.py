@@ -18,22 +18,24 @@ class OutputInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[float]] = None,
-                 time_window: Optional[pulumi.Input[str]] = None):
+                 time_window: Optional[pulumi.Input[str]] = None,
+                 watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Output resource.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[float] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
+        :param pulumi.Input['OutputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -49,6 +51,8 @@ class OutputInitArgs:
             pulumi.set(__self__, "size_window", size_window)
         if time_window is not None:
             pulumi.set(__self__, "time_window", time_window)
+        if watermark_settings is not None:
+            pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter(name="jobName")
@@ -76,14 +80,14 @@ class OutputInitArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -146,13 +150,25 @@ class OutputInitArgs:
     def time_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_window", value)
 
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional[pulumi.Input['OutputWatermarkPropertiesArgs']]:
+        """
+        Settings which determine whether to send watermarks to downstream.
+        """
+        return pulumi.get(self, "watermark_settings")
+
+    @watermark_settings.setter
+    def watermark_settings(self, value: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']]):
+        pulumi.set(self, "watermark_settings", value)
+
 
 class Output(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
+                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['GatewayMessageBusOutputDataSourceArgs'], pulumi.InputType['PostgreSQLOutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
@@ -160,13 +176,14 @@ class Output(pulumi.CustomResource):
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
                  size_window: Optional[pulumi.Input[float]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
+                 watermark_settings: Optional[pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']]] = None,
                  __props__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['GatewayMessageBusOutputDataSourceArgs'], pulumi.InputType['PostgreSQLOutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[str] output_name: The name of the output.
@@ -174,6 +191,7 @@ class Output(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[float] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
+        :param pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
         ...
     @overload
@@ -199,7 +217,7 @@ class Output(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
+                 datasource: Optional[pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['GatewayMessageBusOutputDataSourceArgs'], pulumi.InputType['PostgreSQLOutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  output_name: Optional[pulumi.Input[str]] = None,
@@ -207,6 +225,7 @@ class Output(pulumi.CustomResource):
                  serialization: Optional[pulumi.Input[Union[pulumi.InputType['AvroSerializationArgs'], pulumi.InputType['CsvSerializationArgs'], pulumi.InputType['CustomClrSerializationArgs'], pulumi.InputType['JsonSerializationArgs'], pulumi.InputType['ParquetSerializationArgs']]]] = None,
                  size_window: Optional[pulumi.Input[float]] = None,
                  time_window: Optional[pulumi.Input[str]] = None,
+                 watermark_settings: Optional[pulumi.Input[pulumi.InputType['OutputWatermarkPropertiesArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -231,8 +250,10 @@ class Output(pulumi.CustomResource):
             __props__.__dict__["serialization"] = serialization
             __props__.__dict__["size_window"] = size_window
             __props__.__dict__["time_window"] = time_window
+            __props__.__dict__["watermark_settings"] = watermark_settings
             __props__.__dict__["diagnostics"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["last_output_event_timestamps"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics:Output"), pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Output"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Output"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Output")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -261,11 +282,13 @@ class Output(pulumi.CustomResource):
         __props__.__dict__["datasource"] = None
         __props__.__dict__["diagnostics"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["last_output_event_timestamps"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["serialization"] = None
         __props__.__dict__["size_window"] = None
         __props__.__dict__["time_window"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["watermark_settings"] = None
         return Output(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -291,6 +314,14 @@ class Output(pulumi.CustomResource):
         The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="lastOutputEventTimestamps")
+    def last_output_event_timestamps(self) -> pulumi.Output[Sequence['outputs.LastOutputEventTimestampResponse']]:
+        """
+        A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        """
+        return pulumi.get(self, "last_output_event_timestamps")
 
     @property
     @pulumi.getter
@@ -331,4 +362,12 @@ class Output(pulumi.CustomResource):
         Resource type
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> pulumi.Output[Optional['outputs.OutputWatermarkPropertiesResponse']]:
+        """
+        Settings which determine whether to send watermarks to downstream.
+        """
+        return pulumi.get(self, "watermark_settings")
 

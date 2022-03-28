@@ -29,14 +29,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? Method;
         /// <summary>
-        /// The Csharp code containing a single function definition.
-        /// </summary>
-        public readonly string? Script;
-        /// <summary>
         /// Indicates the function binding type.
         /// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Refresh modes for Stream Analytics functions.
+        /// </summary>
+        public readonly string? UpdateMode;
 
         [OutputConstructor]
         private CSharpFunctionBindingResponse(
@@ -46,15 +46,15 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? method,
 
-            string? script,
+            string type,
 
-            string type)
+            string? updateMode)
         {
             Class = @class;
             DllPath = dllPath;
             Method = method;
-            Script = script;
             Type = type;
+            UpdateMode = updateMode;
         }
     }
 }

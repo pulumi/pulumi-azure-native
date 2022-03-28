@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
         [Input("privateLinkServiceId")]
         public Input<string>? PrivateLinkServiceId { get; set; }
 
-        /// <summary>
-        /// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-        /// </summary>
-        [Input("requestMessage")]
-        public Input<string>? RequestMessage { get; set; }
-
         public PrivateLinkServiceConnectionArgs()
         {
         }

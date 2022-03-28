@@ -18,7 +18,7 @@ type Function struct {
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -90,7 +90,7 @@ type functionArgs struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties *ScalarFunctionProperties `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -104,7 +104,7 @@ type FunctionArgs struct {
 	// Resource name
 	Name pulumi.StringPtrInput
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesPtrInput
+	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

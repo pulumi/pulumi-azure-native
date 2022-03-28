@@ -21,7 +21,7 @@ class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     """
-    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, name=None, serialization=None, size_window=None, time_window=None, type=None):
+    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, last_output_event_timestamps=None, name=None, serialization=None, size_window=None, time_window=None, type=None, watermark_settings=None):
         if datasource and not isinstance(datasource, dict):
             raise TypeError("Expected argument 'datasource' to be a dict")
         pulumi.set(__self__, "datasource", datasource)
@@ -34,6 +34,9 @@ class GetOutputResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_output_event_timestamps and not isinstance(last_output_event_timestamps, list):
+            raise TypeError("Expected argument 'last_output_event_timestamps' to be a list")
+        pulumi.set(__self__, "last_output_event_timestamps", last_output_event_timestamps)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,9 @@ class GetOutputResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if watermark_settings and not isinstance(watermark_settings, dict):
+            raise TypeError("Expected argument 'watermark_settings' to be a dict")
+        pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter
@@ -81,6 +87,14 @@ class GetOutputResult:
         Resource Id
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastOutputEventTimestamps")
+    def last_output_event_timestamps(self) -> Sequence['outputs.LastOutputEventTimestampResponse']:
+        """
+        A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        """
+        return pulumi.get(self, "last_output_event_timestamps")
 
     @property
     @pulumi.getter
@@ -122,6 +136,14 @@ class GetOutputResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional['outputs.OutputWatermarkPropertiesResponse']:
+        """
+        Settings which determine whether to send watermarks to downstream.
+        """
+        return pulumi.get(self, "watermark_settings")
+
 
 class AwaitableGetOutputResult(GetOutputResult):
     # pylint: disable=using-constant-test
@@ -133,11 +155,13 @@ class AwaitableGetOutputResult(GetOutputResult):
             diagnostics=self.diagnostics,
             etag=self.etag,
             id=self.id,
+            last_output_event_timestamps=self.last_output_event_timestamps,
             name=self.name,
             serialization=self.serialization,
             size_window=self.size_window,
             time_window=self.time_window,
-            type=self.type)
+            type=self.type,
+            watermark_settings=self.watermark_settings)
 
 
 def get_output(job_name: Optional[str] = None,
@@ -167,11 +191,13 @@ def get_output(job_name: Optional[str] = None,
         diagnostics=__ret__.diagnostics,
         etag=__ret__.etag,
         id=__ret__.id,
+        last_output_event_timestamps=__ret__.last_output_event_timestamps,
         name=__ret__.name,
         serialization=__ret__.serialization,
         size_window=__ret__.size_window,
         time_window=__ret__.time_window,
-        type=__ret__.type)
+        type=__ret__.type,
+        watermark_settings=__ret__.watermark_settings)
 
 
 @_utilities.lift_output_func(get_output)

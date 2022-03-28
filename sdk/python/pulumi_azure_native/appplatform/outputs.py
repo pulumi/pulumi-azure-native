@@ -177,8 +177,12 @@ class ApiPortalPropertiesResponse(dict):
         pulumi.set(__self__, "url", url)
         if gateway_ids is not None:
             pulumi.set(__self__, "gateway_ids", gateway_ids)
+        if https_only is None:
+            https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
+        if public is None:
+            public = False
         if public is not None:
             pulumi.set(__self__, "public", public)
         if source_urls is not None:
@@ -2376,8 +2380,12 @@ class GatewayPropertiesResponse(dict):
             pulumi.set(__self__, "api_metadata_properties", api_metadata_properties)
         if cors_properties is not None:
             pulumi.set(__self__, "cors_properties", cors_properties)
+        if https_only is None:
+            https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
+        if public is None:
+            public = False
         if public is not None:
             pulumi.set(__self__, "public", public)
         if resource_requests is not None:

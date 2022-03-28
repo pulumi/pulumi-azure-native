@@ -18,7 +18,7 @@ func LookupApiPortal(ctx *pulumi.Context, args *LookupApiPortalArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApiPortalArgs struct {
@@ -44,6 +44,17 @@ type LookupApiPortalResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupApiPortalResult
+func (val *LookupApiPortalResult) Defaults() *LookupApiPortalResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func LookupApiPortalOutput(ctx *pulumi.Context, args LookupApiPortalOutputArgs, opts ...pulumi.InvokeOption) LookupApiPortalResultOutput {

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
     public sealed class AzureSynapseOutputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Database;
@@ -44,6 +48,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
         [OutputConstructor]
         private AzureSynapseOutputDataSourceResponse(
+            string? authenticationMode,
+
             string? database,
 
             string? password,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? user)
         {
+            AuthenticationMode = authenticationMode;
             Database = database;
             Password = password;
             Server = server;

@@ -53,6 +53,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview.Inputs
 
         public GatewayPropertiesArgs()
         {
+            HttpsOnly = false;
+            Public = false;
         }
     }
 }

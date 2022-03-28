@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public Input<string>? EventHubName { get; set; }
 
         /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
         /// The key/column that is used to determine to which partition to send event data.
         /// </summary>
         [Input("partitionKey")]

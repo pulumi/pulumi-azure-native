@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.Storage.V20210801
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:ManagementPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:ManagementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

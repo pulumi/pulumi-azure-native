@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AggregateFunctionPropertiesResponse',
     'AvroSerializationResponse',
     'AzureDataLakeStoreOutputDataSourceResponse',
     'AzureFunctionOutputDataSourceResponse',
@@ -60,6 +61,73 @@ __all__ = [
     'StreamInputPropertiesResponse',
     'TransformationResponse',
 ]
+
+@pulumi.output_type
+class AggregateFunctionPropertiesResponse(dict):
+    """
+    The properties that are associated with an aggregate function.
+    """
+    def __init__(__self__, *,
+                 etag: str,
+                 type: str,
+                 binding: Optional[Any] = None,
+                 inputs: Optional[Sequence['outputs.FunctionInputResponse']] = None,
+                 output: Optional['outputs.FunctionOutputResponse'] = None):
+        """
+        The properties that are associated with an aggregate function.
+        :param str etag: The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        :param str type: Indicates the type of function.
+               Expected value is 'Aggregate'.
+        :param Union['AzureMachineLearningWebServiceFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param 'FunctionOutputResponse' output: Describes the output of a function.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "type", 'Aggregate')
+        if binding is not None:
+            pulumi.set(__self__, "binding", binding)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Indicates the type of function.
+        Expected value is 'Aggregate'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def binding(self) -> Optional[Any]:
+        """
+        The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        """
+        return pulumi.get(self, "binding")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Sequence['outputs.FunctionInputResponse']]:
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional['outputs.FunctionOutputResponse']:
+        """
+        Describes the output of a function.
+        """
+        return pulumi.get(self, "output")
+
 
 @pulumi.output_type
 class AvroSerializationResponse(dict):
@@ -2523,13 +2591,13 @@ class FunctionResponse(dict):
                  id: str,
                  type: str,
                  name: Optional[str] = None,
-                 properties: Optional['outputs.ScalarFunctionPropertiesResponse'] = None):
+                 properties: Optional[Any] = None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
         :param str id: Resource Id
         :param str type: Resource type
         :param str name: Resource name
-        :param 'ScalarFunctionPropertiesResponse' properties: The properties that are associated with a function.
+        :param Union['AggregateFunctionPropertiesResponse', 'ScalarFunctionPropertiesResponse'] properties: The properties that are associated with a function.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -2564,7 +2632,7 @@ class FunctionResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional['outputs.ScalarFunctionPropertiesResponse']:
+    def properties(self) -> Optional[Any]:
         """
         The properties that are associated with a function.
         """
@@ -3528,8 +3596,7 @@ class ScalarFunctionPropertiesResponse(dict):
         :param str type: Indicates the type of function.
                Expected value is 'Scalar'.
         :param Union['AzureMachineLearningWebServiceFunctionBindingResponse', 'JavaScriptFunctionBindingResponse'] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param Sequence['FunctionInputResponse'] inputs: A list of inputs describing the parameters of the function.
-        :param 'FunctionOutputResponse' output: The output of the function.
+        :param 'FunctionOutputResponse' output: Describes the output of a function.
         """
         pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "type", 'Scalar')
@@ -3568,16 +3635,13 @@ class ScalarFunctionPropertiesResponse(dict):
     @property
     @pulumi.getter
     def inputs(self) -> Optional[Sequence['outputs.FunctionInputResponse']]:
-        """
-        A list of inputs describing the parameters of the function.
-        """
         return pulumi.get(self, "inputs")
 
     @property
     @pulumi.getter
     def output(self) -> Optional['outputs.FunctionOutputResponse']:
         """
-        The output of the function.
+        Describes the output of a function.
         """
         return pulumi.get(self, "output")
 

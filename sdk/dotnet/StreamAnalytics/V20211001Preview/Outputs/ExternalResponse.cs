@@ -16,8 +16,18 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
     [OutputType]
     public sealed class ExternalResponse
     {
+        /// <summary>
+        /// The UserCustomCode container.
+        /// </summary>
         public readonly string? Container;
+        /// <summary>
+        /// The UserCustomCode path.
+        /// </summary>
         public readonly string? Path;
+        /// <summary>
+        /// The refresh parameters for any/all updatable user defined functions present in the job config.
+        /// </summary>
+        public readonly Outputs.RefreshConfigurationResponse? RefreshConfiguration;
         /// <summary>
         /// The properties that are associated with an Azure Storage account
         /// </summary>
@@ -29,10 +39,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? path,
 
+            Outputs.RefreshConfigurationResponse? refreshConfiguration,
+
             Outputs.StorageAccountResponse? storageAccount)
         {
             Container = container;
             Path = path;
+            RefreshConfiguration = refreshConfiguration;
             StorageAccount = storageAccount;
         }
     }

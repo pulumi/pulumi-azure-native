@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public Input<string>? AccountKey { get; set; }
 
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("collectionNamePattern")]

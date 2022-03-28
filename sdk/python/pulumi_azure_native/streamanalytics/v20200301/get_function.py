@@ -53,7 +53,7 @@ class GetFunctionResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.ScalarFunctionPropertiesResponse':
+    def properties(self) -> Any:
         """
         The properties that are associated with a function.
         """

@@ -29,6 +29,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        public readonly int? PartitionCount;
+        /// <summary>
+        /// The number of messages that the message receiver can simultaneously request.
+        /// </summary>
+        public readonly int? PrefetchCount;
+        /// <summary>
         /// The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? ServiceBusNamespace;
@@ -54,6 +62,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? eventHubName,
 
+            int? partitionCount,
+
+            int? prefetchCount,
+
             string? serviceBusNamespace,
 
             string? sharedAccessPolicyKey,
@@ -65,6 +77,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
             AuthenticationMode = authenticationMode;
             ConsumerGroupName = consumerGroupName;
             EventHubName = eventHubName;
+            PartitionCount = partitionCount;
+            PrefetchCount = prefetchCount;
             ServiceBusNamespace = serviceBusNamespace;
             SharedAccessPolicyKey = sharedAccessPolicyKey;
             SharedAccessPolicyName = sharedAccessPolicyName;

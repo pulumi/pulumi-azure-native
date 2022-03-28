@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     public sealed class AzureSynapseOutputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("database")]

@@ -311,14 +311,14 @@ class PrivateLinkServiceConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "groupIds":
+        if key == "requestMessage":
+            suggest = "request_message"
+        elif key == "groupIds":
             suggest = "group_ids"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "privateLinkServiceId":
             suggest = "private_link_service_id"
-        elif key == "requestMessage":
-            suggest = "request_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -332,25 +332,32 @@ class PrivateLinkServiceConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 request_message: str,
                  group_ids: Optional[Sequence[str]] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None,
-                 private_link_service_id: Optional[str] = None,
-                 request_message: Optional[str] = None):
+                 private_link_service_id: Optional[str] = None):
         """
         A grouping of information about the connection to the remote resource.
+        :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the private remote resource.
         :param str private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
-        :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
+        pulumi.set(__self__, "request_message", request_message)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if private_link_service_id is not None:
             pulumi.set(__self__, "private_link_service_id", private_link_service_id)
-        if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> str:
+        """
+        A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "request_message")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -375,13 +382,5 @@ class PrivateLinkServiceConnectionResponse(dict):
         The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
         """
         return pulumi.get(self, "private_link_service_id")
-
-    @property
-    @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[str]:
-        """
-        A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-        """
-        return pulumi.get(self, "request_message")
 
 

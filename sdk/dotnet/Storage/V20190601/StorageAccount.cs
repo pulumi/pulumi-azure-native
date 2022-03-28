@@ -251,6 +251,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210801:StorageAccount"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

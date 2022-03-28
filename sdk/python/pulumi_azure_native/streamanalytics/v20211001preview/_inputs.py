@@ -34,6 +34,7 @@ __all__ = [
     'CsvSerializationArgs',
     'CustomClrSerializationArgs',
     'DocumentDbOutputDataSourceArgs',
+    'EventGridStreamInputDataSourceArgs',
     'EventHubOutputDataSourceArgs',
     'EventHubStreamInputDataSourceArgs',
     'EventHubV2OutputDataSourceArgs',
@@ -42,19 +43,25 @@ __all__ = [
     'FunctionInputArgs',
     'FunctionOutputArgs',
     'FunctionArgs',
+    'GatewayMessageBusOutputDataSourceArgs',
+    'GatewayMessageBusStreamInputDataSourceArgs',
     'IdentityArgs',
+    'InputWatermarkPropertiesArgs',
     'InputArgs',
     'IoTHubStreamInputDataSourceArgs',
     'JavaScriptFunctionBindingArgs',
     'JobStorageAccountArgs',
     'JsonSerializationArgs',
+    'OutputWatermarkPropertiesArgs',
     'OutputArgs',
     'ParquetSerializationArgs',
+    'PostgreSQLOutputDataSourceArgs',
     'PowerBIOutputDataSourceArgs',
     'RawOutputDatasourceArgs',
     'RawReferenceInputDataSourceArgs',
     'RawStreamInputDataSourceArgs',
     'ReferenceInputPropertiesArgs',
+    'RefreshConfigurationArgs',
     'ScalarFunctionPropertiesArgs',
     'ServiceBusQueueOutputDataSourceArgs',
     'ServiceBusTopicOutputDataSourceArgs',
@@ -439,8 +446,10 @@ class AzureMachineLearningServiceFunctionBindingArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  batch_size: Optional[pulumi.Input[int]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 input_request_name: Optional[pulumi.Input[str]] = None,
                  inputs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningServiceInputColumnArgs']]]] = None,
                  number_of_parallel_requests: Optional[pulumi.Input[int]] = None,
+                 output_response_name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningServiceOutputColumnArgs']]]] = None):
         """
         The binding to an Azure Machine Learning web service.
@@ -449,8 +458,10 @@ class AzureMachineLearningServiceFunctionBindingArgs:
         :param pulumi.Input[str] api_key: The API key used to authenticate with Request-Response endpoint.
         :param pulumi.Input[int] batch_size: Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.
         :param pulumi.Input[str] endpoint: The Request-Response execute endpoint of the Azure Machine Learning web service.
+        :param pulumi.Input[str] input_request_name: Label for the input request object.
         :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningServiceInputColumnArgs']]] inputs: The inputs for the Azure Machine Learning web service endpoint.
         :param pulumi.Input[int] number_of_parallel_requests: The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
+        :param pulumi.Input[str] output_response_name: Label for the output request object.
         :param pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningServiceOutputColumnArgs']]] outputs: A list of outputs from the Azure Machine Learning web service endpoint execution.
         """
         pulumi.set(__self__, "type", 'Microsoft.MachineLearningServices')
@@ -460,10 +471,14 @@ class AzureMachineLearningServiceFunctionBindingArgs:
             pulumi.set(__self__, "batch_size", batch_size)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if input_request_name is not None:
+            pulumi.set(__self__, "input_request_name", input_request_name)
         if inputs is not None:
             pulumi.set(__self__, "inputs", inputs)
         if number_of_parallel_requests is not None:
             pulumi.set(__self__, "number_of_parallel_requests", number_of_parallel_requests)
+        if output_response_name is not None:
+            pulumi.set(__self__, "output_response_name", output_response_name)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
 
@@ -517,6 +532,18 @@ class AzureMachineLearningServiceFunctionBindingArgs:
         pulumi.set(self, "endpoint", value)
 
     @property
+    @pulumi.getter(name="inputRequestName")
+    def input_request_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label for the input request object.
+        """
+        return pulumi.get(self, "input_request_name")
+
+    @input_request_name.setter
+    def input_request_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "input_request_name", value)
+
+    @property
     @pulumi.getter
     def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMachineLearningServiceInputColumnArgs']]]]:
         """
@@ -539,6 +566,18 @@ class AzureMachineLearningServiceFunctionBindingArgs:
     @number_of_parallel_requests.setter
     def number_of_parallel_requests(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_parallel_requests", value)
+
+    @property
+    @pulumi.getter(name="outputResponseName")
+    def output_response_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Label for the output request object.
+        """
+        return pulumi.get(self, "output_response_name")
+
+    @output_response_name.setter
+    def output_response_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_response_name", value)
 
     @property
     @pulumi.getter
@@ -1063,6 +1102,7 @@ class AzureSqlDatabaseOutputDataSourceArgs:
 class AzureSqlReferenceInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  delta_snapshot_query: Optional[pulumi.Input[str]] = None,
                  full_snapshot_query: Optional[pulumi.Input[str]] = None,
@@ -1070,12 +1110,12 @@ class AzureSqlReferenceInputDataSourceArgs:
                  refresh_rate: Optional[pulumi.Input[str]] = None,
                  refresh_type: Optional[pulumi.Input[Union[str, 'RefreshType']]] = None,
                  server: Optional[pulumi.Input[str]] = None,
-                 table: Optional[pulumi.Input[str]] = None,
                  user: Optional[pulumi.Input[str]] = None):
         """
         Describes an Azure SQL database reference input data source.
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/Database'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] database: This element is associated with the datasource element. This is the name of the database that output will be written to.
         :param pulumi.Input[str] delta_snapshot_query: This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.
         :param pulumi.Input[str] full_snapshot_query: This element is associated with the datasource element. This query is used to fetch data from the sql database.
@@ -1083,10 +1123,11 @@ class AzureSqlReferenceInputDataSourceArgs:
         :param pulumi.Input[str] refresh_rate: This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.
         :param pulumi.Input[Union[str, 'RefreshType']] refresh_type: Indicates the type of data refresh option.
         :param pulumi.Input[str] server: This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.
-        :param pulumi.Input[str] table: This element is associated with the datasource element. The name of the table in the Azure SQL database..
         :param pulumi.Input[str] user: This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
         """
         pulumi.set(__self__, "type", 'Microsoft.Sql/Server/Database')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if delta_snapshot_query is not None:
@@ -1101,8 +1142,6 @@ class AzureSqlReferenceInputDataSourceArgs:
             pulumi.set(__self__, "refresh_type", refresh_type)
         if server is not None:
             pulumi.set(__self__, "server", server)
-        if table is not None:
-            pulumi.set(__self__, "table", table)
         if user is not None:
             pulumi.set(__self__, "user", user)
 
@@ -1118,6 +1157,18 @@ class AzureSqlReferenceInputDataSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter
@@ -1205,18 +1256,6 @@ class AzureSqlReferenceInputDataSourceArgs:
 
     @property
     @pulumi.getter
-    def table(self) -> Optional[pulumi.Input[str]]:
-        """
-        This element is associated with the datasource element. The name of the table in the Azure SQL database..
-        """
-        return pulumi.get(self, "table")
-
-    @table.setter
-    def table(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "table", value)
-
-    @property
-    @pulumi.getter
     def user(self) -> Optional[pulumi.Input[str]]:
         """
         This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.
@@ -1232,6 +1271,7 @@ class AzureSqlReferenceInputDataSourceArgs:
 class AzureSynapseOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
@@ -1241,6 +1281,7 @@ class AzureSynapseOutputDataSourceArgs:
         Describes an Azure Synapse output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Sql/Server/DataWarehouse'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
@@ -1248,6 +1289,8 @@ class AzureSynapseOutputDataSourceArgs:
         :param pulumi.Input[str] user: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "type", 'Microsoft.Sql/Server/DataWarehouse')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if password is not None:
@@ -1271,6 +1314,18 @@ class AzureSynapseOutputDataSourceArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter
@@ -1475,6 +1530,8 @@ class BlobOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
+                 blob_path_prefix: Optional[pulumi.Input[str]] = None,
+                 blob_write_mode: Optional[pulumi.Input[Union[str, 'BlobWriteMode']]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -1485,6 +1542,8 @@ class BlobOutputDataSourceArgs:
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
+        :param pulumi.Input[str] blob_path_prefix: Blob path prefix.
+        :param pulumi.Input[Union[str, 'BlobWriteMode']] blob_write_mode: Blob write mode.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1494,6 +1553,10 @@ class BlobOutputDataSourceArgs:
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if blob_path_prefix is not None:
+            pulumi.set(__self__, "blob_path_prefix", blob_path_prefix)
+        if blob_write_mode is not None:
+            pulumi.set(__self__, "blob_write_mode", blob_write_mode)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
@@ -1529,6 +1592,30 @@ class BlobOutputDataSourceArgs:
     @authentication_mode.setter
     def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="blobPathPrefix")
+    def blob_path_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blob path prefix.
+        """
+        return pulumi.get(self, "blob_path_prefix")
+
+    @blob_path_prefix.setter
+    def blob_path_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_path_prefix", value)
+
+    @property
+    @pulumi.getter(name="blobWriteMode")
+    def blob_write_mode(self) -> Optional[pulumi.Input[Union[str, 'BlobWriteMode']]]:
+        """
+        Blob write mode.
+        """
+        return pulumi.get(self, "blob_write_mode")
+
+    @blob_write_mode.setter
+    def blob_write_mode(self, value: Optional[pulumi.Input[Union[str, 'BlobWriteMode']]]):
+        pulumi.set(self, "blob_write_mode", value)
 
     @property
     @pulumi.getter
@@ -1596,9 +1683,14 @@ class BlobReferenceInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
+                 blob_name: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
+                 delta_path_pattern: Optional[pulumi.Input[str]] = None,
+                 delta_snapshot_refresh_rate: Optional[pulumi.Input[str]] = None,
+                 full_snapshot_refresh_rate: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
+                 source_partition_count: Optional[pulumi.Input[int]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  time_format: Optional[pulumi.Input[str]] = None):
         """
@@ -1606,21 +1698,36 @@ class BlobReferenceInputDataSourceArgs:
         :param pulumi.Input[str] type: Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Microsoft.Storage/Blob'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
+        :param pulumi.Input[str] blob_name: The name of the blob input.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+        :param pulumi.Input[str] delta_path_pattern: The path pattern of the delta snapshot.
+        :param pulumi.Input[str] delta_snapshot_refresh_rate: The interval that the user generates a delta snapshot of this reference blob input data source.
+        :param pulumi.Input[str] full_snapshot_refresh_rate: The refresh interval of the blob input data source.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+        :param pulumi.Input[int] source_partition_count: The partition count of the blob input data source. Range 1 - 256.
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
         """
         pulumi.set(__self__, "type", 'Microsoft.Storage/Blob')
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if blob_name is not None:
+            pulumi.set(__self__, "blob_name", blob_name)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if date_format is not None:
             pulumi.set(__self__, "date_format", date_format)
+        if delta_path_pattern is not None:
+            pulumi.set(__self__, "delta_path_pattern", delta_path_pattern)
+        if delta_snapshot_refresh_rate is not None:
+            pulumi.set(__self__, "delta_snapshot_refresh_rate", delta_snapshot_refresh_rate)
+        if full_snapshot_refresh_rate is not None:
+            pulumi.set(__self__, "full_snapshot_refresh_rate", full_snapshot_refresh_rate)
         if path_pattern is not None:
             pulumi.set(__self__, "path_pattern", path_pattern)
+        if source_partition_count is not None:
+            pulumi.set(__self__, "source_partition_count", source_partition_count)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if time_format is not None:
@@ -1652,6 +1759,18 @@ class BlobReferenceInputDataSourceArgs:
         pulumi.set(self, "authentication_mode", value)
 
     @property
+    @pulumi.getter(name="blobName")
+    def blob_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the blob input.
+        """
+        return pulumi.get(self, "blob_name")
+
+    @blob_name.setter
+    def blob_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_name", value)
+
+    @property
     @pulumi.getter
     def container(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1676,6 +1795,42 @@ class BlobReferenceInputDataSourceArgs:
         pulumi.set(self, "date_format", value)
 
     @property
+    @pulumi.getter(name="deltaPathPattern")
+    def delta_path_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path pattern of the delta snapshot.
+        """
+        return pulumi.get(self, "delta_path_pattern")
+
+    @delta_path_pattern.setter
+    def delta_path_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delta_path_pattern", value)
+
+    @property
+    @pulumi.getter(name="deltaSnapshotRefreshRate")
+    def delta_snapshot_refresh_rate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The interval that the user generates a delta snapshot of this reference blob input data source.
+        """
+        return pulumi.get(self, "delta_snapshot_refresh_rate")
+
+    @delta_snapshot_refresh_rate.setter
+    def delta_snapshot_refresh_rate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delta_snapshot_refresh_rate", value)
+
+    @property
+    @pulumi.getter(name="fullSnapshotRefreshRate")
+    def full_snapshot_refresh_rate(self) -> Optional[pulumi.Input[str]]:
+        """
+        The refresh interval of the blob input data source.
+        """
+        return pulumi.get(self, "full_snapshot_refresh_rate")
+
+    @full_snapshot_refresh_rate.setter
+    def full_snapshot_refresh_rate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_snapshot_refresh_rate", value)
+
+    @property
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1686,6 +1841,18 @@ class BlobReferenceInputDataSourceArgs:
     @path_pattern.setter
     def path_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path_pattern", value)
+
+    @property
+    @pulumi.getter(name="sourcePartitionCount")
+    def source_partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The partition count of the blob input data source. Range 1 - 256.
+        """
+        return pulumi.get(self, "source_partition_count")
+
+    @source_partition_count.setter
+    def source_partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "source_partition_count", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
@@ -1856,7 +2023,7 @@ class CSharpFunctionBindingArgs:
                  class_: Optional[pulumi.Input[str]] = None,
                  dll_path: Optional[pulumi.Input[str]] = None,
                  method: Optional[pulumi.Input[str]] = None,
-                 script: Optional[pulumi.Input[str]] = None):
+                 update_mode: Optional[pulumi.Input[Union[str, 'UpdateMode']]] = None):
         """
         The binding to a CSharp function.
         :param pulumi.Input[str] type: Indicates the function binding type.
@@ -1864,7 +2031,7 @@ class CSharpFunctionBindingArgs:
         :param pulumi.Input[str] class_: The Csharp code containing a single function definition.
         :param pulumi.Input[str] dll_path: The Csharp code containing a single function definition.
         :param pulumi.Input[str] method: The Csharp code containing a single function definition.
-        :param pulumi.Input[str] script: The Csharp code containing a single function definition.
+        :param pulumi.Input[Union[str, 'UpdateMode']] update_mode: Refresh modes for Stream Analytics functions.
         """
         pulumi.set(__self__, "type", 'Microsoft.StreamAnalytics/CLRUdf')
         if class_ is not None:
@@ -1873,8 +2040,8 @@ class CSharpFunctionBindingArgs:
             pulumi.set(__self__, "dll_path", dll_path)
         if method is not None:
             pulumi.set(__self__, "method", method)
-        if script is not None:
-            pulumi.set(__self__, "script", script)
+        if update_mode is not None:
+            pulumi.set(__self__, "update_mode", update_mode)
 
     @property
     @pulumi.getter
@@ -1926,16 +2093,16 @@ class CSharpFunctionBindingArgs:
         pulumi.set(self, "method", value)
 
     @property
-    @pulumi.getter
-    def script(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="updateMode")
+    def update_mode(self) -> Optional[pulumi.Input[Union[str, 'UpdateMode']]]:
         """
-        The Csharp code containing a single function definition.
+        Refresh modes for Stream Analytics functions.
         """
-        return pulumi.get(self, "script")
+        return pulumi.get(self, "update_mode")
 
-    @script.setter
-    def script(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "script", value)
+    @update_mode.setter
+    def update_mode(self, value: Optional[pulumi.Input[Union[str, 'UpdateMode']]]):
+        pulumi.set(self, "update_mode", value)
 
 
 @pulumi.input_type
@@ -2105,6 +2272,7 @@ class DocumentDbOutputDataSourceArgs:
                  type: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[str]] = None,
                  account_key: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  collection_name_pattern: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  document_id: Optional[pulumi.Input[str]] = None,
@@ -2115,6 +2283,7 @@ class DocumentDbOutputDataSourceArgs:
                Expected value is 'Microsoft.Storage/DocumentDB'.
         :param pulumi.Input[str] account_id: The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_key: The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] collection_name_pattern: The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] database: The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] document_id: The name of the field in output events used to specify the primary key which insert or update operations are based on.
@@ -2125,6 +2294,8 @@ class DocumentDbOutputDataSourceArgs:
             pulumi.set(__self__, "account_id", account_id)
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
         if collection_name_pattern is not None:
             pulumi.set(__self__, "collection_name_pattern", collection_name_pattern)
         if database is not None:
@@ -2170,6 +2341,18 @@ class DocumentDbOutputDataSourceArgs:
     @account_key.setter
     def account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
 
     @property
     @pulumi.getter(name="collectionNamePattern")
@@ -2221,11 +2404,101 @@ class DocumentDbOutputDataSourceArgs:
 
 
 @pulumi.input_type
+class EventGridStreamInputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schema: Optional[pulumi.Input[Union[str, 'EventGridEventSchemaType']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
+                 subscriber: Optional[pulumi.Input['EventHubV2StreamInputDataSourceArgs']] = None):
+        """
+        Describes an event grid input data source that contains stream data.
+        :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.EventGrid/EventSubscriptions'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_types: List of Event Types that are supported by the Event Grid adapter.
+        :param pulumi.Input[Union[str, 'EventGridEventSchemaType']] schema: Indicates the Event Grid schema type.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input['EventHubV2StreamInputDataSourceArgs'] subscriber: Subscribers for the Event Grid. Currently only EventHub Subscriber is supported.
+        """
+        pulumi.set(__self__, "type", 'Microsoft.EventGrid/EventSubscriptions')
+        if event_types is not None:
+            pulumi.set(__self__, "event_types", event_types)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if storage_accounts is not None:
+            pulumi.set(__self__, "storage_accounts", storage_accounts)
+        if subscriber is not None:
+            pulumi.set(__self__, "subscriber", subscriber)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.EventGrid/EventSubscriptions'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="eventTypes")
+    def event_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Event Types that are supported by the Event Grid adapter.
+        """
+        return pulumi.get(self, "event_types")
+
+    @event_types.setter
+    def event_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "event_types", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[Union[str, 'EventGridEventSchemaType']]]:
+        """
+        Indicates the Event Grid schema type.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[Union[str, 'EventGridEventSchemaType']]]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter(name="storageAccounts")
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]:
+        """
+        A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "storage_accounts")
+
+    @storage_accounts.setter
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]]):
+        pulumi.set(self, "storage_accounts", value)
+
+    @property
+    @pulumi.getter
+    def subscriber(self) -> Optional[pulumi.Input['EventHubV2StreamInputDataSourceArgs']]:
+        """
+        Subscribers for the Event Grid. Currently only EventHub Subscriber is supported.
+        """
+        return pulumi.get(self, "subscriber")
+
+    @subscriber.setter
+    def subscriber(self, value: Optional[pulumi.Input['EventHubV2StreamInputDataSourceArgs']]):
+        pulumi.set(self, "subscriber", value)
+
+
+@pulumi.input_type
 class EventHubOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -2237,6 +2510,7 @@ class EventHubOutputDataSourceArgs:
                Expected value is 'Microsoft.ServiceBus/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] partition_count: The partition count of the event hub data source. Range 1 - 256.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: The properties associated with this Event Hub output.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2248,6 +2522,8 @@ class EventHubOutputDataSourceArgs:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
         if event_hub_name is not None:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
         if property_columns is not None:
@@ -2295,6 +2571,18 @@ class EventHubOutputDataSourceArgs:
     @event_hub_name.setter
     def event_hub_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The partition count of the event hub data source. Range 1 - 256.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
 
     @property
     @pulumi.getter(name="partitionKey")
@@ -2364,6 +2652,8 @@ class EventHubStreamInputDataSourceArgs:
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 prefetch_count: Optional[pulumi.Input[int]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None):
@@ -2374,6 +2664,8 @@ class EventHubStreamInputDataSourceArgs:
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] partition_count: The partition count of the event hub data source. Range 1 - 256.
+        :param pulumi.Input[int] prefetch_count: The number of messages that the message receiver can simultaneously request.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2385,6 +2677,10 @@ class EventHubStreamInputDataSourceArgs:
             pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         if event_hub_name is not None:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
+        if prefetch_count is not None:
+            pulumi.set(__self__, "prefetch_count", prefetch_count)
         if service_bus_namespace is not None:
             pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
@@ -2442,6 +2738,30 @@ class EventHubStreamInputDataSourceArgs:
         pulumi.set(self, "event_hub_name", value)
 
     @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The partition count of the event hub data source. Range 1 - 256.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
+    @pulumi.getter(name="prefetchCount")
+    def prefetch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of messages that the message receiver can simultaneously request.
+        """
+        return pulumi.get(self, "prefetch_count")
+
+    @prefetch_count.setter
+    def prefetch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "prefetch_count", value)
+
+    @property
     @pulumi.getter(name="serviceBusNamespace")
     def service_bus_namespace(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2484,6 +2804,7 @@ class EventHubV2OutputDataSourceArgs:
                  type: pulumi.Input[str],
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -2495,6 +2816,7 @@ class EventHubV2OutputDataSourceArgs:
                Expected value is 'Microsoft.EventHub/EventHub'.
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] partition_count: The partition count of the event hub data source. Range 1 - 256.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: The properties associated with this Event Hub output.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2506,6 +2828,8 @@ class EventHubV2OutputDataSourceArgs:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
         if event_hub_name is not None:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
         if partition_key is not None:
             pulumi.set(__self__, "partition_key", partition_key)
         if property_columns is not None:
@@ -2553,6 +2877,18 @@ class EventHubV2OutputDataSourceArgs:
     @event_hub_name.setter
     def event_hub_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The partition count of the event hub data source. Range 1 - 256.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
 
     @property
     @pulumi.getter(name="partitionKey")
@@ -2622,6 +2958,8 @@ class EventHubV2StreamInputDataSourceArgs:
                  authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
+                 prefetch_count: Optional[pulumi.Input[int]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None):
@@ -2632,6 +2970,8 @@ class EventHubV2StreamInputDataSourceArgs:
         :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[int] partition_count: The partition count of the event hub data source. Range 1 - 256.
+        :param pulumi.Input[int] prefetch_count: The number of messages that the message receiver can simultaneously request.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2643,6 +2983,10 @@ class EventHubV2StreamInputDataSourceArgs:
             pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         if event_hub_name is not None:
             pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
+        if prefetch_count is not None:
+            pulumi.set(__self__, "prefetch_count", prefetch_count)
         if service_bus_namespace is not None:
             pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
         if shared_access_policy_key is not None:
@@ -2700,6 +3044,30 @@ class EventHubV2StreamInputDataSourceArgs:
         pulumi.set(self, "event_hub_name", value)
 
     @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The partition count of the event hub data source. Range 1 - 256.
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
+    @pulumi.getter(name="prefetchCount")
+    def prefetch_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of messages that the message receiver can simultaneously request.
+        """
+        return pulumi.get(self, "prefetch_count")
+
+    @prefetch_count.setter
+    def prefetch_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "prefetch_count", value)
+
+    @property
     @pulumi.getter(name="serviceBusNamespace")
     def service_bus_namespace(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2741,21 +3109,30 @@ class ExternalArgs:
     def __init__(__self__, *,
                  container: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
+                 refresh_configuration: Optional[pulumi.Input['RefreshConfigurationArgs']] = None,
                  storage_account: Optional[pulumi.Input['StorageAccountArgs']] = None):
         """
         The storage account where the custom code artifacts are located.
+        :param pulumi.Input[str] container: The UserCustomCode container.
+        :param pulumi.Input[str] path: The UserCustomCode path.
+        :param pulumi.Input['RefreshConfigurationArgs'] refresh_configuration: The refresh parameters for any/all updatable user defined functions present in the job config.
         :param pulumi.Input['StorageAccountArgs'] storage_account: The properties that are associated with an Azure Storage account
         """
         if container is not None:
             pulumi.set(__self__, "container", container)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if refresh_configuration is not None:
+            pulumi.set(__self__, "refresh_configuration", refresh_configuration)
         if storage_account is not None:
             pulumi.set(__self__, "storage_account", storage_account)
 
     @property
     @pulumi.getter
     def container(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UserCustomCode container.
+        """
         return pulumi.get(self, "container")
 
     @container.setter
@@ -2765,11 +3142,26 @@ class ExternalArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UserCustomCode path.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="refreshConfiguration")
+    def refresh_configuration(self) -> Optional[pulumi.Input['RefreshConfigurationArgs']]:
+        """
+        The refresh parameters for any/all updatable user defined functions present in the job config.
+        """
+        return pulumi.get(self, "refresh_configuration")
+
+    @refresh_configuration.setter
+    def refresh_configuration(self, value: Optional[pulumi.Input['RefreshConfigurationArgs']]):
+        pulumi.set(self, "refresh_configuration", value)
 
     @property
     @pulumi.getter(name="storageAccount")
@@ -2889,6 +3281,88 @@ class FunctionArgs:
 
 
 @pulumi.input_type
+class GatewayMessageBusOutputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 topic: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a Gateway Message Bus output data source.
+        :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'GatewayMessageBus'.
+        :param pulumi.Input[str] topic: The name of the Service Bus topic.
+        """
+        pulumi.set(__self__, "type", 'GatewayMessageBus')
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'GatewayMessageBus'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topic", value)
+
+
+@pulumi.input_type
+class GatewayMessageBusStreamInputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 topic: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a blob input data source that contains stream data.
+        :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'GatewayMessageBus'.
+        :param pulumi.Input[str] topic: The name of the Service Bus topic.
+        """
+        pulumi.set(__self__, "type", 'GatewayMessageBus')
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'GatewayMessageBus'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Service Bus topic.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "topic", value)
+
+
+@pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -2958,6 +3432,30 @@ class IdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[Any]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class InputWatermarkPropertiesArgs:
+    def __init__(__self__, *,
+                 watermark_mode: Optional[pulumi.Input[Union[str, 'InputWatermarkMode']]] = None):
+        """
+        Settings which determine whether to read watermark events.
+        :param pulumi.Input[Union[str, 'InputWatermarkMode']] watermark_mode: The input watermark mode.
+        """
+        if watermark_mode is not None:
+            pulumi.set(__self__, "watermark_mode", watermark_mode)
+
+    @property
+    @pulumi.getter(name="watermarkMode")
+    def watermark_mode(self) -> Optional[pulumi.Input[Union[str, 'InputWatermarkMode']]]:
+        """
+        The input watermark mode.
+        """
+        return pulumi.get(self, "watermark_mode")
+
+    @watermark_mode.setter
+    def watermark_mode(self, value: Optional[pulumi.Input[Union[str, 'InputWatermarkMode']]]):
+        pulumi.set(self, "watermark_mode", value)
 
 
 @pulumi.input_type
@@ -3260,20 +3758,62 @@ class JsonSerializationArgs:
 
 
 @pulumi.input_type
+class OutputWatermarkPropertiesArgs:
+    def __init__(__self__, *,
+                 max_watermark_difference_across_partitions: Optional[pulumi.Input[str]] = None,
+                 watermark_mode: Optional[pulumi.Input[Union[str, 'OutputWatermarkMode']]] = None):
+        """
+        Settings which determine whether to send watermarks to downstream.
+        :param pulumi.Input[str] max_watermark_difference_across_partitions: Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+        :param pulumi.Input[Union[str, 'OutputWatermarkMode']] watermark_mode: The output watermark mode.
+        """
+        if max_watermark_difference_across_partitions is not None:
+            pulumi.set(__self__, "max_watermark_difference_across_partitions", max_watermark_difference_across_partitions)
+        if watermark_mode is not None:
+            pulumi.set(__self__, "watermark_mode", watermark_mode)
+
+    @property
+    @pulumi.getter(name="maxWatermarkDifferenceAcrossPartitions")
+    def max_watermark_difference_across_partitions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.
+        """
+        return pulumi.get(self, "max_watermark_difference_across_partitions")
+
+    @max_watermark_difference_across_partitions.setter
+    def max_watermark_difference_across_partitions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_watermark_difference_across_partitions", value)
+
+    @property
+    @pulumi.getter(name="watermarkMode")
+    def watermark_mode(self) -> Optional[pulumi.Input[Union[str, 'OutputWatermarkMode']]]:
+        """
+        The output watermark mode.
+        """
+        return pulumi.get(self, "watermark_mode")
+
+    @watermark_mode.setter
+    def watermark_mode(self, value: Optional[pulumi.Input[Union[str, 'OutputWatermarkMode']]]):
+        pulumi.set(self, "watermark_mode", value)
+
+
+@pulumi.input_type
 class OutputArgs:
     def __init__(__self__, *,
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[float]] = None,
-                 time_window: Optional[pulumi.Input[str]] = None):
+                 time_window: Optional[pulumi.Input[str]] = None,
+                 watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[float] size_window: The size window to constrain a Stream Analytics output to.
         :param pulumi.Input[str] time_window: The time frame for filtering Stream Analytics job outputs.
+        :param pulumi.Input['OutputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to send watermarks to downstream.
         """
         if datasource is not None:
             pulumi.set(__self__, "datasource", datasource)
@@ -3285,17 +3825,19 @@ class OutputArgs:
             pulumi.set(__self__, "size_window", size_window)
         if time_window is not None:
             pulumi.set(__self__, "time_window", time_window)
+        if watermark_settings is not None:
+            pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -3346,6 +3888,18 @@ class OutputArgs:
     def time_window(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_window", value)
 
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional[pulumi.Input['OutputWatermarkPropertiesArgs']]:
+        """
+        Settings which determine whether to send watermarks to downstream.
+        """
+        return pulumi.get(self, "watermark_settings")
+
+    @watermark_settings.setter
+    def watermark_settings(self, value: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']]):
+        pulumi.set(self, "watermark_settings", value)
+
 
 @pulumi.input_type
 class ParquetSerializationArgs:
@@ -3370,6 +3924,143 @@ class ParquetSerializationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class PostgreSQLOutputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
+                 database: Optional[pulumi.Input[str]] = None,
+                 max_writer_count: Optional[pulumi.Input[float]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 server: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
+                 user: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a PostgreSQL output data source.
+        :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.DBForPostgreSQL/servers/databases'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
+        :param pulumi.Input[str] database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[float] max_writer_count: Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+        :param pulumi.Input[str] password: The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] server: The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] table: The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] user: The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        pulumi.set(__self__, "type", 'Microsoft.DBForPostgreSQL/servers/databases')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if max_writer_count is not None:
+            pulumi.set(__self__, "max_writer_count", max_writer_count)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.DBForPostgreSQL/servers/databases'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="maxWriterCount")
+    def max_writer_count(self) -> Optional[pulumi.Input[float]]:
+        """
+        Max Writer count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
+        """
+        return pulumi.get(self, "max_writer_count")
+
+    @max_writer_count.setter
+    def max_writer_count(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_writer_count", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
 
 
 @pulumi.input_type
@@ -3687,7 +4378,8 @@ class ReferenceInputPropertiesArgs:
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
                  datasource: Optional[pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None):
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 watermark_settings: Optional[pulumi.Input['InputWatermarkPropertiesArgs']] = None):
         """
         The properties that are associated with an input containing reference data.
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
@@ -3696,6 +4388,7 @@ class ReferenceInputPropertiesArgs:
         :param pulumi.Input[Union['AzureSqlReferenceInputDataSourceArgs', 'BlobReferenceInputDataSourceArgs', 'RawReferenceInputDataSourceArgs']] datasource: Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input['InputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to read watermark events.
         """
         pulumi.set(__self__, "type", 'Reference')
         if compression is not None:
@@ -3706,6 +4399,8 @@ class ReferenceInputPropertiesArgs:
             pulumi.set(__self__, "partition_key", partition_key)
         if serialization is not None:
             pulumi.set(__self__, "serialization", serialization)
+        if watermark_settings is not None:
+            pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter
@@ -3767,6 +4462,106 @@ class ReferenceInputPropertiesArgs:
     @serialization.setter
     def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
+
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional[pulumi.Input['InputWatermarkPropertiesArgs']]:
+        """
+        Settings which determine whether to read watermark events.
+        """
+        return pulumi.get(self, "watermark_settings")
+
+    @watermark_settings.setter
+    def watermark_settings(self, value: Optional[pulumi.Input['InputWatermarkPropertiesArgs']]):
+        pulumi.set(self, "watermark_settings", value)
+
+
+@pulumi.input_type
+class RefreshConfigurationArgs:
+    def __init__(__self__, *,
+                 date_format: Optional[pulumi.Input[str]] = None,
+                 path_pattern: Optional[pulumi.Input[str]] = None,
+                 refresh_interval: Optional[pulumi.Input[str]] = None,
+                 refresh_type: Optional[pulumi.Input[Union[str, 'RefreshType']]] = None,
+                 time_format: Optional[pulumi.Input[str]] = None):
+        """
+        The refresh parameters for any/all updatable user defined functions present in the job config.
+        :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+        :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+        :param pulumi.Input[str] refresh_interval: The refresh interval.
+        :param pulumi.Input[Union[str, 'RefreshType']] refresh_type: This property indicates which data refresh option to use, Blocking or Nonblocking.
+        :param pulumi.Input[str] time_format: The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+        """
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if path_pattern is not None:
+            pulumi.set(__self__, "path_pattern", path_pattern)
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if refresh_type is not None:
+            pulumi.set(__self__, "refresh_type", refresh_type)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+
+    @property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
+        """
+        return pulumi.get(self, "date_format")
+
+    @date_format.setter
+    def date_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_format", value)
+
+    @property
+    @pulumi.getter(name="pathPattern")
+    def path_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
+        """
+        return pulumi.get(self, "path_pattern")
+
+    @path_pattern.setter
+    def path_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path_pattern", value)
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The refresh interval.
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @refresh_interval.setter
+    def refresh_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_interval", value)
+
+    @property
+    @pulumi.getter(name="refreshType")
+    def refresh_type(self) -> Optional[pulumi.Input[Union[str, 'RefreshType']]]:
+        """
+        This property indicates which data refresh option to use, Blocking or Nonblocking.
+        """
+        return pulumi.get(self, "refresh_type")
+
+    @refresh_type.setter
+    def refresh_type(self, value: Optional[pulumi.Input[Union[str, 'RefreshType']]]):
+        pulumi.set(self, "refresh_type", value)
+
+    @property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.
+        """
+        return pulumi.get(self, "time_format")
+
+    @time_format.setter
+    def time_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_format", value)
 
 
 @pulumi.input_type
@@ -4140,16 +4935,20 @@ class SkuArgs:
 class StorageAccountArgs:
     def __init__(__self__, *,
                  account_key: Optional[pulumi.Input[str]] = None,
-                 account_name: Optional[pulumi.Input[str]] = None):
+                 account_name: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None):
         """
         The properties that are associated with an Azure Storage account
         :param pulumi.Input[str] account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         """
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -4175,23 +4974,37 @@ class StorageAccountArgs:
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
 
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
+
 
 @pulumi.input_type
 class StreamInputPropertiesArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  compression: Optional[pulumi.Input['CompressionArgs']] = None,
-                 datasource: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None):
+                 serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
+                 watermark_settings: Optional[pulumi.Input['InputWatermarkPropertiesArgs']] = None):
         """
         The properties that are associated with an input containing stream data.
         :param pulumi.Input[str] type: Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.
                Expected value is 'Stream'.
         :param pulumi.Input['CompressionArgs'] compression: Describes how input data is compressed
-        :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']] datasource: Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: partitionKey Describes a key in the input data which is used for partitioning the input data
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input['InputWatermarkPropertiesArgs'] watermark_settings: Settings which determine whether to read watermark events.
         """
         pulumi.set(__self__, "type", 'Stream')
         if compression is not None:
@@ -4202,6 +5015,8 @@ class StreamInputPropertiesArgs:
             pulumi.set(__self__, "partition_key", partition_key)
         if serialization is not None:
             pulumi.set(__self__, "serialization", serialization)
+        if watermark_settings is not None:
+            pulumi.set(__self__, "watermark_settings", watermark_settings)
 
     @property
     @pulumi.getter
@@ -4230,14 +5045,14 @@ class StreamInputPropertiesArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]:
         """
         Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['BlobStreamInputDataSourceArgs', 'EventGridStreamInputDataSourceArgs', 'EventHubStreamInputDataSourceArgs', 'EventHubV2StreamInputDataSourceArgs', 'GatewayMessageBusStreamInputDataSourceArgs', 'IoTHubStreamInputDataSourceArgs', 'RawStreamInputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property
@@ -4263,6 +5078,18 @@ class StreamInputPropertiesArgs:
     @serialization.setter
     def serialization(self, value: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]]):
         pulumi.set(self, "serialization", value)
+
+    @property
+    @pulumi.getter(name="watermarkSettings")
+    def watermark_settings(self) -> Optional[pulumi.Input['InputWatermarkPropertiesArgs']]:
+        """
+        Settings which determine whether to read watermark events.
+        """
+        return pulumi.get(self, "watermark_settings")
+
+    @watermark_settings.setter
+    def watermark_settings(self, value: Optional[pulumi.Input['InputWatermarkPropertiesArgs']]):
+        pulumi.set(self, "watermark_settings", value)
 
 
 @pulumi.input_type

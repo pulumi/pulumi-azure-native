@@ -51,6 +51,8 @@ func (val *LookupGatewayResult) Defaults() *LookupGatewayResult {
 		return nil
 	}
 	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
 	tmp.Sku = tmp.Sku.Defaults()
 
 	return &tmp

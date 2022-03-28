@@ -24,12 +24,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
         /// The current entity tag for the function. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
         public readonly string Etag;
-        /// <summary>
-        /// A list of inputs describing the parameters of the function.
-        /// </summary>
         public readonly ImmutableArray<Outputs.FunctionInputResponse> Inputs;
         /// <summary>
-        /// The output of the function.
+        /// Describes the output of a function.
         /// </summary>
         public readonly Outputs.FunctionOutputResponse? Output;
         /// <summary>

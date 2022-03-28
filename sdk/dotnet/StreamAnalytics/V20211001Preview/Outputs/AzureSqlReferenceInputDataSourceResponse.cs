@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
     public sealed class AzureSqlReferenceInputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// This element is associated with the datasource element. This is the name of the database that output will be written to.
         /// </summary>
         public readonly string? Database;
@@ -45,10 +49,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? Server;
         /// <summary>
-        /// This element is associated with the datasource element. The name of the table in the Azure SQL database..
-        /// </summary>
-        public readonly string? Table;
-        /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
         /// Expected value is 'Microsoft.Sql/Server/Database'.
         /// </summary>
@@ -60,6 +60,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
         [OutputConstructor]
         private AzureSqlReferenceInputDataSourceResponse(
+            string? authenticationMode,
+
             string? database,
 
             string? deltaSnapshotQuery,
@@ -74,12 +76,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? server,
 
-            string? table,
-
             string type,
 
             string? user)
         {
+            AuthenticationMode = authenticationMode;
             Database = database;
             DeltaSnapshotQuery = deltaSnapshotQuery;
             FullSnapshotQuery = fullSnapshotQuery;
@@ -87,7 +88,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
             RefreshRate = refreshRate;
             RefreshType = refreshType;
             Server = server;
-            Table = table;
             Type = type;
             User = user;
         }

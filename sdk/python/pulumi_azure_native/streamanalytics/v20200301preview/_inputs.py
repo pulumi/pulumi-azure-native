@@ -83,20 +83,16 @@ class PrivateEndpointPropertiesArgs:
 class PrivateLinkServiceConnectionArgs:
     def __init__(__self__, *,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_service_id: Optional[pulumi.Input[str]] = None,
-                 request_message: Optional[pulumi.Input[str]] = None):
+                 private_link_service_id: Optional[pulumi.Input[str]] = None):
         """
         A grouping of information about the connection to the remote resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
         :param pulumi.Input[str] private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
-        :param pulumi.Input[str] request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if private_link_service_id is not None:
             pulumi.set(__self__, "private_link_service_id", private_link_service_id)
-        if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -121,17 +117,5 @@ class PrivateLinkServiceConnectionArgs:
     @private_link_service_id.setter
     def private_link_service_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_link_service_id", value)
-
-    @property
-    @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
-        """
-        return pulumi.get(self, "request_message")
-
-    @request_message.setter
-    def request_message(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "request_message", value)
 
 

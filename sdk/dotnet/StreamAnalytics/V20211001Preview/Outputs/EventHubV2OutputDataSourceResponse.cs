@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// The partition count of the event hub data source. Range 1 - 256.
+        /// </summary>
+        public readonly int? PartitionCount;
+        /// <summary>
         /// The key/column that is used to determine to which partition to send event data.
         /// </summary>
         public readonly string? PartitionKey;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? eventHubName,
 
+            int? partitionCount,
+
             string? partitionKey,
 
             ImmutableArray<string> propertyColumns,
@@ -70,6 +76,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         {
             AuthenticationMode = authenticationMode;
             EventHubName = eventHubName;
+            PartitionCount = partitionCount;
             PartitionKey = partitionKey;
             PropertyColumns = propertyColumns;
             ServiceBusNamespace = serviceBusNamespace;

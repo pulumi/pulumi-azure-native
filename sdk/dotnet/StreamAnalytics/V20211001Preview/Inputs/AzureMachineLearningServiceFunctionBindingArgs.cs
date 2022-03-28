@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// Label for the input request object.
+        /// </summary>
+        [Input("inputRequestName")]
+        public Input<string>? InputRequestName { get; set; }
+
         [Input("inputs")]
         private InputList<Inputs.AzureMachineLearningServiceInputColumnArgs>? _inputs;
 
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         /// </summary>
         [Input("numberOfParallelRequests")]
         public Input<int>? NumberOfParallelRequests { get; set; }
+
+        /// <summary>
+        /// Label for the output request object.
+        /// </summary>
+        [Input("outputResponseName")]
+        public Input<string>? OutputResponseName { get; set; }
 
         [Input("outputs")]
         private InputList<Inputs.AzureMachineLearningServiceOutputColumnArgs>? _outputs;

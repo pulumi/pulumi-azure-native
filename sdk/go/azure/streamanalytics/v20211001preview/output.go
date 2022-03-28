@@ -21,6 +21,8 @@ type Output struct {
 	Diagnostics DiagnosticsResponseOutput `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+	LastOutputEventTimestamps LastOutputEventTimestampResponseArrayOutput `pulumi:"lastOutputEventTimestamps"`
 	// Resource name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
@@ -31,6 +33,8 @@ type Output struct {
 	TimeWindow pulumi.StringPtrOutput `pulumi:"timeWindow"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings OutputWatermarkPropertiesResponsePtrOutput `pulumi:"watermarkSettings"`
 }
 
 // NewOutput registers a new resource with the given unique name, arguments, and options.
@@ -109,6 +113,8 @@ type outputArgs struct {
 	SizeWindow *float64 `pulumi:"sizeWindow"`
 	// The time frame for filtering Stream Analytics job outputs.
 	TimeWindow *string `pulumi:"timeWindow"`
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings *OutputWatermarkProperties `pulumi:"watermarkSettings"`
 }
 
 // The set of arguments for constructing a Output resource.
@@ -129,6 +135,8 @@ type OutputArgs struct {
 	SizeWindow pulumi.Float64PtrInput
 	// The time frame for filtering Stream Analytics job outputs.
 	TimeWindow pulumi.StringPtrInput
+	// Settings which determine whether to send watermarks to downstream.
+	WatermarkSettings OutputWatermarkPropertiesPtrInput
 }
 
 func (OutputArgs) ElementType() reflect.Type {

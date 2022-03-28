@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobContainerImmutabilityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210801:BlobContainerImmutabilityPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

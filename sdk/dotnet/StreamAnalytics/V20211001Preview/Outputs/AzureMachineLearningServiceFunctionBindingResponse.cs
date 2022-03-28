@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
+        /// Label for the input request object.
+        /// </summary>
+        public readonly string? InputRequestName;
+        /// <summary>
         /// The inputs for the Azure Machine Learning web service endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureMachineLearningServiceInputColumnResponse> Inputs;
@@ -36,6 +40,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.
         /// </summary>
         public readonly int? NumberOfParallelRequests;
+        /// <summary>
+        /// Label for the output request object.
+        /// </summary>
+        public readonly string? OutputResponseName;
         /// <summary>
         /// A list of outputs from the Azure Machine Learning web service endpoint execution.
         /// </summary>
@@ -54,9 +62,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? endpoint,
 
+            string? inputRequestName,
+
             ImmutableArray<Outputs.AzureMachineLearningServiceInputColumnResponse> inputs,
 
             int? numberOfParallelRequests,
+
+            string? outputResponseName,
 
             ImmutableArray<Outputs.AzureMachineLearningServiceOutputColumnResponse> outputs,
 
@@ -65,8 +77,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
             ApiKey = apiKey;
             BatchSize = batchSize;
             Endpoint = endpoint;
+            InputRequestName = inputRequestName;
             Inputs = inputs;
             NumberOfParallelRequests = numberOfParallelRequests;
+            OutputResponseName = outputResponseName;
             Outputs = outputs;
             Type = type;
         }

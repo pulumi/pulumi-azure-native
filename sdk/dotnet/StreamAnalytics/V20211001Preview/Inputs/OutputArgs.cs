@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         [Input("timeWindow")]
         public Input<string>? TimeWindow { get; set; }
 
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        [Input("watermarkSettings")]
+        public Input<Inputs.OutputWatermarkPropertiesArgs>? WatermarkSettings { get; set; }
+
         public OutputArgs()
         {
         }

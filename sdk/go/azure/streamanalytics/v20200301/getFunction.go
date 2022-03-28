@@ -36,7 +36,7 @@ type LookupFunctionResult struct {
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.
-	Properties ScalarFunctionPropertiesResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -89,8 +89,8 @@ func (o LookupFunctionResultOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The properties that are associated with a function.
-func (o LookupFunctionResultOutput) Properties() ScalarFunctionPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupFunctionResult) ScalarFunctionPropertiesResponse { return v.Properties }).(ScalarFunctionPropertiesResponseOutput)
+func (o LookupFunctionResultOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupFunctionResult) interface{} { return v.Properties }).(pulumi.AnyOutput)
 }
 
 // Resource type

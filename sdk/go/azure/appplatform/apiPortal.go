@@ -41,6 +41,9 @@ func NewApiPortal(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToApiPortalPropertiesPtrOutput().ApplyT(func(v *ApiPortalProperties) *ApiPortalProperties { return v.Defaults() }).(ApiPortalPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220101preview:ApiPortal"),

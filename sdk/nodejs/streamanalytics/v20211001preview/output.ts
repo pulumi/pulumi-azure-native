@@ -38,7 +38,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly datasource!: pulumi.Output<outputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.BlobOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.RawOutputDatasourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceResponse | undefined>;
+    public readonly datasource!: pulumi.Output<outputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.BlobOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.v20211001preview.GatewayMessageBusOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PostgreSQLOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.RawOutputDatasourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceResponse | undefined>;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
@@ -47,6 +47,10 @@ export class Output extends pulumi.CustomResource {
      * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+     */
+    public /*out*/ readonly lastOutputEventTimestamps!: pulumi.Output<outputs.streamanalytics.v20211001preview.LastOutputEventTimestampResponse[]>;
     /**
      * Resource name
      */
@@ -67,6 +71,10 @@ export class Output extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Settings which determine whether to send watermarks to downstream.
+     */
+    public readonly watermarkSettings!: pulumi.Output<outputs.streamanalytics.v20211001preview.OutputWatermarkPropertiesResponse | undefined>;
 
     /**
      * Create a Output resource with the given unique name, arguments, and options.
@@ -93,18 +101,22 @@ export class Output extends pulumi.CustomResource {
             resourceInputs["serialization"] = args ? args.serialization : undefined;
             resourceInputs["sizeWindow"] = args ? args.sizeWindow : undefined;
             resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
+            resourceInputs["watermarkSettings"] = args ? args.watermarkSettings : undefined;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastOutputEventTimestamps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["datasource"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastOutputEventTimestamps"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serialization"] = undefined /*out*/;
             resourceInputs["sizeWindow"] = undefined /*out*/;
             resourceInputs["timeWindow"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["watermarkSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-native:streamanalytics/v20200301:Output" }] };
@@ -120,7 +132,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    datasource?: pulumi.Input<inputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.BlobOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.EventHubOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceArgs | inputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.RawOutputDatasourceArgs | inputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceArgs>;
+    datasource?: pulumi.Input<inputs.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.AzureTableOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.BlobOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.EventHubOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.EventHubV2OutputDataSourceArgs | inputs.streamanalytics.v20211001preview.GatewayMessageBusOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.PostgreSQLOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.PowerBIOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.RawOutputDatasourceArgs | inputs.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceArgs>;
     /**
      * The name of the streaming job.
      */
@@ -149,4 +161,8 @@ export interface OutputArgs {
      * The time frame for filtering Stream Analytics job outputs.
      */
     timeWindow?: pulumi.Input<string>;
+    /**
+     * Settings which determine whether to send watermarks to downstream.
+     */
+    watermarkSettings?: pulumi.Input<inputs.streamanalytics.v20211001preview.OutputWatermarkPropertiesArgs>;
 }

@@ -15,11 +15,23 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     /// </summary>
     public sealed class ExternalArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The UserCustomCode container.
+        /// </summary>
         [Input("container")]
         public Input<string>? Container { get; set; }
 
+        /// <summary>
+        /// The UserCustomCode path.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// The refresh parameters for any/all updatable user defined functions present in the job config.
+        /// </summary>
+        [Input("refreshConfiguration")]
+        public Input<Inputs.RefreshConfigurationArgs>? RefreshConfiguration { get; set; }
 
         /// <summary>
         /// The properties that are associated with an Azure Storage account

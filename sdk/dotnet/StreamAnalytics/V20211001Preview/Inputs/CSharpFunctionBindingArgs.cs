@@ -34,17 +34,17 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// The Csharp code containing a single function definition.
-        /// </summary>
-        [Input("script")]
-        public Input<string>? Script { get; set; }
-
-        /// <summary>
         /// Indicates the function binding type.
         /// Expected value is 'Microsoft.StreamAnalytics/CLRUdf'.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Refresh modes for Stream Analytics functions.
+        /// </summary>
+        [Input("updateMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.UpdateMode>? UpdateMode { get; set; }
 
         public CSharpFunctionBindingArgs()
         {

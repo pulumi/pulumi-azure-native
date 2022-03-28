@@ -152,7 +152,7 @@ class TableServiceProperties(pulumi.CustomResource):
             __props__.__dict__["table_service_name"] = table_service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:TableServiceProperties")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20200801preview:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210101:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210201:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210401:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210601:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210801:TableServiceProperties"), pulumi.Alias(type_="azure-native:storage/v20210901:TableServiceProperties")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TableServiceProperties, __self__).__init__(
             'azure-native:storage/v20190601:TableServiceProperties',

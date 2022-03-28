@@ -40,6 +40,9 @@ func NewApiPortal(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToApiPortalPropertiesPtrOutput().ApplyT(func(v *ApiPortalProperties) *ApiPortalProperties { return v.Defaults() }).(ApiPortalPropertiesPtrOutput)
+	}
 	if args.Sku != nil {
 		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
 	}

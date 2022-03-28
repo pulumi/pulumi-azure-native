@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string? AccountKey;
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
         /// The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? CollectionNamePattern;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? accountKey,
 
+            string? authenticationMode,
+
             string? collectionNamePattern,
 
             string? database,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         {
             AccountId = accountId;
             AccountKey = accountKey;
+            AuthenticationMode = authenticationMode;
             CollectionNamePattern = collectionNamePattern;
             Database = database;
             DocumentId = documentId;

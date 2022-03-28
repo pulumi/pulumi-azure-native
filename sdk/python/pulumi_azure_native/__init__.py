@@ -17470,6 +17470,29 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storage/v20210901",
+  "fqn": "pulumi_azure_native.storage.v20210901",
+  "classes": {
+   "azure-native:storage/v20210901:BlobContainer": "BlobContainer",
+   "azure-native:storage/v20210901:BlobContainerImmutabilityPolicy": "BlobContainerImmutabilityPolicy",
+   "azure-native:storage/v20210901:BlobInventoryPolicy": "BlobInventoryPolicy",
+   "azure-native:storage/v20210901:BlobServiceProperties": "BlobServiceProperties",
+   "azure-native:storage/v20210901:EncryptionScope": "EncryptionScope",
+   "azure-native:storage/v20210901:FileServiceProperties": "FileServiceProperties",
+   "azure-native:storage/v20210901:FileShare": "FileShare",
+   "azure-native:storage/v20210901:LocalUser": "LocalUser",
+   "azure-native:storage/v20210901:ManagementPolicy": "ManagementPolicy",
+   "azure-native:storage/v20210901:ObjectReplicationPolicy": "ObjectReplicationPolicy",
+   "azure-native:storage/v20210901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:storage/v20210901:Queue": "Queue",
+   "azure-native:storage/v20210901:QueueServiceProperties": "QueueServiceProperties",
+   "azure-native:storage/v20210901:StorageAccount": "StorageAccount",
+   "azure-native:storage/v20210901:Table": "Table",
+   "azure-native:storage/v20210901:TableServiceProperties": "TableServiceProperties"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storagecache",
   "fqn": "pulumi_azure_native.storagecache",
   "classes": {

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview.Outputs
         /// <summary>
         /// A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
         /// </summary>
-        public readonly string? RequestMessage;
+        public readonly string RequestMessage;
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview.Outputs
 
             string? privateLinkServiceId,
 
-            string? requestMessage)
+            string requestMessage)
         {
             GroupIds = groupIds;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

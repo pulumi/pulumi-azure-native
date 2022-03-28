@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// The properties that are associated with a function.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ScalarFunctionPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// The properties that are associated with a function.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
+        public InputUnion<Inputs.AggregateFunctionPropertiesArgs, Inputs.ScalarFunctionPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

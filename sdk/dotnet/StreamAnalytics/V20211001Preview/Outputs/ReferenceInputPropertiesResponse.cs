@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// Expected value is 'Reference'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Settings which determine whether to read watermark events.
+        /// </summary>
+        public readonly Outputs.InputWatermarkPropertiesResponse? WatermarkSettings;
 
         [OutputConstructor]
         private ReferenceInputPropertiesResponse(
@@ -60,7 +64,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             object? serialization,
 
-            string type)
+            string type,
+
+            Outputs.InputWatermarkPropertiesResponse? watermarkSettings)
         {
             Compression = compression;
             Datasource = datasource;
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
             PartitionKey = partitionKey;
             Serialization = serialization;
             Type = type;
+            WatermarkSettings = watermarkSettings;
         }
     }
 }

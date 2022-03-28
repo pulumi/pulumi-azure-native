@@ -10,6 +10,7 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AggregateFunctionPropertiesArgs',
     'AvroSerializationArgs',
     'AzureDataLakeStoreOutputDataSourceArgs',
     'AzureFunctionOutputDataSourceArgs',
@@ -55,6 +56,75 @@ __all__ = [
     'StreamInputPropertiesArgs',
     'TransformationArgs',
 ]
+
+@pulumi.input_type
+class AggregateFunctionPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 binding: Optional[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]] = None,
+                 output: Optional[pulumi.Input['FunctionOutputArgs']] = None):
+        """
+        The properties that are associated with an aggregate function.
+        :param pulumi.Input[str] type: Indicates the type of function.
+               Expected value is 'Aggregate'.
+        :param pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        :param pulumi.Input['FunctionOutputArgs'] output: Describes the output of a function.
+        """
+        pulumi.set(__self__, "type", 'Aggregate')
+        if binding is not None:
+            pulumi.set(__self__, "binding", binding)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if output is not None:
+            pulumi.set(__self__, "output", output)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of function.
+        Expected value is 'Aggregate'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def binding(self) -> Optional[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']]]:
+        """
+        The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
+        """
+        return pulumi.get(self, "binding")
+
+    @binding.setter
+    def binding(self, value: Optional[pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']]]):
+        pulumi.set(self, "binding", value)
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]]:
+        return pulumi.get(self, "inputs")
+
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def output(self) -> Optional[pulumi.Input['FunctionOutputArgs']]:
+        """
+        Describes the output of a function.
+        """
+        return pulumi.get(self, "output")
+
+    @output.setter
+    def output(self, value: Optional[pulumi.Input['FunctionOutputArgs']]):
+        pulumi.set(self, "output", value)
+
 
 @pulumi.input_type
 class AvroSerializationArgs:
@@ -2388,11 +2458,11 @@ class FunctionOutputArgs:
 class FunctionArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]] = None):
         """
         A function object, containing all information associated with the named function. All functions are contained under a streaming job.
         :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input['ScalarFunctionPropertiesArgs'] properties: The properties that are associated with a function.
+        :param pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']] properties: The properties that are associated with a function.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2413,14 +2483,14 @@ class FunctionArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]:
         """
         The properties that are associated with a function.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input[Union['AggregateFunctionPropertiesArgs', 'ScalarFunctionPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -3186,8 +3256,7 @@ class ScalarFunctionPropertiesArgs:
         :param pulumi.Input[str] type: Indicates the type of function.
                Expected value is 'Scalar'.
         :param pulumi.Input[Union['AzureMachineLearningWebServiceFunctionBindingArgs', 'JavaScriptFunctionBindingArgs']] binding: The physical binding of the function. For example, in the Azure Machine Learning web service’s case, this describes the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]] inputs: A list of inputs describing the parameters of the function.
-        :param pulumi.Input['FunctionOutputArgs'] output: The output of the function.
+        :param pulumi.Input['FunctionOutputArgs'] output: Describes the output of a function.
         """
         pulumi.set(__self__, "type", 'Scalar')
         if binding is not None:
@@ -3225,9 +3294,6 @@ class ScalarFunctionPropertiesArgs:
     @property
     @pulumi.getter
     def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionInputArgs']]]]:
-        """
-        A list of inputs describing the parameters of the function.
-        """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
@@ -3238,7 +3304,7 @@ class ScalarFunctionPropertiesArgs:
     @pulumi.getter
     def output(self) -> Optional[pulumi.Input['FunctionOutputArgs']]:
         """
-        The output of the function.
+        Describes the output of a function.
         """
         return pulumi.get(self, "output")
 

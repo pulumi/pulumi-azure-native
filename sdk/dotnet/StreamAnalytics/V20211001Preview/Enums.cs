@@ -40,6 +40,37 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     }
 
     /// <summary>
+    /// Blob write mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct BlobWriteMode : IEquatable<BlobWriteMode>
+    {
+        private readonly string _value;
+
+        private BlobWriteMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BlobWriteMode Append { get; } = new BlobWriteMode("Append");
+        public static BlobWriteMode Once { get; } = new BlobWriteMode("Once");
+
+        public static bool operator ==(BlobWriteMode left, BlobWriteMode right) => left.Equals(right);
+        public static bool operator !=(BlobWriteMode left, BlobWriteMode right) => !left.Equals(right);
+
+        public static explicit operator string(BlobWriteMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BlobWriteMode other && Equals(other);
+        public bool Equals(BlobWriteMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Controls certain runtime behaviors of the streaming job.
     /// </summary>
     [EnumType]
@@ -164,6 +195,37 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     }
 
     /// <summary>
+    /// Indicates the Event Grid schema type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventGridEventSchemaType : IEquatable<EventGridEventSchemaType>
+    {
+        private readonly string _value;
+
+        private EventGridEventSchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventGridEventSchemaType EventGridEventSchema { get; } = new EventGridEventSchemaType("EventGridEventSchema");
+        public static EventGridEventSchemaType CloudEventSchema { get; } = new EventGridEventSchemaType("CloudEventSchema");
+
+        public static bool operator ==(EventGridEventSchemaType left, EventGridEventSchemaType right) => left.Equals(right);
+        public static bool operator !=(EventGridEventSchemaType left, EventGridEventSchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(EventGridEventSchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventGridEventSchemaType other && Equals(other);
+        public bool Equals(EventGridEventSchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
     /// </summary>
     [EnumType]
@@ -221,6 +283,37 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EventsOutOfOrderPolicy other && Equals(other);
         public bool Equals(EventsOutOfOrderPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The input watermark mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct InputWatermarkMode : IEquatable<InputWatermarkMode>
+    {
+        private readonly string _value;
+
+        private InputWatermarkMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InputWatermarkMode None { get; } = new InputWatermarkMode("None");
+        public static InputWatermarkMode ReadWatermark { get; } = new InputWatermarkMode("ReadWatermark");
+
+        public static bool operator ==(InputWatermarkMode left, InputWatermarkMode right) => left.Equals(right);
+        public static bool operator !=(InputWatermarkMode left, InputWatermarkMode right) => !left.Equals(right);
+
+        public static explicit operator string(InputWatermarkMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InputWatermarkMode other && Equals(other);
+        public bool Equals(InputWatermarkMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -354,6 +447,38 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     }
 
     /// <summary>
+    /// The output watermark mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct OutputWatermarkMode : IEquatable<OutputWatermarkMode>
+    {
+        private readonly string _value;
+
+        private OutputWatermarkMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutputWatermarkMode None { get; } = new OutputWatermarkMode("None");
+        public static OutputWatermarkMode SendCurrentPartitionWatermark { get; } = new OutputWatermarkMode("SendCurrentPartitionWatermark");
+        public static OutputWatermarkMode SendLowestWatermarkAcrossPartitions { get; } = new OutputWatermarkMode("SendLowestWatermarkAcrossPartitions");
+
+        public static bool operator ==(OutputWatermarkMode left, OutputWatermarkMode right) => left.Equals(right);
+        public static bool operator !=(OutputWatermarkMode left, OutputWatermarkMode right) => !left.Equals(right);
+
+        public static explicit operator string(OutputWatermarkMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutputWatermarkMode other && Equals(other);
+        public bool Equals(OutputWatermarkMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of data refresh option.
     /// </summary>
     [EnumType]
@@ -408,6 +533,37 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Refresh modes for Stream Analytics functions.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpdateMode : IEquatable<UpdateMode>
+    {
+        private readonly string _value;
+
+        private UpdateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpdateMode Static { get; } = new UpdateMode("Static");
+        public static UpdateMode Refreshable { get; } = new UpdateMode("Refreshable");
+
+        public static bool operator ==(UpdateMode left, UpdateMode right) => left.Equals(right);
+        public static bool operator !=(UpdateMode left, UpdateMode right) => !left.Equals(right);
+
+        public static explicit operator string(UpdateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpdateMode other && Equals(other);
+        public bool Equals(UpdateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

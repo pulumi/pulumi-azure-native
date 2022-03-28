@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.AuthenticationMode>? AuthenticationMode { get; set; }
 
         /// <summary>
+        /// Blob path prefix.
+        /// </summary>
+        [Input("blobPathPrefix")]
+        public Input<string>? BlobPathPrefix { get; set; }
+
+        /// <summary>
+        /// Blob write mode.
+        /// </summary>
+        [Input("blobWriteMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.BlobWriteMode>? BlobWriteMode { get; set; }
+
+        /// <summary>
         /// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("container")]

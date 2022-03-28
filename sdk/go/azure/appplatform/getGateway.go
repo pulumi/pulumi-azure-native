@@ -18,7 +18,7 @@ func LookupGateway(ctx *pulumi.Context, args *LookupGatewayArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupGatewayArgs struct {
@@ -44,6 +44,17 @@ type LookupGatewayResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupGatewayResult
+func (val *LookupGatewayResult) Defaults() *LookupGatewayResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {

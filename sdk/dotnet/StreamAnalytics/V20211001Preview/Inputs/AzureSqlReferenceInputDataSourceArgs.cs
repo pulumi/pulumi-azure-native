@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
     public sealed class AzureSqlReferenceInputDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// This element is associated with the datasource element. This is the name of the database that output will be written to.
         /// </summary>
         [Input("database")]
@@ -56,12 +62,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         /// </summary>
         [Input("server")]
         public Input<string>? Server { get; set; }
-
-        /// <summary>
-        /// This element is associated with the datasource element. The name of the table in the Azure SQL database..
-        /// </summary>
-        [Input("table")]
-        public Input<string>? Table { get; set; }
 
         /// <summary>
         /// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.

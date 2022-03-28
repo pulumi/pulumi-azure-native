@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A list of the last output event times for each output partition. The index of the array corresponds to the partition number.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LastOutputEventTimestampResponse> LastOutputEventTimestamps;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string? Name;
@@ -52,6 +56,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Settings which determine whether to send watermarks to downstream.
+        /// </summary>
+        public readonly Outputs.OutputWatermarkPropertiesResponse? WatermarkSettings;
 
         [OutputConstructor]
         private OutputResponse(
@@ -63,6 +71,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string id,
 
+            ImmutableArray<Outputs.LastOutputEventTimestampResponse> lastOutputEventTimestamps,
+
             string? name,
 
             object? serialization,
@@ -71,17 +81,21 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
             string? timeWindow,
 
-            string type)
+            string type,
+
+            Outputs.OutputWatermarkPropertiesResponse? watermarkSettings)
         {
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;
             Id = id;
+            LastOutputEventTimestamps = lastOutputEventTimestamps;
             Name = name;
             Serialization = serialization;
             SizeWindow = sizeWindow;
             TimeWindow = timeWindow;
             Type = type;
+            WatermarkSettings = watermarkSettings;
         }
     }
 }

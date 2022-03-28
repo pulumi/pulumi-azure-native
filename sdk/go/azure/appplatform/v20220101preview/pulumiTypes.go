@@ -243,6 +243,23 @@ type ApiPortalProperties struct {
 	SsoProperties *SsoProperties `pulumi:"ssoProperties"`
 }
 
+// Defaults sets the appropriate defaults for ApiPortalProperties
+func (val *ApiPortalProperties) Defaults() *ApiPortalProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	if isZero(tmp.Public) {
+		public_ := false
+		tmp.Public = &public_
+	}
+	return &tmp
+}
+
 // ApiPortalPropertiesInput is an input type that accepts ApiPortalPropertiesArgs and ApiPortalPropertiesOutput values.
 // You can construct a concrete instance of `ApiPortalPropertiesInput` via:
 //
@@ -465,6 +482,23 @@ type ApiPortalPropertiesResponse struct {
 	SsoProperties *SsoPropertiesResponse `pulumi:"ssoProperties"`
 	// URL of the API portal, exposed when 'public' is true.
 	Url string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for ApiPortalPropertiesResponse
+func (val *ApiPortalPropertiesResponse) Defaults() *ApiPortalPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	if isZero(tmp.Public) {
+		public_ := false
+		tmp.Public = &public_
+	}
+	return &tmp
 }
 
 // API portal properties payload
@@ -6380,6 +6414,23 @@ type GatewayProperties struct {
 	SsoProperties *SsoProperties `pulumi:"ssoProperties"`
 }
 
+// Defaults sets the appropriate defaults for GatewayProperties
+func (val *GatewayProperties) Defaults() *GatewayProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	if isZero(tmp.Public) {
+		public_ := false
+		tmp.Public = &public_
+	}
+	return &tmp
+}
+
 // GatewayPropertiesInput is an input type that accepts GatewayPropertiesArgs and GatewayPropertiesOutput values.
 // You can construct a concrete instance of `GatewayPropertiesInput` via:
 //
@@ -6621,6 +6672,23 @@ type GatewayPropertiesResponse struct {
 	SsoProperties *SsoPropertiesResponse `pulumi:"ssoProperties"`
 	// URL of the Spring Cloud Gateway, exposed when 'public' is true.
 	Url string `pulumi:"url"`
+}
+
+// Defaults sets the appropriate defaults for GatewayPropertiesResponse
+func (val *GatewayPropertiesResponse) Defaults() *GatewayPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	if isZero(tmp.Public) {
+		public_ := false
+		tmp.Public = &public_
+	}
+	return &tmp
 }
 
 // Spring Cloud Gateway properties payload

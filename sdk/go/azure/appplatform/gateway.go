@@ -41,6 +41,9 @@ func NewGateway(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToGatewayPropertiesPtrOutput().ApplyT(func(v *GatewayProperties) *GatewayProperties { return v.Defaults() }).(GatewayPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220101preview:Gateway"),

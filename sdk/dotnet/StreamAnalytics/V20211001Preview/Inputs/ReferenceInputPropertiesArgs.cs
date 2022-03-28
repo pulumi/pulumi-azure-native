@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Settings which determine whether to read watermark events.
+        /// </summary>
+        [Input("watermarkSettings")]
+        public Input<Inputs.InputWatermarkPropertiesArgs>? WatermarkSettings { get; set; }
+
         public ReferenceInputPropertiesArgs()
         {
         }
