@@ -3,6 +3,14 @@
 
 package v20210201preview
 
+// Direction that specifies whether the access rules is inbound/outbound.
+type AccessRuleDirection string
+
+const (
+	AccessRuleDirectionInbound  = AccessRuleDirection("Inbound")
+	AccessRuleDirectionOutbound = AccessRuleDirection("Outbound")
+)
+
 // Address prefix type.
 type AddressPrefixType string
 
@@ -17,6 +25,16 @@ type AdminRuleKind string
 const (
 	AdminRuleKindCustom  = AdminRuleKind("Custom")
 	AdminRuleKindDefault = AdminRuleKind("Default")
+)
+
+// Access mode on the association.
+type AssociationAccessMode string
+
+const (
+	AssociationAccessModeUnspecified  = AssociationAccessMode("Unspecified")
+	AssociationAccessModeEnforceMode  = AssociationAccessMode("EnforceMode")
+	AssociationAccessModeLearningMode = AssociationAccessMode("LearningMode")
+	AssociationAccessModeDryRunMode   = AssociationAccessMode("DryRunMode")
 )
 
 // Configuration Deployment Type.

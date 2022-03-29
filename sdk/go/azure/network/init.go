@@ -131,6 +131,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkVirtualAppliance{}
 	case "azure-native:network:NetworkWatcher":
 		r = &NetworkWatcher{}
+	case "azure-native:network:NspAccessRule":
+		r = &NspAccessRule{}
+	case "azure-native:network:NspAssociation":
+		r = &NspAssociation{}
+	case "azure-native:network:NspProfile":
+		r = &NspProfile{}
 	case "azure-native:network:OutboundEndpoint":
 		r = &OutboundEndpoint{}
 	case "azure-native:network:P2sVpnGateway":

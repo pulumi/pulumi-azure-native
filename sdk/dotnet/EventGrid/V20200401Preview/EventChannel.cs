@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200401Preview
                     new Pulumi.Alias { Type = "azure-native:eventgrid:EventChannel"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventChannel"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventChannel"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

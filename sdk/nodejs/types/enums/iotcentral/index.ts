@@ -2,14 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170701privatepreview from "./v20170701privatepreview";
 import * as v20180901 from "./v20180901";
 import * as v20210601 from "./v20210601";
+import * as v20211101preview from "./v20211101preview";
 
 export {
-    v20170701privatepreview,
     v20180901,
     v20210601,
+    v20211101preview,
 };
 
 export const AppSku = {
@@ -24,3 +24,14 @@ export const AppSku = {
  * The name of the SKU.
  */
 export type AppSku = (typeof AppSku)[keyof typeof AppSku];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];

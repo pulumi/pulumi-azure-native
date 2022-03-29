@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedInstancePrivateEndpointConnection{}
 	case "azure-native:sql:ManagedInstanceVulnerabilityAssessment":
 		r = &ManagedInstanceVulnerabilityAssessment{}
+	case "azure-native:sql:ManagedServerDnsAlias":
+		r = &ManagedServerDnsAlias{}
 	case "azure-native:sql:OutboundFirewallRule":
 		r = &OutboundFirewallRule{}
 	case "azure-native:sql:PrivateEndpointConnection":

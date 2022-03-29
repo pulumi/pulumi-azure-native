@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironment"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

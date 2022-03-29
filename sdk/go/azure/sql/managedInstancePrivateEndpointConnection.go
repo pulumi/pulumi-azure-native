@@ -60,6 +60,9 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstancePrivateEndpointConnection

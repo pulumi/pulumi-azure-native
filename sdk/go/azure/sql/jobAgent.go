@@ -70,6 +70,9 @@ func NewJobAgent(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20210801preview:JobAgent"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101preview:JobAgent"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JobAgent

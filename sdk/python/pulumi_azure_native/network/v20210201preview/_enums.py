@@ -5,8 +5,10 @@
 from enum import Enum
 
 __all__ = [
+    'AccessRuleDirection',
     'AddressPrefixType',
     'AdminRuleKind',
+    'AssociationAccessMode',
     'ConfigurationType',
     'ConnectivityTopology',
     'DeleteExistingNSGs',
@@ -20,6 +22,14 @@ __all__ = [
     'UseHubGateway',
     'UserRuleKind',
 ]
+
+
+class AccessRuleDirection(str, Enum):
+    """
+    Direction that specifies whether the access rules is inbound/outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
 
 
 class AddressPrefixType(str, Enum):
@@ -36,6 +46,16 @@ class AdminRuleKind(str, Enum):
     """
     CUSTOM = "Custom"
     DEFAULT = "Default"
+
+
+class AssociationAccessMode(str, Enum):
+    """
+    Access mode on the association.
+    """
+    UNSPECIFIED = "Unspecified"
+    ENFORCE_MODE = "EnforceMode"
+    LEARNING_MODE = "LearningMode"
+    DRY_RUN_MODE = "DryRunMode"
 
 
 class ConfigurationType(str, Enum):

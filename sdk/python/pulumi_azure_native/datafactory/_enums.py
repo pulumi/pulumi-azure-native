@@ -11,7 +11,9 @@ __all__ = [
     'CassandraSourceReadConsistencyLevels',
     'CosmosDbConnectionMode',
     'CosmosDbServicePrincipalCredentialType',
+    'CredentialReferenceType',
     'DataFlowComputeType',
+    'DataFlowReferenceType',
     'DayOfWeek',
     'DaysOfWeek',
     'Db2AuthenticationType',
@@ -34,6 +36,7 @@ __all__ = [
     'IntegrationRuntimeLicenseType',
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
+    'ManagedVirtualNetworkReferenceType',
     'MongoDbAuthenticationType',
     'ODataAadServicePrincipalCredentialType',
     'ODataAuthenticationType',
@@ -64,6 +67,7 @@ __all__ = [
     'SybaseAuthenticationType',
     'TeamDeskAuthenticationType',
     'TeradataAuthenticationType',
+    'TriggerReferenceType',
     'TumblingWindowFrequency',
     'VariableType',
     'WebActivityMethod',
@@ -131,6 +135,13 @@ class CosmosDbServicePrincipalCredentialType(str, Enum):
     SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
 
 
+class CredentialReferenceType(str, Enum):
+    """
+    Credential reference type.
+    """
+    CREDENTIAL_REFERENCE = "CredentialReference"
+
+
 class DataFlowComputeType(str, Enum):
     """
     Compute type of the cluster which will execute data flow job.
@@ -138,6 +149,13 @@ class DataFlowComputeType(str, Enum):
     GENERAL = "General"
     MEMORY_OPTIMIZED = "MemoryOptimized"
     COMPUTE_OPTIMIZED = "ComputeOptimized"
+
+
+class DataFlowReferenceType(str, Enum):
+    """
+    Data flow reference type.
+    """
+    DATA_FLOW_REFERENCE = "DataFlowReference"
 
 
 class DayOfWeek(str, Enum):
@@ -334,6 +352,13 @@ class IntegrationRuntimeType(str, Enum):
     """
     MANAGED = "Managed"
     SELF_HOSTED = "SelfHosted"
+
+
+class ManagedVirtualNetworkReferenceType(str, Enum):
+    """
+    Managed Virtual Network reference type.
+    """
+    MANAGED_VIRTUAL_NETWORK_REFERENCE = "ManagedVirtualNetworkReference"
 
 
 class MongoDbAuthenticationType(str, Enum):
@@ -613,6 +638,13 @@ class TeradataAuthenticationType(str, Enum):
     """
     BASIC = "Basic"
     WINDOWS = "Windows"
+
+
+class TriggerReferenceType(str, Enum):
+    """
+    Trigger reference type.
+    """
+    TRIGGER_REFERENCE = "TriggerReference"
 
 
 class TumblingWindowFrequency(str, Enum):

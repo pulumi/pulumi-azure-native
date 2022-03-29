@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.App.V20220101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:app:DaprComponent"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

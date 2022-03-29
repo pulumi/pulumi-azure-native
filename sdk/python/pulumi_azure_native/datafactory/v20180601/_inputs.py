@@ -22361,11 +22361,11 @@ class CouchbaseTableDatasetArgs:
 class CredentialReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'CredentialReferenceType']]):
         """
         Credential reference type.
         :param pulumi.Input[str] reference_name: Reference credential name.
-        :param pulumi.Input[str] type: Credential reference type.
+        :param pulumi.Input[Union[str, 'CredentialReferenceType']] type: Credential reference type.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -22384,14 +22384,14 @@ class CredentialReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'CredentialReferenceType']]:
         """
         Credential reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'CredentialReferenceType']]):
         pulumi.set(self, "type", value)
 
 
@@ -23134,13 +23134,13 @@ class DataFlowFolderArgs:
 class DataFlowReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'DataFlowReferenceType']],
                  dataset_parameters: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Data flow reference type.
         :param pulumi.Input[str] reference_name: Reference data flow name.
-        :param pulumi.Input[str] type: Data flow reference type.
+        :param pulumi.Input[Union[str, 'DataFlowReferenceType']] type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
         :param pulumi.Input[Mapping[str, Any]] parameters: Data flow parameters
         """
@@ -23165,14 +23165,14 @@ class DataFlowReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'DataFlowReferenceType']]:
         """
         Data flow reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'DataFlowReferenceType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -44984,11 +44984,11 @@ class ManagedPrivateEndpointArgs:
 class ManagedVirtualNetworkReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ManagedVirtualNetworkReferenceType']]):
         """
         Managed Virtual Network reference type.
         :param pulumi.Input[str] reference_name: Reference ManagedVirtualNetwork name.
-        :param pulumi.Input[str] type: Managed Virtual Network reference type.
+        :param pulumi.Input[Union[str, 'ManagedVirtualNetworkReferenceType']] type: Managed Virtual Network reference type.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -45007,14 +45007,14 @@ class ManagedVirtualNetworkReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedVirtualNetworkReferenceType']]:
         """
         Managed Virtual Network reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ManagedVirtualNetworkReferenceType']]):
         pulumi.set(self, "type", value)
 
 
@@ -74869,11 +74869,11 @@ class TriggerPipelineReferenceArgs:
 class TriggerReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'TriggerReferenceType']]):
         """
         Trigger reference type.
         :param pulumi.Input[str] reference_name: Reference trigger name.
-        :param pulumi.Input[str] type: Trigger reference type.
+        :param pulumi.Input[Union[str, 'TriggerReferenceType']] type: Trigger reference type.
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
@@ -74892,14 +74892,14 @@ class TriggerReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'TriggerReferenceType']]:
         """
         Trigger reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'TriggerReferenceType']]):
         pulumi.set(self, "type", value)
 
 

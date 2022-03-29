@@ -231,7 +231,7 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["yearly_retention"] = yearly_retention
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:LongTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:LongTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LongTermRetentionPolicy, __self__).__init__(
             'azure-native:sql/v20201101preview:LongTermRetentionPolicy',

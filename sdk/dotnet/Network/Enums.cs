@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.Network
     }
 
     /// <summary>
+    /// Direction that specifies whether the access rules is inbound/outbound.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessRuleDirection : IEquatable<AccessRuleDirection>
+    {
+        private readonly string _value;
+
+        private AccessRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessRuleDirection Inbound { get; } = new AccessRuleDirection("Inbound");
+        public static AccessRuleDirection Outbound { get; } = new AccessRuleDirection("Outbound");
+
+        public static bool operator ==(AccessRuleDirection left, AccessRuleDirection right) => left.Equals(right);
+        public static bool operator !=(AccessRuleDirection left, AccessRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(AccessRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessRuleDirection other && Equals(other);
+        public bool Equals(AccessRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes the override action to be applied when rule matches.
     /// </summary>
     [EnumType]
@@ -568,6 +599,39 @@ namespace Pulumi.AzureNative.Network
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ApplicationGatewayTier other && Equals(other);
         public bool Equals(ApplicationGatewayTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Access mode on the association.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssociationAccessMode : IEquatable<AssociationAccessMode>
+    {
+        private readonly string _value;
+
+        private AssociationAccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssociationAccessMode Unspecified { get; } = new AssociationAccessMode("Unspecified");
+        public static AssociationAccessMode EnforceMode { get; } = new AssociationAccessMode("EnforceMode");
+        public static AssociationAccessMode LearningMode { get; } = new AssociationAccessMode("LearningMode");
+        public static AssociationAccessMode DryRunMode { get; } = new AssociationAccessMode("DryRunMode");
+
+        public static bool operator ==(AssociationAccessMode left, AssociationAccessMode right) => left.Equals(right);
+        public static bool operator !=(AssociationAccessMode left, AssociationAccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(AssociationAccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssociationAccessMode other && Equals(other);
+        public bool Equals(AssociationAccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

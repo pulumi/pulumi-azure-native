@@ -1691,6 +1691,361 @@ func (o NetworkManagerSecurityGroupItemResponseArrayOutput) Index(i pulumi.IntIn
 	}).(NetworkManagerSecurityGroupItemResponseOutput)
 }
 
+type PerimeterBasedAccessRule struct {
+	// NSP id in the ARM id format.
+	Id *string `pulumi:"id"`
+}
+
+// PerimeterBasedAccessRuleInput is an input type that accepts PerimeterBasedAccessRuleArgs and PerimeterBasedAccessRuleOutput values.
+// You can construct a concrete instance of `PerimeterBasedAccessRuleInput` via:
+//
+//          PerimeterBasedAccessRuleArgs{...}
+type PerimeterBasedAccessRuleInput interface {
+	pulumi.Input
+
+	ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput
+	ToPerimeterBasedAccessRuleOutputWithContext(context.Context) PerimeterBasedAccessRuleOutput
+}
+
+type PerimeterBasedAccessRuleArgs struct {
+	// NSP id in the ARM id format.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PerimeterBasedAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (i PerimeterBasedAccessRuleArgs) ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput {
+	return i.ToPerimeterBasedAccessRuleOutputWithContext(context.Background())
+}
+
+func (i PerimeterBasedAccessRuleArgs) ToPerimeterBasedAccessRuleOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerimeterBasedAccessRuleOutput)
+}
+
+// PerimeterBasedAccessRuleArrayInput is an input type that accepts PerimeterBasedAccessRuleArray and PerimeterBasedAccessRuleArrayOutput values.
+// You can construct a concrete instance of `PerimeterBasedAccessRuleArrayInput` via:
+//
+//          PerimeterBasedAccessRuleArray{ PerimeterBasedAccessRuleArgs{...} }
+type PerimeterBasedAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput
+	ToPerimeterBasedAccessRuleArrayOutputWithContext(context.Context) PerimeterBasedAccessRuleArrayOutput
+}
+
+type PerimeterBasedAccessRuleArray []PerimeterBasedAccessRuleInput
+
+func (PerimeterBasedAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (i PerimeterBasedAccessRuleArray) ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput {
+	return i.ToPerimeterBasedAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PerimeterBasedAccessRuleArray) ToPerimeterBasedAccessRuleArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerimeterBasedAccessRuleArrayOutput)
+}
+
+type PerimeterBasedAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleOutput) ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleOutput) ToPerimeterBasedAccessRuleOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleOutput {
+	return o
+}
+
+// NSP id in the ARM id format.
+func (o PerimeterBasedAccessRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PerimeterBasedAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) ToPerimeterBasedAccessRuleArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) Index(i pulumi.IntInput) PerimeterBasedAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerimeterBasedAccessRule {
+		return vs[0].([]PerimeterBasedAccessRule)[vs[1].(int)]
+	}).(PerimeterBasedAccessRuleOutput)
+}
+
+type PerimeterBasedAccessRuleResponse struct {
+	// NSP id in the ARM id format.
+	Id *string `pulumi:"id"`
+	// Location of the NSP supplied.
+	Location string `pulumi:"location"`
+	// Resource guid of the NSP supplied.
+	PerimeterGuid string `pulumi:"perimeterGuid"`
+}
+
+type PerimeterBasedAccessRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRuleResponse)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleResponseOutput) ToPerimeterBasedAccessRuleResponseOutput() PerimeterBasedAccessRuleResponseOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseOutput) ToPerimeterBasedAccessRuleResponseOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleResponseOutput {
+	return o
+}
+
+// NSP id in the ARM id format.
+func (o PerimeterBasedAccessRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Location of the NSP supplied.
+func (o PerimeterBasedAccessRuleResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource guid of the NSP supplied.
+func (o PerimeterBasedAccessRuleResponseOutput) PerimeterGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) string { return v.PerimeterGuid }).(pulumi.StringOutput)
+}
+
+type PerimeterBasedAccessRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRuleResponse)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) ToPerimeterBasedAccessRuleResponseArrayOutput() PerimeterBasedAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) ToPerimeterBasedAccessRuleResponseArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) PerimeterBasedAccessRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerimeterBasedAccessRuleResponse {
+		return vs[0].([]PerimeterBasedAccessRuleResponse)[vs[1].(int)]
+	}).(PerimeterBasedAccessRuleResponseOutput)
+}
+
+// Reference to another subresource.
+type SubResource struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// SubResourceInput is an input type that accepts SubResourceArgs and SubResourceOutput values.
+// You can construct a concrete instance of `SubResourceInput` via:
+//
+//          SubResourceArgs{...}
+type SubResourceInput interface {
+	pulumi.Input
+
+	ToSubResourceOutput() SubResourceOutput
+	ToSubResourceOutputWithContext(context.Context) SubResourceOutput
+}
+
+// Reference to another subresource.
+type SubResourceArgs struct {
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (SubResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResource)(nil)).Elem()
+}
+
+func (i SubResourceArgs) ToSubResourceOutput() SubResourceOutput {
+	return i.ToSubResourceOutputWithContext(context.Background())
+}
+
+func (i SubResourceArgs) ToSubResourceOutputWithContext(ctx context.Context) SubResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceOutput)
+}
+
+func (i SubResourceArgs) ToSubResourcePtrOutput() SubResourcePtrOutput {
+	return i.ToSubResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SubResourceArgs) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourceOutput).ToSubResourcePtrOutputWithContext(ctx)
+}
+
+// SubResourcePtrInput is an input type that accepts SubResourceArgs, SubResourcePtr and SubResourcePtrOutput values.
+// You can construct a concrete instance of `SubResourcePtrInput` via:
+//
+//          SubResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SubResourcePtrInput interface {
+	pulumi.Input
+
+	ToSubResourcePtrOutput() SubResourcePtrOutput
+	ToSubResourcePtrOutputWithContext(context.Context) SubResourcePtrOutput
+}
+
+type subResourcePtrType SubResourceArgs
+
+func SubResourcePtr(v *SubResourceArgs) SubResourcePtrInput {
+	return (*subResourcePtrType)(v)
+}
+
+func (*subResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResource)(nil)).Elem()
+}
+
+func (i *subResourcePtrType) ToSubResourcePtrOutput() SubResourcePtrOutput {
+	return i.ToSubResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *subResourcePtrType) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubResourcePtrOutput)
+}
+
+// Reference to another subresource.
+type SubResourceOutput struct{ *pulumi.OutputState }
+
+func (SubResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResource)(nil)).Elem()
+}
+
+func (o SubResourceOutput) ToSubResourceOutput() SubResourceOutput {
+	return o
+}
+
+func (o SubResourceOutput) ToSubResourceOutputWithContext(ctx context.Context) SubResourceOutput {
+	return o
+}
+
+func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
+	return o.ToSubResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
+		return &v
+	}).(SubResourcePtrOutput)
+}
+
+// Resource ID.
+func (o SubResourceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SubResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SubResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResource)(nil)).Elem()
+}
+
+func (o SubResourcePtrOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
+	return o
+}
+
+func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
+	return o
+}
+
+func (o SubResourcePtrOutput) Elem() SubResourceOutput {
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
+}
+
+// Resource ID.
+func (o SubResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Reference to another subresource.
+type SubResourceResponse struct {
+	// Resource ID.
+	Id *string `pulumi:"id"`
+}
+
+// Reference to another subresource.
+type SubResourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SubResourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
+}
+
+func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResponseOutput {
+	return o
+}
+
+func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
+	return o
+}
+
+// Resource ID.
+func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type SubResourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SubResourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubResourceResponse)(nil)).Elem()
+}
+
+func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
+	return o
+}
+
+func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
+}
+
+// Resource ID.
+func (o SubResourceResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubResourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -1785,5 +2140,13 @@ func init() {
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemResponseOutput{})
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemResponseArrayOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleResponseOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(SubResourceOutput{})
+	pulumi.RegisterOutputType(SubResourcePtrOutput{})
+	pulumi.RegisterOutputType(SubResourceResponseOutput{})
+	pulumi.RegisterOutputType(SubResourceResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

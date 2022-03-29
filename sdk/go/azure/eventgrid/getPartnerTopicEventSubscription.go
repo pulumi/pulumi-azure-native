@@ -80,6 +80,8 @@ func (val *LookupPartnerTopicEventSubscriptionResult) Defaults() *LookupPartnerT
 	}
 	tmp.Filter = tmp.Filter.Defaults()
 
+	tmp.RetryPolicy = tmp.RetryPolicy.Defaults()
+
 	return &tmp
 }
 

@@ -120,6 +120,16 @@ export const Access = {
  */
 export type Access = (typeof Access)[keyof typeof Access];
 
+export const AccessRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * Direction that specifies whether the access rules is inbound/outbound.
+ */
+export type AccessRuleDirection = (typeof AccessRuleDirection)[keyof typeof AccessRuleDirection];
+
 export const ActionType = {
     Allow: "Allow",
     Block: "Block",
@@ -320,6 +330,18 @@ export const ApplicationGatewayTier = {
  * Tier of an application gateway.
  */
 export type ApplicationGatewayTier = (typeof ApplicationGatewayTier)[keyof typeof ApplicationGatewayTier];
+
+export const AssociationAccessMode = {
+    Unspecified: "Unspecified",
+    EnforceMode: "EnforceMode",
+    LearningMode: "LearningMode",
+    DryRunMode: "DryRunMode",
+} as const;
+
+/**
+ * Access mode on the association.
+ */
+export type AssociationAccessMode = (typeof AssociationAccessMode)[keyof typeof AssociationAccessMode];
 
 export const AuthorizationUseStatus = {
     Available: "Available",

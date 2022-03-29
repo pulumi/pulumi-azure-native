@@ -18,6 +18,9 @@ export * from "./getDefaultUserRule";
 export * from "./getNetworkGroup";
 export * from "./getNetworkManager";
 export * from "./getNetworkSecurityPerimeter";
+export * from "./getNspAccessRule";
+export * from "./getNspAssociation";
+export * from "./getNspProfile";
 export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityUserConfiguration";
 export * from "./getUserRule";
@@ -33,6 +36,9 @@ export * from "./listNetworkManagerEffectiveSecurityAdminRule";
 export * from "./networkGroup";
 export * from "./networkManager";
 export * from "./networkSecurityPerimeter";
+export * from "./nspAccessRule";
+export * from "./nspAssociation";
+export * from "./nspProfile";
 export * from "./securityAdminConfiguration";
 export * from "./securityUserConfiguration";
 export * from "./userRule";
@@ -50,6 +56,9 @@ import { DefaultUserRule } from "./defaultUserRule";
 import { NetworkGroup } from "./networkGroup";
 import { NetworkManager } from "./networkManager";
 import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
+import { NspAccessRule } from "./nspAccessRule";
+import { NspAssociation } from "./nspAssociation";
+import { NspProfile } from "./nspProfile";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { UserRule } from "./userRule";
@@ -75,6 +84,12 @@ const _module = {
                 return new NetworkManager(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkSecurityPerimeter":
                 return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:NspAccessRule":
+                return new NspAccessRule(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:NspAssociation":
+                return new NspAssociation(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:NspProfile":
+                return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityAdminConfiguration":
                 return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityUserConfiguration":

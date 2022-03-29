@@ -18,6 +18,14 @@ const (
 	AccessDeny  = Access("Deny")
 )
 
+// Direction that specifies whether the access rules is inbound/outbound.
+type AccessRuleDirection string
+
+const (
+	AccessRuleDirectionInbound  = AccessRuleDirection("Inbound")
+	AccessRuleDirectionOutbound = AccessRuleDirection("Outbound")
+)
+
 // Describes the override action to be applied when rule matches.
 type ActionType string
 
@@ -185,6 +193,16 @@ const (
 	ApplicationGatewayTierWAF          = ApplicationGatewayTier("WAF")
 	ApplicationGatewayTier_Standard_v2 = ApplicationGatewayTier("Standard_v2")
 	ApplicationGatewayTier_WAF_v2      = ApplicationGatewayTier("WAF_v2")
+)
+
+// Access mode on the association.
+type AssociationAccessMode string
+
+const (
+	AssociationAccessModeUnspecified  = AssociationAccessMode("Unspecified")
+	AssociationAccessModeEnforceMode  = AssociationAccessMode("EnforceMode")
+	AssociationAccessModeLearningMode = AssociationAccessMode("LearningMode")
+	AssociationAccessModeDryRunMode   = AssociationAccessMode("DryRunMode")
 )
 
 // The authorization use status.

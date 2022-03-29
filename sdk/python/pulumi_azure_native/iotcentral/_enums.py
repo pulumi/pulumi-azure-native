@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AppSku',
+    'PrivateEndpointServiceConnectionStatus',
 ]
 
 
@@ -18,3 +19,12 @@ class AppSku(str, Enum):
     ST0 = "ST0"
     ST1 = "ST1"
     ST2 = "ST2"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"

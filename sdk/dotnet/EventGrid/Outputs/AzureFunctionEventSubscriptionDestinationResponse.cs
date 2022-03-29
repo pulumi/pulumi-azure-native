@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class AzureFunctionEventSubscriptionDestinationResponse
     {
         /// <summary>
+        /// Delivery attribute details.
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> DeliveryAttributeMappings;
+        /// <summary>
         /// Type of the endpoint for the event subscription destination.
         /// Expected value is 'AzureFunction'.
         /// </summary>
@@ -36,6 +40,8 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
         [OutputConstructor]
         private AzureFunctionEventSubscriptionDestinationResponse(
+            ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> deliveryAttributeMappings,
+
             string endpointType,
 
             int? maxEventsPerBatch,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
             string? resourceId)
         {
+            DeliveryAttributeMappings = deliveryAttributeMappings;
             EndpointType = endpointType;
             MaxEventsPerBatch = maxEventsPerBatch;
             PreferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;

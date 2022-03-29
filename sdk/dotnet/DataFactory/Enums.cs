@@ -204,6 +204,36 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// Credential reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct CredentialReferenceType : IEquatable<CredentialReferenceType>
+    {
+        private readonly string _value;
+
+        private CredentialReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CredentialReferenceType CredentialReference { get; } = new CredentialReferenceType("CredentialReference");
+
+        public static bool operator ==(CredentialReferenceType left, CredentialReferenceType right) => left.Equals(right);
+        public static bool operator !=(CredentialReferenceType left, CredentialReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(CredentialReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CredentialReferenceType other && Equals(other);
+        public bool Equals(CredentialReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Compute type of the cluster which will execute data flow job.
     /// </summary>
     [EnumType]
@@ -228,6 +258,36 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataFlowComputeType other && Equals(other);
         public bool Equals(DataFlowComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Data flow reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataFlowReferenceType : IEquatable<DataFlowReferenceType>
+    {
+        private readonly string _value;
+
+        private DataFlowReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataFlowReferenceType DataFlowReference { get; } = new DataFlowReferenceType("DataFlowReference");
+
+        public static bool operator ==(DataFlowReferenceType left, DataFlowReferenceType right) => left.Equals(right);
+        public static bool operator !=(DataFlowReferenceType left, DataFlowReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(DataFlowReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataFlowReferenceType other && Equals(other);
+        public bool Equals(DataFlowReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -930,6 +990,36 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationRuntimeType other && Equals(other);
         public bool Equals(IntegrationRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Managed Virtual Network reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedVirtualNetworkReferenceType : IEquatable<ManagedVirtualNetworkReferenceType>
+    {
+        private readonly string _value;
+
+        private ManagedVirtualNetworkReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedVirtualNetworkReferenceType ManagedVirtualNetworkReference { get; } = new ManagedVirtualNetworkReferenceType("ManagedVirtualNetworkReference");
+
+        public static bool operator ==(ManagedVirtualNetworkReferenceType left, ManagedVirtualNetworkReferenceType right) => left.Equals(right);
+        public static bool operator !=(ManagedVirtualNetworkReferenceType left, ManagedVirtualNetworkReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedVirtualNetworkReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedVirtualNetworkReferenceType other && Equals(other);
+        public bool Equals(ManagedVirtualNetworkReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1899,6 +1989,36 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TeradataAuthenticationType other && Equals(other);
         public bool Equals(TeradataAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Trigger reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerReferenceType : IEquatable<TriggerReferenceType>
+    {
+        private readonly string _value;
+
+        private TriggerReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerReferenceType TriggerReference { get; } = new TriggerReferenceType("TriggerReference");
+
+        public static bool operator ==(TriggerReferenceType left, TriggerReferenceType right) => left.Equals(right);
+        public static bool operator !=(TriggerReferenceType left, TriggerReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerReferenceType other && Equals(other);
+        public bool Equals(TriggerReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

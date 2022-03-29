@@ -247,6 +247,7 @@ __all__ = [
     'PacketCaptureFilterResponse',
     'PacketCaptureStorageLocationResponse',
     'PeerExpressRouteCircuitConnectionResponse',
+    'PerimeterBasedAccessRuleResponse',
     'PolicySettingsResponse',
     'PrivateDnsZoneConfigResponse',
     'PrivateEndpointConnectionResponse',
@@ -22787,6 +22788,64 @@ class PeerExpressRouteCircuitConnectionResponse(dict):
         Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         """
         return pulumi.get(self, "peer_express_route_circuit_peering")
+
+
+@pulumi.output_type
+class PerimeterBasedAccessRuleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perimeterGuid":
+            suggest = "perimeter_guid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PerimeterBasedAccessRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PerimeterBasedAccessRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PerimeterBasedAccessRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 perimeter_guid: str,
+                 id: Optional[str] = None):
+        """
+        :param str location: Location of the NSP supplied.
+        :param str perimeter_guid: Resource guid of the NSP supplied.
+        :param str id: NSP id in the ARM id format.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "perimeter_guid", perimeter_guid)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        Location of the NSP supplied.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="perimeterGuid")
+    def perimeter_guid(self) -> str:
+        """
+        Resource guid of the NSP supplied.
+        """
+        return pulumi.get(self, "perimeter_guid")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        NSP id in the ARM id format.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

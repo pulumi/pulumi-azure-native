@@ -80,6 +80,15 @@ export const CosmosDbServicePrincipalCredentialType = {
  */
 export type CosmosDbServicePrincipalCredentialType = (typeof CosmosDbServicePrincipalCredentialType)[keyof typeof CosmosDbServicePrincipalCredentialType];
 
+export const CredentialReferenceType = {
+    CredentialReference: "CredentialReference",
+} as const;
+
+/**
+ * Credential reference type.
+ */
+export type CredentialReferenceType = (typeof CredentialReferenceType)[keyof typeof CredentialReferenceType];
+
 export const DataFlowComputeType = {
     General: "General",
     MemoryOptimized: "MemoryOptimized",
@@ -90,6 +99,15 @@ export const DataFlowComputeType = {
  * Compute type of the cluster which will execute data flow job.
  */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
+
+export const DataFlowReferenceType = {
+    DataFlowReference: "DataFlowReference",
+} as const;
+
+/**
+ * Data flow reference type.
+ */
+export type DataFlowReferenceType = (typeof DataFlowReferenceType)[keyof typeof DataFlowReferenceType];
 
 export const DayOfWeek = {
     Sunday: "Sunday",
@@ -330,6 +348,15 @@ export const IntegrationRuntimeType = {
  * Type of integration runtime.
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
+
+export const ManagedVirtualNetworkReferenceType = {
+    ManagedVirtualNetworkReference: "ManagedVirtualNetworkReference",
+} as const;
+
+/**
+ * Managed Virtual Network reference type.
+ */
+export type ManagedVirtualNetworkReferenceType = (typeof ManagedVirtualNetworkReferenceType)[keyof typeof ManagedVirtualNetworkReferenceType];
 
 export const MongoDbAuthenticationType = {
     Basic: "Basic",
@@ -669,6 +696,15 @@ export const TeradataAuthenticationType = {
  * AuthenticationType to be used for connection.
  */
 export type TeradataAuthenticationType = (typeof TeradataAuthenticationType)[keyof typeof TeradataAuthenticationType];
+
+export const TriggerReferenceType = {
+    TriggerReference: "TriggerReference",
+} as const;
+
+/**
+ * Trigger reference type.
+ */
+export type TriggerReferenceType = (typeof TriggerReferenceType)[keyof typeof TriggerReferenceType];
 
 export const TumblingWindowFrequency = {
     Minute: "Minute",

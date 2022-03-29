@@ -80,6 +80,8 @@ func (val *LookupSystemTopicEventSubscriptionResult) Defaults() *LookupSystemTop
 	}
 	tmp.Filter = tmp.Filter.Defaults()
 
+	tmp.RetryPolicy = tmp.RetryPolicy.Defaults()
+
 	return &tmp
 }
 

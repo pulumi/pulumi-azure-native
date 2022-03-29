@@ -61,6 +61,9 @@ func NewDomainTopic(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:DomainTopic"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:DomainTopic"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:DomainTopic"),
 		},
 	})

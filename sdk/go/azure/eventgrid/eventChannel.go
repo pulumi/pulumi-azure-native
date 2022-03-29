@@ -66,6 +66,9 @@ func NewEventChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:EventChannel"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:EventChannel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EventChannel

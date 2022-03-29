@@ -235,7 +235,7 @@ class InstancePool(pulumi.CustomResource):
             __props__.__dict__["v_cores"] = v_cores
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20180601preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:InstancePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20180601preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200202preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20200801preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20201101preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210201preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20210501preview:InstancePool"), pulumi.Alias(type_="azure-native:sql/v20211101preview:InstancePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InstancePool, __self__).__init__(
             'azure-native:sql/v20210801preview:InstancePool',

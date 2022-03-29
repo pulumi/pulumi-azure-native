@@ -6,17 +6,28 @@ from enum import Enum
 
 __all__ = [
     'AdvancedFilterOperatorType',
+    'ChannelProvisioningState',
+    'ChannelType',
     'DeadLetterEndPointType',
+    'DeliveryAttributeMappingType',
     'EndpointType',
+    'EventDefinitionKind',
     'EventDeliverySchema',
     'EventSubscriptionIdentityType',
     'IdentityType',
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
+    'PartnerClientAuthenticationType',
+    'PartnerConfigurationProvisioningState',
+    'PartnerDestinationActivationState',
+    'PartnerDestinationProvisioningState',
+    'PartnerEndpointType',
     'PartnerRegistrationVisibilityState',
+    'PartnerTopicActivationState',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
+    'ReadinessState',
     'ResourceProvisioningState',
 ]
 
@@ -37,6 +48,33 @@ class AdvancedFilterOperatorType(str, Enum):
     STRING_BEGINS_WITH = "StringBeginsWith"
     STRING_ENDS_WITH = "StringEndsWith"
     STRING_CONTAINS = "StringContains"
+    NUMBER_IN_RANGE = "NumberInRange"
+    NUMBER_NOT_IN_RANGE = "NumberNotInRange"
+    STRING_NOT_BEGINS_WITH = "StringNotBeginsWith"
+    STRING_NOT_ENDS_WITH = "StringNotEndsWith"
+    STRING_NOT_CONTAINS = "StringNotContains"
+    IS_NULL_OR_UNDEFINED = "IsNullOrUndefined"
+    IS_NOT_NULL = "IsNotNull"
+
+
+class ChannelProvisioningState(str, Enum):
+    """
+    Provisioning state of the channel.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class ChannelType(str, Enum):
+    """
+    The type of the event channel which represents the  direction flow of events.
+    """
+    PARTNER_TOPIC = "PartnerTopic"
+    PARTNER_DESTINATION = "PartnerDestination"
 
 
 class DeadLetterEndPointType(str, Enum):
@@ -44,6 +82,14 @@ class DeadLetterEndPointType(str, Enum):
     Type of the endpoint for the dead letter destination
     """
     STORAGE_BLOB = "StorageBlob"
+
+
+class DeliveryAttributeMappingType(str, Enum):
+    """
+    Type of the delivery attribute or header name.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
 
 
 class EndpointType(str, Enum):
@@ -57,6 +103,14 @@ class EndpointType(str, Enum):
     SERVICE_BUS_QUEUE = "ServiceBusQueue"
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
     AZURE_FUNCTION = "AzureFunction"
+    PARTNER_DESTINATION = "PartnerDestination"
+
+
+class EventDefinitionKind(str, Enum):
+    """
+    The kind of event type used.
+    """
+    INLINE = "Inline"
 
 
 class EventDeliverySchema(str, Enum):
@@ -109,6 +163,52 @@ class IpActionType(str, Enum):
     ALLOW = "Allow"
 
 
+class PartnerClientAuthenticationType(str, Enum):
+    """
+    Type of client authentication
+    """
+    AZURE_AD = "AzureAD"
+
+
+class PartnerConfigurationProvisioningState(str, Enum):
+    """
+    Provisioning state of the partner configuration.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class PartnerDestinationActivationState(str, Enum):
+    """
+    Activation state of the partner destination.
+    """
+    NEVER_ACTIVATED = "NeverActivated"
+    ACTIVATED = "Activated"
+
+
+class PartnerDestinationProvisioningState(str, Enum):
+    """
+    Provisioning state of the partner destination.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class PartnerEndpointType(str, Enum):
+    """
+    Type of the endpoint for the partner destination
+    """
+    WEB_HOOK = "WebHook"
+
+
 class PartnerRegistrationVisibilityState(str, Enum):
     """
     Visibility state of the partner registration.
@@ -116,6 +216,15 @@ class PartnerRegistrationVisibilityState(str, Enum):
     HIDDEN = "Hidden"
     PUBLIC_PREVIEW = "PublicPreview"
     GENERALLY_AVAILABLE = "GenerallyAvailable"
+
+
+class PartnerTopicActivationState(str, Enum):
+    """
+    Activation state of the partner topic.
+    """
+    NEVER_ACTIVATED = "NeverActivated"
+    ACTIVATED = "Activated"
+    DEACTIVATED = "Deactivated"
 
 
 class PersistedConnectionStatus(str, Enum):
@@ -135,6 +244,14 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ReadinessState(str, Enum):
+    """
+    The readiness state of the corresponding partner topic.
+    """
+    NEVER_ACTIVATED = "NeverActivated"
+    ACTIVATED = "Activated"
 
 
 class ResourceProvisioningState(str, Enum):

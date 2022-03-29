@@ -59,6 +59,7 @@ from .get_managed_instance_azure_ad_only_authentication import *
 from .get_managed_instance_key import *
 from .get_managed_instance_private_endpoint_connection import *
 from .get_managed_instance_vulnerability_assessment import *
+from .get_managed_server_dns_alias import *
 from .get_outbound_firewall_rule import *
 from .get_private_endpoint_connection import *
 from .get_sensitivity_label import *
@@ -100,6 +101,7 @@ from .managed_instance_azure_ad_only_authentication import *
 from .managed_instance_key import *
 from .managed_instance_private_endpoint_connection import *
 from .managed_instance_vulnerability_assessment import *
+from .managed_server_dns_alias import *
 from .outbound_firewall_rule import *
 from .private_endpoint_connection import *
 from .sensitivity_label import *
@@ -151,6 +153,8 @@ if typing.TYPE_CHECKING:
     v20210501preview = __v20210501preview
     import pulumi_azure_native.sql.v20210801preview as __v20210801preview
     v20210801preview = __v20210801preview
+    import pulumi_azure_native.sql.v20211101preview as __v20211101preview
+    v20211101preview = __v20211101preview
 else:
     v20140401 = _utilities.lazy_import('pulumi_azure_native.sql.v20140401')
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20150501preview')
@@ -164,4 +168,5 @@ else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210201preview')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210501preview')
     v20210801preview = _utilities.lazy_import('pulumi_azure_native.sql.v20210801preview')
+    v20211101preview = _utilities.lazy_import('pulumi_azure_native.sql.v20211101preview')
 

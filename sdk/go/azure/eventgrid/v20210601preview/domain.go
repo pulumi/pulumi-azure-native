@@ -120,6 +120,9 @@ func NewDomain(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:Domain"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:Domain"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:Domain"),
 		},
 	})

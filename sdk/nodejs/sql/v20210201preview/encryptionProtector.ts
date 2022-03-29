@@ -122,7 +122,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:EncryptionProtector" }, { type: "azure-native:sql/v20150501preview:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }, { type: "azure-native:sql/v20210801preview:EncryptionProtector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:EncryptionProtector" }, { type: "azure-native:sql/v20150501preview:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210501preview:EncryptionProtector" }, { type: "azure-native:sql/v20210801preview:EncryptionProtector" }, { type: "azure-native:sql/v20211101preview:EncryptionProtector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionProtector.__pulumiType, name, resourceInputs, opts);
     }

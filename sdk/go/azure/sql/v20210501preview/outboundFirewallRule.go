@@ -46,6 +46,9 @@ func NewOutboundFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:sql/v20210801preview:OutboundFirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:sql/v20211101preview:OutboundFirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OutboundFirewallRule

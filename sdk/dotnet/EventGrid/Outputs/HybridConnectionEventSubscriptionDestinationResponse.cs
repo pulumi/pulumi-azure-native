@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class HybridConnectionEventSubscriptionDestinationResponse
     {
         /// <summary>
+        /// Delivery attribute details.
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> DeliveryAttributeMappings;
+        /// <summary>
         /// Type of the endpoint for the event subscription destination.
         /// Expected value is 'HybridConnection'.
         /// </summary>
@@ -28,10 +32,13 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
         [OutputConstructor]
         private HybridConnectionEventSubscriptionDestinationResponse(
+            ImmutableArray<Union<Outputs.DynamicDeliveryAttributeMappingResponse, Outputs.StaticDeliveryAttributeMappingResponse>> deliveryAttributeMappings,
+
             string endpointType,
 
             string? resourceId)
         {
+            DeliveryAttributeMappings = deliveryAttributeMappings;
             EndpointType = endpointType;
             ResourceId = resourceId;
         }

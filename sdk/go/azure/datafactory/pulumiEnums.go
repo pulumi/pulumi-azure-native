@@ -63,6 +63,13 @@ const (
 	CosmosDbServicePrincipalCredentialTypeServicePrincipalCert = CosmosDbServicePrincipalCredentialType("ServicePrincipalCert")
 )
 
+// Credential reference type.
+type CredentialReferenceType string
+
+const (
+	CredentialReferenceTypeCredentialReference = CredentialReferenceType("CredentialReference")
+)
+
 // Compute type of the cluster which will execute data flow job.
 type DataFlowComputeType string
 
@@ -70,6 +77,13 @@ const (
 	DataFlowComputeTypeGeneral          = DataFlowComputeType("General")
 	DataFlowComputeTypeMemoryOptimized  = DataFlowComputeType("MemoryOptimized")
 	DataFlowComputeTypeComputeOptimized = DataFlowComputeType("ComputeOptimized")
+)
+
+// Data flow reference type.
+type DataFlowReferenceType string
+
+const (
+	DataFlowReferenceTypeDataFlowReference = DataFlowReferenceType("DataFlowReference")
 )
 
 // The day of the week.
@@ -270,6 +284,13 @@ type IntegrationRuntimeType string
 const (
 	IntegrationRuntimeTypeManaged    = IntegrationRuntimeType("Managed")
 	IntegrationRuntimeTypeSelfHosted = IntegrationRuntimeType("SelfHosted")
+)
+
+// Managed Virtual Network reference type.
+type ManagedVirtualNetworkReferenceType string
+
+const (
+	ManagedVirtualNetworkReferenceTypeManagedVirtualNetworkReference = ManagedVirtualNetworkReferenceType("ManagedVirtualNetworkReference")
 )
 
 // The authentication type to be used to connect to the MongoDB database.
@@ -549,6 +570,13 @@ type TeradataAuthenticationType string
 const (
 	TeradataAuthenticationTypeBasic   = TeradataAuthenticationType("Basic")
 	TeradataAuthenticationTypeWindows = TeradataAuthenticationType("Windows")
+)
+
+// Trigger reference type.
+type TriggerReferenceType string
+
+const (
+	TriggerReferenceTypeTriggerReference = TriggerReferenceType("TriggerReference")
 )
 
 // The frequency of the time windows.

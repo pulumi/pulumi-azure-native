@@ -63,6 +63,9 @@ func NewContainerApp(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:app/v20220101preview:ContainerApp"),
 		},
+		{
+			Type: pulumi.String("azure-native:app/v20220301:ContainerApp"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ContainerApp

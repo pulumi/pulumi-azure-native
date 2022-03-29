@@ -15,6 +15,8 @@ __all__ = [
     'HubArgs',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
     'NetworkManagerSecurityGroupItemArgs',
+    'PerimeterBasedAccessRuleArgs',
+    'SubResourceArgs',
 ]
 
 @pulumi.input_type
@@ -214,5 +216,52 @@ class NetworkManagerSecurityGroupItemArgs:
     @network_group_id.setter
     def network_group_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_group_id", value)
+
+
+@pulumi.input_type
+class PerimeterBasedAccessRuleArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: NSP id in the ARM id format.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        NSP id in the ARM id format.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class SubResourceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Reference to another subresource.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 

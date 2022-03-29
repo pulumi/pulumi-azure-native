@@ -7,23 +7,26 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./app";
 export * from "./getApp";
+export * from "./getPrivateEndpointConnection";
+export * from "./privateEndpointConnection";
 
 // Export enums:
 export * from "../types/enums/iotcentral";
 
 // Export sub-modules:
-import * as v20170701privatepreview from "./v20170701privatepreview";
 import * as v20180901 from "./v20180901";
 import * as v20210601 from "./v20210601";
+import * as v20211101preview from "./v20211101preview";
 
 export {
-    v20170701privatepreview,
     v20180901,
     v20210601,
+    v20211101preview,
 };
 
 // Import resources to register:
 import { App } from "./app";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +34,8 @@ const _module = {
         switch (type) {
             case "azure-native:iotcentral:App":
                 return new App(name, <any>undefined, { urn })
+            case "azure-native:iotcentral:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

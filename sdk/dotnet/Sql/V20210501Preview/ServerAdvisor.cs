@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerAdvisor"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerAdvisor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

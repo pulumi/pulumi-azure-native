@@ -6,18 +6,32 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .channel import *
 from .domain import *
+from .domain_event_subscription import *
 from .domain_topic import *
+from .domain_topic_event_subscription import *
 from .event_channel import *
 from .event_subscription import *
+from .get_channel import *
+from .get_channel_full_url import *
 from .get_domain import *
+from .get_domain_event_subscription import *
+from .get_domain_event_subscription_delivery_attributes import *
+from .get_domain_event_subscription_full_url import *
 from .get_domain_topic import *
+from .get_domain_topic_event_subscription import *
+from .get_domain_topic_event_subscription_delivery_attributes import *
+from .get_domain_topic_event_subscription_full_url import *
 from .get_event_channel import *
 from .get_event_subscription import *
 from .get_event_subscription_delivery_attributes import *
 from .get_event_subscription_full_url import *
+from .get_partner_configuration import *
+from .get_partner_destination import *
 from .get_partner_namespace import *
 from .get_partner_registration import *
+from .get_partner_topic import *
 from .get_partner_topic_event_subscription import *
 from .get_partner_topic_event_subscription_delivery_attributes import *
 from .get_partner_topic_event_subscription_full_url import *
@@ -27,16 +41,23 @@ from .get_system_topic_event_subscription import *
 from .get_system_topic_event_subscription_delivery_attributes import *
 from .get_system_topic_event_subscription_full_url import *
 from .get_topic import *
+from .get_topic_event_subscription import *
+from .get_topic_event_subscription_delivery_attributes import *
+from .get_topic_event_subscription_full_url import *
 from .list_domain_shared_access_keys import *
 from .list_partner_namespace_shared_access_keys import *
 from .list_topic_shared_access_keys import *
+from .partner_configuration import *
+from .partner_destination import *
 from .partner_namespace import *
 from .partner_registration import *
+from .partner_topic import *
 from .partner_topic_event_subscription import *
 from .private_endpoint_connection import *
 from .system_topic import *
 from .system_topic_event_subscription import *
 from .topic import *
+from .topic_event_subscription import *
 from ._inputs import *
 from . import outputs
 
@@ -68,6 +89,8 @@ if typing.TYPE_CHECKING:
     v20201015preview = __v20201015preview
     import pulumi_azure_native.eventgrid.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
+    import pulumi_azure_native.eventgrid.v20211015preview as __v20211015preview
+    v20211015preview = __v20211015preview
     import pulumi_azure_native.eventgrid.v20211201 as __v20211201
     v20211201 = __v20211201
 else:
@@ -84,5 +107,6 @@ else:
     v20200601 = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20200601')
     v20201015preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20201015preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20210601preview')
+    v20211015preview = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20211015preview')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.eventgrid.v20211201')
 

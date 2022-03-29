@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:EventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:EventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:EventSubscription"},
                 },
             };

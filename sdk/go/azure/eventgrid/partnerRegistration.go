@@ -82,6 +82,9 @@ func NewPartnerRegistration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:PartnerRegistration"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:PartnerRegistration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PartnerRegistration

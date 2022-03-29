@@ -58,6 +58,7 @@ export * from "./getManagedInstanceAzureADOnlyAuthentication";
 export * from "./getManagedInstanceKey";
 export * from "./getManagedInstancePrivateEndpointConnection";
 export * from "./getManagedInstanceVulnerabilityAssessment";
+export * from "./getManagedServerDnsAlias";
 export * from "./getOutboundFirewallRule";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSensitivityLabel";
@@ -99,6 +100,7 @@ export * from "./managedInstanceAzureADOnlyAuthentication";
 export * from "./managedInstanceKey";
 export * from "./managedInstancePrivateEndpointConnection";
 export * from "./managedInstanceVulnerabilityAssessment";
+export * from "./managedServerDnsAlias";
 export * from "./outboundFirewallRule";
 export * from "./privateEndpointConnection";
 export * from "./sensitivityLabel";
@@ -138,6 +140,7 @@ import * as v20201101preview from "./v20201101preview";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210801preview from "./v20210801preview";
+import * as v20211101preview from "./v20211101preview";
 
 export {
     v20140401,
@@ -152,6 +155,7 @@ export {
     v20210201preview,
     v20210501preview,
     v20210801preview,
+    v20211101preview,
 };
 
 // Import resources to register:
@@ -191,6 +195,7 @@ import { ManagedInstanceAzureADOnlyAuthentication } from "./managedInstanceAzure
 import { ManagedInstanceKey } from "./managedInstanceKey";
 import { ManagedInstancePrivateEndpointConnection } from "./managedInstancePrivateEndpointConnection";
 import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
+import { ManagedServerDnsAlias } from "./managedServerDnsAlias";
 import { OutboundFirewallRule } from "./outboundFirewallRule";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SensitivityLabel } from "./sensitivityLabel";
@@ -290,6 +295,8 @@ const _module = {
                 return new ManagedInstancePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:sql:ManagedInstanceVulnerabilityAssessment":
                 return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-native:sql:ManagedServerDnsAlias":
+                return new ManagedServerDnsAlias(name, <any>undefined, { urn })
             case "azure-native:sql:OutboundFirewallRule":
                 return new OutboundFirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql:PrivateEndpointConnection":

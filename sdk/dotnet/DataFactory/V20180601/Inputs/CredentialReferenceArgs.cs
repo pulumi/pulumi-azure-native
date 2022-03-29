@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Credential reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.CredentialReferenceType> Type { get; set; } = null!;
 
         public CredentialReferenceArgs()
         {

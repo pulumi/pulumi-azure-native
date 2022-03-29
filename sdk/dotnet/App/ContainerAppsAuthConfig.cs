@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsAuthConfig"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsAuthConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -124,7 +124,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["retryPolicy"] = args ? (args.retryPolicy ? pulumi.output(args.retryPolicy).apply(inputs.eventgrid.retryPolicyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["systemTopicName"] = args ? args.systemTopicName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -148,7 +148,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

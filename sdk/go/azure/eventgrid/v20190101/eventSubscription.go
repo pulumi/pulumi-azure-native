@@ -89,6 +89,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:EventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:EventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:EventSubscription"),
 		},
 	})

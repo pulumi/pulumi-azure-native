@@ -69,6 +69,9 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	if args.Filter != nil {
 		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
+	if args.RetryPolicy != nil {
+		args.RetryPolicy = args.RetryPolicy.ToRetryPolicyPtrOutput().ApplyT(func(v *RetryPolicy) *RetryPolicy { return v.Defaults() }).(RetryPolicyPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"),
@@ -78,6 +81,9 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:SystemTopicEventSubscription"),

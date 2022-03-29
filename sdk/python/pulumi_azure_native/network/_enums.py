@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'Access',
+    'AccessRuleDirection',
     'ActionType',
     'AddressPrefixType',
     'AdminRuleKind',
@@ -22,6 +23,7 @@ __all__ = [
     'ApplicationGatewaySslPolicyType',
     'ApplicationGatewaySslProtocol',
     'ApplicationGatewayTier',
+    'AssociationAccessMode',
     'AuthorizationUseStatus',
     'AzureFirewallApplicationRuleProtocolType',
     'AzureFirewallNatRCActionType',
@@ -192,6 +194,14 @@ class Access(str, Enum):
     DENY = "Deny"
 
 
+class AccessRuleDirection(str, Enum):
+    """
+    Direction that specifies whether the access rules is inbound/outbound.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
 class ActionType(str, Enum):
     """
     Describes the override action to be applied when rule matches.
@@ -359,6 +369,16 @@ class ApplicationGatewayTier(str, Enum):
     WAF = "WAF"
     STANDARD_V2 = "Standard_v2"
     WA_F_V2 = "WAF_v2"
+
+
+class AssociationAccessMode(str, Enum):
+    """
+    Access mode on the association.
+    """
+    UNSPECIFIED = "Unspecified"
+    ENFORCE_MODE = "EnforceMode"
+    LEARNING_MODE = "LearningMode"
+    DRY_RUN_MODE = "DryRunMode"
 
 
 class AuthorizationUseStatus(str, Enum):

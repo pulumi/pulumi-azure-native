@@ -53,10 +53,10 @@ func NewApp(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:iotcentral:App"),
 		},
 		{
-			Type: pulumi.String("azure-native:iotcentral/v20170701privatepreview:App"),
+			Type: pulumi.String("azure-native:iotcentral/v20210601:App"),
 		},
 		{
-			Type: pulumi.String("azure-native:iotcentral/v20210601:App"),
+			Type: pulumi.String("azure-native:iotcentral/v20211101preview:App"),
 		},
 	})
 	opts = append(opts, aliases)

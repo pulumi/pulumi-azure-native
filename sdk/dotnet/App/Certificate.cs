@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.App
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

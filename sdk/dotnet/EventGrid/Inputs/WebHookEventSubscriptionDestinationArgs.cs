@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         [Input("azureActiveDirectoryTenantId")]
         public Input<string>? AzureActiveDirectoryTenantId { get; set; }
 
+        [Input("deliveryAttributeMappings")]
+        private InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>? _deliveryAttributeMappings;
+
+        /// <summary>
+        /// Delivery attribute details.
+        /// </summary>
+        public InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>> DeliveryAttributeMappings
+        {
+            get => _deliveryAttributeMappings ?? (_deliveryAttributeMappings = new InputList<Union<Inputs.DynamicDeliveryAttributeMappingArgs, Inputs.StaticDeliveryAttributeMappingArgs>>());
+            set => _deliveryAttributeMappings = value;
+        }
+
         /// <summary>
         /// Type of the endpoint for the event subscription destination.
         /// Expected value is 'WebHook'.

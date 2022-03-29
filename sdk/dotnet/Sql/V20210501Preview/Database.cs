@@ -282,6 +282,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:Database"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

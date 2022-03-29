@@ -103,7 +103,7 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsSourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsSourceControl" }, { type: "azure-native:app/v20220301:ContainerAppsSourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerAppsSourceControl.__pulumiType, name, resourceInputs, opts);
     }

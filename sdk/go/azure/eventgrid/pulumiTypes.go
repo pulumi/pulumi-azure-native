@@ -10,8 +10,315 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Azure Active Directory Partner Client Authentication
+type AzureADPartnerClientAuthentication struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryTenantId *string `pulumi:"azureActiveDirectoryTenantId"`
+	// Type of client authentication
+	// Expected value is 'AzureAD'.
+	ClientAuthenticationType string `pulumi:"clientAuthenticationType"`
+}
+
+// Defaults sets the appropriate defaults for AzureADPartnerClientAuthentication
+func (val *AzureADPartnerClientAuthentication) Defaults() *AzureADPartnerClientAuthentication {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientAuthenticationType) {
+		tmp.ClientAuthenticationType = "AzureAD"
+	}
+	return &tmp
+}
+
+// AzureADPartnerClientAuthenticationInput is an input type that accepts AzureADPartnerClientAuthenticationArgs and AzureADPartnerClientAuthenticationOutput values.
+// You can construct a concrete instance of `AzureADPartnerClientAuthenticationInput` via:
+//
+//          AzureADPartnerClientAuthenticationArgs{...}
+type AzureADPartnerClientAuthenticationInput interface {
+	pulumi.Input
+
+	ToAzureADPartnerClientAuthenticationOutput() AzureADPartnerClientAuthenticationOutput
+	ToAzureADPartnerClientAuthenticationOutputWithContext(context.Context) AzureADPartnerClientAuthenticationOutput
+}
+
+// Azure Active Directory Partner Client Authentication
+type AzureADPartnerClientAuthenticationArgs struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryApplicationIdOrUri pulumi.StringPtrInput `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryTenantId pulumi.StringPtrInput `pulumi:"azureActiveDirectoryTenantId"`
+	// Type of client authentication
+	// Expected value is 'AzureAD'.
+	ClientAuthenticationType pulumi.StringInput `pulumi:"clientAuthenticationType"`
+}
+
+func (AzureADPartnerClientAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADPartnerClientAuthentication)(nil)).Elem()
+}
+
+func (i AzureADPartnerClientAuthenticationArgs) ToAzureADPartnerClientAuthenticationOutput() AzureADPartnerClientAuthenticationOutput {
+	return i.ToAzureADPartnerClientAuthenticationOutputWithContext(context.Background())
+}
+
+func (i AzureADPartnerClientAuthenticationArgs) ToAzureADPartnerClientAuthenticationOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureADPartnerClientAuthenticationOutput)
+}
+
+func (i AzureADPartnerClientAuthenticationArgs) ToAzureADPartnerClientAuthenticationPtrOutput() AzureADPartnerClientAuthenticationPtrOutput {
+	return i.ToAzureADPartnerClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i AzureADPartnerClientAuthenticationArgs) ToAzureADPartnerClientAuthenticationPtrOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureADPartnerClientAuthenticationOutput).ToAzureADPartnerClientAuthenticationPtrOutputWithContext(ctx)
+}
+
+// AzureADPartnerClientAuthenticationPtrInput is an input type that accepts AzureADPartnerClientAuthenticationArgs, AzureADPartnerClientAuthenticationPtr and AzureADPartnerClientAuthenticationPtrOutput values.
+// You can construct a concrete instance of `AzureADPartnerClientAuthenticationPtrInput` via:
+//
+//          AzureADPartnerClientAuthenticationArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureADPartnerClientAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToAzureADPartnerClientAuthenticationPtrOutput() AzureADPartnerClientAuthenticationPtrOutput
+	ToAzureADPartnerClientAuthenticationPtrOutputWithContext(context.Context) AzureADPartnerClientAuthenticationPtrOutput
+}
+
+type azureADPartnerClientAuthenticationPtrType AzureADPartnerClientAuthenticationArgs
+
+func AzureADPartnerClientAuthenticationPtr(v *AzureADPartnerClientAuthenticationArgs) AzureADPartnerClientAuthenticationPtrInput {
+	return (*azureADPartnerClientAuthenticationPtrType)(v)
+}
+
+func (*azureADPartnerClientAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureADPartnerClientAuthentication)(nil)).Elem()
+}
+
+func (i *azureADPartnerClientAuthenticationPtrType) ToAzureADPartnerClientAuthenticationPtrOutput() AzureADPartnerClientAuthenticationPtrOutput {
+	return i.ToAzureADPartnerClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *azureADPartnerClientAuthenticationPtrType) ToAzureADPartnerClientAuthenticationPtrOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureADPartnerClientAuthenticationPtrOutput)
+}
+
+// Azure Active Directory Partner Client Authentication
+type AzureADPartnerClientAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (AzureADPartnerClientAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADPartnerClientAuthentication)(nil)).Elem()
+}
+
+func (o AzureADPartnerClientAuthenticationOutput) ToAzureADPartnerClientAuthenticationOutput() AzureADPartnerClientAuthenticationOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationOutput) ToAzureADPartnerClientAuthenticationOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationOutput) ToAzureADPartnerClientAuthenticationPtrOutput() AzureADPartnerClientAuthenticationPtrOutput {
+	return o.ToAzureADPartnerClientAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o AzureADPartnerClientAuthenticationOutput) ToAzureADPartnerClientAuthenticationPtrOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADPartnerClientAuthentication) *AzureADPartnerClientAuthentication {
+		return &v
+	}).(AzureADPartnerClientAuthenticationPtrOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationOutput) AzureActiveDirectoryApplicationIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthentication) *string { return v.AzureActiveDirectoryApplicationIdOrUri }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationOutput) AzureActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthentication) *string { return v.AzureActiveDirectoryTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of client authentication
+// Expected value is 'AzureAD'.
+func (o AzureADPartnerClientAuthenticationOutput) ClientAuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthentication) string { return v.ClientAuthenticationType }).(pulumi.StringOutput)
+}
+
+type AzureADPartnerClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureADPartnerClientAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureADPartnerClientAuthentication)(nil)).Elem()
+}
+
+func (o AzureADPartnerClientAuthenticationPtrOutput) ToAzureADPartnerClientAuthenticationPtrOutput() AzureADPartnerClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationPtrOutput) ToAzureADPartnerClientAuthenticationPtrOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationPtrOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationPtrOutput) Elem() AzureADPartnerClientAuthenticationOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthentication) AzureADPartnerClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADPartnerClientAuthentication
+		return ret
+	}).(AzureADPartnerClientAuthenticationOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationPtrOutput) AzureActiveDirectoryApplicationIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureActiveDirectoryApplicationIdOrUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationPtrOutput) AzureActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureActiveDirectoryTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of client authentication
+// Expected value is 'AzureAD'.
+func (o AzureADPartnerClientAuthenticationPtrOutput) ClientAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientAuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory Partner Client Authentication
+type AzureADPartnerClientAuthenticationResponse struct {
+	// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
+	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+	AzureActiveDirectoryTenantId *string `pulumi:"azureActiveDirectoryTenantId"`
+	// Type of client authentication
+	// Expected value is 'AzureAD'.
+	ClientAuthenticationType string `pulumi:"clientAuthenticationType"`
+}
+
+// Defaults sets the appropriate defaults for AzureADPartnerClientAuthenticationResponse
+func (val *AzureADPartnerClientAuthenticationResponse) Defaults() *AzureADPartnerClientAuthenticationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientAuthenticationType) {
+		tmp.ClientAuthenticationType = "AzureAD"
+	}
+	return &tmp
+}
+
+// Azure Active Directory Partner Client Authentication
+type AzureADPartnerClientAuthenticationResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureADPartnerClientAuthenticationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureADPartnerClientAuthenticationResponse)(nil)).Elem()
+}
+
+func (o AzureADPartnerClientAuthenticationResponseOutput) ToAzureADPartnerClientAuthenticationResponseOutput() AzureADPartnerClientAuthenticationResponseOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationResponseOutput) ToAzureADPartnerClientAuthenticationResponseOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationResponseOutput {
+	return o
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationResponseOutput) AzureActiveDirectoryApplicationIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthenticationResponse) *string {
+		return v.AzureActiveDirectoryApplicationIdOrUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationResponseOutput) AzureActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthenticationResponse) *string { return v.AzureActiveDirectoryTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of client authentication
+// Expected value is 'AzureAD'.
+func (o AzureADPartnerClientAuthenticationResponseOutput) ClientAuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureADPartnerClientAuthenticationResponse) string { return v.ClientAuthenticationType }).(pulumi.StringOutput)
+}
+
+type AzureADPartnerClientAuthenticationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureADPartnerClientAuthenticationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureADPartnerClientAuthenticationResponse)(nil)).Elem()
+}
+
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) ToAzureADPartnerClientAuthenticationResponsePtrOutput() AzureADPartnerClientAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) ToAzureADPartnerClientAuthenticationResponsePtrOutputWithContext(ctx context.Context) AzureADPartnerClientAuthenticationResponsePtrOutput {
+	return o
+}
+
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) Elem() AzureADPartnerClientAuthenticationResponseOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthenticationResponse) AzureADPartnerClientAuthenticationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADPartnerClientAuthenticationResponse
+		return ret
+	}).(AzureADPartnerClientAuthenticationResponseOutput)
+}
+
+// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) AzureActiveDirectoryApplicationIdOrUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureActiveDirectoryApplicationIdOrUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) AzureActiveDirectoryTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureActiveDirectoryTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of client authentication
+// Expected value is 'AzureAD'.
+func (o AzureADPartnerClientAuthenticationResponsePtrOutput) ClientAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureADPartnerClientAuthenticationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientAuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestination struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
 	EndpointType string `pulumi:"endpointType"`
@@ -42,6 +349,8 @@ func (val *AzureFunctionEventSubscriptionDestination) Defaults() *AzureFunctionE
 
 // Information about the azure function destination for an event subscription.
 type AzureFunctionEventSubscriptionDestinationResponse struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'AzureFunction'.
 	EndpointType string `pulumi:"endpointType"`
@@ -855,6 +1164,17 @@ func (o DeliveryWithResourceIdentityResponsePtrOutput) Identity() EventSubscript
 }
 
 // Dynamic delivery attribute mapping details.
+type DynamicDeliveryAttributeMapping struct {
+	// Name of the delivery attribute or header.
+	Name *string `pulumi:"name"`
+	// JSON path in the event which contains attribute value.
+	SourceField *string `pulumi:"sourceField"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Dynamic'.
+	Type string `pulumi:"type"`
+}
+
+// Dynamic delivery attribute mapping details.
 type DynamicDeliveryAttributeMappingResponse struct {
 	// Name of the delivery attribute or header.
 	Name *string `pulumi:"name"`
@@ -1622,6 +1942,8 @@ func (o EventChannelSourceResponsePtrOutput) Source() pulumi.StringPtrOutput {
 
 // Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestination struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
@@ -1631,6 +1953,8 @@ type EventHubEventSubscriptionDestination struct {
 
 // Information about the event hub destination for an event subscription.
 type EventHubEventSubscriptionDestinationResponse struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'EventHub'.
 	EndpointType string `pulumi:"endpointType"`
@@ -1642,6 +1966,8 @@ type EventHubEventSubscriptionDestinationResponse struct {
 type EventSubscriptionFilter struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
+	// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+	EnableAdvancedFilteringOnArrays *bool `pulumi:"enableAdvancedFilteringOnArrays"`
 	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 	IncludedEventTypes []string `pulumi:"includedEventTypes"`
 	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -1684,6 +2010,8 @@ type EventSubscriptionFilterInput interface {
 type EventSubscriptionFilterArgs struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters pulumi.ArrayInput `pulumi:"advancedFilters"`
+	// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+	EnableAdvancedFilteringOnArrays pulumi.BoolPtrInput `pulumi:"enableAdvancedFilteringOnArrays"`
 	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 	IncludedEventTypes pulumi.StringArrayInput `pulumi:"includedEventTypes"`
 	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -1781,6 +2109,11 @@ func (o EventSubscriptionFilterOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
 }
 
+// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+func (o EventSubscriptionFilterOutput) EnableAdvancedFilteringOnArrays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionFilter) *bool { return v.EnableAdvancedFilteringOnArrays }).(pulumi.BoolPtrOutput)
+}
+
 // A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilter) []string { return v.IncludedEventTypes }).(pulumi.StringArrayOutput)
@@ -1839,6 +2172,16 @@ func (o EventSubscriptionFilterPtrOutput) AdvancedFilters() pulumi.ArrayOutput {
 	}).(pulumi.ArrayOutput)
 }
 
+// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+func (o EventSubscriptionFilterPtrOutput) EnableAdvancedFilteringOnArrays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAdvancedFilteringOnArrays
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 func (o EventSubscriptionFilterPtrOutput) IncludedEventTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSubscriptionFilter) []string {
@@ -1887,6 +2230,8 @@ func (o EventSubscriptionFilterPtrOutput) SubjectEndsWith() pulumi.StringPtrOutp
 type EventSubscriptionFilterResponse struct {
 	// An array of advanced filters that are used for filtering event subscriptions.
 	AdvancedFilters []interface{} `pulumi:"advancedFilters"`
+	// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+	EnableAdvancedFilteringOnArrays *bool `pulumi:"enableAdvancedFilteringOnArrays"`
 	// A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
 	IncludedEventTypes []string `pulumi:"includedEventTypes"`
 	// Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -1932,6 +2277,11 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 // An array of advanced filters that are used for filtering event subscriptions.
 func (o EventSubscriptionFilterResponseOutput) AdvancedFilters() pulumi.ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionFilterResponse) []interface{} { return v.AdvancedFilters }).(pulumi.ArrayOutput)
+}
+
+// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+func (o EventSubscriptionFilterResponseOutput) EnableAdvancedFilteringOnArrays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventSubscriptionFilterResponse) *bool { return v.EnableAdvancedFilteringOnArrays }).(pulumi.BoolPtrOutput)
 }
 
 // A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
@@ -1990,6 +2340,16 @@ func (o EventSubscriptionFilterResponsePtrOutput) AdvancedFilters() pulumi.Array
 		}
 		return v.AdvancedFilters
 	}).(pulumi.ArrayOutput)
+}
+
+// Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
+func (o EventSubscriptionFilterResponsePtrOutput) EnableAdvancedFilteringOnArrays() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableAdvancedFilteringOnArrays
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
@@ -2272,8 +2632,260 @@ func (o EventSubscriptionIdentityResponsePtrOutput) UserAssignedIdentity() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The event type information for Channels.
+type EventTypeInfo struct {
+	// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+	// An example of a valid inline event name is "Contoso.OrderCreated".
+	// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+	InlineEventTypes map[string]InlineEventProperties `pulumi:"inlineEventTypes"`
+	// The kind of event type used.
+	Kind *string `pulumi:"kind"`
+}
+
+// EventTypeInfoInput is an input type that accepts EventTypeInfoArgs and EventTypeInfoOutput values.
+// You can construct a concrete instance of `EventTypeInfoInput` via:
+//
+//          EventTypeInfoArgs{...}
+type EventTypeInfoInput interface {
+	pulumi.Input
+
+	ToEventTypeInfoOutput() EventTypeInfoOutput
+	ToEventTypeInfoOutputWithContext(context.Context) EventTypeInfoOutput
+}
+
+// The event type information for Channels.
+type EventTypeInfoArgs struct {
+	// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+	// An example of a valid inline event name is "Contoso.OrderCreated".
+	// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+	InlineEventTypes InlineEventPropertiesMapInput `pulumi:"inlineEventTypes"`
+	// The kind of event type used.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+}
+
+func (EventTypeInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTypeInfo)(nil)).Elem()
+}
+
+func (i EventTypeInfoArgs) ToEventTypeInfoOutput() EventTypeInfoOutput {
+	return i.ToEventTypeInfoOutputWithContext(context.Background())
+}
+
+func (i EventTypeInfoArgs) ToEventTypeInfoOutputWithContext(ctx context.Context) EventTypeInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTypeInfoOutput)
+}
+
+func (i EventTypeInfoArgs) ToEventTypeInfoPtrOutput() EventTypeInfoPtrOutput {
+	return i.ToEventTypeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i EventTypeInfoArgs) ToEventTypeInfoPtrOutputWithContext(ctx context.Context) EventTypeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTypeInfoOutput).ToEventTypeInfoPtrOutputWithContext(ctx)
+}
+
+// EventTypeInfoPtrInput is an input type that accepts EventTypeInfoArgs, EventTypeInfoPtr and EventTypeInfoPtrOutput values.
+// You can construct a concrete instance of `EventTypeInfoPtrInput` via:
+//
+//          EventTypeInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type EventTypeInfoPtrInput interface {
+	pulumi.Input
+
+	ToEventTypeInfoPtrOutput() EventTypeInfoPtrOutput
+	ToEventTypeInfoPtrOutputWithContext(context.Context) EventTypeInfoPtrOutput
+}
+
+type eventTypeInfoPtrType EventTypeInfoArgs
+
+func EventTypeInfoPtr(v *EventTypeInfoArgs) EventTypeInfoPtrInput {
+	return (*eventTypeInfoPtrType)(v)
+}
+
+func (*eventTypeInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTypeInfo)(nil)).Elem()
+}
+
+func (i *eventTypeInfoPtrType) ToEventTypeInfoPtrOutput() EventTypeInfoPtrOutput {
+	return i.ToEventTypeInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTypeInfoPtrType) ToEventTypeInfoPtrOutputWithContext(ctx context.Context) EventTypeInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTypeInfoPtrOutput)
+}
+
+// The event type information for Channels.
+type EventTypeInfoOutput struct{ *pulumi.OutputState }
+
+func (EventTypeInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTypeInfo)(nil)).Elem()
+}
+
+func (o EventTypeInfoOutput) ToEventTypeInfoOutput() EventTypeInfoOutput {
+	return o
+}
+
+func (o EventTypeInfoOutput) ToEventTypeInfoOutputWithContext(ctx context.Context) EventTypeInfoOutput {
+	return o
+}
+
+func (o EventTypeInfoOutput) ToEventTypeInfoPtrOutput() EventTypeInfoPtrOutput {
+	return o.ToEventTypeInfoPtrOutputWithContext(context.Background())
+}
+
+func (o EventTypeInfoOutput) ToEventTypeInfoPtrOutputWithContext(ctx context.Context) EventTypeInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTypeInfo) *EventTypeInfo {
+		return &v
+	}).(EventTypeInfoPtrOutput)
+}
+
+// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+// An example of a valid inline event name is "Contoso.OrderCreated".
+// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+func (o EventTypeInfoOutput) InlineEventTypes() InlineEventPropertiesMapOutput {
+	return o.ApplyT(func(v EventTypeInfo) map[string]InlineEventProperties { return v.InlineEventTypes }).(InlineEventPropertiesMapOutput)
+}
+
+// The kind of event type used.
+func (o EventTypeInfoOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTypeInfo) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type EventTypeInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTypeInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTypeInfo)(nil)).Elem()
+}
+
+func (o EventTypeInfoPtrOutput) ToEventTypeInfoPtrOutput() EventTypeInfoPtrOutput {
+	return o
+}
+
+func (o EventTypeInfoPtrOutput) ToEventTypeInfoPtrOutputWithContext(ctx context.Context) EventTypeInfoPtrOutput {
+	return o
+}
+
+func (o EventTypeInfoPtrOutput) Elem() EventTypeInfoOutput {
+	return o.ApplyT(func(v *EventTypeInfo) EventTypeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret EventTypeInfo
+		return ret
+	}).(EventTypeInfoOutput)
+}
+
+// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+// An example of a valid inline event name is "Contoso.OrderCreated".
+// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+func (o EventTypeInfoPtrOutput) InlineEventTypes() InlineEventPropertiesMapOutput {
+	return o.ApplyT(func(v *EventTypeInfo) map[string]InlineEventProperties {
+		if v == nil {
+			return nil
+		}
+		return v.InlineEventTypes
+	}).(InlineEventPropertiesMapOutput)
+}
+
+// The kind of event type used.
+func (o EventTypeInfoPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTypeInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// The event type information for Channels.
+type EventTypeInfoResponse struct {
+	// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+	// An example of a valid inline event name is "Contoso.OrderCreated".
+	// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+	InlineEventTypes map[string]InlineEventPropertiesResponse `pulumi:"inlineEventTypes"`
+	// The kind of event type used.
+	Kind *string `pulumi:"kind"`
+}
+
+// The event type information for Channels.
+type EventTypeInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (EventTypeInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTypeInfoResponse)(nil)).Elem()
+}
+
+func (o EventTypeInfoResponseOutput) ToEventTypeInfoResponseOutput() EventTypeInfoResponseOutput {
+	return o
+}
+
+func (o EventTypeInfoResponseOutput) ToEventTypeInfoResponseOutputWithContext(ctx context.Context) EventTypeInfoResponseOutput {
+	return o
+}
+
+// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+// An example of a valid inline event name is "Contoso.OrderCreated".
+// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+func (o EventTypeInfoResponseOutput) InlineEventTypes() InlineEventPropertiesResponseMapOutput {
+	return o.ApplyT(func(v EventTypeInfoResponse) map[string]InlineEventPropertiesResponse { return v.InlineEventTypes }).(InlineEventPropertiesResponseMapOutput)
+}
+
+// The kind of event type used.
+func (o EventTypeInfoResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTypeInfoResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+type EventTypeInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EventTypeInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTypeInfoResponse)(nil)).Elem()
+}
+
+func (o EventTypeInfoResponsePtrOutput) ToEventTypeInfoResponsePtrOutput() EventTypeInfoResponsePtrOutput {
+	return o
+}
+
+func (o EventTypeInfoResponsePtrOutput) ToEventTypeInfoResponsePtrOutputWithContext(ctx context.Context) EventTypeInfoResponsePtrOutput {
+	return o
+}
+
+func (o EventTypeInfoResponsePtrOutput) Elem() EventTypeInfoResponseOutput {
+	return o.ApplyT(func(v *EventTypeInfoResponse) EventTypeInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventTypeInfoResponse
+		return ret
+	}).(EventTypeInfoResponseOutput)
+}
+
+// A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.
+// An example of a valid inline event name is "Contoso.OrderCreated".
+// The inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.
+func (o EventTypeInfoResponsePtrOutput) InlineEventTypes() InlineEventPropertiesResponseMapOutput {
+	return o.ApplyT(func(v *EventTypeInfoResponse) map[string]InlineEventPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InlineEventTypes
+	}).(InlineEventPropertiesResponseMapOutput)
+}
+
+// The kind of event type used.
+func (o EventTypeInfoResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTypeInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
 // Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestination struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
 	EndpointType string `pulumi:"endpointType"`
@@ -2283,6 +2895,8 @@ type HybridConnectionEventSubscriptionDestination struct {
 
 // Information about the HybridConnection destination for an event subscription.
 type HybridConnectionEventSubscriptionDestinationResponse struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'HybridConnection'.
 	EndpointType string `pulumi:"endpointType"`
@@ -2769,6 +3383,184 @@ func (o InboundIpRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundIpRule
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InboundIpRuleResponse {
 		return vs[0].([]InboundIpRuleResponse)[vs[1].(int)]
 	}).(InboundIpRuleResponseOutput)
+}
+
+// Additional information about every inline event.
+type InlineEventProperties struct {
+	// The dataSchemaUrl for the inline event.
+	DataSchemaUrl *string `pulumi:"dataSchemaUrl"`
+	// The description for the inline event.
+	Description *string `pulumi:"description"`
+	// The documentationUrl for the inline event.
+	DocumentationUrl *string `pulumi:"documentationUrl"`
+}
+
+// InlineEventPropertiesInput is an input type that accepts InlineEventPropertiesArgs and InlineEventPropertiesOutput values.
+// You can construct a concrete instance of `InlineEventPropertiesInput` via:
+//
+//          InlineEventPropertiesArgs{...}
+type InlineEventPropertiesInput interface {
+	pulumi.Input
+
+	ToInlineEventPropertiesOutput() InlineEventPropertiesOutput
+	ToInlineEventPropertiesOutputWithContext(context.Context) InlineEventPropertiesOutput
+}
+
+// Additional information about every inline event.
+type InlineEventPropertiesArgs struct {
+	// The dataSchemaUrl for the inline event.
+	DataSchemaUrl pulumi.StringPtrInput `pulumi:"dataSchemaUrl"`
+	// The description for the inline event.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The documentationUrl for the inline event.
+	DocumentationUrl pulumi.StringPtrInput `pulumi:"documentationUrl"`
+}
+
+func (InlineEventPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InlineEventProperties)(nil)).Elem()
+}
+
+func (i InlineEventPropertiesArgs) ToInlineEventPropertiesOutput() InlineEventPropertiesOutput {
+	return i.ToInlineEventPropertiesOutputWithContext(context.Background())
+}
+
+func (i InlineEventPropertiesArgs) ToInlineEventPropertiesOutputWithContext(ctx context.Context) InlineEventPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InlineEventPropertiesOutput)
+}
+
+// InlineEventPropertiesMapInput is an input type that accepts InlineEventPropertiesMap and InlineEventPropertiesMapOutput values.
+// You can construct a concrete instance of `InlineEventPropertiesMapInput` via:
+//
+//          InlineEventPropertiesMap{ "key": InlineEventPropertiesArgs{...} }
+type InlineEventPropertiesMapInput interface {
+	pulumi.Input
+
+	ToInlineEventPropertiesMapOutput() InlineEventPropertiesMapOutput
+	ToInlineEventPropertiesMapOutputWithContext(context.Context) InlineEventPropertiesMapOutput
+}
+
+type InlineEventPropertiesMap map[string]InlineEventPropertiesInput
+
+func (InlineEventPropertiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InlineEventProperties)(nil)).Elem()
+}
+
+func (i InlineEventPropertiesMap) ToInlineEventPropertiesMapOutput() InlineEventPropertiesMapOutput {
+	return i.ToInlineEventPropertiesMapOutputWithContext(context.Background())
+}
+
+func (i InlineEventPropertiesMap) ToInlineEventPropertiesMapOutputWithContext(ctx context.Context) InlineEventPropertiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InlineEventPropertiesMapOutput)
+}
+
+// Additional information about every inline event.
+type InlineEventPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InlineEventPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InlineEventProperties)(nil)).Elem()
+}
+
+func (o InlineEventPropertiesOutput) ToInlineEventPropertiesOutput() InlineEventPropertiesOutput {
+	return o
+}
+
+func (o InlineEventPropertiesOutput) ToInlineEventPropertiesOutputWithContext(ctx context.Context) InlineEventPropertiesOutput {
+	return o
+}
+
+// The dataSchemaUrl for the inline event.
+func (o InlineEventPropertiesOutput) DataSchemaUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventProperties) *string { return v.DataSchemaUrl }).(pulumi.StringPtrOutput)
+}
+
+// The description for the inline event.
+func (o InlineEventPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The documentationUrl for the inline event.
+func (o InlineEventPropertiesOutput) DocumentationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventProperties) *string { return v.DocumentationUrl }).(pulumi.StringPtrOutput)
+}
+
+type InlineEventPropertiesMapOutput struct{ *pulumi.OutputState }
+
+func (InlineEventPropertiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InlineEventProperties)(nil)).Elem()
+}
+
+func (o InlineEventPropertiesMapOutput) ToInlineEventPropertiesMapOutput() InlineEventPropertiesMapOutput {
+	return o
+}
+
+func (o InlineEventPropertiesMapOutput) ToInlineEventPropertiesMapOutputWithContext(ctx context.Context) InlineEventPropertiesMapOutput {
+	return o
+}
+
+func (o InlineEventPropertiesMapOutput) MapIndex(k pulumi.StringInput) InlineEventPropertiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InlineEventProperties {
+		return vs[0].(map[string]InlineEventProperties)[vs[1].(string)]
+	}).(InlineEventPropertiesOutput)
+}
+
+// Additional information about every inline event.
+type InlineEventPropertiesResponse struct {
+	// The dataSchemaUrl for the inline event.
+	DataSchemaUrl *string `pulumi:"dataSchemaUrl"`
+	// The description for the inline event.
+	Description *string `pulumi:"description"`
+	// The documentationUrl for the inline event.
+	DocumentationUrl *string `pulumi:"documentationUrl"`
+}
+
+// Additional information about every inline event.
+type InlineEventPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (InlineEventPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InlineEventPropertiesResponse)(nil)).Elem()
+}
+
+func (o InlineEventPropertiesResponseOutput) ToInlineEventPropertiesResponseOutput() InlineEventPropertiesResponseOutput {
+	return o
+}
+
+func (o InlineEventPropertiesResponseOutput) ToInlineEventPropertiesResponseOutputWithContext(ctx context.Context) InlineEventPropertiesResponseOutput {
+	return o
+}
+
+// The dataSchemaUrl for the inline event.
+func (o InlineEventPropertiesResponseOutput) DataSchemaUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventPropertiesResponse) *string { return v.DataSchemaUrl }).(pulumi.StringPtrOutput)
+}
+
+// The description for the inline event.
+func (o InlineEventPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The documentationUrl for the inline event.
+func (o InlineEventPropertiesResponseOutput) DocumentationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InlineEventPropertiesResponse) *string { return v.DocumentationUrl }).(pulumi.StringPtrOutput)
+}
+
+type InlineEventPropertiesResponseMapOutput struct{ *pulumi.OutputState }
+
+func (InlineEventPropertiesResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]InlineEventPropertiesResponse)(nil)).Elem()
+}
+
+func (o InlineEventPropertiesResponseMapOutput) ToInlineEventPropertiesResponseMapOutput() InlineEventPropertiesResponseMapOutput {
+	return o
+}
+
+func (o InlineEventPropertiesResponseMapOutput) ToInlineEventPropertiesResponseMapOutputWithContext(ctx context.Context) InlineEventPropertiesResponseMapOutput {
+	return o
+}
+
+func (o InlineEventPropertiesResponseMapOutput) MapIndex(k pulumi.StringInput) InlineEventPropertiesResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InlineEventPropertiesResponse {
+		return vs[0].(map[string]InlineEventPropertiesResponse)[vs[1].(string)]
+	}).(InlineEventPropertiesResponseOutput)
 }
 
 // IsNotNull Advanced Filter.
@@ -3857,6 +4649,832 @@ type NumberNotInRangeAdvancedFilterResponse struct {
 	Values [][]float64 `pulumi:"values"`
 }
 
+// Information about the partner.
+type Partner struct {
+	// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+	// context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+	// If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+	AuthorizationExpirationTimeInUtc *string `pulumi:"authorizationExpirationTimeInUtc"`
+	// The partner name.
+	PartnerName *string `pulumi:"partnerName"`
+	// The immutableId of the corresponding partner registration.
+	PartnerRegistrationImmutableId *string `pulumi:"partnerRegistrationImmutableId"`
+}
+
+// PartnerInput is an input type that accepts PartnerArgs and PartnerOutput values.
+// You can construct a concrete instance of `PartnerInput` via:
+//
+//          PartnerArgs{...}
+type PartnerInput interface {
+	pulumi.Input
+
+	ToPartnerOutput() PartnerOutput
+	ToPartnerOutputWithContext(context.Context) PartnerOutput
+}
+
+// Information about the partner.
+type PartnerArgs struct {
+	// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+	// context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+	// If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+	AuthorizationExpirationTimeInUtc pulumi.StringPtrInput `pulumi:"authorizationExpirationTimeInUtc"`
+	// The partner name.
+	PartnerName pulumi.StringPtrInput `pulumi:"partnerName"`
+	// The immutableId of the corresponding partner registration.
+	PartnerRegistrationImmutableId pulumi.StringPtrInput `pulumi:"partnerRegistrationImmutableId"`
+}
+
+func (PartnerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partner)(nil)).Elem()
+}
+
+func (i PartnerArgs) ToPartnerOutput() PartnerOutput {
+	return i.ToPartnerOutputWithContext(context.Background())
+}
+
+func (i PartnerArgs) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
+}
+
+// PartnerArrayInput is an input type that accepts PartnerArray and PartnerArrayOutput values.
+// You can construct a concrete instance of `PartnerArrayInput` via:
+//
+//          PartnerArray{ PartnerArgs{...} }
+type PartnerArrayInput interface {
+	pulumi.Input
+
+	ToPartnerArrayOutput() PartnerArrayOutput
+	ToPartnerArrayOutputWithContext(context.Context) PartnerArrayOutput
+}
+
+type PartnerArray []PartnerInput
+
+func (PartnerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Partner)(nil)).Elem()
+}
+
+func (i PartnerArray) ToPartnerArrayOutput() PartnerArrayOutput {
+	return i.ToPartnerArrayOutputWithContext(context.Background())
+}
+
+func (i PartnerArray) ToPartnerArrayOutputWithContext(ctx context.Context) PartnerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerArrayOutput)
+}
+
+// Information about the partner.
+type PartnerOutput struct{ *pulumi.OutputState }
+
+func (PartnerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Partner)(nil)).Elem()
+}
+
+func (o PartnerOutput) ToPartnerOutput() PartnerOutput {
+	return o
+}
+
+func (o PartnerOutput) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput {
+	return o
+}
+
+// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+// context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+// If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+func (o PartnerOutput) AuthorizationExpirationTimeInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Partner) *string { return v.AuthorizationExpirationTimeInUtc }).(pulumi.StringPtrOutput)
+}
+
+// The partner name.
+func (o PartnerOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Partner) *string { return v.PartnerName }).(pulumi.StringPtrOutput)
+}
+
+// The immutableId of the corresponding partner registration.
+func (o PartnerOutput) PartnerRegistrationImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Partner) *string { return v.PartnerRegistrationImmutableId }).(pulumi.StringPtrOutput)
+}
+
+type PartnerArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Partner)(nil)).Elem()
+}
+
+func (o PartnerArrayOutput) ToPartnerArrayOutput() PartnerArrayOutput {
+	return o
+}
+
+func (o PartnerArrayOutput) ToPartnerArrayOutputWithContext(ctx context.Context) PartnerArrayOutput {
+	return o
+}
+
+func (o PartnerArrayOutput) Index(i pulumi.IntInput) PartnerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Partner {
+		return vs[0].([]Partner)[vs[1].(int)]
+	}).(PartnerOutput)
+}
+
+// The partner authorization details.
+type PartnerAuthorization struct {
+	// The list of authorized partners.
+	AuthorizedPartnersList []Partner `pulumi:"authorizedPartnersList"`
+	// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+	// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+	DefaultMaximumExpirationTimeInDays *int `pulumi:"defaultMaximumExpirationTimeInDays"`
+}
+
+// PartnerAuthorizationInput is an input type that accepts PartnerAuthorizationArgs and PartnerAuthorizationOutput values.
+// You can construct a concrete instance of `PartnerAuthorizationInput` via:
+//
+//          PartnerAuthorizationArgs{...}
+type PartnerAuthorizationInput interface {
+	pulumi.Input
+
+	ToPartnerAuthorizationOutput() PartnerAuthorizationOutput
+	ToPartnerAuthorizationOutputWithContext(context.Context) PartnerAuthorizationOutput
+}
+
+// The partner authorization details.
+type PartnerAuthorizationArgs struct {
+	// The list of authorized partners.
+	AuthorizedPartnersList PartnerArrayInput `pulumi:"authorizedPartnersList"`
+	// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+	// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+	DefaultMaximumExpirationTimeInDays pulumi.IntPtrInput `pulumi:"defaultMaximumExpirationTimeInDays"`
+}
+
+func (PartnerAuthorizationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAuthorization)(nil)).Elem()
+}
+
+func (i PartnerAuthorizationArgs) ToPartnerAuthorizationOutput() PartnerAuthorizationOutput {
+	return i.ToPartnerAuthorizationOutputWithContext(context.Background())
+}
+
+func (i PartnerAuthorizationArgs) ToPartnerAuthorizationOutputWithContext(ctx context.Context) PartnerAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAuthorizationOutput)
+}
+
+func (i PartnerAuthorizationArgs) ToPartnerAuthorizationPtrOutput() PartnerAuthorizationPtrOutput {
+	return i.ToPartnerAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i PartnerAuthorizationArgs) ToPartnerAuthorizationPtrOutputWithContext(ctx context.Context) PartnerAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAuthorizationOutput).ToPartnerAuthorizationPtrOutputWithContext(ctx)
+}
+
+// PartnerAuthorizationPtrInput is an input type that accepts PartnerAuthorizationArgs, PartnerAuthorizationPtr and PartnerAuthorizationPtrOutput values.
+// You can construct a concrete instance of `PartnerAuthorizationPtrInput` via:
+//
+//          PartnerAuthorizationArgs{...}
+//
+//  or:
+//
+//          nil
+type PartnerAuthorizationPtrInput interface {
+	pulumi.Input
+
+	ToPartnerAuthorizationPtrOutput() PartnerAuthorizationPtrOutput
+	ToPartnerAuthorizationPtrOutputWithContext(context.Context) PartnerAuthorizationPtrOutput
+}
+
+type partnerAuthorizationPtrType PartnerAuthorizationArgs
+
+func PartnerAuthorizationPtr(v *PartnerAuthorizationArgs) PartnerAuthorizationPtrInput {
+	return (*partnerAuthorizationPtrType)(v)
+}
+
+func (*partnerAuthorizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAuthorization)(nil)).Elem()
+}
+
+func (i *partnerAuthorizationPtrType) ToPartnerAuthorizationPtrOutput() PartnerAuthorizationPtrOutput {
+	return i.ToPartnerAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i *partnerAuthorizationPtrType) ToPartnerAuthorizationPtrOutputWithContext(ctx context.Context) PartnerAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAuthorizationPtrOutput)
+}
+
+// The partner authorization details.
+type PartnerAuthorizationOutput struct{ *pulumi.OutputState }
+
+func (PartnerAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAuthorization)(nil)).Elem()
+}
+
+func (o PartnerAuthorizationOutput) ToPartnerAuthorizationOutput() PartnerAuthorizationOutput {
+	return o
+}
+
+func (o PartnerAuthorizationOutput) ToPartnerAuthorizationOutputWithContext(ctx context.Context) PartnerAuthorizationOutput {
+	return o
+}
+
+func (o PartnerAuthorizationOutput) ToPartnerAuthorizationPtrOutput() PartnerAuthorizationPtrOutput {
+	return o.ToPartnerAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAuthorizationOutput) ToPartnerAuthorizationPtrOutputWithContext(ctx context.Context) PartnerAuthorizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAuthorization) *PartnerAuthorization {
+		return &v
+	}).(PartnerAuthorizationPtrOutput)
+}
+
+// The list of authorized partners.
+func (o PartnerAuthorizationOutput) AuthorizedPartnersList() PartnerArrayOutput {
+	return o.ApplyT(func(v PartnerAuthorization) []Partner { return v.AuthorizedPartnersList }).(PartnerArrayOutput)
+}
+
+// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+func (o PartnerAuthorizationOutput) DefaultMaximumExpirationTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartnerAuthorization) *int { return v.DefaultMaximumExpirationTimeInDays }).(pulumi.IntPtrOutput)
+}
+
+type PartnerAuthorizationPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAuthorizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAuthorization)(nil)).Elem()
+}
+
+func (o PartnerAuthorizationPtrOutput) ToPartnerAuthorizationPtrOutput() PartnerAuthorizationPtrOutput {
+	return o
+}
+
+func (o PartnerAuthorizationPtrOutput) ToPartnerAuthorizationPtrOutputWithContext(ctx context.Context) PartnerAuthorizationPtrOutput {
+	return o
+}
+
+func (o PartnerAuthorizationPtrOutput) Elem() PartnerAuthorizationOutput {
+	return o.ApplyT(func(v *PartnerAuthorization) PartnerAuthorization {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAuthorization
+		return ret
+	}).(PartnerAuthorizationOutput)
+}
+
+// The list of authorized partners.
+func (o PartnerAuthorizationPtrOutput) AuthorizedPartnersList() PartnerArrayOutput {
+	return o.ApplyT(func(v *PartnerAuthorization) []Partner {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizedPartnersList
+	}).(PartnerArrayOutput)
+}
+
+// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+func (o PartnerAuthorizationPtrOutput) DefaultMaximumExpirationTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartnerAuthorization) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultMaximumExpirationTimeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The partner authorization details.
+type PartnerAuthorizationResponse struct {
+	// The list of authorized partners.
+	AuthorizedPartnersList []PartnerResponse `pulumi:"authorizedPartnersList"`
+	// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+	// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+	DefaultMaximumExpirationTimeInDays *int `pulumi:"defaultMaximumExpirationTimeInDays"`
+}
+
+// The partner authorization details.
+type PartnerAuthorizationResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerAuthorizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAuthorizationResponse)(nil)).Elem()
+}
+
+func (o PartnerAuthorizationResponseOutput) ToPartnerAuthorizationResponseOutput() PartnerAuthorizationResponseOutput {
+	return o
+}
+
+func (o PartnerAuthorizationResponseOutput) ToPartnerAuthorizationResponseOutputWithContext(ctx context.Context) PartnerAuthorizationResponseOutput {
+	return o
+}
+
+// The list of authorized partners.
+func (o PartnerAuthorizationResponseOutput) AuthorizedPartnersList() PartnerResponseArrayOutput {
+	return o.ApplyT(func(v PartnerAuthorizationResponse) []PartnerResponse { return v.AuthorizedPartnersList }).(PartnerResponseArrayOutput)
+}
+
+// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+func (o PartnerAuthorizationResponseOutput) DefaultMaximumExpirationTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PartnerAuthorizationResponse) *int { return v.DefaultMaximumExpirationTimeInDays }).(pulumi.IntPtrOutput)
+}
+
+type PartnerAuthorizationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAuthorizationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAuthorizationResponse)(nil)).Elem()
+}
+
+func (o PartnerAuthorizationResponsePtrOutput) ToPartnerAuthorizationResponsePtrOutput() PartnerAuthorizationResponsePtrOutput {
+	return o
+}
+
+func (o PartnerAuthorizationResponsePtrOutput) ToPartnerAuthorizationResponsePtrOutputWithContext(ctx context.Context) PartnerAuthorizationResponsePtrOutput {
+	return o
+}
+
+func (o PartnerAuthorizationResponsePtrOutput) Elem() PartnerAuthorizationResponseOutput {
+	return o.ApplyT(func(v *PartnerAuthorizationResponse) PartnerAuthorizationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAuthorizationResponse
+		return ret
+	}).(PartnerAuthorizationResponseOutput)
+}
+
+// The list of authorized partners.
+func (o PartnerAuthorizationResponsePtrOutput) AuthorizedPartnersList() PartnerResponseArrayOutput {
+	return o.ApplyT(func(v *PartnerAuthorizationResponse) []PartnerResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizedPartnersList
+	}).(PartnerResponseArrayOutput)
+}
+
+// Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is
+// not specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.
+func (o PartnerAuthorizationResponsePtrOutput) DefaultMaximumExpirationTimeInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PartnerAuthorizationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultMaximumExpirationTimeInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type PartnerEventSubscriptionDestination struct {
+	// Type of the endpoint for the event subscription destination.
+	// Expected value is 'PartnerDestination'.
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+type PartnerEventSubscriptionDestinationResponse struct {
+	// Type of the endpoint for the event subscription destination.
+	// Expected value is 'PartnerDestination'.
+	EndpointType string `pulumi:"endpointType"`
+	// The Azure Resource Id that represents the endpoint of a Partner Destination of an event subscription.
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Information about the partner.
+type PartnerResponse struct {
+	// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+	// context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+	// If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+	AuthorizationExpirationTimeInUtc *string `pulumi:"authorizationExpirationTimeInUtc"`
+	// The partner name.
+	PartnerName *string `pulumi:"partnerName"`
+	// The immutableId of the corresponding partner registration.
+	PartnerRegistrationImmutableId *string `pulumi:"partnerRegistrationImmutableId"`
+}
+
+// Information about the partner.
+type PartnerResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerResponse)(nil)).Elem()
+}
+
+func (o PartnerResponseOutput) ToPartnerResponseOutput() PartnerResponseOutput {
+	return o
+}
+
+func (o PartnerResponseOutput) ToPartnerResponseOutputWithContext(ctx context.Context) PartnerResponseOutput {
+	return o
+}
+
+// Expiration time of the partner authorization. If this timer expires, any request from this partner to create, update or delete resources in subscriber's
+// context will fail. If specified, the allowed values are between 1 to the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration.
+// If not specified, the default value will be the value of defaultMaximumExpirationTimeInDays specified in PartnerConfiguration or 7 if this value is not specified.
+func (o PartnerResponseOutput) AuthorizationExpirationTimeInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerResponse) *string { return v.AuthorizationExpirationTimeInUtc }).(pulumi.StringPtrOutput)
+}
+
+// The partner name.
+func (o PartnerResponseOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerResponse) *string { return v.PartnerName }).(pulumi.StringPtrOutput)
+}
+
+// The immutableId of the corresponding partner registration.
+func (o PartnerResponseOutput) PartnerRegistrationImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerResponse) *string { return v.PartnerRegistrationImmutableId }).(pulumi.StringPtrOutput)
+}
+
+type PartnerResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PartnerResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PartnerResponse)(nil)).Elem()
+}
+
+func (o PartnerResponseArrayOutput) ToPartnerResponseArrayOutput() PartnerResponseArrayOutput {
+	return o
+}
+
+func (o PartnerResponseArrayOutput) ToPartnerResponseArrayOutputWithContext(ctx context.Context) PartnerResponseArrayOutput {
+	return o
+}
+
+func (o PartnerResponseArrayOutput) Index(i pulumi.IntInput) PartnerResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PartnerResponse {
+		return vs[0].([]PartnerResponse)[vs[1].(int)]
+	}).(PartnerResponseOutput)
+}
+
+// Properties of the corresponding partner topic of a Channel.
+type PartnerTopicInfo struct {
+	// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+	// subscriber to view different types of events that are published.
+	EventTypeInfo *EventTypeInfo `pulumi:"eventTypeInfo"`
+	// Name of the partner topic associated with the channel.
+	Name *string `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The source information is provided by the publisher to determine the scope or context from which the events
+	// are originating. This information can be used by the subscriber during the approval process of the
+	// created partner topic.
+	Source *string `pulumi:"source"`
+}
+
+// PartnerTopicInfoInput is an input type that accepts PartnerTopicInfoArgs and PartnerTopicInfoOutput values.
+// You can construct a concrete instance of `PartnerTopicInfoInput` via:
+//
+//          PartnerTopicInfoArgs{...}
+type PartnerTopicInfoInput interface {
+	pulumi.Input
+
+	ToPartnerTopicInfoOutput() PartnerTopicInfoOutput
+	ToPartnerTopicInfoOutputWithContext(context.Context) PartnerTopicInfoOutput
+}
+
+// Properties of the corresponding partner topic of a Channel.
+type PartnerTopicInfoArgs struct {
+	// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId pulumi.StringPtrInput `pulumi:"azureSubscriptionId"`
+	// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+	// subscriber to view different types of events that are published.
+	EventTypeInfo EventTypeInfoPtrInput `pulumi:"eventTypeInfo"`
+	// Name of the partner topic associated with the channel.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// The source information is provided by the publisher to determine the scope or context from which the events
+	// are originating. This information can be used by the subscriber during the approval process of the
+	// created partner topic.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+}
+
+func (PartnerTopicInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicInfo)(nil)).Elem()
+}
+
+func (i PartnerTopicInfoArgs) ToPartnerTopicInfoOutput() PartnerTopicInfoOutput {
+	return i.ToPartnerTopicInfoOutputWithContext(context.Background())
+}
+
+func (i PartnerTopicInfoArgs) ToPartnerTopicInfoOutputWithContext(ctx context.Context) PartnerTopicInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicInfoOutput)
+}
+
+func (i PartnerTopicInfoArgs) ToPartnerTopicInfoPtrOutput() PartnerTopicInfoPtrOutput {
+	return i.ToPartnerTopicInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PartnerTopicInfoArgs) ToPartnerTopicInfoPtrOutputWithContext(ctx context.Context) PartnerTopicInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicInfoOutput).ToPartnerTopicInfoPtrOutputWithContext(ctx)
+}
+
+// PartnerTopicInfoPtrInput is an input type that accepts PartnerTopicInfoArgs, PartnerTopicInfoPtr and PartnerTopicInfoPtrOutput values.
+// You can construct a concrete instance of `PartnerTopicInfoPtrInput` via:
+//
+//          PartnerTopicInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PartnerTopicInfoPtrInput interface {
+	pulumi.Input
+
+	ToPartnerTopicInfoPtrOutput() PartnerTopicInfoPtrOutput
+	ToPartnerTopicInfoPtrOutputWithContext(context.Context) PartnerTopicInfoPtrOutput
+}
+
+type partnerTopicInfoPtrType PartnerTopicInfoArgs
+
+func PartnerTopicInfoPtr(v *PartnerTopicInfoArgs) PartnerTopicInfoPtrInput {
+	return (*partnerTopicInfoPtrType)(v)
+}
+
+func (*partnerTopicInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerTopicInfo)(nil)).Elem()
+}
+
+func (i *partnerTopicInfoPtrType) ToPartnerTopicInfoPtrOutput() PartnerTopicInfoPtrOutput {
+	return i.ToPartnerTopicInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *partnerTopicInfoPtrType) ToPartnerTopicInfoPtrOutputWithContext(ctx context.Context) PartnerTopicInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerTopicInfoPtrOutput)
+}
+
+// Properties of the corresponding partner topic of a Channel.
+type PartnerTopicInfoOutput struct{ *pulumi.OutputState }
+
+func (PartnerTopicInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicInfo)(nil)).Elem()
+}
+
+func (o PartnerTopicInfoOutput) ToPartnerTopicInfoOutput() PartnerTopicInfoOutput {
+	return o
+}
+
+func (o PartnerTopicInfoOutput) ToPartnerTopicInfoOutputWithContext(ctx context.Context) PartnerTopicInfoOutput {
+	return o
+}
+
+func (o PartnerTopicInfoOutput) ToPartnerTopicInfoPtrOutput() PartnerTopicInfoPtrOutput {
+	return o.ToPartnerTopicInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerTopicInfoOutput) ToPartnerTopicInfoPtrOutputWithContext(ctx context.Context) PartnerTopicInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerTopicInfo) *PartnerTopicInfo {
+		return &v
+	}).(PartnerTopicInfoPtrOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+// created under this Azure subscription.
+func (o PartnerTopicInfoOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfo) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+// subscriber to view different types of events that are published.
+func (o PartnerTopicInfoOutput) EventTypeInfo() EventTypeInfoPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfo) *EventTypeInfo { return v.EventTypeInfo }).(EventTypeInfoPtrOutput)
+}
+
+// Name of the partner topic associated with the channel.
+func (o PartnerTopicInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+// created under this resource group.
+func (o PartnerTopicInfoOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfo) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The source information is provided by the publisher to determine the scope or context from which the events
+// are originating. This information can be used by the subscriber during the approval process of the
+// created partner topic.
+func (o PartnerTopicInfoOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfo) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type PartnerTopicInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerTopicInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerTopicInfo)(nil)).Elem()
+}
+
+func (o PartnerTopicInfoPtrOutput) ToPartnerTopicInfoPtrOutput() PartnerTopicInfoPtrOutput {
+	return o
+}
+
+func (o PartnerTopicInfoPtrOutput) ToPartnerTopicInfoPtrOutputWithContext(ctx context.Context) PartnerTopicInfoPtrOutput {
+	return o
+}
+
+func (o PartnerTopicInfoPtrOutput) Elem() PartnerTopicInfoOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) PartnerTopicInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerTopicInfo
+		return ret
+	}).(PartnerTopicInfoOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+// created under this Azure subscription.
+func (o PartnerTopicInfoPtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+// subscriber to view different types of events that are published.
+func (o PartnerTopicInfoPtrOutput) EventTypeInfo() EventTypeInfoPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) *EventTypeInfo {
+		if v == nil {
+			return nil
+		}
+		return v.EventTypeInfo
+	}).(EventTypeInfoPtrOutput)
+}
+
+// Name of the partner topic associated with the channel.
+func (o PartnerTopicInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+// created under this resource group.
+func (o PartnerTopicInfoPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source information is provided by the publisher to determine the scope or context from which the events
+// are originating. This information can be used by the subscriber during the approval process of the
+// created partner topic.
+func (o PartnerTopicInfoPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties of the corresponding partner topic of a Channel.
+type PartnerTopicInfoResponse struct {
+	// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+	// subscriber to view different types of events that are published.
+	EventTypeInfo *EventTypeInfoResponse `pulumi:"eventTypeInfo"`
+	// Name of the partner topic associated with the channel.
+	Name *string `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The source information is provided by the publisher to determine the scope or context from which the events
+	// are originating. This information can be used by the subscriber during the approval process of the
+	// created partner topic.
+	Source *string `pulumi:"source"`
+}
+
+// Properties of the corresponding partner topic of a Channel.
+type PartnerTopicInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (PartnerTopicInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerTopicInfoResponse)(nil)).Elem()
+}
+
+func (o PartnerTopicInfoResponseOutput) ToPartnerTopicInfoResponseOutput() PartnerTopicInfoResponseOutput {
+	return o
+}
+
+func (o PartnerTopicInfoResponseOutput) ToPartnerTopicInfoResponseOutputWithContext(ctx context.Context) PartnerTopicInfoResponseOutput {
+	return o
+}
+
+// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+// created under this Azure subscription.
+func (o PartnerTopicInfoResponseOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfoResponse) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+// subscriber to view different types of events that are published.
+func (o PartnerTopicInfoResponseOutput) EventTypeInfo() EventTypeInfoResponsePtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfoResponse) *EventTypeInfoResponse { return v.EventTypeInfo }).(EventTypeInfoResponsePtrOutput)
+}
+
+// Name of the partner topic associated with the channel.
+func (o PartnerTopicInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+// created under this resource group.
+func (o PartnerTopicInfoResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfoResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The source information is provided by the publisher to determine the scope or context from which the events
+// are originating. This information can be used by the subscriber during the approval process of the
+// created partner topic.
+func (o PartnerTopicInfoResponseOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartnerTopicInfoResponse) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+type PartnerTopicInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerTopicInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerTopicInfoResponse)(nil)).Elem()
+}
+
+func (o PartnerTopicInfoResponsePtrOutput) ToPartnerTopicInfoResponsePtrOutput() PartnerTopicInfoResponsePtrOutput {
+	return o
+}
+
+func (o PartnerTopicInfoResponsePtrOutput) ToPartnerTopicInfoResponsePtrOutputWithContext(ctx context.Context) PartnerTopicInfoResponsePtrOutput {
+	return o
+}
+
+func (o PartnerTopicInfoResponsePtrOutput) Elem() PartnerTopicInfoResponseOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) PartnerTopicInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerTopicInfoResponse
+		return ret
+	}).(PartnerTopicInfoResponseOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner topic associated with the channel will be
+// created under this Azure subscription.
+func (o PartnerTopicInfoResponsePtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Type Information for the partner topic. This information is provided by the publisher and can be used by the
+// subscriber to view different types of events that are published.
+func (o PartnerTopicInfoResponsePtrOutput) EventTypeInfo() EventTypeInfoResponsePtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) *EventTypeInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EventTypeInfo
+	}).(EventTypeInfoResponsePtrOutput)
+}
+
+// Name of the partner topic associated with the channel.
+func (o PartnerTopicInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner topic associated with the channel will be
+// created under this resource group.
+func (o PartnerTopicInfoResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source information is provided by the publisher to determine the scope or context from which the events
+// are originating. This information can be used by the subscriber during the approval process of the
+// created partner topic.
+func (o PartnerTopicInfoResponsePtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopicInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
 // PrivateEndpoint information.
 type PrivateEndpoint struct {
 	// The ARM identifier for Private Endpoint.
@@ -4145,12 +5763,207 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The change history of the resource move.
+type ResourceMoveChangeHistory struct {
+	// Azure subscription ID of the resource.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// UTC timestamp of when the resource was changed.
+	ChangedTimeUtc *string `pulumi:"changedTimeUtc"`
+	// Azure Resource Group of the resource.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+}
+
+// ResourceMoveChangeHistoryInput is an input type that accepts ResourceMoveChangeHistoryArgs and ResourceMoveChangeHistoryOutput values.
+// You can construct a concrete instance of `ResourceMoveChangeHistoryInput` via:
+//
+//          ResourceMoveChangeHistoryArgs{...}
+type ResourceMoveChangeHistoryInput interface {
+	pulumi.Input
+
+	ToResourceMoveChangeHistoryOutput() ResourceMoveChangeHistoryOutput
+	ToResourceMoveChangeHistoryOutputWithContext(context.Context) ResourceMoveChangeHistoryOutput
+}
+
+// The change history of the resource move.
+type ResourceMoveChangeHistoryArgs struct {
+	// Azure subscription ID of the resource.
+	AzureSubscriptionId pulumi.StringPtrInput `pulumi:"azureSubscriptionId"`
+	// UTC timestamp of when the resource was changed.
+	ChangedTimeUtc pulumi.StringPtrInput `pulumi:"changedTimeUtc"`
+	// Azure Resource Group of the resource.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+}
+
+func (ResourceMoveChangeHistoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveChangeHistory)(nil)).Elem()
+}
+
+func (i ResourceMoveChangeHistoryArgs) ToResourceMoveChangeHistoryOutput() ResourceMoveChangeHistoryOutput {
+	return i.ToResourceMoveChangeHistoryOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveChangeHistoryArgs) ToResourceMoveChangeHistoryOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveChangeHistoryOutput)
+}
+
+// ResourceMoveChangeHistoryArrayInput is an input type that accepts ResourceMoveChangeHistoryArray and ResourceMoveChangeHistoryArrayOutput values.
+// You can construct a concrete instance of `ResourceMoveChangeHistoryArrayInput` via:
+//
+//          ResourceMoveChangeHistoryArray{ ResourceMoveChangeHistoryArgs{...} }
+type ResourceMoveChangeHistoryArrayInput interface {
+	pulumi.Input
+
+	ToResourceMoveChangeHistoryArrayOutput() ResourceMoveChangeHistoryArrayOutput
+	ToResourceMoveChangeHistoryArrayOutputWithContext(context.Context) ResourceMoveChangeHistoryArrayOutput
+}
+
+type ResourceMoveChangeHistoryArray []ResourceMoveChangeHistoryInput
+
+func (ResourceMoveChangeHistoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceMoveChangeHistory)(nil)).Elem()
+}
+
+func (i ResourceMoveChangeHistoryArray) ToResourceMoveChangeHistoryArrayOutput() ResourceMoveChangeHistoryArrayOutput {
+	return i.ToResourceMoveChangeHistoryArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceMoveChangeHistoryArray) ToResourceMoveChangeHistoryArrayOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceMoveChangeHistoryArrayOutput)
+}
+
+// The change history of the resource move.
+type ResourceMoveChangeHistoryOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveChangeHistoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveChangeHistory)(nil)).Elem()
+}
+
+func (o ResourceMoveChangeHistoryOutput) ToResourceMoveChangeHistoryOutput() ResourceMoveChangeHistoryOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryOutput) ToResourceMoveChangeHistoryOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryOutput {
+	return o
+}
+
+// Azure subscription ID of the resource.
+func (o ResourceMoveChangeHistoryOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistory) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// UTC timestamp of when the resource was changed.
+func (o ResourceMoveChangeHistoryOutput) ChangedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistory) *string { return v.ChangedTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the resource.
+func (o ResourceMoveChangeHistoryOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistory) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ResourceMoveChangeHistoryArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveChangeHistoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceMoveChangeHistory)(nil)).Elem()
+}
+
+func (o ResourceMoveChangeHistoryArrayOutput) ToResourceMoveChangeHistoryArrayOutput() ResourceMoveChangeHistoryArrayOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryArrayOutput) ToResourceMoveChangeHistoryArrayOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryArrayOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryArrayOutput) Index(i pulumi.IntInput) ResourceMoveChangeHistoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceMoveChangeHistory {
+		return vs[0].([]ResourceMoveChangeHistory)[vs[1].(int)]
+	}).(ResourceMoveChangeHistoryOutput)
+}
+
+// The change history of the resource move.
+type ResourceMoveChangeHistoryResponse struct {
+	// Azure subscription ID of the resource.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// UTC timestamp of when the resource was changed.
+	ChangedTimeUtc *string `pulumi:"changedTimeUtc"`
+	// Azure Resource Group of the resource.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+}
+
+// The change history of the resource move.
+type ResourceMoveChangeHistoryResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveChangeHistoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceMoveChangeHistoryResponse)(nil)).Elem()
+}
+
+func (o ResourceMoveChangeHistoryResponseOutput) ToResourceMoveChangeHistoryResponseOutput() ResourceMoveChangeHistoryResponseOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryResponseOutput) ToResourceMoveChangeHistoryResponseOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryResponseOutput {
+	return o
+}
+
+// Azure subscription ID of the resource.
+func (o ResourceMoveChangeHistoryResponseOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistoryResponse) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// UTC timestamp of when the resource was changed.
+func (o ResourceMoveChangeHistoryResponseOutput) ChangedTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistoryResponse) *string { return v.ChangedTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the resource.
+func (o ResourceMoveChangeHistoryResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceMoveChangeHistoryResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+type ResourceMoveChangeHistoryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceMoveChangeHistoryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceMoveChangeHistoryResponse)(nil)).Elem()
+}
+
+func (o ResourceMoveChangeHistoryResponseArrayOutput) ToResourceMoveChangeHistoryResponseArrayOutput() ResourceMoveChangeHistoryResponseArrayOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryResponseArrayOutput) ToResourceMoveChangeHistoryResponseArrayOutputWithContext(ctx context.Context) ResourceMoveChangeHistoryResponseArrayOutput {
+	return o
+}
+
+func (o ResourceMoveChangeHistoryResponseArrayOutput) Index(i pulumi.IntInput) ResourceMoveChangeHistoryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceMoveChangeHistoryResponse {
+		return vs[0].([]ResourceMoveChangeHistoryResponse)[vs[1].(int)]
+	}).(ResourceMoveChangeHistoryResponseOutput)
+}
+
 // Information about the retry policy for an event subscription.
 type RetryPolicy struct {
 	// Time To Live (in minutes) for events.
 	EventTimeToLiveInMinutes *int `pulumi:"eventTimeToLiveInMinutes"`
 	// Maximum number of delivery retry attempts for events.
 	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
+}
+
+// Defaults sets the appropriate defaults for RetryPolicy
+func (val *RetryPolicy) Defaults() *RetryPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventTimeToLiveInMinutes) {
+		eventTimeToLiveInMinutes_ := 1440
+		tmp.EventTimeToLiveInMinutes = &eventTimeToLiveInMinutes_
+	}
+	if isZero(tmp.MaxDeliveryAttempts) {
+		maxDeliveryAttempts_ := 30
+		tmp.MaxDeliveryAttempts = &maxDeliveryAttempts_
+	}
+	return &tmp
 }
 
 // RetryPolicyInput is an input type that accepts RetryPolicyArgs and RetryPolicyOutput values.
@@ -4312,6 +6125,23 @@ type RetryPolicyResponse struct {
 	MaxDeliveryAttempts *int `pulumi:"maxDeliveryAttempts"`
 }
 
+// Defaults sets the appropriate defaults for RetryPolicyResponse
+func (val *RetryPolicyResponse) Defaults() *RetryPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventTimeToLiveInMinutes) {
+		eventTimeToLiveInMinutes_ := 1440
+		tmp.EventTimeToLiveInMinutes = &eventTimeToLiveInMinutes_
+	}
+	if isZero(tmp.MaxDeliveryAttempts) {
+		maxDeliveryAttempts_ := 30
+		tmp.MaxDeliveryAttempts = &maxDeliveryAttempts_
+	}
+	return &tmp
+}
+
 // Information about the retry policy for an event subscription.
 type RetryPolicyResponseOutput struct{ *pulumi.OutputState }
 
@@ -4383,6 +6213,8 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 
 // Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestination struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
 	EndpointType string `pulumi:"endpointType"`
@@ -4392,6 +6224,8 @@ type ServiceBusQueueEventSubscriptionDestination struct {
 
 // Information about the service bus destination for an event subscription.
 type ServiceBusQueueEventSubscriptionDestinationResponse struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusQueue'.
 	EndpointType string `pulumi:"endpointType"`
@@ -4401,6 +6235,8 @@ type ServiceBusQueueEventSubscriptionDestinationResponse struct {
 
 // Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestination struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
 	EndpointType string `pulumi:"endpointType"`
@@ -4410,11 +6246,39 @@ type ServiceBusTopicEventSubscriptionDestination struct {
 
 // Information about the service bus topic destination for an event subscription.
 type ServiceBusTopicEventSubscriptionDestinationResponse struct {
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'ServiceBusTopic'.
 	EndpointType string `pulumi:"endpointType"`
 	// The Azure Resource Id that represents the endpoint of the Service Bus Topic destination of an event subscription.
 	ResourceId *string `pulumi:"resourceId"`
+}
+
+// Static delivery attribute mapping details.
+type StaticDeliveryAttributeMapping struct {
+	// Boolean flag to tell if the attribute contains sensitive information .
+	IsSecret *bool `pulumi:"isSecret"`
+	// Name of the delivery attribute or header.
+	Name *string `pulumi:"name"`
+	// Type of the delivery attribute or header name.
+	// Expected value is 'Static'.
+	Type string `pulumi:"type"`
+	// Value of the delivery attribute.
+	Value *string `pulumi:"value"`
+}
+
+// Defaults sets the appropriate defaults for StaticDeliveryAttributeMapping
+func (val *StaticDeliveryAttributeMapping) Defaults() *StaticDeliveryAttributeMapping {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
 }
 
 // Static delivery attribute mapping details.
@@ -4727,6 +6591,8 @@ type StorageQueueEventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
 	EndpointType string `pulumi:"endpointType"`
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds *float64 `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// The name of the Storage queue under a storage account that is the destination of an event subscription.
 	QueueName *string `pulumi:"queueName"`
 	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
@@ -4738,6 +6604,8 @@ type StorageQueueEventSubscriptionDestinationResponse struct {
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'StorageQueue'.
 	EndpointType string `pulumi:"endpointType"`
+	// Storage queue message time to live in seconds.
+	QueueMessageTimeToLiveInSeconds *float64 `pulumi:"queueMessageTimeToLiveInSeconds"`
 	// The name of the Storage queue under a storage account that is the destination of an event subscription.
 	QueueName *string `pulumi:"queueName"`
 	// The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
@@ -5149,6 +7017,8 @@ type WebHookEventSubscriptionDestination struct {
 	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
 	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryTenantId *string `pulumi:"azureActiveDirectoryTenantId"`
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// Type of the endpoint for the event subscription destination.
 	// Expected value is 'WebHook'.
 	EndpointType string `pulumi:"endpointType"`
@@ -5183,6 +7053,8 @@ type WebHookEventSubscriptionDestinationResponse struct {
 	AzureActiveDirectoryApplicationIdOrUri *string `pulumi:"azureActiveDirectoryApplicationIdOrUri"`
 	// The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
 	AzureActiveDirectoryTenantId *string `pulumi:"azureActiveDirectoryTenantId"`
+	// Delivery attribute details.
+	DeliveryAttributeMappings []interface{} `pulumi:"deliveryAttributeMappings"`
 	// The base URL that represents the endpoint of the destination of an event subscription.
 	EndpointBaseUrl string `pulumi:"endpointBaseUrl"`
 	// Type of the endpoint for the event subscription destination.
@@ -5212,7 +7084,555 @@ func (val *WebHookEventSubscriptionDestinationResponse) Defaults() *WebHookEvent
 	}
 	return &tmp
 }
+
+// Information about the WebHook of the partner destination.
+type WebhookPartnerDestinationInfo struct {
+	// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Partner client authentication
+	ClientAuthentication *AzureADPartnerClientAuthentication `pulumi:"clientAuthentication"`
+	// The base URL that represents the endpoint of the partner destination.
+	EndpointBaseUrl *string `pulumi:"endpointBaseUrl"`
+	// Additional context of the partner destination endpoint.
+	EndpointServiceContext *string `pulumi:"endpointServiceContext"`
+	// Type of the endpoint for the partner destination
+	// Expected value is 'WebHook'.
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the partner destination.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+	// Name of the partner destination associated with the channel.
+	Name *string `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Change history of the resource move.
+	ResourceMoveChangeHistory []ResourceMoveChangeHistory `pulumi:"resourceMoveChangeHistory"`
+}
+
+// Defaults sets the appropriate defaults for WebhookPartnerDestinationInfo
+func (val *WebhookPartnerDestinationInfo) Defaults() *WebhookPartnerDestinationInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ClientAuthentication = tmp.ClientAuthentication.Defaults()
+
+	if isZero(tmp.EndpointType) {
+		tmp.EndpointType = "WebHook"
+	}
+	return &tmp
+}
+
+// WebhookPartnerDestinationInfoInput is an input type that accepts WebhookPartnerDestinationInfoArgs and WebhookPartnerDestinationInfoOutput values.
+// You can construct a concrete instance of `WebhookPartnerDestinationInfoInput` via:
+//
+//          WebhookPartnerDestinationInfoArgs{...}
+type WebhookPartnerDestinationInfoInput interface {
+	pulumi.Input
+
+	ToWebhookPartnerDestinationInfoOutput() WebhookPartnerDestinationInfoOutput
+	ToWebhookPartnerDestinationInfoOutputWithContext(context.Context) WebhookPartnerDestinationInfoOutput
+}
+
+// Information about the WebHook of the partner destination.
+type WebhookPartnerDestinationInfoArgs struct {
+	// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId pulumi.StringPtrInput `pulumi:"azureSubscriptionId"`
+	// Partner client authentication
+	ClientAuthentication AzureADPartnerClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
+	// The base URL that represents the endpoint of the partner destination.
+	EndpointBaseUrl pulumi.StringPtrInput `pulumi:"endpointBaseUrl"`
+	// Additional context of the partner destination endpoint.
+	EndpointServiceContext pulumi.StringPtrInput `pulumi:"endpointServiceContext"`
+	// Type of the endpoint for the partner destination
+	// Expected value is 'WebHook'.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the partner destination.
+	EndpointUrl pulumi.StringPtrInput `pulumi:"endpointUrl"`
+	// Name of the partner destination associated with the channel.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	// Change history of the resource move.
+	ResourceMoveChangeHistory ResourceMoveChangeHistoryArrayInput `pulumi:"resourceMoveChangeHistory"`
+}
+
+func (WebhookPartnerDestinationInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookPartnerDestinationInfo)(nil)).Elem()
+}
+
+func (i WebhookPartnerDestinationInfoArgs) ToWebhookPartnerDestinationInfoOutput() WebhookPartnerDestinationInfoOutput {
+	return i.ToWebhookPartnerDestinationInfoOutputWithContext(context.Background())
+}
+
+func (i WebhookPartnerDestinationInfoArgs) ToWebhookPartnerDestinationInfoOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPartnerDestinationInfoOutput)
+}
+
+func (i WebhookPartnerDestinationInfoArgs) ToWebhookPartnerDestinationInfoPtrOutput() WebhookPartnerDestinationInfoPtrOutput {
+	return i.ToWebhookPartnerDestinationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i WebhookPartnerDestinationInfoArgs) ToWebhookPartnerDestinationInfoPtrOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPartnerDestinationInfoOutput).ToWebhookPartnerDestinationInfoPtrOutputWithContext(ctx)
+}
+
+// WebhookPartnerDestinationInfoPtrInput is an input type that accepts WebhookPartnerDestinationInfoArgs, WebhookPartnerDestinationInfoPtr and WebhookPartnerDestinationInfoPtrOutput values.
+// You can construct a concrete instance of `WebhookPartnerDestinationInfoPtrInput` via:
+//
+//          WebhookPartnerDestinationInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type WebhookPartnerDestinationInfoPtrInput interface {
+	pulumi.Input
+
+	ToWebhookPartnerDestinationInfoPtrOutput() WebhookPartnerDestinationInfoPtrOutput
+	ToWebhookPartnerDestinationInfoPtrOutputWithContext(context.Context) WebhookPartnerDestinationInfoPtrOutput
+}
+
+type webhookPartnerDestinationInfoPtrType WebhookPartnerDestinationInfoArgs
+
+func WebhookPartnerDestinationInfoPtr(v *WebhookPartnerDestinationInfoArgs) WebhookPartnerDestinationInfoPtrInput {
+	return (*webhookPartnerDestinationInfoPtrType)(v)
+}
+
+func (*webhookPartnerDestinationInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookPartnerDestinationInfo)(nil)).Elem()
+}
+
+func (i *webhookPartnerDestinationInfoPtrType) ToWebhookPartnerDestinationInfoPtrOutput() WebhookPartnerDestinationInfoPtrOutput {
+	return i.ToWebhookPartnerDestinationInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *webhookPartnerDestinationInfoPtrType) ToWebhookPartnerDestinationInfoPtrOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebhookPartnerDestinationInfoPtrOutput)
+}
+
+// Information about the WebHook of the partner destination.
+type WebhookPartnerDestinationInfoOutput struct{ *pulumi.OutputState }
+
+func (WebhookPartnerDestinationInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookPartnerDestinationInfo)(nil)).Elem()
+}
+
+func (o WebhookPartnerDestinationInfoOutput) ToWebhookPartnerDestinationInfoOutput() WebhookPartnerDestinationInfoOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoOutput) ToWebhookPartnerDestinationInfoOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoOutput) ToWebhookPartnerDestinationInfoPtrOutput() WebhookPartnerDestinationInfoPtrOutput {
+	return o.ToWebhookPartnerDestinationInfoPtrOutputWithContext(context.Background())
+}
+
+func (o WebhookPartnerDestinationInfoOutput) ToWebhookPartnerDestinationInfoPtrOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookPartnerDestinationInfo) *WebhookPartnerDestinationInfo {
+		return &v
+	}).(WebhookPartnerDestinationInfoPtrOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+// created under this Azure subscription.
+func (o WebhookPartnerDestinationInfoOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Partner client authentication
+func (o WebhookPartnerDestinationInfoOutput) ClientAuthentication() AzureADPartnerClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *AzureADPartnerClientAuthentication {
+		return v.ClientAuthentication
+	}).(AzureADPartnerClientAuthenticationPtrOutput)
+}
+
+// The base URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.EndpointBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Additional context of the partner destination endpoint.
+func (o WebhookPartnerDestinationInfoOutput) EndpointServiceContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.EndpointServiceContext }).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the partner destination
+// Expected value is 'WebHook'.
+func (o WebhookPartnerDestinationInfoOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner destination associated with the channel.
+func (o WebhookPartnerDestinationInfoOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+// created under this resource group.
+func (o WebhookPartnerDestinationInfoOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Change history of the resource move.
+func (o WebhookPartnerDestinationInfoOutput) ResourceMoveChangeHistory() ResourceMoveChangeHistoryArrayOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfo) []ResourceMoveChangeHistory { return v.ResourceMoveChangeHistory }).(ResourceMoveChangeHistoryArrayOutput)
+}
+
+type WebhookPartnerDestinationInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookPartnerDestinationInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookPartnerDestinationInfo)(nil)).Elem()
+}
+
+func (o WebhookPartnerDestinationInfoPtrOutput) ToWebhookPartnerDestinationInfoPtrOutput() WebhookPartnerDestinationInfoPtrOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoPtrOutput) ToWebhookPartnerDestinationInfoPtrOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoPtrOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoPtrOutput) Elem() WebhookPartnerDestinationInfoOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) WebhookPartnerDestinationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookPartnerDestinationInfo
+		return ret
+	}).(WebhookPartnerDestinationInfoOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+// created under this Azure subscription.
+func (o WebhookPartnerDestinationInfoPtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Partner client authentication
+func (o WebhookPartnerDestinationInfoPtrOutput) ClientAuthentication() AzureADPartnerClientAuthenticationPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *AzureADPartnerClientAuthentication {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthentication
+	}).(AzureADPartnerClientAuthenticationPtrOutput)
+}
+
+// The base URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoPtrOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional context of the partner destination endpoint.
+func (o WebhookPartnerDestinationInfoPtrOutput) EndpointServiceContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointServiceContext
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the partner destination
+// Expected value is 'WebHook'.
+func (o WebhookPartnerDestinationInfoPtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoPtrOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner destination associated with the channel.
+func (o WebhookPartnerDestinationInfoPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+// created under this resource group.
+func (o WebhookPartnerDestinationInfoPtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Change history of the resource move.
+func (o WebhookPartnerDestinationInfoPtrOutput) ResourceMoveChangeHistory() ResourceMoveChangeHistoryArrayOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfo) []ResourceMoveChangeHistory {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceMoveChangeHistory
+	}).(ResourceMoveChangeHistoryArrayOutput)
+}
+
+// Information about the WebHook of the partner destination.
+type WebhookPartnerDestinationInfoResponse struct {
+	// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+	// created under this Azure subscription.
+	AzureSubscriptionId *string `pulumi:"azureSubscriptionId"`
+	// Partner client authentication
+	ClientAuthentication *AzureADPartnerClientAuthenticationResponse `pulumi:"clientAuthentication"`
+	// The base URL that represents the endpoint of the partner destination.
+	EndpointBaseUrl *string `pulumi:"endpointBaseUrl"`
+	// Additional context of the partner destination endpoint.
+	EndpointServiceContext *string `pulumi:"endpointServiceContext"`
+	// Type of the endpoint for the partner destination
+	// Expected value is 'WebHook'.
+	EndpointType string `pulumi:"endpointType"`
+	// The URL that represents the endpoint of the partner destination.
+	EndpointUrl *string `pulumi:"endpointUrl"`
+	// Name of the partner destination associated with the channel.
+	Name *string `pulumi:"name"`
+	// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+	// created under this resource group.
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Change history of the resource move.
+	ResourceMoveChangeHistory []ResourceMoveChangeHistoryResponse `pulumi:"resourceMoveChangeHistory"`
+}
+
+// Defaults sets the appropriate defaults for WebhookPartnerDestinationInfoResponse
+func (val *WebhookPartnerDestinationInfoResponse) Defaults() *WebhookPartnerDestinationInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ClientAuthentication = tmp.ClientAuthentication.Defaults()
+
+	if isZero(tmp.EndpointType) {
+		tmp.EndpointType = "WebHook"
+	}
+	return &tmp
+}
+
+// Information about the WebHook of the partner destination.
+type WebhookPartnerDestinationInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (WebhookPartnerDestinationInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebhookPartnerDestinationInfoResponse)(nil)).Elem()
+}
+
+func (o WebhookPartnerDestinationInfoResponseOutput) ToWebhookPartnerDestinationInfoResponseOutput() WebhookPartnerDestinationInfoResponseOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoResponseOutput) ToWebhookPartnerDestinationInfoResponseOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoResponseOutput {
+	return o
+}
+
+// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+// created under this Azure subscription.
+func (o WebhookPartnerDestinationInfoResponseOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.AzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Partner client authentication
+func (o WebhookPartnerDestinationInfoResponseOutput) ClientAuthentication() AzureADPartnerClientAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *AzureADPartnerClientAuthenticationResponse {
+		return v.ClientAuthentication
+	}).(AzureADPartnerClientAuthenticationResponsePtrOutput)
+}
+
+// The base URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoResponseOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.EndpointBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Additional context of the partner destination endpoint.
+func (o WebhookPartnerDestinationInfoResponseOutput) EndpointServiceContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.EndpointServiceContext }).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the partner destination
+// Expected value is 'WebHook'.
+func (o WebhookPartnerDestinationInfoResponseOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// The URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoResponseOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.EndpointUrl }).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner destination associated with the channel.
+func (o WebhookPartnerDestinationInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+// created under this resource group.
+func (o WebhookPartnerDestinationInfoResponseOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Change history of the resource move.
+func (o WebhookPartnerDestinationInfoResponseOutput) ResourceMoveChangeHistory() ResourceMoveChangeHistoryResponseArrayOutput {
+	return o.ApplyT(func(v WebhookPartnerDestinationInfoResponse) []ResourceMoveChangeHistoryResponse {
+		return v.ResourceMoveChangeHistory
+	}).(ResourceMoveChangeHistoryResponseArrayOutput)
+}
+
+type WebhookPartnerDestinationInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WebhookPartnerDestinationInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebhookPartnerDestinationInfoResponse)(nil)).Elem()
+}
+
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) ToWebhookPartnerDestinationInfoResponsePtrOutput() WebhookPartnerDestinationInfoResponsePtrOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) ToWebhookPartnerDestinationInfoResponsePtrOutputWithContext(ctx context.Context) WebhookPartnerDestinationInfoResponsePtrOutput {
+	return o
+}
+
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) Elem() WebhookPartnerDestinationInfoResponseOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) WebhookPartnerDestinationInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookPartnerDestinationInfoResponse
+		return ret
+	}).(WebhookPartnerDestinationInfoResponseOutput)
+}
+
+// Azure subscription ID of the subscriber. The partner destination associated with the channel will be
+// created under this Azure subscription.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) AzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AzureSubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Partner client authentication
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) ClientAuthentication() AzureADPartnerClientAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *AzureADPartnerClientAuthenticationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClientAuthentication
+	}).(AzureADPartnerClientAuthenticationResponsePtrOutput)
+}
+
+// The base URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointBaseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional context of the partner destination endpoint.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) EndpointServiceContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointServiceContext
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the endpoint for the partner destination
+// Expected value is 'WebHook'.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL that represents the endpoint of the partner destination.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) EndpointUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the partner destination associated with the channel.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group of the subscriber. The partner destination associated with the channel will be
+// created under this resource group.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) ResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Change history of the resource move.
+func (o WebhookPartnerDestinationInfoResponsePtrOutput) ResourceMoveChangeHistory() ResourceMoveChangeHistoryResponseArrayOutput {
+	return o.ApplyT(func(v *WebhookPartnerDestinationInfoResponse) []ResourceMoveChangeHistoryResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceMoveChangeHistory
+	}).(ResourceMoveChangeHistoryResponseArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AzureADPartnerClientAuthenticationOutput{})
+	pulumi.RegisterOutputType(AzureADPartnerClientAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(AzureADPartnerClientAuthenticationResponseOutput{})
+	pulumi.RegisterOutputType(AzureADPartnerClientAuthenticationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateOutput{})
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})
@@ -5245,6 +7665,10 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventTypeInfoOutput{})
+	pulumi.RegisterOutputType(EventTypeInfoPtrOutput{})
+	pulumi.RegisterOutputType(EventTypeInfoResponseOutput{})
+	pulumi.RegisterOutputType(EventTypeInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityInfoOutput{})
 	pulumi.RegisterOutputType(IdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(IdentityInfoResponseOutput{})
@@ -5253,6 +7677,10 @@ func init() {
 	pulumi.RegisterOutputType(InboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(InboundIpRuleResponseOutput{})
 	pulumi.RegisterOutputType(InboundIpRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(InlineEventPropertiesOutput{})
+	pulumi.RegisterOutputType(InlineEventPropertiesMapOutput{})
+	pulumi.RegisterOutputType(InlineEventPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(InlineEventPropertiesResponseMapOutput{})
 	pulumi.RegisterOutputType(JsonFieldOutput{})
 	pulumi.RegisterOutputType(JsonFieldPtrOutput{})
 	pulumi.RegisterOutputType(JsonFieldResponseOutput{})
@@ -5265,12 +7693,28 @@ func init() {
 	pulumi.RegisterOutputType(JsonInputSchemaMappingPtrOutput{})
 	pulumi.RegisterOutputType(JsonInputSchemaMappingResponseOutput{})
 	pulumi.RegisterOutputType(JsonInputSchemaMappingResponsePtrOutput{})
+	pulumi.RegisterOutputType(PartnerOutput{})
+	pulumi.RegisterOutputType(PartnerArrayOutput{})
+	pulumi.RegisterOutputType(PartnerAuthorizationOutput{})
+	pulumi.RegisterOutputType(PartnerAuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(PartnerAuthorizationResponseOutput{})
+	pulumi.RegisterOutputType(PartnerAuthorizationResponsePtrOutput{})
+	pulumi.RegisterOutputType(PartnerResponseOutput{})
+	pulumi.RegisterOutputType(PartnerResponseArrayOutput{})
+	pulumi.RegisterOutputType(PartnerTopicInfoOutput{})
+	pulumi.RegisterOutputType(PartnerTopicInfoPtrOutput{})
+	pulumi.RegisterOutputType(PartnerTopicInfoResponseOutput{})
+	pulumi.RegisterOutputType(PartnerTopicInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceMoveChangeHistoryOutput{})
+	pulumi.RegisterOutputType(ResourceMoveChangeHistoryArrayOutput{})
+	pulumi.RegisterOutputType(ResourceMoveChangeHistoryResponseOutput{})
+	pulumi.RegisterOutputType(ResourceMoveChangeHistoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(RetryPolicyOutput{})
 	pulumi.RegisterOutputType(RetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponseOutput{})
@@ -5284,4 +7728,8 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(UserIdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityPropertiesResponseMapOutput{})
+	pulumi.RegisterOutputType(WebhookPartnerDestinationInfoOutput{})
+	pulumi.RegisterOutputType(WebhookPartnerDestinationInfoPtrOutput{})
+	pulumi.RegisterOutputType(WebhookPartnerDestinationInfoResponseOutput{})
+	pulumi.RegisterOutputType(WebhookPartnerDestinationInfoResponsePtrOutput{})
 }

@@ -19,6 +19,33 @@ const (
 	AdvancedFilterOperatorTypeStringBeginsWith          = AdvancedFilterOperatorType("StringBeginsWith")
 	AdvancedFilterOperatorTypeStringEndsWith            = AdvancedFilterOperatorType("StringEndsWith")
 	AdvancedFilterOperatorTypeStringContains            = AdvancedFilterOperatorType("StringContains")
+	AdvancedFilterOperatorTypeNumberInRange             = AdvancedFilterOperatorType("NumberInRange")
+	AdvancedFilterOperatorTypeNumberNotInRange          = AdvancedFilterOperatorType("NumberNotInRange")
+	AdvancedFilterOperatorTypeStringNotBeginsWith       = AdvancedFilterOperatorType("StringNotBeginsWith")
+	AdvancedFilterOperatorTypeStringNotEndsWith         = AdvancedFilterOperatorType("StringNotEndsWith")
+	AdvancedFilterOperatorTypeStringNotContains         = AdvancedFilterOperatorType("StringNotContains")
+	AdvancedFilterOperatorTypeIsNullOrUndefined         = AdvancedFilterOperatorType("IsNullOrUndefined")
+	AdvancedFilterOperatorTypeIsNotNull                 = AdvancedFilterOperatorType("IsNotNull")
+)
+
+// Provisioning state of the channel.
+type ChannelProvisioningState string
+
+const (
+	ChannelProvisioningStateCreating  = ChannelProvisioningState("Creating")
+	ChannelProvisioningStateUpdating  = ChannelProvisioningState("Updating")
+	ChannelProvisioningStateDeleting  = ChannelProvisioningState("Deleting")
+	ChannelProvisioningStateSucceeded = ChannelProvisioningState("Succeeded")
+	ChannelProvisioningStateCanceled  = ChannelProvisioningState("Canceled")
+	ChannelProvisioningStateFailed    = ChannelProvisioningState("Failed")
+)
+
+// The type of the event channel which represents the  direction flow of events.
+type ChannelType string
+
+const (
+	ChannelTypePartnerTopic       = ChannelType("PartnerTopic")
+	ChannelTypePartnerDestination = ChannelType("PartnerDestination")
 )
 
 // Type of the endpoint for the dead letter destination
@@ -28,17 +55,33 @@ const (
 	DeadLetterEndPointTypeStorageBlob = DeadLetterEndPointType("StorageBlob")
 )
 
+// Type of the delivery attribute or header name.
+type DeliveryAttributeMappingType string
+
+const (
+	DeliveryAttributeMappingTypeStatic  = DeliveryAttributeMappingType("Static")
+	DeliveryAttributeMappingTypeDynamic = DeliveryAttributeMappingType("Dynamic")
+)
+
 // Type of the endpoint for the event subscription destination.
 type EndpointType string
 
 const (
-	EndpointTypeWebHook          = EndpointType("WebHook")
-	EndpointTypeEventHub         = EndpointType("EventHub")
-	EndpointTypeStorageQueue     = EndpointType("StorageQueue")
-	EndpointTypeHybridConnection = EndpointType("HybridConnection")
-	EndpointTypeServiceBusQueue  = EndpointType("ServiceBusQueue")
-	EndpointTypeServiceBusTopic  = EndpointType("ServiceBusTopic")
-	EndpointTypeAzureFunction    = EndpointType("AzureFunction")
+	EndpointTypeWebHook            = EndpointType("WebHook")
+	EndpointTypeEventHub           = EndpointType("EventHub")
+	EndpointTypeStorageQueue       = EndpointType("StorageQueue")
+	EndpointTypeHybridConnection   = EndpointType("HybridConnection")
+	EndpointTypeServiceBusQueue    = EndpointType("ServiceBusQueue")
+	EndpointTypeServiceBusTopic    = EndpointType("ServiceBusTopic")
+	EndpointTypeAzureFunction      = EndpointType("AzureFunction")
+	EndpointTypePartnerDestination = EndpointType("PartnerDestination")
+)
+
+// The kind of event type used.
+type EventDefinitionKind string
+
+const (
+	EventDefinitionKindInline = EventDefinitionKind("Inline")
 )
 
 // The event delivery schema for the event subscription.
@@ -91,6 +134,52 @@ const (
 	IpActionTypeAllow = IpActionType("Allow")
 )
 
+// Type of client authentication
+type PartnerClientAuthenticationType string
+
+const (
+	PartnerClientAuthenticationTypeAzureAD = PartnerClientAuthenticationType("AzureAD")
+)
+
+// Provisioning state of the partner configuration.
+type PartnerConfigurationProvisioningState string
+
+const (
+	PartnerConfigurationProvisioningStateCreating  = PartnerConfigurationProvisioningState("Creating")
+	PartnerConfigurationProvisioningStateUpdating  = PartnerConfigurationProvisioningState("Updating")
+	PartnerConfigurationProvisioningStateDeleting  = PartnerConfigurationProvisioningState("Deleting")
+	PartnerConfigurationProvisioningStateSucceeded = PartnerConfigurationProvisioningState("Succeeded")
+	PartnerConfigurationProvisioningStateCanceled  = PartnerConfigurationProvisioningState("Canceled")
+	PartnerConfigurationProvisioningStateFailed    = PartnerConfigurationProvisioningState("Failed")
+)
+
+// Activation state of the partner destination.
+type PartnerDestinationActivationState string
+
+const (
+	PartnerDestinationActivationStateNeverActivated = PartnerDestinationActivationState("NeverActivated")
+	PartnerDestinationActivationStateActivated      = PartnerDestinationActivationState("Activated")
+)
+
+// Provisioning state of the partner destination.
+type PartnerDestinationProvisioningState string
+
+const (
+	PartnerDestinationProvisioningStateCreating  = PartnerDestinationProvisioningState("Creating")
+	PartnerDestinationProvisioningStateUpdating  = PartnerDestinationProvisioningState("Updating")
+	PartnerDestinationProvisioningStateDeleting  = PartnerDestinationProvisioningState("Deleting")
+	PartnerDestinationProvisioningStateSucceeded = PartnerDestinationProvisioningState("Succeeded")
+	PartnerDestinationProvisioningStateCanceled  = PartnerDestinationProvisioningState("Canceled")
+	PartnerDestinationProvisioningStateFailed    = PartnerDestinationProvisioningState("Failed")
+)
+
+// Type of the endpoint for the partner destination
+type PartnerEndpointType string
+
+const (
+	PartnerEndpointTypeWebHook = PartnerEndpointType("WebHook")
+)
+
 // Visibility state of the partner registration.
 type PartnerRegistrationVisibilityState string
 
@@ -98,6 +187,15 @@ const (
 	PartnerRegistrationVisibilityStateHidden             = PartnerRegistrationVisibilityState("Hidden")
 	PartnerRegistrationVisibilityStatePublicPreview      = PartnerRegistrationVisibilityState("PublicPreview")
 	PartnerRegistrationVisibilityStateGenerallyAvailable = PartnerRegistrationVisibilityState("GenerallyAvailable")
+)
+
+// Activation state of the partner topic.
+type PartnerTopicActivationState string
+
+const (
+	PartnerTopicActivationStateNeverActivated = PartnerTopicActivationState("NeverActivated")
+	PartnerTopicActivationStateActivated      = PartnerTopicActivationState("Activated")
+	PartnerTopicActivationStateDeactivated    = PartnerTopicActivationState("Deactivated")
 )
 
 // Status of the connection.
@@ -117,6 +215,14 @@ type PublicNetworkAccess string
 const (
 	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
 	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
+// The readiness state of the corresponding partner topic.
+type ReadinessState string
+
+const (
+	ReadinessStateNeverActivated = ReadinessState("NeverActivated")
+	ReadinessStateActivated      = ReadinessState("Activated")
 )
 
 // Provisioning state of the Private Endpoint Connection.

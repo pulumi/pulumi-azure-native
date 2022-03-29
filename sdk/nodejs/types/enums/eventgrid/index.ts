@@ -15,6 +15,7 @@ import * as v20200401preview from "./v20200401preview";
 import * as v20200601 from "./v20200601";
 import * as v20201015preview from "./v20201015preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20211015preview from "./v20211015preview";
 import * as v20211201 from "./v20211201";
 
 export {
@@ -31,6 +32,7 @@ export {
     v20200601,
     v20201015preview,
     v20210601preview,
+    v20211015preview,
     v20211201,
 };
 
@@ -47,12 +49,43 @@ export const AdvancedFilterOperatorType = {
     StringBeginsWith: "StringBeginsWith",
     StringEndsWith: "StringEndsWith",
     StringContains: "StringContains",
+    NumberInRange: "NumberInRange",
+    NumberNotInRange: "NumberNotInRange",
+    StringNotBeginsWith: "StringNotBeginsWith",
+    StringNotEndsWith: "StringNotEndsWith",
+    StringNotContains: "StringNotContains",
+    IsNullOrUndefined: "IsNullOrUndefined",
+    IsNotNull: "IsNotNull",
 } as const;
 
 /**
  * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
  */
 export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
+
+export const ChannelProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the channel.
+ */
+export type ChannelProvisioningState = (typeof ChannelProvisioningState)[keyof typeof ChannelProvisioningState];
+
+export const ChannelType = {
+    PartnerTopic: "PartnerTopic",
+    PartnerDestination: "PartnerDestination",
+} as const;
+
+/**
+ * The type of the event channel which represents the  direction flow of events.
+ */
+export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
 export const DeadLetterEndPointType = {
     StorageBlob: "StorageBlob",
@@ -63,6 +96,16 @@ export const DeadLetterEndPointType = {
  */
 export type DeadLetterEndPointType = (typeof DeadLetterEndPointType)[keyof typeof DeadLetterEndPointType];
 
+export const DeliveryAttributeMappingType = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * Type of the delivery attribute or header name.
+ */
+export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)[keyof typeof DeliveryAttributeMappingType];
+
 export const EndpointType = {
     WebHook: "WebHook",
     EventHub: "EventHub",
@@ -71,12 +114,22 @@ export const EndpointType = {
     ServiceBusQueue: "ServiceBusQueue",
     ServiceBusTopic: "ServiceBusTopic",
     AzureFunction: "AzureFunction",
+    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
  * Type of the endpoint for the event subscription destination.
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const EventDefinitionKind = {
+    Inline: "Inline",
+} as const;
+
+/**
+ * The kind of event type used.
+ */
+export type EventDefinitionKind = (typeof EventDefinitionKind)[keyof typeof EventDefinitionKind];
 
 export const EventDeliverySchema = {
     EventGridSchema: "EventGridSchema",
@@ -140,6 +193,62 @@ export const IpActionType = {
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
 
+export const PartnerClientAuthenticationType = {
+    AzureAD: "AzureAD",
+} as const;
+
+/**
+ * Type of client authentication
+ */
+export type PartnerClientAuthenticationType = (typeof PartnerClientAuthenticationType)[keyof typeof PartnerClientAuthenticationType];
+
+export const PartnerConfigurationProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the partner configuration.
+ */
+export type PartnerConfigurationProvisioningState = (typeof PartnerConfigurationProvisioningState)[keyof typeof PartnerConfigurationProvisioningState];
+
+export const PartnerDestinationActivationState = {
+    NeverActivated: "NeverActivated",
+    Activated: "Activated",
+} as const;
+
+/**
+ * Activation state of the partner destination.
+ */
+export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
+
+export const PartnerDestinationProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the partner destination.
+ */
+export type PartnerDestinationProvisioningState = (typeof PartnerDestinationProvisioningState)[keyof typeof PartnerDestinationProvisioningState];
+
+export const PartnerEndpointType = {
+    WebHook: "WebHook",
+} as const;
+
+/**
+ * Type of the endpoint for the partner destination
+ */
+export type PartnerEndpointType = (typeof PartnerEndpointType)[keyof typeof PartnerEndpointType];
+
 export const PartnerRegistrationVisibilityState = {
     Hidden: "Hidden",
     PublicPreview: "PublicPreview",
@@ -150,6 +259,17 @@ export const PartnerRegistrationVisibilityState = {
  * Visibility state of the partner registration.
  */
 export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];
+
+export const PartnerTopicActivationState = {
+    NeverActivated: "NeverActivated",
+    Activated: "Activated",
+    Deactivated: "Deactivated",
+} as const;
+
+/**
+ * Activation state of the partner topic.
+ */
+export type PartnerTopicActivationState = (typeof PartnerTopicActivationState)[keyof typeof PartnerTopicActivationState];
 
 export const PersistedConnectionStatus = {
     Pending: "Pending",
@@ -173,6 +293,16 @@ export const PublicNetworkAccess = {
  * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const ReadinessState = {
+    NeverActivated: "NeverActivated",
+    Activated: "Activated",
+} as const;
+
+/**
+ * The readiness state of the corresponding partner topic.
+ */
+export type ReadinessState = (typeof ReadinessState)[keyof typeof ReadinessState];
 
 export const ResourceProvisioningState = {
     Creating: "Creating",

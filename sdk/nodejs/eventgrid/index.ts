@@ -5,18 +5,32 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./channel";
 export * from "./domain";
+export * from "./domainEventSubscription";
 export * from "./domainTopic";
+export * from "./domainTopicEventSubscription";
 export * from "./eventChannel";
 export * from "./eventSubscription";
+export * from "./getChannel";
+export * from "./getChannelFullUrl";
 export * from "./getDomain";
+export * from "./getDomainEventSubscription";
+export * from "./getDomainEventSubscriptionDeliveryAttributes";
+export * from "./getDomainEventSubscriptionFullUrl";
 export * from "./getDomainTopic";
+export * from "./getDomainTopicEventSubscription";
+export * from "./getDomainTopicEventSubscriptionDeliveryAttributes";
+export * from "./getDomainTopicEventSubscriptionFullUrl";
 export * from "./getEventChannel";
 export * from "./getEventSubscription";
 export * from "./getEventSubscriptionDeliveryAttributes";
 export * from "./getEventSubscriptionFullUrl";
+export * from "./getPartnerConfiguration";
+export * from "./getPartnerDestination";
 export * from "./getPartnerNamespace";
 export * from "./getPartnerRegistration";
+export * from "./getPartnerTopic";
 export * from "./getPartnerTopicEventSubscription";
 export * from "./getPartnerTopicEventSubscriptionDeliveryAttributes";
 export * from "./getPartnerTopicEventSubscriptionFullUrl";
@@ -26,16 +40,23 @@ export * from "./getSystemTopicEventSubscription";
 export * from "./getSystemTopicEventSubscriptionDeliveryAttributes";
 export * from "./getSystemTopicEventSubscriptionFullUrl";
 export * from "./getTopic";
+export * from "./getTopicEventSubscription";
+export * from "./getTopicEventSubscriptionDeliveryAttributes";
+export * from "./getTopicEventSubscriptionFullUrl";
 export * from "./listDomainSharedAccessKeys";
 export * from "./listPartnerNamespaceSharedAccessKeys";
 export * from "./listTopicSharedAccessKeys";
+export * from "./partnerConfiguration";
+export * from "./partnerDestination";
 export * from "./partnerNamespace";
 export * from "./partnerRegistration";
+export * from "./partnerTopic";
 export * from "./partnerTopicEventSubscription";
 export * from "./privateEndpointConnection";
 export * from "./systemTopic";
 export * from "./systemTopicEventSubscription";
 export * from "./topic";
+export * from "./topicEventSubscription";
 
 // Export enums:
 export * from "../types/enums/eventgrid";
@@ -54,6 +75,7 @@ import * as v20200401preview from "./v20200401preview";
 import * as v20200601 from "./v20200601";
 import * as v20201015preview from "./v20201015preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20211015preview from "./v20211015preview";
 import * as v20211201 from "./v20211201";
 
 export {
@@ -70,38 +92,58 @@ export {
     v20200601,
     v20201015preview,
     v20210601preview,
+    v20211015preview,
     v20211201,
 };
 
 // Import resources to register:
+import { Channel } from "./channel";
 import { Domain } from "./domain";
+import { DomainEventSubscription } from "./domainEventSubscription";
 import { DomainTopic } from "./domainTopic";
+import { DomainTopicEventSubscription } from "./domainTopicEventSubscription";
 import { EventChannel } from "./eventChannel";
 import { EventSubscription } from "./eventSubscription";
+import { PartnerConfiguration } from "./partnerConfiguration";
+import { PartnerDestination } from "./partnerDestination";
 import { PartnerNamespace } from "./partnerNamespace";
 import { PartnerRegistration } from "./partnerRegistration";
+import { PartnerTopic } from "./partnerTopic";
 import { PartnerTopicEventSubscription } from "./partnerTopicEventSubscription";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { SystemTopic } from "./systemTopic";
 import { SystemTopicEventSubscription } from "./systemTopicEventSubscription";
 import { Topic } from "./topic";
+import { TopicEventSubscription } from "./topicEventSubscription";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:eventgrid:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "azure-native:eventgrid:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:DomainEventSubscription":
+                return new DomainEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:DomainTopic":
                 return new DomainTopic(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:DomainTopicEventSubscription":
+                return new DomainTopicEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:EventChannel":
                 return new EventChannel(name, <any>undefined, { urn })
             case "azure-native:eventgrid:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:PartnerConfiguration":
+                return new PartnerConfiguration(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:PartnerDestination":
+                return new PartnerDestination(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerNamespace":
                 return new PartnerNamespace(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerRegistration":
                 return new PartnerRegistration(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:PartnerTopic":
+                return new PartnerTopic(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PartnerTopicEventSubscription":
                 return new PartnerTopicEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:PrivateEndpointConnection":
@@ -112,6 +154,8 @@ const _module = {
                 return new SystemTopicEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid:Topic":
                 return new Topic(name, <any>undefined, { urn })
+            case "azure-native:eventgrid:TopicEventSubscription":
+                return new TopicEventSubscription(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

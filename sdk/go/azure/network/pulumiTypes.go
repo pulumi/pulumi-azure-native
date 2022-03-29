@@ -48599,6 +48599,161 @@ func (o PeerExpressRouteCircuitConnectionResponseArrayOutput) Index(i pulumi.Int
 	}).(PeerExpressRouteCircuitConnectionResponseOutput)
 }
 
+type PerimeterBasedAccessRule struct {
+	// NSP id in the ARM id format.
+	Id *string `pulumi:"id"`
+}
+
+// PerimeterBasedAccessRuleInput is an input type that accepts PerimeterBasedAccessRuleArgs and PerimeterBasedAccessRuleOutput values.
+// You can construct a concrete instance of `PerimeterBasedAccessRuleInput` via:
+//
+//          PerimeterBasedAccessRuleArgs{...}
+type PerimeterBasedAccessRuleInput interface {
+	pulumi.Input
+
+	ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput
+	ToPerimeterBasedAccessRuleOutputWithContext(context.Context) PerimeterBasedAccessRuleOutput
+}
+
+type PerimeterBasedAccessRuleArgs struct {
+	// NSP id in the ARM id format.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PerimeterBasedAccessRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (i PerimeterBasedAccessRuleArgs) ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput {
+	return i.ToPerimeterBasedAccessRuleOutputWithContext(context.Background())
+}
+
+func (i PerimeterBasedAccessRuleArgs) ToPerimeterBasedAccessRuleOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerimeterBasedAccessRuleOutput)
+}
+
+// PerimeterBasedAccessRuleArrayInput is an input type that accepts PerimeterBasedAccessRuleArray and PerimeterBasedAccessRuleArrayOutput values.
+// You can construct a concrete instance of `PerimeterBasedAccessRuleArrayInput` via:
+//
+//          PerimeterBasedAccessRuleArray{ PerimeterBasedAccessRuleArgs{...} }
+type PerimeterBasedAccessRuleArrayInput interface {
+	pulumi.Input
+
+	ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput
+	ToPerimeterBasedAccessRuleArrayOutputWithContext(context.Context) PerimeterBasedAccessRuleArrayOutput
+}
+
+type PerimeterBasedAccessRuleArray []PerimeterBasedAccessRuleInput
+
+func (PerimeterBasedAccessRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (i PerimeterBasedAccessRuleArray) ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput {
+	return i.ToPerimeterBasedAccessRuleArrayOutputWithContext(context.Background())
+}
+
+func (i PerimeterBasedAccessRuleArray) ToPerimeterBasedAccessRuleArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PerimeterBasedAccessRuleArrayOutput)
+}
+
+type PerimeterBasedAccessRuleOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleOutput) ToPerimeterBasedAccessRuleOutput() PerimeterBasedAccessRuleOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleOutput) ToPerimeterBasedAccessRuleOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleOutput {
+	return o
+}
+
+// NSP id in the ARM id format.
+func (o PerimeterBasedAccessRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PerimeterBasedAccessRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRule)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) ToPerimeterBasedAccessRuleArrayOutput() PerimeterBasedAccessRuleArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) ToPerimeterBasedAccessRuleArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleArrayOutput) Index(i pulumi.IntInput) PerimeterBasedAccessRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerimeterBasedAccessRule {
+		return vs[0].([]PerimeterBasedAccessRule)[vs[1].(int)]
+	}).(PerimeterBasedAccessRuleOutput)
+}
+
+type PerimeterBasedAccessRuleResponse struct {
+	// NSP id in the ARM id format.
+	Id *string `pulumi:"id"`
+	// Location of the NSP supplied.
+	Location string `pulumi:"location"`
+	// Resource guid of the NSP supplied.
+	PerimeterGuid string `pulumi:"perimeterGuid"`
+}
+
+type PerimeterBasedAccessRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PerimeterBasedAccessRuleResponse)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleResponseOutput) ToPerimeterBasedAccessRuleResponseOutput() PerimeterBasedAccessRuleResponseOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseOutput) ToPerimeterBasedAccessRuleResponseOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleResponseOutput {
+	return o
+}
+
+// NSP id in the ARM id format.
+func (o PerimeterBasedAccessRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Location of the NSP supplied.
+func (o PerimeterBasedAccessRuleResponseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource guid of the NSP supplied.
+func (o PerimeterBasedAccessRuleResponseOutput) PerimeterGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v PerimeterBasedAccessRuleResponse) string { return v.PerimeterGuid }).(pulumi.StringOutput)
+}
+
+type PerimeterBasedAccessRuleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PerimeterBasedAccessRuleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PerimeterBasedAccessRuleResponse)(nil)).Elem()
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) ToPerimeterBasedAccessRuleResponseArrayOutput() PerimeterBasedAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) ToPerimeterBasedAccessRuleResponseArrayOutputWithContext(ctx context.Context) PerimeterBasedAccessRuleResponseArrayOutput {
+	return o
+}
+
+func (o PerimeterBasedAccessRuleResponseArrayOutput) Index(i pulumi.IntInput) PerimeterBasedAccessRuleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PerimeterBasedAccessRuleResponse {
+		return vs[0].([]PerimeterBasedAccessRuleResponse)[vs[1].(int)]
+	}).(PerimeterBasedAccessRuleResponseOutput)
+}
+
 // Defines contents of a web application firewall global configuration.
 type PolicySettings struct {
 	// Maximum file upload size in Mb for WAF.
@@ -70992,6 +71147,10 @@ func init() {
 	pulumi.RegisterOutputType(PacketCaptureStorageLocationResponseOutput{})
 	pulumi.RegisterOutputType(PeerExpressRouteCircuitConnectionResponseOutput{})
 	pulumi.RegisterOutputType(PeerExpressRouteCircuitConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleArrayOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleResponseOutput{})
+	pulumi.RegisterOutputType(PerimeterBasedAccessRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(PolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})

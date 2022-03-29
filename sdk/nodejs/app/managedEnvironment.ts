@@ -129,7 +129,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
             resourceInputs["vnetConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ManagedEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ManagedEnvironment" }, { type: "azure-native:app/v20220301:ManagedEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironment.__pulumiType, name, resourceInputs, opts);
     }

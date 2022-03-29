@@ -21,18 +21,30 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:eventgrid:Channel":
+		r = &Channel{}
 	case "azure-native:eventgrid:Domain":
 		r = &Domain{}
+	case "azure-native:eventgrid:DomainEventSubscription":
+		r = &DomainEventSubscription{}
 	case "azure-native:eventgrid:DomainTopic":
 		r = &DomainTopic{}
+	case "azure-native:eventgrid:DomainTopicEventSubscription":
+		r = &DomainTopicEventSubscription{}
 	case "azure-native:eventgrid:EventChannel":
 		r = &EventChannel{}
 	case "azure-native:eventgrid:EventSubscription":
 		r = &EventSubscription{}
+	case "azure-native:eventgrid:PartnerConfiguration":
+		r = &PartnerConfiguration{}
+	case "azure-native:eventgrid:PartnerDestination":
+		r = &PartnerDestination{}
 	case "azure-native:eventgrid:PartnerNamespace":
 		r = &PartnerNamespace{}
 	case "azure-native:eventgrid:PartnerRegistration":
 		r = &PartnerRegistration{}
+	case "azure-native:eventgrid:PartnerTopic":
+		r = &PartnerTopic{}
 	case "azure-native:eventgrid:PartnerTopicEventSubscription":
 		r = &PartnerTopicEventSubscription{}
 	case "azure-native:eventgrid:PrivateEndpointConnection":
@@ -43,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SystemTopicEventSubscription{}
 	case "azure-native:eventgrid:Topic":
 		r = &Topic{}
+	case "azure-native:eventgrid:TopicEventSubscription":
+		r = &TopicEventSubscription{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -212,6 +212,7 @@ __all__ = [
     'P2SVpnServerConfigVpnClientRootCertificateArgs',
     'PacketCaptureFilterArgs',
     'PacketCaptureStorageLocationArgs',
+    'PerimeterBasedAccessRuleArgs',
     'PolicySettingsArgs',
     'PrivateDnsZoneConfigArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -15016,6 +15017,29 @@ class PacketCaptureStorageLocationArgs:
     @storage_path.setter
     def storage_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_path", value)
+
+
+@pulumi.input_type
+class PerimeterBasedAccessRuleArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: NSP id in the ARM id format.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        NSP id in the ARM id format.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

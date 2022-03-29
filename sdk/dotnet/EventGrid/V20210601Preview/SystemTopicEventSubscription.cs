@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:eventgrid:SystemTopicEventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopicEventSubscription"},
                 },
             };

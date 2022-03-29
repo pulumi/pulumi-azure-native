@@ -69,6 +69,9 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	if args.Filter != nil {
 		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
+	if args.RetryPolicy != nil {
+		args.RetryPolicy = args.RetryPolicy.ToRetryPolicyPtrOutput().ApplyT(func(v *RetryPolicy) *RetryPolicy { return v.Defaults() }).(RetryPolicyPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription"),
@@ -78,6 +81,9 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription"),
 		},
 	})
 	opts = append(opts, aliases)

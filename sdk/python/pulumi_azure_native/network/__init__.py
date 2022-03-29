@@ -98,6 +98,9 @@ from .get_network_security_group import *
 from .get_network_security_perimeter import *
 from .get_network_virtual_appliance import *
 from .get_network_watcher import *
+from .get_nsp_access_rule import *
+from .get_nsp_association import *
+from .get_nsp_profile import *
 from .get_outbound_endpoint import *
 from .get_p2s_vpn_gateway import *
 from .get_p2s_vpn_gateway_p2s_vpn_connection_health import *
@@ -194,6 +197,9 @@ from .network_security_group import *
 from .network_security_perimeter import *
 from .network_virtual_appliance import *
 from .network_watcher import *
+from .nsp_access_rule import *
+from .nsp_association import *
+from .nsp_profile import *
 from .outbound_endpoint import *
 from .p2s_vpn_gateway import *
 from .p2s_vpn_server_configuration import *

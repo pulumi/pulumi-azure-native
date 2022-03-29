@@ -97,6 +97,9 @@ export * from "./getNetworkSecurityGroup";
 export * from "./getNetworkSecurityPerimeter";
 export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
+export * from "./getNspAccessRule";
+export * from "./getNspAssociation";
+export * from "./getNspProfile";
 export * from "./getOutboundEndpoint";
 export * from "./getP2sVpnGateway";
 export * from "./getP2sVpnGatewayP2sVpnConnectionHealth";
@@ -193,6 +196,9 @@ export * from "./networkSecurityGroup";
 export * from "./networkSecurityPerimeter";
 export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
+export * from "./nspAccessRule";
+export * from "./nspAssociation";
+export * from "./nspProfile";
 export * from "./outboundEndpoint";
 export * from "./p2sVpnGateway";
 export * from "./p2sVpnServerConfiguration";
@@ -427,6 +433,9 @@ import { NetworkSecurityGroup } from "./networkSecurityGroup";
 import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
+import { NspAccessRule } from "./nspAccessRule";
+import { NspAssociation } from "./nspAssociation";
+import { NspProfile } from "./nspProfile";
 import { OutboundEndpoint } from "./outboundEndpoint";
 import { P2sVpnGateway } from "./p2sVpnGateway";
 import { P2sVpnServerConfiguration } from "./p2sVpnServerConfiguration";
@@ -597,6 +606,12 @@ const _module = {
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
+            case "azure-native:network:NspAccessRule":
+                return new NspAccessRule(name, <any>undefined, { urn })
+            case "azure-native:network:NspAssociation":
+                return new NspAssociation(name, <any>undefined, { urn })
+            case "azure-native:network:NspProfile":
+                return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network:OutboundEndpoint":
                 return new OutboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network:P2sVpnGateway":

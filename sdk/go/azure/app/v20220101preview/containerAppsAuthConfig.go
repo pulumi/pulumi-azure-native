@@ -50,6 +50,9 @@ func NewContainerAppsAuthConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:app:ContainerAppsAuthConfig"),
 		},
+		{
+			Type: pulumi.String("azure-native:app/v20220301:ContainerAppsAuthConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ContainerAppsAuthConfig

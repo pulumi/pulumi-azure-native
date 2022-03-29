@@ -125,7 +125,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["partnerTopicName"] = args ? args.partnerTopicName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["retryPolicy"] = args ? (args.retryPolicy ? pulumi.output(args.retryPolicy).apply(inputs.eventgrid.retryPolicyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -148,7 +148,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

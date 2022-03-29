@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Managed Virtual Network reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ManagedVirtualNetworkReferenceType> Type { get; set; } = null!;
 
         public ManagedVirtualNetworkReferenceArgs()
         {

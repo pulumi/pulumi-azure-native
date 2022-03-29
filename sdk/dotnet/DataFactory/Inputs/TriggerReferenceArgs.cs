@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Trigger reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.TriggerReferenceType> Type { get; set; } = null!;
 
         public TriggerReferenceArgs()
         {

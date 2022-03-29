@@ -88,7 +88,7 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20210801preview:ServerTrustCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20210801preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20211101preview:ServerTrustCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerTrustCertificate.__pulumiType, name, resourceInputs, opts);
     }

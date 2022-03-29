@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * Direction that specifies whether the access rules is inbound/outbound.
+ */
+export type AccessRuleDirection = (typeof AccessRuleDirection)[keyof typeof AccessRuleDirection];
+
 export const AddressPrefixType = {
     IPPrefix: "IPPrefix",
     ServiceTag: "ServiceTag",
@@ -21,6 +31,18 @@ export const AdminRuleKind = {
  * Whether the rule is custom or default.
  */
 export type AdminRuleKind = (typeof AdminRuleKind)[keyof typeof AdminRuleKind];
+
+export const AssociationAccessMode = {
+    Unspecified: "Unspecified",
+    EnforceMode: "EnforceMode",
+    LearningMode: "LearningMode",
+    DryRunMode: "DryRunMode",
+} as const;
+
+/**
+ * Access mode on the association.
+ */
+export type AssociationAccessMode = (typeof AssociationAccessMode)[keyof typeof AssociationAccessMode];
 
 export const ConfigurationType = {
     SecurityAdmin: "SecurityAdmin",

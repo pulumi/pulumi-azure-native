@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Sql
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210801preview:ServerKey"},
+                    new Pulumi.Alias { Type = "azure-native:sql/v20211101preview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

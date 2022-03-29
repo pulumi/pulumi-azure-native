@@ -79,6 +79,9 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"),
 		},
 		{
+			Type: pulumi.String("azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"),
+		},
+		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:SystemTopicEventSubscription"),
 		},
 	})
