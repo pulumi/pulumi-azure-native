@@ -172,7 +172,7 @@ jobs:
   publish:
     name: publish
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     strategy:
       matrix:
         goversion: [1.17.x]
