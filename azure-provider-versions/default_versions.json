@@ -938,6 +938,8 @@
     "KubernetesConfiguration": {
         "Extension": "2020-07-01-preview",
         "FluxConfiguration": "2021-11-01-preview",
+        "PrivateEndpointConnection": "2022-04-02-preview",
+        "PrivateLinkScope": "2022-04-02-preview",
         "SourceControlConfiguration": "2021-03-01"
     },
     "Kusto": {
