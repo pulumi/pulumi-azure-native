@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A DataSet data transfer object.
  */
-/** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet. */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDataSetResult> {
-    pulumi.log.warn("getDataSet is deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet.")
+    pulumi.log.warn("getDataSet is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

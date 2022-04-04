@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetApp.V20190801
 {
+    [Obsolete(@"Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")]
     public static class GetAccount
     {
         /// <summary>

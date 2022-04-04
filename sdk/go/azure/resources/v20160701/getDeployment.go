@@ -11,6 +11,8 @@ import (
 )
 
 // Deployment information.
+//
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	var rv LookupDeploymentResult
 	err := ctx.Invoke("azure-native:resources/v20160701:getDeployment", args, &rv, opts...)

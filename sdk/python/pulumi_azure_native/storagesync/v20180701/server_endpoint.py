@@ -175,7 +175,12 @@ class ServerEndpointArgs:
         pulumi.set(self, "volume_free_space_percent", value)
 
 
+warnings.warn("""Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+
+
 class ServerEndpoint(pulumi.CustomResource):
+    warnings.warn("""Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -242,6 +247,7 @@ class ServerEndpoint(pulumi.CustomResource):
                  tier_files_older_than_days: Optional[pulumi.Input[int]] = None,
                  volume_free_space_percent: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""ServerEndpoint is deprecated: Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

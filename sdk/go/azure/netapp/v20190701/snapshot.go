@@ -12,6 +12,8 @@ import (
 )
 
 // Snapshot of a Volume
+//
+// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type Snapshot struct {
 	pulumi.CustomResourceState
 

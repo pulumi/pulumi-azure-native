@@ -16,6 +16,8 @@ __all__ = [
     'get_prefix_output',
 ]
 
+warnings.warn("""Version v20190901preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrefixResult:
     """
@@ -154,6 +156,7 @@ def get_prefix(expand: Optional[str] = None,
     :param str prefix_name: The name of the prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_prefix is deprecated: Version v20190901preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['peeringServiceName'] = peering_service_name
@@ -192,4 +195,5 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str prefix_name: The name of the prefix.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_prefix is deprecated: Version v20190901preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     ...

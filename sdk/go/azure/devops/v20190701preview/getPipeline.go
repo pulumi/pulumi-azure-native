@@ -11,6 +11,8 @@ import (
 )
 
 // Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+//
+// Deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-native:devops/v20190701preview:getPipeline", args, &rv, opts...)

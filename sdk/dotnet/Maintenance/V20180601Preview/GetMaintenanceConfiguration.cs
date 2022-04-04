@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Maintenance.V20180601Preview
 {
+    [Obsolete(@"Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.")]
     public static class GetMaintenanceConfiguration
     {
         /// <summary>

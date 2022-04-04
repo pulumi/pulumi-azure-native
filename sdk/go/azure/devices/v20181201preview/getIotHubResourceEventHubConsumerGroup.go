@@ -11,6 +11,8 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
+//
+// Deprecated: Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context, args *LookupIotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceEventHubConsumerGroupResult, error) {
 	var rv LookupIotHubResourceEventHubConsumerGroupResult
 	err := ctx.Invoke("azure-native:devices/v20181201preview:getIotHubResourceEventHubConsumerGroup", args, &rv, opts...)

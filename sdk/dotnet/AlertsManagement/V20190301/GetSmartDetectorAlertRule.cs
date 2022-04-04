@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20190301
 {
+    [Obsolete(@"Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")]
     public static class GetSmartDetectorAlertRule
     {
         /// <summary>

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Peering in an ExpressRouteCircuit resource.
  */
+/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getExpressRouteCircuitPeering(args: GetExpressRouteCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitPeeringResult> {
+    pulumi.log.warn("getExpressRouteCircuitPeering is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

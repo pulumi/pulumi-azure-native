@@ -12,6 +12,8 @@ import (
 )
 
 // HealthBot resource definition
+//
+// Deprecated: Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later.
 type Getbot struct {
 	pulumi.CustomResourceState
 

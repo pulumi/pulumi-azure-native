@@ -12,6 +12,8 @@ import (
 )
 
 // disk encryption set resource.
+//
+// Deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
 

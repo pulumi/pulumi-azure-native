@@ -275,7 +275,12 @@ class ExpressRouteCrossConnectionPeeringArgs:
         pulumi.set(self, "vlan_id", value)
 
 
+warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
+    warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -360,6 +365,7 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""ExpressRouteCrossConnectionPeering is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

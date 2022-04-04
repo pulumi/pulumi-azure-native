@@ -16,6 +16,8 @@ __all__ = [
     'get_data_manager_output',
 ]
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataManagerResult:
     """
@@ -129,6 +131,7 @@ def get_data_manager(data_manager_name: Optional[str] = None,
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("""get_data_manager is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,4 +162,5 @@ def get_data_manager_output(data_manager_name: Optional[pulumi.Input[str]] = Non
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("""get_data_manager is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     ...

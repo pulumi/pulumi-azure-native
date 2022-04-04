@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 {
+    [Obsolete(@"Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")]
     public static class GetComputePolicy
     {
         /// <summary>

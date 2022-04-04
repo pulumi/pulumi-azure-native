@@ -12,6 +12,8 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 type Vault struct {
 	pulumi.CustomResourceState
 

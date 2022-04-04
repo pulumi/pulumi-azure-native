@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBoxEdge.V20200901
 {
-    [Obsolete(@"Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.")]
+    [Obsolete(@"Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")]
     public static class GetRole
     {
         /// <summary>

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The resource that defines the source location where the artifacts are located.
  */
+/** @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later. */
 export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResult> {
+    pulumi.log.warn("getArtifactSource is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.")
     if (!opts) {
         opts = {}
     }

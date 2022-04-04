@@ -66,7 +66,12 @@ class RoleAssignmentArgs:
         pulumi.set(self, "role_assignment_name", value)
 
 
+warnings.warn("""Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class RoleAssignment(pulumi.CustomResource):
+    warnings.warn("""Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +117,7 @@ class RoleAssignment(pulumi.CustomResource):
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RoleAssignment is deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

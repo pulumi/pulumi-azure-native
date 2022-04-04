@@ -11,6 +11,8 @@ import (
 )
 
 // Response to put/get linked server (with properties) for Redis cache.
+//
+// Deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
 func LookupLinkedServer(ctx *pulumi.Context, args *LookupLinkedServerArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServerResult, error) {
 	var rv LookupLinkedServerResult
 	err := ctx.Invoke("azure-native:cache/v20180301:getLinkedServer", args, &rv, opts...)

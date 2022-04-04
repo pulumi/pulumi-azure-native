@@ -12,6 +12,8 @@ import (
 )
 
 // Bot resource definition
+//
+// Deprecated: Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.
 type Getbot struct {
 	pulumi.CustomResourceState
 

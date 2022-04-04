@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// A host name binding object
     /// </summary>
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteHostNameBinding")]
     public partial class SiteHostNameBinding : Pulumi.CustomResource
     {

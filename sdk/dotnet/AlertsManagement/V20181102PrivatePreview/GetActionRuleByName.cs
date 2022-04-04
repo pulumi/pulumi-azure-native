@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
 {
+    [Obsolete(@"Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")]
     public static class GetActionRuleByName
     {
         /// <summary>

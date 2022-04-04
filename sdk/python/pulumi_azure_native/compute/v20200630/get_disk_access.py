@@ -16,6 +16,8 @@ __all__ = [
     'get_disk_access_output',
 ]
 
+warnings.warn("""Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskAccessResult:
     """
@@ -138,6 +140,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk_access is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
     __args__['resourceGroupName'] = resource_group_name
@@ -169,4 +172,5 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
     :param str disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk_access is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

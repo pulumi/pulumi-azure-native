@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Batch.V20151201
     /// <summary>
     /// An application package which represents a particular version of an application.
     /// </summary>
+    [Obsolete(@"Version v20151201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
     [AzureNativeResourceType("azure-native:batch/v20151201:ApplicationPackage")]
     public partial class ApplicationPackage : Pulumi.CustomResource
     {

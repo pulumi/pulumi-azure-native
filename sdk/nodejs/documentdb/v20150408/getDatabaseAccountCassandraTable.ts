@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra table.
  */
+/** @deprecated Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getDatabaseAccountCassandraTable(args: GetDatabaseAccountCassandraTableArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountCassandraTableResult> {
+    pulumi.log.warn("getDatabaseAccountCassandraTable is deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

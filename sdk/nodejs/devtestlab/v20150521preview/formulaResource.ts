@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A formula.
+ *
+ * @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
  */
 export class FormulaResource extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class FormulaResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FormulaResource {
+        pulumi.log.warn("FormulaResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
         return new FormulaResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -87,7 +90,9 @@ export class FormulaResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
     constructor(name: string, args: FormulaResourceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FormulaResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

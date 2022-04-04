@@ -112,7 +112,12 @@ class ReplicationStorageClassificationMappingArgs:
         pulumi.set(self, "storage_classification_mapping_name", value)
 
 
+warnings.warn("""Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
+
 class ReplicationStorageClassificationMapping(pulumi.CustomResource):
+    warnings.warn("""Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  storage_classification_mapping_name: Optional[pulumi.Input[str]] = None,
                  storage_classification_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ReplicationStorageClassificationMapping is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

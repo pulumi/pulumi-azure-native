@@ -11,6 +11,8 @@ import (
 )
 
 // Hub resource.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	var rv LookupHubResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getHub", args, &rv, opts...)

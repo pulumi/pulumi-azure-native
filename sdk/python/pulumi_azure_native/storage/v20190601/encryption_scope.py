@@ -115,7 +115,12 @@ class EncryptionScopeArgs:
         pulumi.set(self, "state", value)
 
 
+warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
+
 class EncryptionScope(pulumi.CustomResource):
+    warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class EncryptionScope(pulumi.CustomResource):
                  source: Optional[pulumi.Input[Union[str, 'EncryptionScopeSource']]] = None,
                  state: Optional[pulumi.Input[Union[str, 'EncryptionScopeState']]] = None,
                  __props__=None):
+        pulumi.log.warn("""EncryptionScope is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

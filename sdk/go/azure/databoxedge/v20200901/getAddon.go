@@ -12,7 +12,7 @@ import (
 
 // Role Addon
 //
-// Deprecated: Please use one of the variants: ArcAddon, IoTAddon.
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupAddon(ctx *pulumi.Context, args *LookupAddonArgs, opts ...pulumi.InvokeOption) (*LookupAddonResult, error) {
 	var rv LookupAddonResult
 	err := ctx.Invoke("azure-native:databoxedge/v20200901:getAddon", args, &rv, opts...)

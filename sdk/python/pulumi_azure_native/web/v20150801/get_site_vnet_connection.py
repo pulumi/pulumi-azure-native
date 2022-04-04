@@ -16,6 +16,8 @@ __all__ = [
     'get_site_vnet_connection_output',
 ]
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSiteVNETConnectionResult:
     """
@@ -189,6 +191,7 @@ def get_site_vnet_connection(name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str vnet_name: The name of the Virtual Network
     """
+    pulumi.log.warn("""get_site_vnet_connection is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -227,4 +230,5 @@ def get_site_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name
     :param str vnet_name: The name of the Virtual Network
     """
+    pulumi.log.warn("""get_site_vnet_connection is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     ...

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CostManagement.V20180531
 {
+    [Obsolete(@"Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.")]
     public static class GetReportConfig
     {
         /// <summary>

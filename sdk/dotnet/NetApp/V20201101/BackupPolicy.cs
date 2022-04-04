@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20201101
     /// <summary>
     /// Backup policy information
     /// </summary>
+    [Obsolete(@"Version v20201101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")]
     [AzureNativeResourceType("azure-native:netapp/v20201101:BackupPolicy")]
     public partial class BackupPolicy : Pulumi.CustomResource
     {

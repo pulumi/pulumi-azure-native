@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Job Definition.
+ *
+ * @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobDefinition {
+        pulumi.log.warn("JobDefinition is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")
         return new JobDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -87,7 +90,9 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later. */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("JobDefinition is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

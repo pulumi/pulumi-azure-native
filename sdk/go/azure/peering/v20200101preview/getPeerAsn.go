@@ -11,6 +11,8 @@ import (
 )
 
 // The essential information related to the peer's ASN.
+//
+// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 func LookupPeerAsn(ctx *pulumi.Context, args *LookupPeerAsnArgs, opts ...pulumi.InvokeOption) (*LookupPeerAsnResult, error) {
 	var rv LookupPeerAsnResult
 	err := ctx.Invoke("azure-native:peering/v20200101preview:getPeerAsn", args, &rv, opts...)

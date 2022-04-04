@@ -16,6 +16,8 @@ __all__ = [
     'get_site_output',
 ]
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSiteResult:
     """
@@ -452,6 +454,7 @@ def get_site(name: Optional[str] = None,
     :param str properties_to_include: Additional web app properties included in the response
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_site is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['propertiesToInclude'] = properties_to_include
@@ -512,4 +515,5 @@ def get_site_output(name: Optional[pulumi.Input[str]] = None,
     :param str properties_to_include: Additional web app properties included in the response
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_site is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     ...

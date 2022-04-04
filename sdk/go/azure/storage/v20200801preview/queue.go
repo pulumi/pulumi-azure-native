@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type Queue struct {
 	pulumi.CustomResourceState
 

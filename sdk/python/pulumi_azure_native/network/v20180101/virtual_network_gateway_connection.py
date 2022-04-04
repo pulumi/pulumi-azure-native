@@ -290,7 +290,12 @@ class VirtualNetworkGatewayConnectionArgs:
         pulumi.set(self, "virtual_network_gateway_connection_name", value)
 
 
+warnings.warn("""Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
+    warnings.warn("""Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,6 +383,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  virtual_network_gateway2: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayArgs']]] = None,
                  virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualNetworkGatewayConnection is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

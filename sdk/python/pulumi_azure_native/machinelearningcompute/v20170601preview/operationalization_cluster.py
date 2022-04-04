@@ -194,7 +194,12 @@ class OperationalizationClusterArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""", DeprecationWarning)
+
+
 class OperationalizationCluster(pulumi.CustomResource):
+    warnings.warn("""Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,6 +269,7 @@ class OperationalizationCluster(pulumi.CustomResource):
                  storage_account: Optional[pulumi.Input[pulumi.InputType['StorageAccountPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""OperationalizationCluster is deprecated: Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

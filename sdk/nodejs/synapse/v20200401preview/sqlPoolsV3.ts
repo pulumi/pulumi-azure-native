@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A sql pool resource.
+ *
+ * @deprecated Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
  */
 export class SqlPoolsV3 extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolsV3 {
+        pulumi.log.warn("SqlPoolsV3 is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         return new SqlPoolsV3(name, undefined as any, { ...opts, id: id });
     }
 
@@ -99,7 +102,9 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
     constructor(name: string, args: SqlPoolsV3Args, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlPoolsV3 is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -12,6 +12,8 @@ import (
 )
 
 // Peering in an ExpressRouteCircuit resource.
+//
+// Deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type ExpressRouteCircuitPeering struct {
 	pulumi.CustomResourceState
 

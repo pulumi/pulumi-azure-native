@@ -11,6 +11,8 @@ import (
 )
 
 // CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+//
+// Deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:cdn/v20150601:getProfile", args, &rv, opts...)

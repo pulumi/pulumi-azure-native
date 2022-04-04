@@ -11,6 +11,8 @@ import (
 )
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
 func LookupAppServiceCertificateOrderCertificate(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderCertificateArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderCertificateResult, error) {
 	var rv LookupAppServiceCertificateOrderCertificateResult
 	err := ctx.Invoke("azure-native:certificateregistration/v20150801:getAppServiceCertificateOrderCertificate", args, &rv, opts...)

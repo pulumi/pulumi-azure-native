@@ -12,6 +12,8 @@ import (
 )
 
 // The HDInsight cluster.
+//
+// Deprecated: Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.
 type Cluster struct {
 	pulumi.CustomResourceState
 

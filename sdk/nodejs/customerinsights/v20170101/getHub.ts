@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Hub resource.
  */
+/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
+    pulumi.log.warn("getHub is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
     if (!opts) {
         opts = {}
     }

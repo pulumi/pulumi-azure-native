@@ -11,6 +11,8 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
+//
+// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getFileShare", args, &rv, opts...)

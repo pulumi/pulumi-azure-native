@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of an API Management service resource.
  */
+/** @deprecated Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later. */
 export function getApiManagementService(args: GetApiManagementServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceResult> {
+    pulumi.log.warn("getApiManagementService is deprecated: Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.")
     if (!opts) {
         opts = {}
     }

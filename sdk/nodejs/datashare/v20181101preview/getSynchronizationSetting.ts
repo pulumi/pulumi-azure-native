@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A Synchronization Setting data transfer object.
  */
-/** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
+/** @deprecated Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getSynchronizationSetting(args: GetSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSynchronizationSettingResult> {
-    pulumi.log.warn("getSynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.")
+    pulumi.log.warn("getSynchronizationSetting is deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

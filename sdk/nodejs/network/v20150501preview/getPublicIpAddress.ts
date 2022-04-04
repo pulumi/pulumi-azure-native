@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * PublicIPAddress resource
  */
+/** @deprecated Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getPublicIpAddress(args: GetPublicIpAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpAddressResult> {
+    pulumi.log.warn("getPublicIpAddress is deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

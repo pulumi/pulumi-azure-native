@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Addons.V20170515
 {
+    [Obsolete(@"Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.")]
     public static class GetSupportPlanType
     {
         /// <summary>

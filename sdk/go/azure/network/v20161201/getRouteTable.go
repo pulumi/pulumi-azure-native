@@ -11,6 +11,8 @@ import (
 )
 
 // Route table resource.
+//
+// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	var rv LookupRouteTableResult
 	err := ctx.Invoke("azure-native:network/v20161201:getRouteTable", args, &rv, opts...)

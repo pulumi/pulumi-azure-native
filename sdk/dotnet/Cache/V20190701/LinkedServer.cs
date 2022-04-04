@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20190701
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
     /// </summary>
+    [Obsolete(@"Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")]
     [AzureNativeResourceType("azure-native:cache/v20190701:LinkedServer")]
     public partial class LinkedServer : Pulumi.CustomResource
     {

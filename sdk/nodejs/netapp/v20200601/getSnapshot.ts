@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot of a Volume
  */
+/** @deprecated Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+    pulumi.log.warn("getSnapshot is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

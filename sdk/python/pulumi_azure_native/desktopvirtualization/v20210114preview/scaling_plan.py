@@ -280,7 +280,12 @@ class ScalingPlanArgs:
         pulumi.set(self, "time_zone", value)
 
 
+warnings.warn("""Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+
+
 class ScalingPlan(pulumi.CustomResource):
+    warnings.warn("""Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -365,6 +370,7 @@ class ScalingPlan(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ScalingPlan is deprecated: Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

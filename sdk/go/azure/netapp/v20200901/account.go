@@ -12,6 +12,8 @@ import (
 )
 
 // NetApp account resource
+//
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type Account struct {
 	pulumi.CustomResourceState
 

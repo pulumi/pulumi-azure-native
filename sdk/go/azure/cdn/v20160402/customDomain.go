@@ -12,6 +12,8 @@ import (
 )
 
 // CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
+//
+// Deprecated: Version v20160402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 

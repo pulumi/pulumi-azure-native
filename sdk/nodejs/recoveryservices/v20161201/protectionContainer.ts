@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ *
+ * @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProtectionContainer {
+        pulumi.log.warn("ProtectionContainer is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
         return new ProtectionContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class ProtectionContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
     constructor(name: string, args: ProtectionContainerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProtectionContainer is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

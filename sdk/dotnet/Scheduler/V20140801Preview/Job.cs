@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Scheduler.V20140801Preview
 {
+    [Obsolete(@"Version v20140801preview will be removed in the next major version of the provider. Upgrade to version v20160301 or later.")]
     [AzureNativeResourceType("azure-native:scheduler/v20140801preview:Job")]
     public partial class Job : Pulumi.CustomResource
     {

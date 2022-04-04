@@ -12,6 +12,8 @@ import (
 )
 
 // VnetRoute contract used to pass routing information for a vnet.
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type ServerFarmRouteForVnet struct {
 	pulumi.CustomResourceState
 

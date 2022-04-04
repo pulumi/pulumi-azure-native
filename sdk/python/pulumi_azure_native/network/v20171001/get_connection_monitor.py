@@ -16,6 +16,8 @@ __all__ = [
     'get_connection_monitor_output',
 ]
 
+warnings.warn("""Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetConnectionMonitorResult:
     """
@@ -197,6 +199,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
+    pulumi.log.warn("""get_connection_monitor is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name
@@ -236,4 +239,5 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
     :param str network_watcher_name: The name of the Network Watcher resource.
     :param str resource_group_name: The name of the resource group containing Network Watcher.
     """
+    pulumi.log.warn("""get_connection_monitor is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

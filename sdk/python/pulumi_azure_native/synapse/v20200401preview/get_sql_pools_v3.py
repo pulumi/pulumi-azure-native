@@ -16,6 +16,8 @@ __all__ = [
     'get_sql_pools_v3_output',
 ]
 
+warnings.warn("""Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolsV3Result:
     """
@@ -224,6 +226,7 @@ def get_sql_pools_v3(resource_group_name: Optional[str] = None,
     :param str sql_pool_name: The name of the sql pool.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sql_pools_v3 is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name
@@ -265,4 +268,5 @@ def get_sql_pools_v3_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str sql_pool_name: The name of the sql pool.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_sql_pools_v3 is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     ...

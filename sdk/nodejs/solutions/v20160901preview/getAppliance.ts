@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Information about appliance.
  */
+/** @deprecated Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later. */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
+    pulumi.log.warn("getAppliance is deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")
     if (!opts) {
         opts = {}
     }

@@ -158,7 +158,12 @@ class RouteFilterRuleInitArgs:
         pulumi.set(self, "rule_name", value)
 
 
+warnings.warn("""Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class RouteFilterRule(pulumi.CustomResource):
+    warnings.warn("""Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -222,6 +227,7 @@ class RouteFilterRule(pulumi.CustomResource):
                  route_filter_rule_type: Optional[pulumi.Input[Union[str, 'RouteFilterRuleType']]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RouteFilterRule is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

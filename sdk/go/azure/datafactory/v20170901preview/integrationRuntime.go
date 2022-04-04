@@ -12,6 +12,8 @@ import (
 )
 
 // Integration runtime resource type.
+//
+// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
 type IntegrationRuntime struct {
 	pulumi.CustomResourceState
 

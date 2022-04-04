@@ -12,6 +12,8 @@ import (
 )
 
 // An application security group in a resource group.
+//
+// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type ApplicationSecurityGroup struct {
 	pulumi.CustomResourceState
 

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's prefix that is registered by the peering service provider.
+ *
+ * @deprecated Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RegisteredPrefix {
+        pulumi.log.warn("RegisteredPrefix is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
         return new RegisteredPrefix(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class RegisteredPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
     constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RegisteredPrefix is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

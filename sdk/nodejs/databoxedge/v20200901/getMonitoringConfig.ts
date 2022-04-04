@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The metric setting details for the role
  */
+/** @deprecated Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
+    pulumi.log.warn("getMonitoringConfig is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

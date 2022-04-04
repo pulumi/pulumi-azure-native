@@ -12,6 +12,8 @@ import (
 )
 
 // A Redis item in CreateOrUpdate Operation response.
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
 type Redis struct {
 	pulumi.CustomResourceState
 

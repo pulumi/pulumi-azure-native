@@ -12,6 +12,8 @@ import (
 )
 
 // Azure Migrate Project.
+//
+// Deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.
 type Project struct {
 	pulumi.CustomResourceState
 

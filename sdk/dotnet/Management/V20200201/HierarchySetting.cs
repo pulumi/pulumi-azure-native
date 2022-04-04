@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Management.V20200201
     /// <summary>
     /// Settings defined at the Management Group scope.
     /// </summary>
+    [Obsolete(@"Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")]
     [AzureNativeResourceType("azure-native:management/v20200201:HierarchySetting")]
     public partial class HierarchySetting : Pulumi.CustomResource
     {

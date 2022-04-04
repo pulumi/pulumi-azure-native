@@ -12,6 +12,8 @@ import (
 )
 
 // Subnet in a VirtualNetwork resource
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type Subnet struct {
 	pulumi.CustomResourceState
 

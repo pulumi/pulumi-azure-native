@@ -11,6 +11,8 @@ import (
 )
 
 // A share subscription data transfer object.
+//
+// Deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 func LookupShareSubscription(ctx *pulumi.Context, args *LookupShareSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupShareSubscriptionResult, error) {
 	var rv LookupShareSubscriptionResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getShareSubscription", args, &rv, opts...)

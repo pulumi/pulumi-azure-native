@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A SQL server.
  */
+/** @deprecated Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later. */
 export function getSqlServer(args: GetSqlServerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerResult> {
+    pulumi.log.warn("getSqlServer is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")
     if (!opts) {
         opts = {}
     }

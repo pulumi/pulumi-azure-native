@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Recovery plan details.
  */
+/** @deprecated Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationRecoveryPlan(args: GetReplicationRecoveryPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationRecoveryPlanResult> {
+    pulumi.log.warn("getReplicationRecoveryPlan is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

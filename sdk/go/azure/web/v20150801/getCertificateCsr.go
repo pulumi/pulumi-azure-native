@@ -11,6 +11,8 @@ import (
 )
 
 // Certificate signing request object
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupCertificateCsr(ctx *pulumi.Context, args *LookupCertificateCsrArgs, opts ...pulumi.InvokeOption) (*LookupCertificateCsrResult, error) {
 	var rv LookupCertificateCsrResult
 	err := ctx.Invoke("azure-native:web/v20150801:getCertificateCsr", args, &rv, opts...)

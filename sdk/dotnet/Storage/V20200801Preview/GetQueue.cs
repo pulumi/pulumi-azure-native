@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20200801Preview
 {
+    [Obsolete(@"Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     public static class GetQueue
     {
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)

@@ -11,6 +11,8 @@ import (
 )
 
 // Class representing a Kusto database.
+//
+// Deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	var rv LookupDatabaseResult
 	err := ctx.Invoke("azure-native:kusto/v20170907privatepreview:getDatabase", args, &rv, opts...)

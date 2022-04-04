@@ -97,7 +97,12 @@ class DomainOwnershipIdentifierArgs:
         pulumi.set(self, "ownership_id", value)
 
 
+warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
+
 class DomainOwnershipIdentifier(pulumi.CustomResource):
+    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                  ownership_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""DomainOwnershipIdentifier is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

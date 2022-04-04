@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20171001
 {
+    [Obsolete(@"Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     public static class GetNetworkSecurityGroup
     {
         /// <summary>

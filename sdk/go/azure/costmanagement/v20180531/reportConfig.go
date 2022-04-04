@@ -12,6 +12,8 @@ import (
 )
 
 // A report config resource.
+//
+// Deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.
 type ReportConfig struct {
 	pulumi.CustomResourceState
 

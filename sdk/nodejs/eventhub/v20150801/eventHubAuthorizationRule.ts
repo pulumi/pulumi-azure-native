@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get AuthorizationRule operation
+ *
+ * @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHubAuthorizationRule {
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
         return new EventHubAuthorizationRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
     constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EventHubAuthorizationRule is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

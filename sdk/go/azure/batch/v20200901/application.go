@@ -12,6 +12,8 @@ import (
 )
 
 // Contains information about an application in a Batch account.
+//
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type Application struct {
 	pulumi.CustomResourceState
 

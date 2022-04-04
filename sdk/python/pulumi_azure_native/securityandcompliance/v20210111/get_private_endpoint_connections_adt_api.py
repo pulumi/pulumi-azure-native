@@ -16,6 +16,8 @@ __all__ = [
     'get_private_endpoint_connections_adt_api_output',
 ]
 
+warnings.warn("""Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionsAdtAPIResult:
     """
@@ -128,6 +130,7 @@ def get_private_endpoint_connections_adt_api(private_endpoint_connection_name: O
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""get_private_endpoint_connections_adt_api is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -161,4 +164,5 @@ def get_private_endpoint_connections_adt_api_output(private_endpoint_connection_
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
+    pulumi.log.warn("""get_private_endpoint_connections_adt_api is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""")
     ...

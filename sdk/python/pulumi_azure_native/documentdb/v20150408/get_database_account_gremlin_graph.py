@@ -16,6 +16,8 @@ __all__ = [
     'get_database_account_gremlin_graph_output',
 ]
 
+warnings.warn("""Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDatabaseAccountGremlinGraphResult:
     """
@@ -202,6 +204,7 @@ def get_database_account_gremlin_graph(account_name: Optional[str] = None,
     :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("""get_database_account_gremlin_graph is deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -244,4 +247,5 @@ def get_database_account_gremlin_graph_output(account_name: Optional[pulumi.Inpu
     :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("""get_database_account_gremlin_graph is deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

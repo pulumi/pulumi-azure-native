@@ -11,6 +11,8 @@ import (
 )
 
 // A host name binding object
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteHostNameBinding(ctx *pulumi.Context, args *LookupSiteHostNameBindingArgs, opts ...pulumi.InvokeOption) (*LookupSiteHostNameBindingResult, error) {
 	var rv LookupSiteHostNameBindingResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteHostNameBinding", args, &rv, opts...)

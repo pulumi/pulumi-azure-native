@@ -16,6 +16,8 @@ __all__ = [
     'get_backup_policy_output',
 ]
 
+warnings.warn("""Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBackupPolicyResult:
     """
@@ -200,6 +202,7 @@ def get_backup_policy(account_name: Optional[str] = None,
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_backup_policy is deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupPolicyName'] = backup_policy_name
@@ -239,4 +242,5 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_backup_policy is deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     ...

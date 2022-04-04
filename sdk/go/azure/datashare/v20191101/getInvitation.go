@@ -11,6 +11,8 @@ import (
 )
 
 // A Invitation data transfer object.
+//
+// Deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 func LookupInvitation(ctx *pulumi.Context, args *LookupInvitationArgs, opts ...pulumi.InvokeOption) (*LookupInvitationResult, error) {
 	var rv LookupInvitationResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getInvitation", args, &rv, opts...)

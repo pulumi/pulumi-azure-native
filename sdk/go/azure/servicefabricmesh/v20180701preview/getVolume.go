@@ -11,6 +11,8 @@ import (
 )
 
 // This type describes a volume resource.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.
 func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.InvokeOption) (*LookupVolumeResult, error) {
 	var rv LookupVolumeResult
 	err := ctx.Invoke("azure-native:servicefabricmesh/v20180701preview:getVolume", args, &rv, opts...)

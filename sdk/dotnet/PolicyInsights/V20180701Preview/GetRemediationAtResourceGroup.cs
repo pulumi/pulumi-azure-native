@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
 {
+    [Obsolete(@"Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")]
     public static class GetRemediationAtResourceGroup
     {
         /// <summary>

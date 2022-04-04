@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a Machine Extension.
+//
+// Deprecated: Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.
 type MachineExtension struct {
 	pulumi.CustomResourceState
 

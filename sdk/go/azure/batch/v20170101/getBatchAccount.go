@@ -11,6 +11,8 @@ import (
 )
 
 // Contains information about an Azure Batch account.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 func LookupBatchAccount(ctx *pulumi.Context, args *LookupBatchAccountArgs, opts ...pulumi.InvokeOption) (*LookupBatchAccountResult, error) {
 	var rv LookupBatchAccountResult
 	err := ctx.Invoke("azure-native:batch/v20170101:getBatchAccount", args, &rv, opts...)

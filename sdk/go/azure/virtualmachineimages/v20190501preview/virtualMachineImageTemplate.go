@@ -12,6 +12,8 @@ import (
 )
 
 // Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+//
+// Deprecated: Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.
 type VirtualMachineImageTemplate struct {
 	pulumi.CustomResourceState
 

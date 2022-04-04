@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The storage account.
  */
+/** @deprecated Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
+    pulumi.log.warn("getStorageAccount is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

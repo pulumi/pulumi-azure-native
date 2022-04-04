@@ -163,7 +163,12 @@ class StorageTargetArgs:
         pulumi.set(self, "unknown", value)
 
 
+warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class StorageTarget(pulumi.CustomResource):
+    warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class StorageTarget(pulumi.CustomResource):
                  target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""StorageTarget is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

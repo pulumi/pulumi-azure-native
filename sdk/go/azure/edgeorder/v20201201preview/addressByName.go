@@ -12,6 +12,8 @@ import (
 )
 
 // Address Resource.
+//
+// Deprecated: Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.
 type AddressByName struct {
 	pulumi.CustomResourceState
 

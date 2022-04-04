@@ -12,6 +12,8 @@ import (
 )
 
 // The Encryption Scope resource.
+//
+// Deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type EncryptionScope struct {
 	pulumi.CustomResourceState
 

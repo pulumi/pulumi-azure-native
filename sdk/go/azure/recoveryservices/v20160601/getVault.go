@@ -11,6 +11,8 @@ import (
 )
 
 // Resource information, as returned by the resource provider.
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160601:getVault", args, &rv, opts...)

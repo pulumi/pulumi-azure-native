@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Network watcher in a resource group.
  */
+/** @deprecated Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
+    pulumi.log.warn("getNetworkWatcher is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

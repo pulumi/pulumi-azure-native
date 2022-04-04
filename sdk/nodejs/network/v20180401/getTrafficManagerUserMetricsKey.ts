@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Class representing Traffic Manager User Metrics.
  */
+/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getTrafficManagerUserMetricsKey(args?: GetTrafficManagerUserMetricsKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerUserMetricsKeyResult> {
+    pulumi.log.warn("getTrafficManagerUserMetricsKey is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     args = args || {};
     if (!opts) {
         opts = {}

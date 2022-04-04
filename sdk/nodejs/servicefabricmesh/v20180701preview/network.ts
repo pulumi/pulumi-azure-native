@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * This type describes a network resource.
+ *
+ * @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.
  */
 export class Network extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Network extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Network {
+        pulumi.log.warn("Network is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")
         return new Network(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class Network extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later. */
     constructor(name: string, args: NetworkArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Network is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

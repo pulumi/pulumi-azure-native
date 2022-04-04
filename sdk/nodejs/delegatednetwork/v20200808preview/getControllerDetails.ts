@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of a DNC controller.
  */
+/** @deprecated Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later. */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
+    pulumi.log.warn("getControllerDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")
     if (!opts) {
         opts = {}
     }

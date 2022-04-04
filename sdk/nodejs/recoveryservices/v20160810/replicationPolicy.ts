@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection profile details.
+ *
+ * @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationPolicy {
+        pulumi.log.warn("ReplicationPolicy is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
         return new ReplicationPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class ReplicationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
     constructor(name: string, args: ReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReplicationPolicy is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

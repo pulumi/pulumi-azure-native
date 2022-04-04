@@ -243,7 +243,12 @@ class ScheduleResourceArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
+warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+
+
 class ScheduleResource(pulumi.CustomResource):
+    warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -322,6 +327,7 @@ class ScheduleResource(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['WeekDetailsArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""ScheduleResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

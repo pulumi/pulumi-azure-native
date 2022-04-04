@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a web app
+ *
+ * @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
  */
 export class SiteSlot extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class SiteSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteSlot {
+        pulumi.log.warn("SiteSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         return new SiteSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -175,7 +178,9 @@ export class SiteSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
     constructor(name: string, args: SiteSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SiteSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20150501Preview
 {
+    [Obsolete(@"Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     public static class GetSecurityRule
     {
         /// <summary>

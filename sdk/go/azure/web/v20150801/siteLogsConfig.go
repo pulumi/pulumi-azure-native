@@ -12,6 +12,8 @@ import (
 )
 
 // Configuration of Azure web site
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteLogsConfig struct {
 	pulumi.CustomResourceState
 

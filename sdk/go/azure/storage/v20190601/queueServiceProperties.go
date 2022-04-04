@@ -12,6 +12,8 @@ import (
 )
 
 // The properties of a storage account’s Queue service.
+//
+// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type QueueServiceProperties struct {
 	pulumi.CustomResourceState
 

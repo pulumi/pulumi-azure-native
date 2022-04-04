@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Resource group information.
  */
+/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later. */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
+    pulumi.log.warn("getResourceGroup is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
     if (!opts) {
         opts = {}
     }

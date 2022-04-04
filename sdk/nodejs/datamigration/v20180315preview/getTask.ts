@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A task resource
  */
+/** @deprecated Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later. */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
+    pulumi.log.warn("getTask is deprecated: Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")
     if (!opts) {
         opts = {}
     }

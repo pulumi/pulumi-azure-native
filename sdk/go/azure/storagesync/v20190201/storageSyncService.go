@@ -12,6 +12,8 @@ import (
 )
 
 // Storage Sync Service object.
+//
+// Deprecated: Version v20190201 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 

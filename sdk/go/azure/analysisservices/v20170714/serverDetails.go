@@ -12,6 +12,8 @@ import (
 )
 
 // Represents an instance of an Analysis Services resource.
+//
+// Deprecated: Version v20170714 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.
 type ServerDetails struct {
 	pulumi.CustomResourceState
 

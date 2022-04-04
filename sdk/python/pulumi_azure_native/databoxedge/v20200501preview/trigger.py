@@ -80,11 +80,11 @@ class TriggerArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""", DeprecationWarning)
+warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
 
 class Trigger(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""", DeprecationWarning)
+    warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -134,7 +134,7 @@ class Trigger(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Trigger is deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.""")
+        pulumi.log.warn("""Trigger is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

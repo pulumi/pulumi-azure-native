@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
     /// <summary>
     /// Storage mapping object.
     /// </summary>
+    [Obsolete(@"Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping")]
     public partial class ReplicationStorageClassificationMapping : Pulumi.CustomResource
     {

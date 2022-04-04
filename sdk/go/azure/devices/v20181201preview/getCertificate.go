@@ -11,6 +11,8 @@ import (
 )
 
 // The X509 Certificate.
+//
+// Deprecated: Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:devices/v20181201preview:getCertificate", args, &rv, opts...)

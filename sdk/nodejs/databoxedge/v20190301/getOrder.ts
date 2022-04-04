@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  */
+/** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
+    pulumi.log.warn("getOrder is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

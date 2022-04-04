@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.
 func LookupJitNetworkAccessPolicy(ctx *pulumi.Context, args *LookupJitNetworkAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupJitNetworkAccessPolicyResult, error) {
 	var rv LookupJitNetworkAccessPolicyResult
 	err := ctx.Invoke("azure-native:security/v20150601preview:getJitNetworkAccessPolicy", args, &rv, opts...)

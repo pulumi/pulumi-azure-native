@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The properties of a storage account’s Blob service.
  */
+/** @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getBlobServiceProperties(args: GetBlobServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobServicePropertiesResult> {
+    pulumi.log.warn("getBlobServiceProperties is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

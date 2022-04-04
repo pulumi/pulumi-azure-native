@@ -227,7 +227,12 @@ class MachineExtensionArgs:
         pulumi.set(self, "type_handler_version", value)
 
 
+warnings.warn("""Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.""", DeprecationWarning)
+
+
 class MachineExtension(pulumi.CustomResource):
+    warnings.warn("""Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -303,6 +308,7 @@ class MachineExtension(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  type_handler_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""MachineExtension is deprecated: Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

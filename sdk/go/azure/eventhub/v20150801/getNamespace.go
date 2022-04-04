@@ -11,6 +11,8 @@ import (
 )
 
 // Single Namespace item in List or Get Operation
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:eventhub/v20150801:getNamespace", args, &rv, opts...)

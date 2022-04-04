@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
+    [Obsolete(@"Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")]
     [AzureNativeResourceType("azure-native:security/v20150601preview:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {

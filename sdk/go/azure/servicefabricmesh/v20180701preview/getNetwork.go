@@ -11,6 +11,8 @@ import (
 )
 
 // This type describes a network resource.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.
 func LookupNetwork(ctx *pulumi.Context, args *LookupNetworkArgs, opts ...pulumi.InvokeOption) (*LookupNetworkResult, error) {
 	var rv LookupNetworkResult
 	err := ctx.Invoke("azure-native:servicefabricmesh/v20180701preview:getNetwork", args, &rv, opts...)

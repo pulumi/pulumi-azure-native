@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A sql pool resource.
  */
+/** @deprecated Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getSqlPoolsV3(args: GetSqlPoolsV3Args, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolsV3Result> {
+    pulumi.log.warn("getSqlPoolsV3 is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

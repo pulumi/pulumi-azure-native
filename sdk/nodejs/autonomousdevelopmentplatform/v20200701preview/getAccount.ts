@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An ADP account.
  */
+/** @deprecated Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    pulumi.log.warn("getAccount is deprecated: Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
     if (!opts) {
         opts = {}
     }

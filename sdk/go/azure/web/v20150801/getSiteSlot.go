@@ -11,6 +11,8 @@ import (
 )
 
 // Represents a web app
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteSlot(ctx *pulumi.Context, args *LookupSiteSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotResult, error) {
 	var rv LookupSiteSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteSlot", args, &rv, opts...)

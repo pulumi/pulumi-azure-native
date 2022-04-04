@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20181101
 {
+    [Obsolete(@"Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     public static class GetBlobContainer
     {
         /// <summary>

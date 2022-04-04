@@ -11,6 +11,8 @@ import (
 )
 
 // Description of an API Management service resource.
+//
+// Deprecated: Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.
 func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementServiceArgs, opts ...pulumi.InvokeOption) (*LookupApiManagementServiceResult, error) {
 	var rv LookupApiManagementServiceResult
 	err := ctx.Invoke("azure-native:apimanagement/v20160707:getApiManagementService", args, &rv, opts...)

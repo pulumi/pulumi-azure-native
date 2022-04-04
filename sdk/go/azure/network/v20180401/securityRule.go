@@ -12,6 +12,8 @@ import (
 )
 
 // Network security rule.
+//
+// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type SecurityRule struct {
 	pulumi.CustomResourceState
 

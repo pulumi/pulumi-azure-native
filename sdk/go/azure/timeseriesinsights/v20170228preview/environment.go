@@ -12,6 +12,8 @@ import (
 )
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+//
+// Deprecated: Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.
 type Environment struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20191212
     /// <summary>
     /// Describes a hybrid machine.
     /// </summary>
+    [Obsolete(@"Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20200802 or later.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20191212:Machine")]
     public partial class Machine : Pulumi.CustomResource
     {

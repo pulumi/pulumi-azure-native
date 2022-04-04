@@ -80,7 +80,12 @@ class ManagementPolicyArgs:
         pulumi.set(self, "policy", value)
 
 
+warnings.warn("""Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
+
 class ManagementPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,6 +134,7 @@ class ManagementPolicy(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagementPolicy is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

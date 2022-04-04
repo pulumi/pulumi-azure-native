@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190201Preview
 {
+    [Obsolete(@"Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.")]
     public static class GetVirtualMachineImageTemplate
     {
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)

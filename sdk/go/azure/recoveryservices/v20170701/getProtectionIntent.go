@@ -11,6 +11,8 @@ import (
 )
 
 // Base class for backup ProtectionIntent.
+//
+// Deprecated: Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 func LookupProtectionIntent(ctx *pulumi.Context, args *LookupProtectionIntentArgs, opts ...pulumi.InvokeOption) (*LookupProtectionIntentResult, error) {
 	var rv LookupProtectionIntentResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20170701:getProtectionIntent", args, &rv, opts...)

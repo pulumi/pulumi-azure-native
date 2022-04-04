@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A workspace key
  */
+/** @deprecated Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
+    pulumi.log.warn("getKey is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

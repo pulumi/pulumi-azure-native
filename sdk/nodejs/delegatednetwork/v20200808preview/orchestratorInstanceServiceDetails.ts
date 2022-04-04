@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a orchestrator.
+ *
+ * @deprecated Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OrchestratorInstanceServiceDetails {
+        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")
         return new OrchestratorInstanceServiceDetails(name, undefined as any, { ...opts, id: id });
     }
 
@@ -95,7 +98,9 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later. */
     constructor(name: string, args: OrchestratorInstanceServiceDetailsArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OrchestratorInstanceServiceDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

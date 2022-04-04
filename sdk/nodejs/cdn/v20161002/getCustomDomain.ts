@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Customer provided domain for branding purposes, e.g. www.contoso.com.
  */
+/** @deprecated Version v20161002 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    pulumi.log.warn("getCustomDomain is deprecated: Version v20161002 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

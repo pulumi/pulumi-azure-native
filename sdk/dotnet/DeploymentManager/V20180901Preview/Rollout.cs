@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// <summary>
     /// Defines the PUT rollout request body.
     /// </summary>
+    [Obsolete(@"Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Rollout")]
     public partial class Rollout : Pulumi.CustomResource
     {

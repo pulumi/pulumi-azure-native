@@ -12,6 +12,8 @@ import (
 )
 
 // A container for a managed identity to execute DevTest lab services.
+//
+// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 type ServiceRunner struct {
 	pulumi.CustomResourceState
 

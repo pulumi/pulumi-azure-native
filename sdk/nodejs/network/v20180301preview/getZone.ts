@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS zone.
  */
+/** @deprecated Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
+    pulumi.log.warn("getZone is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

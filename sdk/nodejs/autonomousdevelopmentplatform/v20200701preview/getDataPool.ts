@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An ADP Data Pool.
  */
+/** @deprecated Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
 export function getDataPool(args: GetDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDataPoolResult> {
+    pulumi.log.warn("getDataPool is deprecated: Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
     if (!opts) {
         opts = {}
     }

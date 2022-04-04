@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a hybrid machine.
+//
+// Deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20200802 or later.
 type Machine struct {
 	pulumi.CustomResourceState
 

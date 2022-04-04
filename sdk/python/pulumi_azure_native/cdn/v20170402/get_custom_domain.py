@@ -15,6 +15,8 @@ __all__ = [
     'get_custom_domain_output',
 ]
 
+warnings.warn("""Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomDomainResult:
     """
@@ -153,6 +155,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_custom_domain is deprecated: Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     __args__ = dict()
     __args__['customDomainName'] = custom_domain_name
     __args__['endpointName'] = endpoint_name
@@ -191,4 +194,5 @@ def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]] = N
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_custom_domain is deprecated: Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     ...

@@ -145,7 +145,12 @@ class StorageInsightArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""", DeprecationWarning)
+
+
 class StorageInsight(pulumi.CustomResource):
+    warnings.warn("""Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,6 +211,7 @@ class StorageInsight(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""StorageInsight is deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

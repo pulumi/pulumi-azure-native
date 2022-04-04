@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20170901
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
     /// </summary>
+    [Obsolete(@"Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     [AzureNativeResourceType("azure-native:network/v20170901:RecordSet")]
     public partial class RecordSet : Pulumi.CustomResource
     {

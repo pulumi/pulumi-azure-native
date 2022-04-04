@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
     /// <summary>
     /// Data Lake Analytics compute policy information.
     /// </summary>
+    [Obsolete(@"Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")]
     [AzureNativeResourceType("azure-native:datalakeanalytics/v20151001preview:ComputePolicy")]
     public partial class ComputePolicy : Pulumi.CustomResource
     {

@@ -113,7 +113,12 @@ class StorageDomainArgs:
         pulumi.set(self, "storage_domain_name", value)
 
 
+warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
+
 class StorageDomain(pulumi.CustomResource):
+    warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class StorageDomain(pulumi.CustomResource):
                  storage_account_credential_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""StorageDomain is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

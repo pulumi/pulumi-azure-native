@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Maintenance.V20180601Preview
     /// <summary>
     /// Maintenance configuration record type
     /// </summary>
+    [Obsolete(@"Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.")]
     [AzureNativeResourceType("azure-native:maintenance/v20180601preview:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {

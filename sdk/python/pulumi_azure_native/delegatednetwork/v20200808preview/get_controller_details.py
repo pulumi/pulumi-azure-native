@@ -15,6 +15,8 @@ __all__ = [
     'get_controller_details_output',
 ]
 
+warnings.warn("""Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetControllerDetailsResult:
     """
@@ -161,6 +163,7 @@ def get_controller_details(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
     """
+    pulumi.log.warn("""get_controller_details is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -194,4 +197,5 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
     """
+    pulumi.log.warn("""get_controller_details is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""")
     ...

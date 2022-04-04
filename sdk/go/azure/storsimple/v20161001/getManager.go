@@ -11,6 +11,8 @@ import (
 )
 
 // The StorSimple Manager
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupManager(ctx *pulumi.Context, args *LookupManagerArgs, opts ...pulumi.InvokeOption) (*LookupManagerResult, error) {
 	var rv LookupManagerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getManager", args, &rv, opts...)

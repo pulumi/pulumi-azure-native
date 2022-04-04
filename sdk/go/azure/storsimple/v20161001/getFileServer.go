@@ -11,6 +11,8 @@ import (
 )
 
 // The file server.
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupFileServer(ctx *pulumi.Context, args *LookupFileServerArgs, opts ...pulumi.InvokeOption) (*LookupFileServerResult, error) {
 	var rv LookupFileServerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileServer", args, &rv, opts...)

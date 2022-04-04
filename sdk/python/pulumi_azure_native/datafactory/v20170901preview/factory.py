@@ -116,7 +116,12 @@ class FactoryArgs:
         pulumi.set(self, "vsts_configuration", value)
 
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
+
 class Factory(pulumi.CustomResource):
+    warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -171,6 +176,7 @@ class Factory(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vsts_configuration: Optional[pulumi.Input[pulumi.InputType['FactoryVSTSConfigurationArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Factory is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

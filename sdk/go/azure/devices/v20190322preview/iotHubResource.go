@@ -12,6 +12,8 @@ import (
 )
 
 // The description of the IoT hub.
+//
+// Deprecated: Version v20190322preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 type IotHubResource struct {
 	pulumi.CustomResourceState
 

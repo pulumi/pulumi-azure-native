@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20140401
     /// <summary>
     /// The alert rule resource.
     /// </summary>
+    [Obsolete(@"Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.")]
     [AzureNativeResourceType("azure-native:insights/v20140401:AlertRule")]
     public partial class AlertRule : Pulumi.CustomResource
     {

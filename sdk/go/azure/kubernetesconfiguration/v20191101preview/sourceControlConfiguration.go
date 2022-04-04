@@ -12,6 +12,8 @@ import (
 )
 
 // The SourceControl Configuration object.
+//
+// Deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.
 type SourceControlConfiguration struct {
 	pulumi.CustomResourceState
 

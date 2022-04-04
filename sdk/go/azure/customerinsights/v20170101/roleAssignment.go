@@ -12,6 +12,8 @@ import (
 )
 
 // The Role Assignment resource format.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 type RoleAssignment struct {
 	pulumi.CustomResourceState
 

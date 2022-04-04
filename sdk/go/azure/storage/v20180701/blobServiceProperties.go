@@ -12,6 +12,8 @@ import (
 )
 
 // The properties of a storage account’s Blob service.
+//
+// Deprecated: Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type BlobServiceProperties struct {
 	pulumi.CustomResourceState
 

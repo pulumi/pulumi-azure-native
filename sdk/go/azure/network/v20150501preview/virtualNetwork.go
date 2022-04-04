@@ -12,6 +12,8 @@ import (
 )
 
 // Virtual Network resource
+//
+// Deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 

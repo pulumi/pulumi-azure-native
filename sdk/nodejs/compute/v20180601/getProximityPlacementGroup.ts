@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the proximity placement group.
  */
+/** @deprecated Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
+    pulumi.log.warn("getProximityPlacementGroup is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

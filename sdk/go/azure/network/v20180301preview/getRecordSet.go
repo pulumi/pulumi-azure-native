@@ -11,6 +11,8 @@ import (
 )
 
 // Describes a DNS record set (a collection of DNS records with the same name and type).
+//
+// Deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupRecordSet(ctx *pulumi.Context, args *LookupRecordSetArgs, opts ...pulumi.InvokeOption) (*LookupRecordSetResult, error) {
 	var rv LookupRecordSetResult
 	err := ctx.Invoke("azure-native:network/v20180301preview:getRecordSet", args, &rv, opts...)

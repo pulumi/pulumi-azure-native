@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20140901
 {
+    [Obsolete(@"Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     public static class GetNamespace
     {
         /// <summary>

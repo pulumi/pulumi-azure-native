@@ -12,6 +12,8 @@ import (
 )
 
 // A private endpoint connection
+//
+// Deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

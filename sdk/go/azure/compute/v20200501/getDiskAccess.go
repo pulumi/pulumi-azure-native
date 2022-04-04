@@ -11,6 +11,8 @@ import (
 )
 
 // disk access resource.
+//
+// Deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 func LookupDiskAccess(ctx *pulumi.Context, args *LookupDiskAccessArgs, opts ...pulumi.InvokeOption) (*LookupDiskAccessResult, error) {
 	var rv LookupDiskAccessResult
 	err := ctx.Invoke("azure-native:compute/v20200501:getDiskAccess", args, &rv, opts...)

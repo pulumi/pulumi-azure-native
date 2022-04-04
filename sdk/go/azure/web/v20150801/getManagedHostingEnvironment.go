@@ -11,6 +11,8 @@ import (
 )
 
 // Description of an hostingEnvironment (App Service Environment)
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupManagedHostingEnvironment(ctx *pulumi.Context, args *LookupManagedHostingEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupManagedHostingEnvironmentResult, error) {
 	var rv LookupManagedHostingEnvironmentResult
 	err := ctx.Invoke("azure-native:web/v20150801:getManagedHostingEnvironment", args, &rv, opts...)

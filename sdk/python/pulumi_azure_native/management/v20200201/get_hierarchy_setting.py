@@ -15,6 +15,8 @@ __all__ = [
     'get_hierarchy_setting_output',
 ]
 
+warnings.warn("""Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHierarchySettingResult:
     """
@@ -111,6 +113,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 
     :param str group_id: Management Group ID.
     """
+    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
     __args__ = dict()
     __args__['groupId'] = group_id
     if opts is None:
@@ -137,4 +140,5 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
 
     :param str group_id: Management Group ID.
     """
+    pulumi.log.warn("""get_hierarchy_setting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
     ...

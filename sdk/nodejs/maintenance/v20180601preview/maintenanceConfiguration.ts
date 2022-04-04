@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Maintenance configuration record type
+ *
+ * @deprecated Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MaintenanceConfiguration {
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.")
         return new MaintenanceConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later. */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MaintenanceConfiguration is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

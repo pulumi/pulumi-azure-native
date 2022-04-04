@@ -130,7 +130,12 @@ class NamespaceAuthorizationRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class NamespaceAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -188,6 +193,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""NamespaceAuthorizationRule is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

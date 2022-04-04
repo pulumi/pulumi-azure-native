@@ -177,7 +177,12 @@ class ProjectArgs:
         pulumi.set(self, "target_connection_info", value)
 
 
+warnings.warn("""Version v20180331preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+
+
 class Project(pulumi.CustomResource):
+    warnings.warn("""Version v20180331preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -244,6 +249,7 @@ class Project(pulumi.CustomResource):
                  target_connection_info: Optional[pulumi.Input[pulumi.InputType['SqlConnectionInfoArgs']]] = None,
                  target_platform: Optional[pulumi.Input[Union[str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Project is deprecated: Version v20180331preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

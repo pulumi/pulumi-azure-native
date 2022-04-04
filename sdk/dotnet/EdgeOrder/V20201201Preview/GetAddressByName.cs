@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
 {
+    [Obsolete(@"Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.")]
     public static class GetAddressByName
     {
         /// <summary>

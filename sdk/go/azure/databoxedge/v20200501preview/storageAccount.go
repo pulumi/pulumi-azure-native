@@ -12,6 +12,8 @@ import (
 )
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
+//
+// Deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 

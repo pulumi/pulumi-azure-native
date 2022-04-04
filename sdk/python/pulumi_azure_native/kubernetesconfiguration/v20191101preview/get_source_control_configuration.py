@@ -16,6 +16,8 @@ __all__ = [
     'get_source_control_configuration_output',
 ]
 
+warnings.warn("""Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSourceControlConfigurationResult:
     """
@@ -216,6 +218,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
+    pulumi.log.warn("""get_source_control_configuration is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['clusterResourceName'] = cluster_resource_name
@@ -262,4 +265,5 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     :param str resource_group_name: The name of the resource group.
     :param str source_control_configuration_name: Name of the Source Control Configuration.
     """
+    pulumi.log.warn("""get_source_control_configuration is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""")
     ...

@@ -15,6 +15,8 @@ __all__ = [
     'get_service_output',
 ]
 
+warnings.warn("""Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceResult:
     """
@@ -173,6 +175,7 @@ def get_service(device_name: Optional[str] = None,
     :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
     """
+    pulumi.log.warn("""get_service is deprecated: Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -207,4 +210,5 @@ def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str device_name: The name of the Windows IoT Device Service.
     :param str resource_group_name: The name of the resource group that contains the Windows IoT Device Service.
     """
+    pulumi.log.warn("""get_service is deprecated: Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     ...

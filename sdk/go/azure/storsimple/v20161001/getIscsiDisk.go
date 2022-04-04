@@ -11,6 +11,8 @@ import (
 )
 
 // The iSCSI disk.
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupIscsiDisk(ctx *pulumi.Context, args *LookupIscsiDiskArgs, opts ...pulumi.InvokeOption) (*LookupIscsiDiskResult, error) {
 	var rv LookupIscsiDiskResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getIscsiDisk", args, &rv, opts...)

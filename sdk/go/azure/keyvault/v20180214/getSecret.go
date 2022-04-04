@@ -11,6 +11,8 @@ import (
 )
 
 // Resource information with extended details.
+//
+// Deprecated: Version v20180214 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
 func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.InvokeOption) (*LookupSecretResult, error) {
 	var rv LookupSecretResult
 	err := ctx.Invoke("azure-native:keyvault/v20180214:getSecret", args, &rv, opts...)

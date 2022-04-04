@@ -11,6 +11,8 @@ import (
 )
 
 // Address Resource.
+//
+// Deprecated: Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.
 func LookupAddressByName(ctx *pulumi.Context, args *LookupAddressByNameArgs, opts ...pulumi.InvokeOption) (*LookupAddressByNameResult, error) {
 	var rv LookupAddressByNameResult
 	err := ctx.Invoke("azure-native:edgeorder/v20201201preview:getAddressByName", args, &rv, opts...)

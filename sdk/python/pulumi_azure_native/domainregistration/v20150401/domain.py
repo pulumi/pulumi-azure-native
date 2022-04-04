@@ -269,7 +269,12 @@ class DomainArgs:
         pulumi.set(self, "target_dns_type", value)
 
 
+warnings.warn("""Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
+
 class Domain(pulumi.CustomResource):
+    warnings.warn("""Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -353,6 +358,7 @@ class Domain(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_dns_type: Optional[pulumi.Input['DnsType']] = None,
                  __props__=None):
+        pulumi.log.warn("""Domain is deprecated: Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

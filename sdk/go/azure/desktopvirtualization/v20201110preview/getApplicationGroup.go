@@ -11,6 +11,8 @@ import (
 )
 
 // Represents a ApplicationGroup definition.
+//
+// Deprecated: Version v20201110preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 func LookupApplicationGroup(ctx *pulumi.Context, args *LookupApplicationGroupArgs, opts ...pulumi.InvokeOption) (*LookupApplicationGroupResult, error) {
 	var rv LookupApplicationGroupResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20201110preview:getApplicationGroup", args, &rv, opts...)

@@ -12,6 +12,8 @@ import (
 )
 
 // The peering service prefix class.
+//
+// Deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type PeeringServicePrefix struct {
 	pulumi.CustomResourceState
 

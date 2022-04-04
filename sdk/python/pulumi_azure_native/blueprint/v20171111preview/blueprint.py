@@ -163,7 +163,12 @@ class BlueprintArgs:
         pulumi.set(self, "versions", value)
 
 
+warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
+
+
 class Blueprint(pulumi.CustomResource):
+    warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class Blueprint(pulumi.CustomResource):
                  target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,
                  __props__=None):
+        pulumi.log.warn("""Blueprint is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

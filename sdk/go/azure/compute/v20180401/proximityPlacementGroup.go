@@ -12,6 +12,8 @@ import (
 )
 
 // Specifies information about the proximity placement group.
+//
+// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type ProximityPlacementGroup struct {
 	pulumi.CustomResourceState
 

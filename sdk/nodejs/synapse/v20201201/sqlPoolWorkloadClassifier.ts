@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload classifier operations for a data warehouse
+ *
+ * @deprecated Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
  */
 export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlPoolWorkloadClassifier {
+        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         return new SqlPoolWorkloadClassifier(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
     constructor(name: string, args: SqlPoolWorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlPoolWorkloadClassifier is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

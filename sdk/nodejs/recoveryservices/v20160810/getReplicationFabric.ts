@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Fabric definition.
  */
+/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationFabric(args: GetReplicationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationFabricResult> {
+    pulumi.log.warn("getReplicationFabric is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Compute role.
  */
-/** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */
+/** @deprecated Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
-    pulumi.log.warn("getRole is deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.")
+    pulumi.log.warn("getRole is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

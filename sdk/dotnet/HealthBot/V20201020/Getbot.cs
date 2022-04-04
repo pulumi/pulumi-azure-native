@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthBot.V20201020
     /// <summary>
     /// Bot resource definition
     /// </summary>
+    [Obsolete(@"Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.")]
     [AzureNativeResourceType("azure-native:healthbot/v20201020:getbot")]
     public partial class Getbot : Pulumi.CustomResource
     {

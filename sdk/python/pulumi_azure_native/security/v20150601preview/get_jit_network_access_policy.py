@@ -16,6 +16,8 @@ __all__ = [
     'get_jit_network_access_policy_output',
 ]
 
+warnings.warn("""Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
     def __init__(__self__, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
@@ -133,6 +135,7 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_jit_network_access_policy is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""")
     __args__ = dict()
     __args__['ascLocation'] = asc_location
     __args__['jitNetworkAccessPolicyName'] = jit_network_access_policy_name
@@ -166,4 +169,5 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str
     :param str jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_jit_network_access_policy is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""")
     ...

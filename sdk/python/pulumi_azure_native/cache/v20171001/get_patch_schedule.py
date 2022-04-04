@@ -16,6 +16,8 @@ __all__ = [
     'get_patch_schedule_output',
 ]
 
+warnings.warn("""Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPatchScheduleResult:
     """
@@ -92,6 +94,7 @@ def get_patch_schedule(default: Optional[str] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_patch_schedule is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     __args__ = dict()
     __args__['default'] = default
     __args__['name'] = name
@@ -122,4 +125,5 @@ def get_patch_schedule_output(default: Optional[pulumi.Input[str]] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_patch_schedule is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     ...

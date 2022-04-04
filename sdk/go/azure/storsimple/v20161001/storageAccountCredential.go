@@ -12,6 +12,8 @@ import (
 )
 
 // The storage account credential
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 

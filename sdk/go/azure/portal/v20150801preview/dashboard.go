@@ -12,6 +12,8 @@ import (
 )
 
 // The shared dashboard resource definition.
+//
+// Deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.
 type Dashboard struct {
 	pulumi.CustomResourceState
 

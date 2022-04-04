@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
+ *
+ * @deprecated Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

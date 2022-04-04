@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ImportExport.V20161101
     /// <summary>
     /// Contains the job information.
     /// </summary>
+    [Obsolete(@"Version v20161101 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.")]
     [AzureNativeResourceType("azure-native:importexport/v20161101:Job")]
     public partial class Job : Pulumi.CustomResource
     {

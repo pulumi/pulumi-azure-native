@@ -12,6 +12,8 @@ import (
 )
 
 // The properties of the EventHubConsumerGroupInfo object.
+//
+// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 type IotHubResourceEventHubConsumerGroup struct {
 	pulumi.CustomResourceState
 

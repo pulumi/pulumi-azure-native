@@ -11,6 +11,8 @@ import (
 )
 
 // A Big Data pool
+//
+// Deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupBigDataPoolResult, error) {
 	var rv LookupBigDataPoolResult
 	err := ctx.Invoke("azure-native:synapse/v20190601preview:getBigDataPool", args, &rv, opts...)

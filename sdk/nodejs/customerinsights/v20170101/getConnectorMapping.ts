@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The connector mapping resource format.
  */
+/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
 export function getConnectorMapping(args: GetConnectorMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorMappingResult> {
+    pulumi.log.warn("getConnectorMapping is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
     if (!opts) {
         opts = {}
     }

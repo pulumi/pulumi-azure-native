@@ -16,6 +16,8 @@ __all__ = [
     'get_pipeline_output',
 ]
 
+warnings.warn("""Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPipelineResult:
     """
@@ -150,6 +152,7 @@ def get_pipeline(pipeline_name: Optional[str] = None,
     :param str pipeline_name: The name of the Azure Pipeline resource in ARM.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_pipeline is deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.""")
     __args__ = dict()
     __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
@@ -182,4 +185,5 @@ def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
     :param str pipeline_name: The name of the Azure Pipeline resource in ARM.
     :param str resource_group_name: Name of the resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_pipeline is deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.""")
     ...

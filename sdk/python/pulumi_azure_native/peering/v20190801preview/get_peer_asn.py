@@ -16,6 +16,8 @@ __all__ = [
     'get_peer_asn_output',
 ]
 
+warnings.warn("""Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPeerAsnResult:
     """
@@ -124,6 +126,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
 
     :param str peer_asn_name: The peer ASN name.
     """
+    pulumi.log.warn("""get_peer_asn is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     __args__ = dict()
     __args__['peerAsnName'] = peer_asn_name
     if opts is None:
@@ -151,4 +154,5 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
 
     :param str peer_asn_name: The peer ASN name.
     """
+    pulumi.log.warn("""get_peer_asn is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     ...

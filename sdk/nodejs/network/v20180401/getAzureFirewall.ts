@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Firewall resource
  */
+/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getAzureFirewall(args: GetAzureFirewallArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureFirewallResult> {
+    pulumi.log.warn("getAzureFirewall is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

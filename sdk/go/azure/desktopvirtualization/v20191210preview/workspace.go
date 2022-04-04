@@ -12,6 +12,8 @@ import (
 )
 
 // Represents a Workspace definition.
+//
+// Deprecated: Version v20191210preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 type Workspace struct {
 	pulumi.CustomResourceState
 

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Workspace definition.
  */
+/** @deprecated Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
     if (!opts) {
         opts = {}
     }

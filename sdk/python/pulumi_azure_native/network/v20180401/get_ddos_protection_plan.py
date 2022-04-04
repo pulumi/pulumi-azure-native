@@ -16,6 +16,8 @@ __all__ = [
     'get_ddos_protection_plan_output',
 ]
 
+warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDdosProtectionPlanResult:
     """
@@ -150,6 +152,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ddos_protection_plan is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['ddosProtectionPlanName'] = ddos_protection_plan_name
     __args__['resourceGroupName'] = resource_group_name
@@ -182,4 +185,5 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_ddos_protection_plan is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

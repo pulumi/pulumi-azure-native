@@ -16,6 +16,8 @@ __all__ = [
     'get_secret_output',
 ]
 
+warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSecretResult:
     """
@@ -116,6 +118,7 @@ def get_secret(resource_group_name: Optional[str] = None,
     :param str secret_name: The name of the secret.
     :param str vault_name: The name of the vault.
     """
+    pulumi.log.warn("""get_secret is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['secretName'] = secret_name
@@ -148,4 +151,5 @@ def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str secret_name: The name of the secret.
     :param str vault_name: The name of the vault.
     """
+    pulumi.log.warn("""get_secret is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
     ...

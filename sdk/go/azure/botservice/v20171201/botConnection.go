@@ -12,6 +12,8 @@ import (
 )
 
 // Bot channel resource definition
+//
+// Deprecated: Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.
 type BotConnection struct {
 	pulumi.CustomResourceState
 

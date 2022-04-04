@@ -11,6 +11,8 @@ import (
 )
 
 // The base class for backup policy. Workload-specific backup policies are derived from this class.
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 func LookupProtectionPolicy(ctx *pulumi.Context, args *LookupProtectionPolicyArgs, opts ...pulumi.InvokeOption) (*LookupProtectionPolicyResult, error) {
 	var rv LookupProtectionPolicyResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160601:getProtectionPolicy", args, &rv, opts...)

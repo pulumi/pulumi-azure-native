@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The file server.
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getFileServer(args: GetFileServerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServerResult> {
+    pulumi.log.warn("getFileServer is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

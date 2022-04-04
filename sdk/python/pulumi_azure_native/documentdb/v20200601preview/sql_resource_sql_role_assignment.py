@@ -112,7 +112,12 @@ class SqlResourceSqlRoleAssignmentArgs:
         pulumi.set(self, "scope", value)
 
 
+warnings.warn("""Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
+
 class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
+    warnings.warn("""Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SqlResourceSqlRoleAssignment is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

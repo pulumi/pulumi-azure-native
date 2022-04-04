@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
 {
+    [Obsolete(@"Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")]
     public static class GetRegistrationDefinition
     {
         /// <summary>

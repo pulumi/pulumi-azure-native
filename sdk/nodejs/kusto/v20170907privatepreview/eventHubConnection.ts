@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an event hub connection.
+ *
+ * @deprecated Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.
  */
 export class EventHubConnection extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class EventHubConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): EventHubConnection {
+        pulumi.log.warn("EventHubConnection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.")
         return new EventHubConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class EventHubConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later. */
     constructor(name: string, args: EventHubConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("EventHubConnection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

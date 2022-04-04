@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Bot channel resource definition
  */
+/** @deprecated Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later. */
 export function getBotConnection(args: GetBotConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetBotConnectionResult> {
+    pulumi.log.warn("getBotConnection is deprecated: Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.")
     if (!opts) {
         opts = {}
     }

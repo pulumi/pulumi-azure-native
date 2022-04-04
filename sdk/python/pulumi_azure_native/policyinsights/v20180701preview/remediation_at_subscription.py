@@ -100,7 +100,12 @@ class RemediationAtSubscriptionArgs:
         pulumi.set(self, "remediation_name", value)
 
 
+warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+
+
 class RemediationAtSubscription(pulumi.CustomResource):
+    warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  remediation_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RemediationAtSubscription is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

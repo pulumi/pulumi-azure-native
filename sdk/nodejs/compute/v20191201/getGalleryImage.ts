@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Image Definition that you want to create or update.
  */
+/** @deprecated Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
+    pulumi.log.warn("getGalleryImage is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

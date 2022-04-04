@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Properties of an artifact source.
  */
+/** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getArtifactSourceResource(args: GetArtifactSourceResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactSourceResourceResult> {
+    pulumi.log.warn("getArtifactSourceResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

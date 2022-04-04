@@ -12,6 +12,8 @@ import (
 )
 
 // Domain service.
+//
+// Deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 type DomainService struct {
 	pulumi.CustomResourceState
 

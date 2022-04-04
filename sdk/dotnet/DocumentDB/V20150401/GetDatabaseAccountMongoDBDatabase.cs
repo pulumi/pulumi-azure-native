@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DocumentDB.V20150401
 {
+    [Obsolete(@"Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")]
     public static class GetDatabaseAccountMongoDBDatabase
     {
         /// <summary>

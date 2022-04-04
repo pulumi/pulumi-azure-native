@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The customer's ASN that is registered by the peering service provider.
  */
+/** @deprecated Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getRegisteredAsn(args: GetRegisteredAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredAsnResult> {
+    pulumi.log.warn("getRegisteredAsn is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

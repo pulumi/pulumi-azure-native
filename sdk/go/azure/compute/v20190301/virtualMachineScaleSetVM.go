@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a virtual machine scale set virtual machine.
+//
+// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type VirtualMachineScaleSetVM struct {
 	pulumi.CustomResourceState
 

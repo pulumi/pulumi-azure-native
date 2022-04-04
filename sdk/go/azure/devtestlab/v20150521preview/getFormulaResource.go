@@ -11,6 +11,8 @@ import (
 )
 
 // A formula.
+//
+// Deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 func LookupFormulaResource(ctx *pulumi.Context, args *LookupFormulaResourceArgs, opts ...pulumi.InvokeOption) (*LookupFormulaResourceResult, error) {
 	var rv LookupFormulaResourceResult
 	err := ctx.Invoke("azure-native:devtestlab/v20150521preview:getFormulaResource", args, &rv, opts...)

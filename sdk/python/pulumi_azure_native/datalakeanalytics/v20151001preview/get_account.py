@@ -16,6 +16,8 @@ __all__ = [
     'get_account_output',
 ]
 
+warnings.warn("""Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAccountResult:
     """
@@ -426,6 +428,7 @@ def get_account(account_name: Optional[str] = None,
     :param str account_name: The name of the Data Lake Analytics account to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_account is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -481,4 +484,5 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str account_name: The name of the Data Lake Analytics account to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_account is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
     ...

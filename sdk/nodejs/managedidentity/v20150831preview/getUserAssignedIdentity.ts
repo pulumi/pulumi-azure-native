@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes an identity resource.
  */
+/** @deprecated Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later. */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
+    pulumi.log.warn("getUserAssignedIdentity is deprecated: Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later.")
     if (!opts) {
         opts = {}
     }

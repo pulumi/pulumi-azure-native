@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DomainRegistration.V20150401
 {
+    [Obsolete(@"Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
     public static class GetDomain
     {
         /// <summary>

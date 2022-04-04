@@ -15,6 +15,8 @@ __all__ = [
     'get_support_plan_type_output',
 ]
 
+warnings.warn("""Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSupportPlanTypeResult:
     """
@@ -89,6 +91,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
+    pulumi.log.warn("""get_support_plan_type is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""")
     __args__ = dict()
     __args__['planTypeName'] = plan_type_name
     __args__['providerName'] = provider_name
@@ -116,4 +119,5 @@ def get_support_plan_type_output(plan_type_name: Optional[pulumi.Input[str]] = N
     :param str plan_type_name: The Canonical support plan type.
     :param str provider_name: The support plan type. For now the only valid type is "canonical".
     """
+    pulumi.log.warn("""get_support_plan_type is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""")
     ...

@@ -12,6 +12,8 @@ import (
 )
 
 // Contains information about a pool.
+//
+// Deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type Pool struct {
 	pulumi.CustomResourceState
 

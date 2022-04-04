@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Instance of an Azure ML Operationalization Cluster resource.
  */
+/** @deprecated Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later. */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
+    pulumi.log.warn("getOperationalizationCluster is deprecated: Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")
     if (!opts) {
         opts = {}
     }

@@ -11,6 +11,8 @@ import (
 )
 
 // Subnet in a virtual network resource.
+//
+// Deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupSubnet(ctx *pulumi.Context, args *LookupSubnetArgs, opts ...pulumi.InvokeOption) (*LookupSubnetResult, error) {
 	var rv LookupSubnetResult
 	err := ctx.Invoke("azure-native:network/v20180101:getSubnet", args, &rv, opts...)

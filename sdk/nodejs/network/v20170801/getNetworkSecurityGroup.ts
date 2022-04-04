@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * NetworkSecurityGroup resource.
  */
+/** @deprecated Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
+    pulumi.log.warn("getNetworkSecurityGroup is deprecated: Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

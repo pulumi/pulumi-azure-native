@@ -11,6 +11,8 @@ import (
 )
 
 // Single item in List or Get Event Hub operation
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupEventHub(ctx *pulumi.Context, args *LookupEventHubArgs, opts ...pulumi.InvokeOption) (*LookupEventHubResult, error) {
 	var rv LookupEventHubResult
 	err := ctx.Invoke("azure-native:eventhub/v20150801:getEventHub", args, &rv, opts...)

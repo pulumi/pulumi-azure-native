@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The properties of a storage account’s Table service.
  */
+/** @deprecated Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getTableServiceProperties(args: GetTableServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetTableServicePropertiesResult> {
+    pulumi.log.warn("getTableServiceProperties is deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

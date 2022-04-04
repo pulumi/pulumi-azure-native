@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An application security group in a resource group.
+ *
+ * @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApplicationSecurityGroup {
+        pulumi.log.warn("ApplicationSecurityGroup is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         return new ApplicationSecurityGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
     constructor(name: string, args: ApplicationSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ApplicationSecurityGroup is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

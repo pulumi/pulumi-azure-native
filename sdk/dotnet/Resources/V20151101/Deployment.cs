@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20151101
     /// <summary>
     /// Deployment information.
     /// </summary>
+    [Obsolete(@"Version v20151101 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")]
     [AzureNativeResourceType("azure-native:resources/v20151101:Deployment")]
     public partial class Deployment : Pulumi.CustomResource
     {

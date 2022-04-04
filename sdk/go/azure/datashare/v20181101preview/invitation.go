@@ -12,6 +12,8 @@ import (
 )
 
 // A Invitation data transfer object.
+//
+// Deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 type Invitation struct {
 	pulumi.CustomResourceState
 

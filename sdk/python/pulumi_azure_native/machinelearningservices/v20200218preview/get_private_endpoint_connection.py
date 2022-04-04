@@ -16,6 +16,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -164,6 +166,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -200,4 +203,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     ...

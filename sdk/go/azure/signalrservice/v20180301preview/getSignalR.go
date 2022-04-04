@@ -11,6 +11,8 @@ import (
 )
 
 // A class represent a SignalR service resource.
+//
+// Deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.
 func LookupSignalR(ctx *pulumi.Context, args *LookupSignalRArgs, opts ...pulumi.InvokeOption) (*LookupSignalRResult, error) {
 	var rv LookupSignalRResult
 	err := ctx.Invoke("azure-native:signalrservice/v20180301preview:getSignalR", args, &rv, opts...)

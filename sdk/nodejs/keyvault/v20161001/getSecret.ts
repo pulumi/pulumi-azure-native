@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Resource information with extended details.
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later. */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
+    pulumi.log.warn("getSecret is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")
     if (!opts) {
         opts = {}
     }

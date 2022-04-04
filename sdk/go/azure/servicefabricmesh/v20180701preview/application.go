@@ -12,6 +12,8 @@ import (
 )
 
 // This type describes an application resource.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.
 type Application struct {
 	pulumi.CustomResourceState
 

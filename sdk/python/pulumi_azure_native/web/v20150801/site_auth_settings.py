@@ -525,7 +525,12 @@ class SiteAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
+
 class SiteAuthSettings(pulumi.CustomResource):
+    warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -683,6 +688,7 @@ class SiteAuthSettings(pulumi.CustomResource):
                  twitter_consumer_secret: Optional[pulumi.Input[str]] = None,
                  unauthenticated_client_action: Optional[pulumi.Input['UnauthenticatedClientAction']] = None,
                  __props__=None):
+        pulumi.log.warn("""SiteAuthSettings is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

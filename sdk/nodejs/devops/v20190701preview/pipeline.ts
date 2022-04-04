@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
+ *
+ * @deprecated Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.
  */
 export class Pipeline extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Pipeline {
+        pulumi.log.warn("Pipeline is deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.")
         return new Pipeline(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +78,9 @@ export class Pipeline extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later. */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Pipeline is deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

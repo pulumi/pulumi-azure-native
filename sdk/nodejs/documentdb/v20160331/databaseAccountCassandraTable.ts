@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra table.
+ *
+ * @deprecated Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
  */
 export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountCassandraTable {
+        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         return new DatabaseAccountCassandraTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -67,7 +70,9 @@ export class DatabaseAccountCassandraTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
     constructor(name: string, args: DatabaseAccountCassandraTableArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DatabaseAccountCassandraTable is deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -15,6 +15,8 @@ __all__ = [
     'get_application_output',
 ]
 
+warnings.warn("""Version v20191210preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationResult:
     """
@@ -199,6 +201,7 @@ def get_application(application_group_name: Optional[str] = None,
     :param str application_name: The name of the application within the specified application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application is deprecated: Version v20191210preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""")
     __args__ = dict()
     __args__['applicationGroupName'] = application_group_name
     __args__['applicationName'] = application_name
@@ -238,4 +241,5 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
     :param str application_name: The name of the application within the specified application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application is deprecated: Version v20191210preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""")
     ...

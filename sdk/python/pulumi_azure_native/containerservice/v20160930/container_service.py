@@ -209,7 +209,12 @@ class ContainerServiceArgs:
         pulumi.set(self, "windows_profile", value)
 
 
+warnings.warn("""Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+
+
 class ContainerService(pulumi.CustomResource):
+    warnings.warn("""Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -282,6 +287,7 @@ class ContainerService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  windows_profile: Optional[pulumi.Input[pulumi.InputType['ContainerServiceWindowsProfileArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""ContainerService is deprecated: Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

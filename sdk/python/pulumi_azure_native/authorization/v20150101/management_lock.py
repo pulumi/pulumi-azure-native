@@ -83,7 +83,12 @@ class ManagementLockArgs:
         pulumi.set(self, "notes", value)
 
 
+warnings.warn("""Version v20150101 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class ManagementLock(pulumi.CustomResource):
+    warnings.warn("""Version v20150101 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class ManagementLock(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagementLock is deprecated: Version v20150101 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

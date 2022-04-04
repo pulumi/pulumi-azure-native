@@ -107,7 +107,12 @@ class AdaptiveApplicationControlArgs:
         pulumi.set(self, "vm_recommendations", value)
 
 
+warnings.warn("""Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""", DeprecationWarning)
+
+
 class AdaptiveApplicationControl(pulumi.CustomResource):
+    warnings.warn("""Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -158,6 +163,7 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  protection_mode: Optional[pulumi.Input[pulumi.InputType['ProtectionModeArgs']]] = None,
                  vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AdaptiveApplicationControl is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

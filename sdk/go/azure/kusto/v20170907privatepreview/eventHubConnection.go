@@ -12,6 +12,8 @@ import (
 )
 
 // Class representing an event hub connection.
+//
+// Deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.
 type EventHubConnection struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,8 @@ import (
 )
 
 // Describes an identity resource.
+//
+// Deprecated: Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later.
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *LookupUserAssignedIdentityArgs, opts ...pulumi.InvokeOption) (*LookupUserAssignedIdentityResult, error) {
 	var rv LookupUserAssignedIdentityResult
 	err := ctx.Invoke("azure-native:managedidentity/v20150831preview:getUserAssignedIdentity", args, &rv, opts...)

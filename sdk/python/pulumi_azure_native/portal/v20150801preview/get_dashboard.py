@@ -16,6 +16,8 @@ __all__ = [
     'get_dashboard_output',
 ]
 
+warnings.warn("""Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDashboardResult:
     """
@@ -126,6 +128,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     :param str dashboard_name: The name of the dashboard.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_dashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""")
     __args__ = dict()
     __args__['dashboardName'] = dashboard_name
     __args__['resourceGroupName'] = resource_group_name
@@ -156,4 +159,5 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
     :param str dashboard_name: The name of the dashboard.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_dashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""")
     ...

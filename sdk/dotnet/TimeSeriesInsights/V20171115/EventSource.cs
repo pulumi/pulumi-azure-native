@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
     /// <summary>
     /// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
     /// </summary>
-    [Obsolete(@"Please use one of the variants: EventHubEventSource, IoTHubEventSource.")]
+    [Obsolete(@"Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20171115:EventSource")]
     public partial class EventSource : Pulumi.CustomResource
     {

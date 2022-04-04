@@ -11,6 +11,8 @@ import (
 )
 
 // Contains the job information.
+//
+// Deprecated: Version v20161101 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:importexport/v20161101:getJob", args, &rv, opts...)

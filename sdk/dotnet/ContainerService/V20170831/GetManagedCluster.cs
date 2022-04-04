@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20170831
 {
+    [Obsolete(@"Version v20170831 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")]
     public static class GetManagedCluster
     {
         /// <summary>

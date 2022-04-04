@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Dataset resource type.
  */
+/** @deprecated Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later. */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
+    pulumi.log.warn("getDataset is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,8 @@ import (
 )
 
 // Pipeline resource type.
+//
+// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
 type Pipeline struct {
 	pulumi.CustomResourceState
 

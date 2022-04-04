@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
+    [Obsolete(@"Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")]
     public static class GetAccount
     {
         /// <summary>

@@ -174,7 +174,12 @@ class SmartDetectorAlertRuleArgs:
         pulumi.set(self, "throttling", value)
 
 
+warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""", DeprecationWarning)
+
+
 class SmartDetectorAlertRule(pulumi.CustomResource):
+    warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,6 +246,7 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SmartDetectorAlertRule is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of Dicom Service
  */
+/** @deprecated Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later. */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
+    pulumi.log.warn("getDicomService is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")
     if (!opts) {
         opts = {}
     }

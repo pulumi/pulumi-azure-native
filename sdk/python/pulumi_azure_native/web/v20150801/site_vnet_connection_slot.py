@@ -259,7 +259,12 @@ class SiteVNETConnectionSlotArgs:
         pulumi.set(self, "vnet_resource_id", value)
 
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
+
 class SiteVNETConnectionSlot(pulumi.CustomResource):
+    warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,6 +347,7 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  vnet_resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SiteVNETConnectionSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

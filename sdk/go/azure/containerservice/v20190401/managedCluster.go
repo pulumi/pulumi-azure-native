@@ -12,6 +12,8 @@ import (
 )
 
 // Managed cluster.
+//
+// Deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
 type ManagedCluster struct {
 	pulumi.CustomResourceState
 

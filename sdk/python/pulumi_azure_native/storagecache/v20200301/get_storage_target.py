@@ -16,6 +16,8 @@ __all__ = [
     'get_storage_target_output',
 ]
 
+warnings.warn("""Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageTargetResult:
     """
@@ -176,6 +178,7 @@ def get_storage_target(cache_name: Optional[str] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
     """
+    pulumi.log.warn("""get_storage_target is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -213,4 +216,5 @@ def get_storage_target_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Target resource group.
     :param str storage_target_name: Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
     """
+    pulumi.log.warn("""get_storage_target is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     ...

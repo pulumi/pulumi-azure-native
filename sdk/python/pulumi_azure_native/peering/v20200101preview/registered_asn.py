@@ -80,7 +80,12 @@ class RegisteredAsnArgs:
         pulumi.set(self, "registered_asn_name", value)
 
 
+warnings.warn("""Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
+
 class RegisteredAsn(pulumi.CustomResource):
+    warnings.warn("""Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,6 +134,7 @@ class RegisteredAsn(pulumi.CustomResource):
                  registered_asn_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RegisteredAsn is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

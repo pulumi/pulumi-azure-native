@@ -11,6 +11,8 @@ import (
 )
 
 // Describes a Virtual Machine.
+//
+// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
 	var rv LookupVirtualMachineResult
 	err := ctx.Invoke("azure-native:compute/v20191201:getVirtualMachine", args, &rv, opts...)

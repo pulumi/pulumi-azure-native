@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Backup Schedule Group
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getBackupScheduleGroup(args: GetBackupScheduleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupScheduleGroupResult> {
+    pulumi.log.warn("getBackupScheduleGroup is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

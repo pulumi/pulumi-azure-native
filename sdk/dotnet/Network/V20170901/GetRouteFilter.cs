@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20170901
 {
+    [Obsolete(@"Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     public static class GetRouteFilter
     {
         /// <summary>

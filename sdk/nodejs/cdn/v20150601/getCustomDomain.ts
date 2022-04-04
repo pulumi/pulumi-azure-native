@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
  */
+/** @deprecated Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    pulumi.log.warn("getCustomDomain is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

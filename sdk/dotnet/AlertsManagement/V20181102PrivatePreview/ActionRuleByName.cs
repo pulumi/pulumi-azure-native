@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
     /// </summary>
+    [Obsolete(@"Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")]
     [AzureNativeResourceType("azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName")]
     public partial class ActionRuleByName : Pulumi.CustomResource
     {

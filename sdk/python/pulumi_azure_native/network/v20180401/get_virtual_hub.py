@@ -16,6 +16,8 @@ __all__ = [
     'get_virtual_hub_output',
 ]
 
+warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualHubResult:
     """
@@ -162,6 +164,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_virtual_hub is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
@@ -195,4 +198,5 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name of the VirtualHub.
     :param str virtual_hub_name: The name of the VirtualHub.
     """
+    pulumi.log.warn("""get_virtual_hub is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
  */
+/** @deprecated Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later. */
 export function getCognitiveServicesAccount(args: GetCognitiveServicesAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCognitiveServicesAccountResult> {
+    pulumi.log.warn("getCognitiveServicesAccount is deprecated: Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.")
     if (!opts) {
         opts = {}
     }

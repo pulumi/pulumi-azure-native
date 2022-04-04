@@ -180,7 +180,12 @@ class JobArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""", DeprecationWarning)
+
+
 class Job(pulumi.CustomResource):
+    warnings.warn("""Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class Job(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transfer_type: Optional[pulumi.Input[Union[str, 'TransferType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Job is deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

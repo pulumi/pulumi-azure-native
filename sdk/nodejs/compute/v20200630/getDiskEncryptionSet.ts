@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * disk encryption set resource.
  */
+/** @deprecated Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
+    pulumi.log.warn("getDiskEncryptionSet is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

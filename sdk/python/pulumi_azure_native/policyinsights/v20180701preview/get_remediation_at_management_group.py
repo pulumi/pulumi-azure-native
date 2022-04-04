@@ -16,6 +16,8 @@ __all__ = [
     'get_remediation_at_management_group_output',
 ]
 
+warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRemediationAtManagementGroupResult:
     """
@@ -164,6 +166,7 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_management_group is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace
@@ -200,4 +203,5 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
     """
+    pulumi.log.warn("""get_remediation_at_management_group is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
     ...

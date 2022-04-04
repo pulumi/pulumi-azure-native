@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  */
+/** @deprecated Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later. */
 export function getprivateLinkServicesForSCCPowershell(args: GetprivateLinkServicesForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForSCCPowershellResult> {
+    pulumi.log.warn("getprivateLinkServicesForSCCPowershell is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")
     if (!opts) {
         opts = {}
     }

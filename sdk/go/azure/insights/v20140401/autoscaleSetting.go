@@ -12,6 +12,8 @@ import (
 )
 
 // The autoscale setting resource.
+//
+// Deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.
 type AutoscaleSetting struct {
 	pulumi.CustomResourceState
 

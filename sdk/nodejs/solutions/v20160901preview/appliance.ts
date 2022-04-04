@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about appliance.
+ *
+ * @deprecated Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
  */
 export class Appliance extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Appliance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Appliance {
+        pulumi.log.warn("Appliance is deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")
         return new Appliance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -103,7 +106,9 @@ export class Appliance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later. */
     constructor(name: string, args: ApplianceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Appliance is deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

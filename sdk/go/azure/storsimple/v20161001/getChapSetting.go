@@ -11,6 +11,8 @@ import (
 )
 
 // Challenge-Handshake Authentication Protocol (CHAP) setting
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupChapSetting(ctx *pulumi.Context, args *LookupChapSettingArgs, opts ...pulumi.InvokeOption) (*LookupChapSettingResult, error) {
 	var rv LookupChapSettingResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getChapSetting", args, &rv, opts...)

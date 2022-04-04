@@ -15,6 +15,8 @@ __all__ = [
     'get_site_host_name_binding_slot_output',
 ]
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSiteHostNameBindingSlotResult:
     """
@@ -189,6 +191,7 @@ def get_site_host_name_binding_slot(host_name: Optional[str] = None,
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
+    pulumi.log.warn("""get_site_host_name_binding_slot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     __args__ = dict()
     __args__['hostName'] = host_name
     __args__['name'] = name
@@ -230,4 +233,5 @@ def get_site_host_name_binding_slot_output(host_name: Optional[pulumi.Input[str]
     :param str resource_group_name: Name of resource group
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     """
+    pulumi.log.warn("""get_site_host_name_binding_slot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     ...

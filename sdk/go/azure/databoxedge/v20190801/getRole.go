@@ -12,7 +12,7 @@ import (
 
 // Compute role.
 //
-// Deprecated: Please use one of the variants: IoTRole.
+// Deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {
 	var rv LookupRoleResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getRole", args, &rv, opts...)

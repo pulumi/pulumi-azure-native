@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB SQL Role Definition.
  */
+/** @deprecated Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getSqlResourceSqlRoleDefinition(args: GetSqlResourceSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleDefinitionResult> {
+    pulumi.log.warn("getSqlResourceSqlRoleDefinition is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

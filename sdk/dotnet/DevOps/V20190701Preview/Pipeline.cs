@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevOps.V20190701Preview
     /// <summary>
     /// Azure DevOps Pipeline used to configure Continuous Integration (CI) &amp; Continuous Delivery (CD) for Azure resources.
     /// </summary>
+    [Obsolete(@"Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.")]
     [AzureNativeResourceType("azure-native:devops/v20190701preview:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {

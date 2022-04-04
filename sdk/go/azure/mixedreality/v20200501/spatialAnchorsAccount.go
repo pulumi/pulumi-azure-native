@@ -12,6 +12,8 @@ import (
 )
 
 // SpatialAnchorsAccount Response.
+//
+// Deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
 

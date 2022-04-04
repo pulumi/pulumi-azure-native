@@ -12,6 +12,8 @@ import (
 )
 
 // The alert rule information
+//
+// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
 

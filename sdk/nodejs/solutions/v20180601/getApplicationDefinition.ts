@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Information about managed application definition.
  */
+/** @deprecated Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later. */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
+    pulumi.log.warn("getApplicationDefinition is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")
     if (!opts) {
         opts = {}
     }

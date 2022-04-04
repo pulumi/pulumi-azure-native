@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Class that represents a BizTalk Hybrid Connection
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getSiteRelayServiceConnectionSlot(args: GetSiteRelayServiceConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteRelayServiceConnectionSlotResult> {
+    pulumi.log.warn("getSiteRelayServiceConnectionSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+ *
+ * @deprecated Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReferenceDataSet {
+        pulumi.log.warn("ReferenceDataSet is deprecated: Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")
         return new ReferenceDataSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later. */
     constructor(name: string, args: ReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ReferenceDataSet is deprecated: Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

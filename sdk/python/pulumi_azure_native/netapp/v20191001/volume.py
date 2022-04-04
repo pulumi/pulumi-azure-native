@@ -275,7 +275,12 @@ class VolumeArgs:
         pulumi.set(self, "volume_type", value)
 
 
+warnings.warn("""Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class Volume(pulumi.CustomResource):
+    warnings.warn("""Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -360,6 +365,7 @@ class Volume(pulumi.CustomResource):
                  volume_name: Optional[pulumi.Input[str]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Volume is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

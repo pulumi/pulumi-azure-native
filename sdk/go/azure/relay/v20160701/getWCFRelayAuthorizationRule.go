@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a Namespace AuthorizationRules.
+//
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayAuthorizationRuleResult, error) {
 	var rv LookupWCFRelayAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay/v20160701:getWCFRelayAuthorizationRule", args, &rv, opts...)

@@ -82,7 +82,12 @@ class DatasetArgs:
         pulumi.set(self, "dataset_name", value)
 
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
+
 class Dataset(pulumi.CustomResource):
+    warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class Dataset(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['AmazonMWSObjectDatasetArgs'], pulumi.InputType['AmazonS3DatasetArgs'], pulumi.InputType['AzureBlobDatasetArgs'], pulumi.InputType['AzureDataLakeStoreDatasetArgs'], pulumi.InputType['AzureMySqlTableDatasetArgs'], pulumi.InputType['AzurePostgreSqlTableDatasetArgs'], pulumi.InputType['AzureSearchIndexDatasetArgs'], pulumi.InputType['AzureSqlDWTableDatasetArgs'], pulumi.InputType['AzureSqlTableDatasetArgs'], pulumi.InputType['AzureTableDatasetArgs'], pulumi.InputType['CassandraTableDatasetArgs'], pulumi.InputType['ConcurObjectDatasetArgs'], pulumi.InputType['CouchbaseTableDatasetArgs'], pulumi.InputType['CustomDatasetArgs'], pulumi.InputType['DocumentDbCollectionDatasetArgs'], pulumi.InputType['DrillTableDatasetArgs'], pulumi.InputType['DynamicsEntityDatasetArgs'], pulumi.InputType['EloquaObjectDatasetArgs'], pulumi.InputType['FileShareDatasetArgs'], pulumi.InputType['GoogleBigQueryObjectDatasetArgs'], pulumi.InputType['GreenplumTableDatasetArgs'], pulumi.InputType['HBaseObjectDatasetArgs'], pulumi.InputType['HiveObjectDatasetArgs'], pulumi.InputType['HttpDatasetArgs'], pulumi.InputType['HubspotObjectDatasetArgs'], pulumi.InputType['ImpalaObjectDatasetArgs'], pulumi.InputType['JiraObjectDatasetArgs'], pulumi.InputType['MagentoObjectDatasetArgs'], pulumi.InputType['MariaDBTableDatasetArgs'], pulumi.InputType['MarketoObjectDatasetArgs'], pulumi.InputType['MongoDbCollectionDatasetArgs'], pulumi.InputType['NetezzaTableDatasetArgs'], pulumi.InputType['ODataResourceDatasetArgs'], pulumi.InputType['OracleTableDatasetArgs'], pulumi.InputType['PaypalObjectDatasetArgs'], pulumi.InputType['PhoenixObjectDatasetArgs'], pulumi.InputType['PrestoObjectDatasetArgs'], pulumi.InputType['QuickBooksObjectDatasetArgs'], pulumi.InputType['RelationalTableDatasetArgs'], pulumi.InputType['ResponsysObjectDatasetArgs'], pulumi.InputType['SalesforceMarketingCloudObjectDatasetArgs'], pulumi.InputType['SalesforceObjectDatasetArgs'], pulumi.InputType['SapCloudForCustomerResourceDatasetArgs'], pulumi.InputType['SapEccResourceDatasetArgs'], pulumi.InputType['ServiceNowObjectDatasetArgs'], pulumi.InputType['ShopifyObjectDatasetArgs'], pulumi.InputType['SparkObjectDatasetArgs'], pulumi.InputType['SqlServerTableDatasetArgs'], pulumi.InputType['SquareObjectDatasetArgs'], pulumi.InputType['VerticaTableDatasetArgs'], pulumi.InputType['WebTableDatasetArgs'], pulumi.InputType['XeroObjectDatasetArgs'], pulumi.InputType['ZohoObjectDatasetArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Dataset is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

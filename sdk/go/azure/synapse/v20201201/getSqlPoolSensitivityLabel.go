@@ -11,6 +11,8 @@ import (
 )
 
 // A sensitivity label.
+//
+// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupSqlPoolSensitivityLabel(ctx *pulumi.Context, args *LookupSqlPoolSensitivityLabelArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolSensitivityLabelResult, error) {
 	var rv LookupSqlPoolSensitivityLabelResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getSqlPoolSensitivityLabel", args, &rv, opts...)

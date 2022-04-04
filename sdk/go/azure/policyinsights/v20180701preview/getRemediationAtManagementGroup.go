@@ -11,6 +11,8 @@ import (
 )
 
 // The remediation definition.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
 func LookupRemediationAtManagementGroup(ctx *pulumi.Context, args *LookupRemediationAtManagementGroupArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtManagementGroupResult, error) {
 	var rv LookupRemediationAtManagementGroupResult
 	err := ctx.Invoke("azure-native:policyinsights/v20180701preview:getRemediationAtManagementGroup", args, &rv, opts...)

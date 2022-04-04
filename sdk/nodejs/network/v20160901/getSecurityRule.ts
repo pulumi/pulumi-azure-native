@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Network security rule.
  */
+/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getSecurityRule(args: GetSecurityRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityRuleResult> {
+    pulumi.log.warn("getSecurityRule is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

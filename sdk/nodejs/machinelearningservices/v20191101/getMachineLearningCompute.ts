@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
  */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getMachineLearningCompute(args: GetMachineLearningComputeArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningComputeResult> {
+    pulumi.log.warn("getMachineLearningCompute is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

@@ -15,6 +15,8 @@ __all__ = [
     'get_application_type_version_output',
 ]
 
+warnings.warn("""Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationTypeVersionResult:
     """
@@ -153,6 +155,7 @@ def get_application_type_version(application_type_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
+    pulumi.log.warn("""get_application_type_version is deprecated: Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""")
     __args__ = dict()
     __args__['applicationTypeName'] = application_type_name
     __args__['clusterName'] = cluster_name
@@ -191,4 +194,5 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group.
     :param str version: The application type version.
     """
+    pulumi.log.warn("""get_application_type_version is deprecated: Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""")
     ...

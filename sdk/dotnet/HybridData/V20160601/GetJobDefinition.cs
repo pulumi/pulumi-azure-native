@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridData.V20160601
 {
+    [Obsolete(@"Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")]
     public static class GetJobDefinition
     {
         /// <summary>

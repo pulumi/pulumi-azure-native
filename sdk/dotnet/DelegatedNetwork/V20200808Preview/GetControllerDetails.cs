@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview
 {
+    [Obsolete(@"Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")]
     public static class GetControllerDetails
     {
         /// <summary>

@@ -100,7 +100,12 @@ class EventSubscriptionArgs:
         pulumi.set(self, "labels", value)
 
 
+warnings.warn("""Version v20170615preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""", DeprecationWarning)
+
+
 class EventSubscription(pulumi.CustomResource):
+    warnings.warn("""Version v20170615preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,6 +157,7 @@ class EventSubscription(pulumi.CustomResource):
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""EventSubscription is deprecated: Version v20170615preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The properties of a storage account’s Queue service.
  */
+/** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getQueueServiceProperties(args: GetQueueServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueServicePropertiesResult> {
+    pulumi.log.warn("getQueueServiceProperties is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

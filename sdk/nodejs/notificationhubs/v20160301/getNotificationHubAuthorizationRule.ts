@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace AuthorizationRules.
  */
+/** @deprecated Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
+    pulumi.log.warn("getNotificationHubAuthorizationRule is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,8 @@ import (
 )
 
 // OpenShift Managed cluster.
+//
+// Deprecated: Version v20180930preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
 type OpenShiftManagedCluster struct {
 	pulumi.CustomResourceState
 

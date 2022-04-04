@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The properties of File services in storage account.
  */
+/** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getFileServiceProperties(args: GetFileServicePropertiesArgs, opts?: pulumi.InvokeOptions): Promise<GetFileServicePropertiesResult> {
+    pulumi.log.warn("getFileServiceProperties is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

@@ -11,6 +11,8 @@ import (
 )
 
 // Specifies information about the gallery Image Version that you want to create or update.
+//
+// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 func LookupGalleryImageVersion(ctx *pulumi.Context, args *LookupGalleryImageVersionArgs, opts ...pulumi.InvokeOption) (*LookupGalleryImageVersionResult, error) {
 	var rv LookupGalleryImageVersionResult
 	err := ctx.Invoke("azure-native:compute/v20191201:getGalleryImageVersion", args, &rv, opts...)

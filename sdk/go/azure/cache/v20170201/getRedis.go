@@ -11,6 +11,8 @@ import (
 )
 
 // A single Redis item in List or Get Operation.
+//
+// Deprecated: Version v20170201 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
 func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.InvokeOption) (*LookupRedisResult, error) {
 	var rv LookupRedisResult
 	err := ctx.Invoke("azure-native:cache/v20170201:getRedis", args, &rv, opts...)

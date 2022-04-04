@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A Policy.
  */
+/** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getPolicyResource(args: GetPolicyResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResourceResult> {
+    pulumi.log.warn("getPolicyResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

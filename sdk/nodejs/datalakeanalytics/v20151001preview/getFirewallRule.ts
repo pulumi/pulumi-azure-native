@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics firewall rule information.
  */
+/** @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
+    pulumi.log.warn("getFirewallRule is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")
     if (!opts) {
         opts = {}
     }

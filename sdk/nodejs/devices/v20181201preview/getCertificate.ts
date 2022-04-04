@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The X509 Certificate.
  */
+/** @deprecated Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    pulumi.log.warn("getCertificate is deprecated: Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

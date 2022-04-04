@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
     /// <summary>
     /// Subscription Information with the alias.
     /// </summary>
+    [Obsolete(@"Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")]
     [AzureNativeResourceType("azure-native:subscription/v20191001preview:SubscriptionAlias")]
     public partial class SubscriptionAlias : Pulumi.CustomResource
     {

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB MongoDB collection.
  */
+/** @deprecated Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBCollectionResult> {
+    pulumi.log.warn("getMongoDBResourceMongoDBCollection is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

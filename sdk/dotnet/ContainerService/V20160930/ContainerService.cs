@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20160930
     /// <summary>
     /// Container service.
     /// </summary>
+    [Obsolete(@"Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")]
     [AzureNativeResourceType("azure-native:containerservice/v20160930:ContainerService")]
     public partial class ContainerService : Pulumi.CustomResource
     {

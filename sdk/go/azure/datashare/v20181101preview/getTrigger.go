@@ -12,7 +12,7 @@ import (
 
 // A Trigger data transfer object.
 //
-// Deprecated: Please use one of the variants: ScheduledTrigger.
+// Deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:datashare/v20181101preview:getTrigger", args, &rv, opts...)

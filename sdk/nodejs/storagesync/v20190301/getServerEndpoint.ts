@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Server Endpoint object.
  */
+/** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getServerEndpoint(args: GetServerEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerEndpointResult> {
+    pulumi.log.warn("getServerEndpoint is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

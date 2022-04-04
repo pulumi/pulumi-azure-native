@@ -261,7 +261,12 @@ class AssessmentArgs:
         pulumi.set(self, "e_tag", value)
 
 
+warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""", DeprecationWarning)
+
+
 class Assessment(pulumi.CustomResource):
+    warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -346,6 +351,7 @@ class Assessment(pulumi.CustomResource):
                  stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
                  time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Assessment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

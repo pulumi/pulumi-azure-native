@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A common class for general resource information
  */
+/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
+    pulumi.log.warn("getVirtualNetworkGatewayConnection is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

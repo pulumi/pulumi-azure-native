@@ -15,6 +15,8 @@ __all__ = [
     'get_sql_pool_sensitivity_label_output',
 ]
 
+warnings.warn("""Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlPoolSensitivityLabelResult:
     """
@@ -204,6 +206,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_sql_pool_sensitivity_label is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     __args__ = dict()
     __args__['columnName'] = column_name
     __args__['resourceGroupName'] = resource_group_name
@@ -255,4 +258,5 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
     :param str table_name: The name of the table.
     :param str workspace_name: The name of the workspace
     """
+    pulumi.log.warn("""get_sql_pool_sensitivity_label is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     ...

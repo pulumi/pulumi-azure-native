@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageSync.V20191001
 {
+    [Obsolete(@"Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")]
     public static class GetStorageSyncService
     {
         /// <summary>

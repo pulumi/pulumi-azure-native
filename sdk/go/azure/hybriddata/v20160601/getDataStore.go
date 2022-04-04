@@ -11,6 +11,8 @@ import (
 )
 
 // Data store.
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
 func LookupDataStore(ctx *pulumi.Context, args *LookupDataStoreArgs, opts ...pulumi.InvokeOption) (*LookupDataStoreResult, error) {
 	var rv LookupDataStoreResult
 	err := ctx.Invoke("azure-native:hybriddata/v20160601:getDataStore", args, &rv, opts...)

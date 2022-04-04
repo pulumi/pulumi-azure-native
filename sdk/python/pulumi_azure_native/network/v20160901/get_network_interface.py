@@ -16,6 +16,8 @@ __all__ = [
     'get_network_interface_output',
 ]
 
+warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkInterfaceResult:
     """
@@ -236,6 +238,7 @@ def get_network_interface(expand: Optional[str] = None,
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_interface is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkInterfaceName'] = network_interface_name
@@ -278,4 +281,5 @@ def get_network_interface_output(expand: Optional[pulumi.Input[Optional[str]]] =
     :param str network_interface_name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_interface is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.
+ */
 export class AdaptiveApplicationControl extends pulumi.CustomResource {
     /**
      * Get an existing AdaptiveApplicationControl resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdaptiveApplicationControl {
+        pulumi.log.warn("AdaptiveApplicationControl is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")
         return new AdaptiveApplicationControl(name, undefined as any, { ...opts, id: id });
     }
 
@@ -75,7 +79,9 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later. */
     constructor(name: string, args: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AdaptiveApplicationControl is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

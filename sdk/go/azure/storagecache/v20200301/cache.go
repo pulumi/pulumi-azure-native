@@ -12,6 +12,8 @@ import (
 )
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+//
+// Deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 type Cache struct {
 	pulumi.CustomResourceState
 

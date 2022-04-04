@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
  */
+/** @deprecated Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
 export function getConfigurationStore(args: GetConfigurationStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationStoreResult> {
+    pulumi.log.warn("getConfigurationStore is deprecated: Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
     if (!opts) {
         opts = {}
     }

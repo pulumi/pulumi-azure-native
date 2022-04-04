@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20161201
 {
+    [Obsolete(@"Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")]
     public static class GetProtectionContainer
     {
         /// <summary>

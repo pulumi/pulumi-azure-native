@@ -11,6 +11,8 @@ import (
 )
 
 // The autoscale setting resource.
+//
+// Deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.
 func LookupAutoscaleSetting(ctx *pulumi.Context, args *LookupAutoscaleSettingArgs, opts ...pulumi.InvokeOption) (*LookupAutoscaleSettingResult, error) {
 	var rv LookupAutoscaleSettingResult
 	err := ctx.Invoke("azure-native:insights/v20140401:getAutoscaleSetting", args, &rv, opts...)

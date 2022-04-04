@@ -12,6 +12,8 @@ import (
 )
 
 // Single item in List or Get Event Hub operation
+//
+// Deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type EventHub struct {
 	pulumi.CustomResourceState
 

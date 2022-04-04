@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview
     /// <summary>
     /// Represents order item contract
     /// </summary>
+    [Obsolete(@"Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.")]
     [AzureNativeResourceType("azure-native:edgeorder/v20201201preview:OrderItemByName")]
     public partial class OrderItemByName : Pulumi.CustomResource
     {

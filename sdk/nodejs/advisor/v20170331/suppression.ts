@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ *
+ * @deprecated Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.
  */
 export class Suppression extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Suppression extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Suppression {
+        pulumi.log.warn("Suppression is deprecated: Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.")
         return new Suppression(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +61,9 @@ export class Suppression extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later. */
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Suppression is deprecated: Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

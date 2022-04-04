@@ -12,6 +12,8 @@ import (
 )
 
 // Profile of a lab user.
+//
+// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 type User struct {
 	pulumi.CustomResourceState
 

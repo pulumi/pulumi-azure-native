@@ -112,11 +112,11 @@ class EventSourceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Please use one of the variants: EventHubEventSource, IoTHubEventSource.""", DeprecationWarning)
+warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
 
 
 class EventSource(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: EventHubEventSource, IoTHubEventSource.""", DeprecationWarning)
+    warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class EventSource(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""EventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.""")
+        pulumi.log.warn("""EventSource is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

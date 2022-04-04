@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180101
     /// <summary>
     /// ExpressRouteCircuit resource
     /// </summary>
+    [Obsolete(@"Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     [AzureNativeResourceType("azure-native:network/v20180101:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {

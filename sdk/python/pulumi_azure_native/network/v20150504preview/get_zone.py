@@ -16,6 +16,8 @@ __all__ = [
     'get_zone_output',
 ]
 
+warnings.warn("""Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetZoneResult:
     """
@@ -126,6 +128,7 @@ def get_zone(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the zone without a terminating dot.
     """
+    pulumi.log.warn("""get_zone is deprecated: Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
@@ -156,4 +159,5 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the zone without a terminating dot.
     """
+    pulumi.log.warn("""get_zone is deprecated: Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

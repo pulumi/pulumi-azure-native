@@ -12,6 +12,8 @@ import (
 )
 
 // The properties of File services in storage account.
+//
+// Deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type FileServiceProperties struct {
 	pulumi.CustomResourceState
 

@@ -11,6 +11,8 @@ import (
 )
 
 // Instance of an Azure ML Operationalization Cluster resource.
+//
+// Deprecated: Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.
 func LookupOperationalizationCluster(ctx *pulumi.Context, args *LookupOperationalizationClusterArgs, opts ...pulumi.InvokeOption) (*LookupOperationalizationClusterResult, error) {
 	var rv LookupOperationalizationClusterResult
 	err := ctx.Invoke("azure-native:machinelearningcompute/v20170601preview:getOperationalizationCluster", args, &rv, opts...)

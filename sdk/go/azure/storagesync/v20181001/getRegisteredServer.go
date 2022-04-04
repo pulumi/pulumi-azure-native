@@ -11,6 +11,8 @@ import (
 )
 
 // Registered Server resource.
+//
+// Deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupRegisteredServer(ctx *pulumi.Context, args *LookupRegisteredServerArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredServerResult, error) {
 	var rv LookupRegisteredServerResult
 	err := ctx.Invoke("azure-native:storagesync/v20181001:getRegisteredServer", args, &rv, opts...)

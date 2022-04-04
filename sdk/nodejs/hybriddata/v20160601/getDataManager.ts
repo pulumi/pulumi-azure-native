@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The DataManager resource.
  */
+/** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later. */
 export function getDataManager(args: GetDataManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetDataManagerResult> {
+    pulumi.log.warn("getDataManager is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")
     if (!opts) {
         opts = {}
     }

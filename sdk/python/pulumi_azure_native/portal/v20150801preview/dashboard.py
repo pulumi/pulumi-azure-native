@@ -115,7 +115,12 @@ class DashboardArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""", DeprecationWarning)
+
+
 class Dashboard(pulumi.CustomResource):
+    warnings.warn("""Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class Dashboard(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Dashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

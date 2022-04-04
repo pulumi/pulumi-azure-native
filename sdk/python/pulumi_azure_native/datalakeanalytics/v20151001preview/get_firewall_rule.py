@@ -15,6 +15,8 @@ __all__ = [
     'get_firewall_rule_output',
 ]
 
+warnings.warn("""Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFirewallRuleResult:
     """
@@ -103,6 +105,7 @@ def get_firewall_rule(account_name: Optional[str] = None,
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['firewallRuleName'] = firewall_rule_name
@@ -134,4 +137,5 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str firewall_rule_name: The name of the firewall rule to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
+    pulumi.log.warn("""get_firewall_rule is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
     ...

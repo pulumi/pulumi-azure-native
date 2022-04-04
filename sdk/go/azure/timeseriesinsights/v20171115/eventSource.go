@@ -13,7 +13,7 @@ import (
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 //
-// Deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.
+// Deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.
 type EventSource struct {
 	pulumi.CustomResourceState
 

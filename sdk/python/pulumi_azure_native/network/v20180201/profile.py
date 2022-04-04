@@ -180,7 +180,12 @@ class ProfileArgs:
         pulumi.set(self, "traffic_view_enrollment_status", value)
 
 
+warnings.warn("""Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class Profile(pulumi.CustomResource):
+    warnings.warn("""Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -247,6 +252,7 @@ class Profile(pulumi.CustomResource):
                  traffic_routing_method: Optional[pulumi.Input[Union[str, 'TrafficRoutingMethod']]] = None,
                  traffic_view_enrollment_status: Optional[pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Profile is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,6 +12,8 @@ import (
 )
 
 // Description of a NotificationHub Resource.
+//
+// Deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type NotificationHub struct {
 	pulumi.CustomResourceState
 

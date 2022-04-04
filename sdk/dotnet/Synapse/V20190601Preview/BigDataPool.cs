@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview
     /// <summary>
     /// A Big Data pool
     /// </summary>
+    [Obsolete(@"Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
     [AzureNativeResourceType("azure-native:synapse/v20190601preview:BigDataPool")]
     public partial class BigDataPool : Pulumi.CustomResource
     {

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Storage mapping object.
  */
+/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationStorageClassificationMapping(args: GetReplicationStorageClassificationMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationStorageClassificationMappingResult> {
+    pulumi.log.warn("getReplicationStorageClassificationMapping is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

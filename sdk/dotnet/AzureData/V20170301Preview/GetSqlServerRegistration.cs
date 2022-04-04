@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureData.V20170301Preview
 {
+    [Obsolete(@"Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")]
     public static class GetSqlServerRegistration
     {
         /// <summary>

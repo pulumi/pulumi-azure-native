@@ -12,6 +12,8 @@ import (
 )
 
 // Data store.
+//
+// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
 type DataStore struct {
 	pulumi.CustomResourceState
 

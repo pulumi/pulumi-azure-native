@@ -12,6 +12,8 @@ import (
 )
 
 // Machine Learning compute object wrapped into ARM resource envelope.
+//
+// Deprecated: Version v20181119 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 type MachineLearningCompute struct {
 	pulumi.CustomResourceState
 

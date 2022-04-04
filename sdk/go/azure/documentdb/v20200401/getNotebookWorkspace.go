@@ -11,6 +11,8 @@ import (
 )
 
 // A notebook workspace resource
+//
+// Deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 func LookupNotebookWorkspace(ctx *pulumi.Context, args *LookupNotebookWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupNotebookWorkspaceResult, error) {
 	var rv LookupNotebookWorkspaceResult
 	err := ctx.Invoke("azure-native:documentdb/v20200401:getNotebookWorkspace", args, &rv, opts...)

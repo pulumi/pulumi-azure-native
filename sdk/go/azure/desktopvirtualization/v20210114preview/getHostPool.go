@@ -11,6 +11,8 @@ import (
 )
 
 // Represents a HostPool definition.
+//
+// Deprecated: Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 func LookupHostPool(ctx *pulumi.Context, args *LookupHostPoolArgs, opts ...pulumi.InvokeOption) (*LookupHostPoolResult, error) {
 	var rv LookupHostPoolResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20210114preview:getHostPool", args, &rv, opts...)

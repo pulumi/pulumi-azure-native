@@ -11,6 +11,8 @@ import (
 )
 
 // The Backup Schedule Group
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupBackupScheduleGroup(ctx *pulumi.Context, args *LookupBackupScheduleGroupArgs, opts ...pulumi.InvokeOption) (*LookupBackupScheduleGroupResult, error) {
 	var rv LookupBackupScheduleGroupResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getBackupScheduleGroup", args, &rv, opts...)

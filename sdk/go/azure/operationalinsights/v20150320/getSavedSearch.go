@@ -11,6 +11,8 @@ import (
 )
 
 // Value object for saved search results.
+//
+// Deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.
 func LookupSavedSearch(ctx *pulumi.Context, args *LookupSavedSearchArgs, opts ...pulumi.InvokeOption) (*LookupSavedSearchResult, error) {
 	var rv LookupSavedSearchResult
 	err := ctx.Invoke("azure-native:operationalinsights/v20150320:getSavedSearch", args, &rv, opts...)

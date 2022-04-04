@@ -11,6 +11,8 @@ import (
 )
 
 // Role definition.
+//
+// Deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	var rv LookupRoleDefinitionResult
 	err := ctx.Invoke("azure-native:authorization/v20150701:getRoleDefinition", args, &rv, opts...)

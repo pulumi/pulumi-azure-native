@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The HDInsight cluster application
  */
+/** @deprecated Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+    pulumi.log.warn("getApplication is deprecated: Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.")
     if (!opts) {
         opts = {}
     }

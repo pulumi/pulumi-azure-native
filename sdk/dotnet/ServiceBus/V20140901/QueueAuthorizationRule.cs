@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [Obsolete(@"Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     [AzureNativeResourceType("azure-native:servicebus/v20140901:QueueAuthorizationRule")]
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {

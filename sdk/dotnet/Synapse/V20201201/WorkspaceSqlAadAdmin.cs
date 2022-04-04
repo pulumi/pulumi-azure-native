@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20201201
     /// <summary>
     /// Workspace active directory administrator
     /// </summary>
+    [Obsolete(@"Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
     [AzureNativeResourceType("azure-native:synapse/v20201201:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource
     {

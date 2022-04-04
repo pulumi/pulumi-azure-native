@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a connected cluster.
  */
+/** @deprecated Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getConnectedCluster(args: GetConnectedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedClusterResult> {
+    pulumi.log.warn("getConnectedCluster is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

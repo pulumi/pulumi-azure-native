@@ -12,6 +12,8 @@ import (
 )
 
 // Contains information about a certificate.
+//
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type Certificate struct {
 	pulumi.CustomResourceState
 

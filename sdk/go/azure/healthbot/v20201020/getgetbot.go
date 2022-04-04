@@ -11,6 +11,8 @@ import (
 )
 
 // Bot resource definition
+//
+// Deprecated: Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.
 func Getgetbot(ctx *pulumi.Context, args *GetgetbotArgs, opts ...pulumi.InvokeOption) (*GetgetbotResult, error) {
 	var rv GetgetbotResult
 	err := ctx.Invoke("azure-native:healthbot/v20201020:getgetbot", args, &rv, opts...)

@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/** @deprecated Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later. */
 export function getJitNetworkAccessPolicy(args: GetJitNetworkAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetJitNetworkAccessPolicyResult> {
+    pulumi.log.warn("getJitNetworkAccessPolicy is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")
     if (!opts) {
         opts = {}
     }

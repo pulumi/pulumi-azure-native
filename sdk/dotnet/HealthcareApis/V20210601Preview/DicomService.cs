@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     /// <summary>
     /// The description of Dicom Service
     /// </summary>
+    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20210601preview:DicomService")]
     public partial class DicomService : Pulumi.CustomResource
     {

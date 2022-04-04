@@ -11,6 +11,8 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
+//
+// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 func LookupTable(ctx *pulumi.Context, args *LookupTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResult, error) {
 	var rv LookupTableResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getTable", args, &rv, opts...)

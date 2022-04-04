@@ -12,6 +12,8 @@ import (
 )
 
 // Description of a Namespace AuthorizationRules.
+//
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type NamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
 

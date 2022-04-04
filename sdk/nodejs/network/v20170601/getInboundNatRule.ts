@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Inbound NAT rule of the load balancer.
  */
+/** @deprecated Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getInboundNatRule(args: GetInboundNatRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetInboundNatRuleResult> {
+    pulumi.log.warn("getInboundNatRule is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

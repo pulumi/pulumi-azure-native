@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
     /// <summary>
     /// Description of an API Management service resource.
     /// </summary>
+    [Obsolete(@"Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20160707:ApiManagementService")]
     public partial class ApiManagementService : Pulumi.CustomResource
     {

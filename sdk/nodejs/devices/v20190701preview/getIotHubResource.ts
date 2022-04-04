@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the IoT hub.
  */
+/** @deprecated Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
+    pulumi.log.warn("getIotHubResource is deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

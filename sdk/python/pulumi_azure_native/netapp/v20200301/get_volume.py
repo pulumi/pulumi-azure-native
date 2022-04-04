@@ -16,6 +16,8 @@ __all__ = [
     'get_volume_output',
 ]
 
+warnings.warn("""Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVolumeResult:
     """
@@ -286,6 +288,7 @@ def get_volume(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_volume is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -335,4 +338,5 @@ def get_volume_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
+    pulumi.log.warn("""get_volume is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     ...

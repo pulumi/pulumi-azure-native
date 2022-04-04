@@ -16,6 +16,8 @@ __all__ = [
     'get_replication_storage_classification_mapping_output',
 ]
 
+warnings.warn("""Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationStorageClassificationMappingResult:
     """
@@ -108,6 +110,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
     :param str storage_classification_mapping_name: Storage classification mapping name.
     :param str storage_classification_name: Storage classification name.
     """
+    pulumi.log.warn("""get_replication_storage_classification_mapping is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
@@ -145,4 +148,5 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
     :param str storage_classification_mapping_name: Storage classification mapping name.
     :param str storage_classification_name: Storage classification name.
     """
+    pulumi.log.warn("""get_replication_storage_classification_mapping is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     ...

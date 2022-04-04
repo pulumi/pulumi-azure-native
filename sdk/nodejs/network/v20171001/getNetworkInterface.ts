@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A network interface in a resource group.
  */
+/** @deprecated Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
+    pulumi.log.warn("getNetworkInterface is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

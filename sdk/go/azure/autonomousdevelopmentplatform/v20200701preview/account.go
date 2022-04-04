@@ -12,6 +12,8 @@ import (
 )
 
 // An ADP account.
+//
+// Deprecated: Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 type Account struct {
 	pulumi.CustomResourceState
 

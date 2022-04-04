@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  */
+/** @deprecated Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
 export function getRedisFirewallRule(args: GetRedisFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisFirewallRuleResult> {
+    pulumi.log.warn("getRedisFirewallRule is deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
     if (!opts) {
         opts = {}
     }

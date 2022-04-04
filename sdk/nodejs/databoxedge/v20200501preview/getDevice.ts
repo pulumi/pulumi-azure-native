@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Data Box Edge/Gateway device.
  */
+/** @deprecated Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
+    pulumi.log.warn("getDevice is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

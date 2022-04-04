@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
+    [Obsolete(@"Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.")]
     public static class GetPublishedBlueprint
     {
         /// <summary>

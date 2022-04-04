@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Event Subscription
  */
+/** @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later. */
 export function getEventSubscription(args: GetEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSubscriptionResult> {
+    pulumi.log.warn("getEventSubscription is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
     if (!opts) {
         opts = {}
     }

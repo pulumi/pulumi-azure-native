@@ -16,6 +16,8 @@ __all__ = [
     'get_managed_hosting_environment_output',
 ]
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedHostingEnvironmentResult:
     """
@@ -235,6 +237,7 @@ def get_managed_hosting_environment(name: Optional[str] = None,
     :param str name: Name of managed hosting environment
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_managed_hosting_environment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -274,4 +277,5 @@ def get_managed_hosting_environment_output(name: Optional[pulumi.Input[str]] = N
     :param str name: Name of managed hosting environment
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_managed_hosting_environment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     ...

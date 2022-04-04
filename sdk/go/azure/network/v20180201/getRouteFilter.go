@@ -11,6 +11,8 @@ import (
 )
 
 // Route Filter Resource.
+//
+// Deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterResult, error) {
 	var rv LookupRouteFilterResult
 	err := ctx.Invoke("azure-native:network/v20180201:getRouteFilter", args, &rv, opts...)

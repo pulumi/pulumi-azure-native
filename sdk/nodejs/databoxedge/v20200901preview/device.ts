@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
+ *
+ * @deprecated Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Device extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Device {
+        pulumi.log.warn("Device is deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         return new Device(name, undefined as any, { ...opts, id: id });
     }
 
@@ -143,7 +146,9 @@ export class Device extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Device is deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

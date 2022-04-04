@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Response to put/get patch schedules for Redis cache.
  */
+/** @deprecated Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
+    pulumi.log.warn("getPatchSchedule is deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
     if (!opts) {
         opts = {}
     }

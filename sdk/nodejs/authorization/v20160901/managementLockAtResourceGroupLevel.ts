@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The lock information.
+ *
+ * @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
  */
 export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockAtResourceGroupLevel {
+        pulumi.log.warn("ManagementLockAtResourceGroupLevel is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
         return new ManagementLockAtResourceGroupLevel(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
     constructor(name: string, args: ManagementLockAtResourceGroupLevelArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ManagementLockAtResourceGroupLevel is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -228,7 +228,12 @@ class DomainServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class DomainService(pulumi.CustomResource):
+    warnings.warn("""Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,6 +309,7 @@ class DomainService(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DomainService is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

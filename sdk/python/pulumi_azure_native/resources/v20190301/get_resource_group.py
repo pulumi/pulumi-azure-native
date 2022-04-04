@@ -16,6 +16,8 @@ __all__ = [
     'get_resource_group_output',
 ]
 
+warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetResourceGroupResult:
     """
@@ -124,6 +126,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
+    pulumi.log.warn("""get_resource_group is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -151,4 +154,5 @@ def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] =
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
     """
+    pulumi.log.warn("""get_resource_group is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     ...

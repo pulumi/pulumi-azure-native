@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Cache.V20160401
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     /// </summary>
+    [Obsolete(@"Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")]
     [AzureNativeResourceType("azure-native:cache/v20160401:RedisFirewallRule")]
     public partial class RedisFirewallRule : Pulumi.CustomResource
     {

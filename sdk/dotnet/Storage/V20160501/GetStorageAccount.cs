@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20160501
 {
+    [Obsolete(@"Version v20160501 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     public static class GetStorageAccount
     {
         /// <summary>

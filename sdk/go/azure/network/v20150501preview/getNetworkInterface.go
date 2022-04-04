@@ -11,6 +11,8 @@ import (
 )
 
 // A NetworkInterface in a resource group
+//
+// Deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArgs, opts ...pulumi.InvokeOption) (*LookupNetworkInterfaceResult, error) {
 	var rv LookupNetworkInterfaceResult
 	err := ctx.Invoke("azure-native:network/v20150501preview:getNetworkInterface", args, &rv, opts...)

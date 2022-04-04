@@ -11,6 +11,8 @@ import (
 )
 
 // Domain Topic.
+//
+// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
 func LookupDomainTopic(ctx *pulumi.Context, args *LookupDomainTopicArgs, opts ...pulumi.InvokeOption) (*LookupDomainTopicResult, error) {
 	var rv LookupDomainTopicResult
 	err := ctx.Invoke("azure-native:eventgrid/v20190601:getDomainTopic", args, &rv, opts...)

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A project resource
  */
+/** @deprecated Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later. */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    pulumi.log.warn("getProject is deprecated: Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")
     if (!opts) {
         opts = {}
     }

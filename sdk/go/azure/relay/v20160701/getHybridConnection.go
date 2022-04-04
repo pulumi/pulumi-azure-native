@@ -11,6 +11,8 @@ import (
 )
 
 // Description of HybridConnection Resource.
+//
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupHybridConnection(ctx *pulumi.Context, args *LookupHybridConnectionArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionResult, error) {
 	var rv LookupHybridConnectionResult
 	err := ctx.Invoke("azure-native:relay/v20160701:getHybridConnection", args, &rv, opts...)

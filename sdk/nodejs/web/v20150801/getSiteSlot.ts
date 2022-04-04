@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a web app
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getSiteSlot(args: GetSiteSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSlotResult> {
+    pulumi.log.warn("getSiteSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

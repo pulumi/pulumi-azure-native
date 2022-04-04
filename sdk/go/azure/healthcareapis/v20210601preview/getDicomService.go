@@ -11,6 +11,8 @@ import (
 )
 
 // The description of Dicom Service
+//
+// Deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts ...pulumi.InvokeOption) (*LookupDicomServiceResult, error) {
 	var rv LookupDicomServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20210601preview:getDicomService", args, &rv, opts...)

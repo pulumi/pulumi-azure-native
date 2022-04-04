@@ -11,6 +11,8 @@ import (
 )
 
 // Slot Config names azure resource
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteSlotConfigNames(ctx *pulumi.Context, args *LookupSiteSlotConfigNamesArgs, opts ...pulumi.InvokeOption) (*LookupSiteSlotConfigNamesResult, error) {
 	var rv LookupSiteSlotConfigNamesResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteSlotConfigNames", args, &rv, opts...)

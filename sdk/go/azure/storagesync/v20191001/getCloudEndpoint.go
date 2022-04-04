@@ -11,6 +11,8 @@ import (
 )
 
 // Cloud Endpoint object.
+//
+// Deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupCloudEndpoint(ctx *pulumi.Context, args *LookupCloudEndpointArgs, opts ...pulumi.InvokeOption) (*LookupCloudEndpointResult, error) {
 	var rv LookupCloudEndpointResult
 	err := ctx.Invoke("azure-native:storagesync/v20191001:getCloudEndpoint", args, &rv, opts...)

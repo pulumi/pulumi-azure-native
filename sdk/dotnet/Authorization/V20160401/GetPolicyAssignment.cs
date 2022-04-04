@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20160401
 {
+    [Obsolete(@"Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     public static class GetPolicyAssignment
     {
         /// <summary>

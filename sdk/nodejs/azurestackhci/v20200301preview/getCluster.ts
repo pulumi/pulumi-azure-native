@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Cluster details.
  */
+/** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
+    pulumi.log.warn("getCluster is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
     if (!opts) {
         opts = {}
     }

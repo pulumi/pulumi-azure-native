@@ -11,6 +11,8 @@ import (
 )
 
 // Protection profile details.
+//
+// Deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupReplicationPolicyResult, error) {
 	var rv LookupReplicationPolicyResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160810:getReplicationPolicy", args, &rv, opts...)

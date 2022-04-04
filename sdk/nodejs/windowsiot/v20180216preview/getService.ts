@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the Windows IoT Device Service.
  */
+/** @deprecated Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")
     if (!opts) {
         opts = {}
     }

@@ -217,7 +217,12 @@ class AppServiceCertificateOrderArgs:
         pulumi.set(self, "validity_in_years", value)
 
 
+warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
+
 class AppServiceCertificateOrder(pulumi.CustomResource):
+    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -290,6 +295,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
                  __props__=None):
+        pulumi.log.warn("""AppServiceCertificateOrder is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

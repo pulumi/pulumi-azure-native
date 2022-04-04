@@ -16,6 +16,8 @@ __all__ = [
     'get_data_store_output',
 ]
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDataStoreResult:
     """
@@ -140,6 +142,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("""get_data_store is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataStoreName'] = data_store_name
@@ -174,4 +177,5 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
     :param str data_store_name: The data store/repository name queried.
     :param str resource_group_name: The Resource Group Name
     """
+    pulumi.log.warn("""get_data_store is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
     ...

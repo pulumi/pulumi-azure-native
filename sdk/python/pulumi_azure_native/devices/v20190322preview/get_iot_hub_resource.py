@@ -16,6 +16,8 @@ __all__ = [
     'get_iot_hub_resource_output',
 ]
 
+warnings.warn("""Version v20190322preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIotHubResourceResult:
     """
@@ -138,6 +140,7 @@ def get_iot_hub_resource(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("""get_iot_hub_resource is deprecated: Version v20190322preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -169,4 +172,5 @@ def get_iot_hub_resource_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group that contains the IoT hub.
     :param str resource_name: The name of the IoT hub.
     """
+    pulumi.log.warn("""get_iot_hub_resource is deprecated: Version v20190322preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     ...

@@ -16,6 +16,8 @@ __all__ = [
     'get_network_output',
 ]
 
+warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkResult:
     """
@@ -150,6 +152,7 @@ def get_network(network_name: Optional[str] = None,
     :param str network_name: The identity of the network.
     :param str resource_group_name: Azure resource group name
     """
+    pulumi.log.warn("""get_network is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""")
     __args__ = dict()
     __args__['networkName'] = network_name
     __args__['resourceGroupName'] = resource_group_name
@@ -182,4 +185,5 @@ def get_network_output(network_name: Optional[pulumi.Input[str]] = None,
     :param str network_name: The identity of the network.
     :param str resource_group_name: Azure resource group name
     """
+    pulumi.log.warn("""get_network is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""")
     ...

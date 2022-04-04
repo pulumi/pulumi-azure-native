@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * An assessment created for a group in the Migration project.
  */
+/** @deprecated Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later. */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
+    pulumi.log.warn("getAssessment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.")
     if (!opts) {
         opts = {}
     }

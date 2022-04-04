@@ -12,6 +12,8 @@ import (
 )
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
+//
+// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 type ProtectionContainer struct {
 	pulumi.CustomResourceState
 

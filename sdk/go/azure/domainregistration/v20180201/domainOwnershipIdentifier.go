@@ -12,6 +12,8 @@ import (
 )
 
 // Domain ownership Identifier.
+//
+// Deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
 type DomainOwnershipIdentifier struct {
 	pulumi.CustomResourceState
 

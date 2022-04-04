@@ -12,6 +12,8 @@ import (
 )
 
 // A SQL server.
+//
+// Deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.
 type SqlServer struct {
 	pulumi.CustomResourceState
 

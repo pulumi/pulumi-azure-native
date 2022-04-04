@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
+ *
+ * @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
  */
 export class Redis extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Redis extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Redis {
+        pulumi.log.warn("Redis is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
         return new Redis(name, undefined as any, { ...opts, id: id });
     }
 
@@ -131,7 +134,9 @@ export class Redis extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Redis is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

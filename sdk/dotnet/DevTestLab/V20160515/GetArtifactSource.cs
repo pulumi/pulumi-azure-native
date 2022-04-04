@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
+    [Obsolete(@"Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")]
     public static class GetArtifactSource
     {
         /// <summary>

@@ -11,6 +11,8 @@ import (
 )
 
 // The remediation definition.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
 func LookupRemediationAtSubscription(ctx *pulumi.Context, args *LookupRemediationAtSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupRemediationAtSubscriptionResult, error) {
 	var rv LookupRemediationAtSubscriptionResult
 	err := ctx.Invoke("azure-native:policyinsights/v20180701preview:getRemediationAtSubscription", args, &rv, opts...)

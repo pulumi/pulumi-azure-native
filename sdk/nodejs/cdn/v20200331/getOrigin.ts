@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
+/** @deprecated Version v20200331 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getOrigin(args: GetOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginResult> {
+    pulumi.log.warn("getOrigin is deprecated: Version v20200331 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180315Preview
     /// <summary>
     /// A project resource
     /// </summary>
+    [Obsolete(@"Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")]
     [AzureNativeResourceType("azure-native:datamigration/v20180315preview:Project")]
     public partial class Project : Pulumi.CustomResource
     {

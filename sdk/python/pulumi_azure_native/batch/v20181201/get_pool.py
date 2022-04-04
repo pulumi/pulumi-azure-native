@@ -16,6 +16,8 @@ __all__ = [
     'get_pool_output',
 ]
 
+warnings.warn("""Version v20181201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPoolResult:
     """
@@ -350,6 +352,7 @@ def get_pool(account_name: Optional[str] = None,
     :param str pool_name: The pool name. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
+    pulumi.log.warn("""get_pool is deprecated: Version v20181201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['poolName'] = pool_name
@@ -404,4 +407,5 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str pool_name: The pool name. This must be unique within the account.
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     """
+    pulumi.log.warn("""get_pool is deprecated: Version v20181201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     ...

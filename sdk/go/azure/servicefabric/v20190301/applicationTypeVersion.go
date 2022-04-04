@@ -12,6 +12,8 @@ import (
 )
 
 // An application type version resource for the specified application type name resource.
+//
+// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,8 @@ import (
 )
 
 // A host name binding object
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteHostNameBindingSlot struct {
 	pulumi.CustomResourceState
 

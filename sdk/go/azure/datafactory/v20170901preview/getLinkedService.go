@@ -11,6 +11,8 @@ import (
 )
 
 // Linked service resource type.
+//
+// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
 func LookupLinkedService(ctx *pulumi.Context, args *LookupLinkedServiceArgs, opts ...pulumi.InvokeOption) (*LookupLinkedServiceResult, error) {
 	var rv LookupLinkedServiceResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getLinkedService", args, &rv, opts...)

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ContainerService.V20170131
 {
+    [Obsolete(@"Version v20170131 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")]
     public static class GetContainerService
     {
         /// <summary>

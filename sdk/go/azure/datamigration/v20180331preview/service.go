@@ -12,6 +12,8 @@ import (
 )
 
 // A Data Migration Service resource
+//
+// Deprecated: Version v20180331preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.
 type Service struct {
 	pulumi.CustomResourceState
 

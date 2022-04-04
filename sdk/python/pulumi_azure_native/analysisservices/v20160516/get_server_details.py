@@ -16,6 +16,8 @@ __all__ = [
     'get_server_details_output',
 ]
 
+warnings.warn("""Version v20160516 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerDetailsResult:
     """
@@ -198,6 +200,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
     """
+    pulumi.log.warn("""get_server_details is deprecated: Version v20160516 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
@@ -234,4 +237,5 @@ def get_server_details_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
     :param str server_name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
     """
+    pulumi.log.warn("""get_server_details is deprecated: Version v20160516 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.""")
     ...

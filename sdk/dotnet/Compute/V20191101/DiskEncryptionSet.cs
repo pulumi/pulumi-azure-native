@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20191101
     /// <summary>
     /// disk encryption set resource.
     /// </summary>
+    [Obsolete(@"Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     [AzureNativeResourceType("azure-native:compute/v20191101:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : Pulumi.CustomResource
     {

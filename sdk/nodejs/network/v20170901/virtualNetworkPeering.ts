@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Peerings in a virtual network resource.
+ *
+ * @deprecated Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetworkPeering {
+        pulumi.log.warn("VirtualNetworkPeering is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         return new VirtualNetworkPeering(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
     constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualNetworkPeering is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

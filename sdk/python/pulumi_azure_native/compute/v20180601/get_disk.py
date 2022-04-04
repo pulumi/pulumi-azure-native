@@ -16,6 +16,8 @@ __all__ = [
     'get_disk_output',
 ]
 
+warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDiskResult:
     """
@@ -234,6 +236,7 @@ def get_disk(disk_name: Optional[str] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['diskName'] = disk_name
     __args__['resourceGroupName'] = resource_group_name
@@ -273,4 +276,5 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     :param str disk_name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_disk is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A share subscription data transfer object.
  */
+/** @deprecated Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getShareSubscription(args: GetShareSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetShareSubscriptionResult> {
+    pulumi.log.warn("getShareSubscription is deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

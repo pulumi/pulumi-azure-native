@@ -11,6 +11,8 @@ import (
 )
 
 // An ADP account.
+//
+// Deprecated: Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:autonomousdevelopmentplatform/v20200701preview:getAccount", args, &rv, opts...)

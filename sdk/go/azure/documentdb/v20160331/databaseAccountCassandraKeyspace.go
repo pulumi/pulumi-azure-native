@@ -12,6 +12,8 @@ import (
 )
 
 // An Azure Cosmos DB Cassandra keyspace.
+//
+// Deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type DatabaseAccountCassandraKeyspace struct {
 	pulumi.CustomResourceState
 

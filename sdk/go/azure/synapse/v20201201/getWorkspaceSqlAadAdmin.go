@@ -11,6 +11,8 @@ import (
 )
 
 // Workspace active directory administrator
+//
+// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupWorkspaceSqlAadAdmin(ctx *pulumi.Context, args *LookupWorkspaceSqlAadAdminArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceSqlAadAdminResult, error) {
 	var rv LookupWorkspaceSqlAadAdminResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getWorkspaceSqlAadAdmin", args, &rv, opts...)

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataMigration.V20171115Preview
 {
+    [Obsolete(@"Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")]
     public static class GetTask
     {
         /// <summary>
