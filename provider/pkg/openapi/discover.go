@@ -122,7 +122,7 @@ func findMinDefaultVersion(versionResources VersionResources) string {
 func deprecateAll(resourceSpecs map[string]*ResourceSpec, version, defaultVersion string) {
 	for _, resourceSpec := range resourceSpecs {
 		deprecationMessage := fmt.Sprintf(
-			"Version %q will be removed in the next major version of the provider. Upgrade to version %q or later.",
+			"Version %s will be removed in the next major version of the provider. Upgrade to version %s or later.",
 			version, defaultVersion)
 		resourceSpec.DeprecationMessage = deprecationMessage
 	}
