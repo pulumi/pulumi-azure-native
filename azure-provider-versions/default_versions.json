@@ -938,6 +938,8 @@
     "KubernetesConfiguration": {
         "Extension": "2020-07-01-preview",
         "FluxConfiguration": "2021-11-01-preview",
+        "PrivateEndpointConnection": "2022-04-02-preview",
+        "PrivateLinkScope": "2022-04-02-preview",
         "SourceControlConfiguration": "2021-03-01"
     },
     "Kusto": {
@@ -1281,16 +1283,16 @@
         "RouteTable": "2020-11-01",
         "RoutingIntent": "2021-05-01",
         "RulesEngine": "2020-05-01",
-        "ScopeConnection": "2021-05-01-preview",
+        "ScopeConnection": "2022-02-01-preview",
         "SecurityAdminConfiguration": "2021-02-01-preview",
         "SecurityPartnerProvider": "2020-11-01",
         "SecurityRule": "2020-11-01",
         "SecurityUserConfiguration": "2021-02-01-preview",
         "ServiceEndpointPolicy": "2020-11-01",
         "ServiceEndpointPolicyDefinition": "2020-11-01",
-        "StaticMember": "2021-05-01-preview",
+        "StaticMember": "2022-02-01-preview",
         "Subnet": "2020-11-01",
-        "SubscriptionNetworkManagerConnection": "2021-05-01-preview",
+        "SubscriptionNetworkManagerConnection": "2022-02-01-preview",
         "TrafficManagerUserMetricsKey": "2018-08-01",
         "UserRule": "2021-02-01-preview",
         "UserRuleCollection": "2021-02-01-preview",

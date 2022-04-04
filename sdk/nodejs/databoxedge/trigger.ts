@@ -91,7 +91,7 @@ export class Trigger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190701:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-native:databoxedge/v20201201:Trigger" }, { type: "azure-native:databoxedge/v20210201:Trigger" }, { type: "azure-native:databoxedge/v20210201preview:Trigger" }, { type: "azure-native:databoxedge/v20210601:Trigger" }, { type: "azure-native:databoxedge/v20210601preview:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190701:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-native:databoxedge/v20201201:Trigger" }, { type: "azure-native:databoxedge/v20210201:Trigger" }, { type: "azure-native:databoxedge/v20210201preview:Trigger" }, { type: "azure-native:databoxedge/v20210601:Trigger" }, { type: "azure-native:databoxedge/v20210601preview:Trigger" }, { type: "azure-native:databoxedge/v20220301:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, resourceInputs, opts);
     }

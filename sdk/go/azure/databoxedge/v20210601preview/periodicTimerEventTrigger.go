@@ -89,6 +89,9 @@ func NewPeriodicTimerEventTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PeriodicTimerEventTrigger

@@ -90,6 +90,9 @@ func NewOrder(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Order"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20220301:Order"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Order

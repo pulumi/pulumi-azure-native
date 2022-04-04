@@ -80,6 +80,9 @@ func NewActivityCustomEntityQuery(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ActivityCustomEntityQuery

@@ -405,7 +405,7 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["team_information"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Incident")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Incident, __self__).__init__(
             'azure-native:securityinsights/v20211001preview:Incident',

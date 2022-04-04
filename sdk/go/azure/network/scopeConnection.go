@@ -12,7 +12,7 @@ import (
 )
 
 // The Scope Connections resource
-// API Version: 2021-05-01-preview.
+// API Version: 2022-02-01-preview.
 type ScopeConnection struct {
 	pulumi.CustomResourceState
 

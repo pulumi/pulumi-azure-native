@@ -121,7 +121,7 @@ class GetCertificateResult:
     @pulumi.getter(name="domainValidationMethod")
     def domain_validation_method(self) -> Optional[str]:
         """
-        Method of domain validation for free cert
+        Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         """
         return pulumi.get(self, "domain_validation_method")
 

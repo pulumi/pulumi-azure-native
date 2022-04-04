@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
         public Input<Pulumi.AzureNative.Cache.V20201201.DayOfWeek> DayOfWeek { get; set; } = null!;
 
         /// <summary>
-        /// ISO8601 timespan specifying how much time cache patching can take. 
+        /// ISO8601 timespan specifying how much time cache patching can take.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }
@@ -35,6 +35,7 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
 
         public ScheduleEntryArgs()
         {
+            MaintenanceWindow = "PT5H";
         }
     }
 }

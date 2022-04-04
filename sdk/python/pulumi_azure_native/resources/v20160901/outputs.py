@@ -17,6 +17,8 @@ __all__ = [
     'DebugSettingResponse',
     'DependencyResponse',
     'DeploymentPropertiesExtendedResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorResponseResponse',
     'IdentityResponse',
     'ParametersLinkResponse',
     'PlanResponse',
@@ -329,6 +331,7 @@ class DeploymentPropertiesExtendedResponse(dict):
 
     def __init__(__self__, *,
                  correlation_id: str,
+                 error: 'outputs.ErrorResponseResponse',
                  provisioning_state: str,
                  timestamp: str,
                  debug_setting: Optional['outputs.DebugSettingResponse'] = None,
@@ -343,6 +346,7 @@ class DeploymentPropertiesExtendedResponse(dict):
         """
         Deployment properties with additional details.
         :param str correlation_id: The correlation ID of the deployment.
+        :param 'ErrorResponseResponse' error: The deployment error.
         :param str provisioning_state: The state of the provisioning.
         :param str timestamp: The timestamp of the template deployment.
         :param 'DebugSettingResponse' debug_setting: The debug setting of the deployment.
@@ -356,6 +360,7 @@ class DeploymentPropertiesExtendedResponse(dict):
         :param 'TemplateLinkResponse' template_link: The URI referencing the template. Use only one of Template or TemplateLink.
         """
         pulumi.set(__self__, "correlation_id", correlation_id)
+        pulumi.set(__self__, "error", error)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "timestamp", timestamp)
         if debug_setting is not None:
@@ -384,6 +389,14 @@ class DeploymentPropertiesExtendedResponse(dict):
         The correlation ID of the deployment.
         """
         return pulumi.get(self, "correlation_id")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorResponseResponse':
+        """
+        The deployment error.
+        """
+        return pulumi.get(self, "error")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -472,6 +485,122 @@ class DeploymentPropertiesExtendedResponse(dict):
         The URI referencing the template. Use only one of Template or TemplateLink.
         """
         return pulumi.get(self, "template_link")
+
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorResponseResponse(dict):
+    """
+    Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorResponseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorResponseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorResponseResponse'],
+                 message: str,
+                 target: str):
+        """
+        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorResponseResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorResponseResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type

@@ -996,6 +996,19 @@ type ScheduleEntry struct {
 	StartHourUtc int `pulumi:"startHourUtc"`
 }
 
+// Defaults sets the appropriate defaults for ScheduleEntry
+func (val *ScheduleEntry) Defaults() *ScheduleEntry {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaintenanceWindow) {
+		maintenanceWindow_ := "PT5H"
+		tmp.MaintenanceWindow = &maintenanceWindow_
+	}
+	return &tmp
+}
+
 // ScheduleEntryInput is an input type that accepts ScheduleEntryArgs and ScheduleEntryOutput values.
 // You can construct a concrete instance of `ScheduleEntryInput` via:
 //
@@ -1112,6 +1125,19 @@ type ScheduleEntryResponse struct {
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
 	StartHourUtc int `pulumi:"startHourUtc"`
+}
+
+// Defaults sets the appropriate defaults for ScheduleEntryResponse
+func (val *ScheduleEntryResponse) Defaults() *ScheduleEntryResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaintenanceWindow) {
+		maintenanceWindow_ := "PT5H"
+		tmp.MaintenanceWindow = &maintenanceWindow_
+	}
+	return &tmp
 }
 
 // Patch schedule entry for a Premium Redis Cache.

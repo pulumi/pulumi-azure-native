@@ -19,7 +19,7 @@ type Certificate struct {
 	CanonicalName pulumi.StringPtrOutput `pulumi:"canonicalName"`
 	// Raw bytes of .cer file
 	CerBlob pulumi.StringOutput `pulumi:"cerBlob"`
-	// Method of domain validation for free cert
+	// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
 	DomainValidationMethod pulumi.StringPtrOutput `pulumi:"domainValidationMethod"`
 	// Certificate expiration date.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
@@ -153,7 +153,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// CNAME of the certificate to be issued via free certificate
 	CanonicalName *string `pulumi:"canonicalName"`
-	// Method of domain validation for free cert
+	// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
 	DomainValidationMethod *string `pulumi:"domainValidationMethod"`
 	// Host names the certificate applies to.
 	HostNames []string `pulumi:"hostNames"`
@@ -183,7 +183,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// CNAME of the certificate to be issued via free certificate
 	CanonicalName pulumi.StringPtrInput
-	// Method of domain validation for free cert
+	// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
 	DomainValidationMethod pulumi.StringPtrInput
 	// Host names the certificate applies to.
 	HostNames pulumi.StringArrayInput

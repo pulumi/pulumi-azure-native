@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.App.V20220301
 
     /// <summary>
     /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-    /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active. If no value if provided, this is the default&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode&lt;/item&gt;&lt;/list&gt;
+    /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active.&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.&lt;/item&gt;&lt;/list&gt;
     /// </summary>
     [EnumType]
     public readonly struct ActiveRevisionsMode : IEquatable<ActiveRevisionsMode>

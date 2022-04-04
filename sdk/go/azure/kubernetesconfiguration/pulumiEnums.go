@@ -43,6 +43,25 @@ const (
 	OperatorTypeFlux = OperatorType("Flux")
 )
 
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+type PrivateEndpointServiceConnectionStatus string
+
+const (
+	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
+	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
+	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
+)
+
+// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+type PublicNetworkAccessType string
+
+const (
+	// Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
+	PublicNetworkAccessTypeEnabled = PublicNetworkAccessType("Enabled")
+	// Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
+	PublicNetworkAccessTypeDisabled = PublicNetworkAccessType("Disabled")
+)
+
 // The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
 type ResourceIdentityType string
 

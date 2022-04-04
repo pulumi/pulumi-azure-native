@@ -31,7 +31,7 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] canonical_name: CNAME of the certificate to be issued via free certificate
-        :param pulumi.Input[str] domain_validation_method: Method of domain validation for free cert
+        :param pulumi.Input[str] domain_validation_method: Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
@@ -97,7 +97,7 @@ class CertificateArgs:
     @pulumi.getter(name="domainValidationMethod")
     def domain_validation_method(self) -> Optional[pulumi.Input[str]]:
         """
-        Method of domain validation for free cert
+        Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         """
         return pulumi.get(self, "domain_validation_method")
 
@@ -251,7 +251,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] canonical_name: CNAME of the certificate to be issued via free certificate
-        :param pulumi.Input[str] domain_validation_method: Method of domain validation for free cert
+        :param pulumi.Input[str] domain_validation_method: Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         :param pulumi.Input[Sequence[pulumi.Input[str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
@@ -413,7 +413,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationMethod")
     def domain_validation_method(self) -> pulumi.Output[Optional[str]]:
         """
-        Method of domain validation for free cert
+        Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         """
         return pulumi.get(self, "domain_validation_method")
 

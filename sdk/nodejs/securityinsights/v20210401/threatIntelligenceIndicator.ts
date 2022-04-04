@@ -123,7 +123,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20211001:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20211001preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20220101preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20220401preview:ThreatIntelligenceIndicator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThreatIntelligenceIndicator.__pulumiType, name, resourceInputs, opts);
     }

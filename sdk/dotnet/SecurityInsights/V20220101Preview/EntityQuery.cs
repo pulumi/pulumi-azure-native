@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EntityQuery"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:EntityQuery"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EntityQuery"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EntityQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

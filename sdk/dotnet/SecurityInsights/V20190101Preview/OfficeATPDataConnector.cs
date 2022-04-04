@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:OfficeATPDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:OfficeATPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:OfficeATPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

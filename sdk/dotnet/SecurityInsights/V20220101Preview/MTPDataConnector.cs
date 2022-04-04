@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MTPDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:MTPDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:MTPDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MTPDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

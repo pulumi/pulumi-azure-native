@@ -44,7 +44,7 @@ export interface GetCertificateResult {
      */
     readonly cerBlob: string;
     /**
-     * Method of domain validation for free cert
+     * Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
      */
     readonly domainValidationMethod?: string;
     /**

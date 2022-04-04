@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// The Scope Connections resource
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Task<GetScopeConnectionResult> InvokeAsync(GetScopeConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetScopeConnectionResult>("azure-native:network:getScopeConnection", args ?? new GetScopeConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Scope Connections resource
-        /// API Version: 2021-05-01-preview.
+        /// API Version: 2022-02-01-preview.
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());

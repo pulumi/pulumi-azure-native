@@ -89,6 +89,9 @@ func NewFileEventTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:FileEventTrigger"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20220301:FileEventTrigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FileEventTrigger

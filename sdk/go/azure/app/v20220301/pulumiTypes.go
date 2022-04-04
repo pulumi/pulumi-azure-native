@@ -4469,7 +4469,7 @@ func (o ClientRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.St
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type Configuration struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode *string `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr *Dapr `pulumi:"dapr"`
@@ -4506,7 +4506,7 @@ type ConfigurationInput interface {
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type ConfigurationArgs struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode pulumi.StringPtrInput `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr DaprPtrInput `pulumi:"dapr"`
@@ -4597,7 +4597,7 @@ func (o ConfigurationOutput) ToConfigurationPtrOutputWithContext(ctx context.Con
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Configuration) *string { return v.ActiveRevisionsMode }).(pulumi.StringPtrOutput)
 }
@@ -4647,7 +4647,7 @@ func (o ConfigurationPtrOutput) Elem() ConfigurationOutput {
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationPtrOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) *string {
 		if v == nil {
@@ -4700,7 +4700,7 @@ func (o ConfigurationPtrOutput) Secrets() SecretArrayOutput {
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type ConfigurationResponse struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode *string `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr *DaprResponse `pulumi:"dapr"`
@@ -4739,7 +4739,7 @@ func (o ConfigurationResponseOutput) ToConfigurationResponseOutputWithContext(ct
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationResponseOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationResponse) *string { return v.ActiveRevisionsMode }).(pulumi.StringPtrOutput)
 }
@@ -4789,7 +4789,7 @@ func (o ConfigurationResponsePtrOutput) Elem() ConfigurationResponseOutput {
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationResponsePtrOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationResponse) *string {
 		if v == nil {

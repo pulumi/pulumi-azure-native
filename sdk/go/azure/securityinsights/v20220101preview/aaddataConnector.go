@@ -74,6 +74,9 @@ func NewAADDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20211001preview:AADDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220401preview:AADDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AADDataConnector

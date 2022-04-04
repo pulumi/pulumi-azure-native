@@ -108,7 +108,7 @@ export class OfficeATPDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeATPDataConnector.__pulumiType, name, resourceInputs, opts);
     }

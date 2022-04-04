@@ -11,6 +11,7 @@ import * as v20210901 from "./v20210901";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
+import * as v20220402preview from "./v20220402preview";
 
 export {
     v20191101preview,
@@ -22,6 +23,7 @@ export {
     v20211101preview,
     v20220101preview,
     v20220301,
+    v20220402preview,
 };
 
 export const KustomizationValidationType = {
@@ -64,6 +66,33 @@ export const OperatorType = {
  * Type of the operator
  */
 export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccessType = {
+    /**
+     * Allows Azure Arc agents to communicate with Azure Arc services over both public (internet) and private endpoints.
+     */
+    Enabled: "Enabled",
+    /**
+     * Does not allow Azure Arc agents to communicate with Azure Arc services over public (internet) endpoints. The agents must use the private link.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+ */
+export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Web.V20210115
         /// </summary>
         public readonly string CerBlob;
         /// <summary>
-        /// Method of domain validation for free cert
+        /// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         /// </summary>
         public readonly string? DomainValidationMethod;
         /// <summary>

@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Resources.V20190501.Outputs
         /// </summary>
         public readonly string Duration;
         /// <summary>
+        /// The deployment error.
+        /// </summary>
+        public readonly Outputs.ErrorResponseResponse Error;
+        /// <summary>
         /// The deployment mode. Possible values are Incremental and Complete.
         /// </summary>
         public readonly string? Mode;
@@ -83,6 +87,8 @@ namespace Pulumi.AzureNative.Resources.V20190501.Outputs
 
             string duration,
 
+            Outputs.ErrorResponseResponse error,
+
             string? mode,
 
             Outputs.OnErrorDeploymentExtendedResponse? onErrorDeployment,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNative.Resources.V20190501.Outputs
             DebugSetting = debugSetting;
             Dependencies = dependencies;
             Duration = duration;
+            Error = error;
             Mode = mode;
             OnErrorDeployment = onErrorDeployment;
             Outputs = outputs;

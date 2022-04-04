@@ -11,7 +11,7 @@ import (
 )
 
 // The Network Manager Connection resource
-// API Version: 2021-05-01-preview.
+// API Version: 2022-02-01-preview.
 func LookupSubscriptionNetworkManagerConnection(ctx *pulumi.Context, args *LookupSubscriptionNetworkManagerConnectionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionNetworkManagerConnectionResult, error) {
 	var rv LookupSubscriptionNetworkManagerConnectionResult
 	err := ctx.Invoke("azure-native:network:getSubscriptionNetworkManagerConnection", args, &rv, opts...)

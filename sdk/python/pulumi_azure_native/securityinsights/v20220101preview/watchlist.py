@@ -559,7 +559,7 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
             'azure-native:securityinsights/v20220101preview:Watchlist',

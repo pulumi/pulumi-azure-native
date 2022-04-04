@@ -10,6 +10,7 @@ import * as v20210901preview from "./v20210901preview";
 import * as v20211001 from "./v20211001";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20190101preview,
@@ -20,6 +21,7 @@ export {
     v20211001,
     v20211001preview,
     v20220101preview,
+    v20220401preview,
 };
 
 export const AlertRuleKind = {

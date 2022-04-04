@@ -133,7 +133,7 @@ export class IoTAddon extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20210601preview:IoTAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20210601preview:IoTAddon" }, { type: "azure-native:databoxedge/v20220301:IoTAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTAddon.__pulumiType, name, resourceInputs, opts);
     }

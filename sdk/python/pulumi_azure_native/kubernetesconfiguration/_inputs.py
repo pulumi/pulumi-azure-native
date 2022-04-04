@@ -15,7 +15,9 @@ __all__ = [
     'ExtensionStatusArgs',
     'GitRepositoryDefinitionArgs',
     'HelmOperatorPropertiesArgs',
+    'KubernetesConfigurationPrivateLinkScopePropertiesArgs',
     'KustomizationDefinitionArgs',
+    'PrivateLinkServiceConnectionStateArgs',
     'RepositoryRefDefinitionArgs',
     'ScopeClusterArgs',
     'ScopeNamespaceArgs',
@@ -341,6 +343,45 @@ class HelmOperatorPropertiesArgs:
 
 
 @pulumi.input_type
+class KubernetesConfigurationPrivateLinkScopePropertiesArgs:
+    def __init__(__self__, *,
+                 cluster_resource_id: pulumi.Input[str],
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None):
+        """
+        Properties that define a Azure Arc PrivateLinkScope resource.
+        :param pulumi.Input[str] cluster_resource_id: Managed Cluster ARM ID for the private link scope  (Required)
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        """
+        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="clusterResourceId")
+    def cluster_resource_id(self) -> pulumi.Input[str]:
+        """
+        Managed Cluster ARM ID for the private link scope  (Required)
+        """
+        return pulumi.get(self, "cluster_resource_id")
+
+    @cluster_resource_id.setter
+    def cluster_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
+        """
+        Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
+        pulumi.set(self, "public_network_access", value)
+
+
+@pulumi.input_type
 class KustomizationDefinitionArgs:
     def __init__(__self__, *,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['DependsOnDefinitionArgs']]]] = None,
@@ -484,6 +525,62 @@ class KustomizationDefinitionArgs:
     @validation.setter
     def validation(self, value: Optional[pulumi.Input[Union[str, 'KustomizationValidationType']]]):
         pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

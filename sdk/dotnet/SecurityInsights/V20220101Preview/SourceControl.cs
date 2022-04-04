@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SourceControl"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:SourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

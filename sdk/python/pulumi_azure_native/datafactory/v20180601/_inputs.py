@@ -207,6 +207,7 @@ __all__ = [
     'ExcelSourceArgs',
     'ExecuteDataFlowActivityTypePropertiesComputeArgs',
     'ExecuteDataFlowActivityArgs',
+    'ExecutePipelineActivityPolicyArgs',
     'ExecutePipelineActivityArgs',
     'ExecuteSSISPackageActivityArgs',
     'ExecuteWranglingDataflowActivityArgs',
@@ -29963,6 +29964,30 @@ class ExecuteDataFlowActivityArgs:
 
 
 @pulumi.input_type
+class ExecutePipelineActivityPolicyArgs:
+    def __init__(__self__, *,
+                 secure_input: Optional[pulumi.Input[bool]] = None):
+        """
+        Execution policy for an execute pipeline activity.
+        :param pulumi.Input[bool] secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        if secure_input is not None:
+            pulumi.set(__self__, "secure_input", secure_input)
+
+    @property
+    @pulumi.getter(name="secureInput")
+    def secure_input(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_input")
+
+    @secure_input.setter
+    def secure_input(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_input", value)
+
+
+@pulumi.input_type
 class ExecutePipelineActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -29971,6 +29996,7 @@ class ExecutePipelineActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 policy: Optional[pulumi.Input['ExecutePipelineActivityPolicyArgs']] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None,
                  wait_on_completion: Optional[pulumi.Input[bool]] = None):
         """
@@ -29982,6 +30008,7 @@ class ExecutePipelineActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input[Mapping[str, Any]] parameters: Pipeline parameters.
+        :param pulumi.Input['ExecutePipelineActivityPolicyArgs'] policy: Execute pipeline activity policy.
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         :param pulumi.Input[bool] wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
         """
@@ -29994,6 +30021,8 @@ class ExecutePipelineActivityArgs:
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if wait_on_completion is not None:
@@ -30071,6 +30100,18 @@ class ExecutePipelineActivityArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['ExecutePipelineActivityPolicyArgs']]:
+        """
+        Execute pipeline activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['ExecutePipelineActivityPolicyArgs']]):
+        pulumi.set(self, "policy", value)
 
     @property
     @pulumi.getter(name="userProperties")
@@ -71407,7 +71448,7 @@ class SqlServerStoredProcedureActivityArgs:
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
-                 stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
         """
         SQL stored procedure activity type.
@@ -71419,7 +71460,7 @@ class SqlServerStoredProcedureActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
         :param pulumi.Input[str] description: Activity description.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
-        :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -71524,14 +71565,14 @@ class SqlServerStoredProcedureActivityArgs:
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """
         return pulumi.get(self, "stored_procedure_parameters")
 
     @stored_procedure_parameters.setter
-    def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
+    def stored_procedure_parameters(self, value: Optional[Any]):
         pulumi.set(self, "stored_procedure_parameters", value)
 
     @property

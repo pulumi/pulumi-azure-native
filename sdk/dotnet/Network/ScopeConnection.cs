@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Scope Connections resource
-    /// API Version: 2021-05-01-preview.
+    /// API Version: 2022-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ScopeConnection")]
     public partial class ScopeConnection : Pulumi.CustomResource

@@ -148,7 +148,7 @@ export class ArcAddon extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }, { type: "azure-native:databoxedge/v20220301:ArcAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcAddon.__pulumiType, name, resourceInputs, opts);
     }

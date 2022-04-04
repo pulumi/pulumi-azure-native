@@ -11,7 +11,7 @@ import (
 )
 
 // The Scope Connections resource
-// API Version: 2021-05-01-preview.
+// API Version: 2022-02-01-preview.
 func LookupScopeConnection(ctx *pulumi.Context, args *LookupScopeConnectionArgs, opts ...pulumi.InvokeOption) (*LookupScopeConnectionResult, error) {
 	var rv LookupScopeConnectionResult
 	err := ctx.Invoke("azure-native:network:getScopeConnection", args, &rv, opts...)

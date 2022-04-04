@@ -153,7 +153,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_assignment_properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20201001:RoleManagementPolicyAssignment"), pulumi.Alias(type_="azure-native:authorization/v20201001preview:RoleManagementPolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleManagementPolicyAssignment, __self__).__init__(
             'azure-native:authorization:RoleManagementPolicyAssignment',

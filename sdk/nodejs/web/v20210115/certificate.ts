@@ -44,7 +44,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly cerBlob!: pulumi.Output<string>;
     /**
-     * Method of domain validation for free cert
+     * Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
      */
     public readonly domainValidationMethod!: pulumi.Output<string | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface CertificateArgs {
      */
     canonicalName?: pulumi.Input<string>;
     /**
-     * Method of domain validation for free cert
+     * Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
      */
     domainValidationMethod?: pulumi.Input<string>;
     /**

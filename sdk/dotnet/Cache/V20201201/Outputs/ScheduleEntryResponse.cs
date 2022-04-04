@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cache.V20201201.Outputs
         /// </summary>
         public readonly string DayOfWeek;
         /// <summary>
-        /// ISO8601 timespan specifying how much time cache patching can take. 
+        /// ISO8601 timespan specifying how much time cache patching can take.
         /// </summary>
         public readonly string? MaintenanceWindow;
         /// <summary>

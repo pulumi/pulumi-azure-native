@@ -77,6 +77,9 @@ func NewTrigger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Trigger"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20220301:Trigger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Trigger

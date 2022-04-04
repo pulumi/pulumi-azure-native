@@ -111,7 +111,7 @@ def get_static_member(network_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticMemberResult:
     """
     StaticMember Item.
-    API Version: 2021-05-01-preview.
+    API Version: 2022-02-01-preview.
 
 
     :param str network_group_name: The name of the network group.
@@ -147,7 +147,7 @@ def get_static_member_output(network_group_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticMemberResult]:
     """
     StaticMember Item.
-    API Version: 2021-05-01-preview.
+    API Version: 2022-02-01-preview.
 
 
     :param str network_group_name: The name of the network group.

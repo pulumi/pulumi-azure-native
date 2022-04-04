@@ -555,6 +555,8 @@ type DeploymentPropertiesExtendedResponse struct {
 	DebugSetting *DebugSettingResponse `pulumi:"debugSetting"`
 	// The list of deployment dependencies.
 	Dependencies []DependencyResponse `pulumi:"dependencies"`
+	// The deployment error.
+	Error ErrorResponseResponse `pulumi:"error"`
 	// The deployment mode. Possible values are Incremental and Complete.
 	Mode *string `pulumi:"mode"`
 	// The deployment on error behavior.
@@ -607,6 +609,11 @@ func (o DeploymentPropertiesExtendedResponseOutput) Dependencies() DependencyRes
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) []DependencyResponse { return v.Dependencies }).(DependencyResponseArrayOutput)
 }
 
+// The deployment error.
+func (o DeploymentPropertiesExtendedResponseOutput) Error() ErrorResponseResponseOutput {
+	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) ErrorResponseResponse { return v.Error }).(ErrorResponseResponseOutput)
+}
+
 // The deployment mode. Possible values are Incremental and Complete.
 func (o DeploymentPropertiesExtendedResponseOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
@@ -657,6 +664,133 @@ func (o DeploymentPropertiesExtendedResponseOutput) TemplateLink() TemplateLinkR
 // The timestamp of the template deployment.
 func (o DeploymentPropertiesExtendedResponseOutput) Timestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) string { return v.Timestamp }).(pulumi.StringOutput)
+}
+
+// The resource management error additional info.
+type ErrorAdditionalInfoResponse struct {
+	// The additional info.
+	Info interface{} `pulumi:"info"`
+	// The additional info type.
+	Type string `pulumi:"type"`
+}
+
+// The resource management error additional info.
+type ErrorAdditionalInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutput() ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseOutput) ToErrorAdditionalInfoResponseOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseOutput {
+	return o
+}
+
+// The additional info.
+func (o ErrorAdditionalInfoResponseOutput) Info() pulumi.AnyOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) interface{} { return v.Info }).(pulumi.AnyOutput)
+}
+
+// The additional info type.
+func (o ErrorAdditionalInfoResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorAdditionalInfoResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ErrorAdditionalInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorAdditionalInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorAdditionalInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutput() ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) ToErrorAdditionalInfoResponseArrayOutputWithContext(ctx context.Context) ErrorAdditionalInfoResponseArrayOutput {
+	return o
+}
+
+func (o ErrorAdditionalInfoResponseArrayOutput) Index(i pulumi.IntInput) ErrorAdditionalInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorAdditionalInfoResponse {
+		return vs[0].([]ErrorAdditionalInfoResponse)[vs[1].(int)]
+	}).(ErrorAdditionalInfoResponseOutput)
+}
+
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+type ErrorResponseResponse struct {
+	// The error additional info.
+	AdditionalInfo []ErrorAdditionalInfoResponse `pulumi:"additionalInfo"`
+	// The error code.
+	Code string `pulumi:"code"`
+	// The error details.
+	Details []ErrorResponseResponse `pulumi:"details"`
+	// The error message.
+	Message string `pulumi:"message"`
+	// The error target.
+	Target string `pulumi:"target"`
+}
+
+// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.)
+type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorResponseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorResponseResponse)(nil)).Elem()
+}
+
+func (o ErrorResponseResponseOutput) ToErrorResponseResponseOutput() ErrorResponseResponseOutput {
+	return o
+}
+
+func (o ErrorResponseResponseOutput) ToErrorResponseResponseOutputWithContext(ctx context.Context) ErrorResponseResponseOutput {
+	return o
+}
+
+// The error additional info.
+func (o ErrorResponseResponseOutput) AdditionalInfo() ErrorAdditionalInfoResponseArrayOutput {
+	return o.ApplyT(func(v ErrorResponseResponse) []ErrorAdditionalInfoResponse { return v.AdditionalInfo }).(ErrorAdditionalInfoResponseArrayOutput)
+}
+
+// The error code.
+func (o ErrorResponseResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The error details.
+func (o ErrorResponseResponseOutput) Details() ErrorResponseResponseArrayOutput {
+	return o.ApplyT(func(v ErrorResponseResponse) []ErrorResponseResponse { return v.Details }).(ErrorResponseResponseArrayOutput)
+}
+
+// The error message.
+func (o ErrorResponseResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// The error target.
+func (o ErrorResponseResponseOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorResponseResponse) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type ErrorResponseResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorResponseResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorResponseResponse)(nil)).Elem()
+}
+
+func (o ErrorResponseResponseArrayOutput) ToErrorResponseResponseArrayOutput() ErrorResponseResponseArrayOutput {
+	return o
+}
+
+func (o ErrorResponseResponseArrayOutput) ToErrorResponseResponseArrayOutputWithContext(ctx context.Context) ErrorResponseResponseArrayOutput {
+	return o
+}
+
+func (o ErrorResponseResponseArrayOutput) Index(i pulumi.IntInput) ErrorResponseResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorResponseResponse {
+		return vs[0].([]ErrorResponseResponse)[vs[1].(int)]
+	}).(ErrorResponseResponseOutput)
 }
 
 // Identity for the resource.
@@ -2681,6 +2815,10 @@ func init() {
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseOutput{})
+	pulumi.RegisterOutputType(ErrorAdditionalInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
+	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

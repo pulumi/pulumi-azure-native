@@ -112,7 +112,7 @@ export class AATPDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20200101:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001:AATPDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:AATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AATPDataConnector.__pulumiType, name, resourceInputs, opts);
     }

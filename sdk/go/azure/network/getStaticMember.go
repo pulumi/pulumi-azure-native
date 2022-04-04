@@ -11,7 +11,7 @@ import (
 )
 
 // StaticMember Item.
-// API Version: 2021-05-01-preview.
+// API Version: 2022-02-01-preview.
 func LookupStaticMember(ctx *pulumi.Context, args *LookupStaticMemberArgs, opts ...pulumi.InvokeOption) (*LookupStaticMemberResult, error) {
 	var rv LookupStaticMemberResult
 	err := ctx.Invoke("azure-native:network:getStaticMember", args, &rv, opts...)

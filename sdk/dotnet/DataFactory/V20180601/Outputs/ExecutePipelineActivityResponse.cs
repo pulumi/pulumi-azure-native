@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.PipelineReferenceResponse Pipeline;
         /// <summary>
+        /// Execute pipeline activity policy.
+        /// </summary>
+        public readonly Outputs.ExecutePipelineActivityPolicyResponse? Policy;
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecutePipeline'.
         /// </summary>
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.PipelineReferenceResponse pipeline,
 
+            Outputs.ExecutePipelineActivityPolicyResponse? policy,
+
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Name = name;
             Parameters = parameters;
             Pipeline = pipeline;
+            Policy = policy;
             Type = type;
             UserProperties = userProperties;
             WaitOnCompletion = waitOnCompletion;

@@ -9533,6 +9533,8 @@ type ExecutePipelineActivity struct {
 	Parameters map[string]interface{} `pulumi:"parameters"`
 	// Pipeline reference.
 	Pipeline PipelineReference `pulumi:"pipeline"`
+	// Execute pipeline activity policy.
+	Policy *ExecutePipelineActivityPolicy `pulumi:"policy"`
 	// Type of activity.
 	// Expected value is 'ExecutePipeline'.
 	Type string `pulumi:"type"`
@@ -9540,6 +9542,18 @@ type ExecutePipelineActivity struct {
 	UserProperties []UserProperty `pulumi:"userProperties"`
 	// Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
 	WaitOnCompletion *bool `pulumi:"waitOnCompletion"`
+}
+
+// Execution policy for an execute pipeline activity.
+type ExecutePipelineActivityPolicy struct {
+	// When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+	SecureInput *bool `pulumi:"secureInput"`
+}
+
+// Execution policy for an execute pipeline activity.
+type ExecutePipelineActivityPolicyResponse struct {
+	// When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+	SecureInput *bool `pulumi:"secureInput"`
 }
 
 // Execute pipeline activity.
@@ -9554,6 +9568,8 @@ type ExecutePipelineActivityResponse struct {
 	Parameters map[string]interface{} `pulumi:"parameters"`
 	// Pipeline reference.
 	Pipeline PipelineReferenceResponse `pulumi:"pipeline"`
+	// Execute pipeline activity policy.
+	Policy *ExecutePipelineActivityPolicyResponse `pulumi:"policy"`
 	// Type of activity.
 	// Expected value is 'ExecutePipeline'.
 	Type string `pulumi:"type"`
@@ -24061,7 +24077,7 @@ type SqlServerStoredProcedureActivity struct {
 	// Stored procedure name. Type: string (or Expression with resultType string).
 	StoredProcedureName interface{} `pulumi:"storedProcedureName"`
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
-	StoredProcedureParameters map[string]StoredProcedureParameter `pulumi:"storedProcedureParameters"`
+	StoredProcedureParameters interface{} `pulumi:"storedProcedureParameters"`
 	// Type of activity.
 	// Expected value is 'SqlServerStoredProcedure'.
 	Type string `pulumi:"type"`
@@ -24084,7 +24100,7 @@ type SqlServerStoredProcedureActivityResponse struct {
 	// Stored procedure name. Type: string (or Expression with resultType string).
 	StoredProcedureName interface{} `pulumi:"storedProcedureName"`
 	// Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
-	StoredProcedureParameters map[string]StoredProcedureParameterResponse `pulumi:"storedProcedureParameters"`
+	StoredProcedureParameters interface{} `pulumi:"storedProcedureParameters"`
 	// Type of activity.
 	// Expected value is 'SqlServerStoredProcedure'.
 	Type string `pulumi:"type"`

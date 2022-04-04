@@ -607,10 +607,12 @@ class ScheduleEntryResponse(dict):
         Patch schedule entry for a Premium Redis Cache.
         :param str day_of_week: Day of the week when a cache can be patched.
         :param int start_hour_utc: Start hour after which cache patching can start.
-        :param str maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
+        :param str maintenance_window: ISO8601 timespan specifying how much time cache patching can take.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        if maintenance_window is None:
+            maintenance_window = 'PT5H'
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
 
@@ -634,7 +636,7 @@ class ScheduleEntryResponse(dict):
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[str]:
         """
-        ISO8601 timespan specifying how much time cache patching can take. 
+        ISO8601 timespan specifying how much time cache patching can take.
         """
         return pulumi.get(self, "maintenance_window")
 

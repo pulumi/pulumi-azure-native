@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.PipelineReferenceArgs> Pipeline { get; set; } = null!;
 
         /// <summary>
+        /// Execute pipeline activity policy.
+        /// </summary>
+        [Input("policy")]
+        public Input<Inputs.ExecutePipelineActivityPolicyArgs>? Policy { get; set; }
+
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'ExecutePipeline'.
         /// </summary>

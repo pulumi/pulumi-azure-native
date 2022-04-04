@@ -9,7 +9,11 @@ export * from "./extension";
 export * from "./fluxConfiguration";
 export * from "./getExtension";
 export * from "./getFluxConfiguration";
+export * from "./getPrivateEndpointConnection";
+export * from "./getPrivateLinkScope";
 export * from "./getSourceControlConfiguration";
+export * from "./privateEndpointConnection";
+export * from "./privateLinkScope";
 export * from "./sourceControlConfiguration";
 
 // Export enums:
@@ -25,6 +29,7 @@ import * as v20210901 from "./v20210901";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
+import * as v20220402preview from "./v20220402preview";
 
 export {
     v20191101preview,
@@ -36,11 +41,14 @@ export {
     v20211101preview,
     v20220101preview,
     v20220301,
+    v20220402preview,
 };
 
 // Import resources to register:
 import { Extension } from "./extension";
 import { FluxConfiguration } from "./fluxConfiguration";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { PrivateLinkScope } from "./privateLinkScope";
 import { SourceControlConfiguration } from "./sourceControlConfiguration";
 
 const _module = {
@@ -51,6 +59,10 @@ const _module = {
                 return new Extension(name, <any>undefined, { urn })
             case "azure-native:kubernetesconfiguration:FluxConfiguration":
                 return new FluxConfiguration(name, <any>undefined, { urn })
+            case "azure-native:kubernetesconfiguration:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:kubernetesconfiguration:PrivateLinkScope":
+                return new PrivateLinkScope(name, <any>undefined, { urn })
             case "azure-native:kubernetesconfiguration:SourceControlConfiguration":
                 return new SourceControlConfiguration(name, <any>undefined, { urn })
             default:

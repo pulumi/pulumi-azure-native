@@ -210,6 +210,7 @@ __all__ = [
     'ExcelSourceResponse',
     'ExecuteDataFlowActivityResponse',
     'ExecuteDataFlowActivityTypePropertiesResponseCompute',
+    'ExecutePipelineActivityPolicyResponse',
     'ExecutePipelineActivityResponse',
     'ExecuteSSISPackageActivityResponse',
     'ExecuteWranglingDataflowActivityResponse',
@@ -28552,6 +28553,46 @@ class ExecuteDataFlowActivityTypePropertiesResponseCompute(dict):
 
 
 @pulumi.output_type
+class ExecutePipelineActivityPolicyResponse(dict):
+    """
+    Execution policy for an execute pipeline activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureInput":
+            suggest = "secure_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecutePipelineActivityPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecutePipelineActivityPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecutePipelineActivityPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secure_input: Optional[bool] = None):
+        """
+        Execution policy for an execute pipeline activity.
+        :param bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        if secure_input is not None:
+            pulumi.set(__self__, "secure_input", secure_input)
+
+    @property
+    @pulumi.getter(name="secureInput")
+    def secure_input(self) -> Optional[bool]:
+        """
+        When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_input")
+
+
+@pulumi.output_type
 class ExecutePipelineActivityResponse(dict):
     """
     Execute pipeline activity.
@@ -28584,6 +28625,7 @@ class ExecutePipelineActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  parameters: Optional[Mapping[str, Any]] = None,
+                 policy: Optional['outputs.ExecutePipelineActivityPolicyResponse'] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  wait_on_completion: Optional[bool] = None):
         """
@@ -28595,6 +28637,7 @@ class ExecutePipelineActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Mapping[str, Any] parameters: Pipeline parameters.
+        :param 'ExecutePipelineActivityPolicyResponse' policy: Execute pipeline activity policy.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param bool wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
         """
@@ -28607,6 +28650,8 @@ class ExecutePipelineActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if wait_on_completion is not None:
@@ -28660,6 +28705,14 @@ class ExecutePipelineActivityResponse(dict):
         Pipeline parameters.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ExecutePipelineActivityPolicyResponse']:
+        """
+        Execute pipeline activity policy.
+        """
+        return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -68870,7 +68923,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
-                 stored_procedure_parameters: Optional[Mapping[str, 'outputs.StoredProcedureParameterResponse']] = None,
+                 stored_procedure_parameters: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         SQL stored procedure activity type.
@@ -68882,7 +68935,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'ActivityPolicyResponse' policy: Activity policy.
-        :param Mapping[str, 'StoredProcedureParameterResponse'] stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
+        :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -68959,7 +69012,7 @@ class SqlServerStoredProcedureActivityResponse(dict):
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
-    def stored_procedure_parameters(self) -> Optional[Mapping[str, 'outputs.StoredProcedureParameterResponse']]:
+    def stored_procedure_parameters(self) -> Optional[Any]:
         """
         Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         """

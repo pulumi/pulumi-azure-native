@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:TIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:TIDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:TIDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:TIDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -33,7 +33,7 @@ type LookupCertificateResult struct {
 	CanonicalName *string `pulumi:"canonicalName"`
 	// Raw bytes of .cer file
 	CerBlob string `pulumi:"cerBlob"`
-	// Method of domain validation for free cert
+	// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
 	DomainValidationMethod *string `pulumi:"domainValidationMethod"`
 	// Certificate expiration date.
 	ExpirationDate string `pulumi:"expirationDate"`
@@ -128,7 +128,7 @@ func (o LookupCertificateResultOutput) CerBlob() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CerBlob }).(pulumi.StringOutput)
 }
 
-// Method of domain validation for free cert
+// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
 func (o LookupCertificateResultOutput) DomainValidationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *string { return v.DomainValidationMethod }).(pulumi.StringPtrOutput)
 }

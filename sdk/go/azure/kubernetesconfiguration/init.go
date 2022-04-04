@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Extension{}
 	case "azure-native:kubernetesconfiguration:FluxConfiguration":
 		r = &FluxConfiguration{}
+	case "azure-native:kubernetesconfiguration:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
+	case "azure-native:kubernetesconfiguration:PrivateLinkScope":
+		r = &PrivateLinkScope{}
 	case "azure-native:kubernetesconfiguration:SourceControlConfiguration":
 		r = &SourceControlConfiguration{}
 	default:

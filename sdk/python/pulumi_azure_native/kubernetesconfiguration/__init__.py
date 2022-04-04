@@ -10,7 +10,11 @@ from .extension import *
 from .flux_configuration import *
 from .get_extension import *
 from .get_flux_configuration import *
+from .get_private_endpoint_connection import *
+from .get_private_link_scope import *
 from .get_source_control_configuration import *
+from .private_endpoint_connection import *
+from .private_link_scope import *
 from .source_control_configuration import *
 from ._inputs import *
 from . import outputs
@@ -35,6 +39,8 @@ if typing.TYPE_CHECKING:
     v20220101preview = __v20220101preview
     import pulumi_azure_native.kubernetesconfiguration.v20220301 as __v20220301
     v20220301 = __v20220301
+    import pulumi_azure_native.kubernetesconfiguration.v20220402preview as __v20220402preview
+    v20220402preview = __v20220402preview
 else:
     v20191101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20191101preview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20200701preview')
@@ -45,4 +51,5 @@ else:
     v20211101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20211101preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220101preview')
     v20220301 = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220301')
+    v20220402preview = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration.v20220402preview')
 

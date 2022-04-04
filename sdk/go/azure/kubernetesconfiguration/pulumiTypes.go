@@ -1556,6 +1556,223 @@ func (o HelmReleasePropertiesDefinitionResponsePtrOutput) UpgradeFailureCount() 
 	}).(pulumi.Float64PtrOutput)
 }
 
+// Properties that define a Azure Arc PrivateLinkScope resource.
+type KubernetesConfigurationPrivateLinkScopeProperties struct {
+	// Managed Cluster ARM ID for the private link scope  (Required)
+	ClusterResourceId string `pulumi:"clusterResourceId"`
+	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// KubernetesConfigurationPrivateLinkScopePropertiesInput is an input type that accepts KubernetesConfigurationPrivateLinkScopePropertiesArgs and KubernetesConfigurationPrivateLinkScopePropertiesOutput values.
+// You can construct a concrete instance of `KubernetesConfigurationPrivateLinkScopePropertiesInput` via:
+//
+//          KubernetesConfigurationPrivateLinkScopePropertiesArgs{...}
+type KubernetesConfigurationPrivateLinkScopePropertiesInput interface {
+	pulumi.Input
+
+	ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput
+	ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+type KubernetesConfigurationPrivateLinkScopePropertiesArgs struct {
+	// Managed Cluster ARM ID for the private link scope  (Required)
+	ClusterResourceId pulumi.StringInput `pulumi:"clusterResourceId"`
+	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
+}
+
+func (KubernetesConfigurationPrivateLinkScopePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+}
+
+func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(context.Background())
+}
+
+func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesOutput)
+}
+
+func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesConfigurationPrivateLinkScopePropertiesArgs) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesOutput).ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx)
+}
+
+// KubernetesConfigurationPrivateLinkScopePropertiesPtrInput is an input type that accepts KubernetesConfigurationPrivateLinkScopePropertiesArgs, KubernetesConfigurationPrivateLinkScopePropertiesPtr and KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput values.
+// You can construct a concrete instance of `KubernetesConfigurationPrivateLinkScopePropertiesPtrInput` via:
+//
+//          KubernetesConfigurationPrivateLinkScopePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KubernetesConfigurationPrivateLinkScopePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput
+	ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput
+}
+
+type kubernetesConfigurationPrivateLinkScopePropertiesPtrType KubernetesConfigurationPrivateLinkScopePropertiesArgs
+
+func KubernetesConfigurationPrivateLinkScopePropertiesPtr(v *KubernetesConfigurationPrivateLinkScopePropertiesArgs) KubernetesConfigurationPrivateLinkScopePropertiesPtrInput {
+	return (*kubernetesConfigurationPrivateLinkScopePropertiesPtrType)(v)
+}
+
+func (*kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+}
+
+func (i *kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return i.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesConfigurationPrivateLinkScopePropertiesPtrType) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput)
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+type KubernetesConfigurationPrivateLinkScopePropertiesOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConfigurationPrivateLinkScopePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesOutput() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+	return o
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+	return o
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return o.ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesConfigurationPrivateLinkScopeProperties) *KubernetesConfigurationPrivateLinkScopeProperties {
+		return &v
+	}).(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput)
+}
+
+// Managed Cluster ARM ID for the private link scope  (Required)
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) ClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopeProperties) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopeProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesConfigurationPrivateLinkScopeProperties)(nil)).Elem()
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutput() KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return o
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesPtrOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput {
+	return o
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) Elem() KubernetesConfigurationPrivateLinkScopePropertiesOutput {
+	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) KubernetesConfigurationPrivateLinkScopeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesConfigurationPrivateLinkScopeProperties
+		return ret
+	}).(KubernetesConfigurationPrivateLinkScopePropertiesOutput)
+}
+
+// Managed Cluster ARM ID for the private link scope  (Required)
+func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) ClusterResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesConfigurationPrivateLinkScopeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+type KubernetesConfigurationPrivateLinkScopePropertiesResponse struct {
+	// Managed Cluster ARM ID for the private link scope  (Required)
+	ClusterResourceId string `pulumi:"clusterResourceId"`
+	// The collection of associated Private Endpoint Connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The Guid id of the private link scope.
+	PrivateLinkScopeId string `pulumi:"privateLinkScopeId"`
+	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+type KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesConfigurationPrivateLinkScopePropertiesResponse)(nil)).Elem()
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesResponseOutput() KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
+	return o
+}
+
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ToKubernetesConfigurationPrivateLinkScopePropertiesResponseOutputWithContext(ctx context.Context) KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
+	return o
+}
+
+// Managed Cluster ARM ID for the private link scope  (Required)
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+// The collection of associated Private Endpoint Connections.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) []PrivateEndpointConnectionResponse {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The Guid id of the private link scope.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PrivateLinkScopeId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.PrivateLinkScopeId }).(pulumi.StringOutput)
+}
+
+// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+func (o KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesConfigurationPrivateLinkScopePropertiesResponse) *string {
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Kustomization defining how to reconcile the artifact pulled by the source type on the cluster.
 type KustomizationDefinition struct {
 	// Specifies other Kustomizations that this Kustomization depends on. This Kustomization will not reconcile until all dependencies have completed their reconciliation.
@@ -2113,6 +2330,269 @@ func (o ObjectStatusDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Obje
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectStatusDefinitionResponse {
 		return vs[0].([]ObjectStatusDefinitionResponse)[vs[1].(int)]
 	}).(ObjectStatusDefinitionResponseOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PrivateEndpointConnectionResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponse struct {
+	// The ARM identifier for Private Endpoint
+	Id string `pulumi:"id"`
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
+	return o
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+type PrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
+	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The source reference for the GitRepository object.
@@ -3229,6 +3709,9 @@ func init() {
 	pulumi.RegisterOutputType(HelmOperatorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(HelmReleasePropertiesDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(HelmReleasePropertiesDefinitionResponsePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesOutput{})
+	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionMapOutput{})
 	pulumi.RegisterOutputType(KustomizationDefinitionResponseOutput{})
@@ -3239,6 +3722,12 @@ func init() {
 	pulumi.RegisterOutputType(ObjectStatusConditionDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ObjectStatusDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ObjectStatusDefinitionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryRefDefinitionResponseOutput{})

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * StaticMember Item.
- * API Version: 2021-05-01-preview.
+ * API Version: 2022-02-01-preview.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
     if (!opts) {

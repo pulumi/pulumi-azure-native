@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Metadata"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Metadata"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Metadata"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Metadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

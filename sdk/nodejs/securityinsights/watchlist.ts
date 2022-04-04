@@ -225,7 +225,7 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["watchlistType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-native:securityinsights/v20210401:Watchlist" }, { type: "azure-native:securityinsights/v20210901preview:Watchlist" }, { type: "azure-native:securityinsights/v20211001:Watchlist" }, { type: "azure-native:securityinsights/v20211001preview:Watchlist" }, { type: "azure-native:securityinsights/v20220101preview:Watchlist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-native:securityinsights/v20210401:Watchlist" }, { type: "azure-native:securityinsights/v20210901preview:Watchlist" }, { type: "azure-native:securityinsights/v20211001:Watchlist" }, { type: "azure-native:securityinsights/v20211001preview:Watchlist" }, { type: "azure-native:securityinsights/v20220101preview:Watchlist" }, { type: "azure-native:securityinsights/v20220401preview:Watchlist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watchlist.__pulumiType, name, resourceInputs, opts);
     }

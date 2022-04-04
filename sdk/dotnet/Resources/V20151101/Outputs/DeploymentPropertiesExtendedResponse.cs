@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Resources.V20151101.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DependencyResponse> Dependencies;
         /// <summary>
+        /// The deployment error.
+        /// </summary>
+        public readonly Outputs.ErrorResponseResponse Error;
+        /// <summary>
         /// Gets or sets the deployment mode.
         /// </summary>
         public readonly string? Mode;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.Resources.V20151101.Outputs
 
             ImmutableArray<Outputs.DependencyResponse> dependencies,
 
+            Outputs.ErrorResponseResponse error,
+
             string? mode,
 
             object? outputs,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNative.Resources.V20151101.Outputs
         {
             CorrelationId = correlationId;
             Dependencies = dependencies;
+            Error = error;
             Mode = mode;
             Outputs = outputs;
             Parameters = parameters;

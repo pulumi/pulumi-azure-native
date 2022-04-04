@@ -60,6 +60,9 @@ func NewSentinelOnboardingState(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220101preview:SentinelOnboardingState"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220401preview:SentinelOnboardingState"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SentinelOnboardingState

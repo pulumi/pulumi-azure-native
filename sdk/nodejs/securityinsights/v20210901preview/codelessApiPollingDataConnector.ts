@@ -105,7 +105,7 @@ export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:CodelessApiPollingDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodelessApiPollingDataConnector.__pulumiType, name, resourceInputs, opts);
     }

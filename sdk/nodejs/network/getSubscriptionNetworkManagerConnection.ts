@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Manager Connection resource
- * API Version: 2021-05-01-preview.
+ * API Version: 2022-02-01-preview.
  */
 export function getSubscriptionNetworkManagerConnection(args: GetSubscriptionNetworkManagerConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionNetworkManagerConnectionResult> {
     if (!opts) {

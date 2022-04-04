@@ -116,7 +116,7 @@ export class StorageAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-native:databoxedge/v20201201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-native:databoxedge/v20201201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }, { type: "azure-native:databoxedge/v20220301:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }

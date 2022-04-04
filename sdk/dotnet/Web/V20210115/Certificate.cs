@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Web.V20210115
         public Output<string> CerBlob { get; private set; } = null!;
 
         /// <summary>
-        /// Method of domain validation for free cert
+        /// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         /// </summary>
         [Output("domainValidationMethod")]
         public Output<string?> DomainValidationMethod { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.AzureNative.Web.V20210115
         public Input<string>? CanonicalName { get; set; }
 
         /// <summary>
-        /// Method of domain validation for free cert
+        /// Method of domain validation for free cert. Possible values include: 'CNameValidationValue', 'HttpTokenValidationValue'
         /// </summary>
         [Input("domainValidationMethod")]
         public Input<string>? DomainValidationMethod { get; set; }
