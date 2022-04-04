@@ -2,9 +2,15 @@
 
 ## HEAD (Unreleased)
 
+## 1.62.0 (2022-04-04)
+
 - Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
 
-## 1.61.0 (2020-03-24)
+### Breaking Changes published by Microsoft
+
+- Type "azure-native:datafactory:SqlServerStoredProcedureActivity" input "storedProcedureParameters" type changed
+
+## 1.61.0 (2022-03-24)
 
 - Update pulumi codegen dependency to fix secret property handling in Go SDK
 
@@ -27,7 +33,7 @@
 - `azure-native:signalrservice:SignalRCustomCertificate`
 - `azure-native:signalrservice:SignalRCustomDomain`
 
-## 1.60.0 (2020-02-25)
+## 1.60.0 (2022-02-25)
 
 - Fix property names starting with numbers [#1528](https://github.com/pulumi/pulumi-azure-native/issues/1528)
 
