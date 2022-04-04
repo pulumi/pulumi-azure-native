@@ -178,7 +178,12 @@ class SnapshotPolicyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
+warnings.warn("""Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class SnapshotPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,6 +250,7 @@ class SnapshotPolicy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_schedule: Optional[pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""SnapshotPolicy is deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

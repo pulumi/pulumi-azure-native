@@ -11,6 +11,8 @@ import (
 )
 
 // Single item in a List or Get AuthorizationRule operation
+//
+// Deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:eventhub/v20140901:getNamespaceAuthorizationRule", args, &rv, opts...)

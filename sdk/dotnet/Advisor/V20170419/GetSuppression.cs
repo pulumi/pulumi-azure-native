@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Advisor.V20170419
 {
+    [Obsolete(@"Version v20170419 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.")]
     public static class GetSuppression
     {
         /// <summary>

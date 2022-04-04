@@ -12,6 +12,8 @@ import (
 )
 
 // Specifies information about the SSH public key.
+//
+// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type SshPublicKey struct {
 	pulumi.CustomResourceState
 

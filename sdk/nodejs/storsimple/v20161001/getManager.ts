@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The StorSimple Manager
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getManager(args: GetManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerResult> {
+    pulumi.log.warn("getManager is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

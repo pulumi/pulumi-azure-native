@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Authorization in a ExpressRouteCircuit resource
  */
+/** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getExpressRouteCircuitAuthorization(args: GetExpressRouteCircuitAuthorizationArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitAuthorizationResult> {
+    pulumi.log.warn("getExpressRouteCircuitAuthorization is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

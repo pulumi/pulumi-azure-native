@@ -12,6 +12,8 @@ import (
 )
 
 // The status of the Canonical support plan.
+//
+// Deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.
 type SupportPlanType struct {
 	pulumi.CustomResourceState
 

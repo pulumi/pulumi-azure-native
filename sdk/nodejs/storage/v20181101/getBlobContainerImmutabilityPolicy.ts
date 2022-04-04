@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  */
+/** @deprecated Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getBlobContainerImmutabilityPolicy(args: GetBlobContainerImmutabilityPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerImmutabilityPolicyResult> {
+    pulumi.log.warn("getBlobContainerImmutabilityPolicy is deprecated: Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

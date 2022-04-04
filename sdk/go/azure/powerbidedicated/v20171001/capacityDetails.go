@@ -12,6 +12,8 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
+//
+// Deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type CapacityDetails struct {
 	pulumi.CustomResourceState
 

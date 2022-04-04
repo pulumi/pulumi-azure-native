@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  */
+/** @deprecated Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
+    pulumi.log.warn("getBlobContainer is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

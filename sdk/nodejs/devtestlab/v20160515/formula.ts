@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A formula for creating a VM, specifying an image base and other parameters
+ *
+ * @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
  */
 export class Formula extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Formula extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Formula {
+        pulumi.log.warn("Formula is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
         return new Formula(name, undefined as any, { ...opts, id: id });
     }
 
@@ -91,7 +94,9 @@ export class Formula extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
     constructor(name: string, args: FormulaArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Formula is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

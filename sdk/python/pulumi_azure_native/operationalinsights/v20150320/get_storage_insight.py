@@ -16,6 +16,8 @@ __all__ = [
     'get_storage_insight_output',
 ]
 
+warnings.warn("""Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStorageInsightResult:
     """
@@ -152,6 +154,7 @@ def get_storage_insight(resource_group_name: Optional[str] = None,
     :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The Log Analytics Workspace name.
     """
+    pulumi.log.warn("""get_storage_insight is deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageInsightName'] = storage_insight_name
@@ -187,4 +190,5 @@ def get_storage_insight_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str storage_insight_name: Name of the storageInsightsConfigs resource
     :param str workspace_name: The Log Analytics Workspace name.
     """
+    pulumi.log.warn("""get_storage_insight is deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""")
     ...

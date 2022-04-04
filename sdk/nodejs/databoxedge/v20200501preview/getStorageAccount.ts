@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
+/** @deprecated Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getStorageAccount(args: GetStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountResult> {
+    pulumi.log.warn("getStorageAccount is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

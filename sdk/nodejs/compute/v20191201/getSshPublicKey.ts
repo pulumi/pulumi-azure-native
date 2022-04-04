@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the SSH public key.
  */
+/** @deprecated Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getSshPublicKey(args: GetSshPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetSshPublicKeyResult> {
+    pulumi.log.warn("getSshPublicKey is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

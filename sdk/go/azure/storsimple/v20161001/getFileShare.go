@@ -11,6 +11,8 @@ import (
 )
 
 // The File Share.
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pulumi.InvokeOption) (*LookupFileShareResult, error) {
 	var rv LookupFileShareResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getFileShare", args, &rv, opts...)

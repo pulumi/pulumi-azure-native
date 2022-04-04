@@ -11,6 +11,8 @@ import (
 )
 
 // Bot resource definition
+//
+// Deprecated: Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.
 func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOption) (*LookupBotResult, error) {
 	var rv LookupBotResult
 	err := ctx.Invoke("azure-native:botservice/v20171201:getBot", args, &rv, opts...)

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The service resource.
+ *
+ * @deprecated Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
+        pulumi.log.warn("Service is deprecated: Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -91,7 +94,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Service is deprecated: Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

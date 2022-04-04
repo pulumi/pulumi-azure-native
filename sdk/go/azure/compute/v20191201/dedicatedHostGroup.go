@@ -12,6 +12,8 @@ import (
 )
 
 // Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+//
+// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A Invitation data transfer object.
  */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getInvitation(args: GetInvitationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvitationResult> {
+    pulumi.log.warn("getInvitation is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

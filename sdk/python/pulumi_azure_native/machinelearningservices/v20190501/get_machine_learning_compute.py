@@ -16,6 +16,8 @@ __all__ = [
     'get_machine_learning_compute_output',
 ]
 
+warnings.warn("""Version v20190501 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMachineLearningComputeResult:
     """
@@ -128,6 +130,7 @@ def get_machine_learning_compute(compute_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version v20190501 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     __args__ = dict()
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
@@ -161,4 +164,5 @@ def get_machine_learning_compute_output(compute_name: Optional[pulumi.Input[str]
     :param str resource_group_name: Name of the resource group in which workspace is located.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
+    pulumi.log.warn("""get_machine_learning_compute is deprecated: Version v20190501 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20190301
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
     /// </summary>
+    [Obsolete(@"Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     [AzureNativeResourceType("azure-native:compute/v20190301:GalleryApplication")]
     public partial class GalleryApplication : Pulumi.CustomResource
     {

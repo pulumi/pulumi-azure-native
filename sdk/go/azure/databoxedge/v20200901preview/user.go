@@ -12,6 +12,8 @@ import (
 )
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+//
+// Deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type User struct {
 	pulumi.CustomResourceState
 

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB storedProcedure.
  */
+/** @deprecated Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getSqlResourceSqlStoredProcedure(args: GetSqlResourceSqlStoredProcedureArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlStoredProcedureResult> {
+    pulumi.log.warn("getSqlResourceSqlStoredProcedure is deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

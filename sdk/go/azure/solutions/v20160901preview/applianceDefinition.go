@@ -12,6 +12,8 @@ import (
 )
 
 // Information about appliance definition.
+//
+// Deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
 type ApplianceDefinition struct {
 	pulumi.CustomResourceState
 

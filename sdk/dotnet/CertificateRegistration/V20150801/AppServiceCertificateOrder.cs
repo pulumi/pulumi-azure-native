@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20150801
     /// <summary>
     /// SSL certificate purchase order.
     /// </summary>
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
     [AzureNativeResourceType("azure-native:certificateregistration/v20150801:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : Pulumi.CustomResource
     {

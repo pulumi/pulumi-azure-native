@@ -11,6 +11,8 @@ import (
 )
 
 // Class representing an event hub connection.
+//
+// Deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.
 func LookupEventHubConnection(ctx *pulumi.Context, args *LookupEventHubConnectionArgs, opts ...pulumi.InvokeOption) (*LookupEventHubConnectionResult, error) {
 	var rv LookupEventHubConnectionResult
 	err := ctx.Invoke("azure-native:kusto/v20170907privatepreview:getEventHubConnection", args, &rv, opts...)

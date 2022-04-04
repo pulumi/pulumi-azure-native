@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
+ *
+ * @deprecated Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
  */
 export class Backup extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Backup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Backup {
+        pulumi.log.warn("Backup is deprecated: Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         return new Backup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,7 +81,9 @@ export class Backup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
     constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Backup is deprecated: Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

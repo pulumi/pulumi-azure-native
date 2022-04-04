@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Domain Topic
  */
+/** @deprecated Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later. */
 export function getDomainTopic(args: GetDomainTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainTopicResult> {
+    pulumi.log.warn("getDomainTopic is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
     if (!opts) {
         opts = {}
     }

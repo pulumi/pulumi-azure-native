@@ -12,6 +12,8 @@ import (
 )
 
 // The Data Box Edge/Gateway device.
+//
+// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type Device struct {
 	pulumi.CustomResourceState
 

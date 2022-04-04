@@ -16,6 +16,8 @@ __all__ = [
     'get_event_subscription_output',
 ]
 
+warnings.warn("""Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventSubscriptionResult:
     """
@@ -138,6 +140,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
     :param str event_subscription_name: Name of the event subscription
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
+    pulumi.log.warn("""get_event_subscription is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""")
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['scope'] = scope
@@ -169,4 +172,5 @@ def get_event_subscription_output(event_subscription_name: Optional[pulumi.Input
     :param str event_subscription_name: Name of the event subscription
     :param str scope: The scope of the event subscription. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
     """
+    pulumi.log.warn("""get_event_subscription is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""")
     ...

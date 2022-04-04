@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents user credentials used for publishing activity
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getSiteInstanceDeployment(args: GetSiteInstanceDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteInstanceDeploymentResult> {
+    pulumi.log.warn("getSiteInstanceDeployment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account.
+ *
+ * @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): StorageAccount {
+        pulumi.log.warn("StorageAccount is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         return new StorageAccount(name, undefined as any, { ...opts, id: id });
     }
 
@@ -119,7 +122,9 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("StorageAccount is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

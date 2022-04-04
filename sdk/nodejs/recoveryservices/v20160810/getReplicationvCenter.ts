@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * vCenter definition.
  */
+/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationvCenter(args: GetReplicationvCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationvCenterResult> {
+    pulumi.log.warn("getReplicationvCenter is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,8 @@ import (
 )
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
+//
+// Deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type FileShare struct {
 	pulumi.CustomResourceState
 

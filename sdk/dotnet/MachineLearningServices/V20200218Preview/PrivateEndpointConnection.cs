@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200218Preview
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
+    [Obsolete(@"Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

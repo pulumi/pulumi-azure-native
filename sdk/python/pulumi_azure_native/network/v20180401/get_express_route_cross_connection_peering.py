@@ -16,6 +16,8 @@ __all__ = [
     'get_express_route_cross_connection_peering_output',
 ]
 
+warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCrossConnectionPeeringResult:
     """
@@ -260,6 +262,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['crossConnectionName'] = cross_connection_name
     __args__['peeringName'] = peering_name
@@ -304,4 +307,5 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_cross_connection_peering is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

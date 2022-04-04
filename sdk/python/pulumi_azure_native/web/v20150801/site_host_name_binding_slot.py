@@ -256,7 +256,12 @@ class SiteHostNameBindingSlotArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
+
 class SiteHostNameBindingSlot(pulumi.CustomResource):
+    warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -338,6 +343,7 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SiteHostNameBindingSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

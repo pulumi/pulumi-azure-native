@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Route table resource.
  */
+/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
+    pulumi.log.warn("getRouteTable is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

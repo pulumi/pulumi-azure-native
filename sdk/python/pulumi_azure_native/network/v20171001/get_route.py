@@ -15,6 +15,8 @@ __all__ = [
     'get_route_output',
 ]
 
+warnings.warn("""Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteResult:
     """
@@ -127,6 +129,7 @@ def get_route(resource_group_name: Optional[str] = None,
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
+    pulumi.log.warn("""get_route is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeName'] = route_name
@@ -160,4 +163,5 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str route_name: The name of the route.
     :param str route_table_name: The name of the route table.
     """
+    pulumi.log.warn("""get_route is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

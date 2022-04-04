@@ -16,6 +16,8 @@ __all__ = [
     'get_smart_detector_alert_rule_output',
 ]
 
+warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSmartDetectorAlertRuleResult:
     """
@@ -176,6 +178,7 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""")
     __args__ = dict()
     __args__['alertRuleName'] = alert_rule_name
     __args__['expandDetector'] = expand_detector
@@ -213,4 +216,5 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     :param bool expand_detector: Indicates if Smart Detector should be expanded.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_smart_detector_alert_rule is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KeyVault.V20180214
     /// <summary>
     /// Private endpoint connection resource.
     /// </summary>
+    [Obsolete(@"Version v20180214 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")]
     [AzureNativeResourceType("azure-native:keyvault/v20180214:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

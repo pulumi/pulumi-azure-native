@@ -226,7 +226,12 @@ class VirtualMachineScaleSetVMExtensionArgs:
         pulumi.set(self, "vm_extension_name", value)
 
 
+warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
+
 class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
+    warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -302,6 +307,7 @@ class VirtualMachineScaleSetVMExtension(pulumi.CustomResource):
                  vm_extension_name: Optional[pulumi.Input[str]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachineScaleSetVMExtension is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

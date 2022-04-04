@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A SQL server registration.
  */
+/** @deprecated Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later. */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
+    pulumi.log.warn("getSqlServerRegistration is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,8 @@ import (
 )
 
 // Action rule object containing target scope, conditions and suppression logic
+//
+// Deprecated: Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.
 type ActionRuleByName struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,8 @@ import (
 )
 
 // Volume resource
+//
+// Deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type Volume struct {
 	pulumi.CustomResourceState
 

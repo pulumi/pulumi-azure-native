@@ -11,6 +11,8 @@ import (
 )
 
 // Represents an instance of a Dedicated Capacity resource.
+//
+// Deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 func LookupCapacityDetails(ctx *pulumi.Context, args *LookupCapacityDetailsArgs, opts ...pulumi.InvokeOption) (*LookupCapacityDetailsResult, error) {
 	var rv LookupCapacityDetailsResult
 	err := ctx.Invoke("azure-native:powerbidedicated/v20171001:getCapacityDetails", args, &rv, opts...)

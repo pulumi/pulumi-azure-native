@@ -12,6 +12,8 @@ import (
 )
 
 // Route table resource.
+//
+// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type RouteTable struct {
 	pulumi.CustomResourceState
 

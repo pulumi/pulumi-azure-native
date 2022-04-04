@@ -11,6 +11,8 @@ import (
 )
 
 // An Azure Cosmos DB Role Assignment
+//
+// Deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
 	var rv LookupSqlResourceSqlRoleAssignmentResult
 	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment", args, &rv, opts...)

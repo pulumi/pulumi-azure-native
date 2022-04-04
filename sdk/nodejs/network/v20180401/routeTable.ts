@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Route table resource.
+ *
+ * @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
  */
 export class RouteTable extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class RouteTable extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): RouteTable {
+        pulumi.log.warn("RouteTable is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         return new RouteTable(name, undefined as any, { ...opts, id: id });
     }
 
@@ -79,7 +82,9 @@ export class RouteTable extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
     constructor(name: string, args: RouteTableArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("RouteTable is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

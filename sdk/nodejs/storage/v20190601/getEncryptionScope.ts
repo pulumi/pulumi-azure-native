@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Encryption Scope resource.
  */
+/** @deprecated Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
+    pulumi.log.warn("getEncryptionScope is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

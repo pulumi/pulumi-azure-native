@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Cloud Endpoint object.
  */
+/** @deprecated Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getCloudEndpoint(args: GetCloudEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudEndpointResult> {
+    pulumi.log.warn("getCloudEndpoint is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

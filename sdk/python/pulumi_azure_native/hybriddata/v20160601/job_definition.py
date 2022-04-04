@@ -225,7 +225,12 @@ class JobDefinitionArgs:
         pulumi.set(self, "user_confirmation", value)
 
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+
+
 class JobDefinition(pulumi.CustomResource):
+    warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -301,6 +306,7 @@ class JobDefinition(pulumi.CustomResource):
                  state: Optional[pulumi.Input['State']] = None,
                  user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
                  __props__=None):
+        pulumi.log.warn("""JobDefinition is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

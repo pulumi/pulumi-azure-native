@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
 {
+    [Obsolete(@"Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.")]
     public static class GetSourceControlConfiguration
     {
         /// <summary>

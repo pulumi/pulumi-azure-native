@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The status of the Canonical support plan.
+ *
+ * @deprecated Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SupportPlanType {
+        pulumi.log.warn("SupportPlanType is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.")
         return new SupportPlanType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class SupportPlanType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later. */
     constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SupportPlanType is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

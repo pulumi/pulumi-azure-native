@@ -159,7 +159,12 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "location", value)
 
 
+warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
+
 class StorageAccountCredential(pulumi.CustomResource):
+    warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -223,6 +228,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""StorageAccountCredential is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

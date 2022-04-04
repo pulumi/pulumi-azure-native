@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of a Dedicated Capacity resource.
  */
+/** @deprecated Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getCapacityDetails(args: GetCapacityDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityDetailsResult> {
+    pulumi.log.warn("getCapacityDetails is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

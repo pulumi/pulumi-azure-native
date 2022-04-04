@@ -16,6 +16,8 @@ __all__ = [
     'get_environment_output',
 ]
 
+warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEnvironmentResult:
     """
@@ -212,6 +214,7 @@ def get_environment(environment_name: Optional[str] = None,
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_environment is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['expand'] = expand
@@ -252,4 +255,5 @@ def get_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
     :param str expand: Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
     :param str resource_group_name: Name of an Azure Resource group.
     """
+    pulumi.log.warn("""get_environment is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
     ...

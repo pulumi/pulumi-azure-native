@@ -15,6 +15,8 @@ __all__ = [
     'get_maintenance_configuration_output',
 ]
 
+warnings.warn("""Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
     """
@@ -137,6 +139,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Resource Identifier
     """
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -168,4 +171,5 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     :param str resource_group_name: Resource Group Name
     :param str resource_name: Resource Identifier
     """
+    pulumi.log.warn("""get_maintenance_configuration is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.""")
     ...

@@ -15,6 +15,8 @@ __all__ = [
     'get_notebook_workspace_output',
 ]
 
+warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNotebookWorkspaceResult:
     """
@@ -103,6 +105,7 @@ def get_notebook_workspace(account_name: Optional[str] = None,
     :param str notebook_workspace_name: The name of the notebook workspace resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_notebook_workspace is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['notebookWorkspaceName'] = notebook_workspace_name
@@ -134,4 +137,5 @@ def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = No
     :param str notebook_workspace_name: The name of the notebook workspace resource.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_notebook_workspace is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

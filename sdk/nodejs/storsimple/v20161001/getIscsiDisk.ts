@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI disk.
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getIscsiDisk(args: GetIscsiDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiDiskResult> {
+    pulumi.log.warn("getIscsiDisk is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

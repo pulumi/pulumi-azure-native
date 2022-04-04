@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
     /// <summary>
     /// The properties of a storage account’s Table service.
     /// </summary>
+    [Obsolete(@"Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     [AzureNativeResourceType("azure-native:storage/v20200801preview:TableServiceProperties")]
     public partial class TableServiceProperties : Pulumi.CustomResource
     {

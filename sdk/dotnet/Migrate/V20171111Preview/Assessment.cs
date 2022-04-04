@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
     /// <summary>
     /// An assessment created for a group in the Migration project.
     /// </summary>
+    [Obsolete(@"Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.")]
     [AzureNativeResourceType("azure-native:migrate/v20171111preview:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
     {

@@ -16,6 +16,8 @@ __all__ = [
     'get_application_definition_output',
 ]
 
+warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationDefinitionResult:
     """
@@ -246,6 +248,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application_definition is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
     __args__ = dict()
     __args__['applicationDefinitionName'] = application_definition_name
     __args__['resourceGroupName'] = resource_group_name
@@ -286,4 +289,5 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_application_definition is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
     ...

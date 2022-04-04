@@ -15,6 +15,8 @@ __all__ = [
     'get_application_package_output',
 ]
 
+warnings.warn("""Version v20151201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationPackageResult:
     """
@@ -129,6 +131,7 @@ def get_application_package(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version: The version of the application.
     """
+    pulumi.log.warn("""get_application_package is deprecated: Version v20151201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['applicationId'] = application_id
@@ -165,4 +168,5 @@ def get_application_package_output(account_name: Optional[pulumi.Input[str]] = N
     :param str resource_group_name: The name of the resource group that contains the Batch account.
     :param str version: The version of the application.
     """
+    pulumi.log.warn("""get_application_package is deprecated: Version v20151201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     ...

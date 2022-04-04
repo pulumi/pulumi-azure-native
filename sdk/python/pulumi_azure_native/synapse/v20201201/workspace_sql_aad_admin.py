@@ -112,7 +112,12 @@ class WorkspaceSqlAadAdminArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class WorkspaceSqlAadAdmin(pulumi.CustomResource):
+    warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkspaceSqlAadAdmin is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

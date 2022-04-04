@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A report config resource.
  */
+/** @deprecated Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later. */
 export function getReportConfig(args: GetReportConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetReportConfigResult> {
+    pulumi.log.warn("getReportConfig is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.")
     if (!opts) {
         opts = {}
     }

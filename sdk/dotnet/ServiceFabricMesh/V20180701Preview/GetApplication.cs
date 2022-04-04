@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
+    [Obsolete(@"Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")]
     public static class GetApplication
     {
         /// <summary>

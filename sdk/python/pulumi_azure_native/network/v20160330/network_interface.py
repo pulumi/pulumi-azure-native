@@ -244,7 +244,12 @@ class NetworkInterfaceInitArgs:
         pulumi.set(self, "virtual_machine", value)
 
 
+warnings.warn("""Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class NetworkInterface(pulumi.CustomResource):
+    warnings.warn("""Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,6 +328,7 @@ class NetworkInterface(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""NetworkInterface is deprecated: Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

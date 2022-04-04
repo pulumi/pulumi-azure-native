@@ -16,6 +16,8 @@ __all__ = [
     'get_cache_output',
 ]
 
+warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCacheResult:
     """
@@ -258,6 +260,7 @@ def get_cache(cache_name: Optional[str] = None,
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
+    pulumi.log.warn("""get_cache is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -299,4 +302,5 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
     :param str resource_group_name: Target resource group.
     """
+    pulumi.log.warn("""get_cache is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     ...

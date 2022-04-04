@@ -11,6 +11,8 @@ import (
 )
 
 // The lock information.
+//
+// Deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupManagementLockAtResourceGroupLevel(ctx *pulumi.Context, args *LookupManagementLockAtResourceGroupLevelArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockAtResourceGroupLevelResult, error) {
 	var rv LookupManagementLockAtResourceGroupLevelResult
 	err := ctx.Invoke("azure-native:authorization/v20160901:getManagementLockAtResourceGroupLevel", args, &rv, opts...)

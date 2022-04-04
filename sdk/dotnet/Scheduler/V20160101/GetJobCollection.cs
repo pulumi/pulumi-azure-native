@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Scheduler.V20160101
 {
+    [Obsolete(@"Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later.")]
     public static class GetJobCollection
     {
         public static Task<GetJobCollectionResult> InvokeAsync(GetJobCollectionArgs args, InvokeOptions? options = null)

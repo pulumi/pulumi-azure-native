@@ -11,6 +11,8 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// Deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.
 func LookupPrivateEndpointConnectionsForEDM(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionsForEDMArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionsForEDMResult, error) {
 	var rv LookupPrivateEndpointConnectionsForEDMResult
 	err := ctx.Invoke("azure-native:securityandcompliance/v20210111:getPrivateEndpointConnectionsForEDM", args, &rv, opts...)

@@ -11,6 +11,8 @@ import (
 )
 
 // CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
+//
+// Deprecated: Version v20160402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
 	err := ctx.Invoke("azure-native:cdn/v20160402:getEndpoint", args, &rv, opts...)

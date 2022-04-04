@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a VM and guest configuration.
+ *
+ * @deprecated Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.
  */
 export class GuestConfigurationAssignment extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GuestConfigurationAssignment {
+        pulumi.log.warn("GuestConfigurationAssignment is deprecated: Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.")
         return new GuestConfigurationAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later. */
     constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GuestConfigurationAssignment is deprecated: Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -16,6 +16,8 @@ __all__ = [
     'get_notification_hub_authorization_rule_output',
 ]
 
+warnings.warn("""Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNotificationHubAuthorizationRuleResult:
     """
@@ -130,6 +132,7 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_notification_hub_authorization_rule is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
@@ -166,4 +169,5 @@ def get_notification_hub_authorization_rule_output(authorization_rule_name: Opti
     :param str notification_hub_name: The notification hub name.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_notification_hub_authorization_rule is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     ...

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Protection container mapping object.
  */
+/** @deprecated Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationProtectionContainerMapping(args: GetReplicationProtectionContainerMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectionContainerMappingResult> {
+    pulumi.log.warn("getReplicationProtectionContainerMapping is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

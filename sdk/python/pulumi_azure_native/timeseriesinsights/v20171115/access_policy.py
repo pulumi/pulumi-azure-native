@@ -113,7 +113,12 @@ class AccessPolicyArgs:
         pulumi.set(self, "roles", value)
 
 
+warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
+
+
 class AccessPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class AccessPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AccessPolicy is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

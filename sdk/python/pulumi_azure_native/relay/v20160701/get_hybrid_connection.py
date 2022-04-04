@@ -15,6 +15,8 @@ __all__ = [
     'get_hybrid_connection_output',
 ]
 
+warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridConnectionResult:
     """
@@ -139,6 +141,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     :param str namespace_name: The Namespace Name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     __args__ = dict()
     __args__['hybridConnectionName'] = hybrid_connection_name
     __args__['namespaceName'] = namespace_name
@@ -173,4 +176,5 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     :param str namespace_name: The Namespace Name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     ...

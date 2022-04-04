@@ -16,6 +16,8 @@ __all__ = [
     'get_deployment_output',
 ]
 
+warnings.warn("""Version v20170510 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentResult:
     """
@@ -78,6 +80,7 @@ def get_deployment(deployment_name: Optional[str] = None,
     :param str deployment_name: The name of the deployment to get.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_deployment is deprecated: Version v20170510 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['resourceGroupName'] = resource_group_name
@@ -104,4 +107,5 @@ def get_deployment_output(deployment_name: Optional[pulumi.Input[str]] = None,
     :param str deployment_name: The name of the deployment to get.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_deployment is deprecated: Version v20170510 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     ...

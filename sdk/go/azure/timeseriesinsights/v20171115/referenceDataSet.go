@@ -12,6 +12,8 @@ import (
 )
 
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+//
+// Deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.
 type ReferenceDataSet struct {
 	pulumi.CustomResourceState
 

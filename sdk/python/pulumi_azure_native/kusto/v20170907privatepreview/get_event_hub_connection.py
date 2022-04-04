@@ -15,6 +15,8 @@ __all__ = [
     'get_event_hub_connection_output',
 ]
 
+warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEventHubConnectionResult:
     """
@@ -153,6 +155,7 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
     :param str event_hub_connection_name: The name of the event hub connection.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_event_hub_connection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name
@@ -191,4 +194,5 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
     :param str event_hub_connection_name: The name of the event hub connection.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
+    pulumi.log.warn("""get_event_hub_connection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
     ...

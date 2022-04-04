@@ -94,7 +94,12 @@ class FirewallRuleArgs:
         pulumi.set(self, "rule_name", value)
 
 
+warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
+
 class FirewallRule(pulumi.CustomResource):
+    warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -146,6 +151,7 @@ class FirewallRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  start_ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FirewallRule is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

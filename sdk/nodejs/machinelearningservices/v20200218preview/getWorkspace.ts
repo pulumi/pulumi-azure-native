@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a machine learning workspace.
  */
+/** @deprecated Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

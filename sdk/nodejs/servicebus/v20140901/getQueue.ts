@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of queue Resource.
  */
+/** @deprecated Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
+    pulumi.log.warn("getQueue is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

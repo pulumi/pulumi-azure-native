@@ -11,6 +11,8 @@ import (
 )
 
 // Snapshot of a Volume
+//
+// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
 	var rv LookupSnapshotResult
 	err := ctx.Invoke("azure-native:netapp/v20190701:getSnapshot", args, &rv, opts...)

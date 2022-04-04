@@ -112,7 +112,12 @@ class DatabaseAccountSqlContainerArgs:
         pulumi.set(self, "container_name", value)
 
 
+warnings.warn("""Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
+
 class DatabaseAccountSqlContainer(pulumi.CustomResource):
+    warnings.warn("""Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class DatabaseAccountSqlContainer(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[pulumi.InputType['SqlContainerResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""DatabaseAccountSqlContainer is deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

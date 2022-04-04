@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * This type describes a network resource.
  */
+/** @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later. */
 export function getNetwork(args: GetNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkResult> {
+    pulumi.log.warn("getNetwork is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")
     if (!opts) {
         opts = {}
     }

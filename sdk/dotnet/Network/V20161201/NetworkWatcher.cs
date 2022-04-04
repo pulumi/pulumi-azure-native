@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20161201
     /// <summary>
     /// Network watcher in a resource group.
     /// </summary>
+    [Obsolete(@"Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     [AzureNativeResourceType("azure-native:network/v20161201:NetworkWatcher")]
     public partial class NetworkWatcher : Pulumi.CustomResource
     {

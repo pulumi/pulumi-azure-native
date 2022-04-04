@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Domain ownership Identifier.
  */
+/** @deprecated Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
+    pulumi.log.warn("getDomainOwnershipIdentifier is deprecated: Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
     if (!opts) {
         opts = {}
     }

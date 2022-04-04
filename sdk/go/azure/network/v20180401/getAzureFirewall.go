@@ -11,6 +11,8 @@ import (
 )
 
 // Azure Firewall resource
+//
+// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
 	var rv LookupAzureFirewallResult
 	err := ctx.Invoke("azure-native:network/v20180401:getAzureFirewall", args, &rv, opts...)

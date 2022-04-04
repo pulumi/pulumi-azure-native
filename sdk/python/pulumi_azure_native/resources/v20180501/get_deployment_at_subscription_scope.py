@@ -16,6 +16,8 @@ __all__ = [
     'get_deployment_at_subscription_scope_output',
 ]
 
+warnings.warn("""Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetDeploymentAtSubscriptionScopeResult:
     """
@@ -100,6 +102,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
 
     :param str deployment_name: The name of the deployment to get.
     """
+    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     if opts is None:
@@ -125,4 +128,5 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
 
     :param str deployment_name: The name of the deployment to get.
     """
+    pulumi.log.warn("""get_deployment_at_subscription_scope is deprecated: Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
     ...

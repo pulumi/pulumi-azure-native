@@ -16,6 +16,8 @@ __all__ = [
     'get_topic_output',
 ]
 
+warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTopicResult:
     """
@@ -329,6 +331,7 @@ def get_topic(namespace_name: Optional[str] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_topic is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -379,4 +382,5 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str topic_name: The topic name.
     """
+    pulumi.log.warn("""get_topic is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     ...

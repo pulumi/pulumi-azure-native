@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * NetApp account resource
  */
+/** @deprecated Version v20170815 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    pulumi.log.warn("getAccount is deprecated: Version v20170815 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

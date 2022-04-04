@@ -12,6 +12,8 @@ import (
 )
 
 // Deployment information.
+//
+// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
 type DeploymentAtSubscriptionScope struct {
 	pulumi.CustomResourceState
 

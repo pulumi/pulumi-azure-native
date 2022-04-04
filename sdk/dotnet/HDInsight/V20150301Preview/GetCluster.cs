@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview
 {
+    [Obsolete(@"Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.")]
     public static class GetCluster
     {
         /// <summary>

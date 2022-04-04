@@ -101,7 +101,12 @@ class PeerAsnArgs:
         pulumi.set(self, "validation_state", value)
 
 
+warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
+
 class PeerAsn(pulumi.CustomResource):
+    warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,6 +158,7 @@ class PeerAsn(pulumi.CustomResource):
                  peer_name: Optional[pulumi.Input[str]] = None,
                  validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None):
+        pulumi.log.warn("""PeerAsn is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

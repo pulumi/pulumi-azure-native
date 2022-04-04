@@ -12,6 +12,8 @@ import (
 )
 
 // A class represent a SignalR service resource.
+//
+// Deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.
 type SignalR struct {
 	pulumi.CustomResourceState
 

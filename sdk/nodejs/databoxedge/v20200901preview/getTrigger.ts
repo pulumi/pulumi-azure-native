@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Trigger details.
  */
-/** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
+/** @deprecated Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
-    pulumi.log.warn("getTrigger is deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.")
+    pulumi.log.warn("getTrigger is deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

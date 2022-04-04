@@ -12,6 +12,8 @@ import (
 )
 
 // The X509 Certificate.
+//
+// Deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 type DpsCertificate struct {
 	pulumi.CustomResourceState
 

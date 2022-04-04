@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Maintenance configuration record type
  */
+/** @deprecated Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later. */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
+    pulumi.log.warn("getMaintenanceConfiguration is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.")
     if (!opts) {
         opts = {}
     }

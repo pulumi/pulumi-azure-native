@@ -95,7 +95,12 @@ class HybridConnectionAuthorizationRuleArgs:
         pulumi.set(self, "authorization_rule_name", value)
 
 
+warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class HybridConnectionAuthorizationRule(pulumi.CustomResource):
+    warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -147,6 +152,7 @@ class HybridConnectionAuthorizationRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""HybridConnectionAuthorizationRule is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

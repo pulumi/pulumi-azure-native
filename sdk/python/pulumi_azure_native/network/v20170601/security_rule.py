@@ -318,7 +318,12 @@ class SecurityRuleInitArgs:
         pulumi.set(self, "source_port_ranges", value)
 
 
+warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class SecurityRule(pulumi.CustomResource):
+    warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -412,6 +417,7 @@ class SecurityRule(pulumi.CustomResource):
                  source_port_range: Optional[pulumi.Input[str]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SecurityRule is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

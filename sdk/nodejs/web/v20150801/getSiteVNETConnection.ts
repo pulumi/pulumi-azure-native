@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getSiteVNETConnection(args: GetSiteVNETConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteVNETConnectionResult> {
+    pulumi.log.warn("getSiteVNETConnection is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

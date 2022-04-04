@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
     /// <summary>
     /// A container group.
     /// </summary>
+    [Obsolete(@"Version v20170801preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
     [AzureNativeResourceType("azure-native:containerinstance/v20170801preview:ContainerGroup")]
     public partial class ContainerGroup : Pulumi.CustomResource
     {

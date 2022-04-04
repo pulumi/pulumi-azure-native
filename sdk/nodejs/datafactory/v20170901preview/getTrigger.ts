@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Trigger resource type.
  */
+/** @deprecated Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later. */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
+    pulumi.log.warn("getTrigger is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.")
     if (!opts) {
         opts = {}
     }

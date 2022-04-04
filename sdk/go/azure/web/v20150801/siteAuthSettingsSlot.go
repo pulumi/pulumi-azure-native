@@ -12,6 +12,8 @@ import (
 )
 
 // Configuration settings for the Azure App Service Authentication / Authorization feature.
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteAuthSettingsSlot struct {
 	pulumi.CustomResourceState
 

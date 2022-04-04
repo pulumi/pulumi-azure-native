@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about a pool.
  */
+/** @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    pulumi.log.warn("getPool is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorageCache.V20191101
 {
+    [Obsolete(@"Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
     public static class GetStorageTarget
     {
         /// <summary>

@@ -189,7 +189,12 @@ class SqlPoolWorkloadClassifierArgs:
         pulumi.set(self, "workload_classifier_name", value)
 
 
+warnings.warn("""Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class SqlPoolWorkloadClassifier(pulumi.CustomResource):
+    warnings.warn("""Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -259,6 +264,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
                  workload_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""SqlPoolWorkloadClassifier is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

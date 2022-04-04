@@ -129,7 +129,12 @@ class MongoDBResourceMongoDBDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
+
 class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
+    warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,6 +192,7 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""MongoDBResourceMongoDBDatabase is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

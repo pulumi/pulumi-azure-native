@@ -12,6 +12,8 @@ import (
 )
 
 // Description of a backup which will be performed
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteBackupConfiguration struct {
 	pulumi.CustomResourceState
 

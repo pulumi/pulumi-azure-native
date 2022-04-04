@@ -12,6 +12,8 @@ import (
 )
 
 // Information about a domain.
+//
+// Deprecated: Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
 type Domain struct {
 	pulumi.CustomResourceState
 

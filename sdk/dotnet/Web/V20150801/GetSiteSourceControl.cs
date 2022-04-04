@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Web.V20150801
 {
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")]
     public static class GetSiteSourceControl
     {
         /// <summary>

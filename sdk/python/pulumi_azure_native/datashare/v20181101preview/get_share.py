@@ -15,6 +15,8 @@ __all__ = [
     'get_share_output',
 ]
 
+warnings.warn("""Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetShareResult:
     """
@@ -163,6 +165,7 @@ def get_share(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share to retrieve.
     """
+    pulumi.log.warn("""get_share is deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -199,4 +202,5 @@ def get_share_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share to retrieve.
     """
+    pulumi.log.warn("""get_share is deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     ...

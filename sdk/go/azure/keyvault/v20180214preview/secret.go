@@ -12,6 +12,8 @@ import (
 )
 
 // Resource information with extended details.
+//
+// Deprecated: Version v20180214preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
 type Secret struct {
 	pulumi.CustomResourceState
 

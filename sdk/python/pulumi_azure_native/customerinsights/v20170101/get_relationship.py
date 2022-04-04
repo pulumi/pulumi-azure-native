@@ -16,6 +16,8 @@ __all__ = [
     'get_relationship_output',
 ]
 
+warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRelationshipResult:
     """
@@ -224,6 +226,7 @@ def get_relationship(hub_name: Optional[str] = None,
     :param str relationship_name: The name of the relationship.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_relationship is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['relationshipName'] = relationship_name
@@ -265,4 +268,5 @@ def get_relationship_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str relationship_name: The name of the relationship.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_relationship is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
     ...

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20210101
     /// <summary>
     /// The properties of File services in storage account.
     /// </summary>
+    [Obsolete(@"Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     [AzureNativeResourceType("azure-native:storage/v20210101:FileServiceProperties")]
     public partial class FileServiceProperties : Pulumi.CustomResource
     {

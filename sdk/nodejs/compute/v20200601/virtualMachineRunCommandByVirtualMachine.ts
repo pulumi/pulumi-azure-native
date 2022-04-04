@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine run command.
+ *
+ * @deprecated Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
  */
 export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineRunCommandByVirtualMachine {
+        pulumi.log.warn("VirtualMachineRunCommandByVirtualMachine is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
         return new VirtualMachineRunCommandByVirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -103,7 +106,9 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
     constructor(name: string, args: VirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachineRunCommandByVirtualMachine is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

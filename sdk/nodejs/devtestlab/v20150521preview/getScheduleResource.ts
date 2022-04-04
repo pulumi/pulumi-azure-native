@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A schedule.
  */
+/** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getScheduleResource(args: GetScheduleResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResourceResult> {
+    pulumi.log.warn("getScheduleResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

@@ -80,7 +80,12 @@ class ApplicationTypeArgs:
         pulumi.set(self, "location", value)
 
 
+warnings.warn("""Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""", DeprecationWarning)
+
+
 class ApplicationType(pulumi.CustomResource):
+    warnings.warn("""Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,6 +134,7 @@ class ApplicationType(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApplicationType is deprecated: Version v20170701preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

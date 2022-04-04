@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ *
+ * @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AppServiceCertificateOrderCertificate {
+        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
         return new AppServiceCertificateOrderCertificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,7 +77,9 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
     constructor(name: string, args: AppServiceCertificateOrderCertificateArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("AppServiceCertificateOrderCertificate is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

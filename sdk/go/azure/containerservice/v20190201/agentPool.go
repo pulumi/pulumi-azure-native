@@ -12,6 +12,8 @@ import (
 )
 
 // Agent Pool.
+//
+// Deprecated: Version v20190201 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
 type AgentPool struct {
 	pulumi.CustomResourceState
 

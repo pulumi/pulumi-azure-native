@@ -11,6 +11,8 @@ import (
 )
 
 // Backup of a Volume
+//
+// Deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupBackup(ctx *pulumi.Context, args *LookupBackupArgs, opts ...pulumi.InvokeOption) (*LookupBackupResult, error) {
 	var rv LookupBackupResult
 	err := ctx.Invoke("azure-native:netapp/v20200501:getBackup", args, &rv, opts...)

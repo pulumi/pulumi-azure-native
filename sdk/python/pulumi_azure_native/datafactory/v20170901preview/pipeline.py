@@ -147,7 +147,12 @@ class PipelineArgs:
         pulumi.set(self, "pipeline_name", value)
 
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
+
 class Pipeline(pulumi.CustomResource):
+    warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,6 +213,7 @@ class Pipeline(pulumi.CustomResource):
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Pipeline is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

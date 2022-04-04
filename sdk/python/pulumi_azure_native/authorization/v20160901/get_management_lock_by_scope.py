@@ -16,6 +16,8 @@ __all__ = [
     'get_management_lock_by_scope_output',
 ]
 
+warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementLockByScopeResult:
     """
@@ -114,6 +116,7 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
+    pulumi.log.warn("""get_management_lock_by_scope is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     __args__['scope'] = scope
@@ -143,4 +146,5 @@ def get_management_lock_by_scope_output(lock_name: Optional[pulumi.Input[str]] =
     :param str lock_name: The name of lock.
     :param str scope: The scope for the lock. 
     """
+    pulumi.log.warn("""get_management_lock_by_scope is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     ...

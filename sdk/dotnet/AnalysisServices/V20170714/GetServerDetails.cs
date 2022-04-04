@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AnalysisServices.V20170714
 {
+    [Obsolete(@"Version v20170714 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.")]
     public static class GetServerDetails
     {
         /// <summary>

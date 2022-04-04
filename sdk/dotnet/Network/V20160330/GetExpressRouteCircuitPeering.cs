@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20160330
 {
+    [Obsolete(@"Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     public static class GetExpressRouteCircuitPeering
     {
         /// <summary>

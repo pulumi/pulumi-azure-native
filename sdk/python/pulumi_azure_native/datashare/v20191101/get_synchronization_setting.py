@@ -15,7 +15,7 @@ __all__ = [
     'get_synchronization_setting_output',
 ]
 
-warnings.warn("""Please use one of the variants: ScheduledSynchronizationSetting.""", DeprecationWarning)
+warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSynchronizationSettingResult:
@@ -95,7 +95,7 @@ def get_synchronization_setting(account_name: Optional[str] = None,
     :param str share_name: The name of the share.
     :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
-    pulumi.log.warn("""get_synchronization_setting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.""")
+    pulumi.log.warn("""get_synchronization_setting is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -129,5 +129,5 @@ def get_synchronization_setting_output(account_name: Optional[pulumi.Input[str]]
     :param str share_name: The name of the share.
     :param str synchronization_setting_name: The name of the synchronizationSetting.
     """
-    pulumi.log.warn("""get_synchronization_setting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.""")
+    pulumi.log.warn("""get_synchronization_setting is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
     ...

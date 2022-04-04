@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Route resource
  */
+/** @deprecated Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteResult> {
+    pulumi.log.warn("getRoute is deprecated: Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

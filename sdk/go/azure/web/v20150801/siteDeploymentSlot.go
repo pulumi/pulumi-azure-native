@@ -12,6 +12,8 @@ import (
 )
 
 // Represents user credentials used for publishing activity
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteDeploymentSlot struct {
 	pulumi.CustomResourceState
 

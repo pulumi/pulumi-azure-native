@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20161201
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
     /// </summary>
+    [Obsolete(@"Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20161201:ProtectionContainer")]
     public partial class ProtectionContainer : Pulumi.CustomResource
     {

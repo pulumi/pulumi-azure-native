@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A common class for general resource information
  */
+/** @deprecated Version v20170301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getLocalNetworkGateway(args: GetLocalNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalNetworkGatewayResult> {
+    pulumi.log.warn("getLocalNetworkGateway is deprecated: Version v20170301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ManagedServices.V20190401Preview
     /// <summary>
     /// Registration definition.
     /// </summary>
+    [Obsolete(@"Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")]
     [AzureNativeResourceType("azure-native:managedservices/v20190401preview:RegistrationDefinition")]
     public partial class RegistrationDefinition : Pulumi.CustomResource
     {

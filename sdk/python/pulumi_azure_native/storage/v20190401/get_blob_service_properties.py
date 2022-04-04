@@ -16,6 +16,8 @@ __all__ = [
     'get_blob_service_properties_output',
 ]
 
+warnings.warn("""Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBlobServicePropertiesResult:
     """
@@ -140,6 +142,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
     :param str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_blob_service_properties is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['blobServicesName'] = blob_services_name
@@ -174,4 +177,5 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
     :param str blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_blob_service_properties is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     ...

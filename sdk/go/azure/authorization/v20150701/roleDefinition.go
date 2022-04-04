@@ -12,6 +12,8 @@ import (
 )
 
 // Role definition.
+//
+// Deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type RoleDefinition struct {
 	pulumi.CustomResourceState
 

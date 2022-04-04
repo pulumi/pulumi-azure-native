@@ -12,6 +12,8 @@ import (
 )
 
 // VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type SiteVNETConnectionSlot struct {
 	pulumi.CustomResourceState
 

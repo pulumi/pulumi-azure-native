@@ -128,7 +128,12 @@ class SuppressionArgs:
         pulumi.set(self, "ttl", value)
 
 
+warnings.warn("""Version v20160712preview will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""", DeprecationWarning)
+
+
 class Suppression(pulumi.CustomResource):
+    warnings.warn("""Version v20160712preview will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,6 +191,7 @@ class Suppression(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Suppression is deprecated: Version v20160712preview will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

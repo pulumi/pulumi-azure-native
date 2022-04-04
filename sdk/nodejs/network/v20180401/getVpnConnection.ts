@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * VpnConnection Resource.
  */
+/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getVpnConnection(args: GetVpnConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnConnectionResult> {
+    pulumi.log.warn("getVpnConnection is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview
     /// <summary>
     /// A task resource
     /// </summary>
+    [Obsolete(@"Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")]
     [AzureNativeResourceType("azure-native:datamigration/v20171115preview:Task")]
     public partial class Task : Pulumi.CustomResource
     {

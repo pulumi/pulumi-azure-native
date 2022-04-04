@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20200601Preview
     /// <summary>
     /// An Azure Cosmos DB storedProcedure.
     /// </summary>
+    [Obsolete(@"Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure")]
     public partial class SqlResourceSqlStoredProcedure : Pulumi.CustomResource
     {

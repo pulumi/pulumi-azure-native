@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20180401
 {
+    [Obsolete(@"Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     public static class GetImage
     {
         /// <summary>

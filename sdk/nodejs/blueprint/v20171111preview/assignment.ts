@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Blueprint assignment.
+ *
+ * @deprecated Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.
  */
 export class Assignment extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Assignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Assignment {
+        pulumi.log.warn("Assignment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.")
         return new Assignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -91,7 +94,9 @@ export class Assignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later. */
     constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Assignment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

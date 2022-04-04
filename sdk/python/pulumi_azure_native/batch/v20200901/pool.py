@@ -303,7 +303,12 @@ class PoolArgs:
         pulumi.set(self, "vm_size", value)
 
 
+warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
+
 class Pool(pulumi.CustomResource):
+    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -393,6 +398,7 @@ class Pool(pulumi.CustomResource):
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Pool is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

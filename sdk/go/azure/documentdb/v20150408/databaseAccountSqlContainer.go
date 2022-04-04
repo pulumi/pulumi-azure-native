@@ -12,6 +12,8 @@ import (
 )
 
 // An Azure Cosmos DB container.
+//
+// Deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type DatabaseAccountSqlContainer struct {
 	pulumi.CustomResourceState
 

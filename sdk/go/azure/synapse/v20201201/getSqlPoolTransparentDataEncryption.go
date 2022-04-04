@@ -11,6 +11,8 @@ import (
 )
 
 // Represents a Sql pool transparent data encryption configuration.
+//
+// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupSqlPoolTransparentDataEncryption(ctx *pulumi.Context, args *LookupSqlPoolTransparentDataEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolTransparentDataEncryptionResult, error) {
 	var rv LookupSqlPoolTransparentDataEncryptionResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getSqlPoolTransparentDataEncryption", args, &rv, opts...)

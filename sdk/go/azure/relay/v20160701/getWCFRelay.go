@@ -11,6 +11,8 @@ import (
 )
 
 // Description of WcfRelays Resource.
+//
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayResult, error) {
 	var rv LookupWCFRelayResult
 	err := ctx.Invoke("azure-native:relay/v20160701:getWCFRelay", args, &rv, opts...)

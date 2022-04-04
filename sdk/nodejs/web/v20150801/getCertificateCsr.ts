@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Certificate signing request object
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getCertificateCsr(args: GetCertificateCsrArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateCsrResult> {
+    pulumi.log.warn("getCertificateCsr is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

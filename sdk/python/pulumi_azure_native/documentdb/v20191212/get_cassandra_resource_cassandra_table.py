@@ -16,6 +16,8 @@ __all__ = [
     'get_cassandra_resource_cassandra_table_output',
 ]
 
+warnings.warn("""Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCassandraResourceCassandraTableResult:
     """
@@ -115,6 +117,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
     :param str resource_group_name: Name of an Azure resource group.
     :param str table_name: Cosmos DB table name.
     """
+    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -150,4 +153,5 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
     :param str resource_group_name: Name of an Azure resource group.
     :param str table_name: Cosmos DB table name.
     """
+    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

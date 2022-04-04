@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a Virtual Machine.
+//
+// Deprecated: Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 

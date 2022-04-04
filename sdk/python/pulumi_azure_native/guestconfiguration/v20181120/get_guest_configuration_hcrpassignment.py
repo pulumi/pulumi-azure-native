@@ -16,6 +16,8 @@ __all__ = [
     'get_guest_configuration_hcrpassignment_output',
 ]
 
+warnings.warn("""Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGuestConfigurationHCRPAssignmentResult:
     """
@@ -104,6 +106,7 @@ def get_guest_configuration_hcrpassignment(guest_configuration_assignment_name: 
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""")
     __args__ = dict()
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['machineName'] = machine_name
@@ -135,4 +138,5 @@ def get_guest_configuration_hcrpassignment_output(guest_configuration_assignment
     :param str machine_name: The name of the ARC machine.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_guest_configuration_hcrpassignment is deprecated: Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""")
     ...

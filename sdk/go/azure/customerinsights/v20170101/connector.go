@@ -12,6 +12,8 @@ import (
 )
 
 // The connector resource format.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 type Connector struct {
 	pulumi.CustomResourceState
 

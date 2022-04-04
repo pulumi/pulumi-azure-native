@@ -11,6 +11,8 @@ import (
 )
 
 // Dataset resource type.
+//
+// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
 func LookupDataset(ctx *pulumi.Context, args *LookupDatasetArgs, opts ...pulumi.InvokeOption) (*LookupDatasetResult, error) {
 	var rv LookupDatasetResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getDataset", args, &rv, opts...)

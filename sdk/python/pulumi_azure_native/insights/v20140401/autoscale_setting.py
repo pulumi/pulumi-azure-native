@@ -181,7 +181,12 @@ class AutoscaleSettingArgs:
         pulumi.set(self, "target_resource_uri", value)
 
 
+warnings.warn("""Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""", DeprecationWarning)
+
+
 class AutoscaleSetting(pulumi.CustomResource):
+    warnings.warn("""Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,6 +253,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                  target_resource_location: Optional[pulumi.Input[str]] = None,
                  target_resource_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""AutoscaleSetting is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

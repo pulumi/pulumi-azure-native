@@ -15,6 +15,8 @@ __all__ = [
     'get_application_security_group_output',
 ]
 
+warnings.warn("""Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetApplicationSecurityGroupResult:
     """
@@ -137,6 +139,7 @@ def get_application_security_group(application_security_group_name: Optional[str
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_security_group is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['applicationSecurityGroupName'] = application_security_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -168,4 +171,5 @@ def get_application_security_group_output(application_security_group_name: Optio
     :param str application_security_group_name: The name of the application security group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_application_security_group is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

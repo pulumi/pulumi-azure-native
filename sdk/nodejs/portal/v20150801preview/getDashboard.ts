@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The shared dashboard resource definition.
  */
+/** @deprecated Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later. */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
+    pulumi.log.warn("getDashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.")
     if (!opts) {
         opts = {}
     }

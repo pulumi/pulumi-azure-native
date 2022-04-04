@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A sql database resource.
  */
+/** @deprecated Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
+    pulumi.log.warn("getSqlDatabase is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

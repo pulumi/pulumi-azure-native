@@ -11,6 +11,8 @@ import (
 )
 
 // The description of the IoT hub.
+//
+// Deprecated: Version v20190322 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotHubResourceResult, error) {
 	var rv LookupIotHubResourceResult
 	err := ctx.Invoke("azure-native:devices/v20190322:getIotHubResource", args, &rv, opts...)

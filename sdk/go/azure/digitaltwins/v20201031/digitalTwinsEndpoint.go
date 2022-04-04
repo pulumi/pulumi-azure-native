@@ -12,6 +12,8 @@ import (
 )
 
 // DigitalTwinsInstance endpoint resource.
+//
+// Deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 

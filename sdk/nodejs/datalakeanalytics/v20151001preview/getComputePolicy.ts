@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Data Lake Analytics compute policy information.
  */
+/** @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later. */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
+    pulumi.log.warn("getComputePolicy is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")
     if (!opts) {
         opts = {}
     }

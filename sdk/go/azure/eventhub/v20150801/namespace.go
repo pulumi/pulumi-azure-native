@@ -12,6 +12,8 @@ import (
 )
 
 // Single Namespace item in List or Get Operation
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type Namespace struct {
 	pulumi.CustomResourceState
 

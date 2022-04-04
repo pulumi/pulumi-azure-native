@@ -11,6 +11,8 @@ import (
 )
 
 // Describes a DNS zone.
+//
+// Deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.InvokeOption) (*LookupZoneResult, error) {
 	var rv LookupZoneResult
 	err := ctx.Invoke("azure-native:network/v20160401:getZone", args, &rv, opts...)

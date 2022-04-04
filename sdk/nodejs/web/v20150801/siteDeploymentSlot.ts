@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents user credentials used for publishing activity
+ *
+ * @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
  */
 export class SiteDeploymentSlot extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteDeploymentSlot {
+        pulumi.log.warn("SiteDeploymentSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         return new SiteDeploymentSlot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -98,7 +101,9 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
     constructor(name: string, args: SiteDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SiteDeploymentSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

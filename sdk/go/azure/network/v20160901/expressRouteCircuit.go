@@ -12,6 +12,8 @@ import (
 )
 
 // ExpressRouteCircuit resource
+//
+// Deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 

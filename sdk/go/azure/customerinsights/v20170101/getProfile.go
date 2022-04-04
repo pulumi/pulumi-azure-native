@@ -11,6 +11,8 @@ import (
 )
 
 // The profile resource format.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.InvokeOption) (*LookupProfileResult, error) {
 	var rv LookupProfileResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getProfile", args, &rv, opts...)

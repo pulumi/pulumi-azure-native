@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The peering service prefix class.
  */
+/** @deprecated Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Promise<GetPrefixResult> {
+    pulumi.log.warn("getPrefix is deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

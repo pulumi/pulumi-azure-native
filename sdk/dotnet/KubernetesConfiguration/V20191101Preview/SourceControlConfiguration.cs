@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
     /// <summary>
     /// The SourceControl Configuration object.
     /// </summary>
+    [Obsolete(@"Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.")]
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration")]
     public partial class SourceControlConfiguration : Pulumi.CustomResource
     {

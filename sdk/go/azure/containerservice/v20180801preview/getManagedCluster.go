@@ -11,6 +11,8 @@ import (
 )
 
 // Managed cluster.
+//
+// Deprecated: Version v20180801preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
 func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
 	var rv LookupManagedClusterResult
 	err := ctx.Invoke("azure-native:containerservice/v20180801preview:getManagedCluster", args, &rv, opts...)

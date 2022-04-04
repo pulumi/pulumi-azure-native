@@ -15,6 +15,8 @@ __all__ = [
     'get_group_output',
 ]
 
+warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGroupResult:
     """
@@ -139,6 +141,7 @@ def get_group(group_name: Optional[str] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
+    pulumi.log.warn("""get_group is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
@@ -173,4 +176,5 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the Azure Migrate project.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
     """
+    pulumi.log.warn("""get_group is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""")
     ...

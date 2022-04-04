@@ -11,6 +11,8 @@ import (
 )
 
 // Resource information with extended details.
+//
+// Deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure-native:keyvault/v20150601:getVault", args, &rv, opts...)

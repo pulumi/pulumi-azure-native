@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ *
+ * @deprecated Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
  */
 export class Origin extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Origin {
+        pulumi.log.warn("Origin is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
         return new Origin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,7 +73,9 @@ export class Origin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Origin is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

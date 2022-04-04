@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20170330
 {
+    [Obsolete(@"Version v20170330 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     public static class GetAvailabilitySet
     {
         /// <summary>

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Role Assignment
  */
+/** @deprecated Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getSqlResourceSqlRoleAssignment(args: GetSqlResourceSqlRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlRoleAssignmentResult> {
+    pulumi.log.warn("getSqlResourceSqlRoleAssignment is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

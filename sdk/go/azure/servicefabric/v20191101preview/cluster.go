@@ -12,6 +12,8 @@ import (
 )
 
 // The cluster resource
+//
+// Deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
 type Cluster struct {
 	pulumi.CustomResourceState
 

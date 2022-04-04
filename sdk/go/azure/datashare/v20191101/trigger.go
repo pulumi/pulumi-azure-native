@@ -13,7 +13,7 @@ import (
 
 // A Trigger data transfer object.
 //
-// Deprecated: Please use one of the variants: ScheduledTrigger.
+// Deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 type Trigger struct {
 	pulumi.CustomResourceState
 

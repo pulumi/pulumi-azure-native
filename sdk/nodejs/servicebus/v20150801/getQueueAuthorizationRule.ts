@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace authorization rule.
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getQueueAuthorizationRule(args: GetQueueAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueAuthorizationRuleResult> {
+    pulumi.log.warn("getQueueAuthorizationRule is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

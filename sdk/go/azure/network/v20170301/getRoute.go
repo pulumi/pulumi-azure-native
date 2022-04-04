@@ -11,6 +11,8 @@ import (
 )
 
 // Route resource
+//
+// Deprecated: Version v20170301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.InvokeOption) (*LookupRouteResult, error) {
 	var rv LookupRouteResult
 	err := ctx.Invoke("azure-native:network/v20170301:getRoute", args, &rv, opts...)

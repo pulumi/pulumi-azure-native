@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// <summary>
     /// The Backup Schedule Group
     /// </summary>
+    [Obsolete(@"Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:BackupScheduleGroup")]
     public partial class BackupScheduleGroup : Pulumi.CustomResource
     {

@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a Virtual Machine Extension.
+//
+// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type VirtualMachineScaleSetVMExtension struct {
 	pulumi.CustomResourceState
 

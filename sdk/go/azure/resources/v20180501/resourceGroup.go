@@ -11,6 +11,8 @@ import (
 )
 
 // Resource group information.
+//
+// Deprecated: Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
 type ResourceGroup struct {
 	pulumi.CustomResourceState
 

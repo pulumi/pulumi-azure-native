@@ -12,6 +12,8 @@ import (
 )
 
 // A privateLinkHub
+//
+// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
 

@@ -12,6 +12,8 @@ import (
 )
 
 // Response to put/get patch schedules for Redis cache.
+//
+// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
 type PatchSchedule struct {
 	pulumi.CustomResourceState
 

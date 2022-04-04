@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The essential information related to the peer's ASN.
  */
+/** @deprecated Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getPeerAsn(args: GetPeerAsnArgs, opts?: pulumi.InvokeOptions): Promise<GetPeerAsnResult> {
+    pulumi.log.warn("getPeerAsn is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

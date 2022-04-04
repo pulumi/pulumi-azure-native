@@ -84,7 +84,12 @@ class ManagementLockAtSubscriptionLevelArgs:
         pulumi.set(self, "owners", value)
 
 
+warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
+    warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,6 +138,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ManagementLockAtSubscriptionLevel is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Event Hub operation
  */
+/** @deprecated Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
+    pulumi.log.warn("getEventHub is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

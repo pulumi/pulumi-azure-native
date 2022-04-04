@@ -80,11 +80,11 @@ class ArtifactArgs:
         pulumi.set(self, "artifact_name", value)
 
 
-warnings.warn("""Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""", DeprecationWarning)
+warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
 
 
 class Artifact(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""", DeprecationWarning)
+    warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -134,7 +134,7 @@ class Artifact(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'ArtifactKind']]] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.""")
+        pulumi.log.warn("""Artifact is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

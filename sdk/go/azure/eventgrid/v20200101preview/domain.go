@@ -12,6 +12,8 @@ import (
 )
 
 // EventGrid Domain
+//
+// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
 type Domain struct {
 	pulumi.CustomResourceState
 

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Attestation.V20180901Preview
 {
+    [Obsolete(@"Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
     public static class GetAttestationProvider
     {
         /// <summary>

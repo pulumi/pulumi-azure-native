@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An environment, which is essentially an ARM template deployment.
  */
+/** @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
+    pulumi.log.warn("getEnvironment is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

@@ -11,6 +11,8 @@ import (
 )
 
 // The resource representation of a service topology.
+//
+// Deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.
 func LookupServiceTopology(ctx *pulumi.Context, args *LookupServiceTopologyArgs, opts ...pulumi.InvokeOption) (*LookupServiceTopologyResult, error) {
 	var rv LookupServiceTopologyResult
 	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getServiceTopology", args, &rv, opts...)

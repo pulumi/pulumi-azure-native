@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Response to put/get linked server (with properties) for Redis cache.
  */
+/** @deprecated Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
 export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServerResult> {
+    pulumi.log.warn("getLinkedServer is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
     if (!opts) {
         opts = {}
     }

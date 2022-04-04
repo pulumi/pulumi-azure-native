@@ -82,7 +82,12 @@ class BlobInventoryPolicyArgs:
         pulumi.set(self, "blob_inventory_policy_name", value)
 
 
+warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
+
 class BlobInventoryPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[pulumi.InputType['BlobInventoryPolicySchemaArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BlobInventoryPolicy is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

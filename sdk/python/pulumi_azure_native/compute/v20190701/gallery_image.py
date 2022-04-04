@@ -288,7 +288,12 @@ class GalleryImageArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
+
 class GalleryImage(pulumi.CustomResource):
+    warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -376,6 +381,7 @@ class GalleryImage(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""GalleryImage is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

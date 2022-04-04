@@ -16,6 +16,8 @@ __all__ = [
     'get_replication_recovery_plan_output',
 ]
 
+warnings.warn("""Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReplicationRecoveryPlanResult:
     """
@@ -104,6 +106,7 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_replication_recovery_plan is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     __args__ = dict()
     __args__['recoveryPlanName'] = recovery_plan_name
     __args__['resourceGroupName'] = resource_group_name
@@ -135,4 +138,5 @@ def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_replication_recovery_plan is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     ...

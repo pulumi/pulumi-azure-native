@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
-    [Obsolete(@"Please use one of the variants: EventHubEventSource, IoTHubEventSource.")]
+    [Obsolete(@"Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")]
     public static class GetEventSource
     {
         /// <summary>

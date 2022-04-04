@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a DNS record set (a collection of DNS records with the same name and type).
  */
+/** @deprecated Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getRecordSet(args: GetRecordSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRecordSetResult> {
+    pulumi.log.warn("getRecordSet is deprecated: Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

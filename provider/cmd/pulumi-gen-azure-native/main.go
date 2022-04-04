@@ -189,17 +189,31 @@ var azureApiResources = %#v
 }
 
 func emitDefaultVersions(azureProviders openapi.AzureProviders, outDir string) error {
+	minVersions := make(map[string]string)
 	summary := make(map[string]map[string]string)
 	for providerName, pkgSpec := range azureProviders {
+		minVersion := ""
 		providerSummary := make(map[string]string)
 		for k, resource := range pkgSpec[""].Resources {
+			version := resource.Swagger.Info.Version
 			providerSummary[k] = resource.Swagger.Info.Version
+			if minVersion == "" || version < minVersion {
+				minVersion = version
+			}
 		}
 		for k, invoke := range pkgSpec[""].Invokes {
+			version := invoke.Swagger.Info.Version
 			providerSummary[k] = invoke.Swagger.Info.Version
+			if minVersion == "" || version < minVersion {
+				minVersion = version
+			}
 		}
 		summary[providerName] = providerSummary
+		minVersions[providerName] = minVersion
 	}
+
+	minContent, _ := json.MarshalIndent(minVersions, "", "    ")
+	emitFile(outDir, "min_versions.json", minContent)
 
 	content, err := json.MarshalIndent(summary, "", "    ")
 	if err != nil {

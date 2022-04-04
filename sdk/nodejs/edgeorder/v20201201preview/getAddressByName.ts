@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Address Resource.
  */
+/** @deprecated Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later. */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
+    pulumi.log.warn("getAddressByName is deprecated: Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.")
     if (!opts) {
         opts = {}
     }

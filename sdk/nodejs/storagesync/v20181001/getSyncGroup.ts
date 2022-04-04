@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Sync Group object.
  */
+/** @deprecated Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
+    pulumi.log.warn("getSyncGroup is deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
     if (!opts) {
         opts = {}
     }

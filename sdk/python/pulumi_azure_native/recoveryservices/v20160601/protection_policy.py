@@ -179,7 +179,12 @@ class ProtectionPolicyArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
+
 class ProtectionPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,6 +251,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ProtectionPolicy is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

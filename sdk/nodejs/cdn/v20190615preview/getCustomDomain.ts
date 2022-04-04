@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  */
+/** @deprecated Version v20190615preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
 export function getCustomDomain(args: GetCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomDomainResult> {
+    pulumi.log.warn("getCustomDomain is deprecated: Version v20190615preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
     if (!opts) {
         opts = {}
     }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20190615Preview
 {
+    [Obsolete(@"Version v20190615preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")]
     public static class GetProfile
     {
         /// <summary>

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A lab.
  */
+/** @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
+    pulumi.log.warn("getLab is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

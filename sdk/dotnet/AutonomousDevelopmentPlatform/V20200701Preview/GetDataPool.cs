@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20200701Preview
 {
+    [Obsolete(@"Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")]
     public static class GetDataPool
     {
         /// <summary>

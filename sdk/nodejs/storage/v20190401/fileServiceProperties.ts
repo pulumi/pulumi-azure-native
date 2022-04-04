@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of File services in storage account.
+ *
+ * @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class FileServiceProperties extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FileServiceProperties {
+        pulumi.log.warn("FileServiceProperties is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         return new FileServiceProperties(name, undefined as any, { ...opts, id: id });
     }
 
@@ -55,7 +58,9 @@ export class FileServiceProperties extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
     constructor(name: string, args: FileServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FileServiceProperties is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

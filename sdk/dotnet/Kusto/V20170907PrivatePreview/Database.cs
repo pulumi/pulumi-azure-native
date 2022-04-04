@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Kusto.V20170907PrivatePreview
     /// <summary>
     /// Class representing a Kusto database.
     /// </summary>
+    [Obsolete(@"Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.")]
     [AzureNativeResourceType("azure-native:kusto/v20170907privatepreview:Database")]
     public partial class Database : Pulumi.CustomResource
     {

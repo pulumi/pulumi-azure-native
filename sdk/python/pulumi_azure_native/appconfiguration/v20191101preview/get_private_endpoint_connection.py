@@ -16,6 +16,8 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
+warnings.warn("""Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -116,6 +118,7 @@ def get_private_endpoint_connection(config_store_name: Optional[str] = None,
     :param str private_endpoint_connection_name: Private endpoint connection name
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -148,4 +151,5 @@ def get_private_endpoint_connection_output(config_store_name: Optional[pulumi.In
     :param str private_endpoint_connection_name: Private endpoint connection name
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
     """
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     ...

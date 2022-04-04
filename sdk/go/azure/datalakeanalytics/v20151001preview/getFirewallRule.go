@@ -11,6 +11,8 @@ import (
 )
 
 // Data Lake Analytics firewall rule information.
+//
+// Deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.
 func LookupFirewallRule(ctx *pulumi.Context, args *LookupFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupFirewallRuleResult, error) {
 	var rv LookupFirewallRuleResult
 	err := ctx.Invoke("azure-native:datalakeanalytics/v20151001preview:getFirewallRule", args, &rv, opts...)

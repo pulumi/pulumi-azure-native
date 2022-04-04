@@ -12,6 +12,8 @@ import (
 )
 
 // A common class for general resource information
+//
+// Deprecated: Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 

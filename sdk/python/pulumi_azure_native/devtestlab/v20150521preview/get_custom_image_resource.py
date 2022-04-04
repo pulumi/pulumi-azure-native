@@ -16,6 +16,8 @@ __all__ = [
     'get_custom_image_resource_output',
 ]
 
+warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetCustomImageResourceResult:
     """
@@ -188,6 +190,7 @@ def get_custom_image_resource(lab_name: Optional[str] = None,
     :param str name: The name of the custom image.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_custom_image_resource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name
@@ -226,4 +229,5 @@ def get_custom_image_resource_output(lab_name: Optional[pulumi.Input[str]] = Non
     :param str name: The name of the custom image.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_custom_image_resource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
     ...

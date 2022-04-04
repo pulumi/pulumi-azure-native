@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
     /// <summary>
     /// Fabric definition.
     /// </summary>
+    [Obsolete(@"Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")]
     [AzureNativeResourceType("azure-native:recoveryservices/v20160810:ReplicationFabric")]
     public partial class ReplicationFabric : Pulumi.CustomResource
     {

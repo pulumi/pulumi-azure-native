@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Insights.V20140401
 {
+    [Obsolete(@"Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.")]
     public static class GetAutoscaleSetting
     {
         /// <summary>

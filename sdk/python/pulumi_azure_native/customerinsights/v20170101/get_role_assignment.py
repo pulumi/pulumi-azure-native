@@ -16,6 +16,8 @@ __all__ = [
     'get_role_assignment_output',
 ]
 
+warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRoleAssignmentResult:
     """
@@ -320,6 +322,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_role_assignment is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
     __args__['hubName'] = hub_name
@@ -369,4 +372,5 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
     :param str hub_name: The name of the hub.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_role_assignment is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
     ...

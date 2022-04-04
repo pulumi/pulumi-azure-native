@@ -11,6 +11,8 @@ import (
 )
 
 // Represents user credentials used for publishing activity
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteDeployment(ctx *pulumi.Context, args *LookupSiteDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentResult, error) {
 	var rv LookupSiteDeploymentResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteDeployment", args, &rv, opts...)

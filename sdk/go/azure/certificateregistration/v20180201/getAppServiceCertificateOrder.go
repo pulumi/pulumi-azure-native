@@ -11,6 +11,8 @@ import (
 )
 
 // SSL certificate purchase order.
+//
+// Deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
 func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServiceCertificateOrderArgs, opts ...pulumi.InvokeOption) (*LookupAppServiceCertificateOrderResult, error) {
 	var rv LookupAppServiceCertificateOrderResult
 	err := ctx.Invoke("azure-native:certificateregistration/v20180201:getAppServiceCertificateOrder", args, &rv, opts...)

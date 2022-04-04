@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// <summary>
     /// The Role Assignment resource format.
     /// </summary>
+    [Obsolete(@"Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:RoleAssignment")]
     public partial class RoleAssignment : Pulumi.CustomResource
     {

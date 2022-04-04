@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Replication protected item.
  */
+/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
+    pulumi.log.warn("getReplicationProtectedItem is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

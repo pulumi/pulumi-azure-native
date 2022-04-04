@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The view resource format.
+ *
+ * @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
  */
 export class View extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class View extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): View {
+        pulumi.log.warn("View is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
         return new View(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,7 +81,9 @@ export class View extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("View is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

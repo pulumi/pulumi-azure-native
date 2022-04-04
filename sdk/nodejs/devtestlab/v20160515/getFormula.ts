@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A formula for creating a VM, specifying an image base and other parameters
  */
+/** @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): Promise<GetFormulaResult> {
+    pulumi.log.warn("getFormula is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

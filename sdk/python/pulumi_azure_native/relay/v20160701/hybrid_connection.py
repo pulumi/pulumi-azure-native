@@ -96,7 +96,12 @@ class HybridConnectionArgs:
         pulumi.set(self, "user_metadata", value)
 
 
+warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class HybridConnection(pulumi.CustomResource):
+    warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,6 +153,7 @@ class HybridConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""HybridConnection is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL server.
+ *
+ * @deprecated Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.
  */
 export class SqlServer extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class SqlServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlServer {
+        pulumi.log.warn("SqlServer is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")
         return new SqlServer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,7 +69,9 @@ export class SqlServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later. */
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SqlServer is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

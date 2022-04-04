@@ -11,6 +11,8 @@ import (
 )
 
 // Snapshot policy information
+//
+// Deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupSnapshotPolicy(ctx *pulumi.Context, args *LookupSnapshotPolicyArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotPolicyResult, error) {
 	var rv LookupSnapshotPolicyResult
 	err := ctx.Invoke("azure-native:netapp/v20200601:getSnapshotPolicy", args, &rv, opts...)

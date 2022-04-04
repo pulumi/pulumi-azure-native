@@ -16,6 +16,8 @@ __all__ = [
     'get_report_config_by_resource_group_name_output',
 ]
 
+warnings.warn("""Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetReportConfigByResourceGroupNameResult:
     """
@@ -138,6 +140,7 @@ def get_report_config_by_resource_group_name(report_config_name: Optional[str] =
     :param str report_config_name: Report Config Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
+    pulumi.log.warn("""get_report_config_by_resource_group_name is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     __args__['resourceGroupName'] = resource_group_name
@@ -169,4 +172,5 @@ def get_report_config_by_resource_group_name_output(report_config_name: Optional
     :param str report_config_name: Report Config Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
+    pulumi.log.warn("""get_report_config_by_resource_group_name is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""")
     ...

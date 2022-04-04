@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
     /// <summary>
     /// The HDInsight cluster.
     /// </summary>
+    [Obsolete(@"Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20150301preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     /// <summary>
     /// Data store.
     /// </summary>
+    [Obsolete(@"Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")]
     [AzureNativeResourceType("azure-native:hybriddata/v20160601:DataStore")]
     public partial class DataStore : Pulumi.CustomResource
     {

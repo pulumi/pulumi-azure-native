@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// App certificate
     /// </summary>
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")]
     [AzureNativeResourceType("azure-native:web/v20150801:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {

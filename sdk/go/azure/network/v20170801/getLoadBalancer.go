@@ -11,6 +11,8 @@ import (
 )
 
 // LoadBalancer resource
+//
+// Deprecated: Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts ...pulumi.InvokeOption) (*LookupLoadBalancerResult, error) {
 	var rv LookupLoadBalancerResult
 	err := ctx.Invoke("azure-native:network/v20170801:getLoadBalancer", args, &rv, opts...)

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20200301Preview
     /// <summary>
     /// Cluster details.
     /// </summary>
+    [Obsolete(@"Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
     [AzureNativeResourceType("azure-native:azurestackhci/v20200301preview:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {

@@ -12,6 +12,8 @@ import (
 )
 
 // SSL certificate purchase order.
+//
+// Deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
 type AppServiceCertificateOrder struct {
 	pulumi.CustomResourceState
 

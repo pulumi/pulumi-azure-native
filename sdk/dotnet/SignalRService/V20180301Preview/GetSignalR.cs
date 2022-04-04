@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SignalRService.V20180301Preview
 {
+    [Obsolete(@"Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")]
     public static class GetSignalR
     {
         /// <summary>

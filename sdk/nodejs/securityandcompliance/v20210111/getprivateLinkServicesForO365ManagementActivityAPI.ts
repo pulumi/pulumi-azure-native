@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  */
+/** @deprecated Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later. */
 export function getprivateLinkServicesForO365ManagementActivityAPI(args: GetprivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForO365ManagementActivityAPIResult> {
+    pulumi.log.warn("getprivateLinkServicesForO365ManagementActivityAPI is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")
     if (!opts) {
         opts = {}
     }

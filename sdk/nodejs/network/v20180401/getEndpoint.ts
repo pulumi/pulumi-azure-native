@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager endpoint.
  */
+/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
+    pulumi.log.warn("getEndpoint is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

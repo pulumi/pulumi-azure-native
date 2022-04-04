@@ -11,6 +11,8 @@ import (
 )
 
 // Domain service.
+//
+// Deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opts ...pulumi.InvokeOption) (*LookupDomainServiceResult, error) {
 	var rv LookupDomainServiceResult
 	err := ctx.Invoke("azure-native:aad/v20170601:getDomainService", args, &rv, opts...)

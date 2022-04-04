@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The lock information.
  */
+/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getManagementLockAtResourceLevel(args: GetManagementLockAtResourceLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceLevelResult> {
+    pulumi.log.warn("getManagementLockAtResourceLevel is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

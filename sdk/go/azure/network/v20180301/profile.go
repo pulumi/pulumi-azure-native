@@ -12,6 +12,8 @@ import (
 )
 
 // Class representing a Traffic Manager profile.
+//
+// Deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type Profile struct {
 	pulumi.CustomResourceState
 

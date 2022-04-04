@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20170901Preview
     /// <summary>
     /// Class representing a Traffic Manager Real User Metrics key response.
     /// </summary>
+    [Obsolete(@"Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     [AzureNativeResourceType("azure-native:network/v20170901preview:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : Pulumi.CustomResource
     {

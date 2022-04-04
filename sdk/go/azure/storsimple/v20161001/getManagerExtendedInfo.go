@@ -11,6 +11,8 @@ import (
 )
 
 // The extended info of the manager.
+//
+// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 func LookupManagerExtendedInfo(ctx *pulumi.Context, args *LookupManagerExtendedInfoArgs, opts ...pulumi.InvokeOption) (*LookupManagerExtendedInfoResult, error) {
 	var rv LookupManagerExtendedInfoResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getManagerExtendedInfo", args, &rv, opts...)

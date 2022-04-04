@@ -16,6 +16,8 @@ __all__ = [
     'get_protection_intent_output',
 ]
 
+warnings.warn("""Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetProtectionIntentResult:
     """
@@ -130,6 +132,7 @@ def get_protection_intent(fabric_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_protection_intent is deprecated: Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['intentObjectName'] = intent_object_name
@@ -166,4 +169,5 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
     """
+    pulumi.log.warn("""get_protection_intent is deprecated: Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
     ...

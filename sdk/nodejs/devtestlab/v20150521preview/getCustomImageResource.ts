@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A custom image.
  */
+/** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
 export function getCustomImageResource(args: GetCustomImageResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomImageResourceResult> {
+    pulumi.log.warn("getCustomImageResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
     if (!opts) {
         opts = {}
     }

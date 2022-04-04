@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a Namespace AuthorizationRules.
+//
+// Deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupNotificationHubAuthorizationRule(ctx *pulumi.Context, args *LookupNotificationHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubAuthorizationRuleResult, error) {
 	var rv LookupNotificationHubAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20160301:getNotificationHubAuthorizationRule", args, &rv, opts...)

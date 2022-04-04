@@ -11,6 +11,8 @@ import (
 )
 
 // App Service Plan Model
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupServerFarm(ctx *pulumi.Context, args *LookupServerFarmArgs, opts ...pulumi.InvokeOption) (*LookupServerFarmResult, error) {
 	var rv LookupServerFarmResult
 	err := ctx.Invoke("azure-native:web/v20150801:getServerFarm", args, &rv, opts...)

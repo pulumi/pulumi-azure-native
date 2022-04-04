@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  */
+/** @deprecated Version v20190201 will be removed in the next major version of the provider. Upgrade to version v20190430 or later. */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
+    pulumi.log.warn("getAgentPool is deprecated: Version v20190201 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")
     if (!opts) {
         opts = {}
     }

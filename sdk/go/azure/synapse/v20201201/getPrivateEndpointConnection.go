@@ -11,6 +11,8 @@ import (
 )
 
 // A private endpoint connection
+//
+// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getPrivateEndpointConnection", args, &rv, opts...)

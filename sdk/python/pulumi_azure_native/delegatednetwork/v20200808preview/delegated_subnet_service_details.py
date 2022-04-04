@@ -115,7 +115,12 @@ class DelegatedSubnetServiceDetailsArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""", DeprecationWarning)
+
+
 class DelegatedSubnetServiceDetails(pulumi.CustomResource):
+    warnings.warn("""Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                  subnet_details: Optional[pulumi.Input[pulumi.InputType['SubnetDetailsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DelegatedSubnetServiceDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

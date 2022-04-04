@@ -12,6 +12,8 @@ import (
 )
 
 // Properties of an artifact source.
+//
+// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 type ArtifactSource struct {
 	pulumi.CustomResourceState
 

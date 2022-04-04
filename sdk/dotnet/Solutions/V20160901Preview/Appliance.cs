@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
     /// <summary>
     /// Information about appliance.
     /// </summary>
+    [Obsolete(@"Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")]
     [AzureNativeResourceType("azure-native:solutions/v20160901preview:Appliance")]
     public partial class Appliance : Pulumi.CustomResource
     {

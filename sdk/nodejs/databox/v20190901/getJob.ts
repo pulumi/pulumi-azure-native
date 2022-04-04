@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Job Resource.
  */
+/** @deprecated Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+    pulumi.log.warn("getJob is deprecated: Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.")
     if (!opts) {
         opts = {}
     }

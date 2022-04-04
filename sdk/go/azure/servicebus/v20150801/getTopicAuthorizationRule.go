@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupTopicAuthorizationRule(ctx *pulumi.Context, args *LookupTopicAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupTopicAuthorizationRuleResult, error) {
 	var rv LookupTopicAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:servicebus/v20150801:getTopicAuthorizationRule", args, &rv, opts...)

@@ -11,6 +11,8 @@ import (
 )
 
 // The connector mapping resource format.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 func LookupConnectorMapping(ctx *pulumi.Context, args *LookupConnectorMappingArgs, opts ...pulumi.InvokeOption) (*LookupConnectorMappingResult, error) {
 	var rv LookupConnectorMappingResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getConnectorMapping", args, &rv, opts...)

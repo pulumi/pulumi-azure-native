@@ -12,6 +12,8 @@ import (
 )
 
 // An Azure Cosmos DB Table.
+//
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type TableResourceTable struct {
 	pulumi.CustomResourceState
 

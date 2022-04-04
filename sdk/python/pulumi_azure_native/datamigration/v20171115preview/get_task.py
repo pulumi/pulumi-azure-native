@@ -16,6 +16,8 @@ __all__ = [
     'get_task_output',
 ]
 
+warnings.warn("""Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTaskResult:
     """
@@ -108,6 +110,7 @@ def get_task(expand: Optional[str] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
+    pulumi.log.warn("""get_task is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['groupName'] = group_name
@@ -145,4 +148,5 @@ def get_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str service_name: Name of the service
     :param str task_name: Name of the Task
     """
+    pulumi.log.warn("""get_task is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
     ...

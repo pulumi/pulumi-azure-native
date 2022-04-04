@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace authorization rule.
  */
+/** @deprecated Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getTopicAuthorizationRule(args: GetTopicAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicAuthorizationRuleResult> {
+    pulumi.log.warn("getTopicAuthorizationRule is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes the source control configuration for web app
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getSiteSourceControlSlot(args: GetSiteSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSourceControlSlotResult> {
+    pulumi.log.warn("getSiteSourceControlSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

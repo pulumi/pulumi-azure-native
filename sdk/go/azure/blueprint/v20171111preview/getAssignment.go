@@ -11,6 +11,8 @@ import (
 )
 
 // Represents a Blueprint assignment.
+//
+// Deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.
 func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupAssignmentResult, error) {
 	var rv LookupAssignmentResult
 	err := ctx.Invoke("azure-native:blueprint/v20171111preview:getAssignment", args, &rv, opts...)

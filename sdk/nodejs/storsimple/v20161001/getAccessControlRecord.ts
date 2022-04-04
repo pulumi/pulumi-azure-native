@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The access control record
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
+    pulumi.log.warn("getAccessControlRecord is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

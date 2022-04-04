@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The remediation definition.
  */
+/** @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later. */
 export function getRemediationAtManagementGroup(args: GetRemediationAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtManagementGroupResult> {
+    pulumi.log.warn("getRemediationAtManagementGroup is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")
     if (!opts) {
         opts = {}
     }

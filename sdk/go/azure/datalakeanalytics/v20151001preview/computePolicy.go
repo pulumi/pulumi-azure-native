@@ -12,6 +12,8 @@ import (
 )
 
 // Data Lake Analytics compute policy information.
+//
+// Deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.
 type ComputePolicy struct {
 	pulumi.CustomResourceState
 

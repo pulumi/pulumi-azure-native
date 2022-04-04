@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CertificateRegistration.V20150801
 {
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
     public static class GetAppServiceCertificateOrder
     {
         /// <summary>

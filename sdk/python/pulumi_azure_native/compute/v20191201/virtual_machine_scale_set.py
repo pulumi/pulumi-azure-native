@@ -324,7 +324,12 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
+
 class VirtualMachineScaleSet(pulumi.CustomResource):
+    warnings.warn("""Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -418,6 +423,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachineScaleSet is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

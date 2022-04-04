@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A Data Migration Service resource
  */
+/** @deprecated Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    pulumi.log.warn("getService is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")
     if (!opts) {
         opts = {}
     }

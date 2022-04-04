@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20160901
     /// <summary>
     /// The lock information.
     /// </summary>
+    [Obsolete(@"Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     [AzureNativeResourceType("azure-native:authorization/v20160901:ManagementLockByScope")]
     public partial class ManagementLockByScope : Pulumi.CustomResource
     {

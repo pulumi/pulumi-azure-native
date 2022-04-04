@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Subnet in a VirtualNetwork resource
  */
+/** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
+    pulumi.log.warn("getSubnet is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

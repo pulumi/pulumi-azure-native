@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A budget resource.
  */
+/** @deprecated Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20191001 or later. */
 export function getBudgetByResourceGroupName(args: GetBudgetByResourceGroupNameArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetByResourceGroupNameResult> {
+    pulumi.log.warn("getBudgetByResourceGroupName is deprecated: Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.")
     if (!opts) {
         opts = {}
     }

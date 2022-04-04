@@ -97,7 +97,12 @@ class AttestationProviderArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
+
 class AttestationProvider(pulumi.CustomResource):
+    warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,6 +154,7 @@ class AttestationProvider(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AttestationProvider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

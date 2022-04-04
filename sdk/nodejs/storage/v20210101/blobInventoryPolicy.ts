@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account blob inventory policy.
+ *
+ * @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
  */
 export class BlobInventoryPolicy extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobInventoryPolicy {
+        pulumi.log.warn("BlobInventoryPolicy is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         return new BlobInventoryPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class BlobInventoryPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
     constructor(name: string, args: BlobInventoryPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BlobInventoryPolicy is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

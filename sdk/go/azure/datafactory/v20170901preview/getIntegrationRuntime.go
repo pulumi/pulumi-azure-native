@@ -11,6 +11,8 @@ import (
 )
 
 // Integration runtime resource type.
+//
+// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
 func LookupIntegrationRuntime(ctx *pulumi.Context, args *LookupIntegrationRuntimeArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationRuntimeResult, error) {
 	var rv LookupIntegrationRuntimeResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getIntegrationRuntime", args, &rv, opts...)

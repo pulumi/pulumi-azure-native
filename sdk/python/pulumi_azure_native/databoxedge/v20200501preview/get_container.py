@@ -16,6 +16,8 @@ __all__ = [
     'get_container_output',
 ]
 
+warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContainerResult:
     """
@@ -130,6 +132,7 @@ def get_container(container_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The Storage Account Name
     """
+    pulumi.log.warn("""get_container is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['deviceName'] = device_name
@@ -166,4 +169,5 @@ def get_container_output(container_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str storage_account_name: The Storage Account Name
     """
+    pulumi.log.warn("""get_container is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
     ...

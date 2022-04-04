@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Route Filter Resource.
  */
+/** @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterResult> {
+    pulumi.log.warn("getRouteFilter is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

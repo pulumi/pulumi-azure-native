@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Managed cluster.
  */
+/** @deprecated Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20190430 or later. */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
+    pulumi.log.warn("getManagedCluster is deprecated: Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")
     if (!opts) {
         opts = {}
     }

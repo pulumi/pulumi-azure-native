@@ -16,6 +16,8 @@ __all__ = [
     'get_management_group_output',
 ]
 
+warnings.warn("""Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagementGroupResult:
     """
@@ -142,6 +144,7 @@ def get_management_group(expand: Optional[str] = None,
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
+    pulumi.log.warn("""get_management_group is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['filter'] = filter
@@ -179,4 +182,5 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     :param str group_id: Management Group ID.
     :param bool recurse: The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
     """
+    pulumi.log.warn("""get_management_group is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
     ...

@@ -83,7 +83,12 @@ class RegistrationDefinitionArgs:
         pulumi.set(self, "registration_definition_id", value)
 
 
+warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+
+
 class RegistrationDefinition(pulumi.CustomResource):
+    warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,6 +137,7 @@ class RegistrationDefinition(pulumi.CustomResource):
                  registration_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""RegistrationDefinition is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

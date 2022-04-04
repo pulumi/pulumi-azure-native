@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The relationship resource format.
  */
+/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
 export function getRelationship(args: GetRelationshipArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipResult> {
+    pulumi.log.warn("getRelationship is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
     if (!opts) {
         opts = {}
     }

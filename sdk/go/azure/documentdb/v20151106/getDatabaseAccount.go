@@ -11,6 +11,8 @@ import (
 )
 
 // An Azure Cosmos DB database account.
+//
+// Deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountResult, error) {
 	var rv LookupDatabaseAccountResult
 	err := ctx.Invoke("azure-native:documentdb/v20151106:getDatabaseAccount", args, &rv, opts...)

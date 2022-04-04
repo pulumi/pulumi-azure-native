@@ -11,6 +11,8 @@ import (
 )
 
 // The connector resource format.
+//
+// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
 func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pulumi.InvokeOption) (*LookupConnectorResult, error) {
 	var rv LookupConnectorResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getConnector", args, &rv, opts...)

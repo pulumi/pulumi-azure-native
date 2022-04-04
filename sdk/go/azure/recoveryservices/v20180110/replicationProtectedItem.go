@@ -12,6 +12,8 @@ import (
 )
 
 // Replication protected item.
+//
+// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 type ReplicationProtectedItem struct {
 	pulumi.CustomResourceState
 

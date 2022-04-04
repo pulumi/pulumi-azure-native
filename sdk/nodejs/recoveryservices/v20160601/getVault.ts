@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Resource information, as returned by the resource provider.
  */
+/** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
+    pulumi.log.warn("getVault is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

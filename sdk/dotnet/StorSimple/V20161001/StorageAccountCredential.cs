@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// <summary>
     /// The storage account credential
     /// </summary>
+    [Obsolete(@"Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:StorageAccountCredential")]
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {

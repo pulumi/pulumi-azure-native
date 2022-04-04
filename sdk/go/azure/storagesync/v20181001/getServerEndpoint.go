@@ -11,6 +11,8 @@ import (
 )
 
 // Server Endpoint object.
+//
+// Deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupServerEndpoint(ctx *pulumi.Context, args *LookupServerEndpointArgs, opts ...pulumi.InvokeOption) (*LookupServerEndpointResult, error) {
 	var rv LookupServerEndpointResult
 	err := ctx.Invoke("azure-native:storagesync/v20181001:getServerEndpoint", args, &rv, opts...)

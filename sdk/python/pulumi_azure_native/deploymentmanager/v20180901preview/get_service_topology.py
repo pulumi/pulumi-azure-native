@@ -15,6 +15,8 @@ __all__ = [
     'get_service_topology_output',
 ]
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceTopologyResult:
     """
@@ -113,6 +115,7 @@ def get_service_topology(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_topology_name: The name of the service topology .
     """
+    pulumi.log.warn("""get_service_topology is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceTopologyName'] = service_topology_name
@@ -142,4 +145,5 @@ def get_service_topology_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_topology_name: The name of the service topology .
     """
+    pulumi.log.warn("""get_service_topology is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     ...

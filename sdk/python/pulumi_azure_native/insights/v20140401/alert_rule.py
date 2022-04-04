@@ -193,7 +193,12 @@ class AlertRuleArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""", DeprecationWarning)
+
+
 class AlertRule(pulumi.CustomResource):
+    warnings.warn("""Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -263,6 +268,7 @@ class AlertRule(pulumi.CustomResource):
                  rule_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""AlertRule is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

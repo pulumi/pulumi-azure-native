@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A storage system being cached by a Cache.
  */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
+    pulumi.log.warn("getStorageTarget is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

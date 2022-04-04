@@ -16,6 +16,8 @@ __all__ = [
     'get_vpn_connection_output',
 ]
 
+warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVpnConnectionResult:
     """
@@ -200,6 +202,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("""get_vpn_connection is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['gatewayName'] = gateway_name
@@ -239,4 +242,5 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     :param str gateway_name: The name of the gateway.
     :param str resource_group_name: The resource group name of the VpnGateway.
     """
+    pulumi.log.warn("""get_vpn_connection is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

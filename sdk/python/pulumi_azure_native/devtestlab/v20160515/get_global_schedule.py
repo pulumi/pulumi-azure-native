@@ -16,6 +16,8 @@ __all__ = [
     'get_global_schedule_output',
 ]
 
+warnings.warn("""Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGlobalScheduleResult:
     """
@@ -236,6 +238,7 @@ def get_global_schedule(expand: Optional[str] = None,
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_global_schedule is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['name'] = name
@@ -278,4 +281,5 @@ def get_global_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_global_schedule is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
     ...

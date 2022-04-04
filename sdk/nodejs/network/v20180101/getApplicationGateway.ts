@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Application gateway resource
  */
+/** @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
+    pulumi.log.warn("getApplicationGateway is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

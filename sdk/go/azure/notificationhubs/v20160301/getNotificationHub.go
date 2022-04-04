@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a NotificationHub Resource.
+//
+// Deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupNotificationHub(ctx *pulumi.Context, args *LookupNotificationHubArgs, opts ...pulumi.InvokeOption) (*LookupNotificationHubResult, error) {
 	var rv LookupNotificationHubResult
 	err := ctx.Invoke("azure-native:notificationhubs/v20160301:getNotificationHub", args, &rv, opts...)

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Devices.V20190701Preview
 {
+    [Obsolete(@"Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")]
     public static class GetCertificate
     {
         /// <summary>

@@ -12,6 +12,8 @@ import (
 )
 
 // A budget resource.
+//
+// Deprecated: Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20191001 or later.
 type Budget struct {
 	pulumi.CustomResourceState
 

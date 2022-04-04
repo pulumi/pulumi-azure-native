@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20180110
 {
+    [Obsolete(@"Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")]
     public static class GetReplicationFabric
     {
         /// <summary>

@@ -12,6 +12,8 @@ import (
 )
 
 // CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+//
+// Deprecated: Version v20171012 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 type Profile struct {
 	pulumi.CustomResourceState
 

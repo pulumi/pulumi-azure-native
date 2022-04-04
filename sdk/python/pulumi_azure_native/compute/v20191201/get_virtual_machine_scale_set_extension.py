@@ -15,6 +15,8 @@ __all__ = [
     'get_virtual_machine_scale_set_extension_output',
 ]
 
+warnings.warn("""Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineScaleSetExtensionResult:
     """
@@ -177,6 +179,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     :param str vmss_extension_name: The name of the VM scale set extension.
     """
+    pulumi.log.warn("""get_virtual_machine_scale_set_extension is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -217,4 +220,5 @@ def get_virtual_machine_scale_set_extension_output(expand: Optional[pulumi.Input
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     :param str vmss_extension_name: The name of the VM scale set extension.
     """
+    pulumi.log.warn("""get_virtual_machine_scale_set_extension is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

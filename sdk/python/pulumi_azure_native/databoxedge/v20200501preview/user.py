@@ -98,7 +98,12 @@ class UserArgs:
         pulumi.set(self, "name", value)
 
 
+warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class User(pulumi.CustomResource):
+    warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class User(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
                  __props__=None):
+        pulumi.log.warn("""User is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

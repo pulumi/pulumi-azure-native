@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Peering Service
  */
+/** @deprecated Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
+    pulumi.log.warn("getPeeringService is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
     if (!opts) {
         opts = {}
     }

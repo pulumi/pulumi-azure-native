@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration of Azure web site
+ *
+ * @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
  */
 export class SiteLogsConfig extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class SiteLogsConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SiteLogsConfig {
+        pulumi.log.warn("SiteLogsConfig is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         return new SiteLogsConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -79,7 +82,9 @@ export class SiteLogsConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
     constructor(name: string, args: SiteLogsConfigArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("SiteLogsConfig is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

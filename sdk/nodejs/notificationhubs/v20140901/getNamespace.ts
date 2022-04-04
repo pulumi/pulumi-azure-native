@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace resource.
  */
+/** @deprecated Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
+    pulumi.log.warn("getNamespace is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

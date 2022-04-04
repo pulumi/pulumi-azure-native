@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a service topology.
+ *
+ * @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.
  */
 export class ServiceTopology extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class ServiceTopology extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServiceTopology {
+        pulumi.log.warn("ServiceTopology is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.")
         return new ServiceTopology(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,7 +65,9 @@ export class ServiceTopology extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later. */
     constructor(name: string, args: ServiceTopologyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServiceTopology is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

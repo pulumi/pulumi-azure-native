@@ -164,7 +164,12 @@ class DeviceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class Device(pulumi.CustomResource):
+    warnings.warn("""Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,6 +233,7 @@ class Device(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Device is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

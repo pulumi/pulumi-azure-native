@@ -116,7 +116,12 @@ class MonitorArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class Monitor(pulumi.CustomResource):
+    warnings.warn("""Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,6 +173,7 @@ class Monitor(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Monitor is deprecated: Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

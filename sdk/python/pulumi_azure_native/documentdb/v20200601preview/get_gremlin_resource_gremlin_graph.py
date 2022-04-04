@@ -16,6 +16,8 @@ __all__ = [
     'get_gremlin_resource_gremlin_graph_output',
 ]
 
+warnings.warn("""Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetGremlinResourceGremlinGraphResult:
     """
@@ -136,6 +138,7 @@ def get_gremlin_resource_gremlin_graph(account_name: Optional[str] = None,
     :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_gremlin_resource_gremlin_graph is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -173,4 +176,5 @@ def get_gremlin_resource_gremlin_graph_output(account_name: Optional[pulumi.Inpu
     :param str graph_name: Cosmos DB graph name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_gremlin_resource_gremlin_graph is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

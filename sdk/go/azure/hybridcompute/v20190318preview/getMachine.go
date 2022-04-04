@@ -11,6 +11,8 @@ import (
 )
 
 // Describes a hybrid machine.
+//
+// Deprecated: Version v20190318preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.
 func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.InvokeOption) (*LookupMachineResult, error) {
 	var rv LookupMachineResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20190318preview:getMachine", args, &rv, opts...)

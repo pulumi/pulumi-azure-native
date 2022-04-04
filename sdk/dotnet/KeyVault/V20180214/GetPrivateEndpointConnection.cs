@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KeyVault.V20180214
 {
+    [Obsolete(@"Version v20180214 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The bandwidth schedule details.
  */
+/** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
+    pulumi.log.warn("getBandwidthSchedule is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The KPI resource format.
  */
+/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
 export function getKpi(args: GetKpiArgs, opts?: pulumi.InvokeOptions): Promise<GetKpiResult> {
+    pulumi.log.warn("getKpi is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
     if (!opts) {
         opts = {}
     }

@@ -5,6 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/**
+ * @deprecated Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later.
+ */
 export class JobCollection extends pulumi.CustomResource {
     /**
      * Get an existing JobCollection resource's state with the given name, ID, and optional extra
@@ -15,6 +18,7 @@ export class JobCollection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobCollection {
+        pulumi.log.warn("JobCollection is deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later.")
         return new JobCollection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,7 +64,9 @@ export class JobCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later. */
     constructor(name: string, args: JobCollectionArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("JobCollection is deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

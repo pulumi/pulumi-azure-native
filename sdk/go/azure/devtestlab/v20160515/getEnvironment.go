@@ -11,6 +11,8 @@ import (
 )
 
 // An environment, which is essentially an ARM template deployment.
+//
+// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupEnvironmentResult, error) {
 	var rv LookupEnvironmentResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getEnvironment", args, &rv, opts...)

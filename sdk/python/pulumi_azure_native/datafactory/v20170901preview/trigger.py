@@ -82,7 +82,12 @@ class TriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
+
 class Trigger(pulumi.CustomResource):
+    warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class Trigger(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Trigger is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

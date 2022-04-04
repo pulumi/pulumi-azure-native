@@ -145,7 +145,12 @@ class CertificateArgs:
         pulumi.set(self, "thumbprint_algorithm", value)
 
 
+warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
+
 class Certificate(pulumi.CustomResource):
+    warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,6 +211,7 @@ class Certificate(pulumi.CustomResource):
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  thumbprint_algorithm: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Certificate is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

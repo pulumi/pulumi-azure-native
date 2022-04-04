@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
+ *
+ * @deprecated Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class Table extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Table {
+        pulumi.log.warn("Table is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         return new Table(name, undefined as any, { ...opts, id: id });
     }
 
@@ -54,7 +57,9 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Table is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

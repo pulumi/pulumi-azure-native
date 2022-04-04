@@ -16,6 +16,8 @@ __all__ = [
     'get_availability_set_output',
 ]
 
+warnings.warn("""Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAvailabilitySetResult:
     """
@@ -150,6 +152,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     :param str availability_set_name: The name of the availability set.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_availability_set is deprecated: Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
     __args__['resourceGroupName'] = resource_group_name
@@ -182,4 +185,5 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     :param str availability_set_name: The name of the availability set.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_availability_set is deprecated: Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

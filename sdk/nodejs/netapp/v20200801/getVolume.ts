@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Volume resource
  */
+/** @deprecated Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
+    pulumi.log.warn("getVolume is deprecated: Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

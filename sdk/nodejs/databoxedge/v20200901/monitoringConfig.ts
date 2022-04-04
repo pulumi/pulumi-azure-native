@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric setting details for the role
+ *
+ * @deprecated Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
  */
 export class MonitoringConfig extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MonitoringConfig {
+        pulumi.log.warn("MonitoringConfig is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         return new MonitoringConfig(name, undefined as any, { ...opts, id: id });
     }
 
@@ -55,7 +58,9 @@ export class MonitoringConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
     constructor(name: string, args: MonitoringConfigArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("MonitoringConfig is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

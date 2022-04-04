@@ -12,6 +12,8 @@ import (
 )
 
 // Defines web application firewall policy for Azure CDN.
+//
+// Deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
 type Policy struct {
 	pulumi.CustomResourceState
 

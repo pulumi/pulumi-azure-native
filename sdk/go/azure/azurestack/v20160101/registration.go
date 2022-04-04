@@ -12,6 +12,8 @@ import (
 )
 
 // Registration information.
+//
+// Deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
 type Registration struct {
 	pulumi.CustomResourceState
 

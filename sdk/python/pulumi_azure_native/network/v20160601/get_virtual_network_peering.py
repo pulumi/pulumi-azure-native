@@ -16,6 +16,8 @@ __all__ = [
     'get_virtual_network_peering_output',
 ]
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualNetworkPeeringResult:
     """
@@ -164,6 +166,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     :param str virtual_network_name: The name of the virtual network.
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
+    pulumi.log.warn("""get_virtual_network_peering is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
@@ -200,4 +203,5 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     :param str virtual_network_name: The name of the virtual network.
     :param str virtual_network_peering_name: The name of the virtual network peering.
     """
+    pulumi.log.warn("""get_virtual_network_peering is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

@@ -15,6 +15,8 @@ __all__ = [
     'get_namespace_authorization_rule_output',
 ]
 
+warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNamespaceAuthorizationRuleResult:
     """
@@ -91,6 +93,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     :param str namespace_name: The Namespace Name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_namespace_authorization_rule is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
@@ -121,4 +124,5 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
     :param str namespace_name: The Namespace Name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_namespace_authorization_rule is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
     ...

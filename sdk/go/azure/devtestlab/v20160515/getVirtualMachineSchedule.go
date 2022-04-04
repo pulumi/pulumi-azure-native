@@ -11,6 +11,8 @@ import (
 )
 
 // A schedule.
+//
+// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
 func LookupVirtualMachineSchedule(ctx *pulumi.Context, args *LookupVirtualMachineScheduleArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScheduleResult, error) {
 	var rv LookupVirtualMachineScheduleResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getVirtualMachineSchedule", args, &rv, opts...)

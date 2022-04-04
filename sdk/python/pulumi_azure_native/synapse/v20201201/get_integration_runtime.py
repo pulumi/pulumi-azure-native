@@ -16,6 +16,8 @@ __all__ = [
     'get_integration_runtime_output',
 ]
 
+warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationRuntimeResult:
     """
@@ -104,6 +106,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     __args__ = dict()
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
@@ -135,4 +138,5 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
     ...

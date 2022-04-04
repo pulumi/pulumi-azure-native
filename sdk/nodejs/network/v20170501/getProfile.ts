@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager profile.
  */
+/** @deprecated Version v20170501 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
+    pulumi.log.warn("getProfile is deprecated: Version v20170501 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

@@ -16,6 +16,8 @@ __all__ = [
     'get_factory_output',
 ]
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFactoryResult:
     """
@@ -162,6 +164,7 @@ def get_factory(factory_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_factory is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
@@ -195,4 +198,5 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_factory is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
     ...

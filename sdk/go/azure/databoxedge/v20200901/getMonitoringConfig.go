@@ -11,6 +11,8 @@ import (
 )
 
 // The metric setting details for the role
+//
+// Deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
 	err := ctx.Invoke("azure-native:databoxedge/v20200901:getMonitoringConfig", args, &rv, opts...)

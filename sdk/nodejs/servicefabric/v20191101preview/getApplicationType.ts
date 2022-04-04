@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The application type name resource
  */
+/** @deprecated Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later. */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
+    pulumi.log.warn("getApplicationType is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")
     if (!opts) {
         opts = {}
     }

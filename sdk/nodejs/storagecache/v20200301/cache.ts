@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ *
+ * @deprecated Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Cache extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cache {
+        pulumi.log.warn("Cache is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         return new Cache(name, undefined as any, { ...opts, id: id });
     }
 
@@ -107,7 +110,9 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Cache is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

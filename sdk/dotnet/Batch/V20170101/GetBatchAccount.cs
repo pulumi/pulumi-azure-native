@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Batch.V20170101
 {
+    [Obsolete(@"Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
     public static class GetBatchAccount
     {
         /// <summary>

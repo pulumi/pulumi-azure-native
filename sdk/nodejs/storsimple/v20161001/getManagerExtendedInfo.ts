@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The extended info of the manager.
  */
+/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
 export function getManagerExtendedInfo(args: GetManagerExtendedInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerExtendedInfoResult> {
+    pulumi.log.warn("getManagerExtendedInfo is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
     if (!opts) {
         opts = {}
     }

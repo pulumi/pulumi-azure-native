@@ -112,7 +112,12 @@ class ReplicationProtectedItemArgs:
         pulumi.set(self, "replicated_protected_item_name", value)
 
 
+warnings.warn("""Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
+
 class ReplicationProtectedItem(pulumi.CustomResource):
+    warnings.warn("""Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class ReplicationProtectedItem(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ReplicationProtectedItem is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,6 +12,8 @@ import (
 )
 
 // Route Filter Resource.
+//
+// Deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type RouteFilter struct {
 	pulumi.CustomResourceState
 

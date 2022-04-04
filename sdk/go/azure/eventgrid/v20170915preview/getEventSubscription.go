@@ -11,6 +11,8 @@ import (
 )
 
 // Event Subscription
+//
+// Deprecated: Version v20170915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
 func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupEventSubscriptionResult, error) {
 	var rv LookupEventSubscriptionResult
 	err := ctx.Invoke("azure-native:eventgrid/v20170915preview:getEventSubscription", args, &rv, opts...)

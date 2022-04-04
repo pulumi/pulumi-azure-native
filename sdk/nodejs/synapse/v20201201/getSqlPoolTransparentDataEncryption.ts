@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Sql pool transparent data encryption configuration.
  */
+/** @deprecated Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
+    pulumi.log.warn("getSqlPoolTransparentDataEncryption is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

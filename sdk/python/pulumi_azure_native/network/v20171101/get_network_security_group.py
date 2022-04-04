@@ -16,6 +16,8 @@ __all__ = [
     'get_network_security_group_output',
 ]
 
+warnings.warn("""Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetNetworkSecurityGroupResult:
     """
@@ -188,6 +190,7 @@ def get_network_security_group(expand: Optional[str] = None,
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_security_group is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['networkSecurityGroupName'] = network_security_group_name
@@ -226,4 +229,5 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     :param str network_security_group_name: The name of the network security group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_network_security_group is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

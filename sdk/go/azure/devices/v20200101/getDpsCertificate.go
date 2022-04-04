@@ -11,6 +11,8 @@ import (
 )
 
 // The X509 Certificate.
+//
+// Deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
 func LookupDpsCertificate(ctx *pulumi.Context, args *LookupDpsCertificateArgs, opts ...pulumi.InvokeOption) (*LookupDpsCertificateResult, error) {
 	var rv LookupDpsCertificateResult
 	err := ctx.Invoke("azure-native:devices/v20200101:getDpsCertificate", args, &rv, opts...)

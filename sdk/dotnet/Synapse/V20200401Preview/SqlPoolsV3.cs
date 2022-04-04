@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
     /// <summary>
     /// A sql pool resource.
     /// </summary>
+    [Obsolete(@"Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
     [AzureNativeResourceType("azure-native:synapse/v20200401preview:SqlPoolsV3")]
     public partial class SqlPoolsV3 : Pulumi.CustomResource
     {

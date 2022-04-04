@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Protection profile details.
  */
+/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
 export function getReplicationPolicy(args: GetReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationPolicyResult> {
+    pulumi.log.warn("getReplicationPolicy is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
     if (!opts) {
         opts = {}
     }

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The autoscale setting resource.
  */
+/** @deprecated Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later. */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
+    pulumi.log.warn("getAutoscaleSetting is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.")
     if (!opts) {
         opts = {}
     }

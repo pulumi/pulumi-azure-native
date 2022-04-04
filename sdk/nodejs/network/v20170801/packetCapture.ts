@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about packet capture session.
+ *
+ * @deprecated Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class PacketCapture extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PacketCapture {
+        pulumi.log.warn("PacketCapture is deprecated: Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         return new PacketCapture(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,7 +76,9 @@ export class PacketCapture extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
     constructor(name: string, args: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PacketCapture is deprecated: Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

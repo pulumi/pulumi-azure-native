@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20190701
     /// <summary>
     /// Describes a Virtual Machine.
     /// </summary>
+    [Obsolete(@"Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     [AzureNativeResourceType("azure-native:compute/v20190701:VirtualMachine")]
     public partial class VirtualMachine : Pulumi.CustomResource
     {

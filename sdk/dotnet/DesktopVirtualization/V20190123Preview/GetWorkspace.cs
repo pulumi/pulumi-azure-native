@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
 {
+    [Obsolete(@"Version v20190123preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")]
     public static class GetWorkspace
     {
         /// <summary>

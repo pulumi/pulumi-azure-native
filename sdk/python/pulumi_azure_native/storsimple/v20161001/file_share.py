@@ -186,7 +186,12 @@ class FileShareArgs:
         pulumi.set(self, "share_name", value)
 
 
+warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
+
 class FileShare(pulumi.CustomResource):
+    warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -256,6 +261,7 @@ class FileShare(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input['ShareStatus']] = None,
                  __props__=None):
+        pulumi.log.warn("""FileShare is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

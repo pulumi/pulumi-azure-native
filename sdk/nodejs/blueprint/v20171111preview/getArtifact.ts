@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Blueprint artifact.
  */
-/** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */
+/** @deprecated Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later. */
 export function getArtifact(args: GetArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetArtifactResult> {
-    pulumi.log.warn("getArtifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")
+    pulumi.log.warn("getArtifact is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.")
     if (!opts) {
         opts = {}
     }

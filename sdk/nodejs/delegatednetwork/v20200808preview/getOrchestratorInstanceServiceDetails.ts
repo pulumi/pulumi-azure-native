@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of a orchestrator.
  */
+/** @deprecated Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later. */
 export function getOrchestratorInstanceServiceDetails(args: GetOrchestratorInstanceServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetOrchestratorInstanceServiceDetailsResult> {
+    pulumi.log.warn("getOrchestratorInstanceServiceDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")
     if (!opts) {
         opts = {}
     }

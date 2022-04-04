@@ -211,7 +211,12 @@ class VirtualNetworkPeeringInitArgs:
         pulumi.set(self, "virtual_network_peering_name", value)
 
 
+warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class VirtualNetworkPeering(pulumi.CustomResource):
+    warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -284,6 +289,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualNetworkPeering is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

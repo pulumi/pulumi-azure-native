@@ -175,7 +175,12 @@ class SqlResourceSqlStoredProcedureArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
+
 class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
+    warnings.warn("""Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -242,6 +247,7 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
                  stored_procedure_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SqlResourceSqlStoredProcedure is deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

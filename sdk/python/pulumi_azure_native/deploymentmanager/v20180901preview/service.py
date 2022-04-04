@@ -126,7 +126,12 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+
+
 class Service(pulumi.CustomResource):
+    warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,6 +189,7 @@ class Service(pulumi.CustomResource):
                  target_location: Optional[pulumi.Input[str]] = None,
                  target_subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Service is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

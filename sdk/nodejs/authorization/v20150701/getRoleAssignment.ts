@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Role Assignments
  */
+/** @deprecated Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
 export function getRoleAssignment(args: GetRoleAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentResult> {
+    pulumi.log.warn("getRoleAssignment is deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
     if (!opts) {
         opts = {}
     }

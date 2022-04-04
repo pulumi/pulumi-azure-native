@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Consumption.V20180331
 {
+    [Obsolete(@"Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.")]
     public static class GetBudgetByResourceGroupName
     {
         /// <summary>

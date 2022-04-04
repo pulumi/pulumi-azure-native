@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Capacity pool resource
  */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    pulumi.log.warn("getPool is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

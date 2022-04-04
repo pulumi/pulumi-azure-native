@@ -12,6 +12,8 @@ import (
 )
 
 // An Azure Cosmos DB userDefinedFunction.
+//
+// Deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type SqlResourceSqlUserDefinedFunction struct {
 	pulumi.CustomResourceState
 

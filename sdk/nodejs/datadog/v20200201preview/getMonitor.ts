@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
+/** @deprecated Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
+    pulumi.log.warn("getMonitor is deprecated: Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

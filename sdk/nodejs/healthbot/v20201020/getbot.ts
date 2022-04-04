@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Bot resource definition
+ *
+ * @deprecated Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.
  */
 export class Getbot extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Getbot extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Getbot {
+        pulumi.log.warn("Getbot is deprecated: Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.")
         return new Getbot(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class Getbot extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later. */
     constructor(name: string, args: GetbotArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Getbot is deprecated: Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

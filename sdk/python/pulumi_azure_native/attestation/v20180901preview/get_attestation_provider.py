@@ -15,6 +15,8 @@ __all__ = [
     'get_attestation_provider_output',
 ]
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAttestationProviderResult:
     """
@@ -137,6 +139,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
     :param str provider_name: Name of the attestation service instance
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_attestation_provider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
     __args__ = dict()
     __args__['providerName'] = provider_name
     __args__['resourceGroupName'] = resource_group_name
@@ -168,4 +171,5 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
     :param str provider_name: Name of the attestation service instance
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_attestation_provider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
     ...

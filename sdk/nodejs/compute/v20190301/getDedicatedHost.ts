@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the Dedicated host.
  */
+/** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
+    pulumi.log.warn("getDedicatedHost is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
     /// <summary>
     /// The description of the service.
     /// </summary>
+    [Obsolete(@"Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")]
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter")]
     public partial class PrivateLinkServicesForM365ComplianceCenter : Pulumi.CustomResource
     {

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
  */
+/** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
+    pulumi.log.warn("getUser is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

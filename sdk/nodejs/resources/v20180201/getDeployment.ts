@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Deployment information.
  */
+/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later. */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
+    pulumi.log.warn("getDeployment is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
     if (!opts) {
         opts = {}
     }

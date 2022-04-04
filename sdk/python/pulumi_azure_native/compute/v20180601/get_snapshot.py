@@ -16,6 +16,8 @@ __all__ = [
     'get_snapshot_output',
 ]
 
+warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSnapshotResult:
     """
@@ -198,6 +200,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
     """
+    pulumi.log.warn("""get_snapshot is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name
@@ -234,4 +237,5 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
     """
+    pulumi.log.warn("""get_snapshot is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

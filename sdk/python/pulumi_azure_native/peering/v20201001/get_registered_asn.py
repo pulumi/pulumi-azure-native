@@ -15,6 +15,8 @@ __all__ = [
     'get_registered_asn_output',
 ]
 
+warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRegisteredAsnResult:
     """
@@ -115,6 +117,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
     :param str registered_asn_name: The name of the registered ASN.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_registered_asn is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['registeredAsnName'] = registered_asn_name
@@ -147,4 +150,5 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
     :param str registered_asn_name: The name of the registered ASN.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_registered_asn is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
     ...

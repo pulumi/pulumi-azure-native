@@ -11,6 +11,8 @@ import (
 )
 
 // Describes the source control configuration for web app
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteSourceControl(ctx *pulumi.Context, args *LookupSiteSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupSiteSourceControlResult, error) {
 	var rv LookupSiteSourceControlResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteSourceControl", args, &rv, opts...)

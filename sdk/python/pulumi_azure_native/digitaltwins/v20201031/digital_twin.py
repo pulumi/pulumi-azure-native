@@ -81,7 +81,12 @@ class DigitalTwinArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class DigitalTwin(pulumi.CustomResource):
+    warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,6 +135,7 @@ class DigitalTwin(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""DigitalTwin is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

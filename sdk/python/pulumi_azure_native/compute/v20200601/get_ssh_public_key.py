@@ -15,6 +15,8 @@ __all__ = [
     'get_ssh_public_key_output',
 ]
 
+warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSshPublicKeyResult:
     """
@@ -113,6 +115,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.
     """
+    pulumi.log.warn("""get_ssh_public_key is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sshPublicKeyName'] = ssh_public_key_name
@@ -142,4 +145,5 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
     :param str resource_group_name: The name of the resource group.
     :param str ssh_public_key_name: The name of the SSH public key.
     """
+    pulumi.log.warn("""get_ssh_public_key is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

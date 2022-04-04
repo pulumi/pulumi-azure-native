@@ -211,7 +211,12 @@ class RedisArgs:
         pulumi.set(self, "zones", value)
 
 
+warnings.warn("""Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
+
 class Redis(pulumi.CustomResource):
+    warnings.warn("""Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -284,6 +289,7 @@ class Redis(pulumi.CustomResource):
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Redis is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

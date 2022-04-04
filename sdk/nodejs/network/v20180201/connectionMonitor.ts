@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about the connection monitor.
+ *
+ * @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectionMonitor {
+        pulumi.log.warn("ConnectionMonitor is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         return new ConnectionMonitor(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,7 +91,9 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
     constructor(name: string, args: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ConnectionMonitor is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

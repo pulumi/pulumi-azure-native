@@ -80,11 +80,11 @@ class RoleArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Please use one of the variants: IoTRole.""", DeprecationWarning)
+warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
 
 class Role(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: IoTRole.""", DeprecationWarning)
+    warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -134,7 +134,7 @@ class Role(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Role is deprecated: Please use one of the variants: IoTRole.""")
+        pulumi.log.warn("""Role is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

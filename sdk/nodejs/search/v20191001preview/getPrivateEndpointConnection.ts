@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
  */
+/** @deprecated Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200801 or later. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
+    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200801 or later.")
     if (!opts) {
         opts = {}
     }

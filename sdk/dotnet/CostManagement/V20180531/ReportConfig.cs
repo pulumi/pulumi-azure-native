@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
     /// <summary>
     /// A report config resource.
     /// </summary>
+    [Obsolete(@"Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20180531:ReportConfig")]
     public partial class ReportConfig : Pulumi.CustomResource
     {

@@ -11,6 +11,8 @@ import (
 )
 
 // A common class for general resource information
+//
+// Deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 func LookupVirtualNetworkGatewayConnection(ctx *pulumi.Context, args *LookupVirtualNetworkGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkGatewayConnectionResult, error) {
 	var rv LookupVirtualNetworkGatewayConnectionResult
 	err := ctx.Invoke("azure-native:network/v20170601:getVirtualNetworkGatewayConnection", args, &rv, opts...)

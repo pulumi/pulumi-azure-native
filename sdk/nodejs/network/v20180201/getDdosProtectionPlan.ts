@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A DDoS protection plan in a resource group.
  */
+/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
+    pulumi.log.warn("getDdosProtectionPlan is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

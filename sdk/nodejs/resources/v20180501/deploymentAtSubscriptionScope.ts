@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * @deprecated Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
  */
 export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DeploymentAtSubscriptionScope {
+        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
         return new DeploymentAtSubscriptionScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -59,7 +62,9 @@ export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later. */
     constructor(name: string, args: DeploymentAtSubscriptionScopeArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("DeploymentAtSubscriptionScope is deprecated: Version v20180501 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Analytics firewall rule information.
+ *
+ * @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallRule {
+        pulumi.log.warn("FirewallRule is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")
         return new FirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,7 +61,9 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later. */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("FirewallRule is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

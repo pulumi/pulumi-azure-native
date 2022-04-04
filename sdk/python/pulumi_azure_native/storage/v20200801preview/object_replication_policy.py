@@ -112,7 +112,12 @@ class ObjectReplicationPolicyArgs:
         pulumi.set(self, "rules", value)
 
 
+warnings.warn("""Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
+
 class ObjectReplicationPolicy(pulumi.CustomResource):
+    warnings.warn("""Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,6 +172,7 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ObjectReplicationPolicyRuleArgs']]]]] = None,
                  source_account: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ObjectReplicationPolicy is deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

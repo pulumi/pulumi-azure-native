@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
     /// <summary>
     /// Description of topic resource.
     /// </summary>
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     [AzureNativeResourceType("azure-native:servicebus/v20150801:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {

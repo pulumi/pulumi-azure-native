@@ -65,7 +65,12 @@ class HierarchySettingArgs:
         pulumi.set(self, "require_authorization_for_group_creation", value)
 
 
+warnings.warn("""Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+
+
 class HierarchySetting(pulumi.CustomResource):
+    warnings.warn("""Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -111,6 +116,7 @@ class HierarchySetting(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  require_authorization_for_group_creation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
+        pulumi.log.warn("""HierarchySetting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -11,6 +11,8 @@ import (
 )
 
 // Resource information.
+//
+// Deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
 func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulumi.InvokeOption) (*LookupResourceResult, error) {
 	var rv LookupResourceResult
 	err := ctx.Invoke("azure-native:resources/v20180201:getResource", args, &rv, opts...)

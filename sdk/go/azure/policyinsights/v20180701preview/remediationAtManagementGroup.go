@@ -12,6 +12,8 @@ import (
 )
 
 // The remediation definition.
+//
+// Deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
 type RemediationAtManagementGroup struct {
 	pulumi.CustomResourceState
 

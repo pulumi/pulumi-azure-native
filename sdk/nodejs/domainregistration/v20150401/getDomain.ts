@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Information about a domain.
  */
+/** @deprecated Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
+    pulumi.log.warn("getDomain is deprecated: Version v20150401 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
     if (!opts) {
         opts = {}
     }

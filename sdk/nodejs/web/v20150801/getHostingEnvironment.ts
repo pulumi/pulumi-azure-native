@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of an hostingEnvironment (App Service Environment)
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getHostingEnvironment(args: GetHostingEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetHostingEnvironmentResult> {
+    pulumi.log.warn("getHostingEnvironment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

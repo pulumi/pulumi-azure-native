@@ -11,6 +11,8 @@ import (
 )
 
 // Specifies information about the Shared Image Gallery that you want to create or update.
+//
+// Deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 func LookupGallery(ctx *pulumi.Context, args *LookupGalleryArgs, opts ...pulumi.InvokeOption) (*LookupGalleryResult, error) {
 	var rv LookupGalleryResult
 	err := ctx.Invoke("azure-native:compute/v20180601:getGallery", args, &rv, opts...)

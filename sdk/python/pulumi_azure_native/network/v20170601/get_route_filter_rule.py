@@ -15,6 +15,8 @@ __all__ = [
     'get_route_filter_rule_output',
 ]
 
+warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetRouteFilterRuleResult:
     """
@@ -151,6 +153,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_route_filter_rule is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name
@@ -186,4 +189,5 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
     :param str route_filter_name: The name of the route filter.
     :param str rule_name: The name of the rule.
     """
+    pulumi.log.warn("""get_route_filter_rule is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

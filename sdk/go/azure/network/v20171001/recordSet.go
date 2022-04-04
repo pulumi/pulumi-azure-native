@@ -12,6 +12,8 @@ import (
 )
 
 // Describes a DNS record set (a collection of DNS records with the same name and type).
+//
+// Deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type RecordSet struct {
 	pulumi.CustomResourceState
 

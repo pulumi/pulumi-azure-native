@@ -12,6 +12,8 @@ import (
 )
 
 // The lock information.
+//
+// Deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type ManagementLockByScope struct {
 	pulumi.CustomResourceState
 

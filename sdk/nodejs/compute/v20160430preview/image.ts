@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+ *
+ * @deprecated Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
  */
 export class Image extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Image extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Image {
+        pulumi.log.warn("Image is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
         return new Image(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class Image extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Image is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

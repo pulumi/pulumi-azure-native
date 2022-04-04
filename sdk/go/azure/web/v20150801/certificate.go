@@ -12,6 +12,8 @@ import (
 )
 
 // App certificate
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 type Certificate struct {
 	pulumi.CustomResourceState
 

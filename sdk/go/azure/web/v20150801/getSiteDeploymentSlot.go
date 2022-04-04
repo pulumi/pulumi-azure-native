@@ -11,6 +11,8 @@ import (
 )
 
 // Represents user credentials used for publishing activity
+//
+// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
 func LookupSiteDeploymentSlot(ctx *pulumi.Context, args *LookupSiteDeploymentSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteDeploymentSlotResult, error) {
 	var rv LookupSiteDeploymentSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteDeploymentSlot", args, &rv, opts...)

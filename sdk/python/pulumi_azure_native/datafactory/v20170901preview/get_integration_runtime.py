@@ -16,6 +16,8 @@ __all__ = [
     'get_integration_runtime_output',
 ]
 
+warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetIntegrationRuntimeResult:
     """
@@ -104,6 +106,7 @@ def get_integration_runtime(factory_name: Optional[str] = None,
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name
@@ -135,4 +138,5 @@ def get_integration_runtime_output(factory_name: Optional[pulumi.Input[str]] = N
     :param str integration_runtime_name: The integration runtime name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_integration_runtime is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
     ...

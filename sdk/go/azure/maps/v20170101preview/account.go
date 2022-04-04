@@ -12,6 +12,8 @@ import (
 )
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
+//
+// Deprecated: Version v20170101preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type Account struct {
 	pulumi.CustomResourceState
 

@@ -16,6 +16,8 @@ __all__ = [
     'get_service_unit_output',
 ]
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServiceUnitResult:
     """
@@ -142,6 +144,7 @@ def get_service_unit(resource_group_name: Optional[str] = None,
     :param str service_topology_name: The name of the service topology .
     :param str service_unit_name: The name of the service unit resource.
     """
+    pulumi.log.warn("""get_service_unit is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
@@ -179,4 +182,5 @@ def get_service_unit_output(resource_group_name: Optional[pulumi.Input[str]] = N
     :param str service_topology_name: The name of the service topology .
     :param str service_unit_name: The name of the service unit resource.
     """
+    pulumi.log.warn("""get_service_unit is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     ...

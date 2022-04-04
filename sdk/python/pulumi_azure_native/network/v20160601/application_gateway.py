@@ -340,7 +340,12 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "url_path_maps", value)
 
 
+warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
+
 class ApplicationGateway(pulumi.CustomResource):
+    warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -437,6 +442,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url_path_maps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayUrlPathMapArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ApplicationGateway is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

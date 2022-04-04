@@ -16,6 +16,8 @@ __all__ = [
     'get_sql_resource_sql_container_output',
 ]
 
+warnings.warn("""Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSqlResourceSqlContainerResult:
     """
@@ -115,6 +117,7 @@ def get_sql_resource_sql_container(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("""get_sql_resource_sql_container is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -150,4 +153,5 @@ def get_sql_resource_sql_container_output(account_name: Optional[pulumi.Input[st
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
+    pulumi.log.warn("""get_sql_resource_sql_container is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

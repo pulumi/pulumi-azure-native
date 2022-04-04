@@ -15,6 +15,8 @@ __all__ = [
     'get_express_route_circuit_authorization_output',
 ]
 
+warnings.warn("""Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetExpressRouteCircuitAuthorizationResult:
     """
@@ -115,6 +117,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_authorization is deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     __args__ = dict()
     __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name
@@ -147,4 +150,5 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
     :param str circuit_name: The name of the express route circuit.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_express_route_circuit_authorization is deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
     ...

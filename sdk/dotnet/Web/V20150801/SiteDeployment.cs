@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// Represents user credentials used for publishing activity
     /// </summary>
+    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteDeployment")]
     public partial class SiteDeployment : Pulumi.CustomResource
     {

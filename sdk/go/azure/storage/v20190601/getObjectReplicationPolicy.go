@@ -11,6 +11,8 @@ import (
 )
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+//
+// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 func LookupObjectReplicationPolicy(ctx *pulumi.Context, args *LookupObjectReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupObjectReplicationPolicyResult, error) {
 	var rv LookupObjectReplicationPolicyResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getObjectReplicationPolicy", args, &rv, opts...)

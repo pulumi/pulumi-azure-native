@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
  */
+/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
 export function getExpressRouteCircuitConnection(args: GetExpressRouteCircuitConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitConnectionResult> {
+    pulumi.log.warn("getExpressRouteCircuitConnection is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
     if (!opts) {
         opts = {}
     }

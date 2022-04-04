@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * IP firewall rule
  */
+/** @deprecated Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
+    pulumi.log.warn("getIpFirewallRule is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Network.V20170801
     /// <summary>
     /// Inbound NAT rule of the load balancer.
     /// </summary>
+    [Obsolete(@"Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
     [AzureNativeResourceType("azure-native:network/v20170801:InboundNatRule")]
     public partial class InboundNatRule : Pulumi.CustomResource
     {

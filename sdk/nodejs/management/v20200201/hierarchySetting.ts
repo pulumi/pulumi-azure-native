@@ -6,6 +6,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Settings defined at the Management Group scope.
+ *
+ * @deprecated Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.
  */
 export class HierarchySetting extends pulumi.CustomResource {
     /**
@@ -17,6 +19,7 @@ export class HierarchySetting extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): HierarchySetting {
+        pulumi.log.warn("HierarchySetting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")
         return new HierarchySetting(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,7 +65,9 @@ export class HierarchySetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later. */
     constructor(name: string, args: HierarchySettingArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("HierarchySetting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

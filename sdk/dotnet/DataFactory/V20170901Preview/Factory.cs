@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// <summary>
     /// Factory resource type.
     /// </summary>
+    [Obsolete(@"Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Factory")]
     public partial class Factory : Pulumi.CustomResource
     {

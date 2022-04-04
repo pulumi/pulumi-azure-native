@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * HealthBot resource definition
  */
+/** @deprecated Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later. */
 export function getgetbot(args: GetgetbotArgs, opts?: pulumi.InvokeOptions): Promise<GetgetbotResult> {
+    pulumi.log.warn("getgetbot is deprecated: Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later.")
     if (!opts) {
         opts = {}
     }

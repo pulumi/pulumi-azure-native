@@ -11,6 +11,8 @@ import (
 )
 
 // Management lock information.
+//
+// Deprecated: Version v20150101 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 func LookupManagementLock(ctx *pulumi.Context, args *LookupManagementLockArgs, opts ...pulumi.InvokeOption) (*LookupManagementLockResult, error) {
 	var rv LookupManagementLockResult
 	err := ctx.Invoke("azure-native:authorization/v20150101:getManagementLock", args, &rv, opts...)

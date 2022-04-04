@@ -11,6 +11,8 @@ import (
 )
 
 // The description of the Windows IoT Device Service.
+//
+// Deprecated: Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:windowsiot/v20180216preview:getService", args, &rv, opts...)

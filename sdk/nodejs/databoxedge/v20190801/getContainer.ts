@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
  */
+/** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getContainer(args: GetContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerResult> {
+    pulumi.log.warn("getContainer is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

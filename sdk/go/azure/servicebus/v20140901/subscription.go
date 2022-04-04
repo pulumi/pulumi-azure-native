@@ -12,6 +12,8 @@ import (
 )
 
 // Description of subscription resource.
+//
+// Deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
 type Subscription struct {
 	pulumi.CustomResourceState
 

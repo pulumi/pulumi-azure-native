@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190201Preview
     /// <summary>
     /// Event Subscription
     /// </summary>
+    [Obsolete(@"Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20190201preview:EventSubscription")]
     public partial class EventSubscription : Pulumi.CustomResource
     {

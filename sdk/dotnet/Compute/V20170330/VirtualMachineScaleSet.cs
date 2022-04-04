@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20170330
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
     /// </summary>
+    [Obsolete(@"Version v20170330 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     [AzureNativeResourceType("azure-native:compute/v20170330:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : Pulumi.CustomResource
     {

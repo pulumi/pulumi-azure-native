@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot resource.
  */
+/** @deprecated Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
+    pulumi.log.warn("getSnapshot is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
     if (!opts) {
         opts = {}
     }

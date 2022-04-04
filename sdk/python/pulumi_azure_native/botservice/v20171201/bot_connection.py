@@ -147,7 +147,12 @@ class BotConnectionArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.""", DeprecationWarning)
+
+
 class BotConnection(pulumi.CustomResource):
+    warnings.warn("""Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,6 +213,7 @@ class BotConnection(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""BotConnection is deprecated: Version v20171201 will be removed in the next major version of the provider. Upgrade to version v20180712 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

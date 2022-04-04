@@ -12,6 +12,8 @@ import (
 )
 
 // Specifies information about the Dedicated host.
+//
+// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
 type DedicatedHost struct {
 	pulumi.CustomResourceState
 

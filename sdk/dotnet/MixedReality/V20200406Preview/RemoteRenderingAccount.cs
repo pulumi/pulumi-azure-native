@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.MixedReality.V20200406Preview
     /// <summary>
     /// RemoteRenderingAccount Response.
     /// </summary>
+    [Obsolete(@"Version v20200406preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
     [AzureNativeResourceType("azure-native:mixedreality/v20200406preview:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : Pulumi.CustomResource
     {

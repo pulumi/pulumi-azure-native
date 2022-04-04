@@ -11,6 +11,8 @@ import (
 )
 
 // Represents an instance of an Analysis Services resource.
+//
+// Deprecated: Version v20160516 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.
 func LookupServerDetails(ctx *pulumi.Context, args *LookupServerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupServerDetailsResult, error) {
 	var rv LookupServerDetailsResult
 	err := ctx.Invoke("azure-native:analysisservices/v20160516:getServerDetails", args, &rv, opts...)

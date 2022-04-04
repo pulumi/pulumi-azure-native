@@ -129,7 +129,12 @@ class SqlServerRegistrationArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+
+
 class SqlServerRegistration(pulumi.CustomResource):
+    warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,6 +192,7 @@ class SqlServerRegistration(pulumi.CustomResource):
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""SqlServerRegistration is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

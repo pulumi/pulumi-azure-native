@@ -161,7 +161,12 @@ class EventHubArgs:
         pulumi.set(self, "type", value)
 
 
+warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
+
 class EventHub(pulumi.CustomResource):
+    warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -225,6 +230,7 @@ class EventHub(pulumi.CustomResource):
                  status: Optional[pulumi.Input['EntityStatus']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""EventHub is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,6 +12,8 @@ import (
 )
 
 // Registration assignment.
+//
+// Deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
 type RegistrationAssignment struct {
 	pulumi.CustomResourceState
 

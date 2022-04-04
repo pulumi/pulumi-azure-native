@@ -110,7 +110,12 @@ class LinkedServerArgs:
         pulumi.set(self, "linked_server_name", value)
 
 
+warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
+
 class LinkedServer(pulumi.CustomResource):
+    warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,6 +170,7 @@ class LinkedServer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
+        pulumi.log.warn("""LinkedServer is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

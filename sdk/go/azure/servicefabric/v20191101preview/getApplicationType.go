@@ -11,6 +11,8 @@ import (
 )
 
 // The application type name resource
+//
+// Deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
 func LookupApplicationType(ctx *pulumi.Context, args *LookupApplicationTypeArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeResult, error) {
 	var rv LookupApplicationTypeResult
 	err := ctx.Invoke("azure-native:servicefabric/v20191101preview:getApplicationType", args, &rv, opts...)

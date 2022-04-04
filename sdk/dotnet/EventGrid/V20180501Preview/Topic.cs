@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.EventGrid.V20180501Preview
     /// <summary>
     /// EventGrid Topic
     /// </summary>
+    [Obsolete(@"Version v20180501preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20180501preview:Topic")]
     public partial class Topic : Pulumi.CustomResource
     {

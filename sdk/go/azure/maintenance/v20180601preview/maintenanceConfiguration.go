@@ -12,6 +12,8 @@ import (
 )
 
 // Maintenance configuration record type
+//
+// Deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20200401 or later.
 type MaintenanceConfiguration struct {
 	pulumi.CustomResourceState
 

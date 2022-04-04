@@ -16,6 +16,8 @@ __all__ = [
     'get_blob_inventory_policy_output',
 ]
 
+warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetBlobInventoryPolicyResult:
     """
@@ -116,6 +118,7 @@ def get_blob_inventory_policy(account_name: Optional[str] = None,
     :param str blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_blob_inventory_policy is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['blobInventoryPolicyName'] = blob_inventory_policy_name
@@ -148,4 +151,5 @@ def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] =
     :param str blob_inventory_policy_name: The name of the storage account blob inventory policy. It should always be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
+    pulumi.log.warn("""get_blob_inventory_policy is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     ...

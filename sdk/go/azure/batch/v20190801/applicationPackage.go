@@ -12,6 +12,8 @@ import (
 )
 
 // An application package which represents a particular version of an application.
+//
+// Deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 type ApplicationPackage struct {
 	pulumi.CustomResourceState
 

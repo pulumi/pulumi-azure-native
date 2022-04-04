@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20200501
 {
+    [Obsolete(@"Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     public static class GetDiskEncryptionSet
     {
         /// <summary>

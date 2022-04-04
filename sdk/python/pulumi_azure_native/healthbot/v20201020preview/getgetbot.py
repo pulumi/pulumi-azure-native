@@ -16,6 +16,8 @@ __all__ = [
     'getgetbot_output',
 ]
 
+warnings.warn("""Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetgetbotResult:
     """
@@ -138,6 +140,7 @@ def getgetbot(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
+    pulumi.log.warn("""getgetbot is deprecated: Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -169,4 +172,5 @@ def getgetbot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
     :param str resource_name: The name of the Bot resource.
     """
+    pulumi.log.warn("""getgetbot is deprecated: Version v20201020preview will be removed in the next major version of the provider. Upgrade to version v20201208 or later.""")
     ...

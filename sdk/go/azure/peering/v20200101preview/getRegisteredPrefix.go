@@ -11,6 +11,8 @@ import (
 )
 
 // The customer's prefix that is registered by the peering service provider.
+//
+// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
 func LookupRegisteredPrefix(ctx *pulumi.Context, args *LookupRegisteredPrefixArgs, opts ...pulumi.InvokeOption) (*LookupRegisteredPrefixResult, error) {
 	var rv LookupRegisteredPrefixResult
 	err := ctx.Invoke("azure-native:peering/v20200101preview:getRegisteredPrefix", args, &rv, opts...)

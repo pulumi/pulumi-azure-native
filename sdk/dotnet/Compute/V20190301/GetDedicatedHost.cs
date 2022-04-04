@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20190301
 {
+    [Obsolete(@"Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
     public static class GetDedicatedHost
     {
         /// <summary>

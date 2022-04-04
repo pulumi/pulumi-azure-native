@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
+    [Obsolete(@"Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")]
     public static class GetEnvironment
     {
         /// <summary>

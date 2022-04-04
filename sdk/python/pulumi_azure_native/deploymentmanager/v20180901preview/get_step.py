@@ -16,6 +16,8 @@ __all__ = [
     'get_step_output',
 ]
 
+warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetStepResult:
     """
@@ -114,6 +116,7 @@ def get_step(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str step_name: The name of the deployment step.
     """
+    pulumi.log.warn("""get_step is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['stepName'] = step_name
@@ -143,4 +146,5 @@ def get_step_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str step_name: The name of the deployment step.
     """
+    pulumi.log.warn("""get_step is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
     ...

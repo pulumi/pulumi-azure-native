@@ -66,7 +66,12 @@ class PatchScheduleArgs:
         pulumi.set(self, "schedule_entries", value)
 
 
+warnings.warn("""Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
+
 class PatchSchedule(pulumi.CustomResource):
+    warnings.warn("""Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +117,7 @@ class PatchSchedule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleEntryArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""PatchSchedule is deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -16,6 +16,8 @@ __all__ = [
     'get_server_farm_output',
 ]
 
+warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetServerFarmResult:
     """
@@ -259,6 +261,7 @@ def get_server_farm(name: Optional[str] = None,
     :param str name: Name of App Service Plan
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_server_farm is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -300,4 +303,5 @@ def get_server_farm_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of App Service Plan
     :param str resource_group_name: Name of resource group
     """
+    pulumi.log.warn("""get_server_farm is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
     ...

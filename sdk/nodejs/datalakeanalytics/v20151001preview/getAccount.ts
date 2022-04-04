@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
  */
+/** @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    pulumi.log.warn("getAccount is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.")
     if (!opts) {
         opts = {}
     }

@@ -354,7 +354,12 @@ class EndpointArgs:
         pulumi.set(self, "web_application_firewall_policy_link", value)
 
 
+warnings.warn("""Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+
+
 class Endpoint(pulumi.CustomResource):
+    warnings.warn("""Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -454,6 +459,7 @@ class Endpoint(pulumi.CustomResource):
                  url_signing_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlSigningKeyArgs']]]]] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input[pulumi.InputType['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Endpoint is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

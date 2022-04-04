@@ -98,7 +98,12 @@ class OrderArgs:
         pulumi.set(self, "shipping_address", value)
 
 
+warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
+
 class Order(pulumi.CustomResource):
+    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class Order(pulumi.CustomResource):
                  shipment_type: Optional[pulumi.Input[Union[str, 'ShipmentType']]] = None,
                  shipping_address: Optional[pulumi.Input[pulumi.InputType['AddressArgs']]] = None,
                  __props__=None):
+        pulumi.log.warn("""Order is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

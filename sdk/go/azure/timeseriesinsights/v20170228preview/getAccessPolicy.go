@@ -11,6 +11,8 @@ import (
 )
 
 // An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
+//
+// Deprecated: Version v20170228preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.
 func LookupAccessPolicy(ctx *pulumi.Context, args *LookupAccessPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAccessPolicyResult, error) {
 	var rv LookupAccessPolicyResult
 	err := ctx.Invoke("azure-native:timeseriesinsights/v20170228preview:getAccessPolicy", args, &rv, opts...)

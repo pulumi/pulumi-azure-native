@@ -15,6 +15,8 @@ __all__ = [
     'get_linked_server_output',
 ]
 
+warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetLinkedServerResult:
     """
@@ -127,6 +129,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_linked_server is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     __args__ = dict()
     __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name
@@ -160,4 +163,5 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
     :param str name: The name of the redis cache.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_linked_server is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
     ...

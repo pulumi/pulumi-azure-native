@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Backup policy information
  */
+/** @deprecated Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
+    pulumi.log.warn("getBackupPolicy is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

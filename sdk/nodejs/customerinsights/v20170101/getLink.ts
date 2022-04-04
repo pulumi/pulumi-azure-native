@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The link resource format.
  */
+/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
 export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkResult> {
+    pulumi.log.warn("getLink is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
     if (!opts) {
         opts = {}
     }

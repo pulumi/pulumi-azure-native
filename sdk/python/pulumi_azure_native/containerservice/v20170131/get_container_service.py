@@ -16,6 +16,8 @@ __all__ = [
     'get_container_service_output',
 ]
 
+warnings.warn("""Version v20170131 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContainerServiceResult:
     """
@@ -210,6 +212,7 @@ def get_container_service(container_service_name: Optional[str] = None,
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_container_service is deprecated: Version v20170131 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
     __args__ = dict()
     __args__['containerServiceName'] = container_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -247,4 +250,5 @@ def get_container_service_output(container_service_name: Optional[pulumi.Input[s
     :param str container_service_name: The name of the container service in the specified subscription and resource group.
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_container_service is deprecated: Version v20170131 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
     ...

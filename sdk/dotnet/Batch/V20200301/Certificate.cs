@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Batch.V20200301
     /// <summary>
     /// Contains information about a certificate.
     /// </summary>
+    [Obsolete(@"Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
     [AzureNativeResourceType("azure-native:batch/v20200301:Certificate")]
     public partial class Certificate : Pulumi.CustomResource
     {

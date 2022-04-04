@@ -200,7 +200,12 @@ class ContainerGroupArgs:
         pulumi.set(self, "volumes", value)
 
 
+warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
+
 class ContainerGroup(pulumi.CustomResource):
+    warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -273,6 +278,7 @@ class ContainerGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ContainerGroup is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

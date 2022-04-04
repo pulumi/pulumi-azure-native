@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
     /// <summary>
     /// Role definition.
     /// </summary>
+    [Obsolete(@"Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
     [AzureNativeResourceType("azure-native:authorization/v20150701:RoleDefinition")]
     public partial class RoleDefinition : Pulumi.CustomResource
     {

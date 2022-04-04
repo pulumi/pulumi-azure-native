@@ -12,6 +12,8 @@ import (
 )
 
 // Contains the job information.
+//
+// Deprecated: Version v20161101 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.
 type Job struct {
 	pulumi.CustomResourceState
 

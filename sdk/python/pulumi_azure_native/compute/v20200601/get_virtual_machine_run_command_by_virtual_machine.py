@@ -16,6 +16,8 @@ __all__ = [
     'get_virtual_machine_run_command_by_virtual_machine_output',
 ]
 
+warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetVirtualMachineRunCommandByVirtualMachineResult:
     """
@@ -238,6 +240,7 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_name: The name of the virtual machine containing the run command.
     """
+    pulumi.log.warn("""get_virtual_machine_run_command_by_virtual_machine is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -283,4 +286,5 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_name: The name of the virtual machine containing the run command.
     """
+    pulumi.log.warn("""get_virtual_machine_run_command_by_virtual_machine is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
     ...

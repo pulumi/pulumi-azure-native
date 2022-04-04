@@ -11,6 +11,8 @@ import (
 )
 
 // The storage account.
+//
+// Deprecated: Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountResult, error) {
 	var rv LookupStorageAccountResult
 	err := ctx.Invoke("azure-native:storage/v20181101:getStorageAccount", args, &rv, opts...)

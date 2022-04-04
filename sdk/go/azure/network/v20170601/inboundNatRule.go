@@ -12,6 +12,8 @@ import (
 )
 
 // Inbound NAT rule of the load balancer.
+//
+// Deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
 type InboundNatRule struct {
 	pulumi.CustomResourceState
 

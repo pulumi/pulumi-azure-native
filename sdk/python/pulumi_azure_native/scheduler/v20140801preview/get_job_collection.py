@@ -16,6 +16,8 @@ __all__ = [
     'get_job_collection_output',
 ]
 
+warnings.warn("""Version v20140801preview will be removed in the next major version of the provider. Upgrade to version v20160301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetJobCollectionResult:
     def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
@@ -110,6 +112,7 @@ def get_job_collection(job_collection_name: Optional[str] = None,
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_job_collection is deprecated: Version v20140801preview will be removed in the next major version of the provider. Upgrade to version v20160301 or later.""")
     __args__ = dict()
     __args__['jobCollectionName'] = job_collection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,4 +141,5 @@ def get_job_collection_output(job_collection_name: Optional[pulumi.Input[str]] =
     :param str job_collection_name: The job collection name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_job_collection is deprecated: Version v20140801preview will be removed in the next major version of the provider. Upgrade to version v20160301 or later.""")
     ...

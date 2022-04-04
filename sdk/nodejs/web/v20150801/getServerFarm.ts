@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * App Service Plan Model
  */
+/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
 export function getServerFarm(args: GetServerFarmArgs, opts?: pulumi.InvokeOptions): Promise<GetServerFarmResult> {
+    pulumi.log.warn("getServerFarm is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
     if (!opts) {
         opts = {}
     }

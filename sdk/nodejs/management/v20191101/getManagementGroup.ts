@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The management group details.
  */
+/** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200501 or later. */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
+    pulumi.log.warn("getManagementGroup is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")
     if (!opts) {
         opts = {}
     }

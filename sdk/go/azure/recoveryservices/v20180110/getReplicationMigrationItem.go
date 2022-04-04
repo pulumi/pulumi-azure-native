@@ -11,6 +11,8 @@ import (
 )
 
 // Migration item.
+//
+// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
 func LookupReplicationMigrationItem(ctx *pulumi.Context, args *LookupReplicationMigrationItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationMigrationItemResult, error) {
 	var rv LookupReplicationMigrationItemResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationMigrationItem", args, &rv, opts...)

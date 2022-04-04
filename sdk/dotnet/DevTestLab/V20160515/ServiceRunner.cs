@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
     /// <summary>
     /// A container for a managed identity to execute DevTest lab services.
     /// </summary>
+    [Obsolete(@"Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:ServiceRunner")]
     public partial class ServiceRunner : Pulumi.CustomResource
     {
