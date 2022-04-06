@@ -123,7 +123,8 @@
         "ManagedEnvironment": "2022-01-01-preview",
         "ManagedEnvironmentsStorage": "2022-01-01-preview",
         "listContainerAppCustomHostNameAnalysis": "2022-01-01-preview",
-        "listContainerAppSecrets": "2022-01-01-preview"
+        "listContainerAppSecrets": "2022-01-01-preview",
+        "listDaprComponentSecrets": "2022-03-01"
     },
     "AppConfiguration": {
         "ConfigurationStore": "2020-06-01",
