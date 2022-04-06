@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly bool? IsAnonymous;
         /// <summary>
-        /// The path of the file/directory in the datastore.
+        /// [Required] The path of the file/directory in the datastore.
         /// </summary>
         public readonly string Path;
         /// <summary>

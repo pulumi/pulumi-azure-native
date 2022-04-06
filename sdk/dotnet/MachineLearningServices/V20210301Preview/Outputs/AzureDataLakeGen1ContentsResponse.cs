@@ -22,11 +22,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string ContentsType;
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         public readonly object Credentials;
         /// <summary>
-        /// Azure Data Lake store name.
+        /// [Required] Azure Data Lake store name.
         /// </summary>
         public readonly string StoreName;
 

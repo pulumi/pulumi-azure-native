@@ -18,7 +18,7 @@ type Job struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -82,7 +82,7 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// The name and identifier for the Job.
 	Id *string `pulumi:"id"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties interface{} `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -94,7 +94,7 @@ type jobArgs struct {
 type JobArgs struct {
 	// The name and identifier for the Job.
 	Id pulumi.StringPtrInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties pulumi.Input
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

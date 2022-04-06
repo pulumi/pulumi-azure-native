@@ -58,7 +58,7 @@ class GetDataVersionResult:
     @pulumi.getter
     def properties(self) -> 'outputs.DataVersionResponse':
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

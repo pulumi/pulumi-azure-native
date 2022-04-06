@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     public sealed class DatastorePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Reference to the datastore storage contents.
+        /// [Required] Reference to the datastore storage contents.
         /// </summary>
         [Input("contents", required: true)]
         public object Contents { get; set; } = null!;

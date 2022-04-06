@@ -40,7 +40,7 @@ type LookupBatchEndpointResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties BatchEndpointResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -111,7 +111,7 @@ func (o LookupBatchEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBatchEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupBatchEndpointResultOutput) Properties() BatchEndpointResponseOutput {
 	return o.ApplyT(func(v LookupBatchEndpointResult) BatchEndpointResponse { return v.Properties }).(BatchEndpointResponseOutput)
 }

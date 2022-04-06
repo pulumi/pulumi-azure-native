@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string? CodeId;
         /// <summary>
-        /// The script to execute on startup. eg. "score.py"
+        /// [Required] The script to execute on startup. eg. "score.py"
         /// </summary>
         public readonly string ScoringScript;
 

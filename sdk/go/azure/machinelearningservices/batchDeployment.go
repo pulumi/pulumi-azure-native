@@ -23,7 +23,7 @@ type BatchDeployment struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties BatchDeploymentResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -100,7 +100,7 @@ type batchDeploymentArgs struct {
 	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties BatchDeploymentType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -122,7 +122,7 @@ type BatchDeploymentArgs struct {
 	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties BatchDeploymentTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

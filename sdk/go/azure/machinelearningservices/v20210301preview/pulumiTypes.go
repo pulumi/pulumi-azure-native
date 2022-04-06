@@ -538,35 +538,35 @@ type AutoScaleSettingsResponse struct {
 
 // Azure Blob datastore configuration.
 type AzureBlobContents struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureBlob'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
 // Azure Blob datastore configuration.
 type AzureBlobContentsResponse struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureBlob'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -575,9 +575,9 @@ type AzureDataLakeGen1Contents struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureDataLakeGen1'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure Data Lake store name.
+	// [Required] Azure Data Lake store name.
 	StoreName string `pulumi:"storeName"`
 }
 
@@ -586,77 +586,77 @@ type AzureDataLakeGen1ContentsResponse struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureDataLakeGen1'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure Data Lake store name.
+	// [Required] Azure Data Lake store name.
 	StoreName string `pulumi:"storeName"`
 }
 
 // Azure Data Lake Gen2 datastore configuration.
 type AzureDataLakeGen2Contents struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureDataLakeGen2'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
 // Azure Data Lake Gen2 datastore configuration.
 type AzureDataLakeGen2ContentsResponse struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureDataLakeGen2'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
 // Azure File datastore configuration.
 type AzureFileContents struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureFile'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
 // Azure File datastore configuration.
 type AzureFileContentsResponse struct {
-	// Storage account name.
+	// [Required] Storage account name.
 	AccountName string `pulumi:"accountName"`
-	// Storage account container name.
+	// [Required] Storage account container name.
 	ContainerName string `pulumi:"containerName"`
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureFile'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure cloud endpoint for the storage account.
+	// [Required] Azure cloud endpoint for the storage account.
 	Endpoint string `pulumi:"endpoint"`
-	// Protocol used to communicate with the storage account.
+	// [Required] Protocol used to communicate with the storage account.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -665,17 +665,17 @@ type AzurePostgreSqlContents struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzurePostgreSql'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure SQL database name.
+	// [Required] Azure SQL database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// Whether the Azure PostgreSQL server requires SSL.
 	EnableSSL *bool `pulumi:"enableSSL"`
-	// Azure cloud endpoint for the database.
+	// [Required] Azure cloud endpoint for the database.
 	Endpoint string `pulumi:"endpoint"`
-	// Azure SQL server port.
+	// [Required] Azure SQL server port.
 	PortNumber int `pulumi:"portNumber"`
-	// Azure SQL server name.
+	// [Required] Azure SQL server name.
 	ServerName string `pulumi:"serverName"`
 }
 
@@ -684,17 +684,17 @@ type AzurePostgreSqlContentsResponse struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzurePostgreSql'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure SQL database name.
+	// [Required] Azure SQL database name.
 	DatabaseName string `pulumi:"databaseName"`
 	// Whether the Azure PostgreSQL server requires SSL.
 	EnableSSL *bool `pulumi:"enableSSL"`
-	// Azure cloud endpoint for the database.
+	// [Required] Azure cloud endpoint for the database.
 	Endpoint string `pulumi:"endpoint"`
-	// Azure SQL server port.
+	// [Required] Azure SQL server port.
 	PortNumber int `pulumi:"portNumber"`
-	// Azure SQL server name.
+	// [Required] Azure SQL server name.
 	ServerName string `pulumi:"serverName"`
 }
 
@@ -703,15 +703,15 @@ type AzureSqlDatabaseContents struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureSqlDatabase'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure SQL database name.
+	// [Required] Azure SQL database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Azure cloud endpoint for the database.
+	// [Required] Azure cloud endpoint for the database.
 	Endpoint string `pulumi:"endpoint"`
-	// Azure SQL server port.
+	// [Required] Azure SQL server port.
 	PortNumber int `pulumi:"portNumber"`
-	// Azure SQL server name.
+	// [Required] Azure SQL server name.
 	ServerName string `pulumi:"serverName"`
 }
 
@@ -720,15 +720,15 @@ type AzureSqlDatabaseContentsResponse struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'AzureSqlDatabase'.
 	ContentsType string `pulumi:"contentsType"`
-	// Account credentials.
+	// [Required] Account credentials.
 	Credentials interface{} `pulumi:"credentials"`
-	// Azure SQL database name.
+	// [Required] Azure SQL database name.
 	DatabaseName string `pulumi:"databaseName"`
-	// Azure cloud endpoint for the database.
+	// [Required] Azure cloud endpoint for the database.
 	Endpoint string `pulumi:"endpoint"`
-	// Azure SQL server port.
+	// [Required] Azure SQL server port.
 	PortNumber int `pulumi:"portNumber"`
-	// Azure SQL server name.
+	// [Required] Azure SQL server name.
 	ServerName string `pulumi:"serverName"`
 }
 
@@ -1065,7 +1065,7 @@ func (o BatchDeploymentResponseOutput) RetrySettings() BatchRetrySettingsRespons
 
 // Batch endpoint configuration.
 type BatchEndpointType struct {
-	// Enum to determine endpoint authentication mode.
+	// [Required] Inference endpoint authentication mode type
 	AuthMode *string `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
@@ -1091,7 +1091,7 @@ type BatchEndpointTypeInput interface {
 
 // Batch endpoint configuration.
 type BatchEndpointTypeArgs struct {
-	// Enum to determine endpoint authentication mode.
+	// [Required] Inference endpoint authentication mode type
 	AuthMode pulumi.StringPtrInput `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -1131,7 +1131,7 @@ func (o BatchEndpointTypeOutput) ToBatchEndpointTypeOutputWithContext(ctx contex
 	return o
 }
 
-// Enum to determine endpoint authentication mode.
+// [Required] Inference endpoint authentication mode type
 func (o BatchEndpointTypeOutput) AuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchEndpointType) *string { return v.AuthMode }).(pulumi.StringPtrOutput)
 }
@@ -1159,7 +1159,7 @@ func (o BatchEndpointTypeOutput) Traffic() pulumi.IntMapOutput {
 
 // Batch endpoint configuration.
 type BatchEndpointResponse struct {
-	// Enum to determine endpoint authentication mode.
+	// [Required] Inference endpoint authentication mode type
 	AuthMode *string `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
@@ -1188,7 +1188,7 @@ func (o BatchEndpointResponseOutput) ToBatchEndpointResponseOutputWithContext(ct
 	return o
 }
 
-// Enum to determine endpoint authentication mode.
+// [Required] Inference endpoint authentication mode type
 func (o BatchEndpointResponseOutput) AuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BatchEndpointResponse) *string { return v.AuthMode }).(pulumi.StringPtrOutput)
 }
@@ -1694,7 +1694,7 @@ func (o BatchRetrySettingsResponsePtrOutput) Timeout() pulumi.StringPtrOutput {
 type CertificateDatastoreCredentials struct {
 	// Authority URL used for authentication.
 	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// Service principal client ID.
+	// [Required] Service principal client ID.
 	ClientId string `pulumi:"clientId"`
 	// Enum to determine the datastore credentials type.
 	// Expected value is 'Certificate'.
@@ -1703,9 +1703,9 @@ type CertificateDatastoreCredentials struct {
 	ResourceUri *string `pulumi:"resourceUri"`
 	// Service principal secrets.
 	Secrets *CertificateDatastoreSecrets `pulumi:"secrets"`
-	// ID of the tenant to which the service principal belongs.
+	// [Required] ID of the tenant to which the service principal belongs.
 	TenantId string `pulumi:"tenantId"`
-	// Thumbprint of the certificate used for authentication.
+	// [Required] Thumbprint of the certificate used for authentication.
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -1713,16 +1713,16 @@ type CertificateDatastoreCredentials struct {
 type CertificateDatastoreCredentialsResponse struct {
 	// Authority URL used for authentication.
 	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// Service principal client ID.
+	// [Required] Service principal client ID.
 	ClientId string `pulumi:"clientId"`
 	// Enum to determine the datastore credentials type.
 	// Expected value is 'Certificate'.
 	CredentialsType string `pulumi:"credentialsType"`
 	// Resource the service principal has access to.
 	ResourceUri *string `pulumi:"resourceUri"`
-	// ID of the tenant to which the service principal belongs.
+	// [Required] ID of the tenant to which the service principal belongs.
 	TenantId string `pulumi:"tenantId"`
-	// Thumbprint of the certificate used for authentication.
+	// [Required] Thumbprint of the certificate used for authentication.
 	Thumbprint string `pulumi:"thumbprint"`
 }
 
@@ -1739,7 +1739,7 @@ type CertificateDatastoreSecrets struct {
 type CodeConfiguration struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The script to execute on startup. eg. "score.py"
+	// [Required] The script to execute on startup. eg. "score.py"
 	ScoringScript string `pulumi:"scoringScript"`
 }
 
@@ -1758,7 +1758,7 @@ type CodeConfigurationInput interface {
 type CodeConfigurationArgs struct {
 	// ARM resource ID of the code asset.
 	CodeId pulumi.StringPtrInput `pulumi:"codeId"`
-	// The script to execute on startup. eg. "score.py"
+	// [Required] The script to execute on startup. eg. "score.py"
 	ScoringScript pulumi.StringInput `pulumi:"scoringScript"`
 }
 
@@ -1845,7 +1845,7 @@ func (o CodeConfigurationOutput) CodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeConfiguration) *string { return v.CodeId }).(pulumi.StringPtrOutput)
 }
 
-// The script to execute on startup. eg. "score.py"
+// [Required] The script to execute on startup. eg. "score.py"
 func (o CodeConfigurationOutput) ScoringScript() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeConfiguration) string { return v.ScoringScript }).(pulumi.StringOutput)
 }
@@ -1884,7 +1884,7 @@ func (o CodeConfigurationPtrOutput) CodeId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script to execute on startup. eg. "score.py"
+// [Required] The script to execute on startup. eg. "score.py"
 func (o CodeConfigurationPtrOutput) ScoringScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeConfiguration) *string {
 		if v == nil {
@@ -1898,7 +1898,7 @@ func (o CodeConfigurationPtrOutput) ScoringScript() pulumi.StringPtrOutput {
 type CodeConfigurationResponse struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The script to execute on startup. eg. "score.py"
+	// [Required] The script to execute on startup. eg. "score.py"
 	ScoringScript string `pulumi:"scoringScript"`
 }
 
@@ -1922,7 +1922,7 @@ func (o CodeConfigurationResponseOutput) CodeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeConfigurationResponse) *string { return v.CodeId }).(pulumi.StringPtrOutput)
 }
 
-// The script to execute on startup. eg. "score.py"
+// [Required] The script to execute on startup. eg. "score.py"
 func (o CodeConfigurationResponseOutput) ScoringScript() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeConfigurationResponse) string { return v.ScoringScript }).(pulumi.StringOutput)
 }
@@ -1961,7 +1961,7 @@ func (o CodeConfigurationResponsePtrOutput) CodeId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The script to execute on startup. eg. "score.py"
+// [Required] The script to execute on startup. eg. "score.py"
 func (o CodeConfigurationResponsePtrOutput) ScoringScript() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeConfigurationResponse) *string {
 		if v == nil {
@@ -2092,7 +2092,7 @@ type CodeVersionType struct {
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -2119,7 +2119,7 @@ type CodeVersionTypeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
@@ -2169,7 +2169,7 @@ func (o CodeVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CodeVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o CodeVersionTypeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeVersionType) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2192,7 +2192,7 @@ type CodeVersionResponse struct {
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -2230,7 +2230,7 @@ func (o CodeVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CodeVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o CodeVersionResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeVersionResponse) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -2249,9 +2249,9 @@ func (o CodeVersionResponseOutput) Tags() pulumi.StringMapOutput {
 type CommandJob struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The command to execute on startup of the job. eg. "python train.py"
+	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
-	// Compute binding for the job.
+	// [Required] Compute binding for the job.
 	Compute ComputeConfiguration `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -2288,9 +2288,9 @@ type CommandJob struct {
 type CommandJobResponse struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The command to execute on startup of the job. eg. "python train.py"
+	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
-	// Compute binding for the job.
+	// [Required] Compute binding for the job.
 	Compute ComputeConfigurationResponse `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -2346,7 +2346,7 @@ type ComputeConfiguration struct {
 	Location *string `pulumi:"location"`
 	// Additional properties.
 	Properties map[string]string `pulumi:"properties"`
-	// ARM resource ID of the compute resource.
+	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 	Target *string `pulumi:"target"`
 }
 
@@ -2373,7 +2373,7 @@ type ComputeConfigurationArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// Additional properties.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// ARM resource ID of the compute resource.
+	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -2480,7 +2480,7 @@ func (o ComputeConfigurationOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ComputeConfiguration) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// ARM resource ID of the compute resource.
+// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 func (o ComputeConfigurationOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeConfiguration) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -2559,7 +2559,7 @@ func (o ComputeConfigurationPtrOutput) Properties() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// ARM resource ID of the compute resource.
+// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 func (o ComputeConfigurationPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeConfiguration) *string {
 		if v == nil {
@@ -2581,7 +2581,7 @@ type ComputeConfigurationResponse struct {
 	Location *string `pulumi:"location"`
 	// Additional properties.
 	Properties map[string]string `pulumi:"properties"`
-	// ARM resource ID of the compute resource.
+	// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 	Target *string `pulumi:"target"`
 }
 
@@ -2625,7 +2625,7 @@ func (o ComputeConfigurationResponseOutput) Properties() pulumi.StringMapOutput 
 	return o.ApplyT(func(v ComputeConfigurationResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
-// ARM resource ID of the compute resource.
+// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 func (o ComputeConfigurationResponseOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeConfigurationResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -2704,7 +2704,7 @@ func (o ComputeConfigurationResponsePtrOutput) Properties() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
-// ARM resource ID of the compute resource.
+// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
 func (o ComputeConfigurationResponsePtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeConfigurationResponse) *string {
 		if v == nil {
@@ -3500,7 +3500,7 @@ type DataVersionType struct {
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -3529,7 +3529,7 @@ type DataVersionTypeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
@@ -3584,7 +3584,7 @@ func (o DataVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o DataVersionTypeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v DataVersionType) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -3609,7 +3609,7 @@ type DataVersionResponse struct {
 	Description *string `pulumi:"description"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -3652,7 +3652,7 @@ func (o DataVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o DataVersionResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v DataVersionResponse) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -3725,7 +3725,7 @@ type DatabricksResponseProperties struct {
 
 // Datastore definition.
 type DatastoreProperties struct {
-	// Reference to the datastore storage contents.
+	// [Required] Reference to the datastore storage contents.
 	Contents interface{} `pulumi:"contents"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -3752,7 +3752,7 @@ type DatastorePropertiesInput interface {
 
 // Datastore definition.
 type DatastorePropertiesArgs struct {
-	// Reference to the datastore storage contents.
+	// [Required] Reference to the datastore storage contents.
 	Contents pulumi.Input `pulumi:"contents"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -3793,7 +3793,7 @@ func (o DatastorePropertiesOutput) ToDatastorePropertiesOutputWithContext(ctx co
 	return o
 }
 
-// Reference to the datastore storage contents.
+// [Required] Reference to the datastore storage contents.
 func (o DatastorePropertiesOutput) Contents() pulumi.AnyOutput {
 	return o.ApplyT(func(v DatastoreProperties) interface{} { return v.Contents }).(pulumi.AnyOutput)
 }
@@ -3825,7 +3825,7 @@ func (o DatastorePropertiesOutput) Tags() pulumi.StringMapOutput {
 
 // Datastore definition.
 type DatastorePropertiesResponse struct {
-	// Reference to the datastore storage contents.
+	// [Required] Reference to the datastore storage contents.
 	Contents interface{} `pulumi:"contents"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -3856,7 +3856,7 @@ func (o DatastorePropertiesResponseOutput) ToDatastorePropertiesResponseOutputWi
 	return o
 }
 
-// Reference to the datastore storage contents.
+// [Required] Reference to the datastore storage contents.
 func (o DatastorePropertiesResponseOutput) Contents() pulumi.AnyOutput {
 	return o.ApplyT(func(v DatastorePropertiesResponse) interface{} { return v.Contents }).(pulumi.AnyOutput)
 }
@@ -3900,7 +3900,7 @@ type DockerBuild struct {
 	// Enum to determine docker specification type. Must be either Build or Image.
 	// Expected value is 'Build'.
 	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// Docker command line instructions to assemble an image.
+	// [Required] Docker command line instructions to assemble an image.
 	// <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
 	Dockerfile string `pulumi:"dockerfile"`
 	// The platform information of the docker image.
@@ -3916,7 +3916,7 @@ type DockerBuildResponse struct {
 	// Enum to determine docker specification type. Must be either Build or Image.
 	// Expected value is 'Build'.
 	DockerSpecificationType string `pulumi:"dockerSpecificationType"`
-	// Docker command line instructions to assemble an image.
+	// [Required] Docker command line instructions to assemble an image.
 	// <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
 	Dockerfile string `pulumi:"dockerfile"`
 	// The platform information of the docker image.
@@ -3925,7 +3925,7 @@ type DockerBuildResponse struct {
 
 // Class to represent configuration settings for Docker Build
 type DockerImage struct {
-	// Image name of a custom base image.
+	// [Required] Image name of a custom base image.
 	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
 	DockerImageUri string `pulumi:"dockerImageUri"`
 	// Enum to determine docker specification type. Must be either Build or Image.
@@ -3947,7 +3947,7 @@ type DockerImagePlatformResponse struct {
 
 // Class to represent configuration settings for Docker Build
 type DockerImageResponse struct {
-	// Image name of a custom base image.
+	// [Required] Image name of a custom base image.
 	// <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
 	DockerImageUri string `pulumi:"dockerImageUri"`
 	// Enum to determine docker specification type. Must be either Build or Image.
@@ -4870,9 +4870,9 @@ type GlusterFsContents struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'GlusterFs'.
 	ContentsType string `pulumi:"contentsType"`
-	// GlusterFS server address (can be the IP address or server name).
+	// [Required] GlusterFS server address (can be the IP address or server name).
 	ServerAddress string `pulumi:"serverAddress"`
-	// GlusterFS volume name.
+	// [Required] GlusterFS volume name.
 	VolumeName string `pulumi:"volumeName"`
 }
 
@@ -4881,9 +4881,9 @@ type GlusterFsContentsResponse struct {
 	// Enum to determine the datastore contents type.
 	// Expected value is 'GlusterFs'.
 	ContentsType string `pulumi:"contentsType"`
-	// GlusterFS server address (can be the IP address or server name).
+	// [Required] GlusterFS server address (can be the IP address or server name).
 	ServerAddress string `pulumi:"serverAddress"`
-	// GlusterFS volume name.
+	// [Required] GlusterFS volume name.
 	VolumeName string `pulumi:"volumeName"`
 }
 
@@ -4949,7 +4949,7 @@ type HDInsightResponseProperties struct {
 
 // Reference to an asset via its ARM resource ID.
 type IdAssetReference struct {
-	// ARM resource ID of the asset.
+	// [Required] ARM resource ID of the asset.
 	AssetId string `pulumi:"assetId"`
 	// Enum to determine which reference method to use for an asset.
 	// Expected value is 'Id'.
@@ -4958,7 +4958,7 @@ type IdAssetReference struct {
 
 // Reference to an asset via its ARM resource ID.
 type IdAssetReferenceResponse struct {
-	// ARM resource ID of the asset.
+	// [Required] ARM resource ID of the asset.
 	AssetId string `pulumi:"assetId"`
 	// Enum to determine which reference method to use for an asset.
 	// Expected value is 'Id'.
@@ -6740,7 +6740,7 @@ type LabelingJobType struct {
 	Description *string `pulumi:"description"`
 	// Labeling instructions of the job.
 	JobInstructions *LabelingJobInstructions `pulumi:"jobInstructions"`
-	// Specifies the type of job. This field should always be set to "Labeling".
+	// [Required] Specifies the type of job. This field should always be set to "Labeling".
 	JobType string `pulumi:"jobType"`
 	// Label categories of the job.
 	LabelCategories map[string]LabelCategory `pulumi:"labelCategories"`
@@ -6773,7 +6773,7 @@ type LabelingJobTypeArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Labeling instructions of the job.
 	JobInstructions LabelingJobInstructionsPtrInput `pulumi:"jobInstructions"`
-	// Specifies the type of job. This field should always be set to "Labeling".
+	// [Required] Specifies the type of job. This field should always be set to "Labeling".
 	JobType pulumi.StringInput `pulumi:"jobType"`
 	// Label categories of the job.
 	LabelCategories LabelCategoryMapInput `pulumi:"labelCategories"`
@@ -6829,7 +6829,7 @@ func (o LabelingJobTypeOutput) JobInstructions() LabelingJobInstructionsPtrOutpu
 	return o.ApplyT(func(v LabelingJobType) *LabelingJobInstructions { return v.JobInstructions }).(LabelingJobInstructionsPtrOutput)
 }
 
-// Specifies the type of job. This field should always be set to "Labeling".
+// [Required] Specifies the type of job. This field should always be set to "Labeling".
 func (o LabelingJobTypeOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v LabelingJobType) string { return v.JobType }).(pulumi.StringOutput)
 }
@@ -7090,7 +7090,7 @@ type LabelingJobResponse struct {
 	InteractionEndpoints map[string]JobEndpointResponse `pulumi:"interactionEndpoints"`
 	// Labeling instructions of the job.
 	JobInstructions *LabelingJobInstructionsResponse `pulumi:"jobInstructions"`
-	// Specifies the type of job. This field should always be set to "Labeling".
+	// [Required] Specifies the type of job. This field should always be set to "Labeling".
 	JobType string `pulumi:"jobType"`
 	// Label categories of the job.
 	LabelCategories map[string]LabelCategoryResponse `pulumi:"labelCategories"`
@@ -7155,7 +7155,7 @@ func (o LabelingJobResponseOutput) JobInstructions() LabelingJobInstructionsResp
 	return o.ApplyT(func(v LabelingJobResponse) *LabelingJobInstructionsResponse { return v.JobInstructions }).(LabelingJobInstructionsResponsePtrOutput)
 }
 
-// Specifies the type of job. This field should always be set to "Labeling".
+// [Required] Specifies the type of job. This field should always be set to "Labeling".
 func (o LabelingJobResponseOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v LabelingJobResponse) string { return v.JobType }).(pulumi.StringOutput)
 }
@@ -8049,7 +8049,7 @@ type ModelVersionType struct {
 	Flavors map[string]FlavorData `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -8078,7 +8078,7 @@ type ModelVersionTypeArgs struct {
 	Flavors FlavorDataMapInput `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path pulumi.StringInput `pulumi:"path"`
 	// The asset property dictionary.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
@@ -8133,7 +8133,7 @@ func (o ModelVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o ModelVersionTypeOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelVersionType) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -8158,7 +8158,7 @@ type ModelVersionResponse struct {
 	Flavors map[string]FlavorDataResponse `pulumi:"flavors"`
 	// If the name version are system generated (anonymous registration).
 	IsAnonymous *bool `pulumi:"isAnonymous"`
-	// The path of the file/directory in the datastore.
+	// [Required] The path of the file/directory in the datastore.
 	Path string `pulumi:"path"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
@@ -8201,7 +8201,7 @@ func (o ModelVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
 }
 
-// The path of the file/directory in the datastore.
+// [Required] The path of the file/directory in the datastore.
 func (o ModelVersionResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelVersionResponse) string { return v.Path }).(pulumi.StringOutput)
 }
@@ -8382,23 +8382,23 @@ func (o NotebookResourceInfoResponseOutput) ResourceId() pulumi.StringPtrOutput 
 
 // Optimization objective.
 type Objective struct {
-	// Defines supported metric goals for hyperparameter tuning
+	// [Required] Defines supported metric goals for hyperparameter tuning
 	Goal string `pulumi:"goal"`
-	// Name of the metric to optimize.
+	// [Required] Name of the metric to optimize.
 	PrimaryMetric string `pulumi:"primaryMetric"`
 }
 
 // Optimization objective.
 type ObjectiveResponse struct {
-	// Defines supported metric goals for hyperparameter tuning
+	// [Required] Defines supported metric goals for hyperparameter tuning
 	Goal string `pulumi:"goal"`
-	// Name of the metric to optimize.
+	// [Required] Name of the metric to optimize.
 	PrimaryMetric string `pulumi:"primaryMetric"`
 }
 
 // Online endpoint configuration
 type OnlineEndpointType struct {
-	// Inference endpoint authentication mode type
+	// [Required] Inference endpoint authentication mode type
 	AuthMode string `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
@@ -8427,7 +8427,7 @@ type OnlineEndpointTypeInput interface {
 
 // Online endpoint configuration
 type OnlineEndpointTypeArgs struct {
-	// Inference endpoint authentication mode type
+	// [Required] Inference endpoint authentication mode type
 	AuthMode pulumi.StringInput `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -8470,7 +8470,7 @@ func (o OnlineEndpointTypeOutput) ToOnlineEndpointTypeOutputWithContext(ctx cont
 	return o
 }
 
-// Inference endpoint authentication mode type
+// [Required] Inference endpoint authentication mode type
 func (o OnlineEndpointTypeOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointType) string { return v.AuthMode }).(pulumi.StringOutput)
 }
@@ -8504,7 +8504,7 @@ func (o OnlineEndpointTypeOutput) Traffic() pulumi.IntMapOutput {
 
 // Online endpoint configuration
 type OnlineEndpointResponse struct {
-	// Inference endpoint authentication mode type
+	// [Required] Inference endpoint authentication mode type
 	AuthMode string `pulumi:"authMode"`
 	// Description of the inference endpoint.
 	Description *string `pulumi:"description"`
@@ -8538,7 +8538,7 @@ func (o OnlineEndpointResponseOutput) ToOnlineEndpointResponseOutputWithContext(
 	return o
 }
 
-// Inference endpoint authentication mode type
+// [Required] Inference endpoint authentication mode type
 func (o OnlineEndpointResponseOutput) AuthMode() pulumi.StringOutput {
 	return o.ApplyT(func(v OnlineEndpointResponse) string { return v.AuthMode }).(pulumi.StringOutput)
 }
@@ -9468,9 +9468,9 @@ func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssigned
 }
 
 type Route struct {
-	// The path for the route.
+	// [Required] The path for the route.
 	Path string `pulumi:"path"`
-	// The port for the route.
+	// [Required] The port for the route.
 	Port int `pulumi:"port"`
 }
 
@@ -9486,9 +9486,9 @@ type RouteInput interface {
 }
 
 type RouteArgs struct {
-	// The path for the route.
+	// [Required] The path for the route.
 	Path pulumi.StringInput `pulumi:"path"`
-	// The port for the route.
+	// [Required] The port for the route.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -9569,12 +9569,12 @@ func (o RouteOutput) ToRoutePtrOutputWithContext(ctx context.Context) RoutePtrOu
 	}).(RoutePtrOutput)
 }
 
-// The path for the route.
+// [Required] The path for the route.
 func (o RouteOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v Route) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port for the route.
+// [Required] The port for the route.
 func (o RouteOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v Route) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -9603,7 +9603,7 @@ func (o RoutePtrOutput) Elem() RouteOutput {
 	}).(RouteOutput)
 }
 
-// The path for the route.
+// [Required] The path for the route.
 func (o RoutePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) *string {
 		if v == nil {
@@ -9613,7 +9613,7 @@ func (o RoutePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port for the route.
+// [Required] The port for the route.
 func (o RoutePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Route) *int {
 		if v == nil {
@@ -9624,9 +9624,9 @@ func (o RoutePtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type RouteResponse struct {
-	// The path for the route.
+	// [Required] The path for the route.
 	Path string `pulumi:"path"`
-	// The port for the route.
+	// [Required] The port for the route.
 	Port int `pulumi:"port"`
 }
 
@@ -9644,12 +9644,12 @@ func (o RouteResponseOutput) ToRouteResponseOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The path for the route.
+// [Required] The path for the route.
 func (o RouteResponseOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v RouteResponse) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// The port for the route.
+// [Required] The port for the route.
 func (o RouteResponseOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v RouteResponse) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -9678,7 +9678,7 @@ func (o RouteResponsePtrOutput) Elem() RouteResponseOutput {
 	}).(RouteResponseOutput)
 }
 
-// The path for the route.
+// [Required] The path for the route.
 func (o RouteResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) *string {
 		if v == nil {
@@ -9688,7 +9688,7 @@ func (o RouteResponsePtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port for the route.
+// [Required] The port for the route.
 func (o RouteResponsePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) *int {
 		if v == nil {
@@ -10008,7 +10008,7 @@ func (o ServiceManagedResourcesSettingsResponsePtrOutput) CosmosDb() CosmosDbSet
 type ServicePrincipalDatastoreCredentials struct {
 	// Authority URL used for authentication.
 	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// Service principal client ID.
+	// [Required] Service principal client ID.
 	ClientId string `pulumi:"clientId"`
 	// Enum to determine the datastore credentials type.
 	// Expected value is 'ServicePrincipal'.
@@ -10017,7 +10017,7 @@ type ServicePrincipalDatastoreCredentials struct {
 	ResourceUri *string `pulumi:"resourceUri"`
 	// Service principal secrets.
 	Secrets *ServicePrincipalDatastoreSecrets `pulumi:"secrets"`
-	// ID of the tenant to which the service principal belongs.
+	// [Required] ID of the tenant to which the service principal belongs.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -10025,14 +10025,14 @@ type ServicePrincipalDatastoreCredentials struct {
 type ServicePrincipalDatastoreCredentialsResponse struct {
 	// Authority URL used for authentication.
 	AuthorityUrl *string `pulumi:"authorityUrl"`
-	// Service principal client ID.
+	// [Required] Service principal client ID.
 	ClientId string `pulumi:"clientId"`
 	// Enum to determine the datastore credentials type.
 	// Expected value is 'ServicePrincipal'.
 	CredentialsType string `pulumi:"credentialsType"`
 	// Resource the service principal has access to.
 	ResourceUri *string `pulumi:"resourceUri"`
-	// ID of the tenant to which the service principal belongs.
+	// [Required] ID of the tenant to which the service principal belongs.
 	TenantId string `pulumi:"tenantId"`
 }
 
@@ -10505,7 +10505,7 @@ type SqlAdminDatastoreCredentials struct {
 	CredentialsType string `pulumi:"credentialsType"`
 	// SQL database secrets.
 	Secrets *SqlAdminDatastoreSecrets `pulumi:"secrets"`
-	// SQL database user name.
+	// [Required] SQL database user name.
 	UserId string `pulumi:"userId"`
 }
 
@@ -10514,7 +10514,7 @@ type SqlAdminDatastoreCredentialsResponse struct {
 	// Enum to determine the datastore credentials type.
 	// Expected value is 'SqlAdmin'.
 	CredentialsType string `pulumi:"credentialsType"`
-	// SQL database user name.
+	// [Required] SQL database user name.
 	UserId string `pulumi:"userId"`
 }
 
@@ -10628,9 +10628,9 @@ func (o StatusMessageResponseArrayOutput) Index(i pulumi.IntInput) StatusMessage
 
 // Sweep job definition.
 type SweepJob struct {
-	// Type of the hyperparameter sampling algorithms
+	// [Required] Type of the hyperparameter sampling algorithms
 	Algorithm string `pulumi:"algorithm"`
-	// Compute binding for the job.
+	// [Required] Compute binding for the job.
 	Compute ComputeConfiguration `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -10648,14 +10648,14 @@ type SweepJob struct {
 	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
 	// An upper bound on the number of trials to perform.
 	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
-	// Optimization objective.
+	// [Required] Optimization objective.
 	Objective Objective `pulumi:"objective"`
 	// Job priority for scheduling policy. Only applies to AMLCompute.
 	// Private preview feature and only available to users on the allow list.
 	Priority *int `pulumi:"priority"`
 	// The asset property dictionary.
 	Properties map[string]string `pulumi:"properties"`
-	// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+	// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
 	SearchSpace map[string]interface{} `pulumi:"searchSpace"`
 	// Tag dictionary. Tags can be added, removed, and updated.
 	Tags map[string]string `pulumi:"tags"`
@@ -10667,9 +10667,9 @@ type SweepJob struct {
 
 // Sweep job definition.
 type SweepJobResponse struct {
-	// Type of the hyperparameter sampling algorithms
+	// [Required] Type of the hyperparameter sampling algorithms
 	Algorithm string `pulumi:"algorithm"`
-	// Compute binding for the job.
+	// [Required] Compute binding for the job.
 	Compute ComputeConfigurationResponse `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
@@ -10690,7 +10690,7 @@ type SweepJobResponse struct {
 	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
 	// An upper bound on the number of trials to perform.
 	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
-	// Optimization objective.
+	// [Required] Optimization objective.
 	Objective ObjectiveResponse `pulumi:"objective"`
 	// Location of the job output logs and artifacts.
 	Output JobOutputResponse `pulumi:"output"`
@@ -10701,7 +10701,7 @@ type SweepJobResponse struct {
 	Properties map[string]string `pulumi:"properties"`
 	// Specifies the job provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+	// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
 	SearchSpace map[string]interface{} `pulumi:"searchSpace"`
 	// The status of a job.
 	Status string `pulumi:"status"`
@@ -10902,7 +10902,7 @@ type TensorFlowResponse struct {
 type TrialComponent struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The command to execute on startup of the job. eg. "python train.py"
+	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`
@@ -10923,7 +10923,7 @@ type TrialComponent struct {
 type TrialComponentResponse struct {
 	// ARM resource ID of the code asset.
 	CodeId *string `pulumi:"codeId"`
-	// The command to execute on startup of the job. eg. "python train.py"
+	// [Required] The command to execute on startup of the job. eg. "python train.py"
 	Command string `pulumi:"command"`
 	// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
 	Distribution interface{} `pulumi:"distribution"`

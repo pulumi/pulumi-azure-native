@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class IdAssetReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ARM resource ID of the asset.
+        /// [Required] ARM resource ID of the asset.
         /// </summary>
         [Input("assetId", required: true)]
         public Input<string> AssetId { get; set; } = null!;

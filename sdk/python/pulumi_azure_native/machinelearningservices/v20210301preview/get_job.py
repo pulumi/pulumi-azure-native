@@ -58,7 +58,7 @@ class GetJobResult:
     @pulumi.getter
     def properties(self) -> Any:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

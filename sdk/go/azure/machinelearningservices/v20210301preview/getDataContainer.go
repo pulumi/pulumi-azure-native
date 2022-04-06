@@ -35,7 +35,7 @@ type LookupDataContainerResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DataContainerResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -90,7 +90,7 @@ func (o LookupDataContainerResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataContainerResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupDataContainerResultOutput) Properties() DataContainerResponseOutput {
 	return o.ApplyT(func(v LookupDataContainerResult) DataContainerResponse { return v.Properties }).(DataContainerResponseOutput)
 }

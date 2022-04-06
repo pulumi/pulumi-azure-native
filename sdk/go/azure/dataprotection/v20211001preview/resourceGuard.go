@@ -58,6 +58,9 @@ func NewResourceGuard(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20220201preview:ResourceGuard"),
 		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20220301:ResourceGuard"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ResourceGuard

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<Inputs.SqlAdminDatastoreSecretsArgs>? Secrets { get; set; }
 
         /// <summary>
-        /// SQL database user name.
+        /// [Required] SQL database user name.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;

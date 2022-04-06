@@ -28,7 +28,7 @@ class OnlineDeploymentArgs:
         """
         The set of arguments for constructing a OnlineDeployment resource.
         :param pulumi.Input[str] endpoint_name: Inference endpoint name.
-        :param pulumi.Input[Union['K8sOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[Union['K8sOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] deployment_name: Inference Endpoint Deployment name.
@@ -68,7 +68,7 @@ class OnlineDeploymentArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input[Union['K8sOnlineDeploymentArgs', 'ManagedOnlineDeploymentArgs']]:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -186,7 +186,7 @@ class OnlineDeployment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[pulumi.InputType['K8sOnlineDeploymentArgs'], pulumi.InputType['ManagedOnlineDeploymentArgs']]] properties: Additional attributes of the entity.
+        :param pulumi.Input[Union[pulumi.InputType['K8sOnlineDeploymentArgs'], pulumi.InputType['ManagedOnlineDeploymentArgs']]] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -326,7 +326,7 @@ class OnlineDeployment(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[Any]:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

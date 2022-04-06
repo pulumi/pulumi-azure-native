@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string>? AuthorityUrl { get; set; }
 
         /// <summary>
-        /// Service principal client ID.
+        /// [Required] Service principal client ID.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<Inputs.CertificateDatastoreSecretsArgs>? Secrets { get; set; }
 
         /// <summary>
-        /// ID of the tenant to which the service principal belongs.
+        /// [Required] ID of the tenant to which the service principal belongs.
         /// </summary>
         [Input("tenantId", required: true)]
         public Input<string> TenantId { get; set; } = null!;
 
         /// <summary>
-        /// Thumbprint of the certificate used for authentication.
+        /// [Required] Thumbprint of the certificate used for authentication.
         /// </summary>
         [Input("thumbprint", required: true)]
         public Input<string> Thumbprint { get; set; } = null!;

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<Inputs.LabelingJobInstructionsArgs>? JobInstructions { get; set; }
 
         /// <summary>
-        /// Specifies the type of job. This field should always be set to "Labeling".
+        /// [Required] Specifies the type of job. This field should always be set to "Labeling".
         /// </summary>
         [Input("jobType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20210301Preview.JobType> JobType { get; set; } = null!;

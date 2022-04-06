@@ -45,10 +45,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Outputs
         /// </summary>
         public readonly string? Edition;
         /// <summary>
-        /// Timestamp of ESU Expiration.
-        /// </summary>
-        public readonly string? EsuExpirationDate;
-        /// <summary>
         /// Type of host for Azure Arc SQL Server
         /// </summary>
         public readonly string? HostType;
@@ -109,8 +105,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Outputs
 
             string? edition,
 
-            string? esuExpirationDate,
-
             string? hostType,
 
             string? instanceName,
@@ -140,7 +134,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Outputs
             CreateTime = createTime;
             CurrentVersion = currentVersion;
             Edition = edition;
-            EsuExpirationDate = esuExpirationDate;
             HostType = hostType;
             InstanceName = instanceName;
             LicenseType = licenseType;

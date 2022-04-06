@@ -52,12 +52,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.AzureArcData.V20220301Preview.EditionType>? Edition { get; set; }
 
         /// <summary>
-        /// Timestamp of ESU Expiration.
-        /// </summary>
-        [Input("esuExpirationDate")]
-        public Input<string>? EsuExpirationDate { get; set; }
-
-        /// <summary>
         /// Type of host for Azure Arc SQL Server
         /// </summary>
         [Input("hostType")]

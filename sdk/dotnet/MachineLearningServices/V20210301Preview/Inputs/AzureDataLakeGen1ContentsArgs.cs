@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string> ContentsType { get; set; } = null!;
 
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         [Input("credentials", required: true)]
         public object Credentials { get; set; } = null!;
 
         /// <summary>
-        /// Azure Data Lake store name.
+        /// [Required] Azure Data Lake store name.
         /// </summary>
         [Input("storeName", required: true)]
         public Input<string> StoreName { get; set; } = null!;

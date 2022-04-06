@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     public sealed class OnlineEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Inference endpoint authentication mode type
+        /// [Required] Inference endpoint authentication mode type
         /// </summary>
         [Input("authMode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20210301Preview.EndpointAuthMode> AuthMode { get; set; } = null!;

@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class SweepJobResponse
     {
         /// <summary>
-        /// Type of the hyperparameter sampling algorithms
+        /// [Required] Type of the hyperparameter sampling algorithms
         /// </summary>
         public readonly string Algorithm;
         /// <summary>
-        /// Compute binding for the job.
+        /// [Required] Compute binding for the job.
         /// </summary>
         public readonly Outputs.ComputeConfigurationResponse Compute;
         /// <summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly int? MaxTotalTrials;
         /// <summary>
-        /// Optimization objective.
+        /// [Required] Optimization objective.
         /// </summary>
         public readonly Outputs.ObjectiveResponse Objective;
         /// <summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        /// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         /// </summary>
         public readonly ImmutableDictionary<string, object> SearchSpace;
         /// <summary>

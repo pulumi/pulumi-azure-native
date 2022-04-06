@@ -41,7 +41,7 @@ export class CodeContainer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     public readonly properties!: pulumi.Output<outputs.machinelearningservices.CodeContainerResponse>;
     /**
@@ -101,7 +101,7 @@ export interface CodeContainerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     properties: pulumi.Input<inputs.machinelearningservices.CodeContainerArgs>;
     /**

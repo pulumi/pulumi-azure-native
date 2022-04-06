@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Union<Outputs.K8sOnlineDeploymentResponse, Outputs.ManagedOnlineDeploymentResponse> Properties;
         /// <summary>

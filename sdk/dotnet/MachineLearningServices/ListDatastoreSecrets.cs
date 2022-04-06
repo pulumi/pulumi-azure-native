@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class ListDatastoreSecretsResult
     {
         /// <summary>
-        /// Credential type used to authentication with storage.
+        /// [Required] Credential type used to authentication with storage.
         /// </summary>
         public readonly string SecretsType;
 

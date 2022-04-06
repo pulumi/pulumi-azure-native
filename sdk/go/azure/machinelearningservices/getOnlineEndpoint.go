@@ -40,7 +40,7 @@ type LookupOnlineEndpointResult struct {
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties OnlineEndpointResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -111,7 +111,7 @@ func (o LookupOnlineEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOnlineEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupOnlineEndpointResultOutput) Properties() OnlineEndpointResponseOutput {
 	return o.ApplyT(func(v LookupOnlineEndpointResult) OnlineEndpointResponse { return v.Properties }).(OnlineEndpointResponseOutput)
 }

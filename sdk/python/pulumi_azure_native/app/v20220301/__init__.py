@@ -20,6 +20,7 @@ from .get_managed_environment import *
 from .get_managed_environments_storage import *
 from .list_container_app_custom_host_name_analysis import *
 from .list_container_app_secrets import *
+from .list_dapr_component_secrets import *
 from .managed_environment import *
 from .managed_environments_storage import *
 from ._inputs import *

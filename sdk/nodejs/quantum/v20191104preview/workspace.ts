@@ -121,7 +121,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["usable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quantum:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quantum:Workspace" }, { type: "azure-native:quantum/v20220110preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

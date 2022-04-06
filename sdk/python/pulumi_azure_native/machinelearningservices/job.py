@@ -22,7 +22,7 @@ class JobArgs:
                  id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Job resource.
-        :param pulumi.Input[Union['CommandJobArgs', 'SweepJobArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[Union['CommandJobArgs', 'SweepJobArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] id: The name and identifier for the Job.
@@ -37,7 +37,7 @@ class JobArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input[Union['CommandJobArgs', 'SweepJobArgs']]:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -99,7 +99,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The name and identifier for the Job.
-        :param pulumi.Input[Union[pulumi.InputType['CommandJobArgs'], pulumi.InputType['SweepJobArgs']]] properties: Additional attributes of the entity.
+        :param pulumi.Input[Union[pulumi.InputType['CommandJobArgs'], pulumi.InputType['SweepJobArgs']]] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -199,7 +199,7 @@ class Job(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output[Any]:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

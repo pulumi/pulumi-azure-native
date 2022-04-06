@@ -17,7 +17,7 @@ type EnvironmentSpecificationVersion struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentSpecificationVersionResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -84,7 +84,7 @@ func (EnvironmentSpecificationVersionState) ElementType() reflect.Type {
 type environmentSpecificationVersionArgs struct {
 	// Name of EnvironmentSpecificationVersion.
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentSpecificationVersionType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -98,7 +98,7 @@ type environmentSpecificationVersionArgs struct {
 type EnvironmentSpecificationVersionArgs struct {
 	// Name of EnvironmentSpecificationVersion.
 	Name pulumi.StringInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentSpecificationVersionTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

@@ -17,7 +17,7 @@ type Datastore struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DatastorePropertiesResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -84,7 +84,7 @@ func (DatastoreState) ElementType() reflect.Type {
 type datastoreArgs struct {
 	// Datastore name.
 	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DatastoreProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -98,7 +98,7 @@ type datastoreArgs struct {
 type DatastoreArgs struct {
 	// Datastore name.
 	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DatastorePropertiesInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

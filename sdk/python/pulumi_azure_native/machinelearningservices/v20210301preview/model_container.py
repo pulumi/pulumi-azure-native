@@ -21,7 +21,7 @@ class ModelContainerInitArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ModelContainer resource.
-        :param pulumi.Input['ModelContainerArgs'] properties: Additional attributes of the entity.
+        :param pulumi.Input['ModelContainerArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name.
@@ -36,7 +36,7 @@ class ModelContainerInitArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['ModelContainerArgs']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -97,7 +97,7 @@ class ModelContainer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -195,7 +195,7 @@ class ModelContainer(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.ModelContainerResponse']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

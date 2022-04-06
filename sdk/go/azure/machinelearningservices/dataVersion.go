@@ -18,7 +18,7 @@ type DataVersion struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DataVersionResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -85,7 +85,7 @@ func (DataVersionState) ElementType() reflect.Type {
 type dataVersionArgs struct {
 	// Container name.
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DataVersionType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -99,7 +99,7 @@ type dataVersionArgs struct {
 type DataVersionArgs struct {
 	// Container name.
 	Name pulumi.StringInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DataVersionTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

@@ -22,11 +22,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string ContentsType;
         /// <summary>
-        /// GlusterFS server address (can be the IP address or server name).
+        /// [Required] GlusterFS server address (can be the IP address or server name).
         /// </summary>
         public readonly string ServerAddress;
         /// <summary>
-        /// GlusterFS volume name.
+        /// [Required] GlusterFS volume name.
         /// </summary>
         public readonly string VolumeName;
 

@@ -38,7 +38,7 @@ type LookupCodeVersionResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties CodeVersionResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -95,7 +95,7 @@ func (o LookupCodeVersionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCodeVersionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupCodeVersionResultOutput) Properties() CodeVersionResponseOutput {
 	return o.ApplyT(func(v LookupCodeVersionResult) CodeVersionResponse { return v.Properties }).(CodeVersionResponseOutput)
 }

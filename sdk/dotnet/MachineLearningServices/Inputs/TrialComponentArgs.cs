@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? CodeId { get; set; }
 
         /// <summary>
-        /// The command to execute on startup of the job. eg. "python train.py"
+        /// [Required] The command to execute on startup of the job. eg. "python train.py"
         /// </summary>
         [Input("command", required: true)]
         public Input<string> Command { get; set; } = null!;

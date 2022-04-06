@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class DockerImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Image name of a custom base image.
+        /// [Required] Image name of a custom base image.
         /// &lt;seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" /&gt;
         /// </summary>
         [Input("dockerImageUri", required: true)]

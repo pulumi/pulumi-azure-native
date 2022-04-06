@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     public sealed class OnlineEndpointResponse
     {
         /// <summary>
-        /// Inference endpoint authentication mode type
+        /// [Required] Inference endpoint authentication mode type
         /// </summary>
         public readonly string AuthMode;
         /// <summary>

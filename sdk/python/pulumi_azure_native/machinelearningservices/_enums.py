@@ -150,7 +150,7 @@ class DatastoreTypeArm(str, Enum):
 
 class DistributionType(str, Enum):
     """
-    Specifies the type of distribution framework.
+    [Required] Specifies the type of distribution framework.
     """
     PY_TORCH = "PyTorch"
     TENSOR_FLOW = "TensorFlow"
@@ -159,7 +159,7 @@ class DistributionType(str, Enum):
 
 class DockerSpecificationType(str, Enum):
     """
-    Docker specification must be either Build or Image
+    [Required] Docker specification must be either Build or Image
     """
     BUILD = "Build"
     IMAGE = "Image"
@@ -167,7 +167,7 @@ class DockerSpecificationType(str, Enum):
 
 class EarlyTerminationPolicyType(str, Enum):
     """
-    Name of policy configuration
+    [Required] Name of policy configuration
     """
     BANDIT = "Bandit"
     MEDIAN_STOPPING = "MedianStopping"
@@ -184,7 +184,7 @@ class EncryptionStatus(str, Enum):
 
 class EndpointAuthMode(str, Enum):
     """
-    Inference endpoint authentication mode type
+    [Required] Inference endpoint authentication mode type
     """
     AML_TOKEN = "AMLToken"
     KEY = "Key"
@@ -193,7 +193,7 @@ class EndpointAuthMode(str, Enum):
 
 class EndpointComputeType(str, Enum):
     """
-    The compute type of the endpoint.
+    [Required] The compute type of the endpoint.
     """
     MANAGED = "Managed"
     K8_S = "K8S"
@@ -202,7 +202,7 @@ class EndpointComputeType(str, Enum):
 
 class Goal(str, Enum):
     """
-    Defines supported metric goals for hyperparameter tuning
+    [Required] Defines supported metric goals for hyperparameter tuning
     """
     MINIMIZE = "Minimize"
     MAXIMIZE = "Maximize"
@@ -220,7 +220,7 @@ class Header(str, Enum):
 
 class IdentityConfigurationType(str, Enum):
     """
-    Specifies the type of identity framework.
+    [Required] Specifies the type of identity framework.
     """
     MANAGED = "Managed"
     AML_TOKEN = "AMLToken"
@@ -237,7 +237,7 @@ class ImageAnnotationType(str, Enum):
 
 class JobType(str, Enum):
     """
-    Specifies the type of job.
+    [Required] Specifies the type of job.
     """
     COMMAND = "Command"
     SWEEP = "Sweep"
@@ -288,7 +288,7 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class ReferenceType(str, Enum):
     """
-    Specifies the type of asset reference.
+    [Required] Specifies the type of asset reference.
     """
     ID = "Id"
     DATA_PATH = "DataPath"
@@ -326,7 +326,7 @@ class ResourceIdentityType(str, Enum):
 
 class SamplingAlgorithm(str, Enum):
     """
-    Type of the hyperparameter sampling algorithms
+    [Required] Type of the hyperparameter sampling algorithms
     """
     GRID = "Grid"
     RANDOM = "Random"
@@ -335,7 +335,7 @@ class SamplingAlgorithm(str, Enum):
 
 class ScaleType(str, Enum):
     """
-    Type of deployment scaling algorithm
+    [Required] Type of deployment scaling algorithm
     """
     AUTO = "Auto"
     MANUAL = "Manual"

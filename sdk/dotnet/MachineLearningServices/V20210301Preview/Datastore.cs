@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.DatastorePropertiesResponse> Properties { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.DatastorePropertiesArgs> Properties { get; set; } = null!;

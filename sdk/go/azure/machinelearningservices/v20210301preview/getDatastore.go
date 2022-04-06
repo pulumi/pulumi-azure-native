@@ -35,7 +35,7 @@ type LookupDatastoreResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties DatastorePropertiesResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -90,7 +90,7 @@ func (o LookupDatastoreResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupDatastoreResultOutput) Properties() DatastorePropertiesResponseOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) DatastorePropertiesResponse { return v.Properties }).(DatastorePropertiesResponseOutput)
 }

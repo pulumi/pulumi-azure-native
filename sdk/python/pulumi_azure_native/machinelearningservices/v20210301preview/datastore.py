@@ -23,7 +23,7 @@ class DatastoreArgs:
                  skip_validation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Datastore resource.
-        :param pulumi.Input['DatastorePropertiesArgs'] properties: Additional attributes of the entity.
+        :param pulumi.Input['DatastorePropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Datastore name.
@@ -41,7 +41,7 @@ class DatastoreArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['DatastorePropertiesArgs']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -115,7 +115,7 @@ class Datastore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Datastore name.
-        :param pulumi.Input[pulumi.InputType['DatastorePropertiesArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['DatastorePropertiesArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] skip_validation: Flag to skip validation.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -216,7 +216,7 @@ class Datastore(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.DatastorePropertiesResponse']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

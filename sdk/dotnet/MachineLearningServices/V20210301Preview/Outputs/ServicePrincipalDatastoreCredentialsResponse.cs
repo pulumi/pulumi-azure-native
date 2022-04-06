@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string? AuthorityUrl;
         /// <summary>
-        /// Service principal client ID.
+        /// [Required] Service principal client ID.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string? ResourceUri;
         /// <summary>
-        /// ID of the tenant to which the service principal belongs.
+        /// [Required] ID of the tenant to which the service principal belongs.
         /// </summary>
         public readonly string TenantId;
 

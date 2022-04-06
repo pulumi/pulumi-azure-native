@@ -77,6 +77,9 @@ func NewExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:azurestackhci/v20210901:Extension"),
 		},
+		{
+			Type: pulumi.String("azure-native:azurestackhci/v20220301:Extension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Extension

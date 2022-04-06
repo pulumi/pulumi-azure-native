@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:quantum:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:quantum/v20220110preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

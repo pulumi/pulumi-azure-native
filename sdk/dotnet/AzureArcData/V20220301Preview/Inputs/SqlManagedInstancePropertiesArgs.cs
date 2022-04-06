@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     public sealed class SqlManagedInstancePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Active Directory information related to this SQL Managed Instance.
+        /// </summary>
+        [Input("activeDirectoryInformation")]
+        public Input<Inputs.ActiveDirectoryInformationArgs>? ActiveDirectoryInformation { get; set; }
+
+        /// <summary>
         /// The instance admin user
         /// </summary>
         [Input("admin")]
@@ -56,12 +62,6 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         /// </summary>
         [Input("k8sRaw")]
         public Input<Inputs.SqlManagedInstanceK8sRawArgs>? K8sRaw { get; set; }
-
-        /// <summary>
-        /// A base64-encoded keytab.
-        /// </summary>
-        [Input("keytab")]
-        public Input<string>? Keytab { get; set; }
 
         /// <summary>
         /// Last uploaded date from Kubernetes cluster. Defaults to current date time

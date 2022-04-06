@@ -24,7 +24,7 @@ class EnvironmentSpecificationVersionInitArgs:
         """
         The set of arguments for constructing a EnvironmentSpecificationVersion resource.
         :param pulumi.Input[str] name: Name of EnvironmentSpecificationVersion.
-        :param pulumi.Input['EnvironmentSpecificationVersionArgs'] properties: Additional attributes of the entity.
+        :param pulumi.Input['EnvironmentSpecificationVersionArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] version: Version of EnvironmentSpecificationVersion.
@@ -52,7 +52,7 @@ class EnvironmentSpecificationVersionInitArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['EnvironmentSpecificationVersionArgs']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -114,7 +114,7 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of EnvironmentSpecificationVersion.
-        :param pulumi.Input[pulumi.InputType['EnvironmentSpecificationVersionArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['EnvironmentSpecificationVersionArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version of EnvironmentSpecificationVersion.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -217,7 +217,7 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.EnvironmentSpecificationVersionResponse']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

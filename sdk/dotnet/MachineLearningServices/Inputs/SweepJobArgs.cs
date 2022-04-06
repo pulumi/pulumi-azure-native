@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class SweepJobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of the hyperparameter sampling algorithms
+        /// [Required] Type of the hyperparameter sampling algorithms
         /// </summary>
         [Input("algorithm", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.SamplingAlgorithm> Algorithm { get; set; } = null!;
 
         /// <summary>
-        /// Compute binding for the job.
+        /// [Required] Compute binding for the job.
         /// </summary>
         [Input("compute", required: true)]
         public Input<Inputs.ComputeConfigurationArgs> Compute { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<int>? MaxTotalTrials { get; set; }
 
         /// <summary>
-        /// Optimization objective.
+        /// [Required] Optimization objective.
         /// </summary>
         [Input("objective", required: true)]
         public Input<Inputs.ObjectiveArgs> Objective { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         private InputMap<object>? _searchSpace;
 
         /// <summary>
-        /// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        /// [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         /// </summary>
         public InputMap<object> SearchSpace
         {

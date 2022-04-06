@@ -2591,6 +2591,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20220301",
+  "fqn": "pulumi_azure_native.azurestackhci.v20220301",
+  "classes": {
+   "azure-native:azurestackhci/v20220301:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20220301:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20220301:Extension": "Extension"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "batch",
   "fqn": "pulumi_azure_native.batch",
   "classes": {
@@ -5892,6 +5902,17 @@ _utilities.register(
    "azure-native:dataprotection/v20220201preview:BackupPolicy": "BackupPolicy",
    "azure-native:dataprotection/v20220201preview:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20220201preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dataprotection/v20220301",
+  "fqn": "pulumi_azure_native.dataprotection.v20220301",
+  "classes": {
+   "azure-native:dataprotection/v20220301:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20220301:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20220301:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20220301:ResourceGuard": "ResourceGuard"
   }
  },
  {
@@ -14594,6 +14615,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "quantum/v20220110preview",
+  "fqn": "pulumi_azure_native.quantum.v20220110preview",
+  "classes": {
+   "azure-native:quantum/v20220110preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "recommendationsservice",
   "fqn": "pulumi_azure_native.recommendationsservice",
   "classes": {
@@ -15029,6 +15058,30 @@ _utilities.register(
    "azure-native:recoveryservices/v20220101:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20220101:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20220101:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20220201",
+  "fqn": "pulumi_azure_native.recoveryservices.v20220201",
+  "classes": {
+   "azure-native:recoveryservices/v20220201:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20220201:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20220201:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20220201:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20220201:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20220201:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20220201:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20220201:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20220201:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20220201:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20220201:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20220201:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20220201:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20220201:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20220201:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20220201:ResourceGuardProxy": "ResourceGuardProxy",
+   "azure-native:recoveryservices/v20220201:Vault": "Vault"
   }
  },
  {

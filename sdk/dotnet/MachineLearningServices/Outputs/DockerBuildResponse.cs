@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string DockerSpecificationType;
         /// <summary>
-        /// Docker command line instructions to assemble an image.
+        /// [Required] Docker command line instructions to assemble an image.
         /// &lt;seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" /&gt;
         /// </summary>
         public readonly string Dockerfile;

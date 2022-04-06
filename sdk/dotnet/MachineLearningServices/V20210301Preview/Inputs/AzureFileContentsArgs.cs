@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     public sealed class AzureFileContentsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Storage account name.
+        /// [Required] Storage account name.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Storage account container name.
+        /// [Required] Storage account container name.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
@@ -35,19 +35,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string> ContentsType { get; set; } = null!;
 
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         [Input("credentials", required: true)]
         public object Credentials { get; set; } = null!;
 
         /// <summary>
-        /// Azure cloud endpoint for the storage account.
+        /// [Required] Azure cloud endpoint for the storage account.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Protocol used to communicate with the storage account.
+        /// [Required] Protocol used to communicate with the storage account.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

@@ -1051,13 +1051,13 @@ class AzureBlobContentsArgs:
                  protocol: pulumi.Input[str]):
         """
         Azure Blob datastore configuration.
-        :param pulumi.Input[str] account_name: Storage account name.
-        :param pulumi.Input[str] container_name: Storage account container name.
+        :param pulumi.Input[str] account_name: [Required] Storage account name.
+        :param pulumi.Input[str] container_name: [Required] Storage account container name.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureBlob'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] endpoint: Azure cloud endpoint for the storage account.
-        :param pulumi.Input[str] protocol: Protocol used to communicate with the storage account.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param pulumi.Input[str] protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1070,7 +1070,7 @@ class AzureBlobContentsArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[str]:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1082,7 +1082,7 @@ class AzureBlobContentsArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[str]:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1107,7 +1107,7 @@ class AzureBlobContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1119,7 +1119,7 @@ class AzureBlobContentsArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1131,7 +1131,7 @@ class AzureBlobContentsArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1150,8 +1150,8 @@ class AzureDataLakeGen1ContentsArgs:
         Azure Data Lake Gen1 datastore configuration.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureDataLakeGen1'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] store_name: Azure Data Lake store name.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] store_name: [Required] Azure Data Lake store name.
         """
         pulumi.set(__self__, "contents_type", 'AzureDataLakeGen1')
         pulumi.set(__self__, "credentials", credentials)
@@ -1174,7 +1174,7 @@ class AzureDataLakeGen1ContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1186,7 +1186,7 @@ class AzureDataLakeGen1ContentsArgs:
     @pulumi.getter(name="storeName")
     def store_name(self) -> pulumi.Input[str]:
         """
-        Azure Data Lake store name.
+        [Required] Azure Data Lake store name.
         """
         return pulumi.get(self, "store_name")
 
@@ -1206,13 +1206,13 @@ class AzureDataLakeGen2ContentsArgs:
                  protocol: pulumi.Input[str]):
         """
         Azure Data Lake Gen2 datastore configuration.
-        :param pulumi.Input[str] account_name: Storage account name.
-        :param pulumi.Input[str] container_name: Storage account container name.
+        :param pulumi.Input[str] account_name: [Required] Storage account name.
+        :param pulumi.Input[str] container_name: [Required] Storage account container name.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureDataLakeGen2'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] endpoint: Azure cloud endpoint for the storage account.
-        :param pulumi.Input[str] protocol: Protocol used to communicate with the storage account.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param pulumi.Input[str] protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1225,7 +1225,7 @@ class AzureDataLakeGen2ContentsArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[str]:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1237,7 +1237,7 @@ class AzureDataLakeGen2ContentsArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[str]:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1262,7 +1262,7 @@ class AzureDataLakeGen2ContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1274,7 +1274,7 @@ class AzureDataLakeGen2ContentsArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1286,7 +1286,7 @@ class AzureDataLakeGen2ContentsArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1306,13 +1306,13 @@ class AzureFileContentsArgs:
                  protocol: pulumi.Input[str]):
         """
         Azure File datastore configuration.
-        :param pulumi.Input[str] account_name: Storage account name.
-        :param pulumi.Input[str] container_name: Storage account container name.
+        :param pulumi.Input[str] account_name: [Required] Storage account name.
+        :param pulumi.Input[str] container_name: [Required] Storage account container name.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureFile'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] endpoint: Azure cloud endpoint for the storage account.
-        :param pulumi.Input[str] protocol: Protocol used to communicate with the storage account.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param pulumi.Input[str] protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1325,7 +1325,7 @@ class AzureFileContentsArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[str]:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1337,7 +1337,7 @@ class AzureFileContentsArgs:
     @pulumi.getter(name="containerName")
     def container_name(self) -> pulumi.Input[str]:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1362,7 +1362,7 @@ class AzureFileContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1374,7 +1374,7 @@ class AzureFileContentsArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1386,7 +1386,7 @@ class AzureFileContentsArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1409,11 +1409,11 @@ class AzurePostgreSqlContentsArgs:
         Azure Postgre SQL datastore configuration.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzurePostgreSql'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] database_name: Azure SQL database name.
-        :param pulumi.Input[str] endpoint: Azure cloud endpoint for the database.
-        :param pulumi.Input[int] port_number: Azure SQL server port.
-        :param pulumi.Input[str] server_name: Azure SQL server name.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] database_name: [Required] Azure SQL database name.
+        :param pulumi.Input[str] endpoint: [Required] Azure cloud endpoint for the database.
+        :param pulumi.Input[int] port_number: [Required] Azure SQL server port.
+        :param pulumi.Input[str] server_name: [Required] Azure SQL server name.
         :param pulumi.Input[bool] enable_ssl: Whether the Azure PostgreSQL server requires SSL.
         """
         pulumi.set(__self__, "contents_type", 'AzurePostgreSql')
@@ -1442,7 +1442,7 @@ class AzurePostgreSqlContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1454,7 +1454,7 @@ class AzurePostgreSqlContentsArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        Azure SQL database name.
+        [Required] Azure SQL database name.
         """
         return pulumi.get(self, "database_name")
 
@@ -1466,7 +1466,7 @@ class AzurePostgreSqlContentsArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        Azure cloud endpoint for the database.
+        [Required] Azure cloud endpoint for the database.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1478,7 +1478,7 @@ class AzurePostgreSqlContentsArgs:
     @pulumi.getter(name="portNumber")
     def port_number(self) -> pulumi.Input[int]:
         """
-        Azure SQL server port.
+        [Required] Azure SQL server port.
         """
         return pulumi.get(self, "port_number")
 
@@ -1490,7 +1490,7 @@ class AzurePostgreSqlContentsArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Input[str]:
         """
-        Azure SQL server name.
+        [Required] Azure SQL server name.
         """
         return pulumi.get(self, "server_name")
 
@@ -1524,11 +1524,11 @@ class AzureSqlDatabaseContentsArgs:
         Azure SQL Database datastore configuration.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureSqlDatabase'.
-        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: Account credentials.
-        :param pulumi.Input[str] database_name: Azure SQL database name.
-        :param pulumi.Input[str] endpoint: Azure cloud endpoint for the database.
-        :param pulumi.Input[int] port_number: Azure SQL server port.
-        :param pulumi.Input[str] server_name: Azure SQL server name.
+        :param pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']] credentials: [Required] Account credentials.
+        :param pulumi.Input[str] database_name: [Required] Azure SQL database name.
+        :param pulumi.Input[str] endpoint: [Required] Azure cloud endpoint for the database.
+        :param pulumi.Input[int] port_number: [Required] Azure SQL server port.
+        :param pulumi.Input[str] server_name: [Required] Azure SQL server name.
         """
         pulumi.set(__self__, "contents_type", 'AzureSqlDatabase')
         pulumi.set(__self__, "credentials", credentials)
@@ -1554,7 +1554,7 @@ class AzureSqlDatabaseContentsArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Union['AccountKeyDatastoreCredentialsArgs', 'CertificateDatastoreCredentialsArgs', 'NoneDatastoreCredentialsArgs', 'SasDatastoreCredentialsArgs', 'ServicePrincipalDatastoreCredentialsArgs', 'SqlAdminDatastoreCredentialsArgs']]:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1566,7 +1566,7 @@ class AzureSqlDatabaseContentsArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
         """
-        Azure SQL database name.
+        [Required] Azure SQL database name.
         """
         return pulumi.get(self, "database_name")
 
@@ -1578,7 +1578,7 @@ class AzureSqlDatabaseContentsArgs:
     @pulumi.getter
     def endpoint(self) -> pulumi.Input[str]:
         """
-        Azure cloud endpoint for the database.
+        [Required] Azure cloud endpoint for the database.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1590,7 +1590,7 @@ class AzureSqlDatabaseContentsArgs:
     @pulumi.getter(name="portNumber")
     def port_number(self) -> pulumi.Input[int]:
         """
-        Azure SQL server port.
+        [Required] Azure SQL server port.
         """
         return pulumi.get(self, "port_number")
 
@@ -1602,7 +1602,7 @@ class AzureSqlDatabaseContentsArgs:
     @pulumi.getter(name="serverName")
     def server_name(self) -> pulumi.Input[str]:
         """
-        Azure SQL server name.
+        [Required] Azure SQL server name.
         """
         return pulumi.get(self, "server_name")
 
@@ -1938,7 +1938,7 @@ class BatchEndpointArgs:
                  traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
         """
         Batch endpoint configuration.
-        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Enum to determine endpoint authentication mode.
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: [Required] Inference endpoint authentication mode type
         :param pulumi.Input[str] description: Description of the inference endpoint.
         :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
@@ -1960,7 +1960,7 @@ class BatchEndpointArgs:
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'EndpointAuthMode']]]:
         """
-        Enum to determine endpoint authentication mode.
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -2110,11 +2110,11 @@ class CertificateDatastoreCredentialsArgs:
                  secrets: Optional[pulumi.Input['CertificateDatastoreSecretsArgs']] = None):
         """
         Certificate datastore credentials configuration.
-        :param pulumi.Input[str] client_id: Service principal client ID.
+        :param pulumi.Input[str] client_id: [Required] Service principal client ID.
         :param pulumi.Input[str] credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'Certificate'.
-        :param pulumi.Input[str] tenant_id: ID of the tenant to which the service principal belongs.
-        :param pulumi.Input[str] thumbprint: Thumbprint of the certificate used for authentication.
+        :param pulumi.Input[str] tenant_id: [Required] ID of the tenant to which the service principal belongs.
+        :param pulumi.Input[str] thumbprint: [Required] Thumbprint of the certificate used for authentication.
         :param pulumi.Input[str] authority_url: Authority URL used for authentication.
         :param pulumi.Input[str] resource_uri: Resource the service principal has access to.
         :param pulumi.Input['CertificateDatastoreSecretsArgs'] secrets: Service principal secrets.
@@ -2134,7 +2134,7 @@ class CertificateDatastoreCredentialsArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        Service principal client ID.
+        [Required] Service principal client ID.
         """
         return pulumi.get(self, "client_id")
 
@@ -2159,7 +2159,7 @@ class CertificateDatastoreCredentialsArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        ID of the tenant to which the service principal belongs.
+        [Required] ID of the tenant to which the service principal belongs.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2171,7 +2171,7 @@ class CertificateDatastoreCredentialsArgs:
     @pulumi.getter
     def thumbprint(self) -> pulumi.Input[str]:
         """
-        Thumbprint of the certificate used for authentication.
+        [Required] Thumbprint of the certificate used for authentication.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -2264,7 +2264,7 @@ class CodeConfigurationArgs:
                  code_id: Optional[pulumi.Input[str]] = None):
         """
         Configuration for a scoring code asset.
-        :param pulumi.Input[str] scoring_script: The script to execute on startup. eg. "score.py"
+        :param pulumi.Input[str] scoring_script: [Required] The script to execute on startup. eg. "score.py"
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
         """
         pulumi.set(__self__, "scoring_script", scoring_script)
@@ -2275,7 +2275,7 @@ class CodeConfigurationArgs:
     @pulumi.getter(name="scoringScript")
     def scoring_script(self) -> pulumi.Input[str]:
         """
-        The script to execute on startup. eg. "score.py"
+        [Required] The script to execute on startup. eg. "score.py"
         """
         return pulumi.get(self, "scoring_script")
 
@@ -2363,7 +2363,7 @@ class CodeVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Code asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
@@ -2386,7 +2386,7 @@ class CodeVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -2476,8 +2476,8 @@ class CommandJobArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         Command job definition.
-        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
-        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[str] command: [Required] The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: [Required] Compute binding for the job.
         :param pulumi.Input[str] job_type: Enum to determine the type of job.
                Expected value is 'Command'.
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
@@ -2530,7 +2530,7 @@ class CommandJobArgs:
     @pulumi.getter
     def command(self) -> pulumi.Input[str]:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 
@@ -2542,7 +2542,7 @@ class CommandJobArgs:
     @pulumi.getter
     def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -2738,7 +2738,7 @@ class ComputeConfigurationArgs:
         :param pulumi.Input[bool] is_local: Set to true for jobs running on local compute.
         :param pulumi.Input[str] location: Location for virtual cluster run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Additional properties.
-        :param pulumi.Input[str] target: ARM resource ID of the compute resource.
+        :param pulumi.Input[str] target: ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
@@ -2817,7 +2817,7 @@ class ComputeConfigurationArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
         """
-        ARM resource ID of the compute resource.
+        ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         return pulumi.get(self, "target")
 
@@ -3772,7 +3772,7 @@ class DataVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Data asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[Union[str, 'DatasetType']] dataset_type: The Format of dataset.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
@@ -3798,7 +3798,7 @@ class DataVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -4030,7 +4030,7 @@ class DatastorePropertiesArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Datastore definition.
-        :param pulumi.Input[Union['AzureBlobContentsArgs', 'AzureDataLakeGen1ContentsArgs', 'AzureDataLakeGen2ContentsArgs', 'AzureFileContentsArgs', 'AzurePostgreSqlContentsArgs', 'AzureSqlDatabaseContentsArgs', 'GlusterFsContentsArgs']] contents: Reference to the datastore storage contents.
+        :param pulumi.Input[Union['AzureBlobContentsArgs', 'AzureDataLakeGen1ContentsArgs', 'AzureDataLakeGen2ContentsArgs', 'AzureFileContentsArgs', 'AzurePostgreSqlContentsArgs', 'AzureSqlDatabaseContentsArgs', 'GlusterFsContentsArgs']] contents: [Required] Reference to the datastore storage contents.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[bool] is_default: Whether this datastore is the default for the workspace.
         :param pulumi.Input['LinkedInfoArgs'] linked_info: Information about the datastore origin, if linked.
@@ -4053,7 +4053,7 @@ class DatastorePropertiesArgs:
     @pulumi.getter
     def contents(self) -> pulumi.Input[Union['AzureBlobContentsArgs', 'AzureDataLakeGen1ContentsArgs', 'AzureDataLakeGen2ContentsArgs', 'AzureFileContentsArgs', 'AzurePostgreSqlContentsArgs', 'AzureSqlDatabaseContentsArgs', 'GlusterFsContentsArgs']]:
         """
-        Reference to the datastore storage contents.
+        [Required] Reference to the datastore storage contents.
         """
         return pulumi.get(self, "contents")
 
@@ -4133,7 +4133,7 @@ class DockerBuildArgs:
         Class to represent configuration settings for Docker Build
         :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Build'.
-        :param pulumi.Input[str] dockerfile: Docker command line instructions to assemble an image.
+        :param pulumi.Input[str] dockerfile: [Required] Docker command line instructions to assemble an image.
                <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         :param pulumi.Input[str] context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
                The path is relative to the asset path which must contain a single Blob URI value.
@@ -4164,7 +4164,7 @@ class DockerBuildArgs:
     @pulumi.getter
     def dockerfile(self) -> pulumi.Input[str]:
         """
-        Docker command line instructions to assemble an image.
+        [Required] Docker command line instructions to assemble an image.
         <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         """
         return pulumi.get(self, "dockerfile")
@@ -4231,7 +4231,7 @@ class DockerImageArgs:
                  platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
         """
         Class to represent configuration settings for Docker Build
-        :param pulumi.Input[str] docker_image_uri: Image name of a custom base image.
+        :param pulumi.Input[str] docker_image_uri: [Required] Image name of a custom base image.
                <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Image'.
@@ -4246,7 +4246,7 @@ class DockerImageArgs:
     @pulumi.getter(name="dockerImageUri")
     def docker_image_uri(self) -> pulumi.Input[str]:
         """
-        Image name of a custom base image.
+        [Required] Image name of a custom base image.
         <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         """
         return pulumi.get(self, "docker_image_uri")
@@ -4586,8 +4586,8 @@ class GlusterFsContentsArgs:
         GlusterFs datastore configuration.
         :param pulumi.Input[str] contents_type: Enum to determine the datastore contents type.
                Expected value is 'GlusterFs'.
-        :param pulumi.Input[str] server_address: GlusterFS server address (can be the IP address or server name).
-        :param pulumi.Input[str] volume_name: GlusterFS volume name.
+        :param pulumi.Input[str] server_address: [Required] GlusterFS server address (can be the IP address or server name).
+        :param pulumi.Input[str] volume_name: [Required] GlusterFS volume name.
         """
         pulumi.set(__self__, "contents_type", 'GlusterFs')
         pulumi.set(__self__, "server_address", server_address)
@@ -4610,7 +4610,7 @@ class GlusterFsContentsArgs:
     @pulumi.getter(name="serverAddress")
     def server_address(self) -> pulumi.Input[str]:
         """
-        GlusterFS server address (can be the IP address or server name).
+        [Required] GlusterFS server address (can be the IP address or server name).
         """
         return pulumi.get(self, "server_address")
 
@@ -4622,7 +4622,7 @@ class GlusterFsContentsArgs:
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> pulumi.Input[str]:
         """
-        GlusterFS volume name.
+        [Required] GlusterFS volume name.
         """
         return pulumi.get(self, "volume_name")
 
@@ -4794,7 +4794,7 @@ class IdAssetReferenceArgs:
                  reference_type: pulumi.Input[str]):
         """
         Reference to an asset via its ARM resource ID.
-        :param pulumi.Input[str] asset_id: ARM resource ID of the asset.
+        :param pulumi.Input[str] asset_id: [Required] ARM resource ID of the asset.
         :param pulumi.Input[str] reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'Id'.
         """
@@ -4805,7 +4805,7 @@ class IdAssetReferenceArgs:
     @pulumi.getter(name="assetId")
     def asset_id(self) -> pulumi.Input[str]:
         """
-        ARM resource ID of the asset.
+        [Required] ARM resource ID of the asset.
         """
         return pulumi.get(self, "asset_id")
 
@@ -5526,7 +5526,7 @@ class LabelingJobArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Labeling job definition
-        :param pulumi.Input[Union[str, 'JobType']] job_type: Specifies the type of job. This field should always be set to "Labeling".
+        :param pulumi.Input[Union[str, 'JobType']] job_type: [Required] Specifies the type of job. This field should always be set to "Labeling".
         :param pulumi.Input['LabelingDatasetConfigurationArgs'] dataset_configuration: Configuration of dataset used in the job.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input['LabelingJobInstructionsArgs'] job_instructions: Labeling instructions of the job.
@@ -5558,7 +5558,7 @@ class LabelingJobArgs:
     @pulumi.getter(name="jobType")
     def job_type(self) -> pulumi.Input[Union[str, 'JobType']]:
         """
-        Specifies the type of job. This field should always be set to "Labeling".
+        [Required] Specifies the type of job. This field should always be set to "Labeling".
         """
         return pulumi.get(self, "job_type")
 
@@ -6260,7 +6260,7 @@ class ModelVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Model asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]] flavors: Mapping of model flavors to their properties.
@@ -6286,7 +6286,7 @@ class ModelVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -6481,8 +6481,8 @@ class ObjectiveArgs:
                  primary_metric: pulumi.Input[str]):
         """
         Optimization objective.
-        :param pulumi.Input[Union[str, 'Goal']] goal: Defines supported metric goals for hyperparameter tuning
-        :param pulumi.Input[str] primary_metric: Name of the metric to optimize.
+        :param pulumi.Input[Union[str, 'Goal']] goal: [Required] Defines supported metric goals for hyperparameter tuning
+        :param pulumi.Input[str] primary_metric: [Required] Name of the metric to optimize.
         """
         pulumi.set(__self__, "goal", goal)
         pulumi.set(__self__, "primary_metric", primary_metric)
@@ -6491,7 +6491,7 @@ class ObjectiveArgs:
     @pulumi.getter
     def goal(self) -> pulumi.Input[Union[str, 'Goal']]:
         """
-        Defines supported metric goals for hyperparameter tuning
+        [Required] Defines supported metric goals for hyperparameter tuning
         """
         return pulumi.get(self, "goal")
 
@@ -6503,7 +6503,7 @@ class ObjectiveArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> pulumi.Input[str]:
         """
-        Name of the metric to optimize.
+        [Required] Name of the metric to optimize.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -6523,7 +6523,7 @@ class OnlineEndpointArgs:
                  traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
         """
         Online endpoint configuration
-        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Inference endpoint authentication mode type
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: [Required] Inference endpoint authentication mode type
         :param pulumi.Input[str] description: Description of the inference endpoint.
         :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
@@ -6548,7 +6548,7 @@ class OnlineEndpointArgs:
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Input[Union[str, 'EndpointAuthMode']]:
         """
-        Inference endpoint authentication mode type
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -7225,8 +7225,8 @@ class RouteArgs:
                  path: pulumi.Input[str],
                  port: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] path: The path for the route.
-        :param pulumi.Input[int] port: The port for the route.
+        :param pulumi.Input[str] path: [Required] The path for the route.
+        :param pulumi.Input[int] port: [Required] The port for the route.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
@@ -7235,7 +7235,7 @@ class RouteArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path for the route.
+        [Required] The path for the route.
         """
         return pulumi.get(self, "path")
 
@@ -7247,7 +7247,7 @@ class RouteArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        The port for the route.
+        [Required] The port for the route.
         """
         return pulumi.get(self, "port")
 
@@ -7541,10 +7541,10 @@ class ServicePrincipalDatastoreCredentialsArgs:
                  secrets: Optional[pulumi.Input['ServicePrincipalDatastoreSecretsArgs']] = None):
         """
         Service Principal datastore credentials configuration.
-        :param pulumi.Input[str] client_id: Service principal client ID.
+        :param pulumi.Input[str] client_id: [Required] Service principal client ID.
         :param pulumi.Input[str] credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'ServicePrincipal'.
-        :param pulumi.Input[str] tenant_id: ID of the tenant to which the service principal belongs.
+        :param pulumi.Input[str] tenant_id: [Required] ID of the tenant to which the service principal belongs.
         :param pulumi.Input[str] authority_url: Authority URL used for authentication.
         :param pulumi.Input[str] resource_uri: Resource the service principal has access to.
         :param pulumi.Input['ServicePrincipalDatastoreSecretsArgs'] secrets: Service principal secrets.
@@ -7563,7 +7563,7 @@ class ServicePrincipalDatastoreCredentialsArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        Service principal client ID.
+        [Required] Service principal client ID.
         """
         return pulumi.get(self, "client_id")
 
@@ -7588,7 +7588,7 @@ class ServicePrincipalDatastoreCredentialsArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Input[str]:
         """
-        ID of the tenant to which the service principal belongs.
+        [Required] ID of the tenant to which the service principal belongs.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -7835,7 +7835,7 @@ class SqlAdminDatastoreCredentialsArgs:
         SQL Admin datastore credentials configuration.
         :param pulumi.Input[str] credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'SqlAdmin'.
-        :param pulumi.Input[str] user_id: SQL database user name.
+        :param pulumi.Input[str] user_id: [Required] SQL database user name.
         :param pulumi.Input['SqlAdminDatastoreSecretsArgs'] secrets: SQL database secrets.
         """
         pulumi.set(__self__, "credentials_type", 'SqlAdmin')
@@ -7860,7 +7860,7 @@ class SqlAdminDatastoreCredentialsArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        SQL database user name.
+        [Required] SQL database user name.
         """
         return pulumi.get(self, "user_id")
 
@@ -8047,12 +8047,12 @@ class SweepJobArgs:
                  trial: Optional[pulumi.Input['TrialComponentArgs']] = None):
         """
         Sweep job definition.
-        :param pulumi.Input[Union[str, 'SamplingAlgorithm']] algorithm: Type of the hyperparameter sampling algorithms
-        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[Union[str, 'SamplingAlgorithm']] algorithm: [Required] Type of the hyperparameter sampling algorithms
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: [Required] Compute binding for the job.
         :param pulumi.Input[str] job_type: Enum to determine the type of job.
                Expected value is 'Sweep'.
-        :param pulumi.Input['ObjectiveArgs'] objective: Optimization objective.
-        :param pulumi.Input[Mapping[str, Any]] search_space: A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        :param pulumi.Input['ObjectiveArgs'] objective: [Required] Optimization objective.
+        :param pulumi.Input[Mapping[str, Any]] search_space: [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']] early_termination: Early termination policies enable canceling poor-performing runs before they complete.
         :param pulumi.Input[str] experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
@@ -8099,7 +8099,7 @@ class SweepJobArgs:
     @pulumi.getter
     def algorithm(self) -> pulumi.Input[Union[str, 'SamplingAlgorithm']]:
         """
-        Type of the hyperparameter sampling algorithms
+        [Required] Type of the hyperparameter sampling algorithms
         """
         return pulumi.get(self, "algorithm")
 
@@ -8111,7 +8111,7 @@ class SweepJobArgs:
     @pulumi.getter
     def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -8136,7 +8136,7 @@ class SweepJobArgs:
     @pulumi.getter
     def objective(self) -> pulumi.Input['ObjectiveArgs']:
         """
-        Optimization objective.
+        [Required] Optimization objective.
         """
         return pulumi.get(self, "objective")
 
@@ -8148,7 +8148,7 @@ class SweepJobArgs:
     @pulumi.getter(name="searchSpace")
     def search_space(self) -> pulumi.Input[Mapping[str, Any]]:
         """
-        A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         """
         return pulumi.get(self, "search_space")
 
@@ -8634,7 +8634,7 @@ class TrialComponentArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         Trial component definition.
-        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input[str] command: [Required] The command to execute on startup of the job. eg. "python train.py"
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
         :param pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']] distribution: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         :param pulumi.Input[str] environment_id: The ARM resource ID of the Environment specification for the job.
@@ -8664,7 +8664,7 @@ class TrialComponentArgs:
     @pulumi.getter
     def command(self) -> pulumi.Input[str]:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 

@@ -1491,7 +1491,7 @@ class BatchEndpointArgs:
                  traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
         """
         Batch endpoint configuration.
-        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Enum to determine endpoint authentication mode.
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: [Required] Inference endpoint authentication mode type
         :param pulumi.Input[str] description: Description of the inference endpoint.
         :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
@@ -1513,7 +1513,7 @@ class BatchEndpointArgs:
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> Optional[pulumi.Input[Union[str, 'EndpointAuthMode']]]:
         """
-        Enum to determine endpoint authentication mode.
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -1658,7 +1658,7 @@ class CodeConfigurationArgs:
                  code_id: Optional[pulumi.Input[str]] = None):
         """
         Configuration for a scoring code asset.
-        :param pulumi.Input[str] scoring_script: The script to execute on startup. eg. "score.py"
+        :param pulumi.Input[str] scoring_script: [Required] The script to execute on startup. eg. "score.py"
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
         """
         pulumi.set(__self__, "scoring_script", scoring_script)
@@ -1669,7 +1669,7 @@ class CodeConfigurationArgs:
     @pulumi.getter(name="scoringScript")
     def scoring_script(self) -> pulumi.Input[str]:
         """
-        The script to execute on startup. eg. "score.py"
+        [Required] The script to execute on startup. eg. "score.py"
         """
         return pulumi.get(self, "scoring_script")
 
@@ -1757,7 +1757,7 @@ class CodeVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Code asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
@@ -1780,7 +1780,7 @@ class CodeVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -1870,8 +1870,8 @@ class CommandJobArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         Command job definition.
-        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
-        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[str] command: [Required] The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: [Required] Compute binding for the job.
         :param pulumi.Input[str] job_type: Enum to determine the type of job.
                Expected value is 'Command'.
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
@@ -1924,7 +1924,7 @@ class CommandJobArgs:
     @pulumi.getter
     def command(self) -> pulumi.Input[str]:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 
@@ -1936,7 +1936,7 @@ class CommandJobArgs:
     @pulumi.getter
     def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -2172,7 +2172,7 @@ class ComputeConfigurationArgs:
         :param pulumi.Input[bool] is_local: Set to true for jobs running on local compute.
         :param pulumi.Input[str] location: Location for virtual cluster run.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Additional properties.
-        :param pulumi.Input[str] target: ARM resource ID of the compute resource.
+        :param pulumi.Input[str] target: ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
@@ -2251,7 +2251,7 @@ class ComputeConfigurationArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
         """
-        ARM resource ID of the compute resource.
+        ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         return pulumi.get(self, "target")
 
@@ -3100,7 +3100,7 @@ class DataVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Data asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[Union[str, 'DatasetType']] dataset_type: The Format of dataset.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
@@ -3126,7 +3126,7 @@ class DataVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -3702,7 +3702,7 @@ class DockerBuildArgs:
         Class to represent configuration settings for Docker Build
         :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Build'.
-        :param pulumi.Input[str] dockerfile: Docker command line instructions to assemble an image.
+        :param pulumi.Input[str] dockerfile: [Required] Docker command line instructions to assemble an image.
                <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         :param pulumi.Input[str] context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
                The path is relative to the asset path which must contain a single Blob URI value.
@@ -3733,7 +3733,7 @@ class DockerBuildArgs:
     @pulumi.getter
     def dockerfile(self) -> pulumi.Input[str]:
         """
-        Docker command line instructions to assemble an image.
+        [Required] Docker command line instructions to assemble an image.
         <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         """
         return pulumi.get(self, "dockerfile")
@@ -3800,7 +3800,7 @@ class DockerImageArgs:
                  platform: Optional[pulumi.Input['DockerImagePlatformArgs']] = None):
         """
         Class to represent configuration settings for Docker Build
-        :param pulumi.Input[str] docker_image_uri: Image name of a custom base image.
+        :param pulumi.Input[str] docker_image_uri: [Required] Image name of a custom base image.
                <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         :param pulumi.Input[str] docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Image'.
@@ -3815,7 +3815,7 @@ class DockerImageArgs:
     @pulumi.getter(name="dockerImageUri")
     def docker_image_uri(self) -> pulumi.Input[str]:
         """
-        Image name of a custom base image.
+        [Required] Image name of a custom base image.
         <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         """
         return pulumi.get(self, "docker_image_uri")
@@ -4468,7 +4468,7 @@ class IdAssetReferenceArgs:
                  reference_type: pulumi.Input[str]):
         """
         Reference to an asset via its ARM resource ID.
-        :param pulumi.Input[str] asset_id: ARM resource ID of the asset.
+        :param pulumi.Input[str] asset_id: [Required] ARM resource ID of the asset.
         :param pulumi.Input[str] reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'Id'.
         """
@@ -4479,7 +4479,7 @@ class IdAssetReferenceArgs:
     @pulumi.getter(name="assetId")
     def asset_id(self) -> pulumi.Input[str]:
         """
-        ARM resource ID of the asset.
+        [Required] ARM resource ID of the asset.
         """
         return pulumi.get(self, "asset_id")
 
@@ -6369,7 +6369,7 @@ class ModelVersionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Model asset version details.
-        :param pulumi.Input[str] path: The path of the file/directory in the datastore.
+        :param pulumi.Input[str] path: [Required] The path of the file/directory in the datastore.
         :param pulumi.Input[str] datastore_id: ARM resource ID of the datastore where the asset is located.
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[Mapping[str, pulumi.Input['FlavorDataArgs']]] flavors: Mapping of model flavors to their properties.
@@ -6395,7 +6395,7 @@ class ModelVersionArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -6865,8 +6865,8 @@ class ObjectiveArgs:
                  primary_metric: pulumi.Input[str]):
         """
         Optimization objective.
-        :param pulumi.Input[Union[str, 'Goal']] goal: Defines supported metric goals for hyperparameter tuning
-        :param pulumi.Input[str] primary_metric: Name of the metric to optimize.
+        :param pulumi.Input[Union[str, 'Goal']] goal: [Required] Defines supported metric goals for hyperparameter tuning
+        :param pulumi.Input[str] primary_metric: [Required] Name of the metric to optimize.
         """
         pulumi.set(__self__, "goal", goal)
         pulumi.set(__self__, "primary_metric", primary_metric)
@@ -6875,7 +6875,7 @@ class ObjectiveArgs:
     @pulumi.getter
     def goal(self) -> pulumi.Input[Union[str, 'Goal']]:
         """
-        Defines supported metric goals for hyperparameter tuning
+        [Required] Defines supported metric goals for hyperparameter tuning
         """
         return pulumi.get(self, "goal")
 
@@ -6887,7 +6887,7 @@ class ObjectiveArgs:
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> pulumi.Input[str]:
         """
-        Name of the metric to optimize.
+        [Required] Name of the metric to optimize.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -6907,7 +6907,7 @@ class OnlineEndpointArgs:
                  traffic: Optional[pulumi.Input[Mapping[str, pulumi.Input[int]]]] = None):
         """
         Online endpoint configuration
-        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: Inference endpoint authentication mode type
+        :param pulumi.Input[Union[str, 'EndpointAuthMode']] auth_mode: [Required] Inference endpoint authentication mode type
         :param pulumi.Input[str] description: Description of the inference endpoint.
         :param pulumi.Input['EndpointAuthKeysArgs'] keys: EndpointAuthKeys to set initially on an Endpoint.
                This property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.
@@ -6932,7 +6932,7 @@ class OnlineEndpointArgs:
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> pulumi.Input[Union[str, 'EndpointAuthMode']]:
         """
-        Inference endpoint authentication mode type
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -7543,8 +7543,8 @@ class RouteArgs:
                  path: pulumi.Input[str],
                  port: pulumi.Input[int]):
         """
-        :param pulumi.Input[str] path: The path for the route.
-        :param pulumi.Input[int] port: The port for the route.
+        :param pulumi.Input[str] path: [Required] The path for the route.
+        :param pulumi.Input[int] port: [Required] The port for the route.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
@@ -7553,7 +7553,7 @@ class RouteArgs:
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
         """
-        The path for the route.
+        [Required] The path for the route.
         """
         return pulumi.get(self, "path")
 
@@ -7565,7 +7565,7 @@ class RouteArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        The port for the route.
+        [Required] The port for the route.
         """
         return pulumi.get(self, "port")
 
@@ -8051,12 +8051,12 @@ class SweepJobArgs:
                  trial: Optional[pulumi.Input['TrialComponentArgs']] = None):
         """
         Sweep job definition.
-        :param pulumi.Input[Union[str, 'SamplingAlgorithm']] algorithm: Type of the hyperparameter sampling algorithms
-        :param pulumi.Input['ComputeConfigurationArgs'] compute: Compute binding for the job.
+        :param pulumi.Input[Union[str, 'SamplingAlgorithm']] algorithm: [Required] Type of the hyperparameter sampling algorithms
+        :param pulumi.Input['ComputeConfigurationArgs'] compute: [Required] Compute binding for the job.
         :param pulumi.Input[str] job_type: Enum to determine the type of job.
                Expected value is 'Sweep'.
-        :param pulumi.Input['ObjectiveArgs'] objective: Optimization objective.
-        :param pulumi.Input[Mapping[str, Any]] search_space: A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        :param pulumi.Input['ObjectiveArgs'] objective: [Required] Optimization objective.
+        :param pulumi.Input[Mapping[str, Any]] search_space: [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         :param pulumi.Input[str] description: The asset description text.
         :param pulumi.Input[Union['BanditPolicyArgs', 'MedianStoppingPolicyArgs', 'TruncationSelectionPolicyArgs']] early_termination: Early termination policies enable canceling poor-performing runs before they complete.
         :param pulumi.Input[str] experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
@@ -8103,7 +8103,7 @@ class SweepJobArgs:
     @pulumi.getter
     def algorithm(self) -> pulumi.Input[Union[str, 'SamplingAlgorithm']]:
         """
-        Type of the hyperparameter sampling algorithms
+        [Required] Type of the hyperparameter sampling algorithms
         """
         return pulumi.get(self, "algorithm")
 
@@ -8115,7 +8115,7 @@ class SweepJobArgs:
     @pulumi.getter
     def compute(self) -> pulumi.Input['ComputeConfigurationArgs']:
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -8140,7 +8140,7 @@ class SweepJobArgs:
     @pulumi.getter
     def objective(self) -> pulumi.Input['ObjectiveArgs']:
         """
-        Optimization objective.
+        [Required] Optimization objective.
         """
         return pulumi.get(self, "objective")
 
@@ -8152,7 +8152,7 @@ class SweepJobArgs:
     @pulumi.getter(name="searchSpace")
     def search_space(self) -> pulumi.Input[Mapping[str, Any]]:
         """
-        A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         """
         return pulumi.get(self, "search_space")
 
@@ -8365,7 +8365,7 @@ class TrialComponentArgs:
                  timeout: Optional[pulumi.Input[str]] = None):
         """
         Trial component definition.
-        :param pulumi.Input[str] command: The command to execute on startup of the job. eg. "python train.py"
+        :param pulumi.Input[str] command: [Required] The command to execute on startup of the job. eg. "python train.py"
         :param pulumi.Input[str] code_id: ARM resource ID of the code asset.
         :param pulumi.Input[Union['MpiArgs', 'PyTorchArgs', 'TensorFlowArgs']] distribution: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         :param pulumi.Input[str] environment_id: The ARM resource ID of the Environment specification for the job.
@@ -8395,7 +8395,7 @@ class TrialComponentArgs:
     @pulumi.getter
     def command(self) -> pulumi.Input[str]:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 

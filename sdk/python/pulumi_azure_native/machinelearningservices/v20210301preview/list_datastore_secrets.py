@@ -29,7 +29,7 @@ class ListDatastoreSecretsResult:
     @pulumi.getter(name="secretsType")
     def secrets_type(self) -> str:
         """
-        Credential type used to authentication with storage.
+        [Required] Credential type used to authentication with storage.
         """
         return pulumi.get(self, "secrets_type")
 

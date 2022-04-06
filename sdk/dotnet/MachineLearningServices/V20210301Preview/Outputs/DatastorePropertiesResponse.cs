@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     public sealed class DatastorePropertiesResponse
     {
         /// <summary>
-        /// Reference to the datastore storage contents.
+        /// [Required] Reference to the datastore storage contents.
         /// </summary>
         public readonly object Contents;
         /// <summary>

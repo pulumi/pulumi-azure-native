@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string> ContentsType { get; set; } = null!;
 
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         [Input("credentials", required: true)]
         public object Credentials { get; set; } = null!;
 
         /// <summary>
-        /// Azure SQL database name.
+        /// [Required] Azure SQL database name.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -41,19 +41,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<bool>? EnableSSL { get; set; }
 
         /// <summary>
-        /// Azure cloud endpoint for the database.
+        /// [Required] Azure cloud endpoint for the database.
         /// </summary>
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
         /// <summary>
-        /// Azure SQL server port.
+        /// [Required] Azure SQL server port.
         /// </summary>
         [Input("portNumber", required: true)]
         public Input<int> PortNumber { get; set; } = null!;
 
         /// <summary>
-        /// Azure SQL server name.
+        /// [Required] Azure SQL server name.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;

@@ -32,7 +32,7 @@ type ListDatastoreSecretsArgs struct {
 
 // Base definition for datastore secrets.
 type ListDatastoreSecretsResult struct {
-	// Credential type used to authentication with storage.
+	// [Required] Credential type used to authentication with storage.
 	SecretsType string `pulumi:"secretsType"`
 }
 
@@ -73,7 +73,7 @@ func (o ListDatastoreSecretsResultOutput) ToListDatastoreSecretsResultOutputWith
 	return o
 }
 
-// Credential type used to authentication with storage.
+// [Required] Credential type used to authentication with storage.
 func (o ListDatastoreSecretsResultOutput) SecretsType() pulumi.StringOutput {
 	return o.ApplyT(func(v ListDatastoreSecretsResult) string { return v.SecretsType }).(pulumi.StringOutput)
 }

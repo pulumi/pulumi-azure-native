@@ -40,7 +40,7 @@ export interface ListDatastoreSecretsArgs {
  */
 export interface ListDatastoreSecretsResult {
     /**
-     * Credential type used to authentication with storage.
+     * [Required] Credential type used to authentication with storage.
      */
     readonly secretsType: string;
 }

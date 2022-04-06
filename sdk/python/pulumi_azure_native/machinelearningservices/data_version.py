@@ -24,7 +24,7 @@ class DataVersionInitArgs:
         """
         The set of arguments for constructing a DataVersion resource.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input['DataVersionArgs'] properties: Additional attributes of the entity.
+        :param pulumi.Input['DataVersionArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] version: Version identifier.
@@ -52,7 +52,7 @@ class DataVersionInitArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['DataVersionArgs']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -115,7 +115,7 @@ class DataVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['DataVersionArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['DataVersionArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: Version identifier.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -219,7 +219,7 @@ class DataVersion(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.DataVersionResponse']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

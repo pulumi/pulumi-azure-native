@@ -1425,8 +1425,6 @@ class SqlServerInstancePropertiesResponse(dict):
             suggest = "azure_defender_status_last_updated"
         elif key == "currentVersion":
             suggest = "current_version"
-        elif key == "esuExpirationDate":
-            suggest = "esu_expiration_date"
         elif key == "hostType":
             suggest = "host_type"
         elif key == "instanceName":
@@ -1465,7 +1463,6 @@ class SqlServerInstancePropertiesResponse(dict):
                  collation: Optional[str] = None,
                  current_version: Optional[str] = None,
                  edition: Optional[str] = None,
-                 esu_expiration_date: Optional[str] = None,
                  host_type: Optional[str] = None,
                  instance_name: Optional[str] = None,
                  license_type: Optional[str] = None,
@@ -1486,7 +1483,6 @@ class SqlServerInstancePropertiesResponse(dict):
         :param str collation: SQL Server collation.
         :param str current_version: SQL Server current version.
         :param str edition: SQL Server edition.
-        :param str esu_expiration_date: Timestamp of ESU Expiration.
         :param str host_type: Type of host for Azure Arc SQL Server
         :param str instance_name: SQL Server instance name.
         :param str license_type: SQL Server license type.
@@ -1511,8 +1507,6 @@ class SqlServerInstancePropertiesResponse(dict):
             pulumi.set(__self__, "current_version", current_version)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
-        if esu_expiration_date is not None:
-            pulumi.set(__self__, "esu_expiration_date", esu_expiration_date)
         if host_type is not None:
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
@@ -1603,14 +1597,6 @@ class SqlServerInstancePropertiesResponse(dict):
         SQL Server edition.
         """
         return pulumi.get(self, "edition")
-
-    @property
-    @pulumi.getter(name="esuExpirationDate")
-    def esu_expiration_date(self) -> Optional[str]:
-        """
-        Timestamp of ESU Expiration.
-        """
-        return pulumi.get(self, "esu_expiration_date")
 
     @property
     @pulumi.getter(name="hostType")

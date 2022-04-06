@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string> ContentsType { get; set; } = null!;
 
         /// <summary>
-        /// GlusterFS server address (can be the IP address or server name).
+        /// [Required] GlusterFS server address (can be the IP address or server name).
         /// </summary>
         [Input("serverAddress", required: true)]
         public Input<string> ServerAddress { get; set; } = null!;
 
         /// <summary>
-        /// GlusterFS volume name.
+        /// [Required] GlusterFS volume name.
         /// </summary>
         [Input("volumeName", required: true)]
         public Input<string> VolumeName { get; set; } = null!;

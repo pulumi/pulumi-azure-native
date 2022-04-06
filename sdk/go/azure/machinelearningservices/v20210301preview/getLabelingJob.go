@@ -39,7 +39,7 @@ type LookupLabelingJobResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties LabelingJobResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -98,7 +98,7 @@ func (o LookupLabelingJobResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLabelingJobResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupLabelingJobResultOutput) Properties() LabelingJobResponseOutput {
 	return o.ApplyT(func(v LookupLabelingJobResult) LabelingJobResponse { return v.Properties }).(LabelingJobResponseOutput)
 }

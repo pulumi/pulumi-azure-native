@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class BatchEndpointResponse
     {
         /// <summary>
-        /// Enum to determine endpoint authentication mode.
+        /// [Required] Inference endpoint authentication mode type
         /// </summary>
         public readonly string? AuthMode;
         /// <summary>

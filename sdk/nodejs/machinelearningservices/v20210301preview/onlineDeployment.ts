@@ -49,7 +49,7 @@ export class OnlineDeployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20210301preview.K8sOnlineDeploymentResponse | outputs.machinelearningservices.v20210301preview.ManagedOnlineDeploymentResponse>;
     /**
@@ -142,7 +142,7 @@ export interface OnlineDeploymentArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.K8sOnlineDeploymentArgs | inputs.machinelearningservices.v20210301preview.ManagedOnlineDeploymentArgs>;
     /**

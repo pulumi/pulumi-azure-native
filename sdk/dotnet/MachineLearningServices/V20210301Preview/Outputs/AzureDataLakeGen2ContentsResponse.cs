@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     public sealed class AzureDataLakeGen2ContentsResponse
     {
         /// <summary>
-        /// Storage account name.
+        /// [Required] Storage account name.
         /// </summary>
         public readonly string AccountName;
         /// <summary>
-        /// Storage account container name.
+        /// [Required] Storage account container name.
         /// </summary>
         public readonly string ContainerName;
         /// <summary>
@@ -30,15 +30,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string ContentsType;
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         public readonly object Credentials;
         /// <summary>
-        /// Azure cloud endpoint for the storage account.
+        /// [Required] Azure cloud endpoint for the storage account.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Protocol used to communicate with the storage account.
+        /// [Required] Protocol used to communicate with the storage account.
         /// </summary>
         public readonly string Protocol;
 

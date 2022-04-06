@@ -37,7 +37,7 @@ type LookupEnvironmentSpecificationVersionResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentSpecificationVersionResponse `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponse `pulumi:"systemData"`
@@ -94,7 +94,7 @@ func (o LookupEnvironmentSpecificationVersionResultOutput) Name() pulumi.StringO
 	return o.ApplyT(func(v LookupEnvironmentSpecificationVersionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Additional attributes of the entity.
+// [Required] Additional attributes of the entity.
 func (o LookupEnvironmentSpecificationVersionResultOutput) Properties() EnvironmentSpecificationVersionResponseOutput {
 	return o.ApplyT(func(v LookupEnvironmentSpecificationVersionResult) EnvironmentSpecificationVersionResponse {
 		return v.Properties

@@ -26,7 +26,7 @@ class OnlineEndpointInitArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OnlineEndpoint resource.
-        :param pulumi.Input['OnlineEndpointArgs'] properties: Additional attributes of the entity.
+        :param pulumi.Input['OnlineEndpointArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
@@ -53,7 +53,7 @@ class OnlineEndpointInitArgs:
     @pulumi.getter
     def properties(self) -> pulumi.Input['OnlineEndpointArgs']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 
@@ -169,7 +169,7 @@ class OnlineEndpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['OnlineEndpointArgs']] properties: Additional attributes of the entity.
+        :param pulumi.Input[pulumi.InputType['OnlineEndpointArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -305,7 +305,7 @@ class OnlineEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.OnlineEndpointResponse']:
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

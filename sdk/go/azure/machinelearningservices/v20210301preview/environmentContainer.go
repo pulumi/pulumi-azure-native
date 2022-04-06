@@ -17,7 +17,7 @@ type EnvironmentContainer struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentContainerResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -81,7 +81,7 @@ func (EnvironmentContainerState) ElementType() reflect.Type {
 type environmentContainerArgs struct {
 	// Container name.
 	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentContainerType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -93,7 +93,7 @@ type environmentContainerArgs struct {
 type EnvironmentContainerArgs struct {
 	// Container name.
 	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties EnvironmentContainerTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

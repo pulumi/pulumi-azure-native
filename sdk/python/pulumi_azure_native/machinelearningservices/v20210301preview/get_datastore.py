@@ -58,7 +58,7 @@ class GetDatastoreResult:
     @pulumi.getter
     def properties(self) -> 'outputs.DatastorePropertiesResponse':
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

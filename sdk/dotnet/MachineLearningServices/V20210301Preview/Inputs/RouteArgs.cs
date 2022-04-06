@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path for the route.
+        /// [Required] The path for the route.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// The port for the route.
+        /// [Required] The port for the route.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;

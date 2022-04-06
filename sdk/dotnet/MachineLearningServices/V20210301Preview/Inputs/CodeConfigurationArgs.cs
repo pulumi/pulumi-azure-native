@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string>? CodeId { get; set; }
 
         /// <summary>
-        /// The script to execute on startup. eg. "score.py"
+        /// [Required] The script to execute on startup. eg. "score.py"
         /// </summary>
         [Input("scoringScript", required: true)]
         public Input<string> ScoringScript { get; set; } = null!;

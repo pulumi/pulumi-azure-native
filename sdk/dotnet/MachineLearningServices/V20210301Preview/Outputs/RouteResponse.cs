@@ -14,11 +14,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     public sealed class RouteResponse
     {
         /// <summary>
-        /// The path for the route.
+        /// [Required] The path for the route.
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// The port for the route.
+        /// [Required] The port for the route.
         /// </summary>
         public readonly int Port;
 

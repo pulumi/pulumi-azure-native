@@ -63,7 +63,7 @@ export interface GetOnlineDeploymentResult {
      */
     readonly name: string;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     readonly properties: outputs.machinelearningservices.K8sOnlineDeploymentResponse | outputs.machinelearningservices.ManagedOnlineDeploymentResponse;
     /**

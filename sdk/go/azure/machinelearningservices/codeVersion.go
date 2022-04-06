@@ -18,7 +18,7 @@ type CodeVersion struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties CodeVersionResponseOutput `pulumi:"properties"`
 	// System data associated with resource provider
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
@@ -85,7 +85,7 @@ func (CodeVersionState) ElementType() reflect.Type {
 type codeVersionArgs struct {
 	// Container name.
 	Name string `pulumi:"name"`
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties CodeVersionType `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -99,7 +99,7 @@ type codeVersionArgs struct {
 type CodeVersionArgs struct {
 	// Container name.
 	Name pulumi.StringInput
-	// Additional attributes of the entity.
+	// [Required] Additional attributes of the entity.
 	Properties CodeVersionTypeInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput

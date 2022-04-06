@@ -363,7 +363,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Specifies the type of distribution framework.
+    /// [Required] Specifies the type of distribution framework.
     /// </summary>
     [EnumType]
     public readonly struct DistributionType : IEquatable<DistributionType>
@@ -395,7 +395,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Docker specification must be either Build or Image
+    /// [Required] Docker specification must be either Build or Image
     /// </summary>
     [EnumType]
     public readonly struct DockerSpecificationType : IEquatable<DockerSpecificationType>
@@ -426,7 +426,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Name of policy configuration
+    /// [Required] Name of policy configuration
     /// </summary>
     [EnumType]
     public readonly struct EarlyTerminationPolicyType : IEquatable<EarlyTerminationPolicyType>
@@ -489,7 +489,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Inference endpoint authentication mode type
+    /// [Required] Inference endpoint authentication mode type
     /// </summary>
     [EnumType]
     public readonly struct EndpointAuthMode : IEquatable<EndpointAuthMode>
@@ -521,7 +521,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// The compute type of the endpoint.
+    /// [Required] The compute type of the endpoint.
     /// </summary>
     [EnumType]
     public readonly struct EndpointComputeType : IEquatable<EndpointComputeType>
@@ -553,7 +553,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Defines supported metric goals for hyperparameter tuning
+    /// [Required] Defines supported metric goals for hyperparameter tuning
     /// </summary>
     [EnumType]
     public readonly struct Goal : IEquatable<Goal>
@@ -617,7 +617,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Specifies the type of identity framework.
+    /// [Required] Specifies the type of identity framework.
     /// </summary>
     [EnumType]
     public readonly struct IdentityConfigurationType : IEquatable<IdentityConfigurationType>
@@ -680,7 +680,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Specifies the type of job.
+    /// [Required] Specifies the type of job.
     /// </summary>
     [EnumType]
     public readonly struct JobType : IEquatable<JobType>
@@ -869,7 +869,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Specifies the type of asset reference.
+    /// [Required] Specifies the type of asset reference.
     /// </summary>
     [EnumType]
     public readonly struct ReferenceType : IEquatable<ReferenceType>
@@ -999,7 +999,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Type of the hyperparameter sampling algorithms
+    /// [Required] Type of the hyperparameter sampling algorithms
     /// </summary>
     [EnumType]
     public readonly struct SamplingAlgorithm : IEquatable<SamplingAlgorithm>
@@ -1031,7 +1031,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Type of deployment scaling algorithm
+    /// [Required] Type of deployment scaling algorithm
     /// </summary>
     [EnumType]
     public readonly struct ScaleType : IEquatable<ScaleType>

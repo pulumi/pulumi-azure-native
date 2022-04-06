@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         }
 
         /// <summary>
-        /// ARM resource ID of the compute resource.
+        /// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         /// </summary>
         [Input("target")]
         public Input<string>? Target { get; set; }

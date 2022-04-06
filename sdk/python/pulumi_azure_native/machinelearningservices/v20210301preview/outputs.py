@@ -1416,13 +1416,13 @@ class AzureBlobContentsResponse(dict):
                  protocol: str):
         """
         Azure Blob datastore configuration.
-        :param str account_name: Storage account name.
-        :param str container_name: Storage account container name.
+        :param str account_name: [Required] Storage account name.
+        :param str container_name: [Required] Storage account container name.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureBlob'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str endpoint: Azure cloud endpoint for the storage account.
-        :param str protocol: Protocol used to communicate with the storage account.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param str protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1435,7 +1435,7 @@ class AzureBlobContentsResponse(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1443,7 +1443,7 @@ class AzureBlobContentsResponse(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1460,7 +1460,7 @@ class AzureBlobContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1468,7 +1468,7 @@ class AzureBlobContentsResponse(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1476,7 +1476,7 @@ class AzureBlobContentsResponse(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1513,8 +1513,8 @@ class AzureDataLakeGen1ContentsResponse(dict):
         Azure Data Lake Gen1 datastore configuration.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureDataLakeGen1'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str store_name: Azure Data Lake store name.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str store_name: [Required] Azure Data Lake store name.
         """
         pulumi.set(__self__, "contents_type", 'AzureDataLakeGen1')
         pulumi.set(__self__, "credentials", credentials)
@@ -1533,7 +1533,7 @@ class AzureDataLakeGen1ContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1541,7 +1541,7 @@ class AzureDataLakeGen1ContentsResponse(dict):
     @pulumi.getter(name="storeName")
     def store_name(self) -> str:
         """
-        Azure Data Lake store name.
+        [Required] Azure Data Lake store name.
         """
         return pulumi.get(self, "store_name")
 
@@ -1581,13 +1581,13 @@ class AzureDataLakeGen2ContentsResponse(dict):
                  protocol: str):
         """
         Azure Data Lake Gen2 datastore configuration.
-        :param str account_name: Storage account name.
-        :param str container_name: Storage account container name.
+        :param str account_name: [Required] Storage account name.
+        :param str container_name: [Required] Storage account container name.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureDataLakeGen2'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str endpoint: Azure cloud endpoint for the storage account.
-        :param str protocol: Protocol used to communicate with the storage account.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param str protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1600,7 +1600,7 @@ class AzureDataLakeGen2ContentsResponse(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1608,7 +1608,7 @@ class AzureDataLakeGen2ContentsResponse(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1625,7 +1625,7 @@ class AzureDataLakeGen2ContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1633,7 +1633,7 @@ class AzureDataLakeGen2ContentsResponse(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1641,7 +1641,7 @@ class AzureDataLakeGen2ContentsResponse(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1681,13 +1681,13 @@ class AzureFileContentsResponse(dict):
                  protocol: str):
         """
         Azure File datastore configuration.
-        :param str account_name: Storage account name.
-        :param str container_name: Storage account container name.
+        :param str account_name: [Required] Storage account name.
+        :param str container_name: [Required] Storage account container name.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureFile'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str endpoint: Azure cloud endpoint for the storage account.
-        :param str protocol: Protocol used to communicate with the storage account.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str endpoint: [Required] Azure cloud endpoint for the storage account.
+        :param str protocol: [Required] Protocol used to communicate with the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "container_name", container_name)
@@ -1700,7 +1700,7 @@ class AzureFileContentsResponse(dict):
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         """
-        Storage account name.
+        [Required] Storage account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -1708,7 +1708,7 @@ class AzureFileContentsResponse(dict):
     @pulumi.getter(name="containerName")
     def container_name(self) -> str:
         """
-        Storage account container name.
+        [Required] Storage account container name.
         """
         return pulumi.get(self, "container_name")
 
@@ -1725,7 +1725,7 @@ class AzureFileContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1733,7 +1733,7 @@ class AzureFileContentsResponse(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Azure cloud endpoint for the storage account.
+        [Required] Azure cloud endpoint for the storage account.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1741,7 +1741,7 @@ class AzureFileContentsResponse(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Protocol used to communicate with the storage account.
+        [Required] Protocol used to communicate with the storage account.
         """
         return pulumi.get(self, "protocol")
 
@@ -1788,11 +1788,11 @@ class AzurePostgreSqlContentsResponse(dict):
         Azure Postgre SQL datastore configuration.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzurePostgreSql'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str database_name: Azure SQL database name.
-        :param str endpoint: Azure cloud endpoint for the database.
-        :param int port_number: Azure SQL server port.
-        :param str server_name: Azure SQL server name.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str database_name: [Required] Azure SQL database name.
+        :param str endpoint: [Required] Azure cloud endpoint for the database.
+        :param int port_number: [Required] Azure SQL server port.
+        :param str server_name: [Required] Azure SQL server name.
         :param bool enable_ssl: Whether the Azure PostgreSQL server requires SSL.
         """
         pulumi.set(__self__, "contents_type", 'AzurePostgreSql')
@@ -1817,7 +1817,7 @@ class AzurePostgreSqlContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1825,7 +1825,7 @@ class AzurePostgreSqlContentsResponse(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
         """
-        Azure SQL database name.
+        [Required] Azure SQL database name.
         """
         return pulumi.get(self, "database_name")
 
@@ -1833,7 +1833,7 @@ class AzurePostgreSqlContentsResponse(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Azure cloud endpoint for the database.
+        [Required] Azure cloud endpoint for the database.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1841,7 +1841,7 @@ class AzurePostgreSqlContentsResponse(dict):
     @pulumi.getter(name="portNumber")
     def port_number(self) -> int:
         """
-        Azure SQL server port.
+        [Required] Azure SQL server port.
         """
         return pulumi.get(self, "port_number")
 
@@ -1849,7 +1849,7 @@ class AzurePostgreSqlContentsResponse(dict):
     @pulumi.getter(name="serverName")
     def server_name(self) -> str:
         """
-        Azure SQL server name.
+        [Required] Azure SQL server name.
         """
         return pulumi.get(self, "server_name")
 
@@ -1901,11 +1901,11 @@ class AzureSqlDatabaseContentsResponse(dict):
         Azure SQL Database datastore configuration.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'AzureSqlDatabase'.
-        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: Account credentials.
-        :param str database_name: Azure SQL database name.
-        :param str endpoint: Azure cloud endpoint for the database.
-        :param int port_number: Azure SQL server port.
-        :param str server_name: Azure SQL server name.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse', 'SqlAdminDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str database_name: [Required] Azure SQL database name.
+        :param str endpoint: [Required] Azure cloud endpoint for the database.
+        :param int port_number: [Required] Azure SQL server port.
+        :param str server_name: [Required] Azure SQL server name.
         """
         pulumi.set(__self__, "contents_type", 'AzureSqlDatabase')
         pulumi.set(__self__, "credentials", credentials)
@@ -1927,7 +1927,7 @@ class AzureSqlDatabaseContentsResponse(dict):
     @pulumi.getter
     def credentials(self) -> Any:
         """
-        Account credentials.
+        [Required] Account credentials.
         """
         return pulumi.get(self, "credentials")
 
@@ -1935,7 +1935,7 @@ class AzureSqlDatabaseContentsResponse(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
         """
-        Azure SQL database name.
+        [Required] Azure SQL database name.
         """
         return pulumi.get(self, "database_name")
 
@@ -1943,7 +1943,7 @@ class AzureSqlDatabaseContentsResponse(dict):
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        Azure cloud endpoint for the database.
+        [Required] Azure cloud endpoint for the database.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1951,7 +1951,7 @@ class AzureSqlDatabaseContentsResponse(dict):
     @pulumi.getter(name="portNumber")
     def port_number(self) -> int:
         """
-        Azure SQL server port.
+        [Required] Azure SQL server port.
         """
         return pulumi.get(self, "port_number")
 
@@ -1959,7 +1959,7 @@ class AzureSqlDatabaseContentsResponse(dict):
     @pulumi.getter(name="serverName")
     def server_name(self) -> str:
         """
-        Azure SQL server name.
+        [Required] Azure SQL server name.
         """
         return pulumi.get(self, "server_name")
 
@@ -2310,7 +2310,7 @@ class BatchEndpointResponse(dict):
         Batch endpoint configuration.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
-        :param str auth_mode: Enum to determine endpoint authentication mode.
+        :param str auth_mode: [Required] Inference endpoint authentication mode type
         :param str description: Description of the inference endpoint.
         :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
         :param Mapping[str, int] traffic: Traffic rules on how the traffic will be routed across deployments.
@@ -2346,7 +2346,7 @@ class BatchEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> Optional[str]:
         """
-        Enum to determine endpoint authentication mode.
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -2520,11 +2520,11 @@ class CertificateDatastoreCredentialsResponse(dict):
                  resource_uri: Optional[str] = None):
         """
         Certificate datastore credentials configuration.
-        :param str client_id: Service principal client ID.
+        :param str client_id: [Required] Service principal client ID.
         :param str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'Certificate'.
-        :param str tenant_id: ID of the tenant to which the service principal belongs.
-        :param str thumbprint: Thumbprint of the certificate used for authentication.
+        :param str tenant_id: [Required] ID of the tenant to which the service principal belongs.
+        :param str thumbprint: [Required] Thumbprint of the certificate used for authentication.
         :param str authority_url: Authority URL used for authentication.
         :param str resource_uri: Resource the service principal has access to.
         """
@@ -2541,7 +2541,7 @@ class CertificateDatastoreCredentialsResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        Service principal client ID.
+        [Required] Service principal client ID.
         """
         return pulumi.get(self, "client_id")
 
@@ -2558,7 +2558,7 @@ class CertificateDatastoreCredentialsResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        ID of the tenant to which the service principal belongs.
+        [Required] ID of the tenant to which the service principal belongs.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2566,7 +2566,7 @@ class CertificateDatastoreCredentialsResponse(dict):
     @pulumi.getter
     def thumbprint(self) -> str:
         """
-        Thumbprint of the certificate used for authentication.
+        [Required] Thumbprint of the certificate used for authentication.
         """
         return pulumi.get(self, "thumbprint")
 
@@ -2616,7 +2616,7 @@ class CodeConfigurationResponse(dict):
                  code_id: Optional[str] = None):
         """
         Configuration for a scoring code asset.
-        :param str scoring_script: The script to execute on startup. eg. "score.py"
+        :param str scoring_script: [Required] The script to execute on startup. eg. "score.py"
         :param str code_id: ARM resource ID of the code asset.
         """
         pulumi.set(__self__, "scoring_script", scoring_script)
@@ -2627,7 +2627,7 @@ class CodeConfigurationResponse(dict):
     @pulumi.getter(name="scoringScript")
     def scoring_script(self) -> str:
         """
-        The script to execute on startup. eg. "score.py"
+        [Required] The script to execute on startup. eg. "score.py"
         """
         return pulumi.get(self, "scoring_script")
 
@@ -2720,7 +2720,7 @@ class CodeVersionResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Code asset version details.
-        :param str path: The path of the file/directory in the datastore.
+        :param str path: [Required] The path of the file/directory in the datastore.
         :param str datastore_id: ARM resource ID of the datastore where the asset is located.
         :param str description: The asset description text.
         :param bool is_anonymous: If the name version are system generated (anonymous registration).
@@ -2743,7 +2743,7 @@ class CodeVersionResponse(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -2850,8 +2850,8 @@ class CommandJobResponse(dict):
                  timeout: Optional[str] = None):
         """
         Command job definition.
-        :param str command: The command to execute on startup of the job. eg. "python train.py"
-        :param 'ComputeConfigurationResponse' compute: Compute binding for the job.
+        :param str command: [Required] The command to execute on startup of the job. eg. "python train.py"
+        :param 'ComputeConfigurationResponse' compute: [Required] Compute binding for the job.
         :param Mapping[str, 'JobEndpointResponse'] interaction_endpoints: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
         :param str job_type: Enum to determine the type of job.
@@ -2915,7 +2915,7 @@ class CommandJobResponse(dict):
     @pulumi.getter
     def command(self) -> str:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 
@@ -2923,7 +2923,7 @@ class CommandJobResponse(dict):
     @pulumi.getter
     def compute(self) -> 'outputs.ComputeConfigurationResponse':
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -3124,7 +3124,7 @@ class ComputeConfigurationResponse(dict):
         :param bool is_local: Set to true for jobs running on local compute.
         :param str location: Location for virtual cluster run.
         :param Mapping[str, str] properties: Additional properties.
-        :param str target: ARM resource ID of the compute resource.
+        :param str target: ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
@@ -3183,7 +3183,7 @@ class ComputeConfigurationResponse(dict):
     @pulumi.getter
     def target(self) -> Optional[str]:
         """
-        ARM resource ID of the compute resource.
+        ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         """
         return pulumi.get(self, "target")
 
@@ -4787,7 +4787,7 @@ class DataVersionResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Data asset version details.
-        :param str path: The path of the file/directory in the datastore.
+        :param str path: [Required] The path of the file/directory in the datastore.
         :param str dataset_type: The Format of dataset.
         :param str datastore_id: ARM resource ID of the datastore where the asset is located.
         :param str description: The asset description text.
@@ -4813,7 +4813,7 @@ class DataVersionResponse(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -5120,7 +5120,7 @@ class DatastorePropertiesResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Datastore definition.
-        :param Union['AzureBlobContentsResponse', 'AzureDataLakeGen1ContentsResponse', 'AzureDataLakeGen2ContentsResponse', 'AzureFileContentsResponse', 'AzurePostgreSqlContentsResponse', 'AzureSqlDatabaseContentsResponse', 'GlusterFsContentsResponse'] contents: Reference to the datastore storage contents.
+        :param Union['AzureBlobContentsResponse', 'AzureDataLakeGen1ContentsResponse', 'AzureDataLakeGen2ContentsResponse', 'AzureFileContentsResponse', 'AzurePostgreSqlContentsResponse', 'AzureSqlDatabaseContentsResponse', 'GlusterFsContentsResponse'] contents: [Required] Reference to the datastore storage contents.
         :param bool has_been_validated: Whether the service has validated access to the datastore with the provided credentials.
         :param str description: The asset description text.
         :param bool is_default: Whether this datastore is the default for the workspace.
@@ -5145,7 +5145,7 @@ class DatastorePropertiesResponse(dict):
     @pulumi.getter
     def contents(self) -> Any:
         """
-        Reference to the datastore storage contents.
+        [Required] Reference to the datastore storage contents.
         """
         return pulumi.get(self, "contents")
 
@@ -5229,7 +5229,7 @@ class DockerBuildResponse(dict):
         Class to represent configuration settings for Docker Build
         :param str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Build'.
-        :param str dockerfile: Docker command line instructions to assemble an image.
+        :param str dockerfile: [Required] Docker command line instructions to assemble an image.
                <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         :param str context: Path to a snapshot of the Docker Context. This property is only valid if Dockerfile is specified.
                The path is relative to the asset path which must contain a single Blob URI value.
@@ -5256,7 +5256,7 @@ class DockerBuildResponse(dict):
     @pulumi.getter
     def dockerfile(self) -> str:
         """
-        Docker command line instructions to assemble an image.
+        [Required] Docker command line instructions to assemble an image.
         <seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" />
         """
         return pulumi.get(self, "dockerfile")
@@ -5346,7 +5346,7 @@ class DockerImageResponse(dict):
                  platform: Optional['outputs.DockerImagePlatformResponse'] = None):
         """
         Class to represent configuration settings for Docker Build
-        :param str docker_image_uri: Image name of a custom base image.
+        :param str docker_image_uri: [Required] Image name of a custom base image.
                <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         :param str docker_specification_type: Enum to determine docker specification type. Must be either Build or Image.
                Expected value is 'Image'.
@@ -5361,7 +5361,7 @@ class DockerImageResponse(dict):
     @pulumi.getter(name="dockerImageUri")
     def docker_image_uri(self) -> str:
         """
-        Image name of a custom base image.
+        [Required] Image name of a custom base image.
         <seealso href="https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image" />
         """
         return pulumi.get(self, "docker_image_uri")
@@ -5816,8 +5816,8 @@ class GlusterFsContentsResponse(dict):
         GlusterFs datastore configuration.
         :param str contents_type: Enum to determine the datastore contents type.
                Expected value is 'GlusterFs'.
-        :param str server_address: GlusterFS server address (can be the IP address or server name).
-        :param str volume_name: GlusterFS volume name.
+        :param str server_address: [Required] GlusterFS server address (can be the IP address or server name).
+        :param str volume_name: [Required] GlusterFS volume name.
         """
         pulumi.set(__self__, "contents_type", 'GlusterFs')
         pulumi.set(__self__, "server_address", server_address)
@@ -5836,7 +5836,7 @@ class GlusterFsContentsResponse(dict):
     @pulumi.getter(name="serverAddress")
     def server_address(self) -> str:
         """
-        GlusterFS server address (can be the IP address or server name).
+        [Required] GlusterFS server address (can be the IP address or server name).
         """
         return pulumi.get(self, "server_address")
 
@@ -5844,7 +5844,7 @@ class GlusterFsContentsResponse(dict):
     @pulumi.getter(name="volumeName")
     def volume_name(self) -> str:
         """
-        GlusterFS volume name.
+        [Required] GlusterFS volume name.
         """
         return pulumi.get(self, "volume_name")
 
@@ -6108,7 +6108,7 @@ class IdAssetReferenceResponse(dict):
                  reference_type: str):
         """
         Reference to an asset via its ARM resource ID.
-        :param str asset_id: ARM resource ID of the asset.
+        :param str asset_id: [Required] ARM resource ID of the asset.
         :param str reference_type: Enum to determine which reference method to use for an asset.
                Expected value is 'Id'.
         """
@@ -6119,7 +6119,7 @@ class IdAssetReferenceResponse(dict):
     @pulumi.getter(name="assetId")
     def asset_id(self) -> str:
         """
-        ARM resource ID of the asset.
+        [Required] ARM resource ID of the asset.
         """
         return pulumi.get(self, "asset_id")
 
@@ -7093,7 +7093,7 @@ class LabelingJobResponse(dict):
         :param str created_time_utc: Created time of the job in UTC timezone.
         :param Mapping[str, 'JobEndpointResponse'] interaction_endpoints: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
-        :param str job_type: Specifies the type of job. This field should always be set to "Labeling".
+        :param str job_type: [Required] Specifies the type of job. This field should always be set to "Labeling".
         :param 'ProgressMetricsResponse' progress_metrics: Progress metrics of the job.
         :param str project_id: Internal id of the job(Previously called project).
         :param str provisioning_state: Specifies the labeling job provisioning state.
@@ -7154,7 +7154,7 @@ class LabelingJobResponse(dict):
     @pulumi.getter(name="jobType")
     def job_type(self) -> str:
         """
-        Specifies the type of job. This field should always be set to "Labeling".
+        [Required] Specifies the type of job. This field should always be set to "Labeling".
         """
         return pulumi.get(self, "job_type")
 
@@ -7991,7 +7991,7 @@ class ModelVersionResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Model asset version details.
-        :param str path: The path of the file/directory in the datastore.
+        :param str path: [Required] The path of the file/directory in the datastore.
         :param str datastore_id: ARM resource ID of the datastore where the asset is located.
         :param str description: The asset description text.
         :param Mapping[str, 'FlavorDataResponse'] flavors: Mapping of model flavors to their properties.
@@ -8017,7 +8017,7 @@ class ModelVersionResponse(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The path of the file/directory in the datastore.
+        [Required] The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
 
@@ -8395,8 +8395,8 @@ class ObjectiveResponse(dict):
                  primary_metric: str):
         """
         Optimization objective.
-        :param str goal: Defines supported metric goals for hyperparameter tuning
-        :param str primary_metric: Name of the metric to optimize.
+        :param str goal: [Required] Defines supported metric goals for hyperparameter tuning
+        :param str primary_metric: [Required] Name of the metric to optimize.
         """
         pulumi.set(__self__, "goal", goal)
         pulumi.set(__self__, "primary_metric", primary_metric)
@@ -8405,7 +8405,7 @@ class ObjectiveResponse(dict):
     @pulumi.getter
     def goal(self) -> str:
         """
-        Defines supported metric goals for hyperparameter tuning
+        [Required] Defines supported metric goals for hyperparameter tuning
         """
         return pulumi.get(self, "goal")
 
@@ -8413,7 +8413,7 @@ class ObjectiveResponse(dict):
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> str:
         """
-        Name of the metric to optimize.
+        [Required] Name of the metric to optimize.
         """
         return pulumi.get(self, "primary_metric")
 
@@ -8457,7 +8457,7 @@ class OnlineEndpointResponse(dict):
                  traffic: Optional[Mapping[str, int]] = None):
         """
         Online endpoint configuration
-        :param str auth_mode: Inference endpoint authentication mode type
+        :param str auth_mode: [Required] Inference endpoint authentication mode type
         :param str provisioning_state: State of endpoint provisioning.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
@@ -8484,7 +8484,7 @@ class OnlineEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> str:
         """
-        Inference endpoint authentication mode type
+        [Required] Inference endpoint authentication mode type
         """
         return pulumi.get(self, "auth_mode")
 
@@ -9602,8 +9602,8 @@ class RouteResponse(dict):
                  path: str,
                  port: int):
         """
-        :param str path: The path for the route.
-        :param int port: The port for the route.
+        :param str path: [Required] The path for the route.
+        :param int port: [Required] The port for the route.
         """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "port", port)
@@ -9612,7 +9612,7 @@ class RouteResponse(dict):
     @pulumi.getter
     def path(self) -> str:
         """
-        The path for the route.
+        [Required] The path for the route.
         """
         return pulumi.get(self, "path")
 
@@ -9620,7 +9620,7 @@ class RouteResponse(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        The port for the route.
+        [Required] The port for the route.
         """
         return pulumi.get(self, "port")
 
@@ -9943,10 +9943,10 @@ class ServicePrincipalDatastoreCredentialsResponse(dict):
                  resource_uri: Optional[str] = None):
         """
         Service Principal datastore credentials configuration.
-        :param str client_id: Service principal client ID.
+        :param str client_id: [Required] Service principal client ID.
         :param str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'ServicePrincipal'.
-        :param str tenant_id: ID of the tenant to which the service principal belongs.
+        :param str tenant_id: [Required] ID of the tenant to which the service principal belongs.
         :param str authority_url: Authority URL used for authentication.
         :param str resource_uri: Resource the service principal has access to.
         """
@@ -9962,7 +9962,7 @@ class ServicePrincipalDatastoreCredentialsResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> str:
         """
-        Service principal client ID.
+        [Required] Service principal client ID.
         """
         return pulumi.get(self, "client_id")
 
@@ -9979,7 +9979,7 @@ class ServicePrincipalDatastoreCredentialsResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        ID of the tenant to which the service principal belongs.
+        [Required] ID of the tenant to which the service principal belongs.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -10177,7 +10177,7 @@ class SqlAdminDatastoreCredentialsResponse(dict):
         SQL Admin datastore credentials configuration.
         :param str credentials_type: Enum to determine the datastore credentials type.
                Expected value is 'SqlAdmin'.
-        :param str user_id: SQL database user name.
+        :param str user_id: [Required] SQL database user name.
         """
         pulumi.set(__self__, "credentials_type", 'SqlAdmin')
         pulumi.set(__self__, "user_id", user_id)
@@ -10195,7 +10195,7 @@ class SqlAdminDatastoreCredentialsResponse(dict):
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
-        SQL database user name.
+        [Required] SQL database user name.
         """
         return pulumi.get(self, "user_id")
 
@@ -10433,16 +10433,16 @@ class SweepJobResponse(dict):
                  trial: Optional['outputs.TrialComponentResponse'] = None):
         """
         Sweep job definition.
-        :param str algorithm: Type of the hyperparameter sampling algorithms
-        :param 'ComputeConfigurationResponse' compute: Compute binding for the job.
+        :param str algorithm: [Required] Type of the hyperparameter sampling algorithms
+        :param 'ComputeConfigurationResponse' compute: [Required] Compute binding for the job.
         :param Mapping[str, 'JobEndpointResponse'] interaction_endpoints: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
         :param str job_type: Enum to determine the type of job.
                Expected value is 'Sweep'.
-        :param 'ObjectiveResponse' objective: Optimization objective.
+        :param 'ObjectiveResponse' objective: [Required] Optimization objective.
         :param 'JobOutputResponse' output: Location of the job output logs and artifacts.
         :param str provisioning_state: Specifies the job provisioning state.
-        :param Mapping[str, Any] search_space: A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        :param Mapping[str, Any] search_space: [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         :param str status: The status of a job.
         :param str description: The asset description text.
         :param Union['BanditPolicyResponse', 'MedianStoppingPolicyResponse', 'TruncationSelectionPolicyResponse'] early_termination: Early termination policies enable canceling poor-performing runs before they complete.
@@ -10494,7 +10494,7 @@ class SweepJobResponse(dict):
     @pulumi.getter
     def algorithm(self) -> str:
         """
-        Type of the hyperparameter sampling algorithms
+        [Required] Type of the hyperparameter sampling algorithms
         """
         return pulumi.get(self, "algorithm")
 
@@ -10502,7 +10502,7 @@ class SweepJobResponse(dict):
     @pulumi.getter
     def compute(self) -> 'outputs.ComputeConfigurationResponse':
         """
-        Compute binding for the job.
+        [Required] Compute binding for the job.
         """
         return pulumi.get(self, "compute")
 
@@ -10528,7 +10528,7 @@ class SweepJobResponse(dict):
     @pulumi.getter
     def objective(self) -> 'outputs.ObjectiveResponse':
         """
-        Optimization objective.
+        [Required] Optimization objective.
         """
         return pulumi.get(self, "objective")
 
@@ -10552,7 +10552,7 @@ class SweepJobResponse(dict):
     @pulumi.getter(name="searchSpace")
     def search_space(self) -> Mapping[str, Any]:
         """
-        A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
+        [Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         """
         return pulumi.get(self, "search_space")
 
@@ -11276,7 +11276,7 @@ class TrialComponentResponse(dict):
                  timeout: Optional[str] = None):
         """
         Trial component definition.
-        :param str command: The command to execute on startup of the job. eg. "python train.py"
+        :param str command: [Required] The command to execute on startup of the job. eg. "python train.py"
         :param str code_id: ARM resource ID of the code asset.
         :param Union['MpiResponse', 'PyTorchResponse', 'TensorFlowResponse'] distribution: Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         :param str environment_id: The ARM resource ID of the Environment specification for the job.
@@ -11306,7 +11306,7 @@ class TrialComponentResponse(dict):
     @pulumi.getter
     def command(self) -> str:
         """
-        The command to execute on startup of the job. eg. "python train.py"
+        [Required] The command to execute on startup of the job. eg. "python train.py"
         """
         return pulumi.get(self, "command")
 

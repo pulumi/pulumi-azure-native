@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string CredentialsType;
         /// <summary>
-        /// SQL database user name.
+        /// [Required] SQL database user name.
         /// </summary>
         public readonly string UserId;
 

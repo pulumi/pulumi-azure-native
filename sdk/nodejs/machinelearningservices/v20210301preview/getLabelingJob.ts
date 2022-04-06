@@ -59,7 +59,7 @@ export interface GetLabelingJobResult {
      */
     readonly name: string;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     readonly properties: outputs.machinelearningservices.v20210301preview.LabelingJobResponse;
     /**

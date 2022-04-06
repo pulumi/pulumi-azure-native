@@ -22,11 +22,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string ContentsType;
         /// <summary>
-        /// Account credentials.
+        /// [Required] Account credentials.
         /// </summary>
         public readonly object Credentials;
         /// <summary>
-        /// Azure SQL database name.
+        /// [Required] Azure SQL database name.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly bool? EnableSSL;
         /// <summary>
-        /// Azure cloud endpoint for the database.
+        /// [Required] Azure cloud endpoint for the database.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
-        /// Azure SQL server port.
+        /// [Required] Azure SQL server port.
         /// </summary>
         public readonly int PortNumber;
         /// <summary>
-        /// Azure SQL server name.
+        /// [Required] Azure SQL server name.
         /// </summary>
         public readonly string ServerName;
 

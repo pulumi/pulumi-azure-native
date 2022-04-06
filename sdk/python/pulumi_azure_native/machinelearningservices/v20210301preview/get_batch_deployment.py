@@ -91,7 +91,7 @@ class GetBatchDeploymentResult:
     @pulumi.getter
     def properties(self) -> 'outputs.BatchDeploymentResponse':
         """
-        Additional attributes of the entity.
+        [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "properties")
 

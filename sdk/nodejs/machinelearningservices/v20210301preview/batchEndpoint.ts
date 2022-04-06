@@ -49,7 +49,7 @@ export class BatchEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20210301preview.BatchEndpointResponse>;
     /**
@@ -134,7 +134,7 @@ export interface BatchEndpointArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.BatchEndpointArgs>;
     /**

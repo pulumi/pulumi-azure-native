@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly Outputs.LabelingJobInstructionsResponse? JobInstructions;
         /// <summary>
-        /// Specifies the type of job. This field should always be set to "Labeling".
+        /// [Required] Specifies the type of job. This field should always be set to "Labeling".
         /// </summary>
         public readonly string JobType;
         /// <summary>

@@ -175,7 +175,7 @@ export const DistributionType = {
 } as const;
 
 /**
- * Specifies the type of distribution framework.
+ * [Required] Specifies the type of distribution framework.
  */
 export type DistributionType = (typeof DistributionType)[keyof typeof DistributionType];
 
@@ -185,7 +185,7 @@ export const DockerSpecificationType = {
 } as const;
 
 /**
- * Docker specification must be either Build or Image
+ * [Required] Docker specification must be either Build or Image
  */
 export type DockerSpecificationType = (typeof DockerSpecificationType)[keyof typeof DockerSpecificationType];
 
@@ -196,7 +196,7 @@ export const EarlyTerminationPolicyType = {
 } as const;
 
 /**
- * Name of policy configuration
+ * [Required] Name of policy configuration
  */
 export type EarlyTerminationPolicyType = (typeof EarlyTerminationPolicyType)[keyof typeof EarlyTerminationPolicyType];
 
@@ -217,7 +217,7 @@ export const EndpointAuthMode = {
 } as const;
 
 /**
- * Inference endpoint authentication mode type
+ * [Required] Inference endpoint authentication mode type
  */
 export type EndpointAuthMode = (typeof EndpointAuthMode)[keyof typeof EndpointAuthMode];
 
@@ -228,7 +228,7 @@ export const EndpointComputeType = {
 } as const;
 
 /**
- * The compute type of the endpoint.
+ * [Required] The compute type of the endpoint.
  */
 export type EndpointComputeType = (typeof EndpointComputeType)[keyof typeof EndpointComputeType];
 
@@ -238,7 +238,7 @@ export const Goal = {
 } as const;
 
 /**
- * Defines supported metric goals for hyperparameter tuning
+ * [Required] Defines supported metric goals for hyperparameter tuning
  */
 export type Goal = (typeof Goal)[keyof typeof Goal];
 
@@ -260,7 +260,7 @@ export const IdentityConfigurationType = {
 } as const;
 
 /**
- * Specifies the type of identity framework.
+ * [Required] Specifies the type of identity framework.
  */
 export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
 
@@ -282,7 +282,7 @@ export const JobType = {
 } as const;
 
 /**
- * Specifies the type of job.
+ * [Required] Specifies the type of job.
  */
 export type JobType = (typeof JobType)[keyof typeof JobType];
 
@@ -345,7 +345,7 @@ export const ReferenceType = {
 } as const;
 
 /**
- * Specifies the type of asset reference.
+ * [Required] Specifies the type of asset reference.
  */
 export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 
@@ -391,7 +391,7 @@ export const SamplingAlgorithm = {
 } as const;
 
 /**
- * Type of the hyperparameter sampling algorithms
+ * [Required] Type of the hyperparameter sampling algorithms
  */
 export type SamplingAlgorithm = (typeof SamplingAlgorithm)[keyof typeof SamplingAlgorithm];
 
@@ -401,7 +401,7 @@ export const ScaleType = {
 } as const;
 
 /**
- * Type of deployment scaling algorithm
+ * [Required] Type of deployment scaling algorithm
  */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 

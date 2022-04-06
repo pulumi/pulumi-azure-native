@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.BatchEndpointResponse> Properties { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.BatchEndpointArgs> Properties { get; set; } = null!;

@@ -19,6 +19,7 @@ export * from "./getManagedEnvironment";
 export * from "./getManagedEnvironmentsStorage";
 export * from "./listContainerAppCustomHostNameAnalysis";
 export * from "./listContainerAppSecrets";
+export * from "./listDaprComponentSecrets";
 export * from "./managedEnvironment";
 export * from "./managedEnvironmentsStorage";
 

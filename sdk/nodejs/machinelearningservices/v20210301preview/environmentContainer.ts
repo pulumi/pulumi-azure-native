@@ -40,7 +40,7 @@ export class EnvironmentContainer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20210301preview.EnvironmentContainerResponse>;
     /**
@@ -100,7 +100,7 @@ export interface EnvironmentContainerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     properties: pulumi.Input<inputs.machinelearningservices.v20210301preview.EnvironmentContainerArgs>;
     /**

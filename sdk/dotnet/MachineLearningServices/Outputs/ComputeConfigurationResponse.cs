@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// ARM resource ID of the compute resource.
+        /// ARM resource ID of the Compute you are targeting. If not provided the resource will be deployed as Managed.
         /// </summary>
         public readonly string? Target;
 

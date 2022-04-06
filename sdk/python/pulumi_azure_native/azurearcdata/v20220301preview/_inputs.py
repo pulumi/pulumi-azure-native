@@ -17,12 +17,14 @@ __all__ = [
     'ActiveDirectoryConnectorStatusArgs',
     'ActiveDirectoryDomainControllersArgs',
     'ActiveDirectoryDomainControllerArgs',
+    'ActiveDirectoryInformationArgs',
     'BasicLoginInformationArgs',
     'DataControllerPropertiesArgs',
     'ExtendedLocationArgs',
     'K8sResourceRequirementsArgs',
     'K8sSchedulingOptionsArgs',
     'K8sSchedulingArgs',
+    'KeytabInformationArgs',
     'LogAnalyticsWorkspaceConfigArgs',
     'OnPremisePropertyArgs',
     'PostgresInstancePropertiesArgs',
@@ -359,6 +361,30 @@ class ActiveDirectoryDomainControllerArgs:
     @hostname.setter
     def hostname(self, value: pulumi.Input[str]):
         pulumi.set(self, "hostname", value)
+
+
+@pulumi.input_type
+class ActiveDirectoryInformationArgs:
+    def __init__(__self__, *,
+                 keytab_information: Optional[pulumi.Input['KeytabInformationArgs']] = None):
+        """
+        Active Directory information that related to the resource.
+        :param pulumi.Input['KeytabInformationArgs'] keytab_information: Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+        """
+        if keytab_information is not None:
+            pulumi.set(__self__, "keytab_information", keytab_information)
+
+    @property
+    @pulumi.getter(name="keytabInformation")
+    def keytab_information(self) -> Optional[pulumi.Input['KeytabInformationArgs']]:
+        """
+        Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+        """
+        return pulumi.get(self, "keytab_information")
+
+    @keytab_information.setter
+    def keytab_information(self, value: Optional[pulumi.Input['KeytabInformationArgs']]):
+        pulumi.set(self, "keytab_information", value)
 
 
 @pulumi.input_type
@@ -732,6 +758,30 @@ class K8sSchedulingArgs:
 
 
 @pulumi.input_type
+class KeytabInformationArgs:
+    def __init__(__self__, *,
+                 keytab: Optional[pulumi.Input[str]] = None):
+        """
+        Keytab used for authenticate with Active Directory.
+        :param pulumi.Input[str] keytab: A base64-encoded keytab.
+        """
+        if keytab is not None:
+            pulumi.set(__self__, "keytab", keytab)
+
+    @property
+    @pulumi.getter
+    def keytab(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded keytab.
+        """
+        return pulumi.get(self, "keytab")
+
+    @keytab.setter
+    def keytab(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keytab", value)
+
+
+@pulumi.input_type
 class LogAnalyticsWorkspaceConfigArgs:
     def __init__(__self__, *,
                  primary_key: Optional[pulumi.Input[str]] = None,
@@ -1087,6 +1137,7 @@ class SqlManagedInstanceK8sSpecArgs:
 @pulumi.input_type
 class SqlManagedInstancePropertiesArgs:
     def __init__(__self__, *,
+                 active_directory_information: Optional[pulumi.Input['ActiveDirectoryInformationArgs']] = None,
                  admin: Optional[pulumi.Input[str]] = None,
                  basic_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
@@ -1094,12 +1145,12 @@ class SqlManagedInstancePropertiesArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  extension_id: Optional[pulumi.Input[str]] = None,
                  k8s_raw: Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']] = None,
-                 keytab: Optional[pulumi.Input[str]] = None,
                  last_uploaded_date: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         Properties of sqlManagedInstance.
+        :param pulumi.Input['ActiveDirectoryInformationArgs'] active_directory_information: Active Directory information related to this SQL Managed Instance.
         :param pulumi.Input[str] admin: The instance admin user
         :param pulumi.Input['BasicLoginInformationArgs'] basic_login_information: Username and password for basic authentication.
         :param pulumi.Input[str] cluster_id: If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
@@ -1107,11 +1158,12 @@ class SqlManagedInstancePropertiesArgs:
         :param pulumi.Input[str] end_time: The instance end time
         :param pulumi.Input[str] extension_id: If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
         :param pulumi.Input['SqlManagedInstanceK8sRawArgs'] k8s_raw: The raw kubernetes information
-        :param pulumi.Input[str] keytab: A base64-encoded keytab.
         :param pulumi.Input[str] last_uploaded_date: Last uploaded date from Kubernetes cluster. Defaults to current date time
         :param pulumi.Input[Union[str, 'ArcSqlManagedInstanceLicenseType']] license_type: The license type to apply for this managed instance.
         :param pulumi.Input[str] start_time: The instance start time
         """
+        if active_directory_information is not None:
+            pulumi.set(__self__, "active_directory_information", active_directory_information)
         if admin is not None:
             pulumi.set(__self__, "admin", admin)
         if basic_login_information is not None:
@@ -1126,8 +1178,6 @@ class SqlManagedInstancePropertiesArgs:
             pulumi.set(__self__, "extension_id", extension_id)
         if k8s_raw is not None:
             pulumi.set(__self__, "k8s_raw", k8s_raw)
-        if keytab is not None:
-            pulumi.set(__self__, "keytab", keytab)
         if last_uploaded_date is not None:
             pulumi.set(__self__, "last_uploaded_date", last_uploaded_date)
         if license_type is None:
@@ -1136,6 +1186,18 @@ class SqlManagedInstancePropertiesArgs:
             pulumi.set(__self__, "license_type", license_type)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="activeDirectoryInformation")
+    def active_directory_information(self) -> Optional[pulumi.Input['ActiveDirectoryInformationArgs']]:
+        """
+        Active Directory information related to this SQL Managed Instance.
+        """
+        return pulumi.get(self, "active_directory_information")
+
+    @active_directory_information.setter
+    def active_directory_information(self, value: Optional[pulumi.Input['ActiveDirectoryInformationArgs']]):
+        pulumi.set(self, "active_directory_information", value)
 
     @property
     @pulumi.getter
@@ -1220,18 +1282,6 @@ class SqlManagedInstancePropertiesArgs:
     @k8s_raw.setter
     def k8s_raw(self, value: Optional[pulumi.Input['SqlManagedInstanceK8sRawArgs']]):
         pulumi.set(self, "k8s_raw", value)
-
-    @property
-    @pulumi.getter
-    def keytab(self) -> Optional[pulumi.Input[str]]:
-        """
-        A base64-encoded keytab.
-        """
-        return pulumi.get(self, "keytab")
-
-    @keytab.setter
-    def keytab(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "keytab", value)
 
     @property
     @pulumi.getter(name="lastUploadedDate")
@@ -1387,7 +1437,6 @@ class SqlServerInstancePropertiesArgs:
                  collation: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[Union[str, 'EditionType']]] = None,
-                 esu_expiration_date: Optional[pulumi.Input[str]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]] = None,
@@ -1406,7 +1455,6 @@ class SqlServerInstancePropertiesArgs:
         :param pulumi.Input[str] collation: SQL Server collation.
         :param pulumi.Input[str] current_version: SQL Server current version.
         :param pulumi.Input[Union[str, 'EditionType']] edition: SQL Server edition.
-        :param pulumi.Input[str] esu_expiration_date: Timestamp of ESU Expiration.
         :param pulumi.Input[Union[str, 'HostType']] host_type: Type of host for Azure Arc SQL Server
         :param pulumi.Input[str] instance_name: SQL Server instance name.
         :param pulumi.Input[Union[str, 'ArcSqlServerLicenseType']] license_type: SQL Server license type.
@@ -1429,8 +1477,6 @@ class SqlServerInstancePropertiesArgs:
             pulumi.set(__self__, "current_version", current_version)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
-        if esu_expiration_date is not None:
-            pulumi.set(__self__, "esu_expiration_date", esu_expiration_date)
         if host_type is not None:
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
@@ -1533,18 +1579,6 @@ class SqlServerInstancePropertiesArgs:
     @edition.setter
     def edition(self, value: Optional[pulumi.Input[Union[str, 'EditionType']]]):
         pulumi.set(self, "edition", value)
-
-    @property
-    @pulumi.getter(name="esuExpirationDate")
-    def esu_expiration_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timestamp of ESU Expiration.
-        """
-        return pulumi.get(self, "esu_expiration_date")
-
-    @esu_expiration_date.setter
-    def esu_expiration_date(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "esu_expiration_date", value)
 
     @property
     @pulumi.getter(name="hostType")

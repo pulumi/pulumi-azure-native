@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<bool>? IsAnonymous { get; set; }
 
         /// <summary>
-        /// The path of the file/directory in the datastore.
+        /// [Required] The path of the file/directory in the datastore.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     public sealed class IdAssetReferenceResponse
     {
         /// <summary>
-        /// ARM resource ID of the asset.
+        /// [Required] ARM resource ID of the asset.
         /// </summary>
         public readonly string AssetId;
         /// <summary>

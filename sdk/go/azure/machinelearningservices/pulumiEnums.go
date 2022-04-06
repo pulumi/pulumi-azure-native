@@ -112,7 +112,7 @@ const (
 	DatastoreTypeArmPsqldb     = DatastoreTypeArm("psqldb")
 )
 
-// Specifies the type of distribution framework.
+// [Required] Specifies the type of distribution framework.
 type DistributionType string
 
 const (
@@ -121,7 +121,7 @@ const (
 	DistributionTypeMpi        = DistributionType("Mpi")
 )
 
-// Docker specification must be either Build or Image
+// [Required] Docker specification must be either Build or Image
 type DockerSpecificationType string
 
 const (
@@ -129,7 +129,7 @@ const (
 	DockerSpecificationTypeImage = DockerSpecificationType("Image")
 )
 
-// Name of policy configuration
+// [Required] Name of policy configuration
 type EarlyTerminationPolicyType string
 
 const (
@@ -146,7 +146,7 @@ const (
 	EncryptionStatusDisabled = EncryptionStatus("Disabled")
 )
 
-// Inference endpoint authentication mode type
+// [Required] Inference endpoint authentication mode type
 type EndpointAuthMode string
 
 const (
@@ -155,7 +155,7 @@ const (
 	EndpointAuthModeAADToken = EndpointAuthMode("AADToken")
 )
 
-// The compute type of the endpoint.
+// [Required] The compute type of the endpoint.
 type EndpointComputeType string
 
 const (
@@ -164,7 +164,7 @@ const (
 	EndpointComputeTypeAzureMLCompute = EndpointComputeType("AzureMLCompute")
 )
 
-// Defines supported metric goals for hyperparameter tuning
+// [Required] Defines supported metric goals for hyperparameter tuning
 type Goal string
 
 const (
@@ -182,7 +182,7 @@ const (
 	Header_Combine_all_files_headers   = Header("combine_all_files_headers")
 )
 
-// Specifies the type of identity framework.
+// [Required] Specifies the type of identity framework.
 type IdentityConfigurationType string
 
 const (
@@ -199,7 +199,7 @@ const (
 	ImageAnnotationTypeInstanceSegmentation = ImageAnnotationType("InstanceSegmentation")
 )
 
-// Specifies the type of job.
+// [Required] Specifies the type of job.
 type JobType string
 
 const (
@@ -407,7 +407,7 @@ const (
 	PrivateEndpointServiceConnectionStatusTimeout      = PrivateEndpointServiceConnectionStatus("Timeout")
 )
 
-// Specifies the type of asset reference.
+// [Required] Specifies the type of asset reference.
 type ReferenceType string
 
 const (
@@ -602,7 +602,7 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Type of the hyperparameter sampling algorithms
+// [Required] Type of the hyperparameter sampling algorithms
 type SamplingAlgorithm string
 
 const (
@@ -611,7 +611,7 @@ const (
 	SamplingAlgorithmBayesian = SamplingAlgorithm("Bayesian")
 )
 
-// Type of deployment scaling algorithm
+// [Required] Type of deployment scaling algorithm
 type ScaleType string
 
 const (

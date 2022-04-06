@@ -55,7 +55,7 @@ export interface GetModelVersionResult {
      */
     readonly name: string;
     /**
-     * Additional attributes of the entity.
+     * [Required] Additional attributes of the entity.
      */
     readonly properties: outputs.machinelearningservices.ModelVersionResponse;
     /**

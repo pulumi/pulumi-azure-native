@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<string> DockerSpecificationType { get; set; } = null!;
 
         /// <summary>
-        /// Docker command line instructions to assemble an image.
+        /// [Required] Docker command line instructions to assemble an image.
         /// &lt;seealso href="https://repo2docker.readthedocs.io/en/latest/config_files.html#dockerfile-advanced-environments" /&gt;
         /// </summary>
         [Input("dockerfile", required: true)]

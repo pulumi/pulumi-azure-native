@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.ModelContainerResponse Properties;
         /// <summary>

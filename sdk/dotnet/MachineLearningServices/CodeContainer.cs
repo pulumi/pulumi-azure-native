@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.CodeContainerResponse> Properties { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Additional attributes of the entity.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
         [Input("properties", required: true)]
         public Input<Inputs.CodeContainerArgs> Properties { get; set; } = null!;

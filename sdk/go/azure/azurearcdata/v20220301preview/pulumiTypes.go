@@ -1181,6 +1181,146 @@ func (o ActiveDirectoryDomainControllersResponseOutput) SecondaryDomainControlle
 	}).(ActiveDirectoryDomainControllerResponseArrayOutput)
 }
 
+// Active Directory information that related to the resource.
+type ActiveDirectoryInformation struct {
+	// Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+	KeytabInformation *KeytabInformation `pulumi:"keytabInformation"`
+}
+
+// ActiveDirectoryInformationInput is an input type that accepts ActiveDirectoryInformationArgs and ActiveDirectoryInformationOutput values.
+// You can construct a concrete instance of `ActiveDirectoryInformationInput` via:
+//
+//          ActiveDirectoryInformationArgs{...}
+type ActiveDirectoryInformationInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryInformationOutput() ActiveDirectoryInformationOutput
+	ToActiveDirectoryInformationOutputWithContext(context.Context) ActiveDirectoryInformationOutput
+}
+
+// Active Directory information that related to the resource.
+type ActiveDirectoryInformationArgs struct {
+	// Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+	KeytabInformation KeytabInformationPtrInput `pulumi:"keytabInformation"`
+}
+
+func (ActiveDirectoryInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryInformation)(nil)).Elem()
+}
+
+func (i ActiveDirectoryInformationArgs) ToActiveDirectoryInformationOutput() ActiveDirectoryInformationOutput {
+	return i.ToActiveDirectoryInformationOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryInformationArgs) ToActiveDirectoryInformationOutputWithContext(ctx context.Context) ActiveDirectoryInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryInformationOutput)
+}
+
+func (i ActiveDirectoryInformationArgs) ToActiveDirectoryInformationPtrOutput() ActiveDirectoryInformationPtrOutput {
+	return i.ToActiveDirectoryInformationPtrOutputWithContext(context.Background())
+}
+
+func (i ActiveDirectoryInformationArgs) ToActiveDirectoryInformationPtrOutputWithContext(ctx context.Context) ActiveDirectoryInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryInformationOutput).ToActiveDirectoryInformationPtrOutputWithContext(ctx)
+}
+
+// ActiveDirectoryInformationPtrInput is an input type that accepts ActiveDirectoryInformationArgs, ActiveDirectoryInformationPtr and ActiveDirectoryInformationPtrOutput values.
+// You can construct a concrete instance of `ActiveDirectoryInformationPtrInput` via:
+//
+//          ActiveDirectoryInformationArgs{...}
+//
+//  or:
+//
+//          nil
+type ActiveDirectoryInformationPtrInput interface {
+	pulumi.Input
+
+	ToActiveDirectoryInformationPtrOutput() ActiveDirectoryInformationPtrOutput
+	ToActiveDirectoryInformationPtrOutputWithContext(context.Context) ActiveDirectoryInformationPtrOutput
+}
+
+type activeDirectoryInformationPtrType ActiveDirectoryInformationArgs
+
+func ActiveDirectoryInformationPtr(v *ActiveDirectoryInformationArgs) ActiveDirectoryInformationPtrInput {
+	return (*activeDirectoryInformationPtrType)(v)
+}
+
+func (*activeDirectoryInformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryInformation)(nil)).Elem()
+}
+
+func (i *activeDirectoryInformationPtrType) ToActiveDirectoryInformationPtrOutput() ActiveDirectoryInformationPtrOutput {
+	return i.ToActiveDirectoryInformationPtrOutputWithContext(context.Background())
+}
+
+func (i *activeDirectoryInformationPtrType) ToActiveDirectoryInformationPtrOutputWithContext(ctx context.Context) ActiveDirectoryInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryInformationPtrOutput)
+}
+
+// Active Directory information that related to the resource.
+type ActiveDirectoryInformationOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDirectoryInformation)(nil)).Elem()
+}
+
+func (o ActiveDirectoryInformationOutput) ToActiveDirectoryInformationOutput() ActiveDirectoryInformationOutput {
+	return o
+}
+
+func (o ActiveDirectoryInformationOutput) ToActiveDirectoryInformationOutputWithContext(ctx context.Context) ActiveDirectoryInformationOutput {
+	return o
+}
+
+func (o ActiveDirectoryInformationOutput) ToActiveDirectoryInformationPtrOutput() ActiveDirectoryInformationPtrOutput {
+	return o.ToActiveDirectoryInformationPtrOutputWithContext(context.Background())
+}
+
+func (o ActiveDirectoryInformationOutput) ToActiveDirectoryInformationPtrOutputWithContext(ctx context.Context) ActiveDirectoryInformationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActiveDirectoryInformation) *ActiveDirectoryInformation {
+		return &v
+	}).(ActiveDirectoryInformationPtrOutput)
+}
+
+// Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+func (o ActiveDirectoryInformationOutput) KeytabInformation() KeytabInformationPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryInformation) *KeytabInformation { return v.KeytabInformation }).(KeytabInformationPtrOutput)
+}
+
+type ActiveDirectoryInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (ActiveDirectoryInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActiveDirectoryInformation)(nil)).Elem()
+}
+
+func (o ActiveDirectoryInformationPtrOutput) ToActiveDirectoryInformationPtrOutput() ActiveDirectoryInformationPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryInformationPtrOutput) ToActiveDirectoryInformationPtrOutputWithContext(ctx context.Context) ActiveDirectoryInformationPtrOutput {
+	return o
+}
+
+func (o ActiveDirectoryInformationPtrOutput) Elem() ActiveDirectoryInformationOutput {
+	return o.ApplyT(func(v *ActiveDirectoryInformation) ActiveDirectoryInformation {
+		if v != nil {
+			return *v
+		}
+		var ret ActiveDirectoryInformation
+		return ret
+	}).(ActiveDirectoryInformationOutput)
+}
+
+// Keytab information that is used for the Sql Managed Instance when Active Directory authentication is used.
+func (o ActiveDirectoryInformationPtrOutput) KeytabInformation() KeytabInformationPtrOutput {
+	return o.ApplyT(func(v *ActiveDirectoryInformation) *KeytabInformation {
+		if v == nil {
+			return nil
+		}
+		return v.KeytabInformation
+	}).(KeytabInformationPtrOutput)
+}
+
 // Username and password for basic login authentication.
 type BasicLoginInformation struct {
 	// Login password.
@@ -2570,6 +2710,146 @@ func (o K8sSchedulingResponsePtrOutput) Default() K8sSchedulingOptionsResponsePt
 		}
 		return v.Default
 	}).(K8sSchedulingOptionsResponsePtrOutput)
+}
+
+// Keytab used for authenticate with Active Directory.
+type KeytabInformation struct {
+	// A base64-encoded keytab.
+	Keytab *string `pulumi:"keytab"`
+}
+
+// KeytabInformationInput is an input type that accepts KeytabInformationArgs and KeytabInformationOutput values.
+// You can construct a concrete instance of `KeytabInformationInput` via:
+//
+//          KeytabInformationArgs{...}
+type KeytabInformationInput interface {
+	pulumi.Input
+
+	ToKeytabInformationOutput() KeytabInformationOutput
+	ToKeytabInformationOutputWithContext(context.Context) KeytabInformationOutput
+}
+
+// Keytab used for authenticate with Active Directory.
+type KeytabInformationArgs struct {
+	// A base64-encoded keytab.
+	Keytab pulumi.StringPtrInput `pulumi:"keytab"`
+}
+
+func (KeytabInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeytabInformation)(nil)).Elem()
+}
+
+func (i KeytabInformationArgs) ToKeytabInformationOutput() KeytabInformationOutput {
+	return i.ToKeytabInformationOutputWithContext(context.Background())
+}
+
+func (i KeytabInformationArgs) ToKeytabInformationOutputWithContext(ctx context.Context) KeytabInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeytabInformationOutput)
+}
+
+func (i KeytabInformationArgs) ToKeytabInformationPtrOutput() KeytabInformationPtrOutput {
+	return i.ToKeytabInformationPtrOutputWithContext(context.Background())
+}
+
+func (i KeytabInformationArgs) ToKeytabInformationPtrOutputWithContext(ctx context.Context) KeytabInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeytabInformationOutput).ToKeytabInformationPtrOutputWithContext(ctx)
+}
+
+// KeytabInformationPtrInput is an input type that accepts KeytabInformationArgs, KeytabInformationPtr and KeytabInformationPtrOutput values.
+// You can construct a concrete instance of `KeytabInformationPtrInput` via:
+//
+//          KeytabInformationArgs{...}
+//
+//  or:
+//
+//          nil
+type KeytabInformationPtrInput interface {
+	pulumi.Input
+
+	ToKeytabInformationPtrOutput() KeytabInformationPtrOutput
+	ToKeytabInformationPtrOutputWithContext(context.Context) KeytabInformationPtrOutput
+}
+
+type keytabInformationPtrType KeytabInformationArgs
+
+func KeytabInformationPtr(v *KeytabInformationArgs) KeytabInformationPtrInput {
+	return (*keytabInformationPtrType)(v)
+}
+
+func (*keytabInformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeytabInformation)(nil)).Elem()
+}
+
+func (i *keytabInformationPtrType) ToKeytabInformationPtrOutput() KeytabInformationPtrOutput {
+	return i.ToKeytabInformationPtrOutputWithContext(context.Background())
+}
+
+func (i *keytabInformationPtrType) ToKeytabInformationPtrOutputWithContext(ctx context.Context) KeytabInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeytabInformationPtrOutput)
+}
+
+// Keytab used for authenticate with Active Directory.
+type KeytabInformationOutput struct{ *pulumi.OutputState }
+
+func (KeytabInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeytabInformation)(nil)).Elem()
+}
+
+func (o KeytabInformationOutput) ToKeytabInformationOutput() KeytabInformationOutput {
+	return o
+}
+
+func (o KeytabInformationOutput) ToKeytabInformationOutputWithContext(ctx context.Context) KeytabInformationOutput {
+	return o
+}
+
+func (o KeytabInformationOutput) ToKeytabInformationPtrOutput() KeytabInformationPtrOutput {
+	return o.ToKeytabInformationPtrOutputWithContext(context.Background())
+}
+
+func (o KeytabInformationOutput) ToKeytabInformationPtrOutputWithContext(ctx context.Context) KeytabInformationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeytabInformation) *KeytabInformation {
+		return &v
+	}).(KeytabInformationPtrOutput)
+}
+
+// A base64-encoded keytab.
+func (o KeytabInformationOutput) Keytab() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeytabInformation) *string { return v.Keytab }).(pulumi.StringPtrOutput)
+}
+
+type KeytabInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (KeytabInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeytabInformation)(nil)).Elem()
+}
+
+func (o KeytabInformationPtrOutput) ToKeytabInformationPtrOutput() KeytabInformationPtrOutput {
+	return o
+}
+
+func (o KeytabInformationPtrOutput) ToKeytabInformationPtrOutputWithContext(ctx context.Context) KeytabInformationPtrOutput {
+	return o
+}
+
+func (o KeytabInformationPtrOutput) Elem() KeytabInformationOutput {
+	return o.ApplyT(func(v *KeytabInformation) KeytabInformation {
+		if v != nil {
+			return *v
+		}
+		var ret KeytabInformation
+		return ret
+	}).(KeytabInformationOutput)
+}
+
+// A base64-encoded keytab.
+func (o KeytabInformationPtrOutput) Keytab() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeytabInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Keytab
+	}).(pulumi.StringPtrOutput)
 }
 
 // Log analytics workspace id and primary key
@@ -4069,6 +4349,8 @@ func (o SqlManagedInstanceK8sSpecResponsePtrOutput) Scheduling() K8sSchedulingRe
 
 // Properties of sqlManagedInstance.
 type SqlManagedInstanceProperties struct {
+	// Active Directory information related to this SQL Managed Instance.
+	ActiveDirectoryInformation *ActiveDirectoryInformation `pulumi:"activeDirectoryInformation"`
 	// The instance admin user
 	Admin *string `pulumi:"admin"`
 	// Username and password for basic authentication.
@@ -4083,8 +4365,6 @@ type SqlManagedInstanceProperties struct {
 	ExtensionId *string `pulumi:"extensionId"`
 	// The raw kubernetes information
 	K8sRaw *SqlManagedInstanceK8sRaw `pulumi:"k8sRaw"`
-	// A base64-encoded keytab.
-	Keytab *string `pulumi:"keytab"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
@@ -4119,6 +4399,8 @@ type SqlManagedInstancePropertiesInput interface {
 
 // Properties of sqlManagedInstance.
 type SqlManagedInstancePropertiesArgs struct {
+	// Active Directory information related to this SQL Managed Instance.
+	ActiveDirectoryInformation ActiveDirectoryInformationPtrInput `pulumi:"activeDirectoryInformation"`
 	// The instance admin user
 	Admin pulumi.StringPtrInput `pulumi:"admin"`
 	// Username and password for basic authentication.
@@ -4133,8 +4415,6 @@ type SqlManagedInstancePropertiesArgs struct {
 	ExtensionId pulumi.StringPtrInput `pulumi:"extensionId"`
 	// The raw kubernetes information
 	K8sRaw SqlManagedInstanceK8sRawPtrInput `pulumi:"k8sRaw"`
-	// A base64-encoded keytab.
-	Keytab pulumi.StringPtrInput `pulumi:"keytab"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
@@ -4170,6 +4450,11 @@ func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesOutput
 	return o
 }
 
+// Active Directory information related to this SQL Managed Instance.
+func (o SqlManagedInstancePropertiesOutput) ActiveDirectoryInformation() ActiveDirectoryInformationPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *ActiveDirectoryInformation { return v.ActiveDirectoryInformation }).(ActiveDirectoryInformationPtrOutput)
+}
+
 // The instance admin user
 func (o SqlManagedInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.Admin }).(pulumi.StringPtrOutput)
@@ -4203,11 +4488,6 @@ func (o SqlManagedInstancePropertiesOutput) ExtensionId() pulumi.StringPtrOutput
 // The raw kubernetes information
 func (o SqlManagedInstancePropertiesOutput) K8sRaw() SqlManagedInstanceK8sRawPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *SqlManagedInstanceK8sRaw { return v.K8sRaw }).(SqlManagedInstanceK8sRawPtrOutput)
-}
-
-// A base64-encoded keytab.
-func (o SqlManagedInstancePropertiesOutput) Keytab() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.Keytab }).(pulumi.StringPtrOutput)
 }
 
 // Last uploaded date from Kubernetes cluster. Defaults to current date time
@@ -4764,8 +5044,6 @@ type SqlServerInstanceProperties struct {
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// SQL Server edition.
 	Edition *string `pulumi:"edition"`
-	// Timestamp of ESU Expiration.
-	EsuExpirationDate *string `pulumi:"esuExpirationDate"`
 	// Type of host for Azure Arc SQL Server
 	HostType *string `pulumi:"hostType"`
 	// SQL Server instance name.
@@ -4813,8 +5091,6 @@ type SqlServerInstancePropertiesArgs struct {
 	CurrentVersion pulumi.StringPtrInput `pulumi:"currentVersion"`
 	// SQL Server edition.
 	Edition pulumi.StringPtrInput `pulumi:"edition"`
-	// Timestamp of ESU Expiration.
-	EsuExpirationDate pulumi.StringPtrInput `pulumi:"esuExpirationDate"`
 	// Type of host for Azure Arc SQL Server
 	HostType pulumi.StringPtrInput `pulumi:"hostType"`
 	// SQL Server instance name.
@@ -4943,11 +5219,6 @@ func (o SqlServerInstancePropertiesOutput) CurrentVersion() pulumi.StringPtrOutp
 // SQL Server edition.
 func (o SqlServerInstancePropertiesOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Edition }).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of ESU Expiration.
-func (o SqlServerInstancePropertiesOutput) EsuExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.EsuExpirationDate }).(pulumi.StringPtrOutput)
 }
 
 // Type of host for Azure Arc SQL Server
@@ -5084,16 +5355,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Edition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Timestamp of ESU Expiration.
-func (o SqlServerInstancePropertiesPtrOutput) EsuExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EsuExpirationDate
-	}).(pulumi.StringPtrOutput)
-}
-
 // Type of host for Azure Arc SQL Server
 func (o SqlServerInstancePropertiesPtrOutput) HostType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
@@ -5210,8 +5471,6 @@ type SqlServerInstancePropertiesResponse struct {
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// SQL Server edition.
 	Edition *string `pulumi:"edition"`
-	// Timestamp of ESU Expiration.
-	EsuExpirationDate *string `pulumi:"esuExpirationDate"`
 	// Type of host for Azure Arc SQL Server
 	HostType *string `pulumi:"hostType"`
 	// SQL Server instance name.
@@ -5284,11 +5543,6 @@ func (o SqlServerInstancePropertiesResponseOutput) CurrentVersion() pulumi.Strin
 // SQL Server edition.
 func (o SqlServerInstancePropertiesResponseOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Edition }).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of ESU Expiration.
-func (o SqlServerInstancePropertiesResponseOutput) EsuExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.EsuExpirationDate }).(pulumi.StringPtrOutput)
 }
 
 // Type of host for Azure Arc SQL Server
@@ -5991,6 +6245,8 @@ func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryDomainControllerResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryDomainControllersResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryInformationOutput{})
+	pulumi.RegisterOutputType(ActiveDirectoryInformationPtrOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationPtrOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationResponseOutput{})
@@ -6013,6 +6269,8 @@ func init() {
 	pulumi.RegisterOutputType(K8sSchedulingOptionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(K8sSchedulingResponseOutput{})
 	pulumi.RegisterOutputType(K8sSchedulingResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeytabInformationOutput{})
+	pulumi.RegisterOutputType(KeytabInformationPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigPtrOutput{})
 	pulumi.RegisterOutputType(LogAnalyticsWorkspaceConfigResponseOutput{})

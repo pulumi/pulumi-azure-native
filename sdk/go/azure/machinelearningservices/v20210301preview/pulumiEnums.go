@@ -82,7 +82,7 @@ const (
 	ContainerTypeInferenceServer    = ContainerType("InferenceServer")
 )
 
-// Storage type backing the datastore.
+// [Required] Storage type backing the datastore.
 type ContentsType string
 
 const (
@@ -96,7 +96,7 @@ const (
 	ContentsTypeGlusterFs         = ContentsType("GlusterFs")
 )
 
-// Credential type used to authentication with storage.
+// [Required] Credential type used to authentication with storage.
 type CredentialsType string
 
 const (
@@ -137,7 +137,7 @@ const (
 	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
 )
 
-// Specifies the type of distribution framework.
+// [Required] Specifies the type of distribution framework.
 type DistributionType string
 
 const (
@@ -146,7 +146,7 @@ const (
 	DistributionTypeMpi        = DistributionType("Mpi")
 )
 
-// Docker specification must be either Build or Image
+// [Required] Docker specification must be either Build or Image
 type DockerSpecificationType string
 
 const (
@@ -154,7 +154,7 @@ const (
 	DockerSpecificationTypeImage = DockerSpecificationType("Image")
 )
 
-// Name of policy configuration
+// [Required] Name of policy configuration
 type EarlyTerminationPolicyType string
 
 const (
@@ -171,7 +171,7 @@ const (
 	EncryptionStatusDisabled = EncryptionStatus("Disabled")
 )
 
-// Inference endpoint authentication mode type
+// [Required] Inference endpoint authentication mode type
 type EndpointAuthMode string
 
 const (
@@ -180,7 +180,7 @@ const (
 	EndpointAuthModeAADToken = EndpointAuthMode("AADToken")
 )
 
-// The compute type of the endpoint.
+// [Required] The compute type of the endpoint.
 type EndpointComputeType string
 
 const (
@@ -189,7 +189,7 @@ const (
 	EndpointComputeTypeAzureMLCompute = EndpointComputeType("AzureMLCompute")
 )
 
-// Defines supported metric goals for hyperparameter tuning
+// [Required] Defines supported metric goals for hyperparameter tuning
 type Goal string
 
 const (
@@ -197,7 +197,7 @@ const (
 	GoalMaximize = Goal("Maximize")
 )
 
-// Specifies the type of identity framework.
+// [Required] Specifies the type of identity framework.
 type IdentityConfigurationType string
 
 const (
@@ -214,7 +214,7 @@ const (
 	ImageAnnotationTypeInstanceSegmentation = ImageAnnotationType("InstanceSegmentation")
 )
 
-// Specifies the type of job. This field should always be set to "Labeling".
+// [Required] Specifies the type of job. This field should always be set to "Labeling".
 type JobType string
 
 const (
@@ -231,7 +231,7 @@ const (
 	LoadBalancerTypeInternalLoadBalancer = LoadBalancerType("InternalLoadBalancer")
 )
 
-// Media type of the job.
+// [Required] Media type of the job.
 type MediaType string
 
 const (
@@ -287,7 +287,7 @@ const (
 	RecurrenceFrequencyYear         = RecurrenceFrequency("Year")
 )
 
-// Specifies the type of asset reference.
+// [Required] Specifies the type of asset reference.
 type ReferenceType string
 
 const (
@@ -482,7 +482,7 @@ func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
 }
 
-// Type of the hyperparameter sampling algorithms
+// [Required] Type of the hyperparameter sampling algorithms
 type SamplingAlgorithm string
 
 const (
@@ -491,7 +491,7 @@ const (
 	SamplingAlgorithmBayesian = SamplingAlgorithm("Bayesian")
 )
 
-// Type of deployment scaling algorithm
+// [Required] Type of deployment scaling algorithm
 type ScaleType string
 
 const (
@@ -507,7 +507,7 @@ const (
 	ScheduleStatusDisabled = ScheduleStatus("Disabled")
 )
 
-// Credential type used to authentication with storage.
+// [Required] Credential type used to authentication with storage.
 type SecretsType string
 
 const (

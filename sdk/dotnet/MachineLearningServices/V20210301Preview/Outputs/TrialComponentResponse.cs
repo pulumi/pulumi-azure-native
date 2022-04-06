@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string? CodeId;
         /// <summary>
-        /// The command to execute on startup of the job. eg. "python train.py"
+        /// [Required] The command to execute on startup of the job. eg. "python train.py"
         /// </summary>
         public readonly string Command;
         /// <summary>
