@@ -44,9 +44,9 @@ export interface GetWorkspaceResult {
      */
     readonly customerId: string;
     /**
-     * The ETag of the workspace.
+     * The etag of the workspace.
      */
-    readonly eTag?: string;
+    readonly etag?: string;
     /**
      * Workspace features.
      */

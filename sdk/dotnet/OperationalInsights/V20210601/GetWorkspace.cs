@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
         /// </summary>
         public readonly string CustomerId;
         /// <summary>
-        /// The ETag of the workspace.
+        /// The etag of the workspace.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string? Etag;
         /// <summary>
         /// Workspace features.
         /// </summary>
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
 
             string customerId,
 
-            string? eTag,
+            string? etag,
 
             Outputs.WorkspaceFeaturesResponse? features,
 
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601
         {
             CreatedDate = createdDate;
             CustomerId = customerId;
-            ETag = eTag;
+            Etag = etag;
             Features = features;
             ForceCmkForQuery = forceCmkForQuery;
             Id = id;

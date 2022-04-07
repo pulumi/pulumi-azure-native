@@ -19,8 +19,8 @@ type Workspace struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// This is a read-only property. Represents the ID associated with the workspace.
 	CustomerId pulumi.StringOutput `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// The etag of the workspace.
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Workspace features.
 	Features WorkspaceFeaturesResponsePtrOutput `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -114,8 +114,6 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
 	// Workspace features.
 	Features *WorkspaceFeatures `pulumi:"features"`
 	// Indicates whether customer managed storage is mandatory for query management.
@@ -144,8 +142,6 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
 	// Workspace features.
 	Features WorkspaceFeaturesPtrInput
 	// Indicates whether customer managed storage is mandatory for query management.
