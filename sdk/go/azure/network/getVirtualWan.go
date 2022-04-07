@@ -63,7 +63,11 @@ func LookupVirtualWanOutput(ctx *pulumi.Context, args LookupVirtualWanOutputArgs
 		ApplyT(func(v interface{}) (LookupVirtualWanResult, error) {
 			args := v.(LookupVirtualWanArgs)
 			r, err := LookupVirtualWan(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualWanResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualWanResultOutput)
 }
 

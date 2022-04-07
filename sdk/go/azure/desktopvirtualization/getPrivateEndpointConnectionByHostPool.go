@@ -53,7 +53,11 @@ func LookupPrivateEndpointConnectionByHostPoolOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionByHostPoolResult, error) {
 			args := v.(LookupPrivateEndpointConnectionByHostPoolArgs)
 			r, err := LookupPrivateEndpointConnectionByHostPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionByHostPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionByHostPoolResultOutput)
 }
 

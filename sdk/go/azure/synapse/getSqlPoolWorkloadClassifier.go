@@ -61,7 +61,11 @@ func LookupSqlPoolWorkloadClassifierOutput(ctx *pulumi.Context, args LookupSqlPo
 		ApplyT(func(v interface{}) (LookupSqlPoolWorkloadClassifierResult, error) {
 			args := v.(LookupSqlPoolWorkloadClassifierArgs)
 			r, err := LookupSqlPoolWorkloadClassifier(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolWorkloadClassifierResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolWorkloadClassifierResultOutput)
 }
 

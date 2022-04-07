@@ -61,7 +61,11 @@ func LookupWCFRelayOutput(ctx *pulumi.Context, args LookupWCFRelayOutputArgs, op
 		ApplyT(func(v interface{}) (LookupWCFRelayResult, error) {
 			args := v.(LookupWCFRelayArgs)
 			r, err := LookupWCFRelay(ctx, &args, opts...)
-			return *r, err
+			var s LookupWCFRelayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWCFRelayResultOutput)
 }
 

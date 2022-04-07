@@ -162,7 +162,11 @@ func LookupWebAppSlotOutput(ctx *pulumi.Context, args LookupWebAppSlotOutputArgs
 		ApplyT(func(v interface{}) (LookupWebAppSlotResult, error) {
 			args := v.(LookupWebAppSlotArgs)
 			r, err := LookupWebAppSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSlotResultOutput)
 }
 

@@ -64,7 +64,11 @@ func LookupBillingRoleAssignmentByEnrollmentAccountOutput(ctx *pulumi.Context, a
 		ApplyT(func(v interface{}) (LookupBillingRoleAssignmentByEnrollmentAccountResult, error) {
 			args := v.(LookupBillingRoleAssignmentByEnrollmentAccountArgs)
 			r, err := LookupBillingRoleAssignmentByEnrollmentAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupBillingRoleAssignmentByEnrollmentAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBillingRoleAssignmentByEnrollmentAccountResultOutput)
 }
 

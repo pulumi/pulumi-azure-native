@@ -52,7 +52,11 @@ func GetguestDiagnosticsSettingOutput(ctx *pulumi.Context, args GetguestDiagnost
 		ApplyT(func(v interface{}) (GetguestDiagnosticsSettingResult, error) {
 			args := v.(GetguestDiagnosticsSettingArgs)
 			r, err := GetguestDiagnosticsSetting(ctx, &args, opts...)
-			return *r, err
+			var s GetguestDiagnosticsSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetguestDiagnosticsSettingResultOutput)
 }
 

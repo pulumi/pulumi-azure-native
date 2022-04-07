@@ -59,7 +59,11 @@ func LookupGatewayHostnameConfigurationOutput(ctx *pulumi.Context, args LookupGa
 		ApplyT(func(v interface{}) (LookupGatewayHostnameConfigurationResult, error) {
 			args := v.(LookupGatewayHostnameConfigurationArgs)
 			r, err := LookupGatewayHostnameConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupGatewayHostnameConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGatewayHostnameConfigurationResultOutput)
 }
 

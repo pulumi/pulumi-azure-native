@@ -47,7 +47,11 @@ func LookupCassandraDataCenterOutput(ctx *pulumi.Context, args LookupCassandraDa
 		ApplyT(func(v interface{}) (LookupCassandraDataCenterResult, error) {
 			args := v.(LookupCassandraDataCenterArgs)
 			r, err := LookupCassandraDataCenter(ctx, &args, opts...)
-			return *r, err
+			var s LookupCassandraDataCenterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCassandraDataCenterResultOutput)
 }
 

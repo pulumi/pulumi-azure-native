@@ -58,7 +58,11 @@ func LookupRouteFilterRuleOutput(ctx *pulumi.Context, args LookupRouteFilterRule
 		ApplyT(func(v interface{}) (LookupRouteFilterRuleResult, error) {
 			args := v.(LookupRouteFilterRuleArgs)
 			r, err := LookupRouteFilterRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupRouteFilterRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRouteFilterRuleResultOutput)
 }
 

@@ -59,7 +59,11 @@ func LookupBookmarkRelationOutput(ctx *pulumi.Context, args LookupBookmarkRelati
 		ApplyT(func(v interface{}) (LookupBookmarkRelationResult, error) {
 			args := v.(LookupBookmarkRelationArgs)
 			r, err := LookupBookmarkRelation(ctx, &args, opts...)
-			return *r, err
+			var s LookupBookmarkRelationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBookmarkRelationResultOutput)
 }
 

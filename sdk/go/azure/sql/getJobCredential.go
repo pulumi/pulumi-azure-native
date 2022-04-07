@@ -49,7 +49,11 @@ func LookupJobCredentialOutput(ctx *pulumi.Context, args LookupJobCredentialOutp
 		ApplyT(func(v interface{}) (LookupJobCredentialResult, error) {
 			args := v.(LookupJobCredentialArgs)
 			r, err := LookupJobCredential(ctx, &args, opts...)
-			return *r, err
+			var s LookupJobCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJobCredentialResultOutput)
 }
 

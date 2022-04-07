@@ -51,7 +51,11 @@ func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupSchemaResult, error) {
 			args := v.(LookupSchemaArgs)
 			r, err := LookupSchema(ctx, &args, opts...)
-			return *r, err
+			var s LookupSchemaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSchemaResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupFileServerOutput(ctx *pulumi.Context, args LookupFileServerOutputArgs
 		ApplyT(func(v interface{}) (LookupFileServerResult, error) {
 			args := v.(LookupFileServerArgs)
 			r, err := LookupFileServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileServerResultOutput)
 }
 

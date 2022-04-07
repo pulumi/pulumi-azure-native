@@ -43,7 +43,11 @@ func ListBatchEndpointKeysOutput(ctx *pulumi.Context, args ListBatchEndpointKeys
 		ApplyT(func(v interface{}) (ListBatchEndpointKeysResult, error) {
 			args := v.(ListBatchEndpointKeysArgs)
 			r, err := ListBatchEndpointKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListBatchEndpointKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBatchEndpointKeysResultOutput)
 }
 

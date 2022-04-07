@@ -40,7 +40,11 @@ func ListWorkflowAccessKeySecretKeysOutput(ctx *pulumi.Context, args ListWorkflo
 		ApplyT(func(v interface{}) (ListWorkflowAccessKeySecretKeysResult, error) {
 			args := v.(ListWorkflowAccessKeySecretKeysArgs)
 			r, err := ListWorkflowAccessKeySecretKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkflowAccessKeySecretKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkflowAccessKeySecretKeysResultOutput)
 }
 

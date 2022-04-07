@@ -81,7 +81,11 @@ func LookupOperationalizationClusterOutput(ctx *pulumi.Context, args LookupOpera
 		ApplyT(func(v interface{}) (LookupOperationalizationClusterResult, error) {
 			args := v.(LookupOperationalizationClusterArgs)
 			r, err := LookupOperationalizationCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupOperationalizationClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOperationalizationClusterResultOutput)
 }
 

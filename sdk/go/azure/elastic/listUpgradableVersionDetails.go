@@ -41,7 +41,11 @@ func ListUpgradableVersionDetailsOutput(ctx *pulumi.Context, args ListUpgradable
 		ApplyT(func(v interface{}) (ListUpgradableVersionDetailsResult, error) {
 			args := v.(ListUpgradableVersionDetailsArgs)
 			r, err := ListUpgradableVersionDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListUpgradableVersionDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListUpgradableVersionDetailsResultOutput)
 }
 

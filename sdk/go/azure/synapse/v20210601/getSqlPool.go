@@ -85,7 +85,11 @@ func LookupSqlPoolOutput(ctx *pulumi.Context, args LookupSqlPoolOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupSqlPoolResult, error) {
 			args := v.(LookupSqlPoolArgs)
 			r, err := LookupSqlPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolResultOutput)
 }
 

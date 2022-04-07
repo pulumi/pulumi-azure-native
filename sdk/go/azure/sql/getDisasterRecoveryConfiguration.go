@@ -61,7 +61,11 @@ func LookupDisasterRecoveryConfigurationOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDisasterRecoveryConfigurationResult, error) {
 			args := v.(LookupDisasterRecoveryConfigurationArgs)
 			r, err := LookupDisasterRecoveryConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDisasterRecoveryConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDisasterRecoveryConfigurationResultOutput)
 }
 

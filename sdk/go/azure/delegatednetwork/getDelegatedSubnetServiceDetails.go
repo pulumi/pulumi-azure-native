@@ -55,7 +55,11 @@ func LookupDelegatedSubnetServiceDetailsOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDelegatedSubnetServiceDetailsResult, error) {
 			args := v.(LookupDelegatedSubnetServiceDetailsArgs)
 			r, err := LookupDelegatedSubnetServiceDetails(ctx, &args, opts...)
-			return *r, err
+			var s LookupDelegatedSubnetServiceDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDelegatedSubnetServiceDetailsResultOutput)
 }
 

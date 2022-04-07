@@ -51,7 +51,11 @@ func LookupWebAppSwiftVirtualNetworkConnectionOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupWebAppSwiftVirtualNetworkConnectionResult, error) {
 			args := v.(LookupWebAppSwiftVirtualNetworkConnectionArgs)
 			r, err := LookupWebAppSwiftVirtualNetworkConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSwiftVirtualNetworkConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSwiftVirtualNetworkConnectionResultOutput)
 }
 

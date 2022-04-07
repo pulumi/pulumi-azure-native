@@ -64,7 +64,11 @@ func LookupSiteHostNameBindingOutput(ctx *pulumi.Context, args LookupSiteHostNam
 		ApplyT(func(v interface{}) (LookupSiteHostNameBindingResult, error) {
 			args := v.(LookupSiteHostNameBindingArgs)
 			r, err := LookupSiteHostNameBinding(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteHostNameBindingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteHostNameBindingResultOutput)
 }
 

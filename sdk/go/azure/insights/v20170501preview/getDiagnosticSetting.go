@@ -58,7 +58,11 @@ func LookupDiagnosticSettingOutput(ctx *pulumi.Context, args LookupDiagnosticSet
 		ApplyT(func(v interface{}) (LookupDiagnosticSettingResult, error) {
 			args := v.(LookupDiagnosticSettingArgs)
 			r, err := LookupDiagnosticSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupDiagnosticSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDiagnosticSettingResultOutput)
 }
 

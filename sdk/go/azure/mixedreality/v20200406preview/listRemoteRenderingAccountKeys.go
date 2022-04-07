@@ -40,7 +40,11 @@ func ListRemoteRenderingAccountKeysOutput(ctx *pulumi.Context, args ListRemoteRe
 		ApplyT(func(v interface{}) (ListRemoteRenderingAccountKeysResult, error) {
 			args := v.(ListRemoteRenderingAccountKeysArgs)
 			r, err := ListRemoteRenderingAccountKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListRemoteRenderingAccountKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRemoteRenderingAccountKeysResultOutput)
 }
 

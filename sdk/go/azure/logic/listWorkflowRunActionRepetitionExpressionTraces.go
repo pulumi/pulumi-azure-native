@@ -44,7 +44,11 @@ func ListWorkflowRunActionRepetitionExpressionTracesOutput(ctx *pulumi.Context, 
 		ApplyT(func(v interface{}) (ListWorkflowRunActionRepetitionExpressionTracesResult, error) {
 			args := v.(ListWorkflowRunActionRepetitionExpressionTracesArgs)
 			r, err := ListWorkflowRunActionRepetitionExpressionTraces(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkflowRunActionRepetitionExpressionTracesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkflowRunActionRepetitionExpressionTracesResultOutput)
 }
 

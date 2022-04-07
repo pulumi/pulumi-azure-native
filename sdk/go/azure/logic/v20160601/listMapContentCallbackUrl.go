@@ -54,7 +54,11 @@ func ListMapContentCallbackUrlOutput(ctx *pulumi.Context, args ListMapContentCal
 		ApplyT(func(v interface{}) (ListMapContentCallbackUrlResult, error) {
 			args := v.(ListMapContentCallbackUrlArgs)
 			r, err := ListMapContentCallbackUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListMapContentCallbackUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMapContentCallbackUrlResultOutput)
 }
 

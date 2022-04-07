@@ -75,7 +75,11 @@ func LookupDedicatedCloudNodeOutput(ctx *pulumi.Context, args LookupDedicatedClo
 		ApplyT(func(v interface{}) (LookupDedicatedCloudNodeResult, error) {
 			args := v.(LookupDedicatedCloudNodeArgs)
 			r, err := LookupDedicatedCloudNode(ctx, &args, opts...)
-			return *r, err
+			var s LookupDedicatedCloudNodeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDedicatedCloudNodeResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupStreamingPolicyOutput(ctx *pulumi.Context, args LookupStreamingPolicy
 		ApplyT(func(v interface{}) (LookupStreamingPolicyResult, error) {
 			args := v.(LookupStreamingPolicyArgs)
 			r, err := LookupStreamingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingPolicyResultOutput)
 }
 

@@ -68,7 +68,11 @@ func LookupPrivateStoreCollectionOfferOutput(ctx *pulumi.Context, args LookupPri
 		ApplyT(func(v interface{}) (LookupPrivateStoreCollectionOfferResult, error) {
 			args := v.(LookupPrivateStoreCollectionOfferArgs)
 			r, err := LookupPrivateStoreCollectionOffer(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateStoreCollectionOfferResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateStoreCollectionOfferResultOutput)
 }
 

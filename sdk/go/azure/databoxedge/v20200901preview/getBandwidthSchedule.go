@@ -56,7 +56,11 @@ func LookupBandwidthScheduleOutput(ctx *pulumi.Context, args LookupBandwidthSche
 		ApplyT(func(v interface{}) (LookupBandwidthScheduleResult, error) {
 			args := v.(LookupBandwidthScheduleArgs)
 			r, err := LookupBandwidthSchedule(ctx, &args, opts...)
-			return *r, err
+			var s LookupBandwidthScheduleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBandwidthScheduleResultOutput)
 }
 

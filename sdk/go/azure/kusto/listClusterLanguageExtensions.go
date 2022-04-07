@@ -39,7 +39,11 @@ func ListClusterLanguageExtensionsOutput(ctx *pulumi.Context, args ListClusterLa
 		ApplyT(func(v interface{}) (ListClusterLanguageExtensionsResult, error) {
 			args := v.(ListClusterLanguageExtensionsArgs)
 			r, err := ListClusterLanguageExtensions(ctx, &args, opts...)
-			return *r, err
+			var s ListClusterLanguageExtensionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListClusterLanguageExtensionsResultOutput)
 }
 

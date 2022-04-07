@@ -94,7 +94,11 @@ func ListSiteBackupStatusSecretsSlotOutput(ctx *pulumi.Context, args ListSiteBac
 		ApplyT(func(v interface{}) (ListSiteBackupStatusSecretsSlotResult, error) {
 			args := v.(ListSiteBackupStatusSecretsSlotArgs)
 			r, err := ListSiteBackupStatusSecretsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteBackupStatusSecretsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteBackupStatusSecretsSlotResultOutput)
 }
 

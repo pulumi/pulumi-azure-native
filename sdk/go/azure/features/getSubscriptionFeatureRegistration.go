@@ -55,7 +55,11 @@ func LookupSubscriptionFeatureRegistrationOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupSubscriptionFeatureRegistrationResult, error) {
 			args := v.(LookupSubscriptionFeatureRegistrationArgs)
 			r, err := LookupSubscriptionFeatureRegistration(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubscriptionFeatureRegistrationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubscriptionFeatureRegistrationResultOutput)
 }
 

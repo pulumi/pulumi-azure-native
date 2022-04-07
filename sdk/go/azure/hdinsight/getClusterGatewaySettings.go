@@ -43,7 +43,11 @@ func GetClusterGatewaySettingsOutput(ctx *pulumi.Context, args GetClusterGateway
 		ApplyT(func(v interface{}) (GetClusterGatewaySettingsResult, error) {
 			args := v.(GetClusterGatewaySettingsArgs)
 			r, err := GetClusterGatewaySettings(ctx, &args, opts...)
-			return *r, err
+			var s GetClusterGatewaySettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetClusterGatewaySettingsResultOutput)
 }
 

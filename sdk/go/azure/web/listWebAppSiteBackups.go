@@ -41,7 +41,11 @@ func ListWebAppSiteBackupsOutput(ctx *pulumi.Context, args ListWebAppSiteBackups
 		ApplyT(func(v interface{}) (ListWebAppSiteBackupsResult, error) {
 			args := v.(ListWebAppSiteBackupsArgs)
 			r, err := ListWebAppSiteBackups(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSiteBackupsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSiteBackupsResultOutput)
 }
 

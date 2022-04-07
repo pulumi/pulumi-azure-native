@@ -94,7 +94,11 @@ func LookupVirtualNetworkGatewayConnectionOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayConnectionResult, error) {
 			args := v.(LookupVirtualNetworkGatewayConnectionArgs)
 			r, err := LookupVirtualNetworkGatewayConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNetworkGatewayConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNetworkGatewayConnectionResultOutput)
 }
 

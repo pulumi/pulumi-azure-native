@@ -48,7 +48,11 @@ func LookupNamespaceAuthorizationRuleOutput(ctx *pulumi.Context, args LookupName
 		ApplyT(func(v interface{}) (LookupNamespaceAuthorizationRuleResult, error) {
 			args := v.(LookupNamespaceAuthorizationRuleArgs)
 			r, err := LookupNamespaceAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupNamespaceAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNamespaceAuthorizationRuleResultOutput)
 }
 

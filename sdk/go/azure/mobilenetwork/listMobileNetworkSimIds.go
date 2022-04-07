@@ -41,7 +41,11 @@ func ListMobileNetworkSimIdsOutput(ctx *pulumi.Context, args ListMobileNetworkSi
 		ApplyT(func(v interface{}) (ListMobileNetworkSimIdsResult, error) {
 			args := v.(ListMobileNetworkSimIdsArgs)
 			r, err := ListMobileNetworkSimIds(ctx, &args, opts...)
-			return *r, err
+			var s ListMobileNetworkSimIdsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMobileNetworkSimIdsResultOutput)
 }
 

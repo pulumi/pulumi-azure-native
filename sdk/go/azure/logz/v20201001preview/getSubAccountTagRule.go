@@ -49,7 +49,11 @@ func LookupSubAccountTagRuleOutput(ctx *pulumi.Context, args LookupSubAccountTag
 		ApplyT(func(v interface{}) (LookupSubAccountTagRuleResult, error) {
 			args := v.(LookupSubAccountTagRuleArgs)
 			r, err := LookupSubAccountTagRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubAccountTagRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubAccountTagRuleResultOutput)
 }
 

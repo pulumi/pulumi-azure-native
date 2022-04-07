@@ -41,7 +41,11 @@ func GetChannelFullUrlOutput(ctx *pulumi.Context, args GetChannelFullUrlOutputAr
 		ApplyT(func(v interface{}) (GetChannelFullUrlResult, error) {
 			args := v.(GetChannelFullUrlArgs)
 			r, err := GetChannelFullUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetChannelFullUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetChannelFullUrlResultOutput)
 }
 

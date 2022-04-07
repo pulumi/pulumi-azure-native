@@ -46,7 +46,11 @@ func LookupSaasSubscriptionLevelOutput(ctx *pulumi.Context, args LookupSaasSubsc
 		ApplyT(func(v interface{}) (LookupSaasSubscriptionLevelResult, error) {
 			args := v.(LookupSaasSubscriptionLevelArgs)
 			r, err := LookupSaasSubscriptionLevel(ctx, &args, opts...)
-			return *r, err
+			var s LookupSaasSubscriptionLevelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSaasSubscriptionLevelResultOutput)
 }
 

@@ -66,7 +66,11 @@ func LookupHanaInstanceOutput(ctx *pulumi.Context, args LookupHanaInstanceOutput
 		ApplyT(func(v interface{}) (LookupHanaInstanceResult, error) {
 			args := v.(LookupHanaInstanceArgs)
 			r, err := LookupHanaInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupHanaInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHanaInstanceResultOutput)
 }
 

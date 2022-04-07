@@ -37,7 +37,11 @@ func ListMediaServiceEdgePoliciesOutput(ctx *pulumi.Context, args ListMediaServi
 		ApplyT(func(v interface{}) (ListMediaServiceEdgePoliciesResult, error) {
 			args := v.(ListMediaServiceEdgePoliciesArgs)
 			r, err := ListMediaServiceEdgePolicies(ctx, &args, opts...)
-			return *r, err
+			var s ListMediaServiceEdgePoliciesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMediaServiceEdgePoliciesResultOutput)
 }
 

@@ -53,7 +53,11 @@ func ListUserAssignedIdentityAssociatedResourcesOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (ListUserAssignedIdentityAssociatedResourcesResult, error) {
 			args := v.(ListUserAssignedIdentityAssociatedResourcesArgs)
 			r, err := ListUserAssignedIdentityAssociatedResources(ctx, &args, opts...)
-			return *r, err
+			var s ListUserAssignedIdentityAssociatedResourcesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListUserAssignedIdentityAssociatedResourcesResultOutput)
 }
 

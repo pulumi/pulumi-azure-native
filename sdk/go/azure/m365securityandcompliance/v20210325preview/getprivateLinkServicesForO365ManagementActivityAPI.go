@@ -56,7 +56,11 @@ func GetprivateLinkServicesForO365ManagementActivityAPIOutput(ctx *pulumi.Contex
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForO365ManagementActivityAPIResult, error) {
 			args := v.(GetprivateLinkServicesForO365ManagementActivityAPIArgs)
 			r, err := GetprivateLinkServicesForO365ManagementActivityAPI(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForO365ManagementActivityAPIResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForO365ManagementActivityAPIResultOutput)
 }
 

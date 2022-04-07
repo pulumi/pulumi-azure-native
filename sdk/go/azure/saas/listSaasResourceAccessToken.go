@@ -39,7 +39,11 @@ func ListSaasResourceAccessTokenOutput(ctx *pulumi.Context, args ListSaasResourc
 		ApplyT(func(v interface{}) (ListSaasResourceAccessTokenResult, error) {
 			args := v.(ListSaasResourceAccessTokenArgs)
 			r, err := ListSaasResourceAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s ListSaasResourceAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSaasResourceAccessTokenResultOutput)
 }
 

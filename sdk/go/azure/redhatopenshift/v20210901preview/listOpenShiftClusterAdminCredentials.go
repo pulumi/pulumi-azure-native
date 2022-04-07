@@ -38,7 +38,11 @@ func ListOpenShiftClusterAdminCredentialsOutput(ctx *pulumi.Context, args ListOp
 		ApplyT(func(v interface{}) (ListOpenShiftClusterAdminCredentialsResult, error) {
 			args := v.(ListOpenShiftClusterAdminCredentialsArgs)
 			r, err := ListOpenShiftClusterAdminCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListOpenShiftClusterAdminCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListOpenShiftClusterAdminCredentialsResultOutput)
 }
 

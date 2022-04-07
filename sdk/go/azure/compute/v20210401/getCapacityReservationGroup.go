@@ -56,7 +56,11 @@ func LookupCapacityReservationGroupOutput(ctx *pulumi.Context, args LookupCapaci
 		ApplyT(func(v interface{}) (LookupCapacityReservationGroupResult, error) {
 			args := v.(LookupCapacityReservationGroupArgs)
 			r, err := LookupCapacityReservationGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupCapacityReservationGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCapacityReservationGroupResultOutput)
 }
 

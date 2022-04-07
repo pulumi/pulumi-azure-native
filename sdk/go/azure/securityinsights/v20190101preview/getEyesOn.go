@@ -52,7 +52,11 @@ func LookupEyesOnOutput(ctx *pulumi.Context, args LookupEyesOnOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupEyesOnResult, error) {
 			args := v.(LookupEyesOnArgs)
 			r, err := LookupEyesOn(ctx, &args, opts...)
-			return *r, err
+			var s LookupEyesOnResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEyesOnResultOutput)
 }
 

@@ -64,7 +64,11 @@ func LookupScheduleResourceOutput(ctx *pulumi.Context, args LookupScheduleResour
 		ApplyT(func(v interface{}) (LookupScheduleResourceResult, error) {
 			args := v.(LookupScheduleResourceArgs)
 			r, err := LookupScheduleResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduleResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduleResourceResultOutput)
 }
 

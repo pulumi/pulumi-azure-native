@@ -66,7 +66,11 @@ func LookupVirtualMachineImageTemplateOutput(ctx *pulumi.Context, args LookupVir
 		ApplyT(func(v interface{}) (LookupVirtualMachineImageTemplateResult, error) {
 			args := v.(LookupVirtualMachineImageTemplateArgs)
 			r, err := LookupVirtualMachineImageTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineImageTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineImageTemplateResultOutput)
 }
 

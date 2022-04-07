@@ -50,7 +50,11 @@ func LookupCustomerSubscriptionOutput(ctx *pulumi.Context, args LookupCustomerSu
 		ApplyT(func(v interface{}) (LookupCustomerSubscriptionResult, error) {
 			args := v.(LookupCustomerSubscriptionArgs)
 			r, err := LookupCustomerSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomerSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomerSubscriptionResultOutput)
 }
 

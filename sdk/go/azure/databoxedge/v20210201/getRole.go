@@ -50,7 +50,11 @@ func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupRoleResult, error) {
 			args := v.(LookupRoleArgs)
 			r, err := LookupRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRoleResultOutput)
 }
 

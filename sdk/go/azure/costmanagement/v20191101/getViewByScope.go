@@ -74,7 +74,11 @@ func LookupViewByScopeOutput(ctx *pulumi.Context, args LookupViewByScopeOutputAr
 		ApplyT(func(v interface{}) (LookupViewByScopeResult, error) {
 			args := v.(LookupViewByScopeArgs)
 			r, err := LookupViewByScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupViewByScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupViewByScopeResultOutput)
 }
 

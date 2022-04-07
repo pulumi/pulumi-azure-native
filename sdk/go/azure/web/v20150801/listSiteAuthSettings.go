@@ -126,7 +126,11 @@ func ListSiteAuthSettingsOutput(ctx *pulumi.Context, args ListSiteAuthSettingsOu
 		ApplyT(func(v interface{}) (ListSiteAuthSettingsResult, error) {
 			args := v.(ListSiteAuthSettingsArgs)
 			r, err := ListSiteAuthSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteAuthSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteAuthSettingsResultOutput)
 }
 

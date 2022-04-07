@@ -61,7 +61,11 @@ func LookupLoadBalancerBackendAddressPoolOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupLoadBalancerBackendAddressPoolResult, error) {
 			args := v.(LookupLoadBalancerBackendAddressPoolArgs)
 			r, err := LookupLoadBalancerBackendAddressPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupLoadBalancerBackendAddressPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLoadBalancerBackendAddressPoolResultOutput)
 }
 

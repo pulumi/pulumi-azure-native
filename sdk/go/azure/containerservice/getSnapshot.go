@@ -53,7 +53,11 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 		ApplyT(func(v interface{}) (LookupSnapshotResult, error) {
 			args := v.(LookupSnapshotArgs)
 			r, err := LookupSnapshot(ctx, &args, opts...)
-			return *r, err
+			var s LookupSnapshotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSnapshotResultOutput)
 }
 

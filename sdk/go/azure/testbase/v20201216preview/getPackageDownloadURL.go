@@ -42,7 +42,11 @@ func GetPackageDownloadURLOutput(ctx *pulumi.Context, args GetPackageDownloadURL
 		ApplyT(func(v interface{}) (GetPackageDownloadURLResult, error) {
 			args := v.(GetPackageDownloadURLArgs)
 			r, err := GetPackageDownloadURL(ctx, &args, opts...)
-			return *r, err
+			var s GetPackageDownloadURLResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetPackageDownloadURLResultOutput)
 }
 

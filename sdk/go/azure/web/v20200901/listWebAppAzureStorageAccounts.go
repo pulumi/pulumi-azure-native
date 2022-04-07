@@ -48,7 +48,11 @@ func ListWebAppAzureStorageAccountsOutput(ctx *pulumi.Context, args ListWebAppAz
 		ApplyT(func(v interface{}) (ListWebAppAzureStorageAccountsResult, error) {
 			args := v.(ListWebAppAzureStorageAccountsArgs)
 			r, err := ListWebAppAzureStorageAccounts(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppAzureStorageAccountsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppAzureStorageAccountsResultOutput)
 }
 

@@ -41,7 +41,11 @@ func ListTransactionNodeApiKeysOutput(ctx *pulumi.Context, args ListTransactionN
 		ApplyT(func(v interface{}) (ListTransactionNodeApiKeysResult, error) {
 			args := v.(ListTransactionNodeApiKeysArgs)
 			r, err := ListTransactionNodeApiKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListTransactionNodeApiKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTransactionNodeApiKeysResultOutput)
 }
 

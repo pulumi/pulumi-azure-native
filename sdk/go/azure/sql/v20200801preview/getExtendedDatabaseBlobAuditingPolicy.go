@@ -134,7 +134,11 @@ func LookupExtendedDatabaseBlobAuditingPolicyOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupExtendedDatabaseBlobAuditingPolicyResult, error) {
 			args := v.(LookupExtendedDatabaseBlobAuditingPolicyArgs)
 			r, err := LookupExtendedDatabaseBlobAuditingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupExtendedDatabaseBlobAuditingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExtendedDatabaseBlobAuditingPolicyResultOutput)
 }
 

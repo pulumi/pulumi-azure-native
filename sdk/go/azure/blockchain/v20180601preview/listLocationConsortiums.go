@@ -36,7 +36,11 @@ func ListLocationConsortiumsOutput(ctx *pulumi.Context, args ListLocationConsort
 		ApplyT(func(v interface{}) (ListLocationConsortiumsResult, error) {
 			args := v.(ListLocationConsortiumsArgs)
 			r, err := ListLocationConsortiums(ctx, &args, opts...)
-			return *r, err
+			var s ListLocationConsortiumsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListLocationConsortiumsResultOutput)
 }
 

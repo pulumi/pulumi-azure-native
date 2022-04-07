@@ -50,7 +50,11 @@ func LookupMetricsSourceTagRuleOutput(ctx *pulumi.Context, args LookupMetricsSou
 		ApplyT(func(v interface{}) (LookupMetricsSourceTagRuleResult, error) {
 			args := v.(LookupMetricsSourceTagRuleArgs)
 			r, err := LookupMetricsSourceTagRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupMetricsSourceTagRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMetricsSourceTagRuleResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupEventSourceOutput(ctx *pulumi.Context, args LookupEventSourceOutputAr
 		ApplyT(func(v interface{}) (LookupEventSourceResult, error) {
 			args := v.(LookupEventSourceArgs)
 			r, err := LookupEventSource(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventSourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventSourceResultOutput)
 }
 

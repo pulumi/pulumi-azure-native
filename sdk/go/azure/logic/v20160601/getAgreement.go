@@ -66,7 +66,11 @@ func LookupAgreementOutput(ctx *pulumi.Context, args LookupAgreementOutputArgs, 
 		ApplyT(func(v interface{}) (LookupAgreementResult, error) {
 			args := v.(LookupAgreementArgs)
 			r, err := LookupAgreement(ctx, &args, opts...)
-			return *r, err
+			var s LookupAgreementResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAgreementResultOutput)
 }
 

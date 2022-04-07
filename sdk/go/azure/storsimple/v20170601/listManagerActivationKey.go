@@ -38,7 +38,11 @@ func ListManagerActivationKeyOutput(ctx *pulumi.Context, args ListManagerActivat
 		ApplyT(func(v interface{}) (ListManagerActivationKeyResult, error) {
 			args := v.(ListManagerActivationKeyArgs)
 			r, err := ListManagerActivationKey(ctx, &args, opts...)
-			return *r, err
+			var s ListManagerActivationKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListManagerActivationKeyResultOutput)
 }
 

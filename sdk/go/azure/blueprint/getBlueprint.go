@@ -59,7 +59,11 @@ func LookupBlueprintOutput(ctx *pulumi.Context, args LookupBlueprintOutputArgs, 
 		ApplyT(func(v interface{}) (LookupBlueprintResult, error) {
 			args := v.(LookupBlueprintArgs)
 			r, err := LookupBlueprint(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlueprintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlueprintResultOutput)
 }
 

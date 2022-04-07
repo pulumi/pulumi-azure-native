@@ -48,7 +48,11 @@ func ListWebAppApplicationSettingsOutput(ctx *pulumi.Context, args ListWebAppApp
 		ApplyT(func(v interface{}) (ListWebAppApplicationSettingsResult, error) {
 			args := v.(ListWebAppApplicationSettingsArgs)
 			r, err := ListWebAppApplicationSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppApplicationSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppApplicationSettingsResultOutput)
 }
 

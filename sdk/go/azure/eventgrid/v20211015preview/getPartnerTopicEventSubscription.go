@@ -89,7 +89,11 @@ func LookupPartnerTopicEventSubscriptionOutput(ctx *pulumi.Context, args LookupP
 		ApplyT(func(v interface{}) (LookupPartnerTopicEventSubscriptionResult, error) {
 			args := v.(LookupPartnerTopicEventSubscriptionArgs)
 			r, err := LookupPartnerTopicEventSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupPartnerTopicEventSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPartnerTopicEventSubscriptionResultOutput)
 }
 

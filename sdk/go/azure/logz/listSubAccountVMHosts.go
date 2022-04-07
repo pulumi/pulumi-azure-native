@@ -43,7 +43,11 @@ func ListSubAccountVMHostsOutput(ctx *pulumi.Context, args ListSubAccountVMHosts
 		ApplyT(func(v interface{}) (ListSubAccountVMHostsResult, error) {
 			args := v.(ListSubAccountVMHostsArgs)
 			r, err := ListSubAccountVMHosts(ctx, &args, opts...)
-			return *r, err
+			var s ListSubAccountVMHostsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSubAccountVMHostsResultOutput)
 }
 

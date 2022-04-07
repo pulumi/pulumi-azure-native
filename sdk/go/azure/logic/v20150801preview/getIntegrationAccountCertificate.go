@@ -56,7 +56,11 @@ func LookupIntegrationAccountCertificateOutput(ctx *pulumi.Context, args LookupI
 		ApplyT(func(v interface{}) (LookupIntegrationAccountCertificateResult, error) {
 			args := v.(LookupIntegrationAccountCertificateArgs)
 			r, err := LookupIntegrationAccountCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationAccountCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationAccountCertificateResultOutput)
 }
 

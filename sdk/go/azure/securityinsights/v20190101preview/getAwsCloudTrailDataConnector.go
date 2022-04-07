@@ -54,7 +54,11 @@ func LookupAwsCloudTrailDataConnectorOutput(ctx *pulumi.Context, args LookupAwsC
 		ApplyT(func(v interface{}) (LookupAwsCloudTrailDataConnectorResult, error) {
 			args := v.(LookupAwsCloudTrailDataConnectorArgs)
 			r, err := LookupAwsCloudTrailDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupAwsCloudTrailDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAwsCloudTrailDataConnectorResultOutput)
 }
 

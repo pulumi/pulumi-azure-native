@@ -40,7 +40,11 @@ func ListDomainRecommendationsOutput(ctx *pulumi.Context, args ListDomainRecomme
 		ApplyT(func(v interface{}) (ListDomainRecommendationsResult, error) {
 			args := v.(ListDomainRecommendationsArgs)
 			r, err := ListDomainRecommendations(ctx, &args, opts...)
-			return *r, err
+			var s ListDomainRecommendationsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDomainRecommendationsResultOutput)
 }
 

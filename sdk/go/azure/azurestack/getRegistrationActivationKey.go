@@ -39,7 +39,11 @@ func GetRegistrationActivationKeyOutput(ctx *pulumi.Context, args GetRegistratio
 		ApplyT(func(v interface{}) (GetRegistrationActivationKeyResult, error) {
 			args := v.(GetRegistrationActivationKeyArgs)
 			r, err := GetRegistrationActivationKey(ctx, &args, opts...)
-			return *r, err
+			var s GetRegistrationActivationKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetRegistrationActivationKeyResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupReplicationPolicyOutput(ctx *pulumi.Context, args LookupReplicationPo
 		ApplyT(func(v interface{}) (LookupReplicationPolicyResult, error) {
 			args := v.(LookupReplicationPolicyArgs)
 			r, err := LookupReplicationPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationPolicyResultOutput)
 }
 

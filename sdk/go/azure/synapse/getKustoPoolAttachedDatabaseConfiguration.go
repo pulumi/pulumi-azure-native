@@ -63,7 +63,11 @@ func LookupKustoPoolAttachedDatabaseConfigurationOutput(ctx *pulumi.Context, arg
 		ApplyT(func(v interface{}) (LookupKustoPoolAttachedDatabaseConfigurationResult, error) {
 			args := v.(LookupKustoPoolAttachedDatabaseConfigurationArgs)
 			r, err := LookupKustoPoolAttachedDatabaseConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoPoolAttachedDatabaseConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoPoolAttachedDatabaseConfigurationResultOutput)
 }
 

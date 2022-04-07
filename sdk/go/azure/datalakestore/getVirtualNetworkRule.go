@@ -47,7 +47,11 @@ func LookupVirtualNetworkRuleOutput(ctx *pulumi.Context, args LookupVirtualNetwo
 		ApplyT(func(v interface{}) (LookupVirtualNetworkRuleResult, error) {
 			args := v.(LookupVirtualNetworkRuleArgs)
 			r, err := LookupVirtualNetworkRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNetworkRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNetworkRuleResultOutput)
 }
 

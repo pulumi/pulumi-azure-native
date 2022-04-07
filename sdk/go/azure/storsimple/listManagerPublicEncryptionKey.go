@@ -43,7 +43,11 @@ func ListManagerPublicEncryptionKeyOutput(ctx *pulumi.Context, args ListManagerP
 		ApplyT(func(v interface{}) (ListManagerPublicEncryptionKeyResult, error) {
 			args := v.(ListManagerPublicEncryptionKeyArgs)
 			r, err := ListManagerPublicEncryptionKey(ctx, &args, opts...)
-			return *r, err
+			var s ListManagerPublicEncryptionKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListManagerPublicEncryptionKeyResultOutput)
 }
 

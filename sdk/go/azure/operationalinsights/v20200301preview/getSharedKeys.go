@@ -40,7 +40,11 @@ func GetSharedKeysOutput(ctx *pulumi.Context, args GetSharedKeysOutputArgs, opts
 		ApplyT(func(v interface{}) (GetSharedKeysResult, error) {
 			args := v.(GetSharedKeysArgs)
 			r, err := GetSharedKeys(ctx, &args, opts...)
-			return *r, err
+			var s GetSharedKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetSharedKeysResultOutput)
 }
 

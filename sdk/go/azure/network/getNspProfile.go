@@ -51,7 +51,11 @@ func LookupNspProfileOutput(ctx *pulumi.Context, args LookupNspProfileOutputArgs
 		ApplyT(func(v interface{}) (LookupNspProfileResult, error) {
 			args := v.(LookupNspProfileArgs)
 			r, err := LookupNspProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupNspProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNspProfileResultOutput)
 }
 

@@ -72,7 +72,11 @@ func LookupManagedDatabaseSensitivityLabelOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupManagedDatabaseSensitivityLabelResult, error) {
 			args := v.(LookupManagedDatabaseSensitivityLabelArgs)
 			r, err := LookupManagedDatabaseSensitivityLabel(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedDatabaseSensitivityLabelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedDatabaseSensitivityLabelResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupWCFRelayAuthorizationRuleOutput(ctx *pulumi.Context, args LookupWCFRe
 		ApplyT(func(v interface{}) (LookupWCFRelayAuthorizationRuleResult, error) {
 			args := v.(LookupWCFRelayAuthorizationRuleArgs)
 			r, err := LookupWCFRelayAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupWCFRelayAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWCFRelayAuthorizationRuleResultOutput)
 }
 

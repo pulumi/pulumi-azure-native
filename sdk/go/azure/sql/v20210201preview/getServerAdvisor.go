@@ -60,7 +60,11 @@ func LookupServerAdvisorOutput(ctx *pulumi.Context, args LookupServerAdvisorOutp
 		ApplyT(func(v interface{}) (LookupServerAdvisorResult, error) {
 			args := v.(LookupServerAdvisorArgs)
 			r, err := LookupServerAdvisor(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerAdvisorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerAdvisorResultOutput)
 }
 

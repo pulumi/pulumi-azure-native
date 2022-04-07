@@ -51,7 +51,11 @@ func LookupIpFirewallRuleOutput(ctx *pulumi.Context, args LookupIpFirewallRuleOu
 		ApplyT(func(v interface{}) (LookupIpFirewallRuleResult, error) {
 			args := v.(LookupIpFirewallRuleArgs)
 			r, err := LookupIpFirewallRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupIpFirewallRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIpFirewallRuleResultOutput)
 }
 

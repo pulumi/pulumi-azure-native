@@ -50,7 +50,11 @@ func ListWCFRelayKeysOutput(ctx *pulumi.Context, args ListWCFRelayKeysOutputArgs
 		ApplyT(func(v interface{}) (ListWCFRelayKeysResult, error) {
 			args := v.(ListWCFRelayKeysArgs)
 			r, err := ListWCFRelayKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWCFRelayKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWCFRelayKeysResultOutput)
 }
 

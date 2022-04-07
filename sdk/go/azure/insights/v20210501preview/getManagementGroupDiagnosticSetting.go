@@ -58,7 +58,11 @@ func LookupManagementGroupDiagnosticSettingOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupManagementGroupDiagnosticSettingResult, error) {
 			args := v.(LookupManagementGroupDiagnosticSettingArgs)
 			r, err := LookupManagementGroupDiagnosticSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementGroupDiagnosticSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementGroupDiagnosticSettingResultOutput)
 }
 

@@ -55,7 +55,11 @@ func ListWebAppSitePushSettingsOutput(ctx *pulumi.Context, args ListWebAppSitePu
 		ApplyT(func(v interface{}) (ListWebAppSitePushSettingsResult, error) {
 			args := v.(ListWebAppSitePushSettingsArgs)
 			r, err := ListWebAppSitePushSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSitePushSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSitePushSettingsResultOutput)
 }
 

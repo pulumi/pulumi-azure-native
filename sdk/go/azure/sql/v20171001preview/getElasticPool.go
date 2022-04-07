@@ -66,7 +66,11 @@ func LookupElasticPoolOutput(ctx *pulumi.Context, args LookupElasticPoolOutputAr
 		ApplyT(func(v interface{}) (LookupElasticPoolResult, error) {
 			args := v.(LookupElasticPoolArgs)
 			r, err := LookupElasticPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupElasticPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupElasticPoolResultOutput)
 }
 

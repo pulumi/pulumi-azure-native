@@ -41,7 +41,11 @@ func GetRegistryBuildSourceUploadUrlOutput(ctx *pulumi.Context, args GetRegistry
 		ApplyT(func(v interface{}) (GetRegistryBuildSourceUploadUrlResult, error) {
 			args := v.(GetRegistryBuildSourceUploadUrlArgs)
 			r, err := GetRegistryBuildSourceUploadUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetRegistryBuildSourceUploadUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetRegistryBuildSourceUploadUrlResultOutput)
 }
 

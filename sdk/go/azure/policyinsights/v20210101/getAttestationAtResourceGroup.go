@@ -62,7 +62,11 @@ func LookupAttestationAtResourceGroupOutput(ctx *pulumi.Context, args LookupAtte
 		ApplyT(func(v interface{}) (LookupAttestationAtResourceGroupResult, error) {
 			args := v.(LookupAttestationAtResourceGroupArgs)
 			r, err := LookupAttestationAtResourceGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupAttestationAtResourceGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAttestationAtResourceGroupResultOutput)
 }
 

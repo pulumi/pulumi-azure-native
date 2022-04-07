@@ -74,7 +74,11 @@ func LookupVirtualNetworkPeeringOutput(ctx *pulumi.Context, args LookupVirtualNe
 		ApplyT(func(v interface{}) (LookupVirtualNetworkPeeringResult, error) {
 			args := v.(LookupVirtualNetworkPeeringArgs)
 			r, err := LookupVirtualNetworkPeering(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNetworkPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNetworkPeeringResultOutput)
 }
 

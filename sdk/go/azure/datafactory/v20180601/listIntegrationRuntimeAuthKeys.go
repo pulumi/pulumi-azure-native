@@ -42,7 +42,11 @@ func ListIntegrationRuntimeAuthKeysOutput(ctx *pulumi.Context, args ListIntegrat
 		ApplyT(func(v interface{}) (ListIntegrationRuntimeAuthKeysResult, error) {
 			args := v.(ListIntegrationRuntimeAuthKeysArgs)
 			r, err := ListIntegrationRuntimeAuthKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListIntegrationRuntimeAuthKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIntegrationRuntimeAuthKeysResultOutput)
 }
 

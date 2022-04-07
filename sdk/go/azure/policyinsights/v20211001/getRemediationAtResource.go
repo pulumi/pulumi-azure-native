@@ -70,7 +70,11 @@ func LookupRemediationAtResourceOutput(ctx *pulumi.Context, args LookupRemediati
 		ApplyT(func(v interface{}) (LookupRemediationAtResourceResult, error) {
 			args := v.(LookupRemediationAtResourceArgs)
 			r, err := LookupRemediationAtResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupRemediationAtResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRemediationAtResourceResultOutput)
 }
 

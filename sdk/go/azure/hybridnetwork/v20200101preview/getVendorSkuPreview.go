@@ -44,7 +44,11 @@ func LookupVendorSkuPreviewOutput(ctx *pulumi.Context, args LookupVendorSkuPrevi
 		ApplyT(func(v interface{}) (LookupVendorSkuPreviewResult, error) {
 			args := v.(LookupVendorSkuPreviewArgs)
 			r, err := LookupVendorSkuPreview(ctx, &args, opts...)
-			return *r, err
+			var s LookupVendorSkuPreviewResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVendorSkuPreviewResultOutput)
 }
 

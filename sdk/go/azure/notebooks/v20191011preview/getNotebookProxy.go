@@ -56,7 +56,11 @@ func LookupNotebookProxyOutput(ctx *pulumi.Context, args LookupNotebookProxyOutp
 		ApplyT(func(v interface{}) (LookupNotebookProxyResult, error) {
 			args := v.(LookupNotebookProxyArgs)
 			r, err := LookupNotebookProxy(ctx, &args, opts...)
-			return *r, err
+			var s LookupNotebookProxyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNotebookProxyResultOutput)
 }
 

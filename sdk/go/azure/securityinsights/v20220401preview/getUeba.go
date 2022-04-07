@@ -53,7 +53,11 @@ func LookupUebaOutput(ctx *pulumi.Context, args LookupUebaOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupUebaResult, error) {
 			args := v.(LookupUebaArgs)
 			r, err := LookupUeba(ctx, &args, opts...)
-			return *r, err
+			var s LookupUebaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUebaResultOutput)
 }
 

@@ -79,7 +79,11 @@ func LookupPacketCaptureOutput(ctx *pulumi.Context, args LookupPacketCaptureOutp
 		ApplyT(func(v interface{}) (LookupPacketCaptureResult, error) {
 			args := v.(LookupPacketCaptureArgs)
 			r, err := LookupPacketCapture(ctx, &args, opts...)
-			return *r, err
+			var s LookupPacketCaptureResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPacketCaptureResultOutput)
 }
 

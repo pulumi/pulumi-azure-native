@@ -51,7 +51,11 @@ func LookupSerialPortOutput(ctx *pulumi.Context, args LookupSerialPortOutputArgs
 		ApplyT(func(v interface{}) (LookupSerialPortResult, error) {
 			args := v.(LookupSerialPortArgs)
 			r, err := LookupSerialPort(ctx, &args, opts...)
-			return *r, err
+			var s LookupSerialPortResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSerialPortResultOutput)
 }
 

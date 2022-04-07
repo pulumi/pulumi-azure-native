@@ -86,7 +86,11 @@ func LookupWebAppSiteExtensionOutput(ctx *pulumi.Context, args LookupWebAppSiteE
 		ApplyT(func(v interface{}) (LookupWebAppSiteExtensionResult, error) {
 			args := v.(LookupWebAppSiteExtensionArgs)
 			r, err := LookupWebAppSiteExtension(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSiteExtensionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSiteExtensionResultOutput)
 }
 

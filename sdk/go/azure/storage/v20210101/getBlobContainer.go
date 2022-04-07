@@ -80,7 +80,11 @@ func LookupBlobContainerOutput(ctx *pulumi.Context, args LookupBlobContainerOutp
 		ApplyT(func(v interface{}) (LookupBlobContainerResult, error) {
 			args := v.(LookupBlobContainerArgs)
 			r, err := LookupBlobContainer(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobContainerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobContainerResultOutput)
 }
 

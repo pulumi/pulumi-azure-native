@@ -62,7 +62,11 @@ func LookupJobOutput(ctx *pulumi.Context, args LookupJobOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupJobResult, error) {
 			args := v.(LookupJobArgs)
 			r, err := LookupJob(ctx, &args, opts...)
-			return *r, err
+			var s LookupJobResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJobResultOutput)
 }
 

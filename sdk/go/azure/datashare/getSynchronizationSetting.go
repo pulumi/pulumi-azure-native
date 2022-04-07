@@ -53,7 +53,11 @@ func LookupSynchronizationSettingOutput(ctx *pulumi.Context, args LookupSynchron
 		ApplyT(func(v interface{}) (LookupSynchronizationSettingResult, error) {
 			args := v.(LookupSynchronizationSettingArgs)
 			r, err := LookupSynchronizationSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupSynchronizationSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSynchronizationSettingResultOutput)
 }
 

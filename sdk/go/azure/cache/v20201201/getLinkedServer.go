@@ -52,7 +52,11 @@ func LookupLinkedServerOutput(ctx *pulumi.Context, args LookupLinkedServerOutput
 		ApplyT(func(v interface{}) (LookupLinkedServerResult, error) {
 			args := v.(LookupLinkedServerArgs)
 			r, err := LookupLinkedServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupLinkedServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLinkedServerResultOutput)
 }
 

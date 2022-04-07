@@ -74,7 +74,11 @@ func GetScriptExecutionLogsOutput(ctx *pulumi.Context, args GetScriptExecutionLo
 		ApplyT(func(v interface{}) (GetScriptExecutionLogsResult, error) {
 			args := v.(GetScriptExecutionLogsArgs)
 			r, err := GetScriptExecutionLogs(ctx, &args, opts...)
-			return *r, err
+			var s GetScriptExecutionLogsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetScriptExecutionLogsResultOutput)
 }
 

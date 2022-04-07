@@ -40,7 +40,11 @@ func GetVirtualNetworkGatewayAdvertisedRoutesOutput(ctx *pulumi.Context, args Ge
 		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayAdvertisedRoutesResult, error) {
 			args := v.(GetVirtualNetworkGatewayAdvertisedRoutesArgs)
 			r, err := GetVirtualNetworkGatewayAdvertisedRoutes(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualNetworkGatewayAdvertisedRoutesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualNetworkGatewayAdvertisedRoutesResultOutput)
 }
 

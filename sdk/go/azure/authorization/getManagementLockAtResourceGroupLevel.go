@@ -49,7 +49,11 @@ func LookupManagementLockAtResourceGroupLevelOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupManagementLockAtResourceGroupLevelResult, error) {
 			args := v.(LookupManagementLockAtResourceGroupLevelArgs)
 			r, err := LookupManagementLockAtResourceGroupLevel(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementLockAtResourceGroupLevelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementLockAtResourceGroupLevelResultOutput)
 }
 

@@ -57,7 +57,11 @@ func LookupContainerAppsSourceControlOutput(ctx *pulumi.Context, args LookupCont
 		ApplyT(func(v interface{}) (LookupContainerAppsSourceControlResult, error) {
 			args := v.(LookupContainerAppsSourceControlArgs)
 			r, err := LookupContainerAppsSourceControl(ctx, &args, opts...)
-			return *r, err
+			var s LookupContainerAppsSourceControlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContainerAppsSourceControlResultOutput)
 }
 

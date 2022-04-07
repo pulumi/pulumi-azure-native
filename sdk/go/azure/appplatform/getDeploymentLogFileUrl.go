@@ -43,7 +43,11 @@ func GetDeploymentLogFileUrlOutput(ctx *pulumi.Context, args GetDeploymentLogFil
 		ApplyT(func(v interface{}) (GetDeploymentLogFileUrlResult, error) {
 			args := v.(GetDeploymentLogFileUrlArgs)
 			r, err := GetDeploymentLogFileUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetDeploymentLogFileUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDeploymentLogFileUrlResultOutput)
 }
 

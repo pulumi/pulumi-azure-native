@@ -38,7 +38,11 @@ func GetProfileSupportedOptimizationTypesOutput(ctx *pulumi.Context, args GetPro
 		ApplyT(func(v interface{}) (GetProfileSupportedOptimizationTypesResult, error) {
 			args := v.(GetProfileSupportedOptimizationTypesArgs)
 			r, err := GetProfileSupportedOptimizationTypes(ctx, &args, opts...)
-			return *r, err
+			var s GetProfileSupportedOptimizationTypesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetProfileSupportedOptimizationTypesResultOutput)
 }
 

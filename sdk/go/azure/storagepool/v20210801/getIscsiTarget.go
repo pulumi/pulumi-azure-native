@@ -68,7 +68,11 @@ func LookupIscsiTargetOutput(ctx *pulumi.Context, args LookupIscsiTargetOutputAr
 		ApplyT(func(v interface{}) (LookupIscsiTargetResult, error) {
 			args := v.(LookupIscsiTargetArgs)
 			r, err := LookupIscsiTarget(ctx, &args, opts...)
-			return *r, err
+			var s LookupIscsiTargetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIscsiTargetResultOutput)
 }
 

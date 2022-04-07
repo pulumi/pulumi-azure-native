@@ -47,7 +47,11 @@ func ListTenantAccessGitSecretsOutput(ctx *pulumi.Context, args ListTenantAccess
 		ApplyT(func(v interface{}) (ListTenantAccessGitSecretsResult, error) {
 			args := v.(ListTenantAccessGitSecretsArgs)
 			r, err := ListTenantAccessGitSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListTenantAccessGitSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTenantAccessGitSecretsResultOutput)
 }
 

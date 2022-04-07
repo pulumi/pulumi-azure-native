@@ -50,7 +50,11 @@ func LookupServerAdministratorOutput(ctx *pulumi.Context, args LookupServerAdmin
 		ApplyT(func(v interface{}) (LookupServerAdministratorResult, error) {
 			args := v.(LookupServerAdministratorArgs)
 			r, err := LookupServerAdministrator(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerAdministratorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerAdministratorResultOutput)
 }
 

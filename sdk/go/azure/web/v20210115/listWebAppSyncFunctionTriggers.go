@@ -40,7 +40,11 @@ func ListWebAppSyncFunctionTriggersOutput(ctx *pulumi.Context, args ListWebAppSy
 		ApplyT(func(v interface{}) (ListWebAppSyncFunctionTriggersResult, error) {
 			args := v.(ListWebAppSyncFunctionTriggersArgs)
 			r, err := ListWebAppSyncFunctionTriggers(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSyncFunctionTriggersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSyncFunctionTriggersResultOutput)
 }
 

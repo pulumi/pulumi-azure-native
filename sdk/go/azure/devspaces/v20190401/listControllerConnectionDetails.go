@@ -38,7 +38,11 @@ func ListControllerConnectionDetailsOutput(ctx *pulumi.Context, args ListControl
 		ApplyT(func(v interface{}) (ListControllerConnectionDetailsResult, error) {
 			args := v.(ListControllerConnectionDetailsArgs)
 			r, err := ListControllerConnectionDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListControllerConnectionDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListControllerConnectionDetailsResultOutput)
 }
 

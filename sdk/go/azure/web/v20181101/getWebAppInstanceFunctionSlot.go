@@ -66,7 +66,11 @@ func LookupWebAppInstanceFunctionSlotOutput(ctx *pulumi.Context, args LookupWebA
 		ApplyT(func(v interface{}) (LookupWebAppInstanceFunctionSlotResult, error) {
 			args := v.(LookupWebAppInstanceFunctionSlotArgs)
 			r, err := LookupWebAppInstanceFunctionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppInstanceFunctionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppInstanceFunctionSlotResultOutput)
 }
 

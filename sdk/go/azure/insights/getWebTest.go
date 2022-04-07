@@ -95,7 +95,11 @@ func LookupWebTestOutput(ctx *pulumi.Context, args LookupWebTestOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupWebTestResult, error) {
 			args := v.(LookupWebTestArgs)
 			r, err := LookupWebTest(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebTestResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebTestResultOutput)
 }
 

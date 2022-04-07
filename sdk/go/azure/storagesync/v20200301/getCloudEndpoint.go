@@ -64,7 +64,11 @@ func LookupCloudEndpointOutput(ctx *pulumi.Context, args LookupCloudEndpointOutp
 		ApplyT(func(v interface{}) (LookupCloudEndpointResult, error) {
 			args := v.(LookupCloudEndpointArgs)
 			r, err := LookupCloudEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupCloudEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCloudEndpointResultOutput)
 }
 

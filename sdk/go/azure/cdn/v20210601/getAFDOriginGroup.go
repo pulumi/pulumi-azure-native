@@ -59,7 +59,11 @@ func LookupAFDOriginGroupOutput(ctx *pulumi.Context, args LookupAFDOriginGroupOu
 		ApplyT(func(v interface{}) (LookupAFDOriginGroupResult, error) {
 			args := v.(LookupAFDOriginGroupArgs)
 			r, err := LookupAFDOriginGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupAFDOriginGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAFDOriginGroupResultOutput)
 }
 

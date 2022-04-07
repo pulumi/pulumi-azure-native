@@ -45,7 +45,11 @@ func GetGlobalUserPersonalPreferencesOutput(ctx *pulumi.Context, args GetGlobalU
 		ApplyT(func(v interface{}) (GetGlobalUserPersonalPreferencesResult, error) {
 			args := v.(GetGlobalUserPersonalPreferencesArgs)
 			r, err := GetGlobalUserPersonalPreferences(ctx, &args, opts...)
-			return *r, err
+			var s GetGlobalUserPersonalPreferencesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetGlobalUserPersonalPreferencesResultOutput)
 }
 

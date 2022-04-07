@@ -61,7 +61,11 @@ func LookupGuestConfigurationHCRPAssignmentOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupGuestConfigurationHCRPAssignmentResult, error) {
 			args := v.(LookupGuestConfigurationHCRPAssignmentArgs)
 			r, err := LookupGuestConfigurationHCRPAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupGuestConfigurationHCRPAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGuestConfigurationHCRPAssignmentResultOutput)
 }
 

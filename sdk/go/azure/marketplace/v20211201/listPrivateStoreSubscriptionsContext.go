@@ -35,7 +35,11 @@ func ListPrivateStoreSubscriptionsContextOutput(ctx *pulumi.Context, args ListPr
 		ApplyT(func(v interface{}) (ListPrivateStoreSubscriptionsContextResult, error) {
 			args := v.(ListPrivateStoreSubscriptionsContextArgs)
 			r, err := ListPrivateStoreSubscriptionsContext(ctx, &args, opts...)
-			return *r, err
+			var s ListPrivateStoreSubscriptionsContextResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListPrivateStoreSubscriptionsContextResultOutput)
 }
 

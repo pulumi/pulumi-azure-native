@@ -46,7 +46,11 @@ func LookupSupportPlanTypeOutput(ctx *pulumi.Context, args LookupSupportPlanType
 		ApplyT(func(v interface{}) (LookupSupportPlanTypeResult, error) {
 			args := v.(LookupSupportPlanTypeArgs)
 			r, err := LookupSupportPlanType(ctx, &args, opts...)
-			return *r, err
+			var s LookupSupportPlanTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSupportPlanTypeResultOutput)
 }
 

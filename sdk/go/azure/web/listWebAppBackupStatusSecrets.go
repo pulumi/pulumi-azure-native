@@ -96,7 +96,11 @@ func ListWebAppBackupStatusSecretsOutput(ctx *pulumi.Context, args ListWebAppBac
 		ApplyT(func(v interface{}) (ListWebAppBackupStatusSecretsResult, error) {
 			args := v.(ListWebAppBackupStatusSecretsArgs)
 			r, err := ListWebAppBackupStatusSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppBackupStatusSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppBackupStatusSecretsResultOutput)
 }
 

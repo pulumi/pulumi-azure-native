@@ -52,7 +52,11 @@ func LookupExpressRouteCircuitAuthorizationOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupExpressRouteCircuitAuthorizationResult, error) {
 			args := v.(LookupExpressRouteCircuitAuthorizationArgs)
 			r, err := LookupExpressRouteCircuitAuthorization(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteCircuitAuthorizationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteCircuitAuthorizationResultOutput)
 }
 

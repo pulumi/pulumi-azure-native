@@ -51,7 +51,11 @@ func LookupIntegrationAccountBatchConfigurationOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupIntegrationAccountBatchConfigurationResult, error) {
 			args := v.(LookupIntegrationAccountBatchConfigurationArgs)
 			r, err := LookupIntegrationAccountBatchConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationAccountBatchConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationAccountBatchConfigurationResultOutput)
 }
 

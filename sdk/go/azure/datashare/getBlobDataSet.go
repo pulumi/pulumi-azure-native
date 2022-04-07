@@ -64,7 +64,11 @@ func LookupBlobDataSetOutput(ctx *pulumi.Context, args LookupBlobDataSetOutputAr
 		ApplyT(func(v interface{}) (LookupBlobDataSetResult, error) {
 			args := v.(LookupBlobDataSetArgs)
 			r, err := LookupBlobDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobDataSetResultOutput)
 }
 

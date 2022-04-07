@@ -48,7 +48,11 @@ func GetLogAnalyticExportThrottledRequestsOutput(ctx *pulumi.Context, args GetLo
 		ApplyT(func(v interface{}) (GetLogAnalyticExportThrottledRequestsResult, error) {
 			args := v.(GetLogAnalyticExportThrottledRequestsArgs)
 			r, err := GetLogAnalyticExportThrottledRequests(ctx, &args, opts...)
-			return *r, err
+			var s GetLogAnalyticExportThrottledRequestsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetLogAnalyticExportThrottledRequestsResultOutput)
 }
 

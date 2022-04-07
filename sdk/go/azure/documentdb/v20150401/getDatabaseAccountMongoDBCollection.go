@@ -56,7 +56,11 @@ func LookupDatabaseAccountMongoDBCollectionOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupDatabaseAccountMongoDBCollectionResult, error) {
 			args := v.(LookupDatabaseAccountMongoDBCollectionArgs)
 			r, err := LookupDatabaseAccountMongoDBCollection(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseAccountMongoDBCollectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseAccountMongoDBCollectionResultOutput)
 }
 

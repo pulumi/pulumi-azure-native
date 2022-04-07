@@ -54,7 +54,11 @@ func LookupDataManagerOutput(ctx *pulumi.Context, args LookupDataManagerOutputAr
 		ApplyT(func(v interface{}) (LookupDataManagerResult, error) {
 			args := v.(LookupDataManagerArgs)
 			r, err := LookupDataManager(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataManagerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataManagerResultOutput)
 }
 

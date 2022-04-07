@@ -68,7 +68,11 @@ func LookupVpnSiteOutput(ctx *pulumi.Context, args LookupVpnSiteOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupVpnSiteResult, error) {
 			args := v.(LookupVpnSiteArgs)
 			r, err := LookupVpnSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupVpnSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVpnSiteResultOutput)
 }
 

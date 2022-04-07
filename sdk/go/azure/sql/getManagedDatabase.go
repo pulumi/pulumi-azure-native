@@ -63,7 +63,11 @@ func LookupManagedDatabaseOutput(ctx *pulumi.Context, args LookupManagedDatabase
 		ApplyT(func(v interface{}) (LookupManagedDatabaseResult, error) {
 			args := v.(LookupManagedDatabaseArgs)
 			r, err := LookupManagedDatabase(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedDatabaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedDatabaseResultOutput)
 }
 

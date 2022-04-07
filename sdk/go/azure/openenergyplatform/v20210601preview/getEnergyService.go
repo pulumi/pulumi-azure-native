@@ -47,7 +47,11 @@ func LookupEnergyServiceOutput(ctx *pulumi.Context, args LookupEnergyServiceOutp
 		ApplyT(func(v interface{}) (LookupEnergyServiceResult, error) {
 			args := v.(LookupEnergyServiceArgs)
 			r, err := LookupEnergyService(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnergyServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnergyServiceResultOutput)
 }
 

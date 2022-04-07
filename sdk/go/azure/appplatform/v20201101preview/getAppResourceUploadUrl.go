@@ -42,7 +42,11 @@ func GetAppResourceUploadUrlOutput(ctx *pulumi.Context, args GetAppResourceUploa
 		ApplyT(func(v interface{}) (GetAppResourceUploadUrlResult, error) {
 			args := v.(GetAppResourceUploadUrlArgs)
 			r, err := GetAppResourceUploadUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetAppResourceUploadUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAppResourceUploadUrlResultOutput)
 }
 

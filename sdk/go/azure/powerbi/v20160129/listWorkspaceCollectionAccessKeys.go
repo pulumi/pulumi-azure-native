@@ -38,7 +38,11 @@ func ListWorkspaceCollectionAccessKeysOutput(ctx *pulumi.Context, args ListWorks
 		ApplyT(func(v interface{}) (ListWorkspaceCollectionAccessKeysResult, error) {
 			args := v.(ListWorkspaceCollectionAccessKeysArgs)
 			r, err := ListWorkspaceCollectionAccessKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkspaceCollectionAccessKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkspaceCollectionAccessKeysResultOutput)
 }
 

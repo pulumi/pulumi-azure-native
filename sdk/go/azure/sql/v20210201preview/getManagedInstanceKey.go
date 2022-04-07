@@ -52,7 +52,11 @@ func LookupManagedInstanceKeyOutput(ctx *pulumi.Context, args LookupManagedInsta
 		ApplyT(func(v interface{}) (LookupManagedInstanceKeyResult, error) {
 			args := v.(LookupManagedInstanceKeyArgs)
 			r, err := LookupManagedInstanceKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedInstanceKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedInstanceKeyResultOutput)
 }
 

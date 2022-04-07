@@ -55,7 +55,11 @@ func LookupAlertsSuppressionRuleOutput(ctx *pulumi.Context, args LookupAlertsSup
 		ApplyT(func(v interface{}) (LookupAlertsSuppressionRuleResult, error) {
 			args := v.(LookupAlertsSuppressionRuleArgs)
 			r, err := LookupAlertsSuppressionRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupAlertsSuppressionRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAlertsSuppressionRuleResultOutput)
 }
 

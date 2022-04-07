@@ -55,7 +55,11 @@ func ListWebAppHybridConnectionKeysSlotOutput(ctx *pulumi.Context, args ListWebA
 		ApplyT(func(v interface{}) (ListWebAppHybridConnectionKeysSlotResult, error) {
 			args := v.(ListWebAppHybridConnectionKeysSlotArgs)
 			r, err := ListWebAppHybridConnectionKeysSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppHybridConnectionKeysSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppHybridConnectionKeysSlotResultOutput)
 }
 

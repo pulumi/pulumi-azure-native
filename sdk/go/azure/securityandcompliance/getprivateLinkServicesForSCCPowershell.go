@@ -57,7 +57,11 @@ func GetprivateLinkServicesForSCCPowershellOutput(ctx *pulumi.Context, args Getp
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForSCCPowershellResult, error) {
 			args := v.(GetprivateLinkServicesForSCCPowershellArgs)
 			r, err := GetprivateLinkServicesForSCCPowershell(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForSCCPowershellResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForSCCPowershellResultOutput)
 }
 

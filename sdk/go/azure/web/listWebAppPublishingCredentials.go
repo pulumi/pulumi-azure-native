@@ -55,7 +55,11 @@ func ListWebAppPublishingCredentialsOutput(ctx *pulumi.Context, args ListWebAppP
 		ApplyT(func(v interface{}) (ListWebAppPublishingCredentialsResult, error) {
 			args := v.(ListWebAppPublishingCredentialsArgs)
 			r, err := ListWebAppPublishingCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppPublishingCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppPublishingCredentialsResultOutput)
 }
 

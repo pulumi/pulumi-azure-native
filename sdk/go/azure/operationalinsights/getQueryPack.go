@@ -55,7 +55,11 @@ func LookupQueryPackOutput(ctx *pulumi.Context, args LookupQueryPackOutputArgs, 
 		ApplyT(func(v interface{}) (LookupQueryPackResult, error) {
 			args := v.(LookupQueryPackArgs)
 			r, err := LookupQueryPack(ctx, &args, opts...)
-			return *r, err
+			var s LookupQueryPackResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQueryPackResultOutput)
 }
 

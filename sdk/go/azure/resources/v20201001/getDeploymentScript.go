@@ -54,7 +54,11 @@ func LookupDeploymentScriptOutput(ctx *pulumi.Context, args LookupDeploymentScri
 		ApplyT(func(v interface{}) (LookupDeploymentScriptResult, error) {
 			args := v.(LookupDeploymentScriptArgs)
 			r, err := LookupDeploymentScript(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentScriptResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentScriptResultOutput)
 }
 

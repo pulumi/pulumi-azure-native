@@ -64,7 +64,11 @@ func LookupCustomLocationOutput(ctx *pulumi.Context, args LookupCustomLocationOu
 		ApplyT(func(v interface{}) (LookupCustomLocationResult, error) {
 			args := v.(LookupCustomLocationArgs)
 			r, err := LookupCustomLocation(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomLocationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomLocationResultOutput)
 }
 

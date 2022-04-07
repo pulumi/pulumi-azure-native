@@ -41,7 +41,11 @@ func LookupImportCollectorOutput(ctx *pulumi.Context, args LookupImportCollector
 		ApplyT(func(v interface{}) (LookupImportCollectorResult, error) {
 			args := v.(LookupImportCollectorArgs)
 			r, err := LookupImportCollector(ctx, &args, opts...)
-			return *r, err
+			var s LookupImportCollectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupImportCollectorResultOutput)
 }
 

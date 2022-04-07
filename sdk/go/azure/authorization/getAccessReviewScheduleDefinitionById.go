@@ -97,7 +97,11 @@ func LookupAccessReviewScheduleDefinitionByIdOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupAccessReviewScheduleDefinitionByIdResult, error) {
 			args := v.(LookupAccessReviewScheduleDefinitionByIdArgs)
 			r, err := LookupAccessReviewScheduleDefinitionById(ctx, &args, opts...)
-			return *r, err
+			var s LookupAccessReviewScheduleDefinitionByIdResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAccessReviewScheduleDefinitionByIdResultOutput)
 }
 

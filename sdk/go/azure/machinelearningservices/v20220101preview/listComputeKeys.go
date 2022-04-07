@@ -40,7 +40,11 @@ func ListComputeKeysOutput(ctx *pulumi.Context, args ListComputeKeysOutputArgs, 
 		ApplyT(func(v interface{}) (ListComputeKeysResult, error) {
 			args := v.(ListComputeKeysArgs)
 			r, err := ListComputeKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListComputeKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListComputeKeysResultOutput)
 }
 

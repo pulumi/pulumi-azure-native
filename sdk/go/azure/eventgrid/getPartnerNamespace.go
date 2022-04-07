@@ -81,7 +81,11 @@ func LookupPartnerNamespaceOutput(ctx *pulumi.Context, args LookupPartnerNamespa
 		ApplyT(func(v interface{}) (LookupPartnerNamespaceResult, error) {
 			args := v.(LookupPartnerNamespaceArgs)
 			r, err := LookupPartnerNamespace(ctx, &args, opts...)
-			return *r, err
+			var s LookupPartnerNamespaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPartnerNamespaceResultOutput)
 }
 

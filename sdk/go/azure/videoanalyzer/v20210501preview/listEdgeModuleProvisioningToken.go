@@ -44,7 +44,11 @@ func ListEdgeModuleProvisioningTokenOutput(ctx *pulumi.Context, args ListEdgeMod
 		ApplyT(func(v interface{}) (ListEdgeModuleProvisioningTokenResult, error) {
 			args := v.(ListEdgeModuleProvisioningTokenArgs)
 			r, err := ListEdgeModuleProvisioningToken(ctx, &args, opts...)
-			return *r, err
+			var s ListEdgeModuleProvisioningTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListEdgeModuleProvisioningTokenResultOutput)
 }
 

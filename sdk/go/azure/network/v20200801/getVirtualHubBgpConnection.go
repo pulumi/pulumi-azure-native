@@ -54,7 +54,11 @@ func LookupVirtualHubBgpConnectionOutput(ctx *pulumi.Context, args LookupVirtual
 		ApplyT(func(v interface{}) (LookupVirtualHubBgpConnectionResult, error) {
 			args := v.(LookupVirtualHubBgpConnectionArgs)
 			r, err := LookupVirtualHubBgpConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualHubBgpConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualHubBgpConnectionResultOutput)
 }
 

@@ -67,7 +67,11 @@ func LookupBlobFolderDataSetMappingOutput(ctx *pulumi.Context, args LookupBlobFo
 		ApplyT(func(v interface{}) (LookupBlobFolderDataSetMappingResult, error) {
 			args := v.(LookupBlobFolderDataSetMappingArgs)
 			r, err := LookupBlobFolderDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobFolderDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobFolderDataSetMappingResultOutput)
 }
 

@@ -50,7 +50,11 @@ func LookupPrivateDnsZoneGroupOutput(ctx *pulumi.Context, args LookupPrivateDnsZ
 		ApplyT(func(v interface{}) (LookupPrivateDnsZoneGroupResult, error) {
 			args := v.(LookupPrivateDnsZoneGroupArgs)
 			r, err := LookupPrivateDnsZoneGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateDnsZoneGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateDnsZoneGroupResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupMongoDBResourceMongoRoleDefinitionOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupMongoDBResourceMongoRoleDefinitionResult, error) {
 			args := v.(LookupMongoDBResourceMongoRoleDefinitionArgs)
 			r, err := LookupMongoDBResourceMongoRoleDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupMongoDBResourceMongoRoleDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMongoDBResourceMongoRoleDefinitionResultOutput)
 }
 

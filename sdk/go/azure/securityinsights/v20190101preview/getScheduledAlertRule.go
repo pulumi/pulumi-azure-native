@@ -82,7 +82,11 @@ func LookupScheduledAlertRuleOutput(ctx *pulumi.Context, args LookupScheduledAle
 		ApplyT(func(v interface{}) (LookupScheduledAlertRuleResult, error) {
 			args := v.(LookupScheduledAlertRuleArgs)
 			r, err := LookupScheduledAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledAlertRuleResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupTimeSeriesDatabaseConnectionOutput(ctx *pulumi.Context, args LookupTi
 		ApplyT(func(v interface{}) (LookupTimeSeriesDatabaseConnectionResult, error) {
 			args := v.(LookupTimeSeriesDatabaseConnectionArgs)
 			r, err := LookupTimeSeriesDatabaseConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupTimeSeriesDatabaseConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTimeSeriesDatabaseConnectionResultOutput)
 }
 

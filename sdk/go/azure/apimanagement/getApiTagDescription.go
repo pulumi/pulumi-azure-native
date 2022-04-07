@@ -57,7 +57,11 @@ func LookupApiTagDescriptionOutput(ctx *pulumi.Context, args LookupApiTagDescrip
 		ApplyT(func(v interface{}) (LookupApiTagDescriptionResult, error) {
 			args := v.(LookupApiTagDescriptionArgs)
 			r, err := LookupApiTagDescription(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiTagDescriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiTagDescriptionResultOutput)
 }
 

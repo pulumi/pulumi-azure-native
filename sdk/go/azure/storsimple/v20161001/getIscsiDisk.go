@@ -66,7 +66,11 @@ func LookupIscsiDiskOutput(ctx *pulumi.Context, args LookupIscsiDiskOutputArgs, 
 		ApplyT(func(v interface{}) (LookupIscsiDiskResult, error) {
 			args := v.(LookupIscsiDiskArgs)
 			r, err := LookupIscsiDisk(ctx, &args, opts...)
-			return *r, err
+			var s LookupIscsiDiskResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIscsiDiskResultOutput)
 }
 

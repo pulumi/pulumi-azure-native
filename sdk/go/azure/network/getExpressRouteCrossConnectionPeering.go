@@ -75,7 +75,11 @@ func LookupExpressRouteCrossConnectionPeeringOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupExpressRouteCrossConnectionPeeringResult, error) {
 			args := v.(LookupExpressRouteCrossConnectionPeeringArgs)
 			r, err := LookupExpressRouteCrossConnectionPeering(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteCrossConnectionPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteCrossConnectionPeeringResultOutput)
 }
 

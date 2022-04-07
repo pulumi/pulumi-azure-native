@@ -90,7 +90,11 @@ func LookupWatchlistOutput(ctx *pulumi.Context, args LookupWatchlistOutputArgs, 
 		ApplyT(func(v interface{}) (LookupWatchlistResult, error) {
 			args := v.(LookupWatchlistArgs)
 			r, err := LookupWatchlist(ctx, &args, opts...)
-			return *r, err
+			var s LookupWatchlistResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWatchlistResultOutput)
 }
 

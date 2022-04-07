@@ -54,7 +54,11 @@ func LookupPrivateEndpointConnectionsForSCCPowershellOutput(ctx *pulumi.Context,
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsForSCCPowershellResult, error) {
 			args := v.(LookupPrivateEndpointConnectionsForSCCPowershellArgs)
 			r, err := LookupPrivateEndpointConnectionsForSCCPowershell(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionsForSCCPowershellResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionsForSCCPowershellResultOutput)
 }
 

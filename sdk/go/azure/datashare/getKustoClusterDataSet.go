@@ -60,7 +60,11 @@ func LookupKustoClusterDataSetOutput(ctx *pulumi.Context, args LookupKustoCluste
 		ApplyT(func(v interface{}) (LookupKustoClusterDataSetResult, error) {
 			args := v.(LookupKustoClusterDataSetArgs)
 			r, err := LookupKustoClusterDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoClusterDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoClusterDataSetResultOutput)
 }
 

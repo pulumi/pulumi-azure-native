@@ -73,7 +73,11 @@ func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutput
 		ApplyT(func(v interface{}) (LookupLoadBalancerResult, error) {
 			args := v.(LookupLoadBalancerArgs)
 			r, err := LookupLoadBalancer(ctx, &args, opts...)
-			return *r, err
+			var s LookupLoadBalancerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLoadBalancerResultOutput)
 }
 

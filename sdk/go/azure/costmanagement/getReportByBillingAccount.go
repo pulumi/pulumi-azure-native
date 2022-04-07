@@ -53,7 +53,11 @@ func LookupReportByBillingAccountOutput(ctx *pulumi.Context, args LookupReportBy
 		ApplyT(func(v interface{}) (LookupReportByBillingAccountResult, error) {
 			args := v.(LookupReportByBillingAccountArgs)
 			r, err := LookupReportByBillingAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupReportByBillingAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReportByBillingAccountResultOutput)
 }
 

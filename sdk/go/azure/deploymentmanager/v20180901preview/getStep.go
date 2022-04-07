@@ -50,7 +50,11 @@ func LookupStepOutput(ctx *pulumi.Context, args LookupStepOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupStepResult, error) {
 			args := v.(LookupStepArgs)
 			r, err := LookupStep(ctx, &args, opts...)
-			return *r, err
+			var s LookupStepResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStepResultOutput)
 }
 

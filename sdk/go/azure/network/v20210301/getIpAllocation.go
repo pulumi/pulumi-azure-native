@@ -77,7 +77,11 @@ func LookupIpAllocationOutput(ctx *pulumi.Context, args LookupIpAllocationOutput
 		ApplyT(func(v interface{}) (LookupIpAllocationResult, error) {
 			args := v.(LookupIpAllocationArgs)
 			r, err := LookupIpAllocation(ctx, &args, opts...)
-			return *r, err
+			var s LookupIpAllocationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIpAllocationResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupGuestDiagnosticsSettingsAssociationOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupGuestDiagnosticsSettingsAssociationResult, error) {
 			args := v.(LookupGuestDiagnosticsSettingsAssociationArgs)
 			r, err := LookupGuestDiagnosticsSettingsAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupGuestDiagnosticsSettingsAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGuestDiagnosticsSettingsAssociationResultOutput)
 }
 

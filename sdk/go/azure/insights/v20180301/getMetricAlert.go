@@ -72,7 +72,11 @@ func LookupMetricAlertOutput(ctx *pulumi.Context, args LookupMetricAlertOutputAr
 		ApplyT(func(v interface{}) (LookupMetricAlertResult, error) {
 			args := v.(LookupMetricAlertArgs)
 			r, err := LookupMetricAlert(ctx, &args, opts...)
-			return *r, err
+			var s LookupMetricAlertResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMetricAlertResultOutput)
 }
 

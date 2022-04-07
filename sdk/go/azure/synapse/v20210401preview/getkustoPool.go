@@ -68,7 +68,11 @@ func GetkustoPoolOutput(ctx *pulumi.Context, args GetkustoPoolOutputArgs, opts .
 		ApplyT(func(v interface{}) (GetkustoPoolResult, error) {
 			args := v.(GetkustoPoolArgs)
 			r, err := GetkustoPool(ctx, &args, opts...)
-			return *r, err
+			var s GetkustoPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetkustoPoolResultOutput)
 }
 

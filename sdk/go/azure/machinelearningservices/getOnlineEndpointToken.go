@@ -47,7 +47,11 @@ func GetOnlineEndpointTokenOutput(ctx *pulumi.Context, args GetOnlineEndpointTok
 		ApplyT(func(v interface{}) (GetOnlineEndpointTokenResult, error) {
 			args := v.(GetOnlineEndpointTokenArgs)
 			r, err := GetOnlineEndpointToken(ctx, &args, opts...)
-			return *r, err
+			var s GetOnlineEndpointTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetOnlineEndpointTokenResultOutput)
 }
 

@@ -43,7 +43,11 @@ func LookupPrivateLinkAssociationOutput(ctx *pulumi.Context, args LookupPrivateL
 		ApplyT(func(v interface{}) (LookupPrivateLinkAssociationResult, error) {
 			args := v.(LookupPrivateLinkAssociationArgs)
 			r, err := LookupPrivateLinkAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateLinkAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateLinkAssociationResultOutput)
 }
 

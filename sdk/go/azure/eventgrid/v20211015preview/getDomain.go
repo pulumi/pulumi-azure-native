@@ -120,7 +120,11 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupDomainResult, error) {
 			args := v.(LookupDomainArgs)
 			r, err := LookupDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainResultOutput)
 }
 

@@ -42,7 +42,11 @@ func GetTestBaseAccountFileUploadUrlOutput(ctx *pulumi.Context, args GetTestBase
 		ApplyT(func(v interface{}) (GetTestBaseAccountFileUploadUrlResult, error) {
 			args := v.(GetTestBaseAccountFileUploadUrlArgs)
 			r, err := GetTestBaseAccountFileUploadUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetTestBaseAccountFileUploadUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTestBaseAccountFileUploadUrlResultOutput)
 }
 

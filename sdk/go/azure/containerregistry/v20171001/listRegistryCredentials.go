@@ -40,7 +40,11 @@ func ListRegistryCredentialsOutput(ctx *pulumi.Context, args ListRegistryCredent
 		ApplyT(func(v interface{}) (ListRegistryCredentialsResult, error) {
 			args := v.(ListRegistryCredentialsArgs)
 			r, err := ListRegistryCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListRegistryCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRegistryCredentialsResultOutput)
 }
 

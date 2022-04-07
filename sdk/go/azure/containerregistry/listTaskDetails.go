@@ -98,7 +98,11 @@ func ListTaskDetailsOutput(ctx *pulumi.Context, args ListTaskDetailsOutputArgs, 
 		ApplyT(func(v interface{}) (ListTaskDetailsResult, error) {
 			args := v.(ListTaskDetailsArgs)
 			r, err := ListTaskDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListTaskDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTaskDetailsResultOutput)
 }
 

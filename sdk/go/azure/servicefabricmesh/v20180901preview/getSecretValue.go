@@ -52,7 +52,11 @@ func LookupSecretValueOutput(ctx *pulumi.Context, args LookupSecretValueOutputAr
 		ApplyT(func(v interface{}) (LookupSecretValueResult, error) {
 			args := v.(LookupSecretValueArgs)
 			r, err := LookupSecretValue(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecretValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecretValueResultOutput)
 }
 

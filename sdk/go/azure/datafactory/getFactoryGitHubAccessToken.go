@@ -47,7 +47,11 @@ func GetFactoryGitHubAccessTokenOutput(ctx *pulumi.Context, args GetFactoryGitHu
 		ApplyT(func(v interface{}) (GetFactoryGitHubAccessTokenResult, error) {
 			args := v.(GetFactoryGitHubAccessTokenArgs)
 			r, err := GetFactoryGitHubAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s GetFactoryGitHubAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetFactoryGitHubAccessTokenResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupSshPublicKeyOutput(ctx *pulumi.Context, args LookupSshPublicKeyOutput
 		ApplyT(func(v interface{}) (LookupSshPublicKeyResult, error) {
 			args := v.(LookupSshPublicKeyArgs)
 			r, err := LookupSshPublicKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupSshPublicKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSshPublicKeyResultOutput)
 }
 

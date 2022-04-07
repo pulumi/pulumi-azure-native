@@ -41,7 +41,11 @@ func ListMonitorMonitoredResourcesOutput(ctx *pulumi.Context, args ListMonitorMo
 		ApplyT(func(v interface{}) (ListMonitorMonitoredResourcesResult, error) {
 			args := v.(ListMonitorMonitoredResourcesArgs)
 			r, err := ListMonitorMonitoredResources(ctx, &args, opts...)
-			return *r, err
+			var s ListMonitorMonitoredResourcesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMonitorMonitoredResourcesResultOutput)
 }
 

@@ -90,7 +90,11 @@ func LookupTopicEventSubscriptionOutput(ctx *pulumi.Context, args LookupTopicEve
 		ApplyT(func(v interface{}) (LookupTopicEventSubscriptionResult, error) {
 			args := v.(LookupTopicEventSubscriptionArgs)
 			r, err := LookupTopicEventSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupTopicEventSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTopicEventSubscriptionResultOutput)
 }
 

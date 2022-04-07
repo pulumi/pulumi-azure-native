@@ -61,7 +61,11 @@ func LookupStorageSyncServiceOutput(ctx *pulumi.Context, args LookupStorageSyncS
 		ApplyT(func(v interface{}) (LookupStorageSyncServiceResult, error) {
 			args := v.(LookupStorageSyncServiceArgs)
 			r, err := LookupStorageSyncService(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageSyncServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageSyncServiceResultOutput)
 }
 

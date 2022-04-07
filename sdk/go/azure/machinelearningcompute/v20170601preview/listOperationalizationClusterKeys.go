@@ -59,7 +59,11 @@ func ListOperationalizationClusterKeysOutput(ctx *pulumi.Context, args ListOpera
 		ApplyT(func(v interface{}) (ListOperationalizationClusterKeysResult, error) {
 			args := v.(ListOperationalizationClusterKeysArgs)
 			r, err := ListOperationalizationClusterKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListOperationalizationClusterKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListOperationalizationClusterKeysResultOutput)
 }
 

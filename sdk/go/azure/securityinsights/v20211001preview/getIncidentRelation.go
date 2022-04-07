@@ -58,7 +58,11 @@ func LookupIncidentRelationOutput(ctx *pulumi.Context, args LookupIncidentRelati
 		ApplyT(func(v interface{}) (LookupIncidentRelationResult, error) {
 			args := v.(LookupIncidentRelationArgs)
 			r, err := LookupIncidentRelation(ctx, &args, opts...)
-			return *r, err
+			var s LookupIncidentRelationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIncidentRelationResultOutput)
 }
 

@@ -59,7 +59,11 @@ func LookupOrderOutput(ctx *pulumi.Context, args LookupOrderOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupOrderResult, error) {
 			args := v.(LookupOrderArgs)
 			r, err := LookupOrder(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrderResultOutput)
 }
 

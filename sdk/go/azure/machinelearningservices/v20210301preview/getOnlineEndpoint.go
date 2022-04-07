@@ -54,7 +54,11 @@ func LookupOnlineEndpointOutput(ctx *pulumi.Context, args LookupOnlineEndpointOu
 		ApplyT(func(v interface{}) (LookupOnlineEndpointResult, error) {
 			args := v.(LookupOnlineEndpointArgs)
 			r, err := LookupOnlineEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupOnlineEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOnlineEndpointResultOutput)
 }
 

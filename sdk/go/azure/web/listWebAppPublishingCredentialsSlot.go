@@ -57,7 +57,11 @@ func ListWebAppPublishingCredentialsSlotOutput(ctx *pulumi.Context, args ListWeb
 		ApplyT(func(v interface{}) (ListWebAppPublishingCredentialsSlotResult, error) {
 			args := v.(ListWebAppPublishingCredentialsSlotArgs)
 			r, err := ListWebAppPublishingCredentialsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppPublishingCredentialsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppPublishingCredentialsSlotResultOutput)
 }
 

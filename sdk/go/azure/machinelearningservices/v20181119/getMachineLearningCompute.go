@@ -54,7 +54,11 @@ func LookupMachineLearningComputeOutput(ctx *pulumi.Context, args LookupMachineL
 		ApplyT(func(v interface{}) (LookupMachineLearningComputeResult, error) {
 			args := v.(LookupMachineLearningComputeArgs)
 			r, err := LookupMachineLearningCompute(ctx, &args, opts...)
-			return *r, err
+			var s LookupMachineLearningComputeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMachineLearningComputeResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupCloudEdgeManagementRoleOutput(ctx *pulumi.Context, args LookupCloudEd
 		ApplyT(func(v interface{}) (LookupCloudEdgeManagementRoleResult, error) {
 			args := v.(LookupCloudEdgeManagementRoleArgs)
 			r, err := LookupCloudEdgeManagementRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupCloudEdgeManagementRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCloudEdgeManagementRoleResultOutput)
 }
 

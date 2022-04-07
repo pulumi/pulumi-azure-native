@@ -41,7 +41,11 @@ func LookupIngestionSettingOutput(ctx *pulumi.Context, args LookupIngestionSetti
 		ApplyT(func(v interface{}) (LookupIngestionSettingResult, error) {
 			args := v.(LookupIngestionSettingArgs)
 			r, err := LookupIngestionSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupIngestionSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIngestionSettingResultOutput)
 }
 

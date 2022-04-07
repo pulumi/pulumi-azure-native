@@ -75,7 +75,11 @@ func ListStorageAccountServiceSASOutput(ctx *pulumi.Context, args ListStorageAcc
 		ApplyT(func(v interface{}) (ListStorageAccountServiceSASResult, error) {
 			args := v.(ListStorageAccountServiceSASArgs)
 			r, err := ListStorageAccountServiceSAS(ctx, &args, opts...)
-			return *r, err
+			var s ListStorageAccountServiceSASResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStorageAccountServiceSASResultOutput)
 }
 

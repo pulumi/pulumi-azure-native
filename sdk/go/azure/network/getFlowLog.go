@@ -80,7 +80,11 @@ func LookupFlowLogOutput(ctx *pulumi.Context, args LookupFlowLogOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupFlowLogResult, error) {
 			args := v.(LookupFlowLogArgs)
 			r, err := LookupFlowLog(ctx, &args, opts...)
-			return *r, err
+			var s LookupFlowLogResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFlowLogResultOutput)
 }
 

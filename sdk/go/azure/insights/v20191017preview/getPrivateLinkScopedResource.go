@@ -48,7 +48,11 @@ func LookupPrivateLinkScopedResourceOutput(ctx *pulumi.Context, args LookupPriva
 		ApplyT(func(v interface{}) (LookupPrivateLinkScopedResourceResult, error) {
 			args := v.(LookupPrivateLinkScopedResourceArgs)
 			r, err := LookupPrivateLinkScopedResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateLinkScopedResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateLinkScopedResourceResultOutput)
 }
 

@@ -72,7 +72,11 @@ func LookupMetadataOutput(ctx *pulumi.Context, args LookupMetadataOutputArgs, op
 		ApplyT(func(v interface{}) (LookupMetadataResult, error) {
 			args := v.(LookupMetadataArgs)
 			r, err := LookupMetadata(ctx, &args, opts...)
-			return *r, err
+			var s LookupMetadataResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMetadataResultOutput)
 }
 

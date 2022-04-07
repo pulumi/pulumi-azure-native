@@ -50,7 +50,11 @@ func LookupRegisteredAsnOutput(ctx *pulumi.Context, args LookupRegisteredAsnOutp
 		ApplyT(func(v interface{}) (LookupRegisteredAsnResult, error) {
 			args := v.(LookupRegisteredAsnArgs)
 			r, err := LookupRegisteredAsn(ctx, &args, opts...)
-			return *r, err
+			var s LookupRegisteredAsnResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRegisteredAsnResultOutput)
 }
 

@@ -57,7 +57,11 @@ func LookupOnlineDeploymentOutput(ctx *pulumi.Context, args LookupOnlineDeployme
 		ApplyT(func(v interface{}) (LookupOnlineDeploymentResult, error) {
 			args := v.(LookupOnlineDeploymentArgs)
 			r, err := LookupOnlineDeployment(ctx, &args, opts...)
-			return *r, err
+			var s LookupOnlineDeploymentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOnlineDeploymentResultOutput)
 }
 

@@ -45,7 +45,11 @@ func ListAuthorizationServerSecretsOutput(ctx *pulumi.Context, args ListAuthoriz
 		ApplyT(func(v interface{}) (ListAuthorizationServerSecretsResult, error) {
 			args := v.(ListAuthorizationServerSecretsArgs)
 			r, err := ListAuthorizationServerSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListAuthorizationServerSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAuthorizationServerSecretsResultOutput)
 }
 

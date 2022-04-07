@@ -60,7 +60,11 @@ func LookupWorkloadNetworkDnsServiceOutput(ctx *pulumi.Context, args LookupWorkl
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkDnsServiceResult, error) {
 			args := v.(LookupWorkloadNetworkDnsServiceArgs)
 			r, err := LookupWorkloadNetworkDnsService(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkDnsServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkDnsServiceResultOutput)
 }
 

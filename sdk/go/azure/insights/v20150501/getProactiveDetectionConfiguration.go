@@ -50,7 +50,11 @@ func LookupProactiveDetectionConfigurationOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupProactiveDetectionConfigurationResult, error) {
 			args := v.(LookupProactiveDetectionConfigurationArgs)
 			r, err := LookupProactiveDetectionConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupProactiveDetectionConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProactiveDetectionConfigurationResultOutput)
 }
 

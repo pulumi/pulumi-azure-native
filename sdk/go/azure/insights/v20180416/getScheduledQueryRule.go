@@ -85,7 +85,11 @@ func LookupScheduledQueryRuleOutput(ctx *pulumi.Context, args LookupScheduledQue
 		ApplyT(func(v interface{}) (LookupScheduledQueryRuleResult, error) {
 			args := v.(LookupScheduledQueryRuleArgs)
 			r, err := LookupScheduledQueryRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledQueryRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledQueryRuleResultOutput)
 }
 

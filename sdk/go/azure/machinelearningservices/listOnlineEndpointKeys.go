@@ -43,7 +43,11 @@ func ListOnlineEndpointKeysOutput(ctx *pulumi.Context, args ListOnlineEndpointKe
 		ApplyT(func(v interface{}) (ListOnlineEndpointKeysResult, error) {
 			args := v.(ListOnlineEndpointKeysArgs)
 			r, err := ListOnlineEndpointKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListOnlineEndpointKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListOnlineEndpointKeysResultOutput)
 }
 

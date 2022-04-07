@@ -53,7 +53,11 @@ func LookupPrivateEndpointConnectionsForEDMOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsForEDMResult, error) {
 			args := v.(LookupPrivateEndpointConnectionsForEDMArgs)
 			r, err := LookupPrivateEndpointConnectionsForEDM(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionsForEDMResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionsForEDMResultOutput)
 }
 

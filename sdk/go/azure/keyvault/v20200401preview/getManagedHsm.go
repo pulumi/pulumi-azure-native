@@ -61,7 +61,11 @@ func LookupManagedHsmOutput(ctx *pulumi.Context, args LookupManagedHsmOutputArgs
 		ApplyT(func(v interface{}) (LookupManagedHsmResult, error) {
 			args := v.(LookupManagedHsmArgs)
 			r, err := LookupManagedHsm(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedHsmResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedHsmResultOutput)
 }
 

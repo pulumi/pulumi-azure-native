@@ -46,7 +46,11 @@ func ListMediaServiceKeysOutput(ctx *pulumi.Context, args ListMediaServiceKeysOu
 		ApplyT(func(v interface{}) (ListMediaServiceKeysResult, error) {
 			args := v.(ListMediaServiceKeysArgs)
 			r, err := ListMediaServiceKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListMediaServiceKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMediaServiceKeysResultOutput)
 }
 

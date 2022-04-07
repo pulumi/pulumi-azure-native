@@ -62,7 +62,11 @@ func LookupDatabasePrincipalAssignmentOutput(ctx *pulumi.Context, args LookupDat
 		ApplyT(func(v interface{}) (LookupDatabasePrincipalAssignmentResult, error) {
 			args := v.(LookupDatabasePrincipalAssignmentArgs)
 			r, err := LookupDatabasePrincipalAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabasePrincipalAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabasePrincipalAssignmentResultOutput)
 }
 

@@ -44,7 +44,11 @@ func GetBuildServiceBuildResultLogOutput(ctx *pulumi.Context, args GetBuildServi
 		ApplyT(func(v interface{}) (GetBuildServiceBuildResultLogResult, error) {
 			args := v.(GetBuildServiceBuildResultLogArgs)
 			r, err := GetBuildServiceBuildResultLog(ctx, &args, opts...)
-			return *r, err
+			var s GetBuildServiceBuildResultLogResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetBuildServiceBuildResultLogResultOutput)
 }
 

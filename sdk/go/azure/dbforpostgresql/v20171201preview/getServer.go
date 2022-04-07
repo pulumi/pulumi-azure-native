@@ -80,7 +80,11 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupServerResult, error) {
 			args := v.(LookupServerArgs)
 			r, err := LookupServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerResultOutput)
 }
 

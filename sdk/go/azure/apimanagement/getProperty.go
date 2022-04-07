@@ -53,7 +53,11 @@ func LookupPropertyOutput(ctx *pulumi.Context, args LookupPropertyOutputArgs, op
 		ApplyT(func(v interface{}) (LookupPropertyResult, error) {
 			args := v.(LookupPropertyArgs)
 			r, err := LookupProperty(ctx, &args, opts...)
-			return *r, err
+			var s LookupPropertyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPropertyResultOutput)
 }
 

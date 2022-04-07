@@ -67,7 +67,11 @@ func LookupMSIXPackageOutput(ctx *pulumi.Context, args LookupMSIXPackageOutputAr
 		ApplyT(func(v interface{}) (LookupMSIXPackageResult, error) {
 			args := v.(LookupMSIXPackageArgs)
 			r, err := LookupMSIXPackage(ctx, &args, opts...)
-			return *r, err
+			var s LookupMSIXPackageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMSIXPackageResultOutput)
 }
 

@@ -46,7 +46,11 @@ func ListVendorSkusCredentialOutput(ctx *pulumi.Context, args ListVendorSkusCred
 		ApplyT(func(v interface{}) (ListVendorSkusCredentialResult, error) {
 			args := v.(ListVendorSkusCredentialArgs)
 			r, err := ListVendorSkusCredential(ctx, &args, opts...)
-			return *r, err
+			var s ListVendorSkusCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListVendorSkusCredentialResultOutput)
 }
 

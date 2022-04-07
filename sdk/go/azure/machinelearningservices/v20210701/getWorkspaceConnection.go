@@ -54,7 +54,11 @@ func LookupWorkspaceConnectionOutput(ctx *pulumi.Context, args LookupWorkspaceCo
 		ApplyT(func(v interface{}) (LookupWorkspaceConnectionResult, error) {
 			args := v.(LookupWorkspaceConnectionArgs)
 			r, err := LookupWorkspaceConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkspaceConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkspaceConnectionResultOutput)
 }
 

@@ -64,7 +64,11 @@ func LookupCustomIPPrefixOutput(ctx *pulumi.Context, args LookupCustomIPPrefixOu
 		ApplyT(func(v interface{}) (LookupCustomIPPrefixResult, error) {
 			args := v.(LookupCustomIPPrefixArgs)
 			r, err := LookupCustomIPPrefix(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomIPPrefixResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomIPPrefixResultOutput)
 }
 

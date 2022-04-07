@@ -50,7 +50,11 @@ func LookupChapSettingOutput(ctx *pulumi.Context, args LookupChapSettingOutputAr
 		ApplyT(func(v interface{}) (LookupChapSettingResult, error) {
 			args := v.(LookupChapSettingArgs)
 			r, err := LookupChapSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupChapSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupChapSettingResultOutput)
 }
 

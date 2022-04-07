@@ -65,7 +65,11 @@ func LookupSpacecraftOutput(ctx *pulumi.Context, args LookupSpacecraftOutputArgs
 		ApplyT(func(v interface{}) (LookupSpacecraftResult, error) {
 			args := v.(LookupSpacecraftArgs)
 			r, err := LookupSpacecraft(ctx, &args, opts...)
-			return *r, err
+			var s LookupSpacecraftResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSpacecraftResultOutput)
 }
 

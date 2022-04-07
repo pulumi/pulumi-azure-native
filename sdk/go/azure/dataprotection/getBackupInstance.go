@@ -49,7 +49,11 @@ func LookupBackupInstanceOutput(ctx *pulumi.Context, args LookupBackupInstanceOu
 		ApplyT(func(v interface{}) (LookupBackupInstanceResult, error) {
 			args := v.(LookupBackupInstanceArgs)
 			r, err := LookupBackupInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupBackupInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBackupInstanceResultOutput)
 }
 

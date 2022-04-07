@@ -38,7 +38,11 @@ func GetEventSubscriptionDeliveryAttributesOutput(ctx *pulumi.Context, args GetE
 		ApplyT(func(v interface{}) (GetEventSubscriptionDeliveryAttributesResult, error) {
 			args := v.(GetEventSubscriptionDeliveryAttributesArgs)
 			r, err := GetEventSubscriptionDeliveryAttributes(ctx, &args, opts...)
-			return *r, err
+			var s GetEventSubscriptionDeliveryAttributesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetEventSubscriptionDeliveryAttributesResultOutput)
 }
 

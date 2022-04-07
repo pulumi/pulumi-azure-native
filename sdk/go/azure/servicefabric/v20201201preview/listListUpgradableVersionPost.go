@@ -39,7 +39,11 @@ func ListListUpgradableVersionPostOutput(ctx *pulumi.Context, args ListListUpgra
 		ApplyT(func(v interface{}) (ListListUpgradableVersionPostResult, error) {
 			args := v.(ListListUpgradableVersionPostArgs)
 			r, err := ListListUpgradableVersionPost(ctx, &args, opts...)
-			return *r, err
+			var s ListListUpgradableVersionPostResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListListUpgradableVersionPostResultOutput)
 }
 

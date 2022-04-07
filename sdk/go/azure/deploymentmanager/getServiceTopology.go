@@ -49,7 +49,11 @@ func LookupServiceTopologyOutput(ctx *pulumi.Context, args LookupServiceTopology
 		ApplyT(func(v interface{}) (LookupServiceTopologyResult, error) {
 			args := v.(LookupServiceTopologyArgs)
 			r, err := LookupServiceTopology(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceTopologyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceTopologyResultOutput)
 }
 

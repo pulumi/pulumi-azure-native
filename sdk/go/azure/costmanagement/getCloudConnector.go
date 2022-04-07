@@ -73,7 +73,11 @@ func LookupCloudConnectorOutput(ctx *pulumi.Context, args LookupCloudConnectorOu
 		ApplyT(func(v interface{}) (LookupCloudConnectorResult, error) {
 			args := v.(LookupCloudConnectorArgs)
 			r, err := LookupCloudConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupCloudConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCloudConnectorResultOutput)
 }
 

@@ -75,7 +75,11 @@ func LookupDefaultUserRuleOutput(ctx *pulumi.Context, args LookupDefaultUserRule
 		ApplyT(func(v interface{}) (LookupDefaultUserRuleResult, error) {
 			args := v.(LookupDefaultUserRuleArgs)
 			r, err := LookupDefaultUserRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupDefaultUserRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDefaultUserRuleResultOutput)
 }
 

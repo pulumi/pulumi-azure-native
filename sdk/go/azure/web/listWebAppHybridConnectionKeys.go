@@ -53,7 +53,11 @@ func ListWebAppHybridConnectionKeysOutput(ctx *pulumi.Context, args ListWebAppHy
 		ApplyT(func(v interface{}) (ListWebAppHybridConnectionKeysResult, error) {
 			args := v.(ListWebAppHybridConnectionKeysArgs)
 			r, err := ListWebAppHybridConnectionKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppHybridConnectionKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppHybridConnectionKeysResultOutput)
 }
 

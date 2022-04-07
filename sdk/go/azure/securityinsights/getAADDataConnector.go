@@ -54,7 +54,11 @@ func LookupAADDataConnectorOutput(ctx *pulumi.Context, args LookupAADDataConnect
 		ApplyT(func(v interface{}) (LookupAADDataConnectorResult, error) {
 			args := v.(LookupAADDataConnectorArgs)
 			r, err := LookupAADDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupAADDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAADDataConnectorResultOutput)
 }
 

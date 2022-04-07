@@ -57,7 +57,11 @@ func LookupEmailTemplateOutput(ctx *pulumi.Context, args LookupEmailTemplateOutp
 		ApplyT(func(v interface{}) (LookupEmailTemplateResult, error) {
 			args := v.(LookupEmailTemplateArgs)
 			r, err := LookupEmailTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupEmailTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEmailTemplateResultOutput)
 }
 

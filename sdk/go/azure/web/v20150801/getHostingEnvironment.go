@@ -111,7 +111,11 @@ func LookupHostingEnvironmentOutput(ctx *pulumi.Context, args LookupHostingEnvir
 		ApplyT(func(v interface{}) (LookupHostingEnvironmentResult, error) {
 			args := v.(LookupHostingEnvironmentArgs)
 			r, err := LookupHostingEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupHostingEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHostingEnvironmentResultOutput)
 }
 

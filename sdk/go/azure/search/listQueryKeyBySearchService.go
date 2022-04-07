@@ -41,7 +41,11 @@ func ListQueryKeyBySearchServiceOutput(ctx *pulumi.Context, args ListQueryKeyByS
 		ApplyT(func(v interface{}) (ListQueryKeyBySearchServiceResult, error) {
 			args := v.(ListQueryKeyBySearchServiceArgs)
 			r, err := ListQueryKeyBySearchService(ctx, &args, opts...)
-			return *r, err
+			var s ListQueryKeyBySearchServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListQueryKeyBySearchServiceResultOutput)
 }
 

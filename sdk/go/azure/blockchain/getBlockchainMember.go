@@ -77,7 +77,11 @@ func LookupBlockchainMemberOutput(ctx *pulumi.Context, args LookupBlockchainMemb
 		ApplyT(func(v interface{}) (LookupBlockchainMemberResult, error) {
 			args := v.(LookupBlockchainMemberArgs)
 			r, err := LookupBlockchainMember(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlockchainMemberResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlockchainMemberResultOutput)
 }
 

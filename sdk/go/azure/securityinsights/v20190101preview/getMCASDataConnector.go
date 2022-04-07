@@ -54,7 +54,11 @@ func LookupMCASDataConnectorOutput(ctx *pulumi.Context, args LookupMCASDataConne
 		ApplyT(func(v interface{}) (LookupMCASDataConnectorResult, error) {
 			args := v.(LookupMCASDataConnectorArgs)
 			r, err := LookupMCASDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupMCASDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMCASDataConnectorResultOutput)
 }
 

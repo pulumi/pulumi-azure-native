@@ -55,7 +55,11 @@ func LookupCassandraResourceCassandraViewOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupCassandraResourceCassandraViewResult, error) {
 			args := v.(LookupCassandraResourceCassandraViewArgs)
 			r, err := LookupCassandraResourceCassandraView(ctx, &args, opts...)
-			return *r, err
+			var s LookupCassandraResourceCassandraViewResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCassandraResourceCassandraViewResultOutput)
 }
 

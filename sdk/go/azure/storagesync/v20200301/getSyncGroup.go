@@ -48,7 +48,11 @@ func LookupSyncGroupOutput(ctx *pulumi.Context, args LookupSyncGroupOutputArgs, 
 		ApplyT(func(v interface{}) (LookupSyncGroupResult, error) {
 			args := v.(LookupSyncGroupArgs)
 			r, err := LookupSyncGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupSyncGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSyncGroupResultOutput)
 }
 

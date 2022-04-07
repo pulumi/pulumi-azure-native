@@ -62,7 +62,11 @@ func LookupExpressRouteCircuitConnectionOutput(ctx *pulumi.Context, args LookupE
 		ApplyT(func(v interface{}) (LookupExpressRouteCircuitConnectionResult, error) {
 			args := v.(LookupExpressRouteCircuitConnectionArgs)
 			r, err := LookupExpressRouteCircuitConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteCircuitConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteCircuitConnectionResultOutput)
 }
 

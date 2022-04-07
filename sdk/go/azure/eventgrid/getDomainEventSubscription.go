@@ -90,7 +90,11 @@ func LookupDomainEventSubscriptionOutput(ctx *pulumi.Context, args LookupDomainE
 		ApplyT(func(v interface{}) (LookupDomainEventSubscriptionResult, error) {
 			args := v.(LookupDomainEventSubscriptionArgs)
 			r, err := LookupDomainEventSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainEventSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainEventSubscriptionResultOutput)
 }
 

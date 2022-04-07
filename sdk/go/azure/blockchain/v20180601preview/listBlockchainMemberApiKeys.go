@@ -38,7 +38,11 @@ func ListBlockchainMemberApiKeysOutput(ctx *pulumi.Context, args ListBlockchainM
 		ApplyT(func(v interface{}) (ListBlockchainMemberApiKeysResult, error) {
 			args := v.(ListBlockchainMemberApiKeysArgs)
 			r, err := ListBlockchainMemberApiKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListBlockchainMemberApiKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBlockchainMemberApiKeysResultOutput)
 }
 

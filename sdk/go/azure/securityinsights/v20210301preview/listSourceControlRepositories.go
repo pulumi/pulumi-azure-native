@@ -42,7 +42,11 @@ func ListSourceControlRepositoriesOutput(ctx *pulumi.Context, args ListSourceCon
 		ApplyT(func(v interface{}) (ListSourceControlRepositoriesResult, error) {
 			args := v.(ListSourceControlRepositoriesArgs)
 			r, err := ListSourceControlRepositories(ctx, &args, opts...)
-			return *r, err
+			var s ListSourceControlRepositoriesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSourceControlRepositoriesResultOutput)
 }
 

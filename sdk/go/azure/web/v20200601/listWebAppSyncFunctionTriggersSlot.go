@@ -42,7 +42,11 @@ func ListWebAppSyncFunctionTriggersSlotOutput(ctx *pulumi.Context, args ListWebA
 		ApplyT(func(v interface{}) (ListWebAppSyncFunctionTriggersSlotResult, error) {
 			args := v.(ListWebAppSyncFunctionTriggersSlotArgs)
 			r, err := ListWebAppSyncFunctionTriggersSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSyncFunctionTriggersSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSyncFunctionTriggersSlotResultOutput)
 }
 

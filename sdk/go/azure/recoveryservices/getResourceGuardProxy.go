@@ -50,7 +50,11 @@ func LookupResourceGuardProxyOutput(ctx *pulumi.Context, args LookupResourceGuar
 		ApplyT(func(v interface{}) (LookupResourceGuardProxyResult, error) {
 			args := v.(LookupResourceGuardProxyArgs)
 			r, err := LookupResourceGuardProxy(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceGuardProxyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceGuardProxyResultOutput)
 }
 

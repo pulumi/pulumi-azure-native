@@ -57,7 +57,11 @@ func LookupLinkerOutput(ctx *pulumi.Context, args LookupLinkerOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupLinkerResult, error) {
 			args := v.(LookupLinkerArgs)
 			r, err := LookupLinker(ctx, &args, opts...)
-			return *r, err
+			var s LookupLinkerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLinkerResultOutput)
 }
 

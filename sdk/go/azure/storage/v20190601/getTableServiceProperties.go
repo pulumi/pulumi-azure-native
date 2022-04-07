@@ -48,7 +48,11 @@ func LookupTableServicePropertiesOutput(ctx *pulumi.Context, args LookupTableSer
 		ApplyT(func(v interface{}) (LookupTableServicePropertiesResult, error) {
 			args := v.(LookupTableServicePropertiesArgs)
 			r, err := LookupTableServiceProperties(ctx, &args, opts...)
-			return *r, err
+			var s LookupTableServicePropertiesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTableServicePropertiesResultOutput)
 }
 

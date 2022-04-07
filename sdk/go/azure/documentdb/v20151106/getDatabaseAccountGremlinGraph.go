@@ -83,7 +83,11 @@ func LookupDatabaseAccountGremlinGraphOutput(ctx *pulumi.Context, args LookupDat
 		ApplyT(func(v interface{}) (LookupDatabaseAccountGremlinGraphResult, error) {
 			args := v.(LookupDatabaseAccountGremlinGraphArgs)
 			r, err := LookupDatabaseAccountGremlinGraph(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseAccountGremlinGraphResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseAccountGremlinGraphResultOutput)
 }
 

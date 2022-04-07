@@ -56,7 +56,11 @@ func LookupExpressRouteGatewayOutput(ctx *pulumi.Context, args LookupExpressRout
 		ApplyT(func(v interface{}) (LookupExpressRouteGatewayResult, error) {
 			args := v.(LookupExpressRouteGatewayArgs)
 			r, err := LookupExpressRouteGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteGatewayResultOutput)
 }
 

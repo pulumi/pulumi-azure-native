@@ -61,7 +61,11 @@ func ListConfigurationStoreKeyValueOutput(ctx *pulumi.Context, args ListConfigur
 		ApplyT(func(v interface{}) (ListConfigurationStoreKeyValueResult, error) {
 			args := v.(ListConfigurationStoreKeyValueArgs)
 			r, err := ListConfigurationStoreKeyValue(ctx, &args, opts...)
-			return *r, err
+			var s ListConfigurationStoreKeyValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListConfigurationStoreKeyValueResultOutput)
 }
 

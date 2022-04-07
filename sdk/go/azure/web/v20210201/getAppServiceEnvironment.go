@@ -81,7 +81,11 @@ func LookupAppServiceEnvironmentOutput(ctx *pulumi.Context, args LookupAppServic
 		ApplyT(func(v interface{}) (LookupAppServiceEnvironmentResult, error) {
 			args := v.(LookupAppServiceEnvironmentArgs)
 			r, err := LookupAppServiceEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupAppServiceEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAppServiceEnvironmentResultOutput)
 }
 

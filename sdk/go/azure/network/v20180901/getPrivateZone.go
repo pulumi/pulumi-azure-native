@@ -62,7 +62,11 @@ func LookupPrivateZoneOutput(ctx *pulumi.Context, args LookupPrivateZoneOutputAr
 		ApplyT(func(v interface{}) (LookupPrivateZoneResult, error) {
 			args := v.(LookupPrivateZoneArgs)
 			r, err := LookupPrivateZone(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateZoneResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateZoneResultOutput)
 }
 

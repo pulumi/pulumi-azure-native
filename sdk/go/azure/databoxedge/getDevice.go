@@ -89,7 +89,11 @@ func LookupDeviceOutput(ctx *pulumi.Context, args LookupDeviceOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupDeviceResult, error) {
 			args := v.(LookupDeviceArgs)
 			r, err := LookupDevice(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeviceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeviceResultOutput)
 }
 

@@ -58,7 +58,11 @@ func LookupDigitalTwinOutput(ctx *pulumi.Context, args LookupDigitalTwinOutputAr
 		ApplyT(func(v interface{}) (LookupDigitalTwinResult, error) {
 			args := v.(LookupDigitalTwinArgs)
 			r, err := LookupDigitalTwin(ctx, &args, opts...)
-			return *r, err
+			var s LookupDigitalTwinResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDigitalTwinResultOutput)
 }
 

@@ -69,7 +69,11 @@ func GetSubvolumeMetadataOutput(ctx *pulumi.Context, args GetSubvolumeMetadataOu
 		ApplyT(func(v interface{}) (GetSubvolumeMetadataResult, error) {
 			args := v.(GetSubvolumeMetadataArgs)
 			r, err := GetSubvolumeMetadata(ctx, &args, opts...)
-			return *r, err
+			var s GetSubvolumeMetadataResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetSubvolumeMetadataResultOutput)
 }
 

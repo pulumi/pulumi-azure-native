@@ -41,7 +41,11 @@ func GetSystemTopicEventSubscriptionDeliveryAttributesOutput(ctx *pulumi.Context
 		ApplyT(func(v interface{}) (GetSystemTopicEventSubscriptionDeliveryAttributesResult, error) {
 			args := v.(GetSystemTopicEventSubscriptionDeliveryAttributesArgs)
 			r, err := GetSystemTopicEventSubscriptionDeliveryAttributes(ctx, &args, opts...)
-			return *r, err
+			var s GetSystemTopicEventSubscriptionDeliveryAttributesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetSystemTopicEventSubscriptionDeliveryAttributesResultOutput)
 }
 

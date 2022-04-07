@@ -56,7 +56,11 @@ func LookupCassandraResourceCassandraTableOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupCassandraResourceCassandraTableResult, error) {
 			args := v.(LookupCassandraResourceCassandraTableArgs)
 			r, err := LookupCassandraResourceCassandraTable(ctx, &args, opts...)
-			return *r, err
+			var s LookupCassandraResourceCassandraTableResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCassandraResourceCassandraTableResultOutput)
 }
 

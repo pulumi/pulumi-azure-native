@@ -53,7 +53,11 @@ func LookupSentinelOnboardingStateOutput(ctx *pulumi.Context, args LookupSentine
 		ApplyT(func(v interface{}) (LookupSentinelOnboardingStateResult, error) {
 			args := v.(LookupSentinelOnboardingStateArgs)
 			r, err := LookupSentinelOnboardingState(ctx, &args, opts...)
-			return *r, err
+			var s LookupSentinelOnboardingStateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSentinelOnboardingStateResultOutput)
 }
 

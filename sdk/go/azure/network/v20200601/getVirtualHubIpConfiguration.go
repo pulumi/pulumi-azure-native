@@ -56,7 +56,11 @@ func LookupVirtualHubIpConfigurationOutput(ctx *pulumi.Context, args LookupVirtu
 		ApplyT(func(v interface{}) (LookupVirtualHubIpConfigurationResult, error) {
 			args := v.(LookupVirtualHubIpConfigurationArgs)
 			r, err := LookupVirtualHubIpConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualHubIpConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualHubIpConfigurationResultOutput)
 }
 

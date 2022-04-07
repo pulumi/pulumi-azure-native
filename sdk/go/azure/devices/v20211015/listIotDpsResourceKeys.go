@@ -40,7 +40,11 @@ func ListIotDpsResourceKeysOutput(ctx *pulumi.Context, args ListIotDpsResourceKe
 		ApplyT(func(v interface{}) (ListIotDpsResourceKeysResult, error) {
 			args := v.(ListIotDpsResourceKeysArgs)
 			r, err := ListIotDpsResourceKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListIotDpsResourceKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIotDpsResourceKeysResultOutput)
 }
 

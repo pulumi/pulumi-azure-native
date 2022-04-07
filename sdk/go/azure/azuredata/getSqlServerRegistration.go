@@ -55,7 +55,11 @@ func LookupSqlServerRegistrationOutput(ctx *pulumi.Context, args LookupSqlServer
 		ApplyT(func(v interface{}) (LookupSqlServerRegistrationResult, error) {
 			args := v.(LookupSqlServerRegistrationArgs)
 			r, err := LookupSqlServerRegistration(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlServerRegistrationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlServerRegistrationResultOutput)
 }
 

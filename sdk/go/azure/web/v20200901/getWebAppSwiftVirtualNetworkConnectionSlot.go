@@ -52,7 +52,11 @@ func LookupWebAppSwiftVirtualNetworkConnectionSlotOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (LookupWebAppSwiftVirtualNetworkConnectionSlotResult, error) {
 			args := v.(LookupWebAppSwiftVirtualNetworkConnectionSlotArgs)
 			r, err := LookupWebAppSwiftVirtualNetworkConnectionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSwiftVirtualNetworkConnectionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSwiftVirtualNetworkConnectionSlotResultOutput)
 }
 

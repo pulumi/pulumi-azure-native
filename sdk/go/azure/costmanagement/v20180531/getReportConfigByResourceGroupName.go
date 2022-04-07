@@ -54,7 +54,11 @@ func LookupReportConfigByResourceGroupNameOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupReportConfigByResourceGroupNameResult, error) {
 			args := v.(LookupReportConfigByResourceGroupNameArgs)
 			r, err := LookupReportConfigByResourceGroupName(ctx, &args, opts...)
-			return *r, err
+			var s LookupReportConfigByResourceGroupNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReportConfigByResourceGroupNameResultOutput)
 }
 

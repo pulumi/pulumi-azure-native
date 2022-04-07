@@ -97,7 +97,11 @@ func LookupFluxConfigurationOutput(ctx *pulumi.Context, args LookupFluxConfigura
 		ApplyT(func(v interface{}) (LookupFluxConfigurationResult, error) {
 			args := v.(LookupFluxConfigurationArgs)
 			r, err := LookupFluxConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupFluxConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFluxConfigurationResultOutput)
 }
 

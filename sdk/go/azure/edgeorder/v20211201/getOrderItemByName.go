@@ -58,7 +58,11 @@ func LookupOrderItemByNameOutput(ctx *pulumi.Context, args LookupOrderItemByName
 		ApplyT(func(v interface{}) (LookupOrderItemByNameResult, error) {
 			args := v.(LookupOrderItemByNameArgs)
 			r, err := LookupOrderItemByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrderItemByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrderItemByNameResultOutput)
 }
 

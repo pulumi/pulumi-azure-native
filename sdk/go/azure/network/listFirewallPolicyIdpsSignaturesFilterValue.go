@@ -41,7 +41,11 @@ func ListFirewallPolicyIdpsSignaturesFilterValueOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (ListFirewallPolicyIdpsSignaturesFilterValueResult, error) {
 			args := v.(ListFirewallPolicyIdpsSignaturesFilterValueArgs)
 			r, err := ListFirewallPolicyIdpsSignaturesFilterValue(ctx, &args, opts...)
-			return *r, err
+			var s ListFirewallPolicyIdpsSignaturesFilterValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListFirewallPolicyIdpsSignaturesFilterValueResultOutput)
 }
 

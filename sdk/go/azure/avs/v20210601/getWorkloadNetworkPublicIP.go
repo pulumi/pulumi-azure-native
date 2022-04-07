@@ -52,7 +52,11 @@ func LookupWorkloadNetworkPublicIPOutput(ctx *pulumi.Context, args LookupWorkloa
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkPublicIPResult, error) {
 			args := v.(LookupWorkloadNetworkPublicIPArgs)
 			r, err := LookupWorkloadNetworkPublicIP(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkPublicIPResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkPublicIPResultOutput)
 }
 

@@ -40,7 +40,11 @@ func ListCognitiveServicesAccountKeysOutput(ctx *pulumi.Context, args ListCognit
 		ApplyT(func(v interface{}) (ListCognitiveServicesAccountKeysResult, error) {
 			args := v.(ListCognitiveServicesAccountKeysArgs)
 			r, err := ListCognitiveServicesAccountKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListCognitiveServicesAccountKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListCognitiveServicesAccountKeysResultOutput)
 }
 

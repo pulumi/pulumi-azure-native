@@ -50,7 +50,11 @@ func ListSiteConnectionStringsOutput(ctx *pulumi.Context, args ListSiteConnectio
 		ApplyT(func(v interface{}) (ListSiteConnectionStringsResult, error) {
 			args := v.(ListSiteConnectionStringsArgs)
 			r, err := ListSiteConnectionStrings(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteConnectionStringsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteConnectionStringsResultOutput)
 }
 

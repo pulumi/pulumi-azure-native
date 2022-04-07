@@ -40,7 +40,11 @@ func ListPartnerNamespaceSharedAccessKeysOutput(ctx *pulumi.Context, args ListPa
 		ApplyT(func(v interface{}) (ListPartnerNamespaceSharedAccessKeysResult, error) {
 			args := v.(ListPartnerNamespaceSharedAccessKeysArgs)
 			r, err := ListPartnerNamespaceSharedAccessKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListPartnerNamespaceSharedAccessKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListPartnerNamespaceSharedAccessKeysResultOutput)
 }
 

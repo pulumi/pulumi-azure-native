@@ -53,7 +53,11 @@ func LookupConsumerGroupOutput(ctx *pulumi.Context, args LookupConsumerGroupOutp
 		ApplyT(func(v interface{}) (LookupConsumerGroupResult, error) {
 			args := v.(LookupConsumerGroupArgs)
 			r, err := LookupConsumerGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupConsumerGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConsumerGroupResultOutput)
 }
 

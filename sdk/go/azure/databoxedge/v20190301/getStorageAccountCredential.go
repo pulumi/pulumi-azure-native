@@ -60,7 +60,11 @@ func LookupStorageAccountCredentialOutput(ctx *pulumi.Context, args LookupStorag
 		ApplyT(func(v interface{}) (LookupStorageAccountCredentialResult, error) {
 			args := v.(LookupStorageAccountCredentialArgs)
 			r, err := LookupStorageAccountCredential(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageAccountCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageAccountCredentialResultOutput)
 }
 

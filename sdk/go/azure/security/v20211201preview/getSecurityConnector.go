@@ -60,7 +60,11 @@ func LookupSecurityConnectorOutput(ctx *pulumi.Context, args LookupSecurityConne
 		ApplyT(func(v interface{}) (LookupSecurityConnectorResult, error) {
 			args := v.(LookupSecurityConnectorArgs)
 			r, err := LookupSecurityConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecurityConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecurityConnectorResultOutput)
 }
 

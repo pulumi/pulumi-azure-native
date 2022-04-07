@@ -54,7 +54,11 @@ func LookupSecurityAdminConfigurationOutput(ctx *pulumi.Context, args LookupSecu
 		ApplyT(func(v interface{}) (LookupSecurityAdminConfigurationResult, error) {
 			args := v.(LookupSecurityAdminConfigurationArgs)
 			r, err := LookupSecurityAdminConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecurityAdminConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecurityAdminConfigurationResultOutput)
 }
 

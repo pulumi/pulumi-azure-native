@@ -53,7 +53,11 @@ func LookupServerCommunicationLinkOutput(ctx *pulumi.Context, args LookupServerC
 		ApplyT(func(v interface{}) (LookupServerCommunicationLinkResult, error) {
 			args := v.(LookupServerCommunicationLinkArgs)
 			r, err := LookupServerCommunicationLink(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerCommunicationLinkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerCommunicationLinkResultOutput)
 }
 

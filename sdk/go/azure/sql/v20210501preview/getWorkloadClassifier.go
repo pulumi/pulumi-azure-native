@@ -60,7 +60,11 @@ func LookupWorkloadClassifierOutput(ctx *pulumi.Context, args LookupWorkloadClas
 		ApplyT(func(v interface{}) (LookupWorkloadClassifierResult, error) {
 			args := v.(LookupWorkloadClassifierArgs)
 			r, err := LookupWorkloadClassifier(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadClassifierResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadClassifierResultOutput)
 }
 

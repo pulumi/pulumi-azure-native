@@ -38,7 +38,11 @@ func ListBitLockerKeyOutput(ctx *pulumi.Context, args ListBitLockerKeyOutputArgs
 		ApplyT(func(v interface{}) (ListBitLockerKeyResult, error) {
 			args := v.(ListBitLockerKeyArgs)
 			r, err := ListBitLockerKey(ctx, &args, opts...)
-			return *r, err
+			var s ListBitLockerKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBitLockerKeyResultOutput)
 }
 

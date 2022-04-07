@@ -64,7 +64,11 @@ func LookupFusionAlertRuleOutput(ctx *pulumi.Context, args LookupFusionAlertRule
 		ApplyT(func(v interface{}) (LookupFusionAlertRuleResult, error) {
 			args := v.(LookupFusionAlertRuleArgs)
 			r, err := LookupFusionAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupFusionAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFusionAlertRuleResultOutput)
 }
 

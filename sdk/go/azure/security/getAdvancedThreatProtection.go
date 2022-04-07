@@ -45,7 +45,11 @@ func LookupAdvancedThreatProtectionOutput(ctx *pulumi.Context, args LookupAdvanc
 		ApplyT(func(v interface{}) (LookupAdvancedThreatProtectionResult, error) {
 			args := v.(LookupAdvancedThreatProtectionArgs)
 			r, err := LookupAdvancedThreatProtection(ctx, &args, opts...)
-			return *r, err
+			var s LookupAdvancedThreatProtectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAdvancedThreatProtectionResultOutput)
 }
 

@@ -42,7 +42,11 @@ func GetDomainTopicEventSubscriptionFullUrlOutput(ctx *pulumi.Context, args GetD
 		ApplyT(func(v interface{}) (GetDomainTopicEventSubscriptionFullUrlResult, error) {
 			args := v.(GetDomainTopicEventSubscriptionFullUrlArgs)
 			r, err := GetDomainTopicEventSubscriptionFullUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetDomainTopicEventSubscriptionFullUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDomainTopicEventSubscriptionFullUrlResultOutput)
 }
 

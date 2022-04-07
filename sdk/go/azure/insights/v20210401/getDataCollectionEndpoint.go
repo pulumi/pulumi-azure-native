@@ -64,7 +64,11 @@ func LookupDataCollectionEndpointOutput(ctx *pulumi.Context, args LookupDataColl
 		ApplyT(func(v interface{}) (LookupDataCollectionEndpointResult, error) {
 			args := v.(LookupDataCollectionEndpointArgs)
 			r, err := LookupDataCollectionEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataCollectionEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataCollectionEndpointResultOutput)
 }
 

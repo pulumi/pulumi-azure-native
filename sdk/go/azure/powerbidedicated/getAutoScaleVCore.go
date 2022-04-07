@@ -57,7 +57,11 @@ func LookupAutoScaleVCoreOutput(ctx *pulumi.Context, args LookupAutoScaleVCoreOu
 		ApplyT(func(v interface{}) (LookupAutoScaleVCoreResult, error) {
 			args := v.(LookupAutoScaleVCoreArgs)
 			r, err := LookupAutoScaleVCore(ctx, &args, opts...)
-			return *r, err
+			var s LookupAutoScaleVCoreResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAutoScaleVCoreResultOutput)
 }
 

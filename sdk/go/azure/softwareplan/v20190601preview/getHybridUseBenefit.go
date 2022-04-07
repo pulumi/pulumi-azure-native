@@ -52,7 +52,11 @@ func LookupHybridUseBenefitOutput(ctx *pulumi.Context, args LookupHybridUseBenef
 		ApplyT(func(v interface{}) (LookupHybridUseBenefitResult, error) {
 			args := v.(LookupHybridUseBenefitArgs)
 			r, err := LookupHybridUseBenefit(ctx, &args, opts...)
-			return *r, err
+			var s LookupHybridUseBenefitResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHybridUseBenefitResultOutput)
 }
 

@@ -50,7 +50,11 @@ func LookupDataVersionOutput(ctx *pulumi.Context, args LookupDataVersionOutputAr
 		ApplyT(func(v interface{}) (LookupDataVersionResult, error) {
 			args := v.(LookupDataVersionArgs)
 			r, err := LookupDataVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataVersionResultOutput)
 }
 

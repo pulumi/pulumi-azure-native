@@ -48,7 +48,11 @@ func LookupEventHubAuthorizationRuleOutput(ctx *pulumi.Context, args LookupEvent
 		ApplyT(func(v interface{}) (LookupEventHubAuthorizationRuleResult, error) {
 			args := v.(LookupEventHubAuthorizationRuleArgs)
 			r, err := LookupEventHubAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventHubAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventHubAuthorizationRuleResultOutput)
 }
 

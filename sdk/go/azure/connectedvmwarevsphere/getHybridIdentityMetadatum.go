@@ -55,7 +55,11 @@ func LookupHybridIdentityMetadatumOutput(ctx *pulumi.Context, args LookupHybridI
 		ApplyT(func(v interface{}) (LookupHybridIdentityMetadatumResult, error) {
 			args := v.(LookupHybridIdentityMetadatumArgs)
 			r, err := LookupHybridIdentityMetadatum(ctx, &args, opts...)
-			return *r, err
+			var s LookupHybridIdentityMetadatumResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHybridIdentityMetadatumResultOutput)
 }
 

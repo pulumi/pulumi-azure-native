@@ -65,7 +65,11 @@ func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupGatewayResult, error) {
 			args := v.(LookupGatewayArgs)
 			r, err := LookupGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGatewayResultOutput)
 }
 

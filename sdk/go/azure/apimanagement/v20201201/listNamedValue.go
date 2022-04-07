@@ -40,7 +40,11 @@ func ListNamedValueOutput(ctx *pulumi.Context, args ListNamedValueOutputArgs, op
 		ApplyT(func(v interface{}) (ListNamedValueResult, error) {
 			args := v.(ListNamedValueArgs)
 			r, err := ListNamedValue(ctx, &args, opts...)
-			return *r, err
+			var s ListNamedValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNamedValueResultOutput)
 }
 

@@ -58,7 +58,11 @@ func LookupDedicatedHsmOutput(ctx *pulumi.Context, args LookupDedicatedHsmOutput
 		ApplyT(func(v interface{}) (LookupDedicatedHsmResult, error) {
 			args := v.(LookupDedicatedHsmArgs)
 			r, err := LookupDedicatedHsm(ctx, &args, opts...)
-			return *r, err
+			var s LookupDedicatedHsmResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDedicatedHsmResultOutput)
 }
 

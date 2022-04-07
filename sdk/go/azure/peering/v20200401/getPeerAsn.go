@@ -52,7 +52,11 @@ func LookupPeerAsnOutput(ctx *pulumi.Context, args LookupPeerAsnOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupPeerAsnResult, error) {
 			args := v.(LookupPeerAsnArgs)
 			r, err := LookupPeerAsn(ctx, &args, opts...)
-			return *r, err
+			var s LookupPeerAsnResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPeerAsnResultOutput)
 }
 

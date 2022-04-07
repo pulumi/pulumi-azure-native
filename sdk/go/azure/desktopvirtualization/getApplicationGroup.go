@@ -72,7 +72,11 @@ func LookupApplicationGroupOutput(ctx *pulumi.Context, args LookupApplicationGro
 		ApplyT(func(v interface{}) (LookupApplicationGroupResult, error) {
 			args := v.(LookupApplicationGroupArgs)
 			r, err := LookupApplicationGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationGroupResultOutput)
 }
 

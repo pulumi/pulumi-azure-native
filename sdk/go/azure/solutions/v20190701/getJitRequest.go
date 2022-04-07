@@ -62,7 +62,11 @@ func LookupJitRequestOutput(ctx *pulumi.Context, args LookupJitRequestOutputArgs
 		ApplyT(func(v interface{}) (LookupJitRequestResult, error) {
 			args := v.(LookupJitRequestArgs)
 			r, err := LookupJitRequest(ctx, &args, opts...)
-			return *r, err
+			var s LookupJitRequestResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJitRequestResultOutput)
 }
 

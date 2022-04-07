@@ -60,7 +60,11 @@ func LookupStreamingLocatorOutput(ctx *pulumi.Context, args LookupStreamingLocat
 		ApplyT(func(v interface{}) (LookupStreamingLocatorResult, error) {
 			args := v.(LookupStreamingLocatorArgs)
 			r, err := LookupStreamingLocator(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingLocatorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingLocatorResultOutput)
 }
 

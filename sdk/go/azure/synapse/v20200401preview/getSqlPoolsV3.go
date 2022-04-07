@@ -70,7 +70,11 @@ func LookupSqlPoolsV3Output(ctx *pulumi.Context, args LookupSqlPoolsV3OutputArgs
 		ApplyT(func(v interface{}) (LookupSqlPoolsV3Result, error) {
 			args := v.(LookupSqlPoolsV3Args)
 			r, err := LookupSqlPoolsV3(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolsV3Result
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolsV3ResultOutput)
 }
 

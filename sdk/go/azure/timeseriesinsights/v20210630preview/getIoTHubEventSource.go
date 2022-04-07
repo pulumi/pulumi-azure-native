@@ -69,7 +69,11 @@ func LookupIoTHubEventSourceOutput(ctx *pulumi.Context, args LookupIoTHubEventSo
 		ApplyT(func(v interface{}) (LookupIoTHubEventSourceResult, error) {
 			args := v.(LookupIoTHubEventSourceArgs)
 			r, err := LookupIoTHubEventSource(ctx, &args, opts...)
-			return *r, err
+			var s LookupIoTHubEventSourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIoTHubEventSourceResultOutput)
 }
 

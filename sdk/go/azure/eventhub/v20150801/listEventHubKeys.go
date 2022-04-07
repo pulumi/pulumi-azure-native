@@ -50,7 +50,11 @@ func ListEventHubKeysOutput(ctx *pulumi.Context, args ListEventHubKeysOutputArgs
 		ApplyT(func(v interface{}) (ListEventHubKeysResult, error) {
 			args := v.(ListEventHubKeysArgs)
 			r, err := ListEventHubKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListEventHubKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListEventHubKeysResultOutput)
 }
 

@@ -64,7 +64,11 @@ func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfiguratio
 		ApplyT(func(v interface{}) (LookupConfigurationStoreResult, error) {
 			args := v.(LookupConfigurationStoreArgs)
 			r, err := LookupConfigurationStore(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationStoreResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationStoreResultOutput)
 }
 

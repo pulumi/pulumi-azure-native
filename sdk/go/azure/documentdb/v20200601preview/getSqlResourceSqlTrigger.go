@@ -57,7 +57,11 @@ func LookupSqlResourceSqlTriggerOutput(ctx *pulumi.Context, args LookupSqlResour
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlTriggerResult, error) {
 			args := v.(LookupSqlResourceSqlTriggerArgs)
 			r, err := LookupSqlResourceSqlTrigger(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlTriggerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlTriggerResultOutput)
 }
 

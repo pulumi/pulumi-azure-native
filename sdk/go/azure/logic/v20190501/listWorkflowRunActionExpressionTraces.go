@@ -41,7 +41,11 @@ func ListWorkflowRunActionExpressionTracesOutput(ctx *pulumi.Context, args ListW
 		ApplyT(func(v interface{}) (ListWorkflowRunActionExpressionTracesResult, error) {
 			args := v.(ListWorkflowRunActionExpressionTracesArgs)
 			r, err := ListWorkflowRunActionExpressionTraces(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkflowRunActionExpressionTracesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkflowRunActionExpressionTracesResultOutput)
 }
 

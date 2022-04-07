@@ -51,7 +51,11 @@ func ListHybridConnectionKeysOutput(ctx *pulumi.Context, args ListHybridConnecti
 		ApplyT(func(v interface{}) (ListHybridConnectionKeysResult, error) {
 			args := v.(ListHybridConnectionKeysArgs)
 			r, err := ListHybridConnectionKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListHybridConnectionKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListHybridConnectionKeysResultOutput)
 }
 

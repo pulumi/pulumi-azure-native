@@ -52,7 +52,11 @@ func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, 
 		ApplyT(func(v interface{}) (LookupDashboardResult, error) {
 			args := v.(LookupDashboardArgs)
 			r, err := LookupDashboard(ctx, &args, opts...)
-			return *r, err
+			var s LookupDashboardResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDashboardResultOutput)
 }
 

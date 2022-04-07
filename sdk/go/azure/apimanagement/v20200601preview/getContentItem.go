@@ -48,7 +48,11 @@ func LookupContentItemOutput(ctx *pulumi.Context, args LookupContentItemOutputAr
 		ApplyT(func(v interface{}) (LookupContentItemResult, error) {
 			args := v.(LookupContentItemArgs)
 			r, err := LookupContentItem(ctx, &args, opts...)
-			return *r, err
+			var s LookupContentItemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContentItemResultOutput)
 }
 

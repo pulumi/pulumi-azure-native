@@ -58,7 +58,11 @@ func LookupClusterPrincipalAssignmentOutput(ctx *pulumi.Context, args LookupClus
 		ApplyT(func(v interface{}) (LookupClusterPrincipalAssignmentResult, error) {
 			args := v.(LookupClusterPrincipalAssignmentArgs)
 			r, err := LookupClusterPrincipalAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupClusterPrincipalAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupClusterPrincipalAssignmentResultOutput)
 }
 

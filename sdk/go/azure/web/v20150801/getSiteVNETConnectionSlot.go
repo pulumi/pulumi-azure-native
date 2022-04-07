@@ -67,7 +67,11 @@ func LookupSiteVNETConnectionSlotOutput(ctx *pulumi.Context, args LookupSiteVNET
 		ApplyT(func(v interface{}) (LookupSiteVNETConnectionSlotResult, error) {
 			args := v.(LookupSiteVNETConnectionSlotArgs)
 			r, err := LookupSiteVNETConnectionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteVNETConnectionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteVNETConnectionSlotResultOutput)
 }
 

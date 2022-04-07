@@ -52,7 +52,11 @@ func LookupPrivateEndpointConnectionByWorkspaceOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionByWorkspaceResult, error) {
 			args := v.(LookupPrivateEndpointConnectionByWorkspaceArgs)
 			r, err := LookupPrivateEndpointConnectionByWorkspace(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionByWorkspaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionByWorkspaceResultOutput)
 }
 

@@ -74,7 +74,11 @@ func LookupIntegrationServiceEnvironmentManagedApiOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (LookupIntegrationServiceEnvironmentManagedApiResult, error) {
 			args := v.(LookupIntegrationServiceEnvironmentManagedApiArgs)
 			r, err := LookupIntegrationServiceEnvironmentManagedApi(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationServiceEnvironmentManagedApiResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationServiceEnvironmentManagedApiResultOutput)
 }
 

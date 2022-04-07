@@ -99,7 +99,11 @@ func LookupStorageAccountOutput(ctx *pulumi.Context, args LookupStorageAccountOu
 		ApplyT(func(v interface{}) (LookupStorageAccountResult, error) {
 			args := v.(LookupStorageAccountArgs)
 			r, err := LookupStorageAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageAccountResultOutput)
 }
 

@@ -41,7 +41,11 @@ func GetVirtualNetworkGatewayBgpPeerStatusOutput(ctx *pulumi.Context, args GetVi
 		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayBgpPeerStatusResult, error) {
 			args := v.(GetVirtualNetworkGatewayBgpPeerStatusArgs)
 			r, err := GetVirtualNetworkGatewayBgpPeerStatus(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualNetworkGatewayBgpPeerStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualNetworkGatewayBgpPeerStatusResultOutput)
 }
 

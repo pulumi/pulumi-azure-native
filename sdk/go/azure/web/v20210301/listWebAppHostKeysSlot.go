@@ -44,7 +44,11 @@ func ListWebAppHostKeysSlotOutput(ctx *pulumi.Context, args ListWebAppHostKeysSl
 		ApplyT(func(v interface{}) (ListWebAppHostKeysSlotResult, error) {
 			args := v.(ListWebAppHostKeysSlotArgs)
 			r, err := ListWebAppHostKeysSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppHostKeysSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppHostKeysSlotResultOutput)
 }
 

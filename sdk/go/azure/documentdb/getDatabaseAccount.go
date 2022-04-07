@@ -120,7 +120,11 @@ func LookupDatabaseAccountOutput(ctx *pulumi.Context, args LookupDatabaseAccount
 		ApplyT(func(v interface{}) (LookupDatabaseAccountResult, error) {
 			args := v.(LookupDatabaseAccountArgs)
 			r, err := LookupDatabaseAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseAccountResultOutput)
 }
 

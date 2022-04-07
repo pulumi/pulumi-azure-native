@@ -52,7 +52,11 @@ func LookupStorageDomainOutput(ctx *pulumi.Context, args LookupStorageDomainOutp
 		ApplyT(func(v interface{}) (LookupStorageDomainResult, error) {
 			args := v.(LookupStorageDomainArgs)
 			r, err := LookupStorageDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageDomainResultOutput)
 }
 

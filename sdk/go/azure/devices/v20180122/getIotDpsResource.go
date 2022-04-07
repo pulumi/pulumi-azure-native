@@ -54,7 +54,11 @@ func LookupIotDpsResourceOutput(ctx *pulumi.Context, args LookupIotDpsResourceOu
 		ApplyT(func(v interface{}) (LookupIotDpsResourceResult, error) {
 			args := v.(LookupIotDpsResourceArgs)
 			r, err := LookupIotDpsResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotDpsResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotDpsResourceResultOutput)
 }
 

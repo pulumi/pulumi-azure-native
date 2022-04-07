@@ -62,7 +62,11 @@ func ListAccountSasOutput(ctx *pulumi.Context, args ListAccountSasOutputArgs, op
 		ApplyT(func(v interface{}) (ListAccountSasResult, error) {
 			args := v.(ListAccountSasArgs)
 			r, err := ListAccountSas(ctx, &args, opts...)
-			return *r, err
+			var s ListAccountSasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAccountSasResultOutput)
 }
 

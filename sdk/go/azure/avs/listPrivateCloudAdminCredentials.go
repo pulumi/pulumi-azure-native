@@ -45,7 +45,11 @@ func ListPrivateCloudAdminCredentialsOutput(ctx *pulumi.Context, args ListPrivat
 		ApplyT(func(v interface{}) (ListPrivateCloudAdminCredentialsResult, error) {
 			args := v.(ListPrivateCloudAdminCredentialsArgs)
 			r, err := ListPrivateCloudAdminCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListPrivateCloudAdminCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListPrivateCloudAdminCredentialsResultOutput)
 }
 

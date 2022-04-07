@@ -53,7 +53,11 @@ func LookupBuildpackBindingOutput(ctx *pulumi.Context, args LookupBuildpackBindi
 		ApplyT(func(v interface{}) (LookupBuildpackBindingResult, error) {
 			args := v.(LookupBuildpackBindingArgs)
 			r, err := LookupBuildpackBinding(ctx, &args, opts...)
-			return *r, err
+			var s LookupBuildpackBindingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBuildpackBindingResultOutput)
 }
 

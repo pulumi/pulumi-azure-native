@@ -51,7 +51,11 @@ func GetTestResultFileOutput(ctx *pulumi.Context, args GetTestResultFileOutputAr
 		ApplyT(func(v interface{}) (GetTestResultFileResult, error) {
 			args := v.(GetTestResultFileArgs)
 			r, err := GetTestResultFile(ctx, &args, opts...)
-			return *r, err
+			var s GetTestResultFileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTestResultFileResultOutput)
 }
 

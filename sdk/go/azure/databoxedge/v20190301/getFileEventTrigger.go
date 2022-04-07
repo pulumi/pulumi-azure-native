@@ -53,7 +53,11 @@ func LookupFileEventTriggerOutput(ctx *pulumi.Context, args LookupFileEventTrigg
 		ApplyT(func(v interface{}) (LookupFileEventTriggerResult, error) {
 			args := v.(LookupFileEventTriggerArgs)
 			r, err := LookupFileEventTrigger(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileEventTriggerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileEventTriggerResultOutput)
 }
 

@@ -87,7 +87,11 @@ func LookupStreamingJobOutput(ctx *pulumi.Context, args LookupStreamingJobOutput
 		ApplyT(func(v interface{}) (LookupStreamingJobResult, error) {
 			args := v.(LookupStreamingJobArgs)
 			r, err := LookupStreamingJob(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingJobResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingJobResultOutput)
 }
 

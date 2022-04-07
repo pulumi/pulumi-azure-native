@@ -62,7 +62,11 @@ func LookupNspAccessRuleOutput(ctx *pulumi.Context, args LookupNspAccessRuleOutp
 		ApplyT(func(v interface{}) (LookupNspAccessRuleResult, error) {
 			args := v.(LookupNspAccessRuleArgs)
 			r, err := LookupNspAccessRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupNspAccessRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNspAccessRuleResultOutput)
 }
 

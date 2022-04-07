@@ -48,7 +48,11 @@ func LookupEdgeModuleOutput(ctx *pulumi.Context, args LookupEdgeModuleOutputArgs
 		ApplyT(func(v interface{}) (LookupEdgeModuleResult, error) {
 			args := v.(LookupEdgeModuleArgs)
 			r, err := LookupEdgeModule(ctx, &args, opts...)
-			return *r, err
+			var s LookupEdgeModuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEdgeModuleResultOutput)
 }
 

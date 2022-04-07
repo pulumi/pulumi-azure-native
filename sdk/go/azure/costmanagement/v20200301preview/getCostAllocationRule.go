@@ -44,7 +44,11 @@ func LookupCostAllocationRuleOutput(ctx *pulumi.Context, args LookupCostAllocati
 		ApplyT(func(v interface{}) (LookupCostAllocationRuleResult, error) {
 			args := v.(LookupCostAllocationRuleArgs)
 			r, err := LookupCostAllocationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupCostAllocationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCostAllocationRuleResultOutput)
 }
 

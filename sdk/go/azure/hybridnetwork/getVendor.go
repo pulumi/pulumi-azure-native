@@ -45,7 +45,11 @@ func LookupVendorOutput(ctx *pulumi.Context, args LookupVendorOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupVendorResult, error) {
 			args := v.(LookupVendorArgs)
 			r, err := LookupVendor(ctx, &args, opts...)
-			return *r, err
+			var s LookupVendorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVendorResultOutput)
 }
 

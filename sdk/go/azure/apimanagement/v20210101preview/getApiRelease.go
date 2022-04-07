@@ -54,7 +54,11 @@ func LookupApiReleaseOutput(ctx *pulumi.Context, args LookupApiReleaseOutputArgs
 		ApplyT(func(v interface{}) (LookupApiReleaseResult, error) {
 			args := v.(LookupApiReleaseArgs)
 			r, err := LookupApiRelease(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiReleaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiReleaseResultOutput)
 }
 

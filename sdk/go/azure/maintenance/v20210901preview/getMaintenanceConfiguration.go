@@ -79,7 +79,11 @@ func LookupMaintenanceConfigurationOutput(ctx *pulumi.Context, args LookupMainte
 		ApplyT(func(v interface{}) (LookupMaintenanceConfigurationResult, error) {
 			args := v.(LookupMaintenanceConfigurationArgs)
 			r, err := LookupMaintenanceConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupMaintenanceConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMaintenanceConfigurationResultOutput)
 }
 

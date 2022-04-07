@@ -42,7 +42,11 @@ func ListBatchAccountKeysOutput(ctx *pulumi.Context, args ListBatchAccountKeysOu
 		ApplyT(func(v interface{}) (ListBatchAccountKeysResult, error) {
 			args := v.(ListBatchAccountKeysArgs)
 			r, err := ListBatchAccountKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListBatchAccountKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBatchAccountKeysResultOutput)
 }
 

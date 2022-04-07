@@ -53,7 +53,11 @@ func GetVirtualNetworkGatewayVpnclientIpsecParametersOutput(ctx *pulumi.Context,
 		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayVpnclientIpsecParametersResult, error) {
 			args := v.(GetVirtualNetworkGatewayVpnclientIpsecParametersArgs)
 			r, err := GetVirtualNetworkGatewayVpnclientIpsecParameters(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualNetworkGatewayVpnclientIpsecParametersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualNetworkGatewayVpnclientIpsecParametersResultOutput)
 }
 

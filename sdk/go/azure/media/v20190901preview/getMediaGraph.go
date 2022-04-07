@@ -56,7 +56,11 @@ func LookupMediaGraphOutput(ctx *pulumi.Context, args LookupMediaGraphOutputArgs
 		ApplyT(func(v interface{}) (LookupMediaGraphResult, error) {
 			args := v.(LookupMediaGraphArgs)
 			r, err := LookupMediaGraph(ctx, &args, opts...)
-			return *r, err
+			var s LookupMediaGraphResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMediaGraphResultOutput)
 }
 

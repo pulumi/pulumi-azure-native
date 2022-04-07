@@ -45,7 +45,11 @@ func GetOnlineDeploymentLogsOutput(ctx *pulumi.Context, args GetOnlineDeployment
 		ApplyT(func(v interface{}) (GetOnlineDeploymentLogsResult, error) {
 			args := v.(GetOnlineDeploymentLogsArgs)
 			r, err := GetOnlineDeploymentLogs(ctx, &args, opts...)
-			return *r, err
+			var s GetOnlineDeploymentLogsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetOnlineDeploymentLogsResultOutput)
 }
 

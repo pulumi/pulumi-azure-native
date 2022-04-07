@@ -43,7 +43,11 @@ func ListDatabaseKeysOutput(ctx *pulumi.Context, args ListDatabaseKeysOutputArgs
 		ApplyT(func(v interface{}) (ListDatabaseKeysResult, error) {
 			args := v.(ListDatabaseKeysArgs)
 			r, err := ListDatabaseKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListDatabaseKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDatabaseKeysResultOutput)
 }
 

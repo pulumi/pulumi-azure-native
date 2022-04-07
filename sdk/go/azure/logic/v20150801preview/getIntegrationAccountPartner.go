@@ -56,7 +56,11 @@ func LookupIntegrationAccountPartnerOutput(ctx *pulumi.Context, args LookupInteg
 		ApplyT(func(v interface{}) (LookupIntegrationAccountPartnerResult, error) {
 			args := v.(LookupIntegrationAccountPartnerArgs)
 			r, err := LookupIntegrationAccountPartner(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationAccountPartnerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationAccountPartnerResultOutput)
 }
 

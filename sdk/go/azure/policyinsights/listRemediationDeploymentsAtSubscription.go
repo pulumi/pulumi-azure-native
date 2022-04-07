@@ -41,7 +41,11 @@ func ListRemediationDeploymentsAtSubscriptionOutput(ctx *pulumi.Context, args Li
 		ApplyT(func(v interface{}) (ListRemediationDeploymentsAtSubscriptionResult, error) {
 			args := v.(ListRemediationDeploymentsAtSubscriptionArgs)
 			r, err := ListRemediationDeploymentsAtSubscription(ctx, &args, opts...)
-			return *r, err
+			var s ListRemediationDeploymentsAtSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRemediationDeploymentsAtSubscriptionResultOutput)
 }
 

@@ -63,7 +63,11 @@ func LookupSqlDWTableDataSetMappingOutput(ctx *pulumi.Context, args LookupSqlDWT
 		ApplyT(func(v interface{}) (LookupSqlDWTableDataSetMappingResult, error) {
 			args := v.(LookupSqlDWTableDataSetMappingArgs)
 			r, err := LookupSqlDWTableDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlDWTableDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlDWTableDataSetMappingResultOutput)
 }
 

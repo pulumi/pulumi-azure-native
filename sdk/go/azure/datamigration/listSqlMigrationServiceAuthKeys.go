@@ -41,7 +41,11 @@ func ListSqlMigrationServiceAuthKeysOutput(ctx *pulumi.Context, args ListSqlMigr
 		ApplyT(func(v interface{}) (ListSqlMigrationServiceAuthKeysResult, error) {
 			args := v.(ListSqlMigrationServiceAuthKeysArgs)
 			r, err := ListSqlMigrationServiceAuthKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListSqlMigrationServiceAuthKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSqlMigrationServiceAuthKeysResultOutput)
 }
 

@@ -50,7 +50,11 @@ func LookupMigrateProjectsControllerMigrateProjectOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (LookupMigrateProjectsControllerMigrateProjectResult, error) {
 			args := v.(LookupMigrateProjectsControllerMigrateProjectArgs)
 			r, err := LookupMigrateProjectsControllerMigrateProject(ctx, &args, opts...)
-			return *r, err
+			var s LookupMigrateProjectsControllerMigrateProjectResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMigrateProjectsControllerMigrateProjectResultOutput)
 }
 

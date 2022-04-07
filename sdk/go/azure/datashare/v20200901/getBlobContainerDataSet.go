@@ -61,7 +61,11 @@ func LookupBlobContainerDataSetOutput(ctx *pulumi.Context, args LookupBlobContai
 		ApplyT(func(v interface{}) (LookupBlobContainerDataSetResult, error) {
 			args := v.(LookupBlobContainerDataSetArgs)
 			r, err := LookupBlobContainerDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobContainerDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobContainerDataSetResultOutput)
 }
 

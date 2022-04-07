@@ -57,7 +57,11 @@ func LookupScopeMapOutput(ctx *pulumi.Context, args LookupScopeMapOutputArgs, op
 		ApplyT(func(v interface{}) (LookupScopeMapResult, error) {
 			args := v.(LookupScopeMapArgs)
 			r, err := LookupScopeMap(ctx, &args, opts...)
-			return *r, err
+			var s LookupScopeMapResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScopeMapResultOutput)
 }
 

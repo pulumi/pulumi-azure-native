@@ -62,7 +62,11 @@ func LookupWebAppPremierAddOnOutput(ctx *pulumi.Context, args LookupWebAppPremie
 		ApplyT(func(v interface{}) (LookupWebAppPremierAddOnResult, error) {
 			args := v.(LookupWebAppPremierAddOnArgs)
 			r, err := LookupWebAppPremierAddOn(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppPremierAddOnResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppPremierAddOnResultOutput)
 }
 

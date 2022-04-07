@@ -50,7 +50,11 @@ func LookupNamespaceIpFilterRuleOutput(ctx *pulumi.Context, args LookupNamespace
 		ApplyT(func(v interface{}) (LookupNamespaceIpFilterRuleResult, error) {
 			args := v.(LookupNamespaceIpFilterRuleArgs)
 			r, err := LookupNamespaceIpFilterRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupNamespaceIpFilterRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNamespaceIpFilterRuleResultOutput)
 }
 

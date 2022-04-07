@@ -68,7 +68,11 @@ func LookupWebAppHostNameBindingSlotOutput(ctx *pulumi.Context, args LookupWebAp
 		ApplyT(func(v interface{}) (LookupWebAppHostNameBindingSlotResult, error) {
 			args := v.(LookupWebAppHostNameBindingSlotArgs)
 			r, err := LookupWebAppHostNameBindingSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppHostNameBindingSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppHostNameBindingSlotResultOutput)
 }
 

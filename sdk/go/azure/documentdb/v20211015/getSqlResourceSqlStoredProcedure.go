@@ -53,7 +53,11 @@ func LookupSqlResourceSqlStoredProcedureOutput(ctx *pulumi.Context, args LookupS
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlStoredProcedureResult, error) {
 			args := v.(LookupSqlResourceSqlStoredProcedureArgs)
 			r, err := LookupSqlResourceSqlStoredProcedure(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlStoredProcedureResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlStoredProcedureResultOutput)
 }
 

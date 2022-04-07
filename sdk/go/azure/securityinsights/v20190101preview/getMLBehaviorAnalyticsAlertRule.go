@@ -64,7 +64,11 @@ func LookupMLBehaviorAnalyticsAlertRuleOutput(ctx *pulumi.Context, args LookupML
 		ApplyT(func(v interface{}) (LookupMLBehaviorAnalyticsAlertRuleResult, error) {
 			args := v.(LookupMLBehaviorAnalyticsAlertRuleArgs)
 			r, err := LookupMLBehaviorAnalyticsAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupMLBehaviorAnalyticsAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMLBehaviorAnalyticsAlertRuleResultOutput)
 }
 

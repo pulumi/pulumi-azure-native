@@ -74,7 +74,11 @@ func LookupAutomationAccountOutput(ctx *pulumi.Context, args LookupAutomationAcc
 		ApplyT(func(v interface{}) (LookupAutomationAccountResult, error) {
 			args := v.(LookupAutomationAccountArgs)
 			r, err := LookupAutomationAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupAutomationAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAutomationAccountResultOutput)
 }
 

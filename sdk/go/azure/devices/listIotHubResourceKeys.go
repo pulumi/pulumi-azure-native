@@ -41,7 +41,11 @@ func ListIotHubResourceKeysOutput(ctx *pulumi.Context, args ListIotHubResourceKe
 		ApplyT(func(v interface{}) (ListIotHubResourceKeysResult, error) {
 			args := v.(ListIotHubResourceKeysArgs)
 			r, err := ListIotHubResourceKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListIotHubResourceKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIotHubResourceKeysResultOutput)
 }
 

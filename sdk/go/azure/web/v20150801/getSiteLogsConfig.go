@@ -58,7 +58,11 @@ func LookupSiteLogsConfigOutput(ctx *pulumi.Context, args LookupSiteLogsConfigOu
 		ApplyT(func(v interface{}) (LookupSiteLogsConfigResult, error) {
 			args := v.(LookupSiteLogsConfigArgs)
 			r, err := LookupSiteLogsConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteLogsConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteLogsConfigResultOutput)
 }
 

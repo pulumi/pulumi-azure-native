@@ -56,7 +56,11 @@ func LookupVirtualNetworkGatewayNatRuleOutput(ctx *pulumi.Context, args LookupVi
 		ApplyT(func(v interface{}) (LookupVirtualNetworkGatewayNatRuleResult, error) {
 			args := v.(LookupVirtualNetworkGatewayNatRuleArgs)
 			r, err := LookupVirtualNetworkGatewayNatRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNetworkGatewayNatRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNetworkGatewayNatRuleResultOutput)
 }
 

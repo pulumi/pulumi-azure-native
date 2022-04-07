@@ -50,7 +50,11 @@ func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupLedgerResult, error) {
 			args := v.(LookupLedgerArgs)
 			r, err := LookupLedger(ctx, &args, opts...)
-			return *r, err
+			var s LookupLedgerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLedgerResultOutput)
 }
 

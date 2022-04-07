@@ -42,7 +42,11 @@ func ListDnsResolverByVirtualNetworkOutput(ctx *pulumi.Context, args ListDnsReso
 		ApplyT(func(v interface{}) (ListDnsResolverByVirtualNetworkResult, error) {
 			args := v.(ListDnsResolverByVirtualNetworkArgs)
 			r, err := ListDnsResolverByVirtualNetwork(ctx, &args, opts...)
-			return *r, err
+			var s ListDnsResolverByVirtualNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDnsResolverByVirtualNetworkResultOutput)
 }
 

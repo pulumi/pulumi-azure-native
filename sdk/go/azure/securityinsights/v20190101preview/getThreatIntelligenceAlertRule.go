@@ -64,7 +64,11 @@ func LookupThreatIntelligenceAlertRuleOutput(ctx *pulumi.Context, args LookupThr
 		ApplyT(func(v interface{}) (LookupThreatIntelligenceAlertRuleResult, error) {
 			args := v.(LookupThreatIntelligenceAlertRuleArgs)
 			r, err := LookupThreatIntelligenceAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupThreatIntelligenceAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupThreatIntelligenceAlertRuleResultOutput)
 }
 

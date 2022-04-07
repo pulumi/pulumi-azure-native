@@ -69,7 +69,11 @@ func LookupWebAppHybridConnectionSlotOutput(ctx *pulumi.Context, args LookupWebA
 		ApplyT(func(v interface{}) (LookupWebAppHybridConnectionSlotResult, error) {
 			args := v.(LookupWebAppHybridConnectionSlotArgs)
 			r, err := LookupWebAppHybridConnectionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppHybridConnectionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppHybridConnectionSlotResultOutput)
 }
 

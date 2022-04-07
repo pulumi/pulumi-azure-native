@@ -37,7 +37,11 @@ func ListGlobalUserLabsOutput(ctx *pulumi.Context, args ListGlobalUserLabsOutput
 		ApplyT(func(v interface{}) (ListGlobalUserLabsResult, error) {
 			args := v.(ListGlobalUserLabsArgs)
 			r, err := ListGlobalUserLabs(ctx, &args, opts...)
-			return *r, err
+			var s ListGlobalUserLabsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListGlobalUserLabsResultOutput)
 }
 

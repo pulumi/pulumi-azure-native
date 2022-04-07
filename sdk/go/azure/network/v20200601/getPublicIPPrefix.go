@@ -72,7 +72,11 @@ func LookupPublicIPPrefixOutput(ctx *pulumi.Context, args LookupPublicIPPrefixOu
 		ApplyT(func(v interface{}) (LookupPublicIPPrefixResult, error) {
 			args := v.(LookupPublicIPPrefixArgs)
 			r, err := LookupPublicIPPrefix(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublicIPPrefixResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublicIPPrefixResultOutput)
 }
 

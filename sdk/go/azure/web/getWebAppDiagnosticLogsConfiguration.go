@@ -64,7 +64,11 @@ func LookupWebAppDiagnosticLogsConfigurationOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupWebAppDiagnosticLogsConfigurationResult, error) {
 			args := v.(LookupWebAppDiagnosticLogsConfigurationArgs)
 			r, err := LookupWebAppDiagnosticLogsConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppDiagnosticLogsConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppDiagnosticLogsConfigurationResultOutput)
 }
 

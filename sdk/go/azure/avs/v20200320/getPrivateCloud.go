@@ -89,7 +89,11 @@ func LookupPrivateCloudOutput(ctx *pulumi.Context, args LookupPrivateCloudOutput
 		ApplyT(func(v interface{}) (LookupPrivateCloudResult, error) {
 			args := v.(LookupPrivateCloudArgs)
 			r, err := LookupPrivateCloud(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateCloudResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateCloudResultOutput)
 }
 

@@ -69,7 +69,11 @@ func LookupKubeEnvironmentOutput(ctx *pulumi.Context, args LookupKubeEnvironment
 		ApplyT(func(v interface{}) (LookupKubeEnvironmentResult, error) {
 			args := v.(LookupKubeEnvironmentArgs)
 			r, err := LookupKubeEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupKubeEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKubeEnvironmentResultOutput)
 }
 

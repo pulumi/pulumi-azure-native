@@ -52,7 +52,11 @@ func LookupFileOutput(ctx *pulumi.Context, args LookupFileOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupFileResult, error) {
 			args := v.(LookupFileArgs)
 			r, err := LookupFile(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileResultOutput)
 }
 

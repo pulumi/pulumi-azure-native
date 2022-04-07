@@ -60,7 +60,11 @@ func LookupWebAppSourceControlSlotOutput(ctx *pulumi.Context, args LookupWebAppS
 		ApplyT(func(v interface{}) (LookupWebAppSourceControlSlotResult, error) {
 			args := v.(LookupWebAppSourceControlSlotArgs)
 			r, err := LookupWebAppSourceControlSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSourceControlSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSourceControlSlotResultOutput)
 }
 

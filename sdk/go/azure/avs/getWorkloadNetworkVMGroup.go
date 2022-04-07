@@ -55,7 +55,11 @@ func LookupWorkloadNetworkVMGroupOutput(ctx *pulumi.Context, args LookupWorkload
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkVMGroupResult, error) {
 			args := v.(LookupWorkloadNetworkVMGroupArgs)
 			r, err := LookupWorkloadNetworkVMGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkVMGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkVMGroupResultOutput)
 }
 

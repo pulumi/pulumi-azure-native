@@ -64,7 +64,11 @@ func LookupRemoteRenderingAccountOutput(ctx *pulumi.Context, args LookupRemoteRe
 		ApplyT(func(v interface{}) (LookupRemoteRenderingAccountResult, error) {
 			args := v.(LookupRemoteRenderingAccountArgs)
 			r, err := LookupRemoteRenderingAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupRemoteRenderingAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRemoteRenderingAccountResultOutput)
 }
 

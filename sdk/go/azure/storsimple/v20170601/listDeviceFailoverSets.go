@@ -40,7 +40,11 @@ func ListDeviceFailoverSetsOutput(ctx *pulumi.Context, args ListDeviceFailoverSe
 		ApplyT(func(v interface{}) (ListDeviceFailoverSetsResult, error) {
 			args := v.(ListDeviceFailoverSetsArgs)
 			r, err := ListDeviceFailoverSets(ctx, &args, opts...)
-			return *r, err
+			var s ListDeviceFailoverSetsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDeviceFailoverSetsResultOutput)
 }
 

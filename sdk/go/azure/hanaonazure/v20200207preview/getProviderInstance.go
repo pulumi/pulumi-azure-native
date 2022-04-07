@@ -50,7 +50,11 @@ func LookupProviderInstanceOutput(ctx *pulumi.Context, args LookupProviderInstan
 		ApplyT(func(v interface{}) (LookupProviderInstanceResult, error) {
 			args := v.(LookupProviderInstanceArgs)
 			r, err := LookupProviderInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupProviderInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProviderInstanceResultOutput)
 }
 

@@ -43,7 +43,11 @@ func GetAssetEncryptionKeyOutput(ctx *pulumi.Context, args GetAssetEncryptionKey
 		ApplyT(func(v interface{}) (GetAssetEncryptionKeyResult, error) {
 			args := v.(GetAssetEncryptionKeyArgs)
 			r, err := GetAssetEncryptionKey(ctx, &args, opts...)
-			return *r, err
+			var s GetAssetEncryptionKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAssetEncryptionKeyResultOutput)
 }
 

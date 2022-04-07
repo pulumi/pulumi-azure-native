@@ -60,7 +60,11 @@ func LookupBudgetByResourceGroupNameOutput(ctx *pulumi.Context, args LookupBudge
 		ApplyT(func(v interface{}) (LookupBudgetByResourceGroupNameResult, error) {
 			args := v.(LookupBudgetByResourceGroupNameArgs)
 			r, err := LookupBudgetByResourceGroupName(ctx, &args, opts...)
-			return *r, err
+			var s LookupBudgetByResourceGroupNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBudgetByResourceGroupNameResultOutput)
 }
 

@@ -73,7 +73,11 @@ func LookupPrivateRecordSetOutput(ctx *pulumi.Context, args LookupPrivateRecordS
 		ApplyT(func(v interface{}) (LookupPrivateRecordSetResult, error) {
 			args := v.(LookupPrivateRecordSetArgs)
 			r, err := LookupPrivateRecordSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateRecordSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateRecordSetResultOutput)
 }
 

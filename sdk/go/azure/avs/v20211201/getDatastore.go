@@ -65,7 +65,11 @@ func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, 
 		ApplyT(func(v interface{}) (LookupDatastoreResult, error) {
 			args := v.(LookupDatastoreArgs)
 			r, err := LookupDatastore(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatastoreResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatastoreResultOutput)
 }
 

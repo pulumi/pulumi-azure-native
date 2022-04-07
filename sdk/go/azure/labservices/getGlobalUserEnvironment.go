@@ -41,7 +41,11 @@ func GetGlobalUserEnvironmentOutput(ctx *pulumi.Context, args GetGlobalUserEnvir
 		ApplyT(func(v interface{}) (GetGlobalUserEnvironmentResult, error) {
 			args := v.(GetGlobalUserEnvironmentArgs)
 			r, err := GetGlobalUserEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s GetGlobalUserEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetGlobalUserEnvironmentResultOutput)
 }
 

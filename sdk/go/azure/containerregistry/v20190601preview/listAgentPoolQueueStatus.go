@@ -40,7 +40,11 @@ func ListAgentPoolQueueStatusOutput(ctx *pulumi.Context, args ListAgentPoolQueue
 		ApplyT(func(v interface{}) (ListAgentPoolQueueStatusResult, error) {
 			args := v.(ListAgentPoolQueueStatusArgs)
 			r, err := ListAgentPoolQueueStatus(ctx, &args, opts...)
-			return *r, err
+			var s ListAgentPoolQueueStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAgentPoolQueueStatusResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupStaticSiteUserProvidedFunctionAppForStaticSiteOutput(ctx *pulumi.Cont
 		ApplyT(func(v interface{}) (LookupStaticSiteUserProvidedFunctionAppForStaticSiteResult, error) {
 			args := v.(LookupStaticSiteUserProvidedFunctionAppForStaticSiteArgs)
 			r, err := LookupStaticSiteUserProvidedFunctionAppForStaticSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupStaticSiteUserProvidedFunctionAppForStaticSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStaticSiteUserProvidedFunctionAppForStaticSiteResultOutput)
 }
 

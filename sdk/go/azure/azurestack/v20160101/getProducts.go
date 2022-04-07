@@ -42,7 +42,11 @@ func GetProductsOutput(ctx *pulumi.Context, args GetProductsOutputArgs, opts ...
 		ApplyT(func(v interface{}) (GetProductsResult, error) {
 			args := v.(GetProductsArgs)
 			r, err := GetProducts(ctx, &args, opts...)
-			return *r, err
+			var s GetProductsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetProductsResultOutput)
 }
 

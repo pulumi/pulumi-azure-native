@@ -57,7 +57,11 @@ func LookupBatchDeploymentOutput(ctx *pulumi.Context, args LookupBatchDeployment
 		ApplyT(func(v interface{}) (LookupBatchDeploymentResult, error) {
 			args := v.(LookupBatchDeploymentArgs)
 			r, err := LookupBatchDeployment(ctx, &args, opts...)
-			return *r, err
+			var s LookupBatchDeploymentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBatchDeploymentResultOutput)
 }
 

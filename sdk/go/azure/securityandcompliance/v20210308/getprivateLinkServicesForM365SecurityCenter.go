@@ -56,7 +56,11 @@ func GetprivateLinkServicesForM365SecurityCenterOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForM365SecurityCenterResult, error) {
 			args := v.(GetprivateLinkServicesForM365SecurityCenterArgs)
 			r, err := GetprivateLinkServicesForM365SecurityCenter(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForM365SecurityCenterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForM365SecurityCenterResultOutput)
 }
 

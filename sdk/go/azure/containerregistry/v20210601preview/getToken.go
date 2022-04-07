@@ -56,7 +56,11 @@ func LookupTokenOutput(ctx *pulumi.Context, args LookupTokenOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupTokenResult, error) {
 			args := v.(LookupTokenArgs)
 			r, err := LookupToken(ctx, &args, opts...)
-			return *r, err
+			var s LookupTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTokenResultOutput)
 }
 

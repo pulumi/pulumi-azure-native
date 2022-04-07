@@ -55,7 +55,11 @@ func LookupPeriodicTimerEventTriggerOutput(ctx *pulumi.Context, args LookupPerio
 		ApplyT(func(v interface{}) (LookupPeriodicTimerEventTriggerResult, error) {
 			args := v.(LookupPeriodicTimerEventTriggerArgs)
 			r, err := LookupPeriodicTimerEventTrigger(ctx, &args, opts...)
-			return *r, err
+			var s LookupPeriodicTimerEventTriggerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPeriodicTimerEventTriggerResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupVirtualRouterPeeringOutput(ctx *pulumi.Context, args LookupVirtualRou
 		ApplyT(func(v interface{}) (LookupVirtualRouterPeeringResult, error) {
 			args := v.(LookupVirtualRouterPeeringArgs)
 			r, err := LookupVirtualRouterPeering(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualRouterPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualRouterPeeringResultOutput)
 }
 

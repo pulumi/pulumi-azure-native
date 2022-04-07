@@ -53,7 +53,11 @@ func LookupLabelingJobOutput(ctx *pulumi.Context, args LookupLabelingJobOutputAr
 		ApplyT(func(v interface{}) (LookupLabelingJobResult, error) {
 			args := v.(LookupLabelingJobArgs)
 			r, err := LookupLabelingJob(ctx, &args, opts...)
-			return *r, err
+			var s LookupLabelingJobResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLabelingJobResultOutput)
 }
 

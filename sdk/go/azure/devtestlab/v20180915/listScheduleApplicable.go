@@ -42,7 +42,11 @@ func ListScheduleApplicableOutput(ctx *pulumi.Context, args ListScheduleApplicab
 		ApplyT(func(v interface{}) (ListScheduleApplicableResult, error) {
 			args := v.(ListScheduleApplicableArgs)
 			r, err := ListScheduleApplicable(ctx, &args, opts...)
-			return *r, err
+			var s ListScheduleApplicableResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListScheduleApplicableResultOutput)
 }
 

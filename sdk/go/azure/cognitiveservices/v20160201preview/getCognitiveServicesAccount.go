@@ -58,7 +58,11 @@ func LookupCognitiveServicesAccountOutput(ctx *pulumi.Context, args LookupCognit
 		ApplyT(func(v interface{}) (LookupCognitiveServicesAccountResult, error) {
 			args := v.(LookupCognitiveServicesAccountArgs)
 			r, err := LookupCognitiveServicesAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupCognitiveServicesAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCognitiveServicesAccountResultOutput)
 }
 

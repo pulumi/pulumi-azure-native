@@ -58,7 +58,11 @@ func LookupOriginOutput(ctx *pulumi.Context, args LookupOriginOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupOriginResult, error) {
 			args := v.(LookupOriginArgs)
 			r, err := LookupOrigin(ctx, &args, opts...)
-			return *r, err
+			var s LookupOriginResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOriginResultOutput)
 }
 

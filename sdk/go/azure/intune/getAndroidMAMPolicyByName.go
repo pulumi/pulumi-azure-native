@@ -125,7 +125,11 @@ func LookupAndroidMAMPolicyByNameOutput(ctx *pulumi.Context, args LookupAndroidM
 		ApplyT(func(v interface{}) (LookupAndroidMAMPolicyByNameResult, error) {
 			args := v.(LookupAndroidMAMPolicyByNameArgs)
 			r, err := LookupAndroidMAMPolicyByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupAndroidMAMPolicyByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAndroidMAMPolicyByNameResultOutput)
 }
 

@@ -52,7 +52,11 @@ func ListSiteConnectionStringsSlotOutput(ctx *pulumi.Context, args ListSiteConne
 		ApplyT(func(v interface{}) (ListSiteConnectionStringsSlotResult, error) {
 			args := v.(ListSiteConnectionStringsSlotArgs)
 			r, err := ListSiteConnectionStringsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteConnectionStringsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteConnectionStringsSlotResultOutput)
 }
 

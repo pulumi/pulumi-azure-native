@@ -53,7 +53,11 @@ func LookupASCDataConnectorOutput(ctx *pulumi.Context, args LookupASCDataConnect
 		ApplyT(func(v interface{}) (LookupASCDataConnectorResult, error) {
 			args := v.(LookupASCDataConnectorArgs)
 			r, err := LookupASCDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupASCDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupASCDataConnectorResultOutput)
 }
 

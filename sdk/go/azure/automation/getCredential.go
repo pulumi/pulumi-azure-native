@@ -53,7 +53,11 @@ func LookupCredentialOutput(ctx *pulumi.Context, args LookupCredentialOutputArgs
 		ApplyT(func(v interface{}) (LookupCredentialResult, error) {
 			args := v.(LookupCredentialArgs)
 			r, err := LookupCredential(ctx, &args, opts...)
-			return *r, err
+			var s LookupCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCredentialResultOutput)
 }
 

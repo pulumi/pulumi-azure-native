@@ -56,7 +56,11 @@ func LookupVideoOutput(ctx *pulumi.Context, args LookupVideoOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupVideoResult, error) {
 			args := v.(LookupVideoArgs)
 			r, err := LookupVideo(ctx, &args, opts...)
-			return *r, err
+			var s LookupVideoResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVideoResultOutput)
 }
 

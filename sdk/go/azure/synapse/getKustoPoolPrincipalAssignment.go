@@ -63,7 +63,11 @@ func LookupKustoPoolPrincipalAssignmentOutput(ctx *pulumi.Context, args LookupKu
 		ApplyT(func(v interface{}) (LookupKustoPoolPrincipalAssignmentResult, error) {
 			args := v.(LookupKustoPoolPrincipalAssignmentArgs)
 			r, err := LookupKustoPoolPrincipalAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoPoolPrincipalAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoPoolPrincipalAssignmentResultOutput)
 }
 

@@ -77,7 +77,11 @@ func LookupSmartDetectorAlertRuleOutput(ctx *pulumi.Context, args LookupSmartDet
 		ApplyT(func(v interface{}) (LookupSmartDetectorAlertRuleResult, error) {
 			args := v.(LookupSmartDetectorAlertRuleArgs)
 			r, err := LookupSmartDetectorAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupSmartDetectorAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSmartDetectorAlertRuleResultOutput)
 }
 

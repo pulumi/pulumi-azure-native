@@ -64,7 +64,11 @@ func LookupDicomServiceOutput(ctx *pulumi.Context, args LookupDicomServiceOutput
 		ApplyT(func(v interface{}) (LookupDicomServiceResult, error) {
 			args := v.(LookupDicomServiceArgs)
 			r, err := LookupDicomService(ctx, &args, opts...)
-			return *r, err
+			var s LookupDicomServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDicomServiceResultOutput)
 }
 

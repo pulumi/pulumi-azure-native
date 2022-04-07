@@ -59,7 +59,11 @@ func LookupInventoryItemOutput(ctx *pulumi.Context, args LookupInventoryItemOutp
 		ApplyT(func(v interface{}) (LookupInventoryItemResult, error) {
 			args := v.(LookupInventoryItemArgs)
 			r, err := LookupInventoryItem(ctx, &args, opts...)
-			return *r, err
+			var s LookupInventoryItemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInventoryItemResultOutput)
 }
 

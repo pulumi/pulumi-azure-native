@@ -56,7 +56,11 @@ func LookupAvailabilitySetOutput(ctx *pulumi.Context, args LookupAvailabilitySet
 		ApplyT(func(v interface{}) (LookupAvailabilitySetResult, error) {
 			args := v.(LookupAvailabilitySetArgs)
 			r, err := LookupAvailabilitySet(ctx, &args, opts...)
-			return *r, err
+			var s LookupAvailabilitySetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAvailabilitySetResultOutput)
 }
 

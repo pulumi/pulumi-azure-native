@@ -60,7 +60,11 @@ func LookupConfigurationAssignmentParentOutput(ctx *pulumi.Context, args LookupC
 		ApplyT(func(v interface{}) (LookupConfigurationAssignmentParentResult, error) {
 			args := v.(LookupConfigurationAssignmentParentArgs)
 			r, err := LookupConfigurationAssignmentParent(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationAssignmentParentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationAssignmentParentResultOutput)
 }
 

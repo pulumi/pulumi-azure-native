@@ -61,7 +61,11 @@ func LookupHybridRunbookWorkerOutput(ctx *pulumi.Context, args LookupHybridRunbo
 		ApplyT(func(v interface{}) (LookupHybridRunbookWorkerResult, error) {
 			args := v.(LookupHybridRunbookWorkerArgs)
 			r, err := LookupHybridRunbookWorker(ctx, &args, opts...)
-			return *r, err
+			var s LookupHybridRunbookWorkerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHybridRunbookWorkerResultOutput)
 }
 

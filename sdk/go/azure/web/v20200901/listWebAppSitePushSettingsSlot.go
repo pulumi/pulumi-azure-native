@@ -59,7 +59,11 @@ func ListWebAppSitePushSettingsSlotOutput(ctx *pulumi.Context, args ListWebAppSi
 		ApplyT(func(v interface{}) (ListWebAppSitePushSettingsSlotResult, error) {
 			args := v.(ListWebAppSitePushSettingsSlotArgs)
 			r, err := ListWebAppSitePushSettingsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSitePushSettingsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSitePushSettingsSlotResultOutput)
 }
 

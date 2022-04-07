@@ -45,7 +45,11 @@ func ListWebAppFunctionSecretsSlotOutput(ctx *pulumi.Context, args ListWebAppFun
 		ApplyT(func(v interface{}) (ListWebAppFunctionSecretsSlotResult, error) {
 			args := v.(ListWebAppFunctionSecretsSlotArgs)
 			r, err := ListWebAppFunctionSecretsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppFunctionSecretsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppFunctionSecretsSlotResultOutput)
 }
 

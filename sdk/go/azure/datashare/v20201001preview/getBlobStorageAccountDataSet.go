@@ -59,7 +59,11 @@ func LookupBlobStorageAccountDataSetOutput(ctx *pulumi.Context, args LookupBlobS
 		ApplyT(func(v interface{}) (LookupBlobStorageAccountDataSetResult, error) {
 			args := v.(LookupBlobStorageAccountDataSetArgs)
 			r, err := LookupBlobStorageAccountDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobStorageAccountDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobStorageAccountDataSetResultOutput)
 }
 

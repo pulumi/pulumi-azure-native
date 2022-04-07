@@ -55,7 +55,11 @@ func ListQueueKeysOutput(ctx *pulumi.Context, args ListQueueKeysOutputArgs, opts
 		ApplyT(func(v interface{}) (ListQueueKeysResult, error) {
 			args := v.(ListQueueKeysArgs)
 			r, err := ListQueueKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListQueueKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListQueueKeysResultOutput)
 }
 

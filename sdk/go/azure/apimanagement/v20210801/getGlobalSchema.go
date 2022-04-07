@@ -50,7 +50,11 @@ func LookupGlobalSchemaOutput(ctx *pulumi.Context, args LookupGlobalSchemaOutput
 		ApplyT(func(v interface{}) (LookupGlobalSchemaResult, error) {
 			args := v.(LookupGlobalSchemaArgs)
 			r, err := LookupGlobalSchema(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalSchemaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalSchemaResultOutput)
 }
 

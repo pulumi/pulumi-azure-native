@@ -41,7 +41,11 @@ func ListKustoPoolLanguageExtensionsOutput(ctx *pulumi.Context, args ListKustoPo
 		ApplyT(func(v interface{}) (ListKustoPoolLanguageExtensionsResult, error) {
 			args := v.(ListKustoPoolLanguageExtensionsArgs)
 			r, err := ListKustoPoolLanguageExtensions(ctx, &args, opts...)
-			return *r, err
+			var s ListKustoPoolLanguageExtensionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListKustoPoolLanguageExtensionsResultOutput)
 }
 

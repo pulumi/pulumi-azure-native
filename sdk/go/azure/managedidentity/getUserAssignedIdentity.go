@@ -53,7 +53,11 @@ func LookupUserAssignedIdentityOutput(ctx *pulumi.Context, args LookupUserAssign
 		ApplyT(func(v interface{}) (LookupUserAssignedIdentityResult, error) {
 			args := v.(LookupUserAssignedIdentityArgs)
 			r, err := LookupUserAssignedIdentity(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserAssignedIdentityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserAssignedIdentityResultOutput)
 }
 

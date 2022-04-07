@@ -61,7 +61,11 @@ func LookupADLSGen2FileSystemDataSetOutput(ctx *pulumi.Context, args LookupADLSG
 		ApplyT(func(v interface{}) (LookupADLSGen2FileSystemDataSetResult, error) {
 			args := v.(LookupADLSGen2FileSystemDataSetArgs)
 			r, err := LookupADLSGen2FileSystemDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupADLSGen2FileSystemDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADLSGen2FileSystemDataSetResultOutput)
 }
 

@@ -54,7 +54,11 @@ func LookupApiSchemaOutput(ctx *pulumi.Context, args LookupApiSchemaOutputArgs, 
 		ApplyT(func(v interface{}) (LookupApiSchemaResult, error) {
 			args := v.(LookupApiSchemaArgs)
 			r, err := LookupApiSchema(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiSchemaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiSchemaResultOutput)
 }
 

@@ -49,7 +49,11 @@ func ListSpacecraftAvailableContactsOutput(ctx *pulumi.Context, args ListSpacecr
 		ApplyT(func(v interface{}) (ListSpacecraftAvailableContactsResult, error) {
 			args := v.(ListSpacecraftAvailableContactsArgs)
 			r, err := ListSpacecraftAvailableContacts(ctx, &args, opts...)
-			return *r, err
+			var s ListSpacecraftAvailableContactsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSpacecraftAvailableContactsResultOutput)
 }
 

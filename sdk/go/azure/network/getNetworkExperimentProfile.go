@@ -53,7 +53,11 @@ func LookupNetworkExperimentProfileOutput(ctx *pulumi.Context, args LookupNetwor
 		ApplyT(func(v interface{}) (LookupNetworkExperimentProfileResult, error) {
 			args := v.(LookupNetworkExperimentProfileArgs)
 			r, err := LookupNetworkExperimentProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkExperimentProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkExperimentProfileResultOutput)
 }
 

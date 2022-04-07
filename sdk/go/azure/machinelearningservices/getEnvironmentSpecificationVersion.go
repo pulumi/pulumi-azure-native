@@ -51,7 +51,11 @@ func LookupEnvironmentSpecificationVersionOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupEnvironmentSpecificationVersionResult, error) {
 			args := v.(LookupEnvironmentSpecificationVersionArgs)
 			r, err := LookupEnvironmentSpecificationVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnvironmentSpecificationVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnvironmentSpecificationVersionResultOutput)
 }
 

@@ -54,7 +54,11 @@ func LookupPeeringServicePrefixOutput(ctx *pulumi.Context, args LookupPeeringSer
 		ApplyT(func(v interface{}) (LookupPeeringServicePrefixResult, error) {
 			args := v.(LookupPeeringServicePrefixArgs)
 			r, err := LookupPeeringServicePrefix(ctx, &args, opts...)
-			return *r, err
+			var s LookupPeeringServicePrefixResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPeeringServicePrefixResultOutput)
 }
 

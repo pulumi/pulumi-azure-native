@@ -114,7 +114,11 @@ func LookupSiteSlotOutput(ctx *pulumi.Context, args LookupSiteSlotOutputArgs, op
 		ApplyT(func(v interface{}) (LookupSiteSlotResult, error) {
 			args := v.(LookupSiteSlotArgs)
 			r, err := LookupSiteSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteSlotResultOutput)
 }
 

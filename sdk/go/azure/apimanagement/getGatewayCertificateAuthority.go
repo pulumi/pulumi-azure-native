@@ -49,7 +49,11 @@ func LookupGatewayCertificateAuthorityOutput(ctx *pulumi.Context, args LookupGat
 		ApplyT(func(v interface{}) (LookupGatewayCertificateAuthorityResult, error) {
 			args := v.(LookupGatewayCertificateAuthorityArgs)
 			r, err := LookupGatewayCertificateAuthority(ctx, &args, opts...)
-			return *r, err
+			var s LookupGatewayCertificateAuthorityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGatewayCertificateAuthorityResultOutput)
 }
 

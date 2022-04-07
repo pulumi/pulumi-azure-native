@@ -54,7 +54,11 @@ func ListTopicKeysOutput(ctx *pulumi.Context, args ListTopicKeysOutputArgs, opts
 		ApplyT(func(v interface{}) (ListTopicKeysResult, error) {
 			args := v.(ListTopicKeysArgs)
 			r, err := ListTopicKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListTopicKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTopicKeysResultOutput)
 }
 

@@ -41,7 +41,11 @@ func ListSecretValueOutput(ctx *pulumi.Context, args ListSecretValueOutputArgs, 
 		ApplyT(func(v interface{}) (ListSecretValueResult, error) {
 			args := v.(ListSecretValueArgs)
 			r, err := ListSecretValue(ctx, &args, opts...)
-			return *r, err
+			var s ListSecretValueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSecretValueResultOutput)
 }
 

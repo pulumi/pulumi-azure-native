@@ -55,7 +55,11 @@ func LookupAdaptiveApplicationControlOutput(ctx *pulumi.Context, args LookupAdap
 		ApplyT(func(v interface{}) (LookupAdaptiveApplicationControlResult, error) {
 			args := v.(LookupAdaptiveApplicationControlArgs)
 			r, err := LookupAdaptiveApplicationControl(ctx, &args, opts...)
-			return *r, err
+			var s LookupAdaptiveApplicationControlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAdaptiveApplicationControlResultOutput)
 }
 

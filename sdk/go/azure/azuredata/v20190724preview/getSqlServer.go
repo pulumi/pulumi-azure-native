@@ -56,7 +56,11 @@ func LookupSqlServerOutput(ctx *pulumi.Context, args LookupSqlServerOutputArgs, 
 		ApplyT(func(v interface{}) (LookupSqlServerResult, error) {
 			args := v.(LookupSqlServerArgs)
 			r, err := LookupSqlServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlServerResultOutput)
 }
 

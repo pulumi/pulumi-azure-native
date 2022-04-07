@@ -38,7 +38,11 @@ func ListDeviceRegistrationKeyOutput(ctx *pulumi.Context, args ListDeviceRegistr
 		ApplyT(func(v interface{}) (ListDeviceRegistrationKeyResult, error) {
 			args := v.(ListDeviceRegistrationKeyArgs)
 			r, err := ListDeviceRegistrationKey(ctx, &args, opts...)
-			return *r, err
+			var s ListDeviceRegistrationKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDeviceRegistrationKeyResultOutput)
 }
 

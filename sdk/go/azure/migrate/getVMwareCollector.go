@@ -42,7 +42,11 @@ func LookupVMwareCollectorOutput(ctx *pulumi.Context, args LookupVMwareCollector
 		ApplyT(func(v interface{}) (LookupVMwareCollectorResult, error) {
 			args := v.(LookupVMwareCollectorArgs)
 			r, err := LookupVMwareCollector(ctx, &args, opts...)
-			return *r, err
+			var s LookupVMwareCollectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVMwareCollectorResultOutput)
 }
 

@@ -86,7 +86,11 @@ func LookupBigDataPoolOutput(ctx *pulumi.Context, args LookupBigDataPoolOutputAr
 		ApplyT(func(v interface{}) (LookupBigDataPoolResult, error) {
 			args := v.(LookupBigDataPoolArgs)
 			r, err := LookupBigDataPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupBigDataPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBigDataPoolResultOutput)
 }
 

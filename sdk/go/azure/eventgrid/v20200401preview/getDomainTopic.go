@@ -46,7 +46,11 @@ func LookupDomainTopicOutput(ctx *pulumi.Context, args LookupDomainTopicOutputAr
 		ApplyT(func(v interface{}) (LookupDomainTopicResult, error) {
 			args := v.(LookupDomainTopicArgs)
 			r, err := LookupDomainTopic(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainTopicResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainTopicResultOutput)
 }
 

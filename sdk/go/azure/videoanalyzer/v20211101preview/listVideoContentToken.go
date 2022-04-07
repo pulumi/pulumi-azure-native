@@ -42,7 +42,11 @@ func ListVideoContentTokenOutput(ctx *pulumi.Context, args ListVideoContentToken
 		ApplyT(func(v interface{}) (ListVideoContentTokenResult, error) {
 			args := v.(ListVideoContentTokenArgs)
 			r, err := ListVideoContentToken(ctx, &args, opts...)
-			return *r, err
+			var s ListVideoContentTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListVideoContentTokenResultOutput)
 }
 

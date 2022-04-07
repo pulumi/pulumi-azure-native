@@ -47,7 +47,11 @@ func LookupSqlMigrationServiceOutput(ctx *pulumi.Context, args LookupSqlMigratio
 		ApplyT(func(v interface{}) (LookupSqlMigrationServiceResult, error) {
 			args := v.(LookupSqlMigrationServiceArgs)
 			r, err := LookupSqlMigrationService(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlMigrationServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlMigrationServiceResultOutput)
 }
 

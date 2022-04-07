@@ -40,7 +40,11 @@ func ListObjectAnchorsAccountKeysOutput(ctx *pulumi.Context, args ListObjectAnch
 		ApplyT(func(v interface{}) (ListObjectAnchorsAccountKeysResult, error) {
 			args := v.(ListObjectAnchorsAccountKeysArgs)
 			r, err := ListObjectAnchorsAccountKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListObjectAnchorsAccountKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListObjectAnchorsAccountKeysResultOutput)
 }
 

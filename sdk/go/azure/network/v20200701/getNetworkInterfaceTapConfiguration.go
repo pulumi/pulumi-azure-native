@@ -61,7 +61,11 @@ func LookupNetworkInterfaceTapConfigurationOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupNetworkInterfaceTapConfigurationResult, error) {
 			args := v.(LookupNetworkInterfaceTapConfigurationArgs)
 			r, err := LookupNetworkInterfaceTapConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInterfaceTapConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInterfaceTapConfigurationResultOutput)
 }
 

@@ -40,7 +40,11 @@ func GetSolutionConfigOutput(ctx *pulumi.Context, args GetSolutionConfigOutputAr
 		ApplyT(func(v interface{}) (GetSolutionConfigResult, error) {
 			args := v.(GetSolutionConfigArgs)
 			r, err := GetSolutionConfig(ctx, &args, opts...)
-			return *r, err
+			var s GetSolutionConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetSolutionConfigResultOutput)
 }
 

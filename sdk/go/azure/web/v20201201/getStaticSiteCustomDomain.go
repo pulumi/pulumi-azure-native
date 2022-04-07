@@ -55,7 +55,11 @@ func LookupStaticSiteCustomDomainOutput(ctx *pulumi.Context, args LookupStaticSi
 		ApplyT(func(v interface{}) (LookupStaticSiteCustomDomainResult, error) {
 			args := v.(LookupStaticSiteCustomDomainArgs)
 			r, err := LookupStaticSiteCustomDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupStaticSiteCustomDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStaticSiteCustomDomainResultOutput)
 }
 

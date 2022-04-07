@@ -60,7 +60,11 @@ func LookupAssessmentsMetadataSubscriptionOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupAssessmentsMetadataSubscriptionResult, error) {
 			args := v.(LookupAssessmentsMetadataSubscriptionArgs)
 			r, err := LookupAssessmentsMetadataSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupAssessmentsMetadataSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAssessmentsMetadataSubscriptionResultOutput)
 }
 

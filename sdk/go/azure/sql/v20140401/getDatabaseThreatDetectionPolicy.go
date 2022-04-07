@@ -64,7 +64,11 @@ func LookupDatabaseThreatDetectionPolicyOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDatabaseThreatDetectionPolicyResult, error) {
 			args := v.(LookupDatabaseThreatDetectionPolicyArgs)
 			r, err := LookupDatabaseThreatDetectionPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseThreatDetectionPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseThreatDetectionPolicyResultOutput)
 }
 

@@ -52,7 +52,11 @@ func LookupIPSyncerOutput(ctx *pulumi.Context, args LookupIPSyncerOutputArgs, op
 		ApplyT(func(v interface{}) (LookupIPSyncerResult, error) {
 			args := v.(LookupIPSyncerArgs)
 			r, err := LookupIPSyncer(ctx, &args, opts...)
-			return *r, err
+			var s LookupIPSyncerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIPSyncerResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupPrivateEndpointConnectionsForMIPPolicySyncOutput(ctx *pulumi.Context,
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsForMIPPolicySyncResult, error) {
 			args := v.(LookupPrivateEndpointConnectionsForMIPPolicySyncArgs)
 			r, err := LookupPrivateEndpointConnectionsForMIPPolicySync(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionsForMIPPolicySyncResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionsForMIPPolicySyncResultOutput)
 }
 

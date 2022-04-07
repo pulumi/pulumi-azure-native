@@ -56,7 +56,11 @@ func LookupHybridConnectionOutput(ctx *pulumi.Context, args LookupHybridConnecti
 		ApplyT(func(v interface{}) (LookupHybridConnectionResult, error) {
 			args := v.(LookupHybridConnectionArgs)
 			r, err := LookupHybridConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupHybridConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHybridConnectionResultOutput)
 }
 

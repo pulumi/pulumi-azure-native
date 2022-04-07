@@ -42,7 +42,11 @@ func ListMonitorUserRolesOutput(ctx *pulumi.Context, args ListMonitorUserRolesOu
 		ApplyT(func(v interface{}) (ListMonitorUserRolesResult, error) {
 			args := v.(ListMonitorUserRolesArgs)
 			r, err := ListMonitorUserRoles(ctx, &args, opts...)
-			return *r, err
+			var s ListMonitorUserRolesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMonitorUserRolesResultOutput)
 }
 

@@ -40,7 +40,11 @@ func ListTopicSharedAccessKeysOutput(ctx *pulumi.Context, args ListTopicSharedAc
 		ApplyT(func(v interface{}) (ListTopicSharedAccessKeysResult, error) {
 			args := v.(ListTopicSharedAccessKeysArgs)
 			r, err := ListTopicSharedAccessKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListTopicSharedAccessKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTopicSharedAccessKeysResultOutput)
 }
 

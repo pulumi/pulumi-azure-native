@@ -65,7 +65,11 @@ func LookupArcSettingOutput(ctx *pulumi.Context, args LookupArcSettingOutputArgs
 		ApplyT(func(v interface{}) (LookupArcSettingResult, error) {
 			args := v.(LookupArcSettingArgs)
 			r, err := LookupArcSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupArcSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupArcSettingResultOutput)
 }
 

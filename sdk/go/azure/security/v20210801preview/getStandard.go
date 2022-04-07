@@ -64,7 +64,11 @@ func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, op
 		ApplyT(func(v interface{}) (LookupStandardResult, error) {
 			args := v.(LookupStandardArgs)
 			r, err := LookupStandard(ctx, &args, opts...)
-			return *r, err
+			var s LookupStandardResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStandardResultOutput)
 }
 

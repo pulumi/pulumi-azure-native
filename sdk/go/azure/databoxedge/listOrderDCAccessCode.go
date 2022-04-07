@@ -39,7 +39,11 @@ func ListOrderDCAccessCodeOutput(ctx *pulumi.Context, args ListOrderDCAccessCode
 		ApplyT(func(v interface{}) (ListOrderDCAccessCodeResult, error) {
 			args := v.(ListOrderDCAccessCodeArgs)
 			r, err := ListOrderDCAccessCode(ctx, &args, opts...)
-			return *r, err
+			var s ListOrderDCAccessCodeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListOrderDCAccessCodeResultOutput)
 }
 

@@ -51,7 +51,11 @@ func LookupManagementGroupSubscriptionOutput(ctx *pulumi.Context, args LookupMan
 		ApplyT(func(v interface{}) (LookupManagementGroupSubscriptionResult, error) {
 			args := v.(LookupManagementGroupSubscriptionArgs)
 			r, err := LookupManagementGroupSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementGroupSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementGroupSubscriptionResultOutput)
 }
 

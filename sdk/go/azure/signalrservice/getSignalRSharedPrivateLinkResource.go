@@ -57,7 +57,11 @@ func LookupSignalRSharedPrivateLinkResourceOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupSignalRSharedPrivateLinkResourceResult, error) {
 			args := v.(LookupSignalRSharedPrivateLinkResourceArgs)
 			r, err := LookupSignalRSharedPrivateLinkResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupSignalRSharedPrivateLinkResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSignalRSharedPrivateLinkResourceResultOutput)
 }
 

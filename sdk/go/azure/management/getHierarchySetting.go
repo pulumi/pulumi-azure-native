@@ -47,7 +47,11 @@ func LookupHierarchySettingOutput(ctx *pulumi.Context, args LookupHierarchySetti
 		ApplyT(func(v interface{}) (LookupHierarchySettingResult, error) {
 			args := v.(LookupHierarchySettingArgs)
 			r, err := LookupHierarchySetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupHierarchySettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHierarchySettingResultOutput)
 }
 

@@ -70,7 +70,11 @@ func LookupVirtualMachineExtensionOutput(ctx *pulumi.Context, args LookupVirtual
 		ApplyT(func(v interface{}) (LookupVirtualMachineExtensionResult, error) {
 			args := v.(LookupVirtualMachineExtensionArgs)
 			r, err := LookupVirtualMachineExtension(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineExtensionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineExtensionResultOutput)
 }
 

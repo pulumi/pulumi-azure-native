@@ -42,7 +42,11 @@ func ListStreamingLocatorPathsOutput(ctx *pulumi.Context, args ListStreamingLoca
 		ApplyT(func(v interface{}) (ListStreamingLocatorPathsResult, error) {
 			args := v.(ListStreamingLocatorPathsArgs)
 			r, err := ListStreamingLocatorPaths(ctx, &args, opts...)
-			return *r, err
+			var s ListStreamingLocatorPathsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStreamingLocatorPathsResultOutput)
 }
 

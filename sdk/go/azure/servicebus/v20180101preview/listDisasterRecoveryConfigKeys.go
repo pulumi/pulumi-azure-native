@@ -54,7 +54,11 @@ func ListDisasterRecoveryConfigKeysOutput(ctx *pulumi.Context, args ListDisaster
 		ApplyT(func(v interface{}) (ListDisasterRecoveryConfigKeysResult, error) {
 			args := v.(ListDisasterRecoveryConfigKeysArgs)
 			r, err := ListDisasterRecoveryConfigKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListDisasterRecoveryConfigKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDisasterRecoveryConfigKeysResultOutput)
 }
 

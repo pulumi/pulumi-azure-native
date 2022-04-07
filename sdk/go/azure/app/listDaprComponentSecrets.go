@@ -41,7 +41,11 @@ func ListDaprComponentSecretsOutput(ctx *pulumi.Context, args ListDaprComponentS
 		ApplyT(func(v interface{}) (ListDaprComponentSecretsResult, error) {
 			args := v.(ListDaprComponentSecretsArgs)
 			r, err := ListDaprComponentSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListDaprComponentSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDaprComponentSecretsResultOutput)
 }
 

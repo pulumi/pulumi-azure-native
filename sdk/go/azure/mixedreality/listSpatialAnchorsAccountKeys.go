@@ -41,7 +41,11 @@ func ListSpatialAnchorsAccountKeysOutput(ctx *pulumi.Context, args ListSpatialAn
 		ApplyT(func(v interface{}) (ListSpatialAnchorsAccountKeysResult, error) {
 			args := v.(ListSpatialAnchorsAccountKeysArgs)
 			r, err := ListSpatialAnchorsAccountKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListSpatialAnchorsAccountKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSpatialAnchorsAccountKeysResultOutput)
 }
 

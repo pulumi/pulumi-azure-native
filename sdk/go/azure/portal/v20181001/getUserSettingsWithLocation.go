@@ -38,7 +38,11 @@ func LookupUserSettingsWithLocationOutput(ctx *pulumi.Context, args LookupUserSe
 		ApplyT(func(v interface{}) (LookupUserSettingsWithLocationResult, error) {
 			args := v.(LookupUserSettingsWithLocationArgs)
 			r, err := LookupUserSettingsWithLocation(ctx, &args, opts...)
-			return *r, err
+			var s LookupUserSettingsWithLocationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupUserSettingsWithLocationResultOutput)
 }
 

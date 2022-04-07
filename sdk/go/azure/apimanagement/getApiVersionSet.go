@@ -55,7 +55,11 @@ func LookupApiVersionSetOutput(ctx *pulumi.Context, args LookupApiVersionSetOutp
 		ApplyT(func(v interface{}) (LookupApiVersionSetResult, error) {
 			args := v.(LookupApiVersionSetArgs)
 			r, err := LookupApiVersionSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiVersionSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiVersionSetResultOutput)
 }
 

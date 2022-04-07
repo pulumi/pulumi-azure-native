@@ -56,7 +56,11 @@ func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, op
 		ApplyT(func(v interface{}) (LookupPipelineResult, error) {
 			args := v.(LookupPipelineArgs)
 			r, err := LookupPipeline(ctx, &args, opts...)
-			return *r, err
+			var s LookupPipelineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPipelineResultOutput)
 }
 

@@ -77,7 +77,11 @@ func LookupExportConfigurationOutput(ctx *pulumi.Context, args LookupExportConfi
 		ApplyT(func(v interface{}) (LookupExportConfigurationResult, error) {
 			args := v.(LookupExportConfigurationArgs)
 			r, err := LookupExportConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupExportConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExportConfigurationResultOutput)
 }
 

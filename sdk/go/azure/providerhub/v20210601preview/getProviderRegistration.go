@@ -41,7 +41,11 @@ func LookupProviderRegistrationOutput(ctx *pulumi.Context, args LookupProviderRe
 		ApplyT(func(v interface{}) (LookupProviderRegistrationResult, error) {
 			args := v.(LookupProviderRegistrationArgs)
 			r, err := LookupProviderRegistration(ctx, &args, opts...)
-			return *r, err
+			var s LookupProviderRegistrationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProviderRegistrationResultOutput)
 }
 

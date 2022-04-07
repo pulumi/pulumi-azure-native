@@ -52,7 +52,11 @@ func LookupNotificationHubOutput(ctx *pulumi.Context, args LookupNotificationHub
 		ApplyT(func(v interface{}) (LookupNotificationHubResult, error) {
 			args := v.(LookupNotificationHubArgs)
 			r, err := LookupNotificationHub(ctx, &args, opts...)
-			return *r, err
+			var s LookupNotificationHubResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNotificationHubResultOutput)
 }
 

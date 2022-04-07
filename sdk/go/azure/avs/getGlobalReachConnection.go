@@ -55,7 +55,11 @@ func LookupGlobalReachConnectionOutput(ctx *pulumi.Context, args LookupGlobalRea
 		ApplyT(func(v interface{}) (LookupGlobalReachConnectionResult, error) {
 			args := v.(LookupGlobalReachConnectionArgs)
 			r, err := LookupGlobalReachConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalReachConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalReachConnectionResultOutput)
 }
 

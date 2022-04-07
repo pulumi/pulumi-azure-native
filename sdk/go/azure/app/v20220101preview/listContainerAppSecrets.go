@@ -38,7 +38,11 @@ func ListContainerAppSecretsOutput(ctx *pulumi.Context, args ListContainerAppSec
 		ApplyT(func(v interface{}) (ListContainerAppSecretsResult, error) {
 			args := v.(ListContainerAppSecretsArgs)
 			r, err := ListContainerAppSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListContainerAppSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListContainerAppSecretsResultOutput)
 }
 

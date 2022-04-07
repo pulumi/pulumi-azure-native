@@ -45,7 +45,11 @@ func LookupWorkspaceSettingOutput(ctx *pulumi.Context, args LookupWorkspaceSetti
 		ApplyT(func(v interface{}) (LookupWorkspaceSettingResult, error) {
 			args := v.(LookupWorkspaceSettingArgs)
 			r, err := LookupWorkspaceSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkspaceSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkspaceSettingResultOutput)
 }
 

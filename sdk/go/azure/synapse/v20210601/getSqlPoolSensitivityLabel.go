@@ -71,7 +71,11 @@ func LookupSqlPoolSensitivityLabelOutput(ctx *pulumi.Context, args LookupSqlPool
 		ApplyT(func(v interface{}) (LookupSqlPoolSensitivityLabelResult, error) {
 			args := v.(LookupSqlPoolSensitivityLabelArgs)
 			r, err := LookupSqlPoolSensitivityLabel(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolSensitivityLabelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolSensitivityLabelResultOutput)
 }
 

@@ -52,7 +52,11 @@ func LookupFileServicePropertiesOutput(ctx *pulumi.Context, args LookupFileServi
 		ApplyT(func(v interface{}) (LookupFileServicePropertiesResult, error) {
 			args := v.(LookupFileServicePropertiesArgs)
 			r, err := LookupFileServiceProperties(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileServicePropertiesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileServicePropertiesResultOutput)
 }
 

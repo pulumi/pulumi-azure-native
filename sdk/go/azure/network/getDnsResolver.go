@@ -59,7 +59,11 @@ func LookupDnsResolverOutput(ctx *pulumi.Context, args LookupDnsResolverOutputAr
 		ApplyT(func(v interface{}) (LookupDnsResolverResult, error) {
 			args := v.(LookupDnsResolverArgs)
 			r, err := LookupDnsResolver(ctx, &args, opts...)
-			return *r, err
+			var s LookupDnsResolverResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDnsResolverResultOutput)
 }
 

@@ -54,7 +54,11 @@ func LookupRestorePointOutput(ctx *pulumi.Context, args LookupRestorePointOutput
 		ApplyT(func(v interface{}) (LookupRestorePointResult, error) {
 			args := v.(LookupRestorePointArgs)
 			r, err := LookupRestorePoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupRestorePointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRestorePointResultOutput)
 }
 

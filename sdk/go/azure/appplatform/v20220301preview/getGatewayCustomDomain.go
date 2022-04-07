@@ -50,7 +50,11 @@ func LookupGatewayCustomDomainOutput(ctx *pulumi.Context, args LookupGatewayCust
 		ApplyT(func(v interface{}) (LookupGatewayCustomDomainResult, error) {
 			args := v.(LookupGatewayCustomDomainArgs)
 			r, err := LookupGatewayCustomDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupGatewayCustomDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGatewayCustomDomainResultOutput)
 }
 

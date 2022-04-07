@@ -47,7 +47,11 @@ func LookupDeploymentAtTenantScopeOutput(ctx *pulumi.Context, args LookupDeploym
 		ApplyT(func(v interface{}) (LookupDeploymentAtTenantScopeResult, error) {
 			args := v.(LookupDeploymentAtTenantScopeArgs)
 			r, err := LookupDeploymentAtTenantScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentAtTenantScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentAtTenantScopeResultOutput)
 }
 

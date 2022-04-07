@@ -46,7 +46,11 @@ func LookupServerDnsAliasOutput(ctx *pulumi.Context, args LookupServerDnsAliasOu
 		ApplyT(func(v interface{}) (LookupServerDnsAliasResult, error) {
 			args := v.(LookupServerDnsAliasArgs)
 			r, err := LookupServerDnsAlias(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerDnsAliasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerDnsAliasResultOutput)
 }
 

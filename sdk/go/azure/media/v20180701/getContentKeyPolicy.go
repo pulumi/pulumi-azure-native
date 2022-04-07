@@ -54,7 +54,11 @@ func LookupContentKeyPolicyOutput(ctx *pulumi.Context, args LookupContentKeyPoli
 		ApplyT(func(v interface{}) (LookupContentKeyPolicyResult, error) {
 			args := v.(LookupContentKeyPolicyArgs)
 			r, err := LookupContentKeyPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupContentKeyPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContentKeyPolicyResultOutput)
 }
 

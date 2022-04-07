@@ -62,7 +62,11 @@ func LookupWebAppPremierAddOnSlotOutput(ctx *pulumi.Context, args LookupWebAppPr
 		ApplyT(func(v interface{}) (LookupWebAppPremierAddOnSlotResult, error) {
 			args := v.(LookupWebAppPremierAddOnSlotArgs)
 			r, err := LookupWebAppPremierAddOnSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppPremierAddOnSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppPremierAddOnSlotResultOutput)
 }
 

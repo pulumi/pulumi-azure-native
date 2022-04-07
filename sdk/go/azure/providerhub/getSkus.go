@@ -44,7 +44,11 @@ func LookupSkusOutput(ctx *pulumi.Context, args LookupSkusOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupSkusResult, error) {
 			args := v.(LookupSkusArgs)
 			r, err := LookupSkus(ctx, &args, opts...)
-			return *r, err
+			var s LookupSkusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSkusResultOutput)
 }
 

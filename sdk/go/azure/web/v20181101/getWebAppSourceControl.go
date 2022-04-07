@@ -54,7 +54,11 @@ func LookupWebAppSourceControlOutput(ctx *pulumi.Context, args LookupWebAppSourc
 		ApplyT(func(v interface{}) (LookupWebAppSourceControlResult, error) {
 			args := v.(LookupWebAppSourceControlArgs)
 			r, err := LookupWebAppSourceControl(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSourceControlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSourceControlResultOutput)
 }
 

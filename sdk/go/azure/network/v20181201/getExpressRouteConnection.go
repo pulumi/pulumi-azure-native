@@ -50,7 +50,11 @@ func LookupExpressRouteConnectionOutput(ctx *pulumi.Context, args LookupExpressR
 		ApplyT(func(v interface{}) (LookupExpressRouteConnectionResult, error) {
 			args := v.(LookupExpressRouteConnectionArgs)
 			r, err := LookupExpressRouteConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteConnectionResultOutput)
 }
 

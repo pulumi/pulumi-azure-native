@@ -40,7 +40,11 @@ func ListAdminKeyOutput(ctx *pulumi.Context, args ListAdminKeyOutputArgs, opts .
 		ApplyT(func(v interface{}) (ListAdminKeyResult, error) {
 			args := v.(ListAdminKeyArgs)
 			r, err := ListAdminKey(ctx, &args, opts...)
-			return *r, err
+			var s ListAdminKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAdminKeyResultOutput)
 }
 

@@ -60,7 +60,11 @@ func LookupViewOutput(ctx *pulumi.Context, args LookupViewOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupViewResult, error) {
 			args := v.(LookupViewArgs)
 			r, err := LookupView(ctx, &args, opts...)
-			return *r, err
+			var s LookupViewResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupViewResultOutput)
 }
 

@@ -54,7 +54,11 @@ func LookupMECRoleOutput(ctx *pulumi.Context, args LookupMECRoleOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupMECRoleResult, error) {
 			args := v.(LookupMECRoleArgs)
 			r, err := LookupMECRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupMECRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMECRoleResultOutput)
 }
 

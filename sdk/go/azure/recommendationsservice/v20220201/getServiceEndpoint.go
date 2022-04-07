@@ -52,7 +52,11 @@ func LookupServiceEndpointOutput(ctx *pulumi.Context, args LookupServiceEndpoint
 		ApplyT(func(v interface{}) (LookupServiceEndpointResult, error) {
 			args := v.(LookupServiceEndpointArgs)
 			r, err := LookupServiceEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceEndpointResultOutput)
 }
 

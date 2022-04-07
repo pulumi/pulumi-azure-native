@@ -63,7 +63,11 @@ func LookupVirtualRouterOutput(ctx *pulumi.Context, args LookupVirtualRouterOutp
 		ApplyT(func(v interface{}) (LookupVirtualRouterResult, error) {
 			args := v.(LookupVirtualRouterArgs)
 			r, err := LookupVirtualRouter(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualRouterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualRouterResultOutput)
 }
 

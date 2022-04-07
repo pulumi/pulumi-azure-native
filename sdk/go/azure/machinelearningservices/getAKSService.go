@@ -59,7 +59,11 @@ func LookupAKSServiceOutput(ctx *pulumi.Context, args LookupAKSServiceOutputArgs
 		ApplyT(func(v interface{}) (LookupAKSServiceResult, error) {
 			args := v.(LookupAKSServiceArgs)
 			r, err := LookupAKSService(ctx, &args, opts...)
-			return *r, err
+			var s LookupAKSServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAKSServiceResultOutput)
 }
 

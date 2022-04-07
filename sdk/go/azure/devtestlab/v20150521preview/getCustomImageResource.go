@@ -64,7 +64,11 @@ func LookupCustomImageResourceOutput(ctx *pulumi.Context, args LookupCustomImage
 		ApplyT(func(v interface{}) (LookupCustomImageResourceResult, error) {
 			args := v.(LookupCustomImageResourceArgs)
 			r, err := LookupCustomImageResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomImageResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomImageResourceResultOutput)
 }
 

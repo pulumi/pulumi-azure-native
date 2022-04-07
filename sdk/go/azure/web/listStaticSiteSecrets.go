@@ -47,7 +47,11 @@ func ListStaticSiteSecretsOutput(ctx *pulumi.Context, args ListStaticSiteSecrets
 		ApplyT(func(v interface{}) (ListStaticSiteSecretsResult, error) {
 			args := v.(ListStaticSiteSecretsArgs)
 			r, err := ListStaticSiteSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListStaticSiteSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStaticSiteSecretsResultOutput)
 }
 

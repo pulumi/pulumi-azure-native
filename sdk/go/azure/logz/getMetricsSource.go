@@ -50,7 +50,11 @@ func LookupMetricsSourceOutput(ctx *pulumi.Context, args LookupMetricsSourceOutp
 		ApplyT(func(v interface{}) (LookupMetricsSourceResult, error) {
 			args := v.(LookupMetricsSourceArgs)
 			r, err := LookupMetricsSource(ctx, &args, opts...)
-			return *r, err
+			var s LookupMetricsSourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMetricsSourceResultOutput)
 }
 

@@ -62,7 +62,11 @@ func LookupWebServiceOutput(ctx *pulumi.Context, args LookupWebServiceOutputArgs
 		ApplyT(func(v interface{}) (LookupWebServiceResult, error) {
 			args := v.(LookupWebServiceArgs)
 			r, err := LookupWebService(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebServiceResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupDataFlowOutput(ctx *pulumi.Context, args LookupDataFlowOutputArgs, op
 		ApplyT(func(v interface{}) (LookupDataFlowResult, error) {
 			args := v.(LookupDataFlowArgs)
 			r, err := LookupDataFlow(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataFlowResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataFlowResultOutput)
 }
 

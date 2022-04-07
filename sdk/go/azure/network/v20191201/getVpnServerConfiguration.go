@@ -72,7 +72,11 @@ func LookupVpnServerConfigurationOutput(ctx *pulumi.Context, args LookupVpnServe
 		ApplyT(func(v interface{}) (LookupVpnServerConfigurationResult, error) {
 			args := v.(LookupVpnServerConfigurationArgs)
 			r, err := LookupVpnServerConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupVpnServerConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVpnServerConfigurationResultOutput)
 }
 

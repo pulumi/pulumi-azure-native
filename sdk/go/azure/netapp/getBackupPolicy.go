@@ -65,7 +65,11 @@ func LookupBackupPolicyOutput(ctx *pulumi.Context, args LookupBackupPolicyOutput
 		ApplyT(func(v interface{}) (LookupBackupPolicyResult, error) {
 			args := v.(LookupBackupPolicyArgs)
 			r, err := LookupBackupPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupBackupPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBackupPolicyResultOutput)
 }
 

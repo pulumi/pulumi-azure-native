@@ -53,7 +53,11 @@ func ListConnectionKeysOutput(ctx *pulumi.Context, args ListConnectionKeysOutput
 		ApplyT(func(v interface{}) (ListConnectionKeysResult, error) {
 			args := v.(ListConnectionKeysArgs)
 			r, err := ListConnectionKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListConnectionKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListConnectionKeysResultOutput)
 }
 

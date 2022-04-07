@@ -79,7 +79,11 @@ func LookupDefaultAdminRuleOutput(ctx *pulumi.Context, args LookupDefaultAdminRu
 		ApplyT(func(v interface{}) (LookupDefaultAdminRuleResult, error) {
 			args := v.(LookupDefaultAdminRuleArgs)
 			r, err := LookupDefaultAdminRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupDefaultAdminRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDefaultAdminRuleResultOutput)
 }
 

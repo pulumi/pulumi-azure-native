@@ -38,7 +38,11 @@ func ListDatabaseAccountConnectionStringsOutput(ctx *pulumi.Context, args ListDa
 		ApplyT(func(v interface{}) (ListDatabaseAccountConnectionStringsResult, error) {
 			args := v.(ListDatabaseAccountConnectionStringsArgs)
 			r, err := ListDatabaseAccountConnectionStrings(ctx, &args, opts...)
-			return *r, err
+			var s ListDatabaseAccountConnectionStringsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDatabaseAccountConnectionStringsResultOutput)
 }
 

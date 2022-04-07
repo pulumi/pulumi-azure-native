@@ -44,7 +44,11 @@ func ListCommunicationServiceKeysOutput(ctx *pulumi.Context, args ListCommunicat
 		ApplyT(func(v interface{}) (ListCommunicationServiceKeysResult, error) {
 			args := v.(ListCommunicationServiceKeysArgs)
 			r, err := ListCommunicationServiceKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListCommunicationServiceKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListCommunicationServiceKeysResultOutput)
 }
 

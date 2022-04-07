@@ -79,7 +79,11 @@ func LookupWebhookOutput(ctx *pulumi.Context, args LookupWebhookOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupWebhookResult, error) {
 			args := v.(LookupWebhookArgs)
 			r, err := LookupWebhook(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebhookResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebhookResultOutput)
 }
 

@@ -128,7 +128,11 @@ func ListSiteAuthSettingsSlotOutput(ctx *pulumi.Context, args ListSiteAuthSettin
 		ApplyT(func(v interface{}) (ListSiteAuthSettingsSlotResult, error) {
 			args := v.(ListSiteAuthSettingsSlotArgs)
 			r, err := ListSiteAuthSettingsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteAuthSettingsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteAuthSettingsSlotResultOutput)
 }
 

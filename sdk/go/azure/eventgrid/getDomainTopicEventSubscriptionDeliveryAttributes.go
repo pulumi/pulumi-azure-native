@@ -43,7 +43,11 @@ func GetDomainTopicEventSubscriptionDeliveryAttributesOutput(ctx *pulumi.Context
 		ApplyT(func(v interface{}) (GetDomainTopicEventSubscriptionDeliveryAttributesResult, error) {
 			args := v.(GetDomainTopicEventSubscriptionDeliveryAttributesArgs)
 			r, err := GetDomainTopicEventSubscriptionDeliveryAttributes(ctx, &args, opts...)
-			return *r, err
+			var s GetDomainTopicEventSubscriptionDeliveryAttributesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDomainTopicEventSubscriptionDeliveryAttributesResultOutput)
 }
 

@@ -63,7 +63,11 @@ func LookupBlobContainerDataSetMappingOutput(ctx *pulumi.Context, args LookupBlo
 		ApplyT(func(v interface{}) (LookupBlobContainerDataSetMappingResult, error) {
 			args := v.(LookupBlobContainerDataSetMappingArgs)
 			r, err := LookupBlobContainerDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobContainerDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobContainerDataSetMappingResultOutput)
 }
 

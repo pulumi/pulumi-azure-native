@@ -40,7 +40,11 @@ func LookupComponentCurrentBillingFeatureOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupComponentCurrentBillingFeatureResult, error) {
 			args := v.(LookupComponentCurrentBillingFeatureArgs)
 			r, err := LookupComponentCurrentBillingFeature(ctx, &args, opts...)
-			return *r, err
+			var s LookupComponentCurrentBillingFeatureResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupComponentCurrentBillingFeatureResultOutput)
 }
 

@@ -55,7 +55,11 @@ func LookupApiIssueCommentOutput(ctx *pulumi.Context, args LookupApiIssueComment
 		ApplyT(func(v interface{}) (LookupApiIssueCommentResult, error) {
 			args := v.(LookupApiIssueCommentArgs)
 			r, err := LookupApiIssueComment(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiIssueCommentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiIssueCommentResultOutput)
 }
 

@@ -84,7 +84,11 @@ func LookupKpiOutput(ctx *pulumi.Context, args LookupKpiOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupKpiResult, error) {
 			args := v.(LookupKpiArgs)
 			r, err := LookupKpi(ctx, &args, opts...)
-			return *r, err
+			var s LookupKpiResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKpiResultOutput)
 }
 

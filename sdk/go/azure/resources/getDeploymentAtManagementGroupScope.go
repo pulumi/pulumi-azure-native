@@ -49,7 +49,11 @@ func LookupDeploymentAtManagementGroupScopeOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupDeploymentAtManagementGroupScopeResult, error) {
 			args := v.(LookupDeploymentAtManagementGroupScopeArgs)
 			r, err := LookupDeploymentAtManagementGroupScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentAtManagementGroupScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentAtManagementGroupScopeResultOutput)
 }
 

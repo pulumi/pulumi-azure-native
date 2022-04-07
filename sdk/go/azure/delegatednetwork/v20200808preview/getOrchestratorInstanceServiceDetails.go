@@ -66,7 +66,11 @@ func LookupOrchestratorInstanceServiceDetailsOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupOrchestratorInstanceServiceDetailsResult, error) {
 			args := v.(LookupOrchestratorInstanceServiceDetailsArgs)
 			r, err := LookupOrchestratorInstanceServiceDetails(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrchestratorInstanceServiceDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrchestratorInstanceServiceDetailsResultOutput)
 }
 

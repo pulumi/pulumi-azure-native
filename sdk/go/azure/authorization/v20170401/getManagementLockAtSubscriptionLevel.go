@@ -46,7 +46,11 @@ func LookupManagementLockAtSubscriptionLevelOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupManagementLockAtSubscriptionLevelResult, error) {
 			args := v.(LookupManagementLockAtSubscriptionLevelArgs)
 			r, err := LookupManagementLockAtSubscriptionLevel(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementLockAtSubscriptionLevelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementLockAtSubscriptionLevelResultOutput)
 }
 

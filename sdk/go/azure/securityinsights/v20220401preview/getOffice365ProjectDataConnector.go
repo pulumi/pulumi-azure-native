@@ -55,7 +55,11 @@ func LookupOffice365ProjectDataConnectorOutput(ctx *pulumi.Context, args LookupO
 		ApplyT(func(v interface{}) (LookupOffice365ProjectDataConnectorResult, error) {
 			args := v.(LookupOffice365ProjectDataConnectorArgs)
 			r, err := LookupOffice365ProjectDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupOffice365ProjectDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOffice365ProjectDataConnectorResultOutput)
 }
 

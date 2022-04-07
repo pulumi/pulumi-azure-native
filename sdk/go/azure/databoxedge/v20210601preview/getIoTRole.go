@@ -65,7 +65,11 @@ func LookupIoTRoleOutput(ctx *pulumi.Context, args LookupIoTRoleOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupIoTRoleResult, error) {
 			args := v.(LookupIoTRoleArgs)
 			r, err := LookupIoTRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupIoTRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIoTRoleResultOutput)
 }
 

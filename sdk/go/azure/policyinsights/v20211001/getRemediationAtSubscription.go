@@ -68,7 +68,11 @@ func LookupRemediationAtSubscriptionOutput(ctx *pulumi.Context, args LookupRemed
 		ApplyT(func(v interface{}) (LookupRemediationAtSubscriptionResult, error) {
 			args := v.(LookupRemediationAtSubscriptionArgs)
 			r, err := LookupRemediationAtSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupRemediationAtSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRemediationAtSubscriptionResultOutput)
 }
 

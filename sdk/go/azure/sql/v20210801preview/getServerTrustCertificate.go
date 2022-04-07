@@ -50,7 +50,11 @@ func LookupServerTrustCertificateOutput(ctx *pulumi.Context, args LookupServerTr
 		ApplyT(func(v interface{}) (LookupServerTrustCertificateResult, error) {
 			args := v.(LookupServerTrustCertificateArgs)
 			r, err := LookupServerTrustCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerTrustCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerTrustCertificateResultOutput)
 }
 

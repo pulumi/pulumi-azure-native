@@ -61,7 +61,11 @@ func LookupKustoTableDataSetMappingOutput(ctx *pulumi.Context, args LookupKustoT
 		ApplyT(func(v interface{}) (LookupKustoTableDataSetMappingResult, error) {
 			args := v.(LookupKustoTableDataSetMappingArgs)
 			r, err := LookupKustoTableDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoTableDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoTableDataSetMappingResultOutput)
 }
 

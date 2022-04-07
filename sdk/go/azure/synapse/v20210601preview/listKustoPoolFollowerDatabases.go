@@ -40,7 +40,11 @@ func ListKustoPoolFollowerDatabasesOutput(ctx *pulumi.Context, args ListKustoPoo
 		ApplyT(func(v interface{}) (ListKustoPoolFollowerDatabasesResult, error) {
 			args := v.(ListKustoPoolFollowerDatabasesArgs)
 			r, err := ListKustoPoolFollowerDatabases(ctx, &args, opts...)
-			return *r, err
+			var s ListKustoPoolFollowerDatabasesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListKustoPoolFollowerDatabasesResultOutput)
 }
 
