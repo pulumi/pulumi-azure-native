@@ -54499,6 +54499,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54578,6 +54579,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54619,6 +54621,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54660,6 +54663,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54701,6 +54705,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54742,6 +54747,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54821,6 +54827,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54895,6 +54902,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -54931,6 +54939,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -55005,6 +55014,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -55064,6 +55074,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -55123,6 +55134,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-15-preview",
           "2021-11-15-preview",
           "2021-10-15-preview",
           "2021-10-15",
@@ -99681,126 +99693,6 @@
         ],
         "properties": null,
         "resourceType": "machines/installPatches"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-12-10-preview",
-          "2021-06-10-preview",
-          "2021-05-20",
-          "2021-05-17-preview",
-          "2021-04-22-preview",
-          "2021-03-25-preview",
-          "2021-01-28-preview",
-          "2020-08-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West Europe",
-          "Southeast Asia",
-          "East US",
-          "West Central US",
-          "South Central US",
-          "North Europe",
-          "UK South",
-          "Australia East"
-        ],
-        "properties": null,
-        "resourceType": "machines/patchAssessmentResults"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-12-10-preview",
-          "2021-06-10-preview",
-          "2021-05-20",
-          "2021-05-17-preview",
-          "2021-04-22-preview",
-          "2021-03-25-preview",
-          "2021-01-28-preview",
-          "2020-08-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West Europe",
-          "Southeast Asia",
-          "East US",
-          "West Central US",
-          "South Central US",
-          "North Europe",
-          "UK South",
-          "Australia East"
-        ],
-        "properties": null,
-        "resourceType": "machines/patchAssessmentResults/softwarePatches"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-12-10-preview",
-          "2021-06-10-preview",
-          "2021-05-20",
-          "2021-05-17-preview",
-          "2021-04-22-preview",
-          "2021-03-25-preview",
-          "2021-01-28-preview",
-          "2020-08-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West Europe",
-          "Southeast Asia",
-          "East US",
-          "West Central US",
-          "South Central US",
-          "North Europe",
-          "UK South",
-          "Australia East"
-        ],
-        "properties": null,
-        "resourceType": "machines/patchInstallationResults"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-12-10-preview",
-          "2021-06-10-preview",
-          "2021-05-20",
-          "2021-05-17-preview",
-          "2021-04-22-preview",
-          "2021-03-25-preview",
-          "2021-01-28-preview",
-          "2020-08-15-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2",
-          "West Europe",
-          "Southeast Asia",
-          "East US",
-          "West Central US",
-          "South Central US",
-          "North Europe",
-          "UK South",
-          "Australia East"
-        ],
-        "properties": null,
-        "resourceType": "machines/patchInstallationResults/softwarePatches"
       },
       {
         "aliases": null,
