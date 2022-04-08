@@ -450,7 +450,7 @@ func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, str
 		namespace, err := uuid.Parse("c2d949a4-6068-4741-9d6a-ddfd2c0f463c")
 		contract.AssertNoError(err)
 
-		return resource.NewStringProperty(uuid.NewSHA1(namespace, buffer).String()), true
+		return resource.NewStringProperty(uuid.NewSHA1(namespace, buffer.Bytes()).String()), true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
 		return resource.NewStringProperty(name), false
