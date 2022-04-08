@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Use sequence numbers to generate deterministic autonames. [#1635](https://github.com/pulumi/pulumi-azure-native/pull/1635)
+
 ## 1.62.0 (2022-04-04)
 
 - Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
