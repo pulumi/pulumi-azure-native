@@ -64612,6 +64612,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-01",
           "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
@@ -108325,7 +108326,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "clouds"
+        "resourceType": "Clouds"
       },
       {
         "aliases": null,
@@ -108340,7 +108341,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualnetworks"
+        "resourceType": "VirtualNetworks"
       },
       {
         "aliases": null,
@@ -108355,7 +108356,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualmachinetemplates"
+        "resourceType": "VirtualMachineTemplates"
       },
       {
         "aliases": null,
@@ -108370,7 +108371,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualmachines"
+        "resourceType": "VirtualMachines"
       },
       {
         "aliases": null,
