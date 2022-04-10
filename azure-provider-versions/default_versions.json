@@ -88,6 +88,7 @@
         "NotificationRecipientUser": "2020-12-01",
         "OpenIdConnectProvider": "2020-12-01",
         "Policy": "2020-12-01",
+        "PolicyFragment": "2021-12-01-preview",
         "PrivateEndpointConnectionByName": "2021-04-01-preview",
         "Product": "2020-12-01",
         "ProductApi": "2020-12-01",
@@ -110,6 +111,7 @@
         "listIdentityProviderSecrets": "2020-12-01",
         "listNamedValue": "2020-12-01",
         "listOpenIdConnectProviderSecrets": "2020-12-01",
+        "listPolicyFragmentReferences": "2021-12-01-preview",
         "listSubscriptionSecrets": "2020-12-01",
         "listTenantAccessGitSecrets": "2019-12-01",
         "listTenantAccessSecrets": "2020-12-01"
@@ -177,7 +179,7 @@
         "ResourceManagementPrivateLink": "2020-05-01",
         "RoleAssignment": "2020-10-01-preview",
         "RoleDefinition": "2018-01-01-preview",
-        "RoleManagementPolicyAssignment": "2020-10-01-preview"
+        "RoleManagementPolicyAssignment": "2020-10-01"
     },
     "Automanage": {
         "Account": "2020-06-30-preview",
@@ -1457,7 +1459,7 @@
         "listAccountKeys": "2020-12-01-preview"
     },
     "Quantum": {
-        "Workspace": "2019-11-04-preview"
+        "Workspace": "2022-01-10-preview"
     },
     "Quota": {},
     "RecommendationsService": {
