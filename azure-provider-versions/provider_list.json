@@ -43,6 +43,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -105,6 +106,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -162,6 +164,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -219,6 +222,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -277,6 +281,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -335,6 +340,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -393,6 +399,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -452,6 +459,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -511,6 +519,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -570,6 +579,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -629,6 +639,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -690,6 +701,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -748,6 +760,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -806,6 +819,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-08-01-preview",
           "2021-06-01-preview",
@@ -1904,6 +1918,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -1965,6 +1980,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2026,6 +2042,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2087,6 +2104,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2148,6 +2166,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2315,6 +2334,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2452,6 +2472,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2514,6 +2535,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2576,6 +2598,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2820,6 +2843,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2884,6 +2908,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -2947,6 +2972,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-12-01-preview",
           "2021-09-01",
           "2021-08-01-preview",
@@ -57541,6 +57567,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57614,6 +57641,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57687,6 +57715,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57760,6 +57789,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57788,6 +57818,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57815,6 +57846,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57879,6 +57911,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57905,6 +57938,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -57964,6 +57998,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58028,6 +58063,7 @@
           }
         ],
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58087,6 +58123,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58145,6 +58182,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58188,6 +58226,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58230,6 +58269,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58272,6 +58312,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58314,6 +58355,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58370,6 +58412,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2021-11-01-preview",
           "2021-10-01",
           "2021-06-01-preview",
@@ -58488,6 +58531,7 @@
           "Switzerland North",
           "Switzerland West",
           "Norway East",
+          "Norway West",
           "Germany North",
           "Germany West Central",
           "Central US EUAP",
@@ -58549,6 +58593,7 @@
           "Switzerland North",
           "Switzerland West",
           "Norway East",
+          "Norway West",
           "Germany North",
           "Germany West Central",
           "Central US EUAP",
@@ -58631,6 +58676,7 @@
           "Switzerland North",
           "Switzerland West",
           "Norway East",
+          "Norway West",
           "Germany North",
           "Germany West Central"
         ],
@@ -58686,6 +58732,7 @@
           "Switzerland North",
           "Switzerland West",
           "Norway East",
+          "Norway West",
           "Germany North",
           "Germany West Central",
           "Central US EUAP",
@@ -62626,7 +62673,11 @@
         "applicationId": "04687a56-4fc2-4e36-b274-b862fb649733"
       },
       {
-        "applicationId": "e0ccf59d-5a20-4a87-a122-f42842cdb86a"
+        "applicationId": "e0ccf59d-5a20-4a87-a122-f42842cdb86a",
+        "roleDefinitionId": "b2b30881-ef9c-4e7c-8ce5-67e0e5ae89ff"
+      },
+      {
+        "applicationId": "0c7668b5-3260-4ad0-9f53-34ed54fa19b2"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Security",
@@ -63064,6 +63115,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01",
           "2015-06-01-preview"
         ],
         "capabilities": "None",
@@ -63082,6 +63134,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01",
           "2015-06-01-preview"
         ],
         "capabilities": "None",
@@ -63210,6 +63263,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01",
           "2015-06-01-preview"
         ],
         "capabilities": "None",
@@ -63228,6 +63282,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2020-01-01",
           "2015-06-01-preview"
         ],
         "capabilities": "None",
@@ -64612,6 +64667,7 @@
           }
         ],
         "apiVersions": [
+          "2021-11-01",
           "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
@@ -65566,6 +65622,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65622,6 +65679,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65678,6 +65736,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65733,6 +65792,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65788,6 +65848,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65843,6 +65904,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65898,6 +65960,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -65954,6 +66017,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -66010,6 +66074,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -66066,6 +66131,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -66122,6 +66188,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-01-preview",
           "2022-01-01",
           "2021-11-01-preview",
           "2021-07-01-preview",
@@ -67202,6 +67269,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67224,6 +67292,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67236,7 +67305,7 @@
           "2017-04-15-privatepreview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2022-01-30-preview",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -67278,6 +67347,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67290,7 +67360,7 @@
           "2017-04-15-privatepreview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2022-01-30-preview",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "West Central US",
@@ -67332,6 +67402,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67386,6 +67457,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67440,6 +67512,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2021-06-30",
@@ -67494,6 +67567,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2020-09-01-preview"
@@ -67544,12 +67618,13 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2020-09-01-preview"
         ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2022-01-30-preview",
+        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "East US 2",
@@ -67594,12 +67669,13 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2020-09-01-preview"
         ],
         "capabilities": "SupportsExtension",
-        "defaultApiVersion": "2022-01-30-preview",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "East US 2",
@@ -67644,12 +67720,13 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2020-09-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2022-01-30-preview",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "East US 2",
@@ -67694,12 +67771,13 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2022-01-30-preview",
           "2021-10-30-preview",
           "2020-09-01-preview"
         ],
         "capabilities": "None",
-        "defaultApiVersion": "2022-01-30-preview",
+        "defaultApiVersion": "2022-03-30-preview",
         "locationMappings": null,
         "locations": [
           "East US 2",
@@ -72444,6 +72522,31 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West Europe",
+          "North Europe",
+          "France Central",
+          "UK South",
+          "UK West",
+          "France South",
+          "Switzerland North",
+          "Switzerland West",
+          "Norway East",
+          "Norway West",
+          "Germany West Central"
+        ],
+        "properties": null,
+        "resourceType": "fileImports"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
           "2022-04-01-preview",
           "2022-01-01-preview",
           "2021-10-01-preview",
@@ -74563,6 +74666,9 @@
       },
       {
         "applicationId": "a85cf173-4192-42f8-81fa-777a763e6e2c"
+      },
+      {
+        "applicationId": "a4a365df-50f1-4397-bc59-1a1564b8bb9c"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DesktopVirtualization",
@@ -77457,7 +77563,9 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "BackupVaults"
@@ -77512,7 +77620,9 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "ResourceGuards"
@@ -77535,31 +77645,11 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [],
+        "locations": [
+          "East US 2 EUAP"
+        ],
         "properties": null,
         "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2022-03-01",
-          "2022-02-01-preview",
-          "2022-01-01",
-          "2021-12-01-preview",
-          "2021-10-01-preview",
-          "2021-07-01",
-          "2021-06-01-preview",
-          "2021-02-01-preview",
-          "2021-01-01",
-          "2020-01-01-alpha"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "locations"
       },
       {
         "aliases": null,
@@ -77614,7 +77704,9 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -77672,7 +77764,9 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "locations/operationStatus"
@@ -77730,7 +77824,9 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "locations/checkNameAvailability"
@@ -77788,10 +77884,34 @@
           "West Europe",
           "West US 2",
           "West US 3",
-          "Sweden Central"
+          "Sweden Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "locations/checkFeatureSupport"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-03-01",
+          "2022-02-01-preview",
+          "2022-01-01",
+          "2021-12-01-preview",
+          "2021-10-01-preview",
+          "2021-07-01",
+          "2021-06-01-preview",
+          "2021-02-01-preview",
+          "2021-01-01",
+          "2020-01-01-alpha"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
       }
     ]
   },
@@ -80695,8 +80815,13 @@
           "Switzerland North",
           "South Africa North",
           "West US 3",
+          "Switzerland West",
+          "West India",
           "Australia Central 2",
           "Korea South",
+          "Norway West",
+          "Germany North",
+          "Brazil Southeast",
           "France South",
           "Sweden Central"
         ],
@@ -80746,8 +80871,13 @@
           "Switzerland North",
           "South Africa North",
           "West US 3",
+          "Switzerland West",
+          "West India",
           "Australia Central 2",
           "Korea South",
+          "Norway West",
+          "Germany North",
+          "Brazil Southeast",
           "France South",
           "Sweden Central"
         ],
@@ -84000,7 +84130,8 @@
         "apiProfiles": null,
         "apiVersions": [
           "2022-04-01-preview",
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84014,7 +84145,8 @@
         "apiProfiles": null,
         "apiVersions": [
           "2022-04-01-preview",
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84027,7 +84159,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84040,7 +84173,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84053,7 +84187,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84066,7 +84201,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84079,7 +84215,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84092,7 +84229,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84105,7 +84243,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2020-10-01-preview"
+          "2020-10-01-preview",
+          "2020-10-01"
         ],
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
@@ -84925,6 +85064,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-30-preview",
           "2021-08-01-preview",
           "2021-04-30-preview",
           "2020-06-30-preview"
@@ -89597,6 +89737,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-16-privatepreview",
+          "2022-02-16-beta",
           "2021-07-01-beta",
           "2021-07-01",
           "2020-10-01-preview",
@@ -89617,6 +89759,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-02-16-privatepreview",
+          "2022-02-16-beta",
           "2021-07-01-beta",
           "2021-07-01",
           "2020-10-01-preview",
@@ -92791,6 +92935,11 @@
           "East US 2",
           "North Europe",
           "Southeast Asia",
+          "Central India",
+          "East Asia",
+          "Korea Central",
+          "Norway East",
+          "Sweden Central",
           "Central US EUAP"
         ],
         "properties": null,
@@ -92827,6 +92976,11 @@
           "East US 2",
           "North Europe",
           "Southeast Asia",
+          "Central India",
+          "East Asia",
+          "Korea Central",
+          "Norway East",
+          "Sweden Central",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -94785,6 +94939,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-02-01-preview",
           "2021-10-01",
           "2021-01-01",
@@ -94801,6 +94956,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-02-01-preview",
           "2021-10-01",
           "2021-01-01",
@@ -94817,6 +94973,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-02-01-preview"
         ],
         "capabilities": "SupportsExtension",
@@ -95367,6 +95524,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-01",
           "2021-06-01-preview",
           "2021-06-01",
           "2021-02-01-preview",
@@ -95402,6 +95560,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-01",
           "2021-06-01-preview",
           "2021-06-01",
           "2021-02-01-preview",
@@ -95437,6 +95596,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-03-01",
           "2021-06-01-preview",
           "2021-06-01",
           "2021-02-01-preview",
@@ -96084,6 +96244,8 @@
           "Norway East",
           "UAE North",
           "West US 3",
+          "Switzerland West",
+          "France South",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -96131,6 +96293,8 @@
           "Norway East",
           "UAE North",
           "West US 3",
+          "Switzerland West",
+          "France South",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -96314,6 +96478,8 @@
           "Norway East",
           "UAE North",
           "West US 3",
+          "Switzerland West",
+          "France South",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -96360,6 +96526,8 @@
           "Norway East",
           "UAE North",
           "West US 3",
+          "Switzerland West",
+          "France South",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -101159,6 +101327,10 @@
       {
         "applicationId": "bd9b7cd5-dac1-495f-b013-ac871e98fa5f",
         "roleDefinitionId": "0d44c8f0-08b9-44d4-9f59-e51c83f95200"
+      },
+      {
+        "applicationId": "585fc3c3-9a59-4720-8319-53cce041a605",
+        "roleDefinitionId": "4a9ce2ee-6de2-43ba-a7bd-8f316de763a7"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.KubernetesConfiguration",
@@ -105981,6 +106153,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
@@ -106007,6 +106180,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "None",
@@ -106020,6 +106194,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "None",
@@ -106033,6 +106208,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "None",
@@ -106059,6 +106235,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "None",
@@ -106085,6 +106262,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-10-preview",
           "2019-11-04-preview"
         ],
         "capabilities": "None",
@@ -106092,7 +106270,7 @@
         "locationMappings": null,
         "locations": [],
         "properties": null,
-        "resourceType": "Locations/checkNameAvailability"
+        "resourceType": "Locations/CheckNameAvailability"
       }
     ]
   },
@@ -108325,7 +108503,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "clouds"
+        "resourceType": "Clouds"
       },
       {
         "aliases": null,
@@ -108340,7 +108518,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualnetworks"
+        "resourceType": "VirtualNetworks"
       },
       {
         "aliases": null,
@@ -108355,7 +108533,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualmachinetemplates"
+        "resourceType": "VirtualMachineTemplates"
       },
       {
         "aliases": null,
@@ -108370,7 +108548,7 @@
           "East US 2 EUAP"
         ],
         "properties": null,
-        "resourceType": "virtualmachines"
+        "resourceType": "VirtualMachines"
       },
       {
         "aliases": null,
