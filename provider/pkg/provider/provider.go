@@ -420,6 +420,9 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 	return result(v)
 }
 
+// Namespace used for deterministic uuid autonames.
+var uuidNamespace uuid.UUID = uuid.MustParse("c2d949a4-6068-4741-9d6a-ddfd2c0f463c")
+
 func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, strategy resources.AutoNameKind, key resource.PropertyKey,
 	olds resource.PropertyMap) (resource.PropertyValue, bool) {
 	if v, ok := olds[key]; ok {
@@ -447,10 +450,7 @@ func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, str
 		err = binary.Write(buffer, binary.LittleEndian, uint32(sequenceNumber))
 		contract.AssertNoError(err)
 
-		namespace, err := uuid.Parse("c2d949a4-6068-4741-9d6a-ddfd2c0f463c")
-		contract.AssertNoError(err)
-
-		return resource.NewStringProperty(uuid.NewSHA1(namespace, buffer.Bytes()).String()), true
+		return resource.NewStringProperty(uuid.NewSHA1(uuidNamespace, buffer.Bytes()).String()), true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
 		return resource.NewStringProperty(name), false
