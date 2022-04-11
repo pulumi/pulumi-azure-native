@@ -58,8 +58,7 @@ quality and higher fidelity with the Azure platform.
 
 ## Configuring credentials
 
-Credentials configuration is compatible with the existing Terraform-based Azure provider. Refer to the [Azure configuration options](
-https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
+To learn how to configure credentials refer to the [Azure configuration options](https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
 
 ## Building
 
