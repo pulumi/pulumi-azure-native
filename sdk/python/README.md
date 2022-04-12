@@ -12,7 +12,7 @@ This provider uses the Azure Resource Manager REST API directly and therefore pr
 
 The Azure Native provider is the recommended provider for projects targeting Azure.
 
-To use this package, please [install the Pulumi CLI first](https://pulumi.io/).
+To use this package, [install the Pulumi CLI](https://www.pulumi.com/docs/get-started/install/).
 
 ## Installing
 
@@ -58,10 +58,7 @@ quality and higher fidelity with the Azure platform.
 
 ## Configuring credentials
 
-Credentials configuration is compatible with the existing Terraform-based Azure provider.
-
-Please refer to [this quickstart guide](
-https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/) for possible configuration options.
+To learn how to configure credentials refer to the [Azure configuration options](https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
 
 ## Building
 
@@ -98,5 +95,5 @@ $ pulumi up
 
 ## Reference
 
-For further information, please visit the [native Azure provider announcement](https://www.pulumi.com/blog/full-coverage-of-azure-resources-with-azure-native/) or for detailed reference documentation, please visit [the API docs](
-https://www.pulumi.com/docs/reference/pkg/azure-native).
+For further information, visit [Azure Native in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/)
+or for detailed API reference documentation, visit [Azure Native API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).
