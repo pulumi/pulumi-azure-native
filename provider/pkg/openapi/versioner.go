@@ -158,6 +158,7 @@ var cutoffProviderVersions = map[string]string{
 	"peering":                       "v20210101",
 	"policyinsights":                "v20190701",
 	"purview":                       "v20201201preview",
+	"quantum":                       "v20191104preview",
 	"recoveryservices":              "v20210201preview",
 	"security":                      "v20200101preview",
 	"securityinsights":              "v20210301preview",
@@ -183,6 +184,9 @@ var cutoffProviderVersions = map[string]string{
 }
 
 var lockedTypeVersions = map[string]string{
+	"azure-native:authorization:getRoleManagementPolicyAssignment": "v20201001preview",
+	"azure-native:authorization:RoleManagementPolicyAssignment":    "v20201001preview",
+
 	"cache:FirewallRule":  "v20200601",
 	"cache:LinkedServer":  "v20200601",
 	"cache:PatchSchedule": "v20200601",
