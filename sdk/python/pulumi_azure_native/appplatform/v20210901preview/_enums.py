@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'ManagedIdentityType',
     'RuntimeVersion',
+    'StorageType',
+    'Type',
     'UserSourceType',
 ]
 
@@ -28,6 +30,20 @@ class RuntimeVersion(str, Enum):
     JAVA_8 = "Java_8"
     JAVA_11 = "Java_11"
     NET_CORE_31 = "NetCore_31"
+
+
+class StorageType(str, Enum):
+    """
+    The type of the storage.
+    """
+    STORAGE_ACCOUNT = "StorageAccount"
+
+
+class Type(str, Enum):
+    """
+    The type of the underlying resource to mount as a persistent disk.
+    """
+    AZURE_FILE_VOLUME = "AzureFileVolume"
 
 
 class UserSourceType(str, Enum):

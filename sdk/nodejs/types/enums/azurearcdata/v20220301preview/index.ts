@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccountProvisioningMode = {
+    Automatic: "automatic",
+    Manual: "manual",
+} as const;
+
+/**
+ * The service account provisioning mode for this Active Directory connector.
+ */
+export type AccountProvisioningMode = (typeof AccountProvisioningMode)[keyof typeof AccountProvisioningMode];
+
 export const ArcSqlManagedInstanceLicenseType = {
     BasePrice: "BasePrice",
     LicenseIncluded: "LicenseIncluded",

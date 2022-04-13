@@ -21,7 +21,7 @@ class GetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, channel_integrity_key_name=None, channel_integrity_key_version=None, client_secret_store_id=None, client_secret_store_url=None, device_secrets=None, encryption_key=None, encryption_key_thumbprint=None, id=None, key_vault_sync_status=None, name=None, resource_key=None, type=None):
+    def __init__(__self__, channel_integrity_key_name=None, channel_integrity_key_version=None, client_secret_store_id=None, client_secret_store_url=None, cloud_witness_container_name=None, cloud_witness_storage_account_name=None, cloud_witness_storage_endpoint=None, cluster_witness_type=None, device_secrets=None, encryption_key=None, encryption_key_thumbprint=None, file_share_witness_location=None, file_share_witness_username=None, id=None, key_vault_sync_status=None, name=None, resource_key=None, type=None):
         if channel_integrity_key_name and not isinstance(channel_integrity_key_name, str):
             raise TypeError("Expected argument 'channel_integrity_key_name' to be a str")
         pulumi.set(__self__, "channel_integrity_key_name", channel_integrity_key_name)
@@ -34,6 +34,18 @@ class GetDeviceExtendedInformationResult:
         if client_secret_store_url and not isinstance(client_secret_store_url, str):
             raise TypeError("Expected argument 'client_secret_store_url' to be a str")
         pulumi.set(__self__, "client_secret_store_url", client_secret_store_url)
+        if cloud_witness_container_name and not isinstance(cloud_witness_container_name, str):
+            raise TypeError("Expected argument 'cloud_witness_container_name' to be a str")
+        pulumi.set(__self__, "cloud_witness_container_name", cloud_witness_container_name)
+        if cloud_witness_storage_account_name and not isinstance(cloud_witness_storage_account_name, str):
+            raise TypeError("Expected argument 'cloud_witness_storage_account_name' to be a str")
+        pulumi.set(__self__, "cloud_witness_storage_account_name", cloud_witness_storage_account_name)
+        if cloud_witness_storage_endpoint and not isinstance(cloud_witness_storage_endpoint, str):
+            raise TypeError("Expected argument 'cloud_witness_storage_endpoint' to be a str")
+        pulumi.set(__self__, "cloud_witness_storage_endpoint", cloud_witness_storage_endpoint)
+        if cluster_witness_type and not isinstance(cluster_witness_type, str):
+            raise TypeError("Expected argument 'cluster_witness_type' to be a str")
+        pulumi.set(__self__, "cluster_witness_type", cluster_witness_type)
         if device_secrets and not isinstance(device_secrets, dict):
             raise TypeError("Expected argument 'device_secrets' to be a dict")
         pulumi.set(__self__, "device_secrets", device_secrets)
@@ -43,6 +55,12 @@ class GetDeviceExtendedInformationResult:
         if encryption_key_thumbprint and not isinstance(encryption_key_thumbprint, str):
             raise TypeError("Expected argument 'encryption_key_thumbprint' to be a str")
         pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
+        if file_share_witness_location and not isinstance(file_share_witness_location, str):
+            raise TypeError("Expected argument 'file_share_witness_location' to be a str")
+        pulumi.set(__self__, "file_share_witness_location", file_share_witness_location)
+        if file_share_witness_username and not isinstance(file_share_witness_username, str):
+            raise TypeError("Expected argument 'file_share_witness_username' to be a str")
+        pulumi.set(__self__, "file_share_witness_username", file_share_witness_username)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -92,6 +110,38 @@ class GetDeviceExtendedInformationResult:
         return pulumi.get(self, "client_secret_store_url")
 
     @property
+    @pulumi.getter(name="cloudWitnessContainerName")
+    def cloud_witness_container_name(self) -> str:
+        """
+        The Container for cloud witness in the storage account.
+        """
+        return pulumi.get(self, "cloud_witness_container_name")
+
+    @property
+    @pulumi.getter(name="cloudWitnessStorageAccountName")
+    def cloud_witness_storage_account_name(self) -> str:
+        """
+        The Cloud Witness Storage account name.
+        """
+        return pulumi.get(self, "cloud_witness_storage_account_name")
+
+    @property
+    @pulumi.getter(name="cloudWitnessStorageEndpoint")
+    def cloud_witness_storage_endpoint(self) -> str:
+        """
+        The Azure service endpoint of the cloud witness storage account.
+        """
+        return pulumi.get(self, "cloud_witness_storage_endpoint")
+
+    @property
+    @pulumi.getter(name="clusterWitnessType")
+    def cluster_witness_type(self) -> str:
+        """
+        Cluster Witness Type
+        """
+        return pulumi.get(self, "cluster_witness_type")
+
+    @property
     @pulumi.getter(name="deviceSecrets")
     def device_secrets(self) -> Mapping[str, 'outputs.SecretResponse']:
         """
@@ -114,6 +164,22 @@ class GetDeviceExtendedInformationResult:
         The digital signature of encrypted certificate.
         """
         return pulumi.get(self, "encryption_key_thumbprint")
+
+    @property
+    @pulumi.getter(name="fileShareWitnessLocation")
+    def file_share_witness_location(self) -> str:
+        """
+        The witness location of file share.
+        """
+        return pulumi.get(self, "file_share_witness_location")
+
+    @property
+    @pulumi.getter(name="fileShareWitnessUsername")
+    def file_share_witness_username(self) -> str:
+        """
+        The username of file share.
+        """
+        return pulumi.get(self, "file_share_witness_username")
 
     @property
     @pulumi.getter
@@ -166,9 +232,15 @@ class AwaitableGetDeviceExtendedInformationResult(GetDeviceExtendedInformationRe
             channel_integrity_key_version=self.channel_integrity_key_version,
             client_secret_store_id=self.client_secret_store_id,
             client_secret_store_url=self.client_secret_store_url,
+            cloud_witness_container_name=self.cloud_witness_container_name,
+            cloud_witness_storage_account_name=self.cloud_witness_storage_account_name,
+            cloud_witness_storage_endpoint=self.cloud_witness_storage_endpoint,
+            cluster_witness_type=self.cluster_witness_type,
             device_secrets=self.device_secrets,
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
+            file_share_witness_location=self.file_share_witness_location,
+            file_share_witness_username=self.file_share_witness_username,
             id=self.id,
             key_vault_sync_status=self.key_vault_sync_status,
             name=self.name,
@@ -200,9 +272,15 @@ def get_device_extended_information(device_name: Optional[str] = None,
         channel_integrity_key_version=__ret__.channel_integrity_key_version,
         client_secret_store_id=__ret__.client_secret_store_id,
         client_secret_store_url=__ret__.client_secret_store_url,
+        cloud_witness_container_name=__ret__.cloud_witness_container_name,
+        cloud_witness_storage_account_name=__ret__.cloud_witness_storage_account_name,
+        cloud_witness_storage_endpoint=__ret__.cloud_witness_storage_endpoint,
+        cluster_witness_type=__ret__.cluster_witness_type,
         device_secrets=__ret__.device_secrets,
         encryption_key=__ret__.encryption_key,
         encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
+        file_share_witness_location=__ret__.file_share_witness_location,
+        file_share_witness_username=__ret__.file_share_witness_username,
         id=__ret__.id,
         key_vault_sync_status=__ret__.key_vault_sync_status,
         name=__ret__.name,

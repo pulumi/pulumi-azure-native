@@ -76,6 +76,8 @@ type LookupScheduledAlertRuleResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
+	// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+	TemplateVersion *string `pulumi:"templateVersion"`
 	// The operation against the threshold that triggers alert rule.
 	TriggerOperator string `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
@@ -234,6 +236,11 @@ func (o LookupScheduledAlertRuleResultOutput) SystemData() SystemDataResponseOut
 // The tactics of the alert rule
 func (o LookupScheduledAlertRuleResultOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupScheduledAlertRuleResult) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+func (o LookupScheduledAlertRuleResultOutput) TemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScheduledAlertRuleResult) *string { return v.TemplateVersion }).(pulumi.StringPtrOutput)
 }
 
 // The operation against the threshold that triggers alert rule.

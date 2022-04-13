@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Inputs
 {
 
     /// <summary>
-    /// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+    /// The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
     /// </summary>
     public sealed class AutomationActionLogicAppArgs : Pulumi.ResourceArgs
     {

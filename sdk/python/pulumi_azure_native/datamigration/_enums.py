@@ -9,6 +9,7 @@ __all__ = [
     'BackupMode',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
+    'ResourceType',
     'ServerLevelPermissionsGroup',
     'SqlSourcePlatform',
 ]
@@ -47,6 +48,12 @@ class ProjectTargetPlatform(str, Enum):
     """
     SQLDB = "SQLDB"
     UNKNOWN = "Unknown"
+
+
+class ResourceType(str, Enum):
+    SQL_MI = "SqlMi"
+    SQL_VM = "SqlVm"
+    SQL_DB = "SqlDb"
 
 
 class ServerLevelPermissionsGroup(str, Enum):

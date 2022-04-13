@@ -37,7 +37,8 @@ class ScheduledAlertRuleArgs:
                  event_grouping_settings: Optional[pulumi.Input['EventGroupingSettingsArgs']] = None,
                  incident_configuration: Optional[pulumi.Input['IncidentConfigurationArgs']] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None):
+                 tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScheduledAlertRule resource.
         :param pulumi.Input[str] display_name: The display name for alerts created by this alert rule.
@@ -63,6 +64,7 @@ class ScheduledAlertRuleArgs:
         :param pulumi.Input['IncidentConfigurationArgs'] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the alert rule
+        :param pulumi.Input[str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "enabled", enabled)
@@ -95,6 +97,8 @@ class ScheduledAlertRuleArgs:
             pulumi.set(__self__, "rule_id", rule_id)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
+        if template_version is not None:
+            pulumi.set(__self__, "template_version", template_version)
 
     @property
     @pulumi.getter(name="displayName")
@@ -361,6 +365,18 @@ class ScheduledAlertRuleArgs:
     def tactics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]]):
         pulumi.set(self, "tactics", value)
 
+    @property
+    @pulumi.getter(name="templateVersion")
+    def template_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+        """
+        return pulumi.get(self, "template_version")
+
+    @template_version.setter
+    def template_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_version", value)
+
 
 class ScheduledAlertRule(pulumi.CustomResource):
     @overload
@@ -386,6 +402,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None,
                  trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
                  trigger_threshold: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -415,6 +432,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] suppression_duration: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
         :param pulumi.Input[bool] suppression_enabled: Determines whether the suppression for this alert rule is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] tactics: The tactics of the alert rule
+        :param pulumi.Input[str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
         :param pulumi.Input['TriggerOperator'] trigger_operator: The operation against the threshold that triggers alert rule.
         :param pulumi.Input[int] trigger_threshold: The threshold triggers this alert rule.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -462,6 +480,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  suppression_duration: Optional[pulumi.Input[str]] = None,
                  suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]]] = None,
+                 template_version: Optional[pulumi.Input[str]] = None,
                  trigger_operator: Optional[pulumi.Input['TriggerOperator']] = None,
                  trigger_threshold: Optional[pulumi.Input[int]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -516,6 +535,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'suppression_enabled'")
             __props__.__dict__["suppression_enabled"] = suppression_enabled
             __props__.__dict__["tactics"] = tactics
+            __props__.__dict__["template_version"] = template_version
             if trigger_operator is None and not opts.urn:
                 raise TypeError("Missing required property 'trigger_operator'")
             __props__.__dict__["trigger_operator"] = trigger_operator
@@ -575,6 +595,7 @@ class ScheduledAlertRule(pulumi.CustomResource):
         __props__.__dict__["suppression_enabled"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tactics"] = None
+        __props__.__dict__["template_version"] = None
         __props__.__dict__["trigger_operator"] = None
         __props__.__dict__["trigger_threshold"] = None
         __props__.__dict__["type"] = None
@@ -748,6 +769,14 @@ class ScheduledAlertRule(pulumi.CustomResource):
         The tactics of the alert rule
         """
         return pulumi.get(self, "tactics")
+
+    @property
+    @pulumi.getter(name="templateVersion")
+    def template_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+        """
+        return pulumi.get(self, "template_version")
 
     @property
     @pulumi.getter(name="triggerOperator")

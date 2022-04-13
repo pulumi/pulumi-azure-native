@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:TagByOperation"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:TagByOperation"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:TagByOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

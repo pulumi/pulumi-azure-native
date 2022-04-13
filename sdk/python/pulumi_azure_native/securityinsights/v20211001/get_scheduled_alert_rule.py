@@ -21,7 +21,7 @@ class GetScheduledAlertRuleResult:
     """
     Represents scheduled alert rule.
     """
-    def __init__(__self__, alert_details_override=None, alert_rule_template_name=None, custom_details=None, description=None, display_name=None, enabled=None, entity_mappings=None, etag=None, event_grouping_settings=None, id=None, incident_configuration=None, kind=None, last_modified_utc=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, system_data=None, tactics=None, trigger_operator=None, trigger_threshold=None, type=None):
+    def __init__(__self__, alert_details_override=None, alert_rule_template_name=None, custom_details=None, description=None, display_name=None, enabled=None, entity_mappings=None, etag=None, event_grouping_settings=None, id=None, incident_configuration=None, kind=None, last_modified_utc=None, name=None, query=None, query_frequency=None, query_period=None, severity=None, suppression_duration=None, suppression_enabled=None, system_data=None, tactics=None, template_version=None, trigger_operator=None, trigger_threshold=None, type=None):
         if alert_details_override and not isinstance(alert_details_override, dict):
             raise TypeError("Expected argument 'alert_details_override' to be a dict")
         pulumi.set(__self__, "alert_details_override", alert_details_override)
@@ -88,6 +88,9 @@ class GetScheduledAlertRuleResult:
         if tactics and not isinstance(tactics, list):
             raise TypeError("Expected argument 'tactics' to be a list")
         pulumi.set(__self__, "tactics", tactics)
+        if template_version and not isinstance(template_version, str):
+            raise TypeError("Expected argument 'template_version' to be a str")
+        pulumi.set(__self__, "template_version", template_version)
         if trigger_operator and not isinstance(trigger_operator, str):
             raise TypeError("Expected argument 'trigger_operator' to be a str")
         pulumi.set(__self__, "trigger_operator", trigger_operator)
@@ -276,6 +279,14 @@ class GetScheduledAlertRuleResult:
         return pulumi.get(self, "tactics")
 
     @property
+    @pulumi.getter(name="templateVersion")
+    def template_version(self) -> Optional[str]:
+        """
+        The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+        """
+        return pulumi.get(self, "template_version")
+
+    @property
     @pulumi.getter(name="triggerOperator")
     def trigger_operator(self) -> str:
         """
@@ -328,6 +339,7 @@ class AwaitableGetScheduledAlertRuleResult(GetScheduledAlertRuleResult):
             suppression_enabled=self.suppression_enabled,
             system_data=self.system_data,
             tactics=self.tactics,
+            template_version=self.template_version,
             trigger_operator=self.trigger_operator,
             trigger_threshold=self.trigger_threshold,
             type=self.type)
@@ -378,6 +390,7 @@ def get_scheduled_alert_rule(resource_group_name: Optional[str] = None,
         suppression_enabled=__ret__.suppression_enabled,
         system_data=__ret__.system_data,
         tactics=__ret__.tactics,
+        template_version=__ret__.template_version,
         trigger_operator=__ret__.trigger_operator,
         trigger_threshold=__ret__.trigger_threshold,
         type=__ret__.type)

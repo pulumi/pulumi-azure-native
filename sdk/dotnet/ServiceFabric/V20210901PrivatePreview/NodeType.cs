@@ -203,6 +203,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210901PrivatePreview
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20220101:NodeType"},
+                    new Pulumi.Alias { Type = "azure-native:servicefabric/v20220201preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

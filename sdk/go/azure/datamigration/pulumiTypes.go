@@ -812,6 +812,122 @@ func (val *ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse) Defaults() *Connec
 	return &tmp
 }
 
+// Details on progress of ADF copy activity
+type CopyProgressDetailsResponse struct {
+	// Copy Duration in seconds
+	CopyDuration int `pulumi:"copyDuration"`
+	// Copy Start
+	CopyStart string `pulumi:"copyStart"`
+	// Copy throughput in KBps
+	CopyThroughput float64 `pulumi:"copyThroughput"`
+	// Bytes read
+	DataRead float64 `pulumi:"dataRead"`
+	// Bytes written
+	DataWritten float64 `pulumi:"dataWritten"`
+	// Type of parallel copy (Dynamic range, Physical partition, none).
+	ParallelCopyType string `pulumi:"parallelCopyType"`
+	// Rows Copied
+	RowsCopied float64 `pulumi:"rowsCopied"`
+	// Rows read
+	RowsRead float64 `pulumi:"rowsRead"`
+	// Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
+	Status string `pulumi:"status"`
+	// Table Name
+	TableName string `pulumi:"tableName"`
+	// The degree of parallelization.
+	UsedParallelCopies int `pulumi:"usedParallelCopies"`
+}
+
+// Details on progress of ADF copy activity
+type CopyProgressDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (CopyProgressDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyProgressDetailsResponse)(nil)).Elem()
+}
+
+func (o CopyProgressDetailsResponseOutput) ToCopyProgressDetailsResponseOutput() CopyProgressDetailsResponseOutput {
+	return o
+}
+
+func (o CopyProgressDetailsResponseOutput) ToCopyProgressDetailsResponseOutputWithContext(ctx context.Context) CopyProgressDetailsResponseOutput {
+	return o
+}
+
+// Copy Duration in seconds
+func (o CopyProgressDetailsResponseOutput) CopyDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) int { return v.CopyDuration }).(pulumi.IntOutput)
+}
+
+// Copy Start
+func (o CopyProgressDetailsResponseOutput) CopyStart() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.CopyStart }).(pulumi.StringOutput)
+}
+
+// Copy throughput in KBps
+func (o CopyProgressDetailsResponseOutput) CopyThroughput() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.CopyThroughput }).(pulumi.Float64Output)
+}
+
+// Bytes read
+func (o CopyProgressDetailsResponseOutput) DataRead() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.DataRead }).(pulumi.Float64Output)
+}
+
+// Bytes written
+func (o CopyProgressDetailsResponseOutput) DataWritten() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.DataWritten }).(pulumi.Float64Output)
+}
+
+// Type of parallel copy (Dynamic range, Physical partition, none).
+func (o CopyProgressDetailsResponseOutput) ParallelCopyType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.ParallelCopyType }).(pulumi.StringOutput)
+}
+
+// Rows Copied
+func (o CopyProgressDetailsResponseOutput) RowsCopied() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.RowsCopied }).(pulumi.Float64Output)
+}
+
+// Rows read
+func (o CopyProgressDetailsResponseOutput) RowsRead() pulumi.Float64Output {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) float64 { return v.RowsRead }).(pulumi.Float64Output)
+}
+
+// Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
+func (o CopyProgressDetailsResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Table Name
+func (o CopyProgressDetailsResponseOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The degree of parallelization.
+func (o CopyProgressDetailsResponseOutput) UsedParallelCopies() pulumi.IntOutput {
+	return o.ApplyT(func(v CopyProgressDetailsResponse) int { return v.UsedParallelCopies }).(pulumi.IntOutput)
+}
+
+type CopyProgressDetailsResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CopyProgressDetailsResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CopyProgressDetailsResponse)(nil)).Elem()
+}
+
+func (o CopyProgressDetailsResponseArrayOutput) ToCopyProgressDetailsResponseArrayOutput() CopyProgressDetailsResponseArrayOutput {
+	return o
+}
+
+func (o CopyProgressDetailsResponseArrayOutput) ToCopyProgressDetailsResponseArrayOutputWithContext(ctx context.Context) CopyProgressDetailsResponseArrayOutput {
+	return o
+}
+
+func (o CopyProgressDetailsResponseArrayOutput) Index(i pulumi.IntInput) CopyProgressDetailsResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CopyProgressDetailsResponse {
+		return vs[0].([]CopyProgressDetailsResponse)[vs[1].(int)]
+	}).(CopyProgressDetailsResponseOutput)
+}
+
 // Results for checksum based Data Integrity validation results
 type DataIntegrityValidationResultResponse struct {
 	// List of failed table names of source and target pair
@@ -1026,6 +1142,470 @@ func (o DatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) DatabaseInfoRe
 	}).(DatabaseInfoResponseOutput)
 }
 
+// Database Migration Resource properties for SQL database.
+type DatabaseMigrationPropertiesSqlDb struct {
+	// Expected value is 'SqlDb'.
+	Kind string `pulumi:"kind"`
+	// ID tracking current migration operation.
+	MigrationOperationId *string `pulumi:"migrationOperationId"`
+	// Resource Id of the Migration Service.
+	MigrationService *string `pulumi:"migrationService"`
+	// Error message for migration provisioning failure, if any.
+	ProvisioningError *string `pulumi:"provisioningError"`
+	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+	Scope *string `pulumi:"scope"`
+	// Name of the source database.
+	SourceDatabaseName *string `pulumi:"sourceDatabaseName"`
+	// Source SQL Server connection details.
+	SourceSqlConnection *SqlConnectionInformation `pulumi:"sourceSqlConnection"`
+	// List of tables to copy.
+	TableList []string `pulumi:"tableList"`
+	// Database collation to be used for the target database.
+	TargetDatabaseCollation *string `pulumi:"targetDatabaseCollation"`
+	// Target SQL DB connection details.
+	TargetSqlConnection *SqlConnectionInformation `pulumi:"targetSqlConnection"`
+}
+
+// DatabaseMigrationPropertiesSqlDbInput is an input type that accepts DatabaseMigrationPropertiesSqlDbArgs and DatabaseMigrationPropertiesSqlDbOutput values.
+// You can construct a concrete instance of `DatabaseMigrationPropertiesSqlDbInput` via:
+//
+//          DatabaseMigrationPropertiesSqlDbArgs{...}
+type DatabaseMigrationPropertiesSqlDbInput interface {
+	pulumi.Input
+
+	ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput
+	ToDatabaseMigrationPropertiesSqlDbOutputWithContext(context.Context) DatabaseMigrationPropertiesSqlDbOutput
+}
+
+// Database Migration Resource properties for SQL database.
+type DatabaseMigrationPropertiesSqlDbArgs struct {
+	// Expected value is 'SqlDb'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// ID tracking current migration operation.
+	MigrationOperationId pulumi.StringPtrInput `pulumi:"migrationOperationId"`
+	// Resource Id of the Migration Service.
+	MigrationService pulumi.StringPtrInput `pulumi:"migrationService"`
+	// Error message for migration provisioning failure, if any.
+	ProvisioningError pulumi.StringPtrInput `pulumi:"provisioningError"`
+	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Name of the source database.
+	SourceDatabaseName pulumi.StringPtrInput `pulumi:"sourceDatabaseName"`
+	// Source SQL Server connection details.
+	SourceSqlConnection SqlConnectionInformationPtrInput `pulumi:"sourceSqlConnection"`
+	// List of tables to copy.
+	TableList pulumi.StringArrayInput `pulumi:"tableList"`
+	// Database collation to be used for the target database.
+	TargetDatabaseCollation pulumi.StringPtrInput `pulumi:"targetDatabaseCollation"`
+	// Target SQL DB connection details.
+	TargetSqlConnection SqlConnectionInformationPtrInput `pulumi:"targetSqlConnection"`
+}
+
+func (DatabaseMigrationPropertiesSqlDbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
+}
+
+func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput {
+	return i.ToDatabaseMigrationPropertiesSqlDbOutputWithContext(context.Background())
+}
+
+func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbOutput)
+}
+
+func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return i.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseMigrationPropertiesSqlDbArgs) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbOutput).ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx)
+}
+
+// DatabaseMigrationPropertiesSqlDbPtrInput is an input type that accepts DatabaseMigrationPropertiesSqlDbArgs, DatabaseMigrationPropertiesSqlDbPtr and DatabaseMigrationPropertiesSqlDbPtrOutput values.
+// You can construct a concrete instance of `DatabaseMigrationPropertiesSqlDbPtrInput` via:
+//
+//          DatabaseMigrationPropertiesSqlDbArgs{...}
+//
+//  or:
+//
+//          nil
+type DatabaseMigrationPropertiesSqlDbPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput
+	ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput
+}
+
+type databaseMigrationPropertiesSqlDbPtrType DatabaseMigrationPropertiesSqlDbArgs
+
+func DatabaseMigrationPropertiesSqlDbPtr(v *DatabaseMigrationPropertiesSqlDbArgs) DatabaseMigrationPropertiesSqlDbPtrInput {
+	return (*databaseMigrationPropertiesSqlDbPtrType)(v)
+}
+
+func (*databaseMigrationPropertiesSqlDbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
+}
+
+func (i *databaseMigrationPropertiesSqlDbPtrType) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return i.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseMigrationPropertiesSqlDbPtrType) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseMigrationPropertiesSqlDbPtrOutput)
+}
+
+// Database Migration Resource properties for SQL database.
+type DatabaseMigrationPropertiesSqlDbOutput struct{ *pulumi.OutputState }
+
+func (DatabaseMigrationPropertiesSqlDbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
+}
+
+func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbOutput() DatabaseMigrationPropertiesSqlDbOutput {
+	return o
+}
+
+func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbOutput {
+	return o
+}
+
+func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return o.ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseMigrationPropertiesSqlDbOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseMigrationPropertiesSqlDb) *DatabaseMigrationPropertiesSqlDb {
+		return &v
+	}).(DatabaseMigrationPropertiesSqlDbPtrOutput)
+}
+
+// Expected value is 'SqlDb'.
+func (o DatabaseMigrationPropertiesSqlDbOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// ID tracking current migration operation.
+func (o DatabaseMigrationPropertiesSqlDbOutput) MigrationOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.MigrationOperationId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the Migration Service.
+func (o DatabaseMigrationPropertiesSqlDbOutput) MigrationService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.MigrationService }).(pulumi.StringPtrOutput)
+}
+
+// Error message for migration provisioning failure, if any.
+func (o DatabaseMigrationPropertiesSqlDbOutput) ProvisioningError() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.ProvisioningError }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+func (o DatabaseMigrationPropertiesSqlDbOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Name of the source database.
+func (o DatabaseMigrationPropertiesSqlDbOutput) SourceDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.SourceDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Source SQL Server connection details.
+func (o DatabaseMigrationPropertiesSqlDbOutput) SourceSqlConnection() SqlConnectionInformationPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation { return v.SourceSqlConnection }).(SqlConnectionInformationPtrOutput)
+}
+
+// List of tables to copy.
+func (o DatabaseMigrationPropertiesSqlDbOutput) TableList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) []string { return v.TableList }).(pulumi.StringArrayOutput)
+}
+
+// Database collation to be used for the target database.
+func (o DatabaseMigrationPropertiesSqlDbOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *string { return v.TargetDatabaseCollation }).(pulumi.StringPtrOutput)
+}
+
+// Target SQL DB connection details.
+func (o DatabaseMigrationPropertiesSqlDbOutput) TargetSqlConnection() SqlConnectionInformationPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation { return v.TargetSqlConnection }).(SqlConnectionInformationPtrOutput)
+}
+
+type DatabaseMigrationPropertiesSqlDbPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseMigrationPropertiesSqlDbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseMigrationPropertiesSqlDb)(nil)).Elem()
+}
+
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutput() DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return o
+}
+
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ToDatabaseMigrationPropertiesSqlDbPtrOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbPtrOutput {
+	return o
+}
+
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Elem() DatabaseMigrationPropertiesSqlDbOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) DatabaseMigrationPropertiesSqlDb {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseMigrationPropertiesSqlDb
+		return ret
+	}).(DatabaseMigrationPropertiesSqlDbOutput)
+}
+
+// Expected value is 'SqlDb'.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID tracking current migration operation.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) MigrationOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationOperationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the Migration Service.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) MigrationService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MigrationService
+	}).(pulumi.StringPtrOutput)
+}
+
+// Error message for migration provisioning failure, if any.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) ProvisioningError() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningError
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the source database.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) SourceDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceDatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source SQL Server connection details.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) SourceSqlConnection() SqlConnectionInformationPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation {
+		if v == nil {
+			return nil
+		}
+		return v.SourceSqlConnection
+	}).(SqlConnectionInformationPtrOutput)
+}
+
+// List of tables to copy.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TableList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TableList
+	}).(pulumi.StringArrayOutput)
+}
+
+// Database collation to be used for the target database.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetDatabaseCollation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target SQL DB connection details.
+func (o DatabaseMigrationPropertiesSqlDbPtrOutput) TargetSqlConnection() SqlConnectionInformationPtrOutput {
+	return o.ApplyT(func(v *DatabaseMigrationPropertiesSqlDb) *SqlConnectionInformation {
+		if v == nil {
+			return nil
+		}
+		return v.TargetSqlConnection
+	}).(SqlConnectionInformationPtrOutput)
+}
+
+// Database Migration Resource properties for SQL database.
+type DatabaseMigrationPropertiesSqlDbResponse struct {
+	// Database migration end time.
+	EndedOn string `pulumi:"endedOn"`
+	// Expected value is 'SqlDb'.
+	Kind string `pulumi:"kind"`
+	// Error details in case of migration failure.
+	MigrationFailureError ErrorInfoResponse `pulumi:"migrationFailureError"`
+	// ID tracking current migration operation.
+	MigrationOperationId *string `pulumi:"migrationOperationId"`
+	// Resource Id of the Migration Service.
+	MigrationService *string `pulumi:"migrationService"`
+	// Migration status.
+	MigrationStatus string `pulumi:"migrationStatus"`
+	// Detailed migration status. Not included by default.
+	MigrationStatusDetails SqlDbMigrationStatusDetailsResponse `pulumi:"migrationStatusDetails"`
+	// Offline configuration.
+	OfflineConfiguration SqlDbOfflineConfigurationResponse `pulumi:"offlineConfiguration"`
+	// Error message for migration provisioning failure, if any.
+	ProvisioningError *string `pulumi:"provisioningError"`
+	// Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+	Scope *string `pulumi:"scope"`
+	// Name of the source database.
+	SourceDatabaseName *string `pulumi:"sourceDatabaseName"`
+	// Name of the source sql server.
+	SourceServerName string `pulumi:"sourceServerName"`
+	// Source SQL Server connection details.
+	SourceSqlConnection *SqlConnectionInformationResponse `pulumi:"sourceSqlConnection"`
+	// Database migration start time.
+	StartedOn string `pulumi:"startedOn"`
+	// List of tables to copy.
+	TableList []string `pulumi:"tableList"`
+	// Database collation to be used for the target database.
+	TargetDatabaseCollation *string `pulumi:"targetDatabaseCollation"`
+	// Target SQL DB connection details.
+	TargetSqlConnection *SqlConnectionInformationResponse `pulumi:"targetSqlConnection"`
+}
+
+// Database Migration Resource properties for SQL database.
+type DatabaseMigrationPropertiesSqlDbResponseOutput struct{ *pulumi.OutputState }
+
+func (DatabaseMigrationPropertiesSqlDbResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseMigrationPropertiesSqlDbResponse)(nil)).Elem()
+}
+
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ToDatabaseMigrationPropertiesSqlDbResponseOutput() DatabaseMigrationPropertiesSqlDbResponseOutput {
+	return o
+}
+
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ToDatabaseMigrationPropertiesSqlDbResponseOutputWithContext(ctx context.Context) DatabaseMigrationPropertiesSqlDbResponseOutput {
+	return o
+}
+
+// Database migration end time.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) EndedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.EndedOn }).(pulumi.StringOutput)
+}
+
+// Expected value is 'SqlDb'.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Error details in case of migration failure.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationFailureError() ErrorInfoResponseOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) ErrorInfoResponse { return v.MigrationFailureError }).(ErrorInfoResponseOutput)
+}
+
+// ID tracking current migration operation.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationOperationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.MigrationOperationId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of the Migration Service.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.MigrationService }).(pulumi.StringPtrOutput)
+}
+
+// Migration status.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.MigrationStatus }).(pulumi.StringOutput)
+}
+
+// Detailed migration status. Not included by default.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) MigrationStatusDetails() SqlDbMigrationStatusDetailsResponseOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) SqlDbMigrationStatusDetailsResponse {
+		return v.MigrationStatusDetails
+	}).(SqlDbMigrationStatusDetailsResponseOutput)
+}
+
+// Offline configuration.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) OfflineConfiguration() SqlDbOfflineConfigurationResponseOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) SqlDbOfflineConfigurationResponse {
+		return v.OfflineConfiguration
+	}).(SqlDbOfflineConfigurationResponseOutput)
+}
+
+// Error message for migration provisioning failure, if any.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ProvisioningError() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.ProvisioningError }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Name of the source database.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceDatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.SourceDatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the source sql server.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.SourceServerName }).(pulumi.StringOutput)
+}
+
+// Source SQL Server connection details.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) SourceSqlConnection() SqlConnectionInformationResponsePtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *SqlConnectionInformationResponse {
+		return v.SourceSqlConnection
+	}).(SqlConnectionInformationResponsePtrOutput)
+}
+
+// Database migration start time.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) StartedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) string { return v.StartedOn }).(pulumi.StringOutput)
+}
+
+// List of tables to copy.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TableList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) []string { return v.TableList }).(pulumi.StringArrayOutput)
+}
+
+// Database collation to be used for the target database.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TargetDatabaseCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *string { return v.TargetDatabaseCollation }).(pulumi.StringPtrOutput)
+}
+
+// Target SQL DB connection details.
+func (o DatabaseMigrationPropertiesSqlDbResponseOutput) TargetSqlConnection() SqlConnectionInformationResponsePtrOutput {
+	return o.ApplyT(func(v DatabaseMigrationPropertiesSqlDbResponse) *SqlConnectionInformationResponse {
+		return v.TargetSqlConnection
+	}).(SqlConnectionInformationResponsePtrOutput)
+}
+
 // Summary of database results in the migration
 type DatabaseSummaryResultResponse struct {
 	// Migration end time
@@ -1056,6 +1636,39 @@ type DatabaseTableResponse struct {
 	HasRows bool `pulumi:"hasRows"`
 	// Schema-qualified name of the table
 	Name string `pulumi:"name"`
+}
+
+// Error details
+type ErrorInfoResponse struct {
+	// Error code.
+	Code string `pulumi:"code"`
+	// Error message.
+	Message string `pulumi:"message"`
+}
+
+// Error details
+type ErrorInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorInfoResponse)(nil)).Elem()
+}
+
+func (o ErrorInfoResponseOutput) ToErrorInfoResponseOutput() ErrorInfoResponseOutput {
+	return o
+}
+
+func (o ErrorInfoResponseOutput) ToErrorInfoResponseOutputWithContext(ctx context.Context) ErrorInfoResponseOutput {
+	return o
+}
+
+// Error code.
+func (o ErrorInfoResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// Error message.
+func (o ErrorInfoResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
 }
 
 // Description about the errors happen while performing migration validation
@@ -3784,6 +4397,454 @@ func (val *SqlConnectionInfoResponse) Defaults() *SqlConnectionInfoResponse {
 	return &tmp
 }
 
+// Source SQL Connection
+type SqlConnectionInformation struct {
+	// Authentication type.
+	Authentication *string `pulumi:"authentication"`
+	// Data source.
+	DataSource *string `pulumi:"dataSource"`
+	// Whether to encrypt connection or not.
+	EncryptConnection *bool `pulumi:"encryptConnection"`
+	// Password to connect to source SQL.
+	Password *string `pulumi:"password"`
+	// Whether to trust server certificate or not.
+	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
+	// User name to connect to source SQL.
+	UserName *string `pulumi:"userName"`
+}
+
+// SqlConnectionInformationInput is an input type that accepts SqlConnectionInformationArgs and SqlConnectionInformationOutput values.
+// You can construct a concrete instance of `SqlConnectionInformationInput` via:
+//
+//          SqlConnectionInformationArgs{...}
+type SqlConnectionInformationInput interface {
+	pulumi.Input
+
+	ToSqlConnectionInformationOutput() SqlConnectionInformationOutput
+	ToSqlConnectionInformationOutputWithContext(context.Context) SqlConnectionInformationOutput
+}
+
+// Source SQL Connection
+type SqlConnectionInformationArgs struct {
+	// Authentication type.
+	Authentication pulumi.StringPtrInput `pulumi:"authentication"`
+	// Data source.
+	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
+	// Whether to encrypt connection or not.
+	EncryptConnection pulumi.BoolPtrInput `pulumi:"encryptConnection"`
+	// Password to connect to source SQL.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// Whether to trust server certificate or not.
+	TrustServerCertificate pulumi.BoolPtrInput `pulumi:"trustServerCertificate"`
+	// User name to connect to source SQL.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (SqlConnectionInformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlConnectionInformation)(nil)).Elem()
+}
+
+func (i SqlConnectionInformationArgs) ToSqlConnectionInformationOutput() SqlConnectionInformationOutput {
+	return i.ToSqlConnectionInformationOutputWithContext(context.Background())
+}
+
+func (i SqlConnectionInformationArgs) ToSqlConnectionInformationOutputWithContext(ctx context.Context) SqlConnectionInformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationOutput)
+}
+
+func (i SqlConnectionInformationArgs) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
+	return i.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
+}
+
+func (i SqlConnectionInformationArgs) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationOutput).ToSqlConnectionInformationPtrOutputWithContext(ctx)
+}
+
+// SqlConnectionInformationPtrInput is an input type that accepts SqlConnectionInformationArgs, SqlConnectionInformationPtr and SqlConnectionInformationPtrOutput values.
+// You can construct a concrete instance of `SqlConnectionInformationPtrInput` via:
+//
+//          SqlConnectionInformationArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlConnectionInformationPtrInput interface {
+	pulumi.Input
+
+	ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput
+	ToSqlConnectionInformationPtrOutputWithContext(context.Context) SqlConnectionInformationPtrOutput
+}
+
+type sqlConnectionInformationPtrType SqlConnectionInformationArgs
+
+func SqlConnectionInformationPtr(v *SqlConnectionInformationArgs) SqlConnectionInformationPtrInput {
+	return (*sqlConnectionInformationPtrType)(v)
+}
+
+func (*sqlConnectionInformationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlConnectionInformation)(nil)).Elem()
+}
+
+func (i *sqlConnectionInformationPtrType) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
+	return i.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlConnectionInformationPtrType) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlConnectionInformationPtrOutput)
+}
+
+// Source SQL Connection
+type SqlConnectionInformationOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectionInformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlConnectionInformation)(nil)).Elem()
+}
+
+func (o SqlConnectionInformationOutput) ToSqlConnectionInformationOutput() SqlConnectionInformationOutput {
+	return o
+}
+
+func (o SqlConnectionInformationOutput) ToSqlConnectionInformationOutputWithContext(ctx context.Context) SqlConnectionInformationOutput {
+	return o
+}
+
+func (o SqlConnectionInformationOutput) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
+	return o.ToSqlConnectionInformationPtrOutputWithContext(context.Background())
+}
+
+func (o SqlConnectionInformationOutput) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlConnectionInformation) *SqlConnectionInformation {
+		return &v
+	}).(SqlConnectionInformationPtrOutput)
+}
+
+// Authentication type.
+func (o SqlConnectionInformationOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.Authentication }).(pulumi.StringPtrOutput)
+}
+
+// Data source.
+func (o SqlConnectionInformationOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt connection or not.
+func (o SqlConnectionInformationOutput) EncryptConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *bool { return v.EncryptConnection }).(pulumi.BoolPtrOutput)
+}
+
+// Password to connect to source SQL.
+func (o SqlConnectionInformationOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Whether to trust server certificate or not.
+func (o SqlConnectionInformationOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *bool { return v.TrustServerCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// User name to connect to source SQL.
+func (o SqlConnectionInformationOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformation) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type SqlConnectionInformationPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectionInformationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlConnectionInformation)(nil)).Elem()
+}
+
+func (o SqlConnectionInformationPtrOutput) ToSqlConnectionInformationPtrOutput() SqlConnectionInformationPtrOutput {
+	return o
+}
+
+func (o SqlConnectionInformationPtrOutput) ToSqlConnectionInformationPtrOutputWithContext(ctx context.Context) SqlConnectionInformationPtrOutput {
+	return o
+}
+
+func (o SqlConnectionInformationPtrOutput) Elem() SqlConnectionInformationOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) SqlConnectionInformation {
+		if v != nil {
+			return *v
+		}
+		var ret SqlConnectionInformation
+		return ret
+	}).(SqlConnectionInformationOutput)
+}
+
+// Authentication type.
+func (o SqlConnectionInformationPtrOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authentication
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data source.
+func (o SqlConnectionInformationPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt connection or not.
+func (o SqlConnectionInformationPtrOutput) EncryptConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptConnection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Password to connect to source SQL.
+func (o SqlConnectionInformationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to trust server certificate or not.
+func (o SqlConnectionInformationPtrOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrustServerCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// User name to connect to source SQL.
+func (o SqlConnectionInformationPtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Source SQL Connection
+type SqlConnectionInformationResponse struct {
+	// Authentication type.
+	Authentication *string `pulumi:"authentication"`
+	// Data source.
+	DataSource *string `pulumi:"dataSource"`
+	// Whether to encrypt connection or not.
+	EncryptConnection *bool `pulumi:"encryptConnection"`
+	// Password to connect to source SQL.
+	Password *string `pulumi:"password"`
+	// Whether to trust server certificate or not.
+	TrustServerCertificate *bool `pulumi:"trustServerCertificate"`
+	// User name to connect to source SQL.
+	UserName *string `pulumi:"userName"`
+}
+
+// Source SQL Connection
+type SqlConnectionInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectionInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlConnectionInformationResponse)(nil)).Elem()
+}
+
+func (o SqlConnectionInformationResponseOutput) ToSqlConnectionInformationResponseOutput() SqlConnectionInformationResponseOutput {
+	return o
+}
+
+func (o SqlConnectionInformationResponseOutput) ToSqlConnectionInformationResponseOutputWithContext(ctx context.Context) SqlConnectionInformationResponseOutput {
+	return o
+}
+
+// Authentication type.
+func (o SqlConnectionInformationResponseOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.Authentication }).(pulumi.StringPtrOutput)
+}
+
+// Data source.
+func (o SqlConnectionInformationResponseOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt connection or not.
+func (o SqlConnectionInformationResponseOutput) EncryptConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *bool { return v.EncryptConnection }).(pulumi.BoolPtrOutput)
+}
+
+// Password to connect to source SQL.
+func (o SqlConnectionInformationResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Whether to trust server certificate or not.
+func (o SqlConnectionInformationResponseOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *bool { return v.TrustServerCertificate }).(pulumi.BoolPtrOutput)
+}
+
+// User name to connect to source SQL.
+func (o SqlConnectionInformationResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlConnectionInformationResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type SqlConnectionInformationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlConnectionInformationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlConnectionInformationResponse)(nil)).Elem()
+}
+
+func (o SqlConnectionInformationResponsePtrOutput) ToSqlConnectionInformationResponsePtrOutput() SqlConnectionInformationResponsePtrOutput {
+	return o
+}
+
+func (o SqlConnectionInformationResponsePtrOutput) ToSqlConnectionInformationResponsePtrOutputWithContext(ctx context.Context) SqlConnectionInformationResponsePtrOutput {
+	return o
+}
+
+func (o SqlConnectionInformationResponsePtrOutput) Elem() SqlConnectionInformationResponseOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) SqlConnectionInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SqlConnectionInformationResponse
+		return ret
+	}).(SqlConnectionInformationResponseOutput)
+}
+
+// Authentication type.
+func (o SqlConnectionInformationResponsePtrOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authentication
+	}).(pulumi.StringPtrOutput)
+}
+
+// Data source.
+func (o SqlConnectionInformationResponsePtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to encrypt connection or not.
+func (o SqlConnectionInformationResponsePtrOutput) EncryptConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptConnection
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Password to connect to source SQL.
+func (o SqlConnectionInformationResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to trust server certificate or not.
+func (o SqlConnectionInformationResponsePtrOutput) TrustServerCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrustServerCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// User name to connect to source SQL.
+func (o SqlConnectionInformationResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Detailed status of current Sql Db migration.
+type SqlDbMigrationStatusDetailsResponse struct {
+	// Details on progress of ADF copy activities.
+	ListOfCopyProgressDetails []CopyProgressDetailsResponse `pulumi:"listOfCopyProgressDetails"`
+	// Current State of Migration.
+	MigrationState string `pulumi:"migrationState"`
+	// Sql Data Copy errors, if any.
+	SqlDataCopyErrors []string `pulumi:"sqlDataCopyErrors"`
+}
+
+// Detailed status of current Sql Db migration.
+type SqlDbMigrationStatusDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlDbMigrationStatusDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDbMigrationStatusDetailsResponse)(nil)).Elem()
+}
+
+func (o SqlDbMigrationStatusDetailsResponseOutput) ToSqlDbMigrationStatusDetailsResponseOutput() SqlDbMigrationStatusDetailsResponseOutput {
+	return o
+}
+
+func (o SqlDbMigrationStatusDetailsResponseOutput) ToSqlDbMigrationStatusDetailsResponseOutputWithContext(ctx context.Context) SqlDbMigrationStatusDetailsResponseOutput {
+	return o
+}
+
+// Details on progress of ADF copy activities.
+func (o SqlDbMigrationStatusDetailsResponseOutput) ListOfCopyProgressDetails() CopyProgressDetailsResponseArrayOutput {
+	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) []CopyProgressDetailsResponse {
+		return v.ListOfCopyProgressDetails
+	}).(CopyProgressDetailsResponseArrayOutput)
+}
+
+// Current State of Migration.
+func (o SqlDbMigrationStatusDetailsResponseOutput) MigrationState() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) string { return v.MigrationState }).(pulumi.StringOutput)
+}
+
+// Sql Data Copy errors, if any.
+func (o SqlDbMigrationStatusDetailsResponseOutput) SqlDataCopyErrors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SqlDbMigrationStatusDetailsResponse) []string { return v.SqlDataCopyErrors }).(pulumi.StringArrayOutput)
+}
+
+// Offline configuration
+type SqlDbOfflineConfigurationResponse struct {
+	// Offline migration
+	Offline bool `pulumi:"offline"`
+}
+
+// Offline configuration
+type SqlDbOfflineConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (SqlDbOfflineConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDbOfflineConfigurationResponse)(nil)).Elem()
+}
+
+func (o SqlDbOfflineConfigurationResponseOutput) ToSqlDbOfflineConfigurationResponseOutput() SqlDbOfflineConfigurationResponseOutput {
+	return o
+}
+
+func (o SqlDbOfflineConfigurationResponseOutput) ToSqlDbOfflineConfigurationResponseOutputWithContext(ctx context.Context) SqlDbOfflineConfigurationResponseOutput {
+	return o
+}
+
+// Offline migration
+func (o SqlDbOfflineConfigurationResponseOutput) Offline() pulumi.BoolOutput {
+	return o.ApplyT(func(v SqlDbOfflineConfigurationResponse) bool { return v.Offline }).(pulumi.BoolOutput)
+}
+
 // Server role migration result
 type StartMigrationScenarioServerRoleResultResponse struct {
 	// Migration exceptions and warnings.
@@ -4227,10 +5288,16 @@ func (val *WaitStatisticsResponse) Defaults() *WaitStatisticsResponse {
 	return &tmp
 }
 func init() {
+	pulumi.RegisterOutputType(CopyProgressDetailsResponseOutput{})
+	pulumi.RegisterOutputType(CopyProgressDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbOutput{})
+	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbPtrOutput{})
+	pulumi.RegisterOutputType(DatabaseMigrationPropertiesSqlDbResponseOutput{})
+	pulumi.RegisterOutputType(ErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(NodeMonitoringDataResponseOutput{})
 	pulumi.RegisterOutputType(NodeMonitoringDataResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFilePropertiesOutput{})
@@ -4240,5 +5307,11 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ServiceSkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlConnectionInformationOutput{})
+	pulumi.RegisterOutputType(SqlConnectionInformationPtrOutput{})
+	pulumi.RegisterOutputType(SqlConnectionInformationResponseOutput{})
+	pulumi.RegisterOutputType(SqlConnectionInformationResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlDbMigrationStatusDetailsResponseOutput{})
+	pulumi.RegisterOutputType(SqlDbOfflineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

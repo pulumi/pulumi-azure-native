@@ -94,6 +94,6 @@ export const State = {
 } as const;
 
 /**
- * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+ * Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
  */
 export type State = (typeof State)[keyof typeof State];

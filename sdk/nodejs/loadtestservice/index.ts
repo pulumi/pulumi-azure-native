@@ -13,9 +13,11 @@ export * from "../types/enums/loadtestservice";
 
 // Export sub-modules:
 import * as v20211201preview from "./v20211201preview";
+import * as v20220415preview from "./v20220415preview";
 
 export {
     v20211201preview,
+    v20220415preview,
 };
 
 // Import resources to register:

@@ -1044,6 +1044,48 @@ type AmazonS3ReadSettingsResponse struct {
 	WildcardFolderPath interface{} `pulumi:"wildcardFolderPath"`
 }
 
+// Linked service for AppFigures.
+type AppFiguresLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The client key for the AppFigures source.
+	ClientKey interface{} `pulumi:"clientKey"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The password of the AppFigures source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'AppFigures'.
+	Type string `pulumi:"type"`
+	// The username of the Appfigures source.
+	UserName interface{} `pulumi:"userName"`
+}
+
+// Linked service for AppFigures.
+type AppFiguresLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The client key for the AppFigures source.
+	ClientKey interface{} `pulumi:"clientKey"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// The password of the AppFigures source.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'AppFigures'.
+	Type string `pulumi:"type"`
+	// The username of the Appfigures source.
+	UserName interface{} `pulumi:"userName"`
+}
+
 // Append value for a Variable of type Array.
 type AppendVariableActivity struct {
 	// Activity depends on condition.
@@ -1137,6 +1179,44 @@ func (o ArmIdWrapperResponsePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// Linked service for Asana.
+type AsanaLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Asana source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Asana'.
+	Type string `pulumi:"type"`
+}
+
+// Linked service for Asana.
+type AsanaLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Asana source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Asana'.
+	Type string `pulumi:"type"`
 }
 
 // Avro dataset.
@@ -7529,6 +7609,44 @@ type DatasetReferenceResponse struct {
 type DatasetResponseFolder struct {
 	// The name of the folder that this Dataset is in.
 	Name *string `pulumi:"name"`
+}
+
+// Linked service for Dataworld.
+type DataworldLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Dataworld source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Dataworld'.
+	Type string `pulumi:"type"`
+}
+
+// Linked service for Dataworld.
+type DataworldLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The api token for the Dataworld source.
+	ApiToken interface{} `pulumi:"apiToken"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Type of linked service.
+	// Expected value is 'Dataworld'.
+	Type string `pulumi:"type"`
 }
 
 // Linked service for DB2 data source.
@@ -25360,6 +25478,44 @@ type TumblingWindowTriggerResponse struct {
 	// Trigger type.
 	// Expected value is 'TumblingWindowTrigger'.
 	Type string `pulumi:"type"`
+}
+
+// Linked service for Twilio.
+type TwilioLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// The auth token of Twilio service.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'Twilio'.
+	Type string `pulumi:"type"`
+	// The Account SID of Twilio service.
+	UserName interface{} `pulumi:"userName"`
+}
+
+// Linked service for Twilio.
+type TwilioLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// The auth token of Twilio service.
+	Password interface{} `pulumi:"password"`
+	// Type of linked service.
+	// Expected value is 'Twilio'.
+	Type string `pulumi:"type"`
+	// The Account SID of Twilio service.
+	UserName interface{} `pulumi:"userName"`
 }
 
 // This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.

@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./databaseMigrationsSqlDb";
 export * from "./file";
+export * from "./getDatabaseMigrationsSqlDb";
 export * from "./getFile";
 export * from "./getProject";
 export * from "./getService";
@@ -30,6 +32,7 @@ import * as v20180715preview from "./v20180715preview";
 import * as v20210630 from "./v20210630";
 import * as v20211030preview from "./v20211030preview";
 import * as v20220130preview from "./v20220130preview";
+import * as v20220330preview from "./v20220330preview";
 
 export {
     v20171115preview,
@@ -40,9 +43,11 @@ export {
     v20210630,
     v20211030preview,
     v20220130preview,
+    v20220330preview,
 };
 
 // Import resources to register:
+import { DatabaseMigrationsSqlDb } from "./databaseMigrationsSqlDb";
 import { File } from "./file";
 import { Project } from "./project";
 import { Service } from "./service";
@@ -53,6 +58,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:datamigration:DatabaseMigrationsSqlDb":
+                return new DatabaseMigrationsSqlDb(name, <any>undefined, { urn })
             case "azure-native:datamigration:File":
                 return new File(name, <any>undefined, { urn })
             case "azure-native:datamigration:Project":

@@ -46,7 +46,7 @@ export interface GetDeviceResult {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: string;
+    readonly dataBoxEdgeDeviceStatus: string;
     /**
      * The details of data-residency related properties for this resource
      */
@@ -98,7 +98,7 @@ export interface GetDeviceResult {
     /**
      * The kind of the device.
      */
-    readonly kind?: string;
+    readonly kind: string;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */

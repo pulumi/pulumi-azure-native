@@ -24,8 +24,8 @@ class SecurityContactArgs:
         """
         The set of arguments for constructing a SecurityContact resource.
         :param pulumi.Input['SecurityContactPropertiesAlertNotificationsArgs'] alert_notifications: Defines whether to send email notifications about new security alerts
-        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-        :param pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs'] notifications_by_role: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
+        :param pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs'] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
@@ -56,7 +56,7 @@ class SecurityContactArgs:
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input[str]]:
         """
-        List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         """
         return pulumi.get(self, "emails")
 
@@ -68,7 +68,7 @@ class SecurityContactArgs:
     @pulumi.getter(name="notificationsByRole")
     def notifications_by_role(self) -> Optional[pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs']]:
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "notifications_by_role")
 
@@ -113,14 +113,14 @@ class SecurityContact(pulumi.CustomResource):
                  security_contact_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Contact details and configurations for notifications coming from Azure Security Center.
+        Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
         API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesAlertNotificationsArgs']] alert_notifications: Defines whether to send email notifications about new security alerts
-        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
-        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']] notifications_by_role: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[str] emails: List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
+        :param pulumi.Input[pulumi.InputType['SecurityContactPropertiesNotificationsByRoleArgs']] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         :param pulumi.Input[str] phone: The security contact's phone number
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
         """
@@ -131,7 +131,7 @@ class SecurityContact(pulumi.CustomResource):
                  args: Optional[SecurityContactArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Contact details and configurations for notifications coming from Azure Security Center.
+        Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
         API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
@@ -217,7 +217,7 @@ class SecurityContact(pulumi.CustomResource):
     @pulumi.getter
     def emails(self) -> pulumi.Output[Optional[str]]:
         """
-        List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         """
         return pulumi.get(self, "emails")
 
@@ -233,7 +233,7 @@ class SecurityContact(pulumi.CustomResource):
     @pulumi.getter(name="notificationsByRole")
     def notifications_by_role(self) -> pulumi.Output[Optional['outputs.SecurityContactPropertiesResponseNotificationsByRole']]:
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "notifications_by_role")
 

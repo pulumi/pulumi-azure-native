@@ -64,6 +64,7 @@ export * from "./getLogger";
 export * from "./getNamedValue";
 export * from "./getOpenIdConnectProvider";
 export * from "./getPolicy";
+export * from "./getPolicyFragment";
 export * from "./getPrivateEndpointConnectionByName";
 export * from "./getProduct";
 export * from "./getProductPolicy";
@@ -85,6 +86,7 @@ export * from "./listGatewayKeys";
 export * from "./listIdentityProviderSecrets";
 export * from "./listNamedValue";
 export * from "./listOpenIdConnectProviderSecrets";
+export * from "./listPolicyFragmentReferences";
 export * from "./listSubscriptionSecrets";
 export * from "./listTenantAccessGitSecrets";
 export * from "./listTenantAccessSecrets";
@@ -94,6 +96,7 @@ export * from "./notificationRecipientEmail";
 export * from "./notificationRecipientUser";
 export * from "./openIdConnectProvider";
 export * from "./policy";
+export * from "./policyFragment";
 export * from "./privateEndpointConnectionByName";
 export * from "./product";
 export * from "./productApi";
@@ -125,6 +128,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210801 from "./v20210801";
+import * as v20211201preview from "./v20211201preview";
 
 export {
     v20160707,
@@ -140,6 +144,7 @@ export {
     v20210101preview,
     v20210401preview,
     v20210801,
+    v20211201preview,
 };
 
 // Import resources to register:
@@ -179,6 +184,7 @@ import { NotificationRecipientEmail } from "./notificationRecipientEmail";
 import { NotificationRecipientUser } from "./notificationRecipientUser";
 import { OpenIdConnectProvider } from "./openIdConnectProvider";
 import { Policy } from "./policy";
+import { PolicyFragment } from "./policyFragment";
 import { PrivateEndpointConnectionByName } from "./privateEndpointConnectionByName";
 import { Product } from "./product";
 import { ProductApi } from "./productApi";
@@ -269,6 +275,8 @@ const _module = {
                 return new OpenIdConnectProvider(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:PolicyFragment":
+                return new PolicyFragment(name, <any>undefined, { urn })
             case "azure-native:apimanagement:PrivateEndpointConnectionByName":
                 return new PrivateEndpointConnectionByName(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Product":

@@ -20,7 +20,7 @@ type Device struct {
 	// The Data Box Edge/Gateway device culture.
 	Culture pulumi.StringOutput `pulumi:"culture"`
 	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus pulumi.StringPtrOutput `pulumi:"dataBoxEdgeDeviceStatus"`
+	DataBoxEdgeDeviceStatus pulumi.StringOutput `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The details of data-residency related properties for this resource
 	DataResidency DataResidencyResponsePtrOutput `pulumi:"dataResidency"`
 	// The Description of the Data Box Edge/Gateway device.
@@ -44,7 +44,7 @@ type Device struct {
 	// Msi identity of the resource
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The kind of the device.
-	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.
@@ -150,16 +150,12 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
 	// The details of data-residency related properties for this resource
 	DataResidency *DataResidency `pulumi:"dataResidency"`
 	// The device name.
 	DeviceName *string `pulumi:"deviceName"`
 	// Msi identity of the resource
 	Identity *ResourceIdentity `pulumi:"identity"`
-	// The kind of the device.
-	Kind *string `pulumi:"kind"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// The resource group name.
@@ -172,16 +168,12 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The status of the Data Box Edge/Gateway device.
-	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
 	// The details of data-residency related properties for this resource
 	DataResidency DataResidencyPtrInput
 	// The device name.
 	DeviceName pulumi.StringPtrInput
 	// Msi identity of the resource
 	Identity ResourceIdentityPtrInput
-	// The kind of the device.
-	Kind pulumi.StringPtrInput
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// The resource group name.

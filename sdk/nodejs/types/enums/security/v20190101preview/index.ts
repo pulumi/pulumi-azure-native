@@ -35,15 +35,15 @@ export type AssessmentStatusCode = (typeof AssessmentStatusCode)[keyof typeof As
 
 export const AssessmentType = {
     /**
-     * Azure Security Center managed assessments
+     * Microsoft Defender for Cloud managed assessments
      */
     BuiltIn: "BuiltIn",
     /**
-     * User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+     * User defined policies that are automatically ingested from Azure Policy to Microsoft Defender for Cloud
      */
     CustomPolicy: "CustomPolicy",
     /**
-     * User assessments pushed directly by the user or other third party to Azure Security Center
+     * User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
      */
     CustomerManaged: "CustomerManaged",
 } as const;

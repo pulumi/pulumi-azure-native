@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? NetbiosDomainName;
         /// <summary>
+        /// The distinguished name of the Active Directory Organizational Unit.
+        /// </summary>
+        public readonly string? OuDistinguishedName;
+        /// <summary>
         /// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
         /// </summary>
         public readonly string Realm;
+        /// <summary>
+        /// The service account provisioning mode for this Active Directory connector.
+        /// </summary>
+        public readonly string? ServiceAccountProvisioning;
 
         [OutputConstructor]
         private ActiveDirectoryConnectorDomainDetailsResponse(
@@ -35,11 +43,17 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? netbiosDomainName,
 
-            string realm)
+            string? ouDistinguishedName,
+
+            string realm,
+
+            string? serviceAccountProvisioning)
         {
             DomainControllers = domainControllers;
             NetbiosDomainName = netbiosDomainName;
+            OuDistinguishedName = ouDistinguishedName;
             Realm = realm;
+            ServiceAccountProvisioning = serviceAccountProvisioning;
         }
     }
 }

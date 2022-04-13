@@ -108,6 +108,36 @@ namespace Pulumi.AzureNative.AppPlatform
     }
 
     /// <summary>
+    /// The type of the storage.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageType : IEquatable<StorageType>
+    {
+        private readonly string _value;
+
+        private StorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageType StorageAccount { get; } = new StorageType("StorageAccount");
+
+        public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
+        public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageType other && Equals(other);
+        public bool Equals(StorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of the source uploaded
     /// </summary>
     [EnumType]

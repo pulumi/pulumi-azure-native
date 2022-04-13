@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:TableResourceTable"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211115preview:TableResourceTable"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:TableResourceTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
     public sealed class RegistryCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
+        /// <summary>
         /// The name of the Secret that contains the registry login password
         /// </summary>
         [Input("passwordSecretRef")]

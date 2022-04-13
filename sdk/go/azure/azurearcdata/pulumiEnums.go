@@ -10,6 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The service account provisioning mode for this Active Directory connector.
+type AccountProvisioningMode string
+
+const (
+	AccountProvisioningModeAutomatic = AccountProvisioningMode("automatic")
+	AccountProvisioningModeManual    = AccountProvisioningMode("manual")
+)
+
 // The type of the extended location.
 type ExtendedLocationTypes string
 

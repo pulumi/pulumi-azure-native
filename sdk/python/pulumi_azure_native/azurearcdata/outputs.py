@@ -128,6 +128,10 @@ class ActiveDirectoryConnectorDomainDetailsResponse(dict):
             suggest = "domain_controllers"
         elif key == "netbiosDomainName":
             suggest = "netbios_domain_name"
+        elif key == "ouDistinguishedName":
+            suggest = "ou_distinguished_name"
+        elif key == "serviceAccountProvisioning":
+            suggest = "service_account_provisioning"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryConnectorDomainDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -143,17 +147,27 @@ class ActiveDirectoryConnectorDomainDetailsResponse(dict):
     def __init__(__self__, *,
                  domain_controllers: 'outputs.ActiveDirectoryDomainControllersResponse',
                  realm: str,
-                 netbios_domain_name: Optional[str] = None):
+                 netbios_domain_name: Optional[str] = None,
+                 ou_distinguished_name: Optional[str] = None,
+                 service_account_provisioning: Optional[str] = None):
         """
         Active Directory domain details
         :param 'ActiveDirectoryDomainControllersResponse' domain_controllers: null
         :param str realm: Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
         :param str netbios_domain_name: NETBIOS name of the Active Directory domain.
+        :param str ou_distinguished_name: The distinguished name of the Active Directory Organizational Unit.
+        :param str service_account_provisioning: The service account provisioning mode for this Active Directory connector.
         """
         pulumi.set(__self__, "domain_controllers", domain_controllers)
         pulumi.set(__self__, "realm", realm)
         if netbios_domain_name is not None:
             pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        if ou_distinguished_name is not None:
+            pulumi.set(__self__, "ou_distinguished_name", ou_distinguished_name)
+        if service_account_provisioning is None:
+            service_account_provisioning = 'manual'
+        if service_account_provisioning is not None:
+            pulumi.set(__self__, "service_account_provisioning", service_account_provisioning)
 
     @property
     @pulumi.getter(name="domainControllers")
@@ -179,6 +193,22 @@ class ActiveDirectoryConnectorDomainDetailsResponse(dict):
         """
         return pulumi.get(self, "netbios_domain_name")
 
+    @property
+    @pulumi.getter(name="ouDistinguishedName")
+    def ou_distinguished_name(self) -> Optional[str]:
+        """
+        The distinguished name of the Active Directory Organizational Unit.
+        """
+        return pulumi.get(self, "ou_distinguished_name")
+
+    @property
+    @pulumi.getter(name="serviceAccountProvisioning")
+    def service_account_provisioning(self) -> Optional[str]:
+        """
+        The service account provisioning mode for this Active Directory connector.
+        """
+        return pulumi.get(self, "service_account_provisioning")
+
 
 @pulumi.output_type
 class ActiveDirectoryConnectorPropertiesResponse(dict):
@@ -190,6 +220,8 @@ class ActiveDirectoryConnectorPropertiesResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "domainServiceAccountLoginInformation":
+            suggest = "domain_service_account_login_information"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ActiveDirectoryConnectorPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -205,15 +237,19 @@ class ActiveDirectoryConnectorPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  spec: 'outputs.ActiveDirectoryConnectorSpecResponse',
+                 domain_service_account_login_information: Optional['outputs.BasicLoginInformationResponse'] = None,
                  status: Optional['outputs.ActiveDirectoryConnectorStatusResponse'] = None):
         """
         The properties of an Active Directory connector resource
         :param str provisioning_state: The provisioning state of the Active Directory connector resource.
         :param 'ActiveDirectoryConnectorSpecResponse' spec: null
+        :param 'BasicLoginInformationResponse' domain_service_account_login_information: Username and password for domain service account authentication.
         :param 'ActiveDirectoryConnectorStatusResponse' status: null
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "spec", spec)
+        if domain_service_account_login_information is not None:
+            pulumi.set(__self__, "domain_service_account_login_information", domain_service_account_login_information)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -232,6 +268,14 @@ class ActiveDirectoryConnectorPropertiesResponse(dict):
         null
         """
         return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter(name="domainServiceAccountLoginInformation")
+    def domain_service_account_login_information(self) -> Optional['outputs.BasicLoginInformationResponse']:
+        """
+        Username and password for domain service account authentication.
+        """
+        return pulumi.get(self, "domain_service_account_login_information")
 
     @property
     @pulumi.getter

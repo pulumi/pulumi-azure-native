@@ -15,6 +15,7 @@ import * as v20201201 from "./v20201201";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210801 from "./v20210801";
+import * as v20211201preview from "./v20211201preview";
 
 export {
     v20160707,
@@ -30,6 +31,7 @@ export {
     v20210101preview,
     v20210401preview,
     v20210801,
+    v20211201preview,
 };
 
 export const AlwaysLog = {
@@ -393,6 +395,22 @@ export const PolicyContentFormat = {
  * Format of the policyContent.
  */
 export type PolicyContentFormat = (typeof PolicyContentFormat)[keyof typeof PolicyContentFormat];
+
+export const PolicyFragmentContentFormat = {
+    /**
+     * The contents are inline and Content type is an XML document.
+     */
+    Xml: "xml",
+    /**
+     * The contents are inline and Content type is a non XML encoded policy document.
+     */
+    Rawxml: "rawxml",
+} as const;
+
+/**
+ * Format of the policy fragment content.
+ */
+export type PolicyFragmentContentFormat = (typeof PolicyFragmentContentFormat)[keyof typeof PolicyFragmentContentFormat];
 
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",

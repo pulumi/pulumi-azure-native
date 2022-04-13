@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class ActiveDirectoryConnectorPropertiesResponse
     {
         /// <summary>
+        /// Username and password for domain service account authentication.
+        /// </summary>
+        public readonly Outputs.BasicLoginInformationResponse? DomainServiceAccountLoginInformation;
+        /// <summary>
         /// The provisioning state of the Active Directory connector resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private ActiveDirectoryConnectorPropertiesResponse(
+            Outputs.BasicLoginInformationResponse? domainServiceAccountLoginInformation,
+
             string provisioningState,
 
             Outputs.ActiveDirectoryConnectorSpecResponse spec,
 
             Outputs.ActiveDirectoryConnectorStatusResponse? status)
         {
+            DomainServiceAccountLoginInformation = domainServiceAccountLoginInformation;
             ProvisioningState = provisioningState;
             Spec = spec;
             Status = status;

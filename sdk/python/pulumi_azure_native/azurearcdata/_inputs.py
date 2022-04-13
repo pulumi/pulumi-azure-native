@@ -111,17 +111,27 @@ class ActiveDirectoryConnectorDomainDetailsArgs:
     def __init__(__self__, *,
                  domain_controllers: pulumi.Input['ActiveDirectoryDomainControllersArgs'],
                  realm: pulumi.Input[str],
-                 netbios_domain_name: Optional[pulumi.Input[str]] = None):
+                 netbios_domain_name: Optional[pulumi.Input[str]] = None,
+                 ou_distinguished_name: Optional[pulumi.Input[str]] = None,
+                 service_account_provisioning: Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]] = None):
         """
         Active Directory domain details
         :param pulumi.Input['ActiveDirectoryDomainControllersArgs'] domain_controllers: null
         :param pulumi.Input[str] realm: Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
         :param pulumi.Input[str] netbios_domain_name: NETBIOS name of the Active Directory domain.
+        :param pulumi.Input[str] ou_distinguished_name: The distinguished name of the Active Directory Organizational Unit.
+        :param pulumi.Input[Union[str, 'AccountProvisioningMode']] service_account_provisioning: The service account provisioning mode for this Active Directory connector.
         """
         pulumi.set(__self__, "domain_controllers", domain_controllers)
         pulumi.set(__self__, "realm", realm)
         if netbios_domain_name is not None:
             pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        if ou_distinguished_name is not None:
+            pulumi.set(__self__, "ou_distinguished_name", ou_distinguished_name)
+        if service_account_provisioning is None:
+            service_account_provisioning = 'manual'
+        if service_account_provisioning is not None:
+            pulumi.set(__self__, "service_account_provisioning", service_account_provisioning)
 
     @property
     @pulumi.getter(name="domainControllers")
@@ -159,18 +169,46 @@ class ActiveDirectoryConnectorDomainDetailsArgs:
     def netbios_domain_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "netbios_domain_name", value)
 
+    @property
+    @pulumi.getter(name="ouDistinguishedName")
+    def ou_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The distinguished name of the Active Directory Organizational Unit.
+        """
+        return pulumi.get(self, "ou_distinguished_name")
+
+    @ou_distinguished_name.setter
+    def ou_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ou_distinguished_name", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountProvisioning")
+    def service_account_provisioning(self) -> Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]]:
+        """
+        The service account provisioning mode for this Active Directory connector.
+        """
+        return pulumi.get(self, "service_account_provisioning")
+
+    @service_account_provisioning.setter
+    def service_account_provisioning(self, value: Optional[pulumi.Input[Union[str, 'AccountProvisioningMode']]]):
+        pulumi.set(self, "service_account_provisioning", value)
+
 
 @pulumi.input_type
 class ActiveDirectoryConnectorPropertiesArgs:
     def __init__(__self__, *,
                  spec: pulumi.Input['ActiveDirectoryConnectorSpecArgs'],
+                 domain_service_account_login_information: Optional[pulumi.Input['BasicLoginInformationArgs']] = None,
                  status: Optional[pulumi.Input['ActiveDirectoryConnectorStatusArgs']] = None):
         """
         The properties of an Active Directory connector resource
         :param pulumi.Input['ActiveDirectoryConnectorSpecArgs'] spec: null
+        :param pulumi.Input['BasicLoginInformationArgs'] domain_service_account_login_information: Username and password for domain service account authentication.
         :param pulumi.Input['ActiveDirectoryConnectorStatusArgs'] status: null
         """
         pulumi.set(__self__, "spec", spec)
+        if domain_service_account_login_information is not None:
+            pulumi.set(__self__, "domain_service_account_login_information", domain_service_account_login_information)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -185,6 +223,18 @@ class ActiveDirectoryConnectorPropertiesArgs:
     @spec.setter
     def spec(self, value: pulumi.Input['ActiveDirectoryConnectorSpecArgs']):
         pulumi.set(self, "spec", value)
+
+    @property
+    @pulumi.getter(name="domainServiceAccountLoginInformation")
+    def domain_service_account_login_information(self) -> Optional[pulumi.Input['BasicLoginInformationArgs']]:
+        """
+        Username and password for domain service account authentication.
+        """
+        return pulumi.get(self, "domain_service_account_login_information")
+
+    @domain_service_account_login_information.setter
+    def domain_service_account_login_information(self, value: Optional[pulumi.Input['BasicLoginInformationArgs']]):
+        pulumi.set(self, "domain_service_account_login_information", value)
 
     @property
     @pulumi.getter

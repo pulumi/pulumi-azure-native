@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
     public sealed class KeyVaultContractPropertiesResponse
     {
         /// <summary>
-        /// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        /// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         /// </summary>
         public readonly string? IdentityClientId;
         /// <summary>

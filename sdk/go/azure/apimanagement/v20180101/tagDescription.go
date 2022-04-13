@@ -79,6 +79,9 @@ func NewTagDescription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:TagDescription"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20211201preview:TagDescription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TagDescription

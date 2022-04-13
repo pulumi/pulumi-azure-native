@@ -179,8 +179,25 @@ type ActiveDirectoryConnectorDomainDetails struct {
 	DomainControllers ActiveDirectoryDomainControllers `pulumi:"domainControllers"`
 	// NETBIOS name of the Active Directory domain.
 	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
+	// The distinguished name of the Active Directory Organizational Unit.
+	OuDistinguishedName *string `pulumi:"ouDistinguishedName"`
 	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
 	Realm string `pulumi:"realm"`
+	// The service account provisioning mode for this Active Directory connector.
+	ServiceAccountProvisioning *string `pulumi:"serviceAccountProvisioning"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetails
+func (val *ActiveDirectoryConnectorDomainDetails) Defaults() *ActiveDirectoryConnectorDomainDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceAccountProvisioning) {
+		serviceAccountProvisioning_ := "manual"
+		tmp.ServiceAccountProvisioning = &serviceAccountProvisioning_
+	}
+	return &tmp
 }
 
 // ActiveDirectoryConnectorDomainDetailsInput is an input type that accepts ActiveDirectoryConnectorDomainDetailsArgs and ActiveDirectoryConnectorDomainDetailsOutput values.
@@ -200,8 +217,12 @@ type ActiveDirectoryConnectorDomainDetailsArgs struct {
 	DomainControllers ActiveDirectoryDomainControllersInput `pulumi:"domainControllers"`
 	// NETBIOS name of the Active Directory domain.
 	NetbiosDomainName pulumi.StringPtrInput `pulumi:"netbiosDomainName"`
+	// The distinguished name of the Active Directory Organizational Unit.
+	OuDistinguishedName pulumi.StringPtrInput `pulumi:"ouDistinguishedName"`
 	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
 	Realm pulumi.StringInput `pulumi:"realm"`
+	// The service account provisioning mode for this Active Directory connector.
+	ServiceAccountProvisioning pulumi.StringPtrInput `pulumi:"serviceAccountProvisioning"`
 }
 
 func (ActiveDirectoryConnectorDomainDetailsArgs) ElementType() reflect.Type {
@@ -243,9 +264,19 @@ func (o ActiveDirectoryConnectorDomainDetailsOutput) NetbiosDomainName() pulumi.
 	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The distinguished name of the Active Directory Organizational Unit.
+func (o ActiveDirectoryConnectorDomainDetailsOutput) OuDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.OuDistinguishedName }).(pulumi.StringPtrOutput)
+}
+
 // Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
 func (o ActiveDirectoryConnectorDomainDetailsOutput) Realm() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) string { return v.Realm }).(pulumi.StringOutput)
+}
+
+// The service account provisioning mode for this Active Directory connector.
+func (o ActiveDirectoryConnectorDomainDetailsOutput) ServiceAccountProvisioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetails) *string { return v.ServiceAccountProvisioning }).(pulumi.StringPtrOutput)
 }
 
 // Active Directory domain details
@@ -254,8 +285,25 @@ type ActiveDirectoryConnectorDomainDetailsResponse struct {
 	DomainControllers ActiveDirectoryDomainControllersResponse `pulumi:"domainControllers"`
 	// NETBIOS name of the Active Directory domain.
 	NetbiosDomainName *string `pulumi:"netbiosDomainName"`
+	// The distinguished name of the Active Directory Organizational Unit.
+	OuDistinguishedName *string `pulumi:"ouDistinguishedName"`
 	// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
 	Realm string `pulumi:"realm"`
+	// The service account provisioning mode for this Active Directory connector.
+	ServiceAccountProvisioning *string `pulumi:"serviceAccountProvisioning"`
+}
+
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetailsResponse
+func (val *ActiveDirectoryConnectorDomainDetailsResponse) Defaults() *ActiveDirectoryConnectorDomainDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceAccountProvisioning) {
+		serviceAccountProvisioning_ := "manual"
+		tmp.ServiceAccountProvisioning = &serviceAccountProvisioning_
+	}
+	return &tmp
 }
 
 // Active Directory domain details
@@ -285,13 +333,25 @@ func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) NetbiosDomainName()
 	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.NetbiosDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The distinguished name of the Active Directory Organizational Unit.
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) OuDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.OuDistinguishedName }).(pulumi.StringPtrOutput)
+}
+
 // Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
 func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) Realm() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) string { return v.Realm }).(pulumi.StringOutput)
 }
 
+// The service account provisioning mode for this Active Directory connector.
+func (o ActiveDirectoryConnectorDomainDetailsResponseOutput) ServiceAccountProvisioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorDomainDetailsResponse) *string { return v.ServiceAccountProvisioning }).(pulumi.StringPtrOutput)
+}
+
 // The properties of an Active Directory connector resource
 type ActiveDirectoryConnectorProperties struct {
+	// Username and password for domain service account authentication.
+	DomainServiceAccountLoginInformation *BasicLoginInformation `pulumi:"domainServiceAccountLoginInformation"`
 	// null
 	Spec ActiveDirectoryConnectorSpec `pulumi:"spec"`
 	// null
@@ -322,6 +382,8 @@ type ActiveDirectoryConnectorPropertiesInput interface {
 
 // The properties of an Active Directory connector resource
 type ActiveDirectoryConnectorPropertiesArgs struct {
+	// Username and password for domain service account authentication.
+	DomainServiceAccountLoginInformation BasicLoginInformationPtrInput `pulumi:"domainServiceAccountLoginInformation"`
 	// null
 	Spec ActiveDirectoryConnectorSpecInput `pulumi:"spec"`
 	// null
@@ -355,6 +417,13 @@ func (o ActiveDirectoryConnectorPropertiesOutput) ToActiveDirectoryConnectorProp
 	return o
 }
 
+// Username and password for domain service account authentication.
+func (o ActiveDirectoryConnectorPropertiesOutput) DomainServiceAccountLoginInformation() BasicLoginInformationPtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) *BasicLoginInformation {
+		return v.DomainServiceAccountLoginInformation
+	}).(BasicLoginInformationPtrOutput)
+}
+
 // null
 func (o ActiveDirectoryConnectorPropertiesOutput) Spec() ActiveDirectoryConnectorSpecOutput {
 	return o.ApplyT(func(v ActiveDirectoryConnectorProperties) ActiveDirectoryConnectorSpec { return v.Spec }).(ActiveDirectoryConnectorSpecOutput)
@@ -367,6 +436,8 @@ func (o ActiveDirectoryConnectorPropertiesOutput) Status() ActiveDirectoryConnec
 
 // The properties of an Active Directory connector resource
 type ActiveDirectoryConnectorPropertiesResponse struct {
+	// Username and password for domain service account authentication.
+	DomainServiceAccountLoginInformation *BasicLoginInformationResponse `pulumi:"domainServiceAccountLoginInformation"`
 	// The provisioning state of the Active Directory connector resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// null
@@ -401,6 +472,13 @@ func (o ActiveDirectoryConnectorPropertiesResponseOutput) ToActiveDirectoryConne
 	return o
 }
 
+// Username and password for domain service account authentication.
+func (o ActiveDirectoryConnectorPropertiesResponseOutput) DomainServiceAccountLoginInformation() BasicLoginInformationResponsePtrOutput {
+	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) *BasicLoginInformationResponse {
+		return v.DomainServiceAccountLoginInformation
+	}).(BasicLoginInformationResponsePtrOutput)
+}
+
 // The provisioning state of the Active Directory connector resource.
 func (o ActiveDirectoryConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v ActiveDirectoryConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -432,6 +510,8 @@ func (val *ActiveDirectoryConnectorSpec) Defaults() *ActiveDirectoryConnectorSpe
 		return nil
 	}
 	tmp := *val
+	tmp.ActiveDirectory = *tmp.ActiveDirectory.Defaults()
+
 	tmp.Dns = *tmp.Dns.Defaults()
 
 	return &tmp
@@ -507,6 +587,8 @@ func (val *ActiveDirectoryConnectorSpecResponse) Defaults() *ActiveDirectoryConn
 		return nil
 	}
 	tmp := *val
+	tmp.ActiveDirectory = *tmp.ActiveDirectory.Defaults()
+
 	tmp.Dns = *tmp.Dns.Defaults()
 
 	return &tmp

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
     public static class GetSecurityContact
     {
         /// <summary>
-        /// Contact details and configurations for notifications coming from Azure Security Center.
+        /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Contact details and configurations for notifications coming from Azure Security Center.
+        /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20200101preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         /// </summary>
         public readonly Outputs.SecurityContactPropertiesResponseAlertNotifications? AlertNotifications;
         /// <summary>
-        /// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
         public readonly string? Emails;
         /// <summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         public readonly Outputs.SecurityContactPropertiesResponseNotificationsByRole? NotificationsByRole;
         /// <summary>

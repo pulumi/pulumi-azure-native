@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .database_migrations_sql_db import *
 from .file import *
+from .get_database_migrations_sql_db import *
 from .get_file import *
 from .get_project import *
 from .get_service import *
@@ -39,6 +41,8 @@ if typing.TYPE_CHECKING:
     v20211030preview = __v20211030preview
     import pulumi_azure_native.datamigration.v20220130preview as __v20220130preview
     v20220130preview = __v20220130preview
+    import pulumi_azure_native.datamigration.v20220330preview as __v20220330preview
+    v20220330preview = __v20220330preview
 else:
     v20171115preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20171115preview')
     v20180315preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180315preview')
@@ -48,4 +52,5 @@ else:
     v20210630 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20210630')
     v20211030preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20211030preview')
     v20220130preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20220130preview')
+    v20220330preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20220330preview')
 

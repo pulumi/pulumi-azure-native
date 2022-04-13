@@ -37,12 +37,24 @@ type GetDeviceExtendedInformationResult struct {
 	ClientSecretStoreId *string `pulumi:"clientSecretStoreId"`
 	// The url to access the Client Key Vault
 	ClientSecretStoreUrl *string `pulumi:"clientSecretStoreUrl"`
+	// The Container for cloud witness in the storage account.
+	CloudWitnessContainerName string `pulumi:"cloudWitnessContainerName"`
+	// The Cloud Witness Storage account name.
+	CloudWitnessStorageAccountName string `pulumi:"cloudWitnessStorageAccountName"`
+	// The Azure service endpoint of the cloud witness storage account.
+	CloudWitnessStorageEndpoint string `pulumi:"cloudWitnessStorageEndpoint"`
+	// Cluster Witness Type
+	ClusterWitnessType string `pulumi:"clusterWitnessType"`
 	// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
 	DeviceSecrets map[string]SecretResponse `pulumi:"deviceSecrets"`
 	// The public part of the encryption certificate. Client uses this to encrypt any secret.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The digital signature of encrypted certificate.
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
+	// The witness location of file share.
+	FileShareWitnessLocation string `pulumi:"fileShareWitnessLocation"`
+	// The username of file share.
+	FileShareWitnessUsername string `pulumi:"fileShareWitnessUsername"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// Key vault sync status
@@ -114,6 +126,26 @@ func (o GetDeviceExtendedInformationResultOutput) ClientSecretStoreUrl() pulumi.
 	return o.ApplyT(func(v GetDeviceExtendedInformationResult) *string { return v.ClientSecretStoreUrl }).(pulumi.StringPtrOutput)
 }
 
+// The Container for cloud witness in the storage account.
+func (o GetDeviceExtendedInformationResultOutput) CloudWitnessContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.CloudWitnessContainerName }).(pulumi.StringOutput)
+}
+
+// The Cloud Witness Storage account name.
+func (o GetDeviceExtendedInformationResultOutput) CloudWitnessStorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.CloudWitnessStorageAccountName }).(pulumi.StringOutput)
+}
+
+// The Azure service endpoint of the cloud witness storage account.
+func (o GetDeviceExtendedInformationResultOutput) CloudWitnessStorageEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.CloudWitnessStorageEndpoint }).(pulumi.StringOutput)
+}
+
+// Cluster Witness Type
+func (o GetDeviceExtendedInformationResultOutput) ClusterWitnessType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.ClusterWitnessType }).(pulumi.StringOutput)
+}
+
 // Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
 func (o GetDeviceExtendedInformationResultOutput) DeviceSecrets() SecretResponseMapOutput {
 	return o.ApplyT(func(v GetDeviceExtendedInformationResult) map[string]SecretResponse { return v.DeviceSecrets }).(SecretResponseMapOutput)
@@ -127,6 +159,16 @@ func (o GetDeviceExtendedInformationResultOutput) EncryptionKey() pulumi.StringP
 // The digital signature of encrypted certificate.
 func (o GetDeviceExtendedInformationResultOutput) EncryptionKeyThumbprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDeviceExtendedInformationResult) *string { return v.EncryptionKeyThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The witness location of file share.
+func (o GetDeviceExtendedInformationResultOutput) FileShareWitnessLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.FileShareWitnessLocation }).(pulumi.StringOutput)
+}
+
+// The username of file share.
+func (o GetDeviceExtendedInformationResultOutput) FileShareWitnessUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeviceExtendedInformationResult) string { return v.FileShareWitnessUsername }).(pulumi.StringOutput)
 }
 
 // The path ID that uniquely identifies the object.

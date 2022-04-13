@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetSecurityContactResult:
     """
-    Contact details and configurations for notifications coming from Azure Security Center.
+    Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     """
     def __init__(__self__, alert_notifications=None, emails=None, id=None, name=None, notifications_by_role=None, phone=None, type=None):
         if alert_notifications and not isinstance(alert_notifications, dict):
@@ -56,7 +56,7 @@ class GetSecurityContactResult:
     @pulumi.getter
     def emails(self) -> Optional[str]:
         """
-        List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         """
         return pulumi.get(self, "emails")
 
@@ -80,7 +80,7 @@ class GetSecurityContactResult:
     @pulumi.getter(name="notificationsByRole")
     def notifications_by_role(self) -> Optional['outputs.SecurityContactPropertiesResponseNotificationsByRole']:
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "notifications_by_role")
 
@@ -119,7 +119,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
 def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
-    Contact details and configurations for notifications coming from Azure Security Center.
+    Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 
 
     :param str security_contact_name: Name of the security contact object
@@ -146,7 +146,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
-    Contact details and configurations for notifications coming from Azure Security Center.
+    Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 
 
     :param str security_contact_name: Name of the security contact object

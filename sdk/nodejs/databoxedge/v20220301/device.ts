@@ -46,7 +46,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string>;
     /**
      * The details of data-residency related properties for this resource
      */
@@ -94,7 +94,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The kind of the device.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -154,17 +154,16 @@ export class Device extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
             resourceInputs["dataResidency"] = args ? args.dataResidency : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["configuredRoleTypes"] = undefined /*out*/;
             resourceInputs["culture"] = undefined /*out*/;
+            resourceInputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceHcsVersion"] = undefined /*out*/;
             resourceInputs["deviceLocalCapacity"] = undefined /*out*/;
@@ -174,6 +173,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["edgeProfile"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["modelDescription"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;
@@ -222,10 +222,6 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * The status of the Data Box Edge/Gateway device.
-     */
-    dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.v20220301.DataBoxEdgeDeviceStatus>;
-    /**
      * The details of data-residency related properties for this resource
      */
     dataResidency?: pulumi.Input<inputs.databoxedge.v20220301.DataResidencyArgs>;
@@ -237,10 +233,6 @@ export interface DeviceArgs {
      * Msi identity of the resource
      */
     identity?: pulumi.Input<inputs.databoxedge.v20220301.ResourceIdentityArgs>;
-    /**
-     * The kind of the device.
-     */
-    kind?: pulumi.Input<string | enums.databoxedge.v20220301.DataBoxEdgeDeviceKind>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */

@@ -886,11 +886,11 @@ func (o SecurityContactPropertiesAlertNotificationsPtrOutput) State() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRole struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	State *string `pulumi:"state"`
 }
 
@@ -905,11 +905,11 @@ type SecurityContactPropertiesNotificationsByRoleInput interface {
 	ToSecurityContactPropertiesNotificationsByRoleOutputWithContext(context.Context) SecurityContactPropertiesNotificationsByRoleOutput
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleArgs struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -966,7 +966,7 @@ func (i *securityContactPropertiesNotificationsByRolePtrType) ToSecurityContactP
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -991,12 +991,12 @@ func (o SecurityContactPropertiesNotificationsByRoleOutput) ToSecurityContactPro
 	}).(SecurityContactPropertiesNotificationsByRolePtrOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 func (o SecurityContactPropertiesNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1025,7 +1025,7 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Elem() SecurityCo
 	}).(SecurityContactPropertiesNotificationsByRoleOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) []string {
 		if v == nil {
@@ -1035,7 +1035,7 @@ func (o SecurityContactPropertiesNotificationsByRolePtrOutput) Roles() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesNotificationsByRole) *string {
 		if v == nil {
@@ -1122,15 +1122,15 @@ func (o SecurityContactPropertiesResponseAlertNotificationsPtrOutput) State() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRole struct {
-	// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+	// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 	Roles []string `pulumi:"roles"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	State *string `pulumi:"state"`
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 type SecurityContactPropertiesResponseNotificationsByRoleOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactPropertiesResponseNotificationsByRoleOutput) ElementType() reflect.Type {
@@ -1145,12 +1145,12 @@ func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) ToSecurityCo
 	return o
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesResponseNotificationsByRoleOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityContactPropertiesResponseNotificationsByRole) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -1179,7 +1179,7 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Elem() Se
 	}).(SecurityContactPropertiesResponseNotificationsByRoleOutput)
 }
 
-// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles:
+// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles:
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) []string {
 		if v == nil {
@@ -1189,7 +1189,7 @@ func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) Roles() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 func (o SecurityContactPropertiesResponseNotificationsByRolePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityContactPropertiesResponseNotificationsByRole) *string {
 		if v == nil {

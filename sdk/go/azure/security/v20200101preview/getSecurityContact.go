@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details and configurations for notifications coming from Azure Security Center.
+// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 func LookupSecurityContact(ctx *pulumi.Context, args *LookupSecurityContactArgs, opts ...pulumi.InvokeOption) (*LookupSecurityContactResult, error) {
 	var rv LookupSecurityContactResult
 	err := ctx.Invoke("azure-native:security/v20200101preview:getSecurityContact", args, &rv, opts...)
@@ -25,17 +25,17 @@ type LookupSecurityContactArgs struct {
 	SecurityContactName string `pulumi:"securityContactName"`
 }
 
-// Contact details and configurations for notifications coming from Azure Security Center.
+// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 type LookupSecurityContactResult struct {
 	// Defines whether to send email notifications about new security alerts
 	AlertNotifications *SecurityContactPropertiesResponseAlertNotifications `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
 	Emails *string `pulumi:"emails"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	NotificationsByRole *SecurityContactPropertiesResponseNotificationsByRole `pulumi:"notificationsByRole"`
 	// The security contact's phone number
 	Phone *string `pulumi:"phone"`
@@ -65,7 +65,7 @@ func (LookupSecurityContactOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupSecurityContactArgs)(nil)).Elem()
 }
 
-// Contact details and configurations for notifications coming from Azure Security Center.
+// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 type LookupSecurityContactResultOutput struct{ *pulumi.OutputState }
 
 func (LookupSecurityContactResultOutput) ElementType() reflect.Type {
@@ -87,7 +87,7 @@ func (o LookupSecurityContactResultOutput) AlertNotifications() SecurityContactP
 	}).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
 }
 
-// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
 func (o LookupSecurityContactResultOutput) Emails() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityContactResult) *string { return v.Emails }).(pulumi.StringPtrOutput)
 }
@@ -102,7 +102,7 @@ func (o LookupSecurityContactResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityContactResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 func (o LookupSecurityContactResultOutput) NotificationsByRole() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
 	return o.ApplyT(func(v LookupSecurityContactResult) *SecurityContactPropertiesResponseNotificationsByRole {
 		return v.NotificationsByRole

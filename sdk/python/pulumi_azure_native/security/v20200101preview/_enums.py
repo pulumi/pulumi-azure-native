@@ -87,7 +87,7 @@ class Roles(str, Enum):
 
 class State(str, Enum):
     """
-    Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     """
     ON = "On"
     """

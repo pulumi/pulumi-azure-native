@@ -15075,6 +15075,8 @@ func (o QueueScaleRuleResponsePtrOutput) QueueName() pulumi.StringPtrOutput {
 
 // Container App Private Registry
 type RegistryCredentials struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity *string `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef *string `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15096,6 +15098,8 @@ type RegistryCredentialsInput interface {
 
 // Container App Private Registry
 type RegistryCredentialsArgs struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef pulumi.StringPtrInput `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15156,6 +15160,11 @@ func (o RegistryCredentialsOutput) ToRegistryCredentialsOutputWithContext(ctx co
 	return o
 }
 
+// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+func (o RegistryCredentialsOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryCredentials) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Secret that contains the registry login password
 func (o RegistryCredentialsOutput) PasswordSecretRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryCredentials) *string { return v.PasswordSecretRef }).(pulumi.StringPtrOutput)
@@ -15193,6 +15202,8 @@ func (o RegistryCredentialsArrayOutput) Index(i pulumi.IntInput) RegistryCredent
 
 // Container App Private Registry
 type RegistryCredentialsResponse struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity *string `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef *string `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15214,6 +15225,11 @@ func (o RegistryCredentialsResponseOutput) ToRegistryCredentialsResponseOutput()
 
 func (o RegistryCredentialsResponseOutput) ToRegistryCredentialsResponseOutputWithContext(ctx context.Context) RegistryCredentialsResponseOutput {
 	return o
+}
+
+// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+func (o RegistryCredentialsResponseOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryCredentialsResponse) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Secret that contains the registry login password

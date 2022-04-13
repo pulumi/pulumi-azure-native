@@ -3987,21 +3987,33 @@ class RegistryCredentialsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 identity: Optional[str] = None,
                  password_secret_ref: Optional[str] = None,
                  server: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Container App Private Registry
+        :param str identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param str password_secret_ref: The name of the Secret that contains the registry login password
         :param str server: Container Registry Server
         :param str username: Container Registry Username
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="passwordSecretRef")

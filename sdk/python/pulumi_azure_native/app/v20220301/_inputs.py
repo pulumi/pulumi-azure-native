@@ -3399,21 +3399,37 @@ class QueueScaleRuleArgs:
 @pulumi.input_type
 class RegistryCredentialsArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
                  password_secret_ref: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Container App Private Registry
+        :param pulumi.Input[str] identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param pulumi.Input[str] password_secret_ref: The name of the Secret that contains the registry login password
         :param pulumi.Input[str] server: Container Registry Server
         :param pulumi.Input[str] username: Container Registry Username
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="passwordSecretRef")

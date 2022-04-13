@@ -169,6 +169,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         /// </summary>
         public readonly ImmutableArray<string> Tactics;
         /// <summary>
+        /// The version of the alert rule template used to create this rule - in format &lt;a.b.c&gt;, where all are numbers, for example 0 &lt;1.0.2&gt;
+        /// </summary>
+        public readonly string? TemplateVersion;
+        /// <summary>
         /// The operation against the threshold that triggers alert rule.
         /// </summary>
         public readonly string TriggerOperator;
@@ -227,6 +231,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
 
             ImmutableArray<string> tactics,
 
+            string? templateVersion,
+
             string triggerOperator,
 
             int triggerThreshold,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
             SuppressionEnabled = suppressionEnabled;
             SystemData = systemData;
             Tactics = tactics;
+            TemplateVersion = templateVersion;
             TriggerOperator = triggerOperator;
             TriggerThreshold = triggerThreshold;
             Type = type;

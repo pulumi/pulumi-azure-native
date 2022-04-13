@@ -143,6 +143,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
         public Output<ImmutableArray<string>> Tactics { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the alert rule template used to create this rule - in format &lt;a.b.c&gt;, where all are numbers, for example 0 &lt;1.0.2&gt;
+        /// </summary>
+        [Output("templateVersion")]
+        public Output<string?> TemplateVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The operation against the threshold that triggers alert rule.
         /// </summary>
         [Output("triggerOperator")]
@@ -355,6 +361,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001
             get => _tactics ?? (_tactics = new InputList<Union<string, Pulumi.AzureNative.SecurityInsights.V20211001.AttackTactic>>());
             set => _tactics = value;
         }
+
+        /// <summary>
+        /// The version of the alert rule template used to create this rule - in format &lt;a.b.c&gt;, where all are numbers, for example 0 &lt;1.0.2&gt;
+        /// </summary>
+        [Input("templateVersion")]
+        public Input<string>? TemplateVersion { get; set; }
 
         /// <summary>
         /// The operation against the threshold that triggers alert rule.

@@ -115,7 +115,7 @@ class AssessmentStatusResponse(dict):
 @pulumi.output_type
 class AutomationActionEventHubResponse(dict):
     """
-    The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     """
     @staticmethod
     def __key_warning(key: str):
@@ -146,7 +146,7 @@ class AutomationActionEventHubResponse(dict):
                  connection_string: Optional[str] = None,
                  event_hub_resource_id: Optional[str] = None):
         """
-        The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'EventHub'.
         :param str sas_policy_name: The target Event Hub SAS policy name.
@@ -197,7 +197,7 @@ class AutomationActionEventHubResponse(dict):
 @pulumi.output_type
 class AutomationActionLogicAppResponse(dict):
     """
-    The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+    The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
     """
     @staticmethod
     def __key_warning(key: str):
@@ -223,7 +223,7 @@ class AutomationActionLogicAppResponse(dict):
                  logic_app_resource_id: Optional[str] = None,
                  uri: Optional[str] = None):
         """
-        The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+        The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
         :param str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'LogicApp'.
         :param str logic_app_resource_id: The triggered Logic App Azure Resource ID. This can also reside on other subscriptions, given that you have permissions to trigger the Logic App
@@ -264,7 +264,7 @@ class AutomationActionLogicAppResponse(dict):
 @pulumi.output_type
 class AutomationActionWorkspaceResponse(dict):
     """
-    The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+    The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
     """
     @staticmethod
     def __key_warning(key: str):
@@ -289,7 +289,7 @@ class AutomationActionWorkspaceResponse(dict):
                  action_type: str,
                  workspace_resource_id: Optional[str] = None):
         """
-        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+        The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
         :param str action_type: The type of the action that will be triggered by the Automation
                Expected value is 'Workspace'.
         :param str workspace_resource_id: The fully qualified Log Analytics Workspace Azure Resource ID.

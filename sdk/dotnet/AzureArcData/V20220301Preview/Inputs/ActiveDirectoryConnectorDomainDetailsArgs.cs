@@ -28,13 +28,26 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
         public Input<string>? NetbiosDomainName { get; set; }
 
         /// <summary>
+        /// The distinguished name of the Active Directory Organizational Unit.
+        /// </summary>
+        [Input("ouDistinguishedName")]
+        public Input<string>? OuDistinguishedName { get; set; }
+
+        /// <summary>
         /// Name (uppercase) of the Active Directory domain that this AD connector will be associated with.
         /// </summary>
         [Input("realm", required: true)]
         public Input<string> Realm { get; set; } = null!;
 
+        /// <summary>
+        /// The service account provisioning mode for this Active Directory connector.
+        /// </summary>
+        [Input("serviceAccountProvisioning")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.V20220301Preview.AccountProvisioningMode>? ServiceAccountProvisioning { get; set; }
+
         public ActiveDirectoryConnectorDomainDetailsArgs()
         {
+            ServiceAccountProvisioning = "manual";
         }
     }
 }

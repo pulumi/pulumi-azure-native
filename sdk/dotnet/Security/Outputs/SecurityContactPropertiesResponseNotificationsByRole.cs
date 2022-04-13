@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     /// </summary>
     [OutputType]
     public sealed class SecurityContactPropertiesResponseNotificationsByRole
     {
         /// <summary>
-        /// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        /// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         /// </summary>
         public readonly ImmutableArray<string> Roles;
         /// <summary>
-        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         public readonly string? State;
 

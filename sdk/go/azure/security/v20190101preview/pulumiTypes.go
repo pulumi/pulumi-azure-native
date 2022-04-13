@@ -149,7 +149,7 @@ func (o AssessmentStatusResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentStatusResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+// The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHub struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -160,7 +160,7 @@ type AutomationActionEventHub struct {
 	EventHubResourceId *string `pulumi:"eventHubResourceId"`
 }
 
-// The target Event Hub to which event data will be exported. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+// The target Event Hub to which event data will be exported. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionEventHubResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'EventHub'.
@@ -173,7 +173,7 @@ type AutomationActionEventHubResponse struct {
 	SasPolicyName string `pulumi:"sasPolicyName"`
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+// The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicApp struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -184,7 +184,7 @@ type AutomationActionLogicApp struct {
 	Uri *string `pulumi:"uri"`
 }
 
-// The logic app action that should be triggered. To learn more about Security Center's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
+// The logic app action that should be triggered. To learn more about Microsoft Defender for Cloud's Workflow Automation capabilities, visit https://aka.ms/ASCWorkflowAutomationLearnMore
 type AutomationActionLogicAppResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'LogicApp'.
@@ -195,7 +195,7 @@ type AutomationActionLogicAppResponse struct {
 	Uri *string `pulumi:"uri"`
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspace struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.
@@ -204,7 +204,7 @@ type AutomationActionWorkspace struct {
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
 }
 
-// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Security Center continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
+// The Log Analytics Workspace to which event data will be exported. Security alerts data will reside in the 'SecurityAlert' table and the assessments data will reside in the 'SecurityRecommendation' table (under the 'Security'/'SecurityCenterFree' solutions). Note that in order to view the data in the workspace, the Security Center Log Analytics free/standard solution needs to be enabled on that workspace. To learn more about Microsoft Defender for Cloud continuous export capabilities, visit https://aka.ms/ASCExportLearnMore
 type AutomationActionWorkspaceResponse struct {
 	// The type of the action that will be triggered by the Automation
 	// Expected value is 'Workspace'.

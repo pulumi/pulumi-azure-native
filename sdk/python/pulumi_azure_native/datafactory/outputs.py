@@ -33,8 +33,10 @@ __all__ = [
     'AmazonS3LinkedServiceResponse',
     'AmazonS3LocationResponse',
     'AmazonS3ReadSettingsResponse',
+    'AppFiguresLinkedServiceResponse',
     'AppendVariableActivityResponse',
     'ArmIdWrapperResponse',
+    'AsanaLinkedServiceResponse',
     'AvroDatasetResponse',
     'AvroFormatResponse',
     'AvroSinkResponse',
@@ -173,6 +175,7 @@ __all__ = [
     'DatasetCompressionResponse',
     'DatasetReferenceResponse',
     'DatasetResponseFolder',
+    'DataworldLinkedServiceResponse',
     'Db2LinkedServiceResponse',
     'Db2SourceResponse',
     'Db2TableDatasetResponse',
@@ -546,6 +549,7 @@ __all__ = [
     'TriggerReferenceResponse',
     'TumblingWindowTriggerDependencyReferenceResponse',
     'TumblingWindowTriggerResponse',
+    'TwilioLinkedServiceResponse',
     'UntilActivityResponse',
     'UserAccessPolicyResponse',
     'UserPropertyResponse',
@@ -3836,6 +3840,132 @@ class AmazonS3ReadSettingsResponse(dict):
 
 
 @pulumi.output_type
+class AppFiguresLinkedServiceResponse(dict):
+    """
+    Linked service for AppFigures.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientKey":
+            suggest = "client_key"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AppFiguresLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AppFiguresLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AppFiguresLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_key: Any,
+                 password: Any,
+                 type: str,
+                 user_name: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for AppFigures.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_key: The client key for the AppFigures source.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the AppFigures source.
+        :param str type: Type of linked service.
+               Expected value is 'AppFigures'.
+        :param Any user_name: The username of the Appfigures source.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "client_key", client_key)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "type", 'AppFigures')
+        pulumi.set(__self__, "user_name", user_name)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="clientKey")
+    def client_key(self) -> Any:
+        """
+        The client key for the AppFigures source.
+        """
+        return pulumi.get(self, "client_key")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Any:
+        """
+        The password of the AppFigures source.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'AppFigures'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        The username of the Appfigures source.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class AppendVariableActivityResponse(dict):
     """
     Append value for a Variable of type Array.
@@ -3967,6 +4097,122 @@ class ArmIdWrapperResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AsanaLinkedServiceResponse(dict):
+    """
+    Linked service for Asana.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AsanaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AsanaLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AsanaLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Asana.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Asana source.
+        :param str type: Type of linked service.
+               Expected value is 'Asana'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "type", 'Asana')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Any:
+        """
+        The api token for the Asana source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Asana'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -23184,6 +23430,122 @@ class DatasetResponseFolder(dict):
         The name of the folder that this Dataset is in.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataworldLinkedServiceResponse(dict):
+    """
+    Linked service for Dataworld.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiToken":
+            suggest = "api_token"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataworldLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataworldLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataworldLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_token: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Dataworld.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Dataworld source.
+        :param str type: Type of linked service.
+               Expected value is 'Dataworld'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "api_token", api_token)
+        pulumi.set(__self__, "type", 'Dataworld')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="apiToken")
+    def api_token(self) -> Any:
+        """
+        The api token for the Dataworld source.
+        """
+        return pulumi.get(self, "api_token")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Dataworld'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -73199,6 +73561,119 @@ class TumblingWindowTriggerResponse(dict):
         Retry policy that will be applied for failed pipeline runs.
         """
         return pulumi.get(self, "retry_policy")
+
+
+@pulumi.output_type
+class TwilioLinkedServiceResponse(dict):
+    """
+    Linked service for Twilio.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userName":
+            suggest = "user_name"
+        elif key == "connectVia":
+            suggest = "connect_via"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TwilioLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TwilioLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TwilioLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: Any,
+                 type: str,
+                 user_name: Any,
+                 annotations: Optional[Sequence[Any]] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
+        """
+        Linked service for Twilio.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The auth token of Twilio service.
+        :param str type: Type of linked service.
+               Expected value is 'Twilio'.
+        :param Any user_name: The Account SID of Twilio service.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "type", 'Twilio')
+        pulumi.set(__self__, "user_name", user_name)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Any:
+        """
+        The auth token of Twilio service.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'Twilio'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Any:
+        """
+        The Account SID of Twilio service.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type

@@ -25,6 +25,24 @@ export const RuntimeVersion = {
  */
 export type RuntimeVersion = (typeof RuntimeVersion)[keyof typeof RuntimeVersion];
 
+export const StorageType = {
+    StorageAccount: "StorageAccount",
+} as const;
+
+/**
+ * The type of the storage.
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
+export const Type = {
+    AzureFileVolume: "AzureFileVolume",
+} as const;
+
+/**
+ * The type of the underlying resource to mount as a persistent disk.
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
 export const UserSourceType = {
     Jar: "Jar",
     NetCoreZip: "NetCoreZip",

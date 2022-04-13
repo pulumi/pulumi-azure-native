@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.DataMigration.V20220130Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:datamigration:SqlMigrationService"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:SqlMigrationService"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:SqlMigrationService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

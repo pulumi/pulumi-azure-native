@@ -10,18 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Contact details and configurations for notifications coming from Azure Security Center.
+// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
 // API Version: 2020-01-01-preview.
 type SecurityContact struct {
 	pulumi.CustomResourceState
 
 	// Defines whether to send email notifications about new security alerts
 	AlertNotifications SecurityContactPropertiesResponseAlertNotificationsPtrOutput `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
 	Emails pulumi.StringPtrOutput `pulumi:"emails"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	NotificationsByRole SecurityContactPropertiesResponseNotificationsByRolePtrOutput `pulumi:"notificationsByRole"`
 	// The security contact's phone number
 	Phone pulumi.StringPtrOutput `pulumi:"phone"`
@@ -79,9 +79,9 @@ func (SecurityContactState) ElementType() reflect.Type {
 type securityContactArgs struct {
 	// Defines whether to send email notifications about new security alerts
 	AlertNotifications *SecurityContactPropertiesAlertNotifications `pulumi:"alertNotifications"`
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
 	Emails *string `pulumi:"emails"`
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	NotificationsByRole *SecurityContactPropertiesNotificationsByRole `pulumi:"notificationsByRole"`
 	// The security contact's phone number
 	Phone *string `pulumi:"phone"`
@@ -93,9 +93,9 @@ type securityContactArgs struct {
 type SecurityContactArgs struct {
 	// Defines whether to send email notifications about new security alerts
 	AlertNotifications SecurityContactPropertiesAlertNotificationsPtrInput
-	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+	// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
 	Emails pulumi.StringPtrInput
-	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+	// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
 	NotificationsByRole SecurityContactPropertiesNotificationsByRolePtrInput
 	// The security contact's phone number
 	Phone pulumi.StringPtrInput

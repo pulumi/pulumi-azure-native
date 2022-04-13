@@ -42,6 +42,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly appLogsConfiguration?: outputs.app.v20220301.AppLogsConfigurationResponse;
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry
+     */
+    readonly daprAIConnectionString?: string;
+    /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
     readonly daprAIInstrumentationKey?: string;
@@ -89,6 +93,10 @@ export interface GetManagedEnvironmentResult {
      * Vnet configuration for the environment
      */
     readonly vnetConfiguration?: outputs.app.v20220301.VnetConfigurationResponse;
+    /**
+     * Whether or not this Managed Environment is zone-redundant.
+     */
+    readonly zoneRedundant?: boolean;
 }
 
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {

@@ -22,6 +22,20 @@ const (
 	RuntimeVersion_NetCore_31 = RuntimeVersion("NetCore_31")
 )
 
+// The type of the storage.
+type StorageType string
+
+const (
+	StorageTypeStorageAccount = StorageType("StorageAccount")
+)
+
+// The type of the underlying resource to mount as a persistent disk.
+type Type string
+
+const (
+	TypeAzureFileVolume = Type("AzureFileVolume")
+)
+
 // Type of the source uploaded
 type UserSourceType string
 

@@ -130,6 +130,10 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly tactics?: string[];
     /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    readonly templateVersion?: string;
+    /**
      * The operation against the threshold that triggers alert rule.
      */
     readonly triggerOperator: string;

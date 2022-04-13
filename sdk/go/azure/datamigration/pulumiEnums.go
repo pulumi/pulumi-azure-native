@@ -38,6 +38,14 @@ const (
 	ProjectTargetPlatformUnknown = ProjectTargetPlatform("Unknown")
 )
 
+type ResourceType string
+
+const (
+	ResourceTypeSqlMi = ResourceType("SqlMi")
+	ResourceTypeSqlVm = ResourceType("SqlVm")
+	ResourceTypeSqlDb = ResourceType("SqlDb")
+)
+
 // Permission group for validations
 type ServerLevelPermissionsGroup string
 

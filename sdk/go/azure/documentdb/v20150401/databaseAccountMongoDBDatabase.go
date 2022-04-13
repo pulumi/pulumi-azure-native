@@ -113,6 +113,9 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211115preview:DatabaseAccountMongoDBDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20220215preview:DatabaseAccountMongoDBDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountMongoDBDatabase

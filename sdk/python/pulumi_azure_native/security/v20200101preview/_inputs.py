@@ -493,9 +493,9 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]] = None,
                  state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
-        :param pulumi.Input[Union[str, 'State']] state: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        :param pulumi.Input[Union[str, 'State']] state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -506,7 +506,7 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Roles']]]]]:
         """
-        Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         """
         return pulumi.get(self, "roles")
 
@@ -518,7 +518,7 @@ class SecurityContactPropertiesNotificationsByRoleArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "state")
 

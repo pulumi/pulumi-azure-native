@@ -6379,6 +6379,66 @@ func (o NodeTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) NodeTyp
 	}).(NodeTypeDescriptionResponseOutput)
 }
 
+// Describes Az Resiliency status of Base resources
+type ResourceAzStatusResponse struct {
+	// VM Size name.
+	IsZoneResilient bool `pulumi:"isZoneResilient"`
+	// VM Size properties.
+	ResourceName string `pulumi:"resourceName"`
+	// VM Size id.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// Describes Az Resiliency status of Base resources
+type ResourceAzStatusResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceAzStatusResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAzStatusResponse)(nil)).Elem()
+}
+
+func (o ResourceAzStatusResponseOutput) ToResourceAzStatusResponseOutput() ResourceAzStatusResponseOutput {
+	return o
+}
+
+func (o ResourceAzStatusResponseOutput) ToResourceAzStatusResponseOutputWithContext(ctx context.Context) ResourceAzStatusResponseOutput {
+	return o
+}
+
+// VM Size name.
+func (o ResourceAzStatusResponseOutput) IsZoneResilient() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceAzStatusResponse) bool { return v.IsZoneResilient }).(pulumi.BoolOutput)
+}
+
+// VM Size properties.
+func (o ResourceAzStatusResponseOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceAzStatusResponse) string { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// VM Size id.
+func (o ResourceAzStatusResponseOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceAzStatusResponse) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type ResourceAzStatusResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAzStatusResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAzStatusResponse)(nil)).Elem()
+}
+
+func (o ResourceAzStatusResponseArrayOutput) ToResourceAzStatusResponseArrayOutput() ResourceAzStatusResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAzStatusResponseArrayOutput) ToResourceAzStatusResponseArrayOutputWithContext(ctx context.Context) ResourceAzStatusResponseArrayOutput {
+	return o
+}
+
+func (o ResourceAzStatusResponseArrayOutput) Index(i pulumi.IntInput) ResourceAzStatusResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAzStatusResponse {
+		return vs[0].([]ResourceAzStatusResponse)[vs[1].(int)]
+	}).(ResourceAzStatusResponseOutput)
+}
+
 // Describes the server certificate details using common name.
 type ServerCertificateCommonName struct {
 	// The common name of the server certificate.
@@ -9291,6 +9351,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeTypeDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ResourceAzStatusResponseOutput{})
+	pulumi.RegisterOutputType(ResourceAzStatusResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameResponseOutput{})

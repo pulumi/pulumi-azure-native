@@ -42,15 +42,15 @@ class AssessmentType(str, Enum):
     """
     BUILT_IN = "BuiltIn"
     """
-    Azure Security Center managed assessments
+    Microsoft Defender for Cloud managed assessments
     """
     CUSTOM_POLICY = "CustomPolicy"
     """
-    User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+    User defined policies that are automatically ingested from Azure Policy to Microsoft Defender for Cloud
     """
     CUSTOMER_MANAGED = "CustomerManaged"
     """
-    User assessments pushed directly by the user or other third party to Azure Security Center
+    User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
     """
     VERIFIED_PARTNER = "VerifiedPartner"
     """

@@ -35,6 +35,7 @@ __all__ = [
     'ManagedIdentityResponse',
     'NamedPartitionSchemeDescriptionResponse',
     'NodeTypeDescriptionResponse',
+    'ResourceAzStatusResponse',
     'ServerCertificateCommonNameResponse',
     'ServerCertificateCommonNamesResponse',
     'ServiceCorrelationDescriptionResponse',
@@ -2029,6 +2030,50 @@ class NodeTypeDescriptionResponse(dict):
         The endpoint used by reverse proxy.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
+
+
+@pulumi.output_type
+class ResourceAzStatusResponse(dict):
+    """
+    Describes Az Resiliency status of Base resources
+    """
+    def __init__(__self__, *,
+                 is_zone_resilient: bool,
+                 resource_name: str,
+                 resource_type: str):
+        """
+        Describes Az Resiliency status of Base resources
+        :param bool is_zone_resilient: VM Size name.
+        :param str resource_name: VM Size properties.
+        :param str resource_type: VM Size id.
+        """
+        pulumi.set(__self__, "is_zone_resilient", is_zone_resilient)
+        pulumi.set(__self__, "resource_name", resource_name)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="isZoneResilient")
+    def is_zone_resilient(self) -> bool:
+        """
+        VM Size name.
+        """
+        return pulumi.get(self, "is_zone_resilient")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> str:
+        """
+        VM Size properties.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        VM Size id.
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type

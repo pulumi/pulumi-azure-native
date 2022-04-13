@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Contact details and configurations for notifications coming from Azure Security Center.
+ * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
  * API Version: 2020-01-01-preview.
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
@@ -28,7 +28,7 @@ export interface GetSecurityContactArgs {
 }
 
 /**
- * Contact details and configurations for notifications coming from Azure Security Center.
+ * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
  */
 export interface GetSecurityContactResult {
     /**
@@ -36,7 +36,7 @@ export interface GetSecurityContactResult {
      */
     readonly alertNotifications?: outputs.security.SecurityContactPropertiesResponseAlertNotifications;
     /**
-     * List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+     * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
     readonly emails?: string;
     /**
@@ -48,7 +48,7 @@ export interface GetSecurityContactResult {
      */
     readonly name: string;
     /**
-     * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+     * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
     readonly notificationsByRole?: outputs.security.SecurityContactPropertiesResponseNotificationsByRole;
     /**

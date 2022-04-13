@@ -155,15 +155,15 @@ namespace Pulumi.AzureNative.Security
         }
 
         /// <summary>
-        /// Azure Security Center managed assessments
+        /// Microsoft Defender for Cloud managed assessments
         /// </summary>
         public static AssessmentType BuiltIn { get; } = new AssessmentType("BuiltIn");
         /// <summary>
-        /// User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+        /// User defined policies that are automatically ingested from Azure Policy to Microsoft Defender for Cloud
         /// </summary>
         public static AssessmentType CustomPolicy { get; } = new AssessmentType("CustomPolicy");
         /// <summary>
-        /// User assessments pushed directly by the user or other third party to Azure Security Center
+        /// User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
         /// </summary>
         public static AssessmentType CustomerManaged { get; } = new AssessmentType("CustomerManaged");
         /// <summary>
@@ -1063,7 +1063,7 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     /// </summary>
     [EnumType]
     public readonly struct State : IEquatable<State>

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
 {
 
     /// <summary>
-    /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     /// </summary>
     public sealed class SecurityContactPropertiesNotificationsByRoleArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         private InputList<Union<string, Pulumi.AzureNative.Security.V20200101Preview.Roles>>? _roles;
 
         /// <summary>
-        /// Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        /// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.Security.V20200101Preview.Roles>> Roles
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview.Inputs
         }
 
         /// <summary>
-        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Input("state")]
         public InputUnion<string, Pulumi.AzureNative.Security.V20200101Preview.State>? State { get; set; }

@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20211030preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20220130preview:Project"},
+                    new Pulumi.Alias { Type = "azure-native:datamigration/v20220330preview:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -16,6 +16,7 @@ export * from "./getCluster";
 export * from "./getManagedCluster";
 export * from "./getNodeType";
 export * from "./getService";
+export * from "./getmanagedAzResiliencyStatus";
 export * from "./listListUpgradableVersionPost";
 export * from "./managedCluster";
 export * from "./nodeType";
@@ -42,6 +43,7 @@ import * as v20210701preview from "./v20210701preview";
 import * as v20210901privatepreview from "./v20210901privatepreview";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101 from "./v20220101";
+import * as v20220201preview from "./v20220201preview";
 
 export {
     v20160901,
@@ -61,6 +63,7 @@ export {
     v20210901privatepreview,
     v20211101preview,
     v20220101,
+    v20220201preview,
 };
 
 // Import resources to register:

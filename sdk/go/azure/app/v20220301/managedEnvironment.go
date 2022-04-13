@@ -19,6 +19,8 @@ type ManagedEnvironment struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration AppLogsConfigurationResponsePtrOutput `pulumi:"appLogsConfiguration"`
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString pulumi.StringPtrOutput `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey pulumi.StringPtrOutput `pulumi:"daprAIInstrumentationKey"`
 	// Default Domain Name for the cluster
@@ -41,6 +43,8 @@ type ManagedEnvironment struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Vnet configuration for the environment
 	VnetConfiguration VnetConfigurationResponsePtrOutput `pulumi:"vnetConfiguration"`
+	// Whether or not this Managed Environment is zone-redundant.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewManagedEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -98,6 +102,8 @@ type managedEnvironmentArgs struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration *AppLogsConfiguration `pulumi:"appLogsConfiguration"`
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString *string `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey *string `pulumi:"daprAIInstrumentationKey"`
 	// The geo-location where the resource lives
@@ -110,6 +116,8 @@ type managedEnvironmentArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Vnet configuration for the environment
 	VnetConfiguration *VnetConfiguration `pulumi:"vnetConfiguration"`
+	// Whether or not this Managed Environment is zone-redundant.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ManagedEnvironment resource.
@@ -118,6 +126,8 @@ type ManagedEnvironmentArgs struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration AppLogsConfigurationPtrInput
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString pulumi.StringPtrInput
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey pulumi.StringPtrInput
 	// The geo-location where the resource lives
@@ -130,6 +140,8 @@ type ManagedEnvironmentArgs struct {
 	Tags pulumi.StringMapInput
 	// Vnet configuration for the environment
 	VnetConfiguration VnetConfigurationPtrInput
+	// Whether or not this Managed Environment is zone-redundant.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (ManagedEnvironmentArgs) ElementType() reflect.Type {

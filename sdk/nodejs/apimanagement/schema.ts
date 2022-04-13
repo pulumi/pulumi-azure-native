@@ -93,7 +93,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:Schema" }, { type: "azure-native:apimanagement/v20210801:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:Schema" }, { type: "azure-native:apimanagement/v20210801:Schema" }, { type: "azure-native:apimanagement/v20211201preview:Schema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }

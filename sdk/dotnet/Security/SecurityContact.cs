@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// Contact details and configurations for notifications coming from Azure Security Center.
+    /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityContact")]
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Security
         public Output<Outputs.SecurityContactPropertiesResponseAlertNotifications?> AlertNotifications { get; private set; } = null!;
 
         /// <summary>
-        /// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
         [Output("emails")]
         public Output<string?> Emails { get; private set; } = null!;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Security
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Output("notificationsByRole")]
         public Output<Outputs.SecurityContactPropertiesResponseNotificationsByRole?> NotificationsByRole { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.AzureNative.Security
         public Input<Inputs.SecurityContactPropertiesAlertNotificationsArgs>? AlertNotifications { get; set; }
 
         /// <summary>
-        /// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
+        /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
         [Input("emails")]
         public Input<string>? Emails { get; set; }
 
         /// <summary>
-        /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         [Input("notificationsByRole")]
         public Input<Inputs.SecurityContactPropertiesNotificationsByRoleArgs>? NotificationsByRole { get; set; }

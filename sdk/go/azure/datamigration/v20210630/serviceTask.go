@@ -50,6 +50,9 @@ func NewServiceTask(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:datamigration/v20220130preview:ServiceTask"),
 		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20220330preview:ServiceTask"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServiceTask

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview.Inputs
     public sealed class ActiveDirectoryConnectorPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Username and password for domain service account authentication.
+        /// </summary>
+        [Input("domainServiceAccountLoginInformation")]
+        public Input<Inputs.BasicLoginInformationArgs>? DomainServiceAccountLoginInformation { get; set; }
+
+        /// <summary>
         /// null
         /// </summary>
         [Input("spec", required: true)]

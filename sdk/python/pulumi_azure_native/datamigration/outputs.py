@@ -42,13 +42,16 @@ __all__ = [
     'ConnectToTargetSqlMITaskPropertiesResponse',
     'ConnectToTargetSqlSqlDbSyncTaskInputResponse',
     'ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse',
+    'CopyProgressDetailsResponse',
     'DataIntegrityValidationResultResponse',
     'DataItemMigrationSummaryResultResponse',
     'DatabaseBackupInfoResponse',
     'DatabaseFileInfoResponse',
     'DatabaseInfoResponse',
+    'DatabaseMigrationPropertiesSqlDbResponse',
     'DatabaseSummaryResultResponse',
     'DatabaseTableResponse',
+    'ErrorInfoResponse',
     'ExecutionStatisticsResponse',
     'FileShareResponse',
     'GetTdeCertificatesSqlTaskInputResponse',
@@ -131,6 +134,9 @@ __all__ = [
     'SelectedCertificateInputResponse',
     'ServiceSkuResponse',
     'SqlConnectionInfoResponse',
+    'SqlConnectionInformationResponse',
+    'SqlDbMigrationStatusDetailsResponse',
+    'SqlDbOfflineConfigurationResponse',
     'StartMigrationScenarioServerRoleResultResponse',
     'SyncMigrationDatabaseErrorEventResponse',
     'SystemDataResponse',
@@ -2751,6 +2757,173 @@ class ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class CopyProgressDetailsResponse(dict):
+    """
+    Details on progress of ADF copy activity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyDuration":
+            suggest = "copy_duration"
+        elif key == "copyStart":
+            suggest = "copy_start"
+        elif key == "copyThroughput":
+            suggest = "copy_throughput"
+        elif key == "dataRead":
+            suggest = "data_read"
+        elif key == "dataWritten":
+            suggest = "data_written"
+        elif key == "parallelCopyType":
+            suggest = "parallel_copy_type"
+        elif key == "rowsCopied":
+            suggest = "rows_copied"
+        elif key == "rowsRead":
+            suggest = "rows_read"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "usedParallelCopies":
+            suggest = "used_parallel_copies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyProgressDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyProgressDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyProgressDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_duration: int,
+                 copy_start: str,
+                 copy_throughput: float,
+                 data_read: float,
+                 data_written: float,
+                 parallel_copy_type: str,
+                 rows_copied: float,
+                 rows_read: float,
+                 status: str,
+                 table_name: str,
+                 used_parallel_copies: int):
+        """
+        Details on progress of ADF copy activity
+        :param int copy_duration: Copy Duration in seconds
+        :param str copy_start: Copy Start
+        :param float copy_throughput: Copy throughput in KBps
+        :param float data_read: Bytes read
+        :param float data_written: Bytes written
+        :param str parallel_copy_type: Type of parallel copy (Dynamic range, Physical partition, none).
+        :param float rows_copied: Rows Copied
+        :param float rows_read: Rows read
+        :param str status: Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
+        :param str table_name: Table Name
+        :param int used_parallel_copies: The degree of parallelization.
+        """
+        pulumi.set(__self__, "copy_duration", copy_duration)
+        pulumi.set(__self__, "copy_start", copy_start)
+        pulumi.set(__self__, "copy_throughput", copy_throughput)
+        pulumi.set(__self__, "data_read", data_read)
+        pulumi.set(__self__, "data_written", data_written)
+        pulumi.set(__self__, "parallel_copy_type", parallel_copy_type)
+        pulumi.set(__self__, "rows_copied", rows_copied)
+        pulumi.set(__self__, "rows_read", rows_read)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "used_parallel_copies", used_parallel_copies)
+
+    @property
+    @pulumi.getter(name="copyDuration")
+    def copy_duration(self) -> int:
+        """
+        Copy Duration in seconds
+        """
+        return pulumi.get(self, "copy_duration")
+
+    @property
+    @pulumi.getter(name="copyStart")
+    def copy_start(self) -> str:
+        """
+        Copy Start
+        """
+        return pulumi.get(self, "copy_start")
+
+    @property
+    @pulumi.getter(name="copyThroughput")
+    def copy_throughput(self) -> float:
+        """
+        Copy throughput in KBps
+        """
+        return pulumi.get(self, "copy_throughput")
+
+    @property
+    @pulumi.getter(name="dataRead")
+    def data_read(self) -> float:
+        """
+        Bytes read
+        """
+        return pulumi.get(self, "data_read")
+
+    @property
+    @pulumi.getter(name="dataWritten")
+    def data_written(self) -> float:
+        """
+        Bytes written
+        """
+        return pulumi.get(self, "data_written")
+
+    @property
+    @pulumi.getter(name="parallelCopyType")
+    def parallel_copy_type(self) -> str:
+        """
+        Type of parallel copy (Dynamic range, Physical partition, none).
+        """
+        return pulumi.get(self, "parallel_copy_type")
+
+    @property
+    @pulumi.getter(name="rowsCopied")
+    def rows_copied(self) -> float:
+        """
+        Rows Copied
+        """
+        return pulumi.get(self, "rows_copied")
+
+    @property
+    @pulumi.getter(name="rowsRead")
+    def rows_read(self) -> float:
+        """
+        Rows read
+        """
+        return pulumi.get(self, "rows_read")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Copy activity (InProgress, Succeeded, Failed, Canceled).
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        Table Name
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="usedParallelCopies")
+    def used_parallel_copies(self) -> int:
+        """
+        The degree of parallelization.
+        """
+        return pulumi.get(self, "used_parallel_copies")
+
+
+@pulumi.output_type
 class DataIntegrityValidationResultResponse(dict):
     """
     Results for checksum based Data Integrity validation results
@@ -3231,6 +3404,273 @@ class DatabaseInfoResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseMigrationPropertiesSqlDbResponse(dict):
+    """
+    Database Migration Resource properties for SQL database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "migrationFailureError":
+            suggest = "migration_failure_error"
+        elif key == "migrationStatus":
+            suggest = "migration_status"
+        elif key == "migrationStatusDetails":
+            suggest = "migration_status_details"
+        elif key == "offlineConfiguration":
+            suggest = "offline_configuration"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceServerName":
+            suggest = "source_server_name"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "migrationOperationId":
+            suggest = "migration_operation_id"
+        elif key == "migrationService":
+            suggest = "migration_service"
+        elif key == "provisioningError":
+            suggest = "provisioning_error"
+        elif key == "sourceDatabaseName":
+            suggest = "source_database_name"
+        elif key == "sourceSqlConnection":
+            suggest = "source_sql_connection"
+        elif key == "tableList":
+            suggest = "table_list"
+        elif key == "targetDatabaseCollation":
+            suggest = "target_database_collation"
+        elif key == "targetSqlConnection":
+            suggest = "target_sql_connection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseMigrationPropertiesSqlDbResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseMigrationPropertiesSqlDbResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseMigrationPropertiesSqlDbResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ended_on: str,
+                 kind: str,
+                 migration_failure_error: 'outputs.ErrorInfoResponse',
+                 migration_status: str,
+                 migration_status_details: 'outputs.SqlDbMigrationStatusDetailsResponse',
+                 offline_configuration: 'outputs.SqlDbOfflineConfigurationResponse',
+                 provisioning_state: str,
+                 source_server_name: str,
+                 started_on: str,
+                 migration_operation_id: Optional[str] = None,
+                 migration_service: Optional[str] = None,
+                 provisioning_error: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 source_database_name: Optional[str] = None,
+                 source_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+                 table_list: Optional[Sequence[str]] = None,
+                 target_database_collation: Optional[str] = None,
+                 target_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None):
+        """
+        Database Migration Resource properties for SQL database.
+        :param str ended_on: Database migration end time.
+        :param str kind: 
+               Expected value is 'SqlDb'.
+        :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
+        :param str migration_status: Migration status.
+        :param 'SqlDbMigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
+        :param 'SqlDbOfflineConfigurationResponse' offline_configuration: Offline configuration.
+        :param str provisioning_state: Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        :param str source_server_name: Name of the source sql server.
+        :param str started_on: Database migration start time.
+        :param str migration_operation_id: ID tracking current migration operation.
+        :param str migration_service: Resource Id of the Migration Service.
+        :param str provisioning_error: Error message for migration provisioning failure, if any.
+        :param str scope: Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        :param str source_database_name: Name of the source database.
+        :param 'SqlConnectionInformationResponse' source_sql_connection: Source SQL Server connection details.
+        :param Sequence[str] table_list: List of tables to copy.
+        :param str target_database_collation: Database collation to be used for the target database.
+        :param 'SqlConnectionInformationResponse' target_sql_connection: Target SQL DB connection details.
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "kind", 'SqlDb')
+        pulumi.set(__self__, "migration_failure_error", migration_failure_error)
+        pulumi.set(__self__, "migration_status", migration_status)
+        pulumi.set(__self__, "migration_status_details", migration_status_details)
+        pulumi.set(__self__, "offline_configuration", offline_configuration)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_server_name", source_server_name)
+        pulumi.set(__self__, "started_on", started_on)
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if table_list is not None:
+            pulumi.set(__self__, "table_list", table_list)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+        if target_sql_connection is not None:
+            pulumi.set(__self__, "target_sql_connection", target_sql_connection)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> str:
+        """
+        Database migration end time.
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+
+        Expected value is 'SqlDb'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="migrationFailureError")
+    def migration_failure_error(self) -> 'outputs.ErrorInfoResponse':
+        """
+        Error details in case of migration failure.
+        """
+        return pulumi.get(self, "migration_failure_error")
+
+    @property
+    @pulumi.getter(name="migrationStatus")
+    def migration_status(self) -> str:
+        """
+        Migration status.
+        """
+        return pulumi.get(self, "migration_status")
+
+    @property
+    @pulumi.getter(name="migrationStatusDetails")
+    def migration_status_details(self) -> 'outputs.SqlDbMigrationStatusDetailsResponse':
+        """
+        Detailed migration status. Not included by default.
+        """
+        return pulumi.get(self, "migration_status_details")
+
+    @property
+    @pulumi.getter(name="offlineConfiguration")
+    def offline_configuration(self) -> 'outputs.SqlDbOfflineConfigurationResponse':
+        """
+        Offline configuration.
+        """
+        return pulumi.get(self, "offline_configuration")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceServerName")
+    def source_server_name(self) -> str:
+        """
+        Name of the source sql server.
+        """
+        return pulumi.get(self, "source_server_name")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> str:
+        """
+        Database migration start time.
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[str]:
+        """
+        ID tracking current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[str]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[str]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[str]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional['outputs.SqlConnectionInformationResponse']:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @property
+    @pulumi.getter(name="tableList")
+    def table_list(self) -> Optional[Sequence[str]]:
+        """
+        List of tables to copy.
+        """
+        return pulumi.get(self, "table_list")
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[str]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+    @property
+    @pulumi.getter(name="targetSqlConnection")
+    def target_sql_connection(self) -> Optional['outputs.SqlConnectionInformationResponse']:
+        """
+        Target SQL DB connection details.
+        """
+        return pulumi.get(self, "target_sql_connection")
+
+
+@pulumi.output_type
 class DatabaseSummaryResultResponse(dict):
     """
     Summary of database results in the migration
@@ -3430,6 +3870,39 @@ class DatabaseTableResponse(dict):
         Schema-qualified name of the table
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ErrorInfoResponse(dict):
+    """
+    Error details
+    """
+    def __init__(__self__, *,
+                 code: str,
+                 message: str):
+        """
+        Error details
+        :param str code: Error code.
+        :param str message: Error message.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Error message.
+        """
+        return pulumi.get(self, "message")
 
 
 @pulumi.output_type
@@ -11926,6 +12399,199 @@ class SqlConnectionInfoResponse(dict):
         User name
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class SqlConnectionInformationResponse(dict):
+    """
+    Source SQL Connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSource":
+            suggest = "data_source"
+        elif key == "encryptConnection":
+            suggest = "encrypt_connection"
+        elif key == "trustServerCertificate":
+            suggest = "trust_server_certificate"
+        elif key == "userName":
+            suggest = "user_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlConnectionInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlConnectionInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlConnectionInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication: Optional[str] = None,
+                 data_source: Optional[str] = None,
+                 encrypt_connection: Optional[bool] = None,
+                 password: Optional[str] = None,
+                 trust_server_certificate: Optional[bool] = None,
+                 user_name: Optional[str] = None):
+        """
+        Source SQL Connection
+        :param str authentication: Authentication type.
+        :param str data_source: Data source.
+        :param bool encrypt_connection: Whether to encrypt connection or not.
+        :param str password: Password to connect to source SQL.
+        :param bool trust_server_certificate: Whether to trust server certificate or not.
+        :param str user_name: User name to connect to source SQL.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+        if encrypt_connection is not None:
+            pulumi.set(__self__, "encrypt_connection", encrypt_connection)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if trust_server_certificate is not None:
+            pulumi.set(__self__, "trust_server_certificate", trust_server_certificate)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[str]:
+        """
+        Authentication type.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional[str]:
+        """
+        Data source.
+        """
+        return pulumi.get(self, "data_source")
+
+    @property
+    @pulumi.getter(name="encryptConnection")
+    def encrypt_connection(self) -> Optional[bool]:
+        """
+        Whether to encrypt connection or not.
+        """
+        return pulumi.get(self, "encrypt_connection")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password to connect to source SQL.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="trustServerCertificate")
+    def trust_server_certificate(self) -> Optional[bool]:
+        """
+        Whether to trust server certificate or not.
+        """
+        return pulumi.get(self, "trust_server_certificate")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[str]:
+        """
+        User name to connect to source SQL.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class SqlDbMigrationStatusDetailsResponse(dict):
+    """
+    Detailed status of current Sql Db migration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "listOfCopyProgressDetails":
+            suggest = "list_of_copy_progress_details"
+        elif key == "migrationState":
+            suggest = "migration_state"
+        elif key == "sqlDataCopyErrors":
+            suggest = "sql_data_copy_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDbMigrationStatusDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDbMigrationStatusDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDbMigrationStatusDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 list_of_copy_progress_details: Sequence['outputs.CopyProgressDetailsResponse'],
+                 migration_state: str,
+                 sql_data_copy_errors: Sequence[str]):
+        """
+        Detailed status of current Sql Db migration.
+        :param Sequence['CopyProgressDetailsResponse'] list_of_copy_progress_details: Details on progress of ADF copy activities.
+        :param str migration_state: Current State of Migration.
+        :param Sequence[str] sql_data_copy_errors: Sql Data Copy errors, if any.
+        """
+        pulumi.set(__self__, "list_of_copy_progress_details", list_of_copy_progress_details)
+        pulumi.set(__self__, "migration_state", migration_state)
+        pulumi.set(__self__, "sql_data_copy_errors", sql_data_copy_errors)
+
+    @property
+    @pulumi.getter(name="listOfCopyProgressDetails")
+    def list_of_copy_progress_details(self) -> Sequence['outputs.CopyProgressDetailsResponse']:
+        """
+        Details on progress of ADF copy activities.
+        """
+        return pulumi.get(self, "list_of_copy_progress_details")
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> str:
+        """
+        Current State of Migration.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @property
+    @pulumi.getter(name="sqlDataCopyErrors")
+    def sql_data_copy_errors(self) -> Sequence[str]:
+        """
+        Sql Data Copy errors, if any.
+        """
+        return pulumi.get(self, "sql_data_copy_errors")
+
+
+@pulumi.output_type
+class SqlDbOfflineConfigurationResponse(dict):
+    """
+    Offline configuration
+    """
+    def __init__(__self__, *,
+                 offline: bool):
+        """
+        Offline configuration
+        :param bool offline: Offline migration
+        """
+        pulumi.set(__self__, "offline", offline)
+
+    @property
+    @pulumi.getter
+    def offline(self) -> bool:
+        """
+        Offline migration
+        """
+        return pulumi.get(self, "offline")
 
 
 @pulumi.output_type

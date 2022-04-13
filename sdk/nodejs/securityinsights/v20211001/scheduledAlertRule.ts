@@ -121,6 +121,10 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
      */
     public readonly tactics!: pulumi.Output<string[] | undefined>;
     /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    public readonly templateVersion!: pulumi.Output<string | undefined>;
+    /**
      * The operation against the threshold that triggers alert rule.
      */
     public readonly triggerOperator!: pulumi.Output<string>;
@@ -202,6 +206,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
             resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
             resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
             resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -232,6 +237,7 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             resourceInputs["suppressionEnabled"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["templateVersion"] = undefined /*out*/;
             resourceInputs["triggerOperator"] = undefined /*out*/;
             resourceInputs["triggerThreshold"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -324,6 +330,10 @@ export interface ScheduledAlertRuleArgs {
      * The tactics of the alert rule
      */
     tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.v20211001.AttackTactic>[]>;
+    /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    templateVersion?: pulumi.Input<string>;
     /**
      * The operation against the threshold that triggers alert rule.
      */

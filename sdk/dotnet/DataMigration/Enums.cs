@@ -134,6 +134,35 @@ namespace Pulumi.AzureNative.DataMigration
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ResourceType : IEquatable<ResourceType>
+    {
+        private readonly string _value;
+
+        private ResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceType SqlMi { get; } = new ResourceType("SqlMi");
+        public static ResourceType SqlVm { get; } = new ResourceType("SqlVm");
+        public static ResourceType SqlDb { get; } = new ResourceType("SqlDb");
+
+        public static bool operator ==(ResourceType left, ResourceType right) => left.Equals(right);
+        public static bool operator !=(ResourceType left, ResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceType other && Equals(other);
+        public bool Equals(ResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Permission group for validations
     /// </summary>

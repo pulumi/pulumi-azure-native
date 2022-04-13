@@ -28,11 +28,11 @@ const (
 type AssessmentType string
 
 const (
-	// Azure Security Center managed assessments
+	// Microsoft Defender for Cloud managed assessments
 	AssessmentTypeBuiltIn = AssessmentType("BuiltIn")
-	// User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+	// User defined policies that are automatically ingested from Azure Policy to Microsoft Defender for Cloud
 	AssessmentTypeCustomPolicy = AssessmentType("CustomPolicy")
-	// User assessments pushed directly by the user or other third party to Azure Security Center
+	// User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
 	AssessmentTypeCustomerManaged = AssessmentType("CustomerManaged")
 )
 

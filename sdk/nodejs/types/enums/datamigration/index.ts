@@ -10,6 +10,7 @@ import * as v20180715preview from "./v20180715preview";
 import * as v20210630 from "./v20210630";
 import * as v20211030preview from "./v20211030preview";
 import * as v20220130preview from "./v20220130preview";
+import * as v20220330preview from "./v20220330preview";
 
 export {
     v20171115preview,
@@ -20,6 +21,7 @@ export {
     v20210630,
     v20211030preview,
     v20220130preview,
+    v20220330preview,
 };
 
 export const AuthenticationType = {
@@ -64,6 +66,14 @@ export const ProjectTargetPlatform = {
  * Target platform for the project
  */
 export type ProjectTargetPlatform = (typeof ProjectTargetPlatform)[keyof typeof ProjectTargetPlatform];
+
+export const ResourceType = {
+    SqlMi: "SqlMi",
+    SqlVm: "SqlVm",
+    SqlDb: "SqlDb",
+} as const;
+
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 export const ServerLevelPermissionsGroup = {
     Default: "Default",

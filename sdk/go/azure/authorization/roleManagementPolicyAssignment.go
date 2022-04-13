@@ -12,10 +12,12 @@ import (
 )
 
 // Role management policy
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 type RoleManagementPolicyAssignment struct {
 	pulumi.CustomResourceState
 
+	// The readonly computed rule applied to the policy.
+	EffectiveRules pulumi.ArrayOutput `pulumi:"effectiveRules"`
 	// The role management policy name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Additional properties of scope, role definition and policy

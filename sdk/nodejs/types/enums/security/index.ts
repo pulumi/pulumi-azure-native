@@ -78,15 +78,15 @@ export type AssessmentStatusCode = (typeof AssessmentStatusCode)[keyof typeof As
 
 export const AssessmentType = {
     /**
-     * Azure Security Center managed assessments
+     * Microsoft Defender for Cloud managed assessments
      */
     BuiltIn: "BuiltIn",
     /**
-     * User defined policies that are automatically ingested from Azure Policy to Azure Security Center
+     * User defined policies that are automatically ingested from Azure Policy to Microsoft Defender for Cloud
      */
     CustomPolicy: "CustomPolicy",
     /**
-     * User assessments pushed directly by the user or other third party to Azure Security Center
+     * User assessments pushed directly by the user or other third party to Microsoft Defender for Cloud
      */
     CustomerManaged: "CustomerManaged",
     /**
@@ -505,7 +505,7 @@ export const State = {
 } as const;
 
 /**
- * Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+ * Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
  */
 export type State = (typeof State)[keyof typeof State];
 

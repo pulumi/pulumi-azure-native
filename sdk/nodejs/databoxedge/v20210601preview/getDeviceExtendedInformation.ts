@@ -52,6 +52,22 @@ export interface GetDeviceExtendedInformationResult {
      */
     readonly clientSecretStoreUrl?: string;
     /**
+     * The Container for cloud witness in the storage account.
+     */
+    readonly cloudWitnessContainerName: string;
+    /**
+     * The Cloud Witness Storage account name.
+     */
+    readonly cloudWitnessStorageAccountName: string;
+    /**
+     * The Azure service endpoint of the cloud witness storage account.
+     */
+    readonly cloudWitnessStorageEndpoint: string;
+    /**
+     * Cluster Witness Type
+     */
+    readonly clusterWitnessType: string;
+    /**
      * Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
      */
     readonly deviceSecrets: {[key: string]: outputs.databoxedge.v20210601preview.SecretResponse};
@@ -63,6 +79,14 @@ export interface GetDeviceExtendedInformationResult {
      * The digital signature of encrypted certificate.
      */
     readonly encryptionKeyThumbprint?: string;
+    /**
+     * The witness location of file share.
+     */
+    readonly fileShareWitnessLocation: string;
+    /**
+     * The username of file share.
+     */
+    readonly fileShareWitnessUsername: string;
     /**
      * The path ID that uniquely identifies the object.
      */

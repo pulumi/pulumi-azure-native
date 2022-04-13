@@ -195,7 +195,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210501:ManagedCluster" }, { type: "azure-native:servicefabric/v20210701preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedCluster" }, { type: "azure-native:servicefabric/v20211101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20220101:ManagedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210501:ManagedCluster" }, { type: "azure-native:servicefabric/v20210701preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedCluster" }, { type: "azure-native:servicefabric/v20211101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20220101:ManagedCluster" }, { type: "azure-native:servicefabric/v20220201preview:ManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCluster.__pulumiType, name, resourceInputs, opts);
     }

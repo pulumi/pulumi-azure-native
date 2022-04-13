@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
     }
 
     /// <summary>
-    /// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    /// Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     /// </summary>
     [EnumType]
     public readonly struct State : IEquatable<State>

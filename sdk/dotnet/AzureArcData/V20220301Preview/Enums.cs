@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
 {
     /// <summary>
+    /// The service account provisioning mode for this Active Directory connector.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountProvisioningMode : IEquatable<AccountProvisioningMode>
+    {
+        private readonly string _value;
+
+        private AccountProvisioningMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountProvisioningMode Automatic { get; } = new AccountProvisioningMode("automatic");
+        public static AccountProvisioningMode Manual { get; } = new AccountProvisioningMode("manual");
+
+        public static bool operator ==(AccountProvisioningMode left, AccountProvisioningMode right) => left.Equals(right);
+        public static bool operator !=(AccountProvisioningMode left, AccountProvisioningMode right) => !left.Equals(right);
+
+        public static explicit operator string(AccountProvisioningMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountProvisioningMode other && Equals(other);
+        public bool Equals(AccountProvisioningMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The license type to apply for this managed instance.
     /// </summary>
     [EnumType]

@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         /// <summary>
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
-        public readonly string? DataBoxEdgeDeviceStatus;
+        public readonly string DataBoxEdgeDeviceStatus;
         /// <summary>
         /// The details of data-residency related properties for this resource
         /// </summary>
@@ -130,7 +130,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
         /// <summary>
         /// The kind of the device.
         /// </summary>
-        public readonly string? Kind;
+        public readonly string Kind;
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
 
             string culture,
 
-            string? dataBoxEdgeDeviceStatus,
+            string dataBoxEdgeDeviceStatus,
 
             Outputs.DataResidencyResponse? dataResidency,
 
@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
 
             Outputs.ResourceIdentityResponse? identity,
 
-            string? kind,
+            string kind,
 
             string location,
 

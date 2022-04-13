@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AccountProvisioningMode',
     'ArcSqlManagedInstanceLicenseType',
     'ArcSqlServerLicenseType',
     'ConnectionStatus',
@@ -18,6 +19,14 @@ __all__ = [
     'SqlManagedInstanceSkuTier',
     'SqlVersion',
 ]
+
+
+class AccountProvisioningMode(str, Enum):
+    """
+    The service account provisioning mode for this Active Directory connector.
+    """
+    AUTOMATIC = "automatic"
+    MANUAL = "manual"
 
 
 class ArcSqlManagedInstanceLicenseType(str, Enum):

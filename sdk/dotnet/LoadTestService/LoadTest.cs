@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.LoadTestService
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:loadtestservice/v20211201preview:LoadTest"},
+                    new Pulumi.Alias { Type = "azure-native:loadtestservice/v20220415preview:LoadTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

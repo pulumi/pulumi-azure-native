@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:NotificationRecipientEmail"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NotificationRecipientEmail"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NotificationRecipientEmail"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

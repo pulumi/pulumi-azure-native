@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role management policy
-    /// API Version: 2020-10-01-preview.
+    /// API Version: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleManagementPolicyAssignment")]
     public partial class RoleManagementPolicyAssignment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The readonly computed rule applied to the policy.
+        /// </summary>
+        [Output("effectiveRules")]
+        public Output<ImmutableArray<object>> EffectiveRules { get; private set; } = null!;
+
         /// <summary>
         /// The role management policy name.
         /// </summary>

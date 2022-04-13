@@ -44,33 +44,6 @@ export const ClientPermissionType = {
  */
 export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
 
-export const DataBoxEdgeDeviceKind = {
-    AzureDataBoxGateway: "AzureDataBoxGateway",
-    AzureStackEdge: "AzureStackEdge",
-    AzureStackHub: "AzureStackHub",
-    AzureModularDataCentre: "AzureModularDataCentre",
-} as const;
-
-/**
- * The kind of the device.
- */
-export type DataBoxEdgeDeviceKind = (typeof DataBoxEdgeDeviceKind)[keyof typeof DataBoxEdgeDeviceKind];
-
-export const DataBoxEdgeDeviceStatus = {
-    ReadyToSetup: "ReadyToSetup",
-    Online: "Online",
-    Offline: "Offline",
-    NeedsAttention: "NeedsAttention",
-    Disconnected: "Disconnected",
-    PartiallyDisconnected: "PartiallyDisconnected",
-    Maintenance: "Maintenance",
-} as const;
-
-/**
- * The status of the Data Box Edge/Gateway device.
- */
-export type DataBoxEdgeDeviceStatus = (typeof DataBoxEdgeDeviceStatus)[keyof typeof DataBoxEdgeDeviceStatus];
-
 export const DataPolicy = {
     Cloud: "Cloud",
     Local: "Local",

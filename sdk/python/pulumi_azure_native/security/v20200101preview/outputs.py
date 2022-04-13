@@ -637,15 +637,15 @@ class SecurityContactPropertiesResponseAlertNotifications(dict):
 @pulumi.output_type
 class SecurityContactPropertiesResponseNotificationsByRole(dict):
     """
-    Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+    Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
     """
     def __init__(__self__, *,
                  roles: Optional[Sequence[str]] = None,
                  state: Optional[str] = None):
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
-        :param Sequence[str] roles: Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
-        :param str state: Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+        :param Sequence[str] roles: Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
+        :param str state: Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         if roles is not None:
             pulumi.set(__self__, "roles", roles)
@@ -656,7 +656,7 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
     @pulumi.getter
     def roles(self) -> Optional[Sequence[str]]:
         """
-        Defines which RBAC roles will get email notifications from Azure Security Center. List of allowed RBAC roles: 
+        Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         """
         return pulumi.get(self, "roles")
 
@@ -664,7 +664,7 @@ class SecurityContactPropertiesResponseNotificationsByRole(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.
+        Defines whether to send email notifications from AMicrosoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "state")
 

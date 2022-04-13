@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role management policy
- * API Version: 2020-10-01-preview.
+ * API Version: 2020-10-01.
  */
 export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyAssignmentResult> {
     if (!opts) {
@@ -36,6 +36,10 @@ export interface GetRoleManagementPolicyAssignmentArgs {
  * Role management policy
  */
 export interface GetRoleManagementPolicyAssignmentResult {
+    /**
+     * The readonly computed rule applied to the policy.
+     */
+    readonly effectiveRules: (outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse)[];
     /**
      * The role management policy Id.
      */

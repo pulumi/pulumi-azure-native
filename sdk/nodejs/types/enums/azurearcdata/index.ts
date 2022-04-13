@@ -16,6 +16,16 @@ export {
     v20220301preview,
 };
 
+export const AccountProvisioningMode = {
+    Automatic: "automatic",
+    Manual: "manual",
+} as const;
+
+/**
+ * The service account provisioning mode for this Active Directory connector.
+ */
+export type AccountProvisioningMode = (typeof AccountProvisioningMode)[keyof typeof AccountProvisioningMode];
+
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
