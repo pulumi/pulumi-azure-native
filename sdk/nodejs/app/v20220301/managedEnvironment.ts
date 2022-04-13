@@ -42,6 +42,10 @@ export class ManagedEnvironment extends pulumi.CustomResource {
      */
     public readonly appLogsConfiguration!: pulumi.Output<outputs.app.v20220301.AppLogsConfigurationResponse | undefined>;
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry
+     */
+    public readonly daprAIConnectionString!: pulumi.Output<string | undefined>;
+    /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
     public readonly daprAIInstrumentationKey!: pulumi.Output<string | undefined>;
@@ -101,6 +105,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
+            resourceInputs["daprAIConnectionString"] = args ? args.daprAIConnectionString : undefined;
             resourceInputs["daprAIInstrumentationKey"] = args ? args.daprAIInstrumentationKey : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -115,6 +120,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["appLogsConfiguration"] = undefined /*out*/;
+            resourceInputs["daprAIConnectionString"] = undefined /*out*/;
             resourceInputs["daprAIInstrumentationKey"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
@@ -144,6 +150,10 @@ export interface ManagedEnvironmentArgs {
      * supported
      */
     appLogsConfiguration?: pulumi.Input<inputs.app.v20220301.AppLogsConfigurationArgs>;
+    /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry
+     */
+    daprAIConnectionString?: pulumi.Input<string>;
     /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */

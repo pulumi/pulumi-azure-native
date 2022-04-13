@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.App.V20220301
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        [Output("daprAIConnectionString")]
+        public Output<string?> DaprAIConnectionString { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         /// </summary>
         [Output("daprAIInstrumentationKey")]
@@ -146,6 +152,12 @@ namespace Pulumi.AzureNative.App.V20220301
         /// </summary>
         [Input("appLogsConfiguration")]
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }
+
+        /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        [Input("daprAIConnectionString")]
+        public Input<string>? DaprAIConnectionString { get; set; }
 
         /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry

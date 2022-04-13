@@ -12,7 +12,7 @@ import (
 )
 
 // The resource proxy definition object for quantum workspace.
-// API Version: 2019-11-04-preview.
+// API Version: 2022-01-10-preview.
 type Workspace struct {
 	pulumi.CustomResourceState
 

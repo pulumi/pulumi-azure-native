@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The resource proxy definition object for quantum workspace.
  */
+/** @deprecated Version v20191104preview will be removed in the next major version of the provider. Upgrade to version v20220110preview or later. */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
+    pulumi.log.warn("getWorkspace is deprecated: Version v20191104preview will be removed in the next major version of the provider. Upgrade to version v20220110preview or later.")
     if (!opts) {
         opts = {}
     }

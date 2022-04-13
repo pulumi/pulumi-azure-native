@@ -255,7 +255,7 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraResourceCassandraView")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:CassandraResourceCassandraView"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:CassandraResourceCassandraView")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CassandraResourceCassandraView, __self__).__init__(
             'azure-native:documentdb/v20211115preview:CassandraResourceCassandraView',

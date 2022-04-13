@@ -254,7 +254,7 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:MongoDBResourceMongoUserDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MongoDBResourceMongoUserDefinition, __self__).__init__(
             'azure-native:documentdb:MongoDBResourceMongoUserDefinition',

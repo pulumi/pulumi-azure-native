@@ -11,7 +11,7 @@ import (
 )
 
 // Role management policy
-// API Version: 2020-10-01-preview.
+// API Version: 2020-10-01.
 func LookupRoleManagementPolicyAssignment(ctx *pulumi.Context, args *LookupRoleManagementPolicyAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleManagementPolicyAssignmentResult, error) {
 	var rv LookupRoleManagementPolicyAssignmentResult
 	err := ctx.Invoke("azure-native:authorization:getRoleManagementPolicyAssignment", args, &rv, opts...)
@@ -30,6 +30,8 @@ type LookupRoleManagementPolicyAssignmentArgs struct {
 
 // Role management policy
 type LookupRoleManagementPolicyAssignmentResult struct {
+	// The readonly computed rule applied to the policy.
+	EffectiveRules []interface{} `pulumi:"effectiveRules"`
 	// The role management policy Id.
 	Id string `pulumi:"id"`
 	// The role management policy name.
@@ -79,6 +81,11 @@ func (o LookupRoleManagementPolicyAssignmentResultOutput) ToLookupRoleManagement
 
 func (o LookupRoleManagementPolicyAssignmentResultOutput) ToLookupRoleManagementPolicyAssignmentResultOutputWithContext(ctx context.Context) LookupRoleManagementPolicyAssignmentResultOutput {
 	return o
+}
+
+// The readonly computed rule applied to the policy.
+func (o LookupRoleManagementPolicyAssignmentResultOutput) EffectiveRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupRoleManagementPolicyAssignmentResult) []interface{} { return v.EffectiveRules }).(pulumi.ArrayOutput)
 }
 
 // The role management policy Id.

@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:ApiDiagnostic"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiDiagnostic"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiDiagnostic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

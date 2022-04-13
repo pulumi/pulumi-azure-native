@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Quantum.V20191104Preview
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
     /// </summary>
+    [Obsolete(@"Version v20191104preview will be removed in the next major version of the provider. Upgrade to version v20220110preview or later.")]
     [AzureNativeResourceType("azure-native:quantum/v20191104preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {

@@ -26,6 +26,7 @@ __all__ = [
     'LoggerType',
     'OperationNameFormat',
     'PolicyContentFormat',
+    'PolicyFragmentContentFormat',
     'PrivateEndpointServiceConnectionStatus',
     'ProductState',
     'Protocol',
@@ -360,6 +361,20 @@ class PolicyContentFormat(str, Enum):
     RAWXML_LINK = "rawxml-link"
     """
     The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
+    """
+
+
+class PolicyFragmentContentFormat(str, Enum):
+    """
+    Format of the policy fragment content.
+    """
+    XML = "xml"
+    """
+    The contents are inline and Content type is an XML document.
+    """
+    RAWXML = "rawxml"
+    """
+    The contents are inline and Content type is a non XML encoded policy document.
     """
 
 

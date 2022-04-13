@@ -5202,7 +5202,7 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 
 // Create keyVault contract details.
 type KeyVaultContractCreateProperties struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
@@ -5221,7 +5221,7 @@ type KeyVaultContractCreatePropertiesInput interface {
 
 // Create keyVault contract details.
 type KeyVaultContractCreatePropertiesArgs struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
@@ -5305,7 +5305,7 @@ func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreateProperti
 	}).(KeyVaultContractCreatePropertiesPtrOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractCreatePropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -5339,7 +5339,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) Elem() KeyVaultContractCreate
 	}).(KeyVaultContractCreatePropertiesOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractCreatePropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractCreateProperties) *string {
 		if v == nil {
@@ -5361,7 +5361,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) SecretIdentifier() pulumi.Str
 
 // KeyVault contract details.
 type KeyVaultContractPropertiesResponse struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Last time sync and refresh status of secret from key vault.
 	LastStatus *KeyVaultLastAccessStatusContractPropertiesResponse `pulumi:"lastStatus"`
@@ -5384,7 +5384,7 @@ func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesRe
 	return o
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -5425,7 +5425,7 @@ func (o KeyVaultContractPropertiesResponsePtrOutput) Elem() KeyVaultContractProp
 	}).(KeyVaultContractPropertiesResponseOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *string {
 		if v == nil {
@@ -7421,6 +7421,64 @@ func (o RequestContractResponsePtrOutput) Representations() RepresentationContra
 	}).(RepresentationContractResponseArrayOutput)
 }
 
+type ResourceCollectionResponseValue struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+type ResourceCollectionResponseValueOutput struct{ *pulumi.OutputState }
+
+func (ResourceCollectionResponseValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceCollectionResponseValue)(nil)).Elem()
+}
+
+func (o ResourceCollectionResponseValueOutput) ToResourceCollectionResponseValueOutput() ResourceCollectionResponseValueOutput {
+	return o
+}
+
+func (o ResourceCollectionResponseValueOutput) ToResourceCollectionResponseValueOutputWithContext(ctx context.Context) ResourceCollectionResponseValueOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o ResourceCollectionResponseValueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceCollectionResponseValue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ResourceCollectionResponseValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceCollectionResponseValue) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ResourceCollectionResponseValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceCollectionResponseValue) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ResourceCollectionResponseValueArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceCollectionResponseValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceCollectionResponseValue)(nil)).Elem()
+}
+
+func (o ResourceCollectionResponseValueArrayOutput) ToResourceCollectionResponseValueArrayOutput() ResourceCollectionResponseValueArrayOutput {
+	return o
+}
+
+func (o ResourceCollectionResponseValueArrayOutput) ToResourceCollectionResponseValueArrayOutputWithContext(ctx context.Context) ResourceCollectionResponseValueArrayOutput {
+	return o
+}
+
+func (o ResourceCollectionResponseValueArrayOutput) Index(i pulumi.IntInput) ResourceCollectionResponseValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceCollectionResponseValue {
+		return vs[0].([]ResourceCollectionResponseValue)[vs[1].(int)]
+	}).(ResourceCollectionResponseValueOutput)
+}
+
 // Resource location data properties.
 type ResourceLocationDataContract struct {
 	// The city or locality where the resource is located.
@@ -9391,6 +9449,8 @@ func init() {
 	pulumi.RegisterOutputType(RequestContractPtrOutput{})
 	pulumi.RegisterOutputType(RequestContractResponseOutput{})
 	pulumi.RegisterOutputType(RequestContractResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionResponseValueOutput{})
+	pulumi.RegisterOutputType(ResourceCollectionResponseValueArrayOutput{})
 	pulumi.RegisterOutputType(ResourceLocationDataContractOutput{})
 	pulumi.RegisterOutputType(ResourceLocationDataContractPtrOutput{})
 	pulumi.RegisterOutputType(ResourceLocationDataContractResponseOutput{})

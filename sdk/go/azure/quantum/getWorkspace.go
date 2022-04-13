@@ -11,7 +11,7 @@ import (
 )
 
 // The resource proxy definition object for quantum workspace.
-// API Version: 2019-11-04-preview.
+// API Version: 2022-01-10-preview.
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	var rv LookupWorkspaceResult
 	err := ctx.Invoke("azure-native:quantum:getWorkspace", args, &rv, opts...)

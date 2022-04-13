@@ -804,6 +804,36 @@ func (o AccessReviewScopeResponseArrayOutput) Index(i pulumi.IntInput) AccessRev
 	}).(AccessReviewScopeResponseOutput)
 }
 
+// The approval settings.
+type ApprovalSettingsResponse struct {
+	// The type of rule
+	ApprovalMode *string `pulumi:"approvalMode"`
+	// The approval stages of the request.
+	ApprovalStages []ApprovalStageResponse `pulumi:"approvalStages"`
+	// Determines whether approval is required or not.
+	IsApprovalRequired *bool `pulumi:"isApprovalRequired"`
+	// Determines whether approval is required for assignment extension.
+	IsApprovalRequiredForExtension *bool `pulumi:"isApprovalRequiredForExtension"`
+	// Determine whether requestor justification is required.
+	IsRequestorJustificationRequired *bool `pulumi:"isRequestorJustificationRequired"`
+}
+
+// The approval stage.
+type ApprovalStageResponse struct {
+	// The time in days when approval request would be timed out
+	ApprovalStageTimeOutInDays *int `pulumi:"approvalStageTimeOutInDays"`
+	// The escalation approver of the request.
+	EscalationApprovers []UserSetResponse `pulumi:"escalationApprovers"`
+	// The time in minutes when the approval request would be escalated if the primary approver does not approve
+	EscalationTimeInMinutes *int `pulumi:"escalationTimeInMinutes"`
+	// Determines whether approver need to provide justification for his decision.
+	IsApproverJustificationRequired *bool `pulumi:"isApproverJustificationRequired"`
+	// The value determine whether escalation feature is enabled.
+	IsEscalationEnabled *bool `pulumi:"isEscalationEnabled"`
+	// The primary approver of the request.
+	PrimaryApprovers []UserSetResponse `pulumi:"primaryApprovers"`
+}
+
 // Identity for the resource.
 type Identity struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
@@ -2190,6 +2220,7 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 	}).(PermissionResponseOutput)
 }
 
+// Expanded info of resource scope, role definition and policy
 type PolicyAssignmentPropertiesResponse struct {
 	// Details of the policy
 	Policy *PolicyAssignmentPropertiesResponsePolicy `pulumi:"policy"`
@@ -2199,6 +2230,7 @@ type PolicyAssignmentPropertiesResponse struct {
 	Scope *PolicyAssignmentPropertiesResponseScope `pulumi:"scope"`
 }
 
+// Expanded info of resource scope, role definition and policy
 type PolicyAssignmentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3250,6 +3282,99 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) PrivateE
 	}).(pulumi.StringArrayOutput)
 }
 
+// The role management policy approval rule.
+type RoleManagementPolicyApprovalRuleResponse struct {
+	// The id of the rule.
+	Id *string `pulumi:"id"`
+	// The type of rule
+	// Expected value is 'RoleManagementPolicyApprovalRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The approval setting
+	Setting *ApprovalSettingsResponse `pulumi:"setting"`
+	// The target of the current rule.
+	Target *RoleManagementPolicyRuleTargetResponse `pulumi:"target"`
+}
+
+// The role management policy authentication context rule.
+type RoleManagementPolicyAuthenticationContextRuleResponse struct {
+	// The claim value.
+	ClaimValue *string `pulumi:"claimValue"`
+	// The id of the rule.
+	Id *string `pulumi:"id"`
+	// The value indicating if rule is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// The type of rule
+	// Expected value is 'RoleManagementPolicyAuthenticationContextRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The target of the current rule.
+	Target *RoleManagementPolicyRuleTargetResponse `pulumi:"target"`
+}
+
+// The role management policy enablement rule.
+type RoleManagementPolicyEnablementRuleResponse struct {
+	// The list of enabled rules.
+	EnabledRules []string `pulumi:"enabledRules"`
+	// The id of the rule.
+	Id *string `pulumi:"id"`
+	// The type of rule
+	// Expected value is 'RoleManagementPolicyEnablementRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The target of the current rule.
+	Target *RoleManagementPolicyRuleTargetResponse `pulumi:"target"`
+}
+
+// The role management policy expiration rule.
+type RoleManagementPolicyExpirationRuleResponse struct {
+	// The id of the rule.
+	Id *string `pulumi:"id"`
+	// The value indicating whether expiration is required.
+	IsExpirationRequired *bool `pulumi:"isExpirationRequired"`
+	// The maximum duration of expiration in timespan.
+	MaximumDuration *string `pulumi:"maximumDuration"`
+	// The type of rule
+	// Expected value is 'RoleManagementPolicyExpirationRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The target of the current rule.
+	Target *RoleManagementPolicyRuleTargetResponse `pulumi:"target"`
+}
+
+// The role management policy notification rule.
+type RoleManagementPolicyNotificationRuleResponse struct {
+	// The id of the rule.
+	Id *string `pulumi:"id"`
+	// Determines if the notification will be sent to the recipient type specified in the policy rule.
+	IsDefaultRecipientsEnabled *bool `pulumi:"isDefaultRecipientsEnabled"`
+	// The notification level.
+	NotificationLevel *string `pulumi:"notificationLevel"`
+	// The list of notification recipients.
+	NotificationRecipients []string `pulumi:"notificationRecipients"`
+	// The type of notification.
+	NotificationType *string `pulumi:"notificationType"`
+	// The recipient type.
+	RecipientType *string `pulumi:"recipientType"`
+	// The type of rule
+	// Expected value is 'RoleManagementPolicyNotificationRule'.
+	RuleType string `pulumi:"ruleType"`
+	// The target of the current rule.
+	Target *RoleManagementPolicyRuleTargetResponse `pulumi:"target"`
+}
+
+// The role management policy rule target.
+type RoleManagementPolicyRuleTargetResponse struct {
+	// The caller of the setting.
+	Caller *string `pulumi:"caller"`
+	// The list of enforced settings.
+	EnforcedSettings []string `pulumi:"enforcedSettings"`
+	// The list of inheritable settings.
+	InheritableSettings []string `pulumi:"inheritableSettings"`
+	// The assignment level to which rule is applied.
+	Level *string `pulumi:"level"`
+	// The type of operation.
+	Operations []string `pulumi:"operations"`
+	// The list of target objects.
+	TargetObjects []string `pulumi:"targetObjects"`
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -3309,6 +3434,18 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 // The type of identity that last modified the resource.
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The detail of a user.
+type UserSetResponse struct {
+	// The description of the user.
+	Description *string `pulumi:"description"`
+	// The object id of the user.
+	Id *string `pulumi:"id"`
+	// The value indicating whether the user is a backup fallback approver
+	IsBackup *bool `pulumi:"isBackup"`
+	// The type of user.
+	UserType *string `pulumi:"userType"`
 }
 
 func init() {

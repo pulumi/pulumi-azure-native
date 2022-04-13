@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Quantum
 {
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
-    /// API Version: 2019-11-04-preview.
+    /// API Version: 2022-01-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
