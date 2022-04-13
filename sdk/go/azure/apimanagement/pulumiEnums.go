@@ -764,6 +764,16 @@ const (
 	PolicyContentFormat_Rawxml_link = PolicyContentFormat("rawxml-link")
 )
 
+// Format of the policy fragment content.
+type PolicyFragmentContentFormat string
+
+const (
+	// The contents are inline and Content type is an XML document.
+	PolicyFragmentContentFormatXml = PolicyFragmentContentFormat("xml")
+	// The contents are inline and Content type is a non XML encoded policy document.
+	PolicyFragmentContentFormatRawxml = PolicyFragmentContentFormat("rawxml")
+)
+
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus string
 

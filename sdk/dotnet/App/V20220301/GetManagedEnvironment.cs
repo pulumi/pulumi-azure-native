@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.App.V20220301
         /// </summary>
         public readonly Outputs.AppLogsConfigurationResponse? AppLogsConfiguration;
         /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        public readonly string? DaprAIConnectionString;
+        /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         /// </summary>
         public readonly string? DaprAIInstrumentationKey;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.App.V20220301
         private GetManagedEnvironmentResult(
             Outputs.AppLogsConfigurationResponse? appLogsConfiguration,
 
+            string? daprAIConnectionString,
+
             string? daprAIInstrumentationKey,
 
             string defaultDomain,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.App.V20220301
             Outputs.VnetConfigurationResponse? vnetConfiguration)
         {
             AppLogsConfiguration = appLogsConfiguration;
+            DaprAIConnectionString = daprAIConnectionString;
             DaprAIInstrumentationKey = daprAIInstrumentationKey;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;

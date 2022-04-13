@@ -19,6 +19,8 @@ type ManagedEnvironment struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration AppLogsConfigurationResponsePtrOutput `pulumi:"appLogsConfiguration"`
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString pulumi.StringPtrOutput `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey pulumi.StringPtrOutput `pulumi:"daprAIInstrumentationKey"`
 	// Default Domain Name for the cluster
@@ -98,6 +100,8 @@ type managedEnvironmentArgs struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration *AppLogsConfiguration `pulumi:"appLogsConfiguration"`
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString *string `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey *string `pulumi:"daprAIInstrumentationKey"`
 	// The geo-location where the resource lives
@@ -118,6 +122,8 @@ type ManagedEnvironmentArgs struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration AppLogsConfigurationPtrInput
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString pulumi.StringPtrInput
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey pulumi.StringPtrInput
 	// The geo-location where the resource lives

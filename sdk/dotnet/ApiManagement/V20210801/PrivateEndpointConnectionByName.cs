@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:PrivateEndpointConnectionByName"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

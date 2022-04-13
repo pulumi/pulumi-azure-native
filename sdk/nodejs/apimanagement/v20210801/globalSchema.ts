@@ -92,7 +92,7 @@ export class GlobalSchema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GlobalSchema" }, { type: "azure-native:apimanagement/v20210401preview:GlobalSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GlobalSchema" }, { type: "azure-native:apimanagement/v20210401preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20211201preview:GlobalSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GlobalSchema.__pulumiType, name, resourceInputs, opts);
     }

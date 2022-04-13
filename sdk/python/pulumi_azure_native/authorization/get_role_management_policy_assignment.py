@@ -21,7 +21,10 @@ class GetRoleManagementPolicyAssignmentResult:
     """
     Role management policy
     """
-    def __init__(__self__, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, effective_rules=None, id=None, name=None, policy_assignment_properties=None, policy_id=None, role_definition_id=None, scope=None, type=None):
+        if effective_rules and not isinstance(effective_rules, list):
+            raise TypeError("Expected argument 'effective_rules' to be a list")
+        pulumi.set(__self__, "effective_rules", effective_rules)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetRoleManagementPolicyAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="effectiveRules")
+    def effective_rules(self) -> Sequence[Any]:
+        """
+        The readonly computed rule applied to the policy.
+        """
+        return pulumi.get(self, "effective_rules")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetRoleManagementPolicyAssignmentResult(GetRoleManagementPolicyAs
         if False:
             yield self
         return GetRoleManagementPolicyAssignmentResult(
+            effective_rules=self.effective_rules,
             id=self.id,
             name=self.name,
             policy_assignment_properties=self.policy_assignment_properties,
@@ -121,7 +133,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleManagementPolicyAssignmentResult:
     """
     Role management policy
-    API Version: 2020-10-01-preview.
+    API Version: 2020-10-01.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.
@@ -137,6 +149,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult).value
 
     return AwaitableGetRoleManagementPolicyAssignmentResult(
+        effective_rules=__ret__.effective_rules,
         id=__ret__.id,
         name=__ret__.name,
         policy_assignment_properties=__ret__.policy_assignment_properties,
@@ -152,7 +165,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
     """
     Role management policy
-    API Version: 2020-10-01-preview.
+    API Version: 2020-10-01.
 
 
     :param str role_management_policy_assignment_name: The name of format {guid_guid} the role management policy assignment to get.

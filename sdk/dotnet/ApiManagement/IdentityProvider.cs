@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.ApiManagement
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:IdentityProvider"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:IdentityProvider"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

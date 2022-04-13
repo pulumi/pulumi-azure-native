@@ -33,6 +33,8 @@ type LookupManagedEnvironmentResult struct {
 	// app logs to a destination. Currently only "log-analytics" is
 	// supported
 	AppLogsConfiguration *AppLogsConfigurationResponse `pulumi:"appLogsConfiguration"`
+	// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+	DaprAIConnectionString *string `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey *string `pulumi:"daprAIInstrumentationKey"`
 	// Default Domain Name for the cluster
@@ -99,6 +101,11 @@ func (o LookupManagedEnvironmentResultOutput) ToLookupManagedEnvironmentResultOu
 // supported
 func (o LookupManagedEnvironmentResultOutput) AppLogsConfiguration() AppLogsConfigurationResponsePtrOutput {
 	return o.ApplyT(func(v LookupManagedEnvironmentResult) *AppLogsConfigurationResponse { return v.AppLogsConfiguration }).(AppLogsConfigurationResponsePtrOutput)
+}
+
+// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+func (o LookupManagedEnvironmentResultOutput) DaprAIConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupManagedEnvironmentResult) *string { return v.DaprAIConnectionString }).(pulumi.StringPtrOutput)
 }
 
 // Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry

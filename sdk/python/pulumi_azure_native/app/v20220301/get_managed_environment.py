@@ -21,10 +21,13 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None):
+    def __init__(__self__, app_logs_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None):
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if dapr_ai_connection_string and not isinstance(dapr_ai_connection_string, str):
+            raise TypeError("Expected argument 'dapr_ai_connection_string' to be a str")
+        pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key and not isinstance(dapr_ai_instrumentation_key, str):
             raise TypeError("Expected argument 'dapr_ai_instrumentation_key' to be a str")
         pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
@@ -71,6 +74,14 @@ class GetManagedEnvironmentResult:
         supported
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="daprAIConnectionString")
+    def dapr_ai_connection_string(self) -> Optional[str]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_connection_string")
 
     @property
     @pulumi.getter(name="daprAIInstrumentationKey")
@@ -176,6 +187,7 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             yield self
         return GetManagedEnvironmentResult(
             app_logs_configuration=self.app_logs_configuration,
+            dapr_ai_connection_string=self.dapr_ai_connection_string,
             dapr_ai_instrumentation_key=self.dapr_ai_instrumentation_key,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
@@ -211,6 +223,7 @@ def get_managed_environment(name: Optional[str] = None,
 
     return AwaitableGetManagedEnvironmentResult(
         app_logs_configuration=__ret__.app_logs_configuration,
+        dapr_ai_connection_string=__ret__.dapr_ai_connection_string,
         dapr_ai_instrumentation_key=__ret__.dapr_ai_instrumentation_key,
         default_domain=__ret__.default_domain,
         deployment_errors=__ret__.deployment_errors,

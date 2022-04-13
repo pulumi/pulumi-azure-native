@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.Outputs
 {
 
+    /// <summary>
+    /// Expanded info of resource scope, role definition and policy
+    /// </summary>
     [OutputType]
     public sealed class PolicyAssignmentPropertiesResponse
     {

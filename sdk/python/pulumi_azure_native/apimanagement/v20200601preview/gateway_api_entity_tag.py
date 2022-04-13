@@ -191,7 +191,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__.__dict__["subscription_key_parameter_names"] = None
             __props__.__dict__["subscription_required"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
             'azure-native:apimanagement/v20200601preview:GatewayApiEntityTag',

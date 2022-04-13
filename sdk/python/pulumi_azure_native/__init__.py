@@ -893,6 +893,7 @@ _utilities.register(
    "azure-native:apimanagement:NotificationRecipientUser": "NotificationRecipientUser",
    "azure-native:apimanagement:OpenIdConnectProvider": "OpenIdConnectProvider",
    "azure-native:apimanagement:Policy": "Policy",
+   "azure-native:apimanagement:PolicyFragment": "PolicyFragment",
    "azure-native:apimanagement:PrivateEndpointConnectionByName": "PrivateEndpointConnectionByName",
    "azure-native:apimanagement:Product": "Product",
    "azure-native:apimanagement:ProductApi": "ProductApi",
@@ -1461,6 +1462,60 @@ _utilities.register(
    "azure-native:apimanagement/v20210801:TagByOperation": "TagByOperation",
    "azure-native:apimanagement/v20210801:TagByProduct": "TagByProduct",
    "azure-native:apimanagement/v20210801:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "apimanagement/v20211201preview",
+  "fqn": "pulumi_azure_native.apimanagement.v20211201preview",
+  "classes": {
+   "azure-native:apimanagement/v20211201preview:Api": "Api",
+   "azure-native:apimanagement/v20211201preview:ApiDiagnostic": "ApiDiagnostic",
+   "azure-native:apimanagement/v20211201preview:ApiIssue": "ApiIssue",
+   "azure-native:apimanagement/v20211201preview:ApiIssueAttachment": "ApiIssueAttachment",
+   "azure-native:apimanagement/v20211201preview:ApiIssueComment": "ApiIssueComment",
+   "azure-native:apimanagement/v20211201preview:ApiManagementService": "ApiManagementService",
+   "azure-native:apimanagement/v20211201preview:ApiOperation": "ApiOperation",
+   "azure-native:apimanagement/v20211201preview:ApiOperationPolicy": "ApiOperationPolicy",
+   "azure-native:apimanagement/v20211201preview:ApiPolicy": "ApiPolicy",
+   "azure-native:apimanagement/v20211201preview:ApiRelease": "ApiRelease",
+   "azure-native:apimanagement/v20211201preview:ApiSchema": "ApiSchema",
+   "azure-native:apimanagement/v20211201preview:ApiTagDescription": "ApiTagDescription",
+   "azure-native:apimanagement/v20211201preview:ApiVersionSet": "ApiVersionSet",
+   "azure-native:apimanagement/v20211201preview:AuthorizationServer": "AuthorizationServer",
+   "azure-native:apimanagement/v20211201preview:Backend": "Backend",
+   "azure-native:apimanagement/v20211201preview:Cache": "Cache",
+   "azure-native:apimanagement/v20211201preview:Certificate": "Certificate",
+   "azure-native:apimanagement/v20211201preview:ContentItem": "ContentItem",
+   "azure-native:apimanagement/v20211201preview:ContentType": "ContentType",
+   "azure-native:apimanagement/v20211201preview:Diagnostic": "Diagnostic",
+   "azure-native:apimanagement/v20211201preview:EmailTemplate": "EmailTemplate",
+   "azure-native:apimanagement/v20211201preview:Gateway": "Gateway",
+   "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag": "GatewayApiEntityTag",
+   "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority": "GatewayCertificateAuthority",
+   "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration": "GatewayHostnameConfiguration",
+   "azure-native:apimanagement/v20211201preview:GlobalSchema": "GlobalSchema",
+   "azure-native:apimanagement/v20211201preview:Group": "Group",
+   "azure-native:apimanagement/v20211201preview:GroupUser": "GroupUser",
+   "azure-native:apimanagement/v20211201preview:IdentityProvider": "IdentityProvider",
+   "azure-native:apimanagement/v20211201preview:Logger": "Logger",
+   "azure-native:apimanagement/v20211201preview:NamedValue": "NamedValue",
+   "azure-native:apimanagement/v20211201preview:NotificationRecipientEmail": "NotificationRecipientEmail",
+   "azure-native:apimanagement/v20211201preview:NotificationRecipientUser": "NotificationRecipientUser",
+   "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider": "OpenIdConnectProvider",
+   "azure-native:apimanagement/v20211201preview:Policy": "Policy",
+   "azure-native:apimanagement/v20211201preview:PolicyFragment": "PolicyFragment",
+   "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName": "PrivateEndpointConnectionByName",
+   "azure-native:apimanagement/v20211201preview:Product": "Product",
+   "azure-native:apimanagement/v20211201preview:ProductApi": "ProductApi",
+   "azure-native:apimanagement/v20211201preview:ProductGroup": "ProductGroup",
+   "azure-native:apimanagement/v20211201preview:ProductPolicy": "ProductPolicy",
+   "azure-native:apimanagement/v20211201preview:Subscription": "Subscription",
+   "azure-native:apimanagement/v20211201preview:Tag": "Tag",
+   "azure-native:apimanagement/v20211201preview:TagByApi": "TagByApi",
+   "azure-native:apimanagement/v20211201preview:TagByOperation": "TagByOperation",
+   "azure-native:apimanagement/v20211201preview:TagByProduct": "TagByProduct",
+   "azure-native:apimanagement/v20211201preview:User": "User"
   }
  },
  {
@@ -16644,6 +16699,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.servicelinker.v20220101preview",
   "classes": {
    "azure-native:servicelinker/v20220101preview:Linker": "Linker"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicelinker/v20220501",
+  "fqn": "pulumi_azure_native.servicelinker.v20220501",
+  "classes": {
+   "azure-native:servicelinker/v20220501:Linker": "Linker"
   }
  },
  {

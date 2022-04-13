@@ -161,6 +161,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210101Preview
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:AuthorizationServer"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:AuthorizationServer"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

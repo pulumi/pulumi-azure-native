@@ -94,7 +94,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Role management policy
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role management policy
-        API Version: 2020-10-01-preview.
+        API Version: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param RoleManagementPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -150,6 +150,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["effective_rules"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["policy_assignment_properties"] = None
             __props__.__dict__["type"] = None
@@ -177,6 +178,7 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
 
         __props__ = RoleManagementPolicyAssignmentArgs.__new__(RoleManagementPolicyAssignmentArgs)
 
+        __props__.__dict__["effective_rules"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_assignment_properties"] = None
         __props__.__dict__["policy_id"] = None
@@ -184,6 +186,14 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["scope"] = None
         __props__.__dict__["type"] = None
         return RoleManagementPolicyAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="effectiveRules")
+    def effective_rules(self) -> pulumi.Output[Sequence[Any]]:
+        """
+        The readonly computed rule applied to the policy.
+        """
+        return pulumi.get(self, "effective_rules")
 
     @property
     @pulumi.getter

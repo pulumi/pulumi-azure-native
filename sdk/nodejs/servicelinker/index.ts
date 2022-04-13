@@ -15,10 +15,12 @@ export * from "../types/enums/servicelinker";
 // Export sub-modules:
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220501 from "./v20220501";
 
 export {
     v20211101preview,
     v20220101preview,
+    v20220501,
 };
 
 // Import resources to register:

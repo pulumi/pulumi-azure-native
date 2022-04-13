@@ -42,6 +42,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly appLogsConfiguration?: outputs.app.v20220301.AppLogsConfigurationResponse;
     /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry
+     */
+    readonly daprAIConnectionString?: string;
+    /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
     readonly daprAIInstrumentationKey?: string;

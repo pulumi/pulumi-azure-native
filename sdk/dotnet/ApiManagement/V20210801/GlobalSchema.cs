@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
                 {
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GlobalSchema"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GlobalSchema"},
+                    new Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GlobalSchema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

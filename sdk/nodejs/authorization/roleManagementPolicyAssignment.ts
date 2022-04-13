@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role management policy
- * API Version: 2020-10-01-preview.
+ * API Version: 2020-10-01.
  */
 export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleManagementPolicyAssignment.__pulumiType;
     }
 
+    /**
+     * The readonly computed rule applied to the policy.
+     */
+    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse)[]>;
     /**
      * The role management policy name.
      */
@@ -79,10 +83,12 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["roleManagementPolicyAssignmentName"] = args ? args.roleManagementPolicyAssignmentName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;
             resourceInputs["policyId"] = undefined /*out*/;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Role management policy
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Task<GetRoleManagementPolicyAssignmentResult> InvokeAsync(GetRoleManagementPolicyAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Role management policy
-        /// API Version: 2020-10-01-preview.
+        /// API Version: 2020-10-01.
         /// </summary>
         public static Output<GetRoleManagementPolicyAssignmentResult> Invoke(GetRoleManagementPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyAssignmentResult>("azure-native:authorization:getRoleManagementPolicyAssignment", args ?? new GetRoleManagementPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleManagementPolicyAssignmentResult
     {
         /// <summary>
+        /// The readonly computed rule applied to the policy.
+        /// </summary>
+        public readonly ImmutableArray<object> EffectiveRules;
+        /// <summary>
         /// The role management policy Id.
         /// </summary>
         public readonly string Id;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetRoleManagementPolicyAssignmentResult(
+            ImmutableArray<object> effectiveRules,
+
             string id,
 
             string name,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            EffectiveRules = effectiveRules;
             Id = id;
             Name = name;
             PolicyAssignmentProperties = policyAssignmentProperties;

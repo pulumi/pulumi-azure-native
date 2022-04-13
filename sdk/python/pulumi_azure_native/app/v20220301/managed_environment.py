@@ -17,6 +17,7 @@ class ManagedEnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
+                 dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
                supported
+        :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: Name of the Environment.
@@ -37,6 +39,8 @@ class ManagedEnvironmentArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_logs_configuration is not None:
             pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if dapr_ai_connection_string is not None:
+            pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key is not None:
             pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
         if location is not None:
@@ -73,6 +77,18 @@ class ManagedEnvironmentArgs:
     @app_logs_configuration.setter
     def app_logs_configuration(self, value: Optional[pulumi.Input['AppLogsConfigurationArgs']]):
         pulumi.set(self, "app_logs_configuration", value)
+
+    @property
+    @pulumi.getter(name="daprAIConnectionString")
+    def dapr_ai_connection_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_connection_string")
+
+    @dapr_ai_connection_string.setter
+    def dapr_ai_connection_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dapr_ai_connection_string", value)
 
     @property
     @pulumi.getter(name="daprAIInstrumentationKey")
@@ -141,6 +157,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
+                 dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -156,6 +173,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
                app logs to a destination. Currently only "log-analytics" is
                supported
+        :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: Name of the Environment.
@@ -188,6 +206,7 @@ class ManagedEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
+                 dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -207,6 +226,7 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__ = ManagedEnvironmentArgs.__new__(ManagedEnvironmentArgs)
 
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
+            __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -246,6 +266,7 @@ class ManagedEnvironment(pulumi.CustomResource):
         __props__ = ManagedEnvironmentArgs.__new__(ManagedEnvironmentArgs)
 
         __props__.__dict__["app_logs_configuration"] = None
+        __props__.__dict__["dapr_ai_connection_string"] = None
         __props__.__dict__["dapr_ai_instrumentation_key"] = None
         __props__.__dict__["default_domain"] = None
         __props__.__dict__["deployment_errors"] = None
@@ -268,6 +289,14 @@ class ManagedEnvironment(pulumi.CustomResource):
         supported
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="daprAIConnectionString")
+    def dapr_ai_connection_string(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_connection_string")
 
     @property
     @pulumi.getter(name="daprAIInstrumentationKey")

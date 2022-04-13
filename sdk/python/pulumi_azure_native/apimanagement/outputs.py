@@ -42,6 +42,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'RepresentationContractResponse',
     'RequestContractResponse',
+    'ResourceCollectionResponseValue',
     'ResourceLocationDataContractResponse',
     'ResponseContractResponse',
     'SamplingSettingsResponse',
@@ -1476,7 +1477,7 @@ class KeyVaultContractPropertiesResponse(dict):
                  secret_identifier: Optional[str] = None):
         """
         KeyVault contract details.
-        :param str identity_client_id: SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        :param str identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         :param 'KeyVaultLastAccessStatusContractPropertiesResponse' last_status: Last time sync and refresh status of secret from key vault.
         :param str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
         """
@@ -1491,7 +1492,7 @@ class KeyVaultContractPropertiesResponse(dict):
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[str]:
         """
-        SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         """
         return pulumi.get(self, "identity_client_id")
 
@@ -2068,6 +2069,46 @@ class RequestContractResponse(dict):
         Collection of operation request representations.
         """
         return pulumi.get(self, "representations")
+
+
+@pulumi.output_type
+class ResourceCollectionResponseValue(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 type: str):
+        """
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
