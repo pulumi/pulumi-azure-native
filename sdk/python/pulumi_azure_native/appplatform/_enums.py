@@ -8,6 +8,7 @@ __all__ = [
     'BindingType',
     'ManagedIdentityType',
     'RuntimeVersion',
+    'StorageType',
     'UserSourceType',
 ]
 
@@ -41,6 +42,13 @@ class RuntimeVersion(str, Enum):
     JAVA_8 = "Java_8"
     JAVA_11 = "Java_11"
     NET_CORE_31 = "NetCore_31"
+
+
+class StorageType(str, Enum):
+    """
+    The type of the storage.
+    """
+    STORAGE_ACCOUNT = "StorageAccount"
 
 
 class UserSourceType(str, Enum):

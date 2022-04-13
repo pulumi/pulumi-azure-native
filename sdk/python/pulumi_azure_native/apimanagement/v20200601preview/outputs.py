@@ -1474,7 +1474,7 @@ class KeyVaultContractPropertiesResponse(dict):
                  secret_identifier: Optional[str] = None):
         """
         KeyVault contract details.
-        :param str identity_client_id: SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        :param str identity_client_id: Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         :param 'KeyVaultLastAccessStatusContractPropertiesResponse' last_status: Last time sync and refresh status of secret from key vault.
         :param str secret_identifier: Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires Api Management service to be configured with aka.ms/apimmsi
         """
@@ -1489,7 +1489,7 @@ class KeyVaultContractPropertiesResponse(dict):
     @pulumi.getter(name="identityClientId")
     def identity_client_id(self) -> Optional[str]:
         """
-        SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+        Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
         """
         return pulumi.get(self, "identity_client_id")
 

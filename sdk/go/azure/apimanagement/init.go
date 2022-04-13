@@ -93,6 +93,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OpenIdConnectProvider{}
 	case "azure-native:apimanagement:Policy":
 		r = &Policy{}
+	case "azure-native:apimanagement:PolicyFragment":
+		r = &PolicyFragment{}
 	case "azure-native:apimanagement:PrivateEndpointConnectionByName":
 		r = &PrivateEndpointConnectionByName{}
 	case "azure-native:apimanagement:Product":

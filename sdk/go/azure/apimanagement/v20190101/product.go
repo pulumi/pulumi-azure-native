@@ -91,6 +91,9 @@ func NewProduct(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Product"),
 		},
+		{
+			Type: pulumi.String("azure-native:apimanagement/v20211201preview:Product"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Product

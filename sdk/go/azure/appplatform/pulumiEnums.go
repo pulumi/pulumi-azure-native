@@ -34,6 +34,13 @@ const (
 	RuntimeVersion_NetCore_31 = RuntimeVersion("NetCore_31")
 )
 
+// The type of the storage.
+type StorageType string
+
+const (
+	StorageTypeStorageAccount = StorageType("StorageAccount")
+)
+
 // Type of the source uploaded
 type UserSourceType string
 

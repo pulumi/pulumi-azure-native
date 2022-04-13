@@ -91,7 +91,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }, { type: "azure-native:apimanagement/v20211201preview:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }

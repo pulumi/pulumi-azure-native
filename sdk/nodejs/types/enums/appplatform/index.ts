@@ -55,6 +55,15 @@ export const RuntimeVersion = {
  */
 export type RuntimeVersion = (typeof RuntimeVersion)[keyof typeof RuntimeVersion];
 
+export const StorageType = {
+    StorageAccount: "StorageAccount",
+} as const;
+
+/**
+ * The type of the storage.
+ */
+export type StorageType = (typeof StorageType)[keyof typeof StorageType];
+
 export const UserSourceType = {
     Jar: "Jar",
     NetCoreZip: "NetCoreZip",

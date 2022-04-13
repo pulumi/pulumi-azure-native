@@ -5822,7 +5822,7 @@ func (o HttpMessageDiagnosticResponsePtrOutput) Headers() pulumi.StringArrayOutp
 
 // Create keyVault contract details.
 type KeyVaultContractCreateProperties struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier *string `pulumi:"secretIdentifier"`
@@ -5841,7 +5841,7 @@ type KeyVaultContractCreatePropertiesInput interface {
 
 // Create keyVault contract details.
 type KeyVaultContractCreatePropertiesArgs struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Key vault secret identifier for fetching secret. Providing a versioned secret will prevent auto-refresh. This requires API Management service to be configured with aka.ms/apimmsi
 	SecretIdentifier pulumi.StringPtrInput `pulumi:"secretIdentifier"`
@@ -5925,7 +5925,7 @@ func (o KeyVaultContractCreatePropertiesOutput) ToKeyVaultContractCreateProperti
 	}).(KeyVaultContractCreatePropertiesPtrOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractCreatePropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractCreateProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -5959,7 +5959,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) Elem() KeyVaultContractCreate
 	}).(KeyVaultContractCreatePropertiesOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractCreatePropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractCreateProperties) *string {
 		if v == nil {
@@ -5981,7 +5981,7 @@ func (o KeyVaultContractCreatePropertiesPtrOutput) SecretIdentifier() pulumi.Str
 
 // KeyVault contract details.
 type KeyVaultContractPropertiesResponse struct {
-	// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+	// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Last time sync and refresh status of secret from key vault.
 	LastStatus *KeyVaultLastAccessStatusContractPropertiesResponse `pulumi:"lastStatus"`
@@ -6004,7 +6004,7 @@ func (o KeyVaultContractPropertiesResponseOutput) ToKeyVaultContractPropertiesRe
 	return o
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultContractPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -6045,7 +6045,7 @@ func (o KeyVaultContractPropertiesResponsePtrOutput) Elem() KeyVaultContractProp
 	}).(KeyVaultContractPropertiesResponseOutput)
 }
 
-// SystemAssignedIdentity or UserAssignedIdentity Client Id which will be used to access key vault secret.
+// Null for SystemAssignedIdentity or Client Id for UserAssignedIdentity , which will be used to access key vault secret.
 func (o KeyVaultContractPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyVaultContractPropertiesResponse) *string {
 		if v == nil {

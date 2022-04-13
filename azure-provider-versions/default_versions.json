@@ -88,6 +88,7 @@
         "NotificationRecipientUser": "2020-12-01",
         "OpenIdConnectProvider": "2020-12-01",
         "Policy": "2020-12-01",
+        "PolicyFragment": "2021-12-01-preview",
         "PrivateEndpointConnectionByName": "2021-04-01-preview",
         "Product": "2020-12-01",
         "ProductApi": "2020-12-01",
@@ -110,6 +111,7 @@
         "listIdentityProviderSecrets": "2020-12-01",
         "listNamedValue": "2020-12-01",
         "listOpenIdConnectProviderSecrets": "2020-12-01",
+        "listPolicyFragmentReferences": "2021-12-01-preview",
         "listSubscriptionSecrets": "2020-12-01",
         "listTenantAccessGitSecrets": "2019-12-01",
         "listTenantAccessSecrets": "2020-12-01"
