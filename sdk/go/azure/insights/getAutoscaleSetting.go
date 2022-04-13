@@ -70,7 +70,11 @@ func LookupAutoscaleSettingOutput(ctx *pulumi.Context, args LookupAutoscaleSetti
 		ApplyT(func(v interface{}) (LookupAutoscaleSettingResult, error) {
 			args := v.(LookupAutoscaleSettingArgs)
 			r, err := LookupAutoscaleSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupAutoscaleSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAutoscaleSettingResultOutput)
 }
 

@@ -84,7 +84,11 @@ func LookupRedisOutput(ctx *pulumi.Context, args LookupRedisOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupRedisResult, error) {
 			args := v.(LookupRedisArgs)
 			r, err := LookupRedis(ctx, &args, opts...)
-			return *r, err
+			var s LookupRedisResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRedisResultOutput)
 }
 

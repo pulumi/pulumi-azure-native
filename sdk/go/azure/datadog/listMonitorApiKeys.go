@@ -41,7 +41,11 @@ func ListMonitorApiKeysOutput(ctx *pulumi.Context, args ListMonitorApiKeysOutput
 		ApplyT(func(v interface{}) (ListMonitorApiKeysResult, error) {
 			args := v.(ListMonitorApiKeysArgs)
 			r, err := ListMonitorApiKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListMonitorApiKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMonitorApiKeysResultOutput)
 }
 

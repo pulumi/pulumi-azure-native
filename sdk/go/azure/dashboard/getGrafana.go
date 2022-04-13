@@ -55,7 +55,11 @@ func LookupGrafanaOutput(ctx *pulumi.Context, args LookupGrafanaOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupGrafanaResult, error) {
 			args := v.(LookupGrafanaArgs)
 			r, err := LookupGrafana(ctx, &args, opts...)
-			return *r, err
+			var s LookupGrafanaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGrafanaResultOutput)
 }
 

@@ -40,7 +40,11 @@ func ListIdentityProviderSecretsOutput(ctx *pulumi.Context, args ListIdentityPro
 		ApplyT(func(v interface{}) (ListIdentityProviderSecretsResult, error) {
 			args := v.(ListIdentityProviderSecretsArgs)
 			r, err := ListIdentityProviderSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListIdentityProviderSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIdentityProviderSecretsResultOutput)
 }
 

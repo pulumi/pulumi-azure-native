@@ -50,7 +50,11 @@ func LookupBackupScheduleGroupOutput(ctx *pulumi.Context, args LookupBackupSched
 		ApplyT(func(v interface{}) (LookupBackupScheduleGroupResult, error) {
 			args := v.(LookupBackupScheduleGroupArgs)
 			r, err := LookupBackupScheduleGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupBackupScheduleGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBackupScheduleGroupResultOutput)
 }
 

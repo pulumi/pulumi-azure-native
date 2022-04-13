@@ -59,7 +59,11 @@ func LookupDataMaskingPolicyOutput(ctx *pulumi.Context, args LookupDataMaskingPo
 		ApplyT(func(v interface{}) (LookupDataMaskingPolicyResult, error) {
 			args := v.(LookupDataMaskingPolicyArgs)
 			r, err := LookupDataMaskingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataMaskingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataMaskingPolicyResultOutput)
 }
 

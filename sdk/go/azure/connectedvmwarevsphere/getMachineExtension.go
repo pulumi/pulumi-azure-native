@@ -67,7 +67,11 @@ func LookupMachineExtensionOutput(ctx *pulumi.Context, args LookupMachineExtensi
 		ApplyT(func(v interface{}) (LookupMachineExtensionResult, error) {
 			args := v.(LookupMachineExtensionArgs)
 			r, err := LookupMachineExtension(ctx, &args, opts...)
-			return *r, err
+			var s LookupMachineExtensionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMachineExtensionResultOutput)
 }
 

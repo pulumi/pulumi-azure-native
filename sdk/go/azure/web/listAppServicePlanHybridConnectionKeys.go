@@ -53,7 +53,11 @@ func ListAppServicePlanHybridConnectionKeysOutput(ctx *pulumi.Context, args List
 		ApplyT(func(v interface{}) (ListAppServicePlanHybridConnectionKeysResult, error) {
 			args := v.(ListAppServicePlanHybridConnectionKeysArgs)
 			r, err := ListAppServicePlanHybridConnectionKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListAppServicePlanHybridConnectionKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAppServicePlanHybridConnectionKeysResultOutput)
 }
 

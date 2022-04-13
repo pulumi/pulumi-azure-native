@@ -87,7 +87,11 @@ func LookupVirtualMachineRunCommandByVirtualMachineOutput(ctx *pulumi.Context, a
 		ApplyT(func(v interface{}) (LookupVirtualMachineRunCommandByVirtualMachineResult, error) {
 			args := v.(LookupVirtualMachineRunCommandByVirtualMachineArgs)
 			r, err := LookupVirtualMachineRunCommandByVirtualMachine(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineRunCommandByVirtualMachineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineRunCommandByVirtualMachineResultOutput)
 }
 

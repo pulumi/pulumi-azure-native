@@ -65,7 +65,11 @@ func GetvNetPeeringOutput(ctx *pulumi.Context, args GetvNetPeeringOutputArgs, op
 		ApplyT(func(v interface{}) (GetvNetPeeringResult, error) {
 			args := v.(GetvNetPeeringArgs)
 			r, err := GetvNetPeering(ctx, &args, opts...)
-			return *r, err
+			var s GetvNetPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetvNetPeeringResultOutput)
 }
 

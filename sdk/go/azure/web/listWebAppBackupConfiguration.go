@@ -66,7 +66,11 @@ func ListWebAppBackupConfigurationOutput(ctx *pulumi.Context, args ListWebAppBac
 		ApplyT(func(v interface{}) (ListWebAppBackupConfigurationResult, error) {
 			args := v.(ListWebAppBackupConfigurationArgs)
 			r, err := ListWebAppBackupConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppBackupConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppBackupConfigurationResultOutput)
 }
 

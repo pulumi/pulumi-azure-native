@@ -62,7 +62,11 @@ func LookupCertificateCsrOutput(ctx *pulumi.Context, args LookupCertificateCsrOu
 		ApplyT(func(v interface{}) (LookupCertificateCsrResult, error) {
 			args := v.(LookupCertificateCsrArgs)
 			r, err := LookupCertificateCsr(ctx, &args, opts...)
-			return *r, err
+			var s LookupCertificateCsrResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCertificateCsrResultOutput)
 }
 

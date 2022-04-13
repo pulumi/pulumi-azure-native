@@ -77,7 +77,11 @@ func LookupInboundNatRuleOutput(ctx *pulumi.Context, args LookupInboundNatRuleOu
 		ApplyT(func(v interface{}) (LookupInboundNatRuleResult, error) {
 			args := v.(LookupInboundNatRuleArgs)
 			r, err := LookupInboundNatRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupInboundNatRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInboundNatRuleResultOutput)
 }
 

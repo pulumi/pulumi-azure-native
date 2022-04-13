@@ -46,7 +46,11 @@ func LookupRegistrationAssignmentOutput(ctx *pulumi.Context, args LookupRegistra
 		ApplyT(func(v interface{}) (LookupRegistrationAssignmentResult, error) {
 			args := v.(LookupRegistrationAssignmentArgs)
 			r, err := LookupRegistrationAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupRegistrationAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRegistrationAssignmentResultOutput)
 }
 

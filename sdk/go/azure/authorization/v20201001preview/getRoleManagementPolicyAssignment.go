@@ -50,7 +50,11 @@ func LookupRoleManagementPolicyAssignmentOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupRoleManagementPolicyAssignmentResult, error) {
 			args := v.(LookupRoleManagementPolicyAssignmentArgs)
 			r, err := LookupRoleManagementPolicyAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupRoleManagementPolicyAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRoleManagementPolicyAssignmentResultOutput)
 }
 

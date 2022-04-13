@@ -44,7 +44,11 @@ func LookupSubscriptionAliasOutput(ctx *pulumi.Context, args LookupSubscriptionA
 		ApplyT(func(v interface{}) (LookupSubscriptionAliasResult, error) {
 			args := v.(LookupSubscriptionAliasArgs)
 			r, err := LookupSubscriptionAlias(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubscriptionAliasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubscriptionAliasResultOutput)
 }
 

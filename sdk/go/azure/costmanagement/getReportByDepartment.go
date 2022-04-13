@@ -53,7 +53,11 @@ func LookupReportByDepartmentOutput(ctx *pulumi.Context, args LookupReportByDepa
 		ApplyT(func(v interface{}) (LookupReportByDepartmentResult, error) {
 			args := v.(LookupReportByDepartmentArgs)
 			r, err := LookupReportByDepartment(ctx, &args, opts...)
-			return *r, err
+			var s LookupReportByDepartmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReportByDepartmentResultOutput)
 }
 

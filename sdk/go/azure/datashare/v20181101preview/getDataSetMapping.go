@@ -50,7 +50,11 @@ func LookupDataSetMappingOutput(ctx *pulumi.Context, args LookupDataSetMappingOu
 		ApplyT(func(v interface{}) (LookupDataSetMappingResult, error) {
 			args := v.(LookupDataSetMappingArgs)
 			r, err := LookupDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataSetMappingResultOutput)
 }
 

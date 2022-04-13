@@ -51,7 +51,11 @@ func LookupSqlResourceSqlRoleAssignmentOutput(ctx *pulumi.Context, args LookupSq
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlRoleAssignmentResult, error) {
 			args := v.(LookupSqlResourceSqlRoleAssignmentArgs)
 			r, err := LookupSqlResourceSqlRoleAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlRoleAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlRoleAssignmentResultOutput)
 }
 

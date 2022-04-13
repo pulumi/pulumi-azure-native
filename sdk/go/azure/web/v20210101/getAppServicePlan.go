@@ -118,7 +118,11 @@ func LookupAppServicePlanOutput(ctx *pulumi.Context, args LookupAppServicePlanOu
 		ApplyT(func(v interface{}) (LookupAppServicePlanResult, error) {
 			args := v.(LookupAppServicePlanArgs)
 			r, err := LookupAppServicePlan(ctx, &args, opts...)
-			return *r, err
+			var s LookupAppServicePlanResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAppServicePlanResultOutput)
 }
 

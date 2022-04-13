@@ -65,7 +65,11 @@ func LookupSqlDBTableDataSetMappingOutput(ctx *pulumi.Context, args LookupSqlDBT
 		ApplyT(func(v interface{}) (LookupSqlDBTableDataSetMappingResult, error) {
 			args := v.(LookupSqlDBTableDataSetMappingArgs)
 			r, err := LookupSqlDBTableDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlDBTableDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlDBTableDataSetMappingResultOutput)
 }
 

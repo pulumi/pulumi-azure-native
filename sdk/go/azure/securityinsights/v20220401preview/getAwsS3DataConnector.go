@@ -59,7 +59,11 @@ func LookupAwsS3DataConnectorOutput(ctx *pulumi.Context, args LookupAwsS3DataCon
 		ApplyT(func(v interface{}) (LookupAwsS3DataConnectorResult, error) {
 			args := v.(LookupAwsS3DataConnectorArgs)
 			r, err := LookupAwsS3DataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupAwsS3DataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAwsS3DataConnectorResultOutput)
 }
 

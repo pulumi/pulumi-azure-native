@@ -65,7 +65,11 @@ func LookupScheduledTriggerOutput(ctx *pulumi.Context, args LookupScheduledTrigg
 		ApplyT(func(v interface{}) (LookupScheduledTriggerResult, error) {
 			args := v.(LookupScheduledTriggerArgs)
 			r, err := LookupScheduledTrigger(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledTriggerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledTriggerResultOutput)
 }
 

@@ -90,7 +90,11 @@ func LookupDiskOutput(ctx *pulumi.Context, args LookupDiskOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupDiskResult, error) {
 			args := v.(LookupDiskArgs)
 			r, err := LookupDisk(ctx, &args, opts...)
-			return *r, err
+			var s LookupDiskResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDiskResultOutput)
 }
 

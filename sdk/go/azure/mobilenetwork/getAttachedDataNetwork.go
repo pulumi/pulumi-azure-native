@@ -88,7 +88,11 @@ func LookupAttachedDataNetworkOutput(ctx *pulumi.Context, args LookupAttachedDat
 		ApplyT(func(v interface{}) (LookupAttachedDataNetworkResult, error) {
 			args := v.(LookupAttachedDataNetworkArgs)
 			r, err := LookupAttachedDataNetwork(ctx, &args, opts...)
-			return *r, err
+			var s LookupAttachedDataNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAttachedDataNetworkResultOutput)
 }
 

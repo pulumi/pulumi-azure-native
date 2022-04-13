@@ -36,7 +36,11 @@ func ListKeyByAutomationAccountOutput(ctx *pulumi.Context, args ListKeyByAutomat
 		ApplyT(func(v interface{}) (ListKeyByAutomationAccountResult, error) {
 			args := v.(ListKeyByAutomationAccountArgs)
 			r, err := ListKeyByAutomationAccount(ctx, &args, opts...)
-			return *r, err
+			var s ListKeyByAutomationAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListKeyByAutomationAccountResultOutput)
 }
 

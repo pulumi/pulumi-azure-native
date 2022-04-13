@@ -45,7 +45,11 @@ func LookupOutboundFirewallRuleOutput(ctx *pulumi.Context, args LookupOutboundFi
 		ApplyT(func(v interface{}) (LookupOutboundFirewallRuleResult, error) {
 			args := v.(LookupOutboundFirewallRuleArgs)
 			r, err := LookupOutboundFirewallRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupOutboundFirewallRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOutboundFirewallRuleResultOutput)
 }
 

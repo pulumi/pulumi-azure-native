@@ -45,7 +45,11 @@ func ListConnectedClusterUserCredentialOutput(ctx *pulumi.Context, args ListConn
 		ApplyT(func(v interface{}) (ListConnectedClusterUserCredentialResult, error) {
 			args := v.(ListConnectedClusterUserCredentialArgs)
 			r, err := ListConnectedClusterUserCredential(ctx, &args, opts...)
-			return *r, err
+			var s ListConnectedClusterUserCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListConnectedClusterUserCredentialResultOutput)
 }
 

@@ -41,7 +41,11 @@ func ListDatabasePrincipalsOutput(ctx *pulumi.Context, args ListDatabasePrincipa
 		ApplyT(func(v interface{}) (ListDatabasePrincipalsResult, error) {
 			args := v.(ListDatabasePrincipalsArgs)
 			r, err := ListDatabasePrincipals(ctx, &args, opts...)
-			return *r, err
+			var s ListDatabasePrincipalsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDatabasePrincipalsResultOutput)
 }
 

@@ -49,7 +49,11 @@ func LookupServiceRegistryOutput(ctx *pulumi.Context, args LookupServiceRegistry
 		ApplyT(func(v interface{}) (LookupServiceRegistryResult, error) {
 			args := v.(LookupServiceRegistryArgs)
 			r, err := LookupServiceRegistry(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceRegistryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceRegistryResultOutput)
 }
 

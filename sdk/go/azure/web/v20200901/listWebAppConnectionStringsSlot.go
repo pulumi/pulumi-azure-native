@@ -50,7 +50,11 @@ func ListWebAppConnectionStringsSlotOutput(ctx *pulumi.Context, args ListWebAppC
 		ApplyT(func(v interface{}) (ListWebAppConnectionStringsSlotResult, error) {
 			args := v.(ListWebAppConnectionStringsSlotArgs)
 			r, err := ListWebAppConnectionStringsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppConnectionStringsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppConnectionStringsSlotResultOutput)
 }
 

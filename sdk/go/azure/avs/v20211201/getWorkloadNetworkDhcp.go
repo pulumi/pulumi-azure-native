@@ -46,7 +46,11 @@ func LookupWorkloadNetworkDhcpOutput(ctx *pulumi.Context, args LookupWorkloadNet
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkDhcpResult, error) {
 			args := v.(LookupWorkloadNetworkDhcpArgs)
 			r, err := LookupWorkloadNetworkDhcp(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkDhcpResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkDhcpResultOutput)
 }
 

@@ -65,7 +65,11 @@ func LookupSqlResourceSqlContainerOutput(ctx *pulumi.Context, args LookupSqlReso
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlContainerResult, error) {
 			args := v.(LookupSqlResourceSqlContainerArgs)
 			r, err := LookupSqlResourceSqlContainer(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlContainerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlContainerResultOutput)
 }
 

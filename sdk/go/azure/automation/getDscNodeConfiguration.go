@@ -57,7 +57,11 @@ func LookupDscNodeConfigurationOutput(ctx *pulumi.Context, args LookupDscNodeCon
 		ApplyT(func(v interface{}) (LookupDscNodeConfigurationResult, error) {
 			args := v.(LookupDscNodeConfigurationArgs)
 			r, err := LookupDscNodeConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDscNodeConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDscNodeConfigurationResultOutput)
 }
 

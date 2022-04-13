@@ -59,7 +59,11 @@ func LookupAFDEndpointOutput(ctx *pulumi.Context, args LookupAFDEndpointOutputAr
 		ApplyT(func(v interface{}) (LookupAFDEndpointResult, error) {
 			args := v.(LookupAFDEndpointArgs)
 			r, err := LookupAFDEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupAFDEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAFDEndpointResultOutput)
 }
 

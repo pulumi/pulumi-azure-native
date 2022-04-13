@@ -60,7 +60,11 @@ func LookupSavedSearchOutput(ctx *pulumi.Context, args LookupSavedSearchOutputAr
 		ApplyT(func(v interface{}) (LookupSavedSearchResult, error) {
 			args := v.(LookupSavedSearchArgs)
 			r, err := LookupSavedSearch(ctx, &args, opts...)
-			return *r, err
+			var s LookupSavedSearchResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSavedSearchResultOutput)
 }
 

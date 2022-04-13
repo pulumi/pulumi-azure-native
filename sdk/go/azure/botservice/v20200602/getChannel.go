@@ -56,7 +56,11 @@ func LookupChannelOutput(ctx *pulumi.Context, args LookupChannelOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupChannelResult, error) {
 			args := v.(LookupChannelArgs)
 			r, err := LookupChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupChannelResultOutput)
 }
 

@@ -60,7 +60,11 @@ func LookupEncryptionProtectorOutput(ctx *pulumi.Context, args LookupEncryptionP
 		ApplyT(func(v interface{}) (LookupEncryptionProtectorResult, error) {
 			args := v.(LookupEncryptionProtectorArgs)
 			r, err := LookupEncryptionProtector(ctx, &args, opts...)
-			return *r, err
+			var s LookupEncryptionProtectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEncryptionProtectorResultOutput)
 }
 

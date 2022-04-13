@@ -52,7 +52,11 @@ func ListSiteAppSettingsSlotOutput(ctx *pulumi.Context, args ListSiteAppSettings
 		ApplyT(func(v interface{}) (ListSiteAppSettingsSlotResult, error) {
 			args := v.(ListSiteAppSettingsSlotArgs)
 			r, err := ListSiteAppSettingsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteAppSettingsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteAppSettingsSlotResultOutput)
 }
 

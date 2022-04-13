@@ -46,7 +46,11 @@ func LookupIotDpsResourcePrivateEndpointConnectionOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (LookupIotDpsResourcePrivateEndpointConnectionResult, error) {
 			args := v.(LookupIotDpsResourcePrivateEndpointConnectionArgs)
 			r, err := LookupIotDpsResourcePrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotDpsResourcePrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotDpsResourcePrivateEndpointConnectionResultOutput)
 }
 

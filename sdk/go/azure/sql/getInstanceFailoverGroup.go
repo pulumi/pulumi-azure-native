@@ -57,7 +57,11 @@ func LookupInstanceFailoverGroupOutput(ctx *pulumi.Context, args LookupInstanceF
 		ApplyT(func(v interface{}) (LookupInstanceFailoverGroupResult, error) {
 			args := v.(LookupInstanceFailoverGroupArgs)
 			r, err := LookupInstanceFailoverGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupInstanceFailoverGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInstanceFailoverGroupResultOutput)
 }
 

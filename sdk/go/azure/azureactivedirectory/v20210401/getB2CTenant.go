@@ -52,7 +52,11 @@ func LookupB2CTenantOutput(ctx *pulumi.Context, args LookupB2CTenantOutputArgs, 
 		ApplyT(func(v interface{}) (LookupB2CTenantResult, error) {
 			args := v.(LookupB2CTenantArgs)
 			r, err := LookupB2CTenant(ctx, &args, opts...)
-			return *r, err
+			var s LookupB2CTenantResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupB2CTenantResultOutput)
 }
 

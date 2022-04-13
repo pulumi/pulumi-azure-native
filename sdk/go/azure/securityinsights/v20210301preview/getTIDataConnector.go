@@ -59,7 +59,11 @@ func LookupTIDataConnectorOutput(ctx *pulumi.Context, args LookupTIDataConnector
 		ApplyT(func(v interface{}) (LookupTIDataConnectorResult, error) {
 			args := v.(LookupTIDataConnectorArgs)
 			r, err := LookupTIDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupTIDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTIDataConnectorResultOutput)
 }
 

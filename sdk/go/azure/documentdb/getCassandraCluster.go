@@ -51,7 +51,11 @@ func LookupCassandraClusterOutput(ctx *pulumi.Context, args LookupCassandraClust
 		ApplyT(func(v interface{}) (LookupCassandraClusterResult, error) {
 			args := v.(LookupCassandraClusterArgs)
 			r, err := LookupCassandraCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupCassandraClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCassandraClusterResultOutput)
 }
 

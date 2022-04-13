@@ -50,7 +50,11 @@ func LookupManagedInstancePrivateEndpointConnectionOutput(ctx *pulumi.Context, a
 		ApplyT(func(v interface{}) (LookupManagedInstancePrivateEndpointConnectionResult, error) {
 			args := v.(LookupManagedInstancePrivateEndpointConnectionArgs)
 			r, err := LookupManagedInstancePrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedInstancePrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedInstancePrivateEndpointConnectionResultOutput)
 }
 

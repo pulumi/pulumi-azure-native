@@ -65,7 +65,11 @@ func LookupVolumeContainerOutput(ctx *pulumi.Context, args LookupVolumeContainer
 		ApplyT(func(v interface{}) (LookupVolumeContainerResult, error) {
 			args := v.(LookupVolumeContainerArgs)
 			r, err := LookupVolumeContainer(ctx, &args, opts...)
-			return *r, err
+			var s LookupVolumeContainerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVolumeContainerResultOutput)
 }
 

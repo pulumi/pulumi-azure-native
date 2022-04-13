@@ -43,7 +43,11 @@ func ListNotebookWorkspaceConnectionInfoOutput(ctx *pulumi.Context, args ListNot
 		ApplyT(func(v interface{}) (ListNotebookWorkspaceConnectionInfoResult, error) {
 			args := v.(ListNotebookWorkspaceConnectionInfoArgs)
 			r, err := ListNotebookWorkspaceConnectionInfo(ctx, &args, opts...)
-			return *r, err
+			var s ListNotebookWorkspaceConnectionInfoResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNotebookWorkspaceConnectionInfoResultOutput)
 }
 

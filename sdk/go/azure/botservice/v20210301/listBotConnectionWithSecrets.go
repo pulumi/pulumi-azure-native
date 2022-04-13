@@ -58,7 +58,11 @@ func ListBotConnectionWithSecretsOutput(ctx *pulumi.Context, args ListBotConnect
 		ApplyT(func(v interface{}) (ListBotConnectionWithSecretsResult, error) {
 			args := v.(ListBotConnectionWithSecretsArgs)
 			r, err := ListBotConnectionWithSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListBotConnectionWithSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBotConnectionWithSecretsResultOutput)
 }
 

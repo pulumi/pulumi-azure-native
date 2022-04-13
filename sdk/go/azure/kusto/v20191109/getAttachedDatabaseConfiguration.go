@@ -56,7 +56,11 @@ func LookupAttachedDatabaseConfigurationOutput(ctx *pulumi.Context, args LookupA
 		ApplyT(func(v interface{}) (LookupAttachedDatabaseConfigurationResult, error) {
 			args := v.(LookupAttachedDatabaseConfigurationArgs)
 			r, err := LookupAttachedDatabaseConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupAttachedDatabaseConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAttachedDatabaseConfigurationResultOutput)
 }
 

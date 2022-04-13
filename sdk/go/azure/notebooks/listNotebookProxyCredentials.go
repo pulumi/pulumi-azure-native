@@ -45,7 +45,11 @@ func ListNotebookProxyCredentialsOutput(ctx *pulumi.Context, args ListNotebookPr
 		ApplyT(func(v interface{}) (ListNotebookProxyCredentialsResult, error) {
 			args := v.(ListNotebookProxyCredentialsArgs)
 			r, err := ListNotebookProxyCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListNotebookProxyCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNotebookProxyCredentialsResultOutput)
 }
 

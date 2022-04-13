@@ -40,7 +40,11 @@ func ListClusterStreamingJobsOutput(ctx *pulumi.Context, args ListClusterStreami
 		ApplyT(func(v interface{}) (ListClusterStreamingJobsResult, error) {
 			args := v.(ListClusterStreamingJobsArgs)
 			r, err := ListClusterStreamingJobs(ctx, &args, opts...)
-			return *r, err
+			var s ListClusterStreamingJobsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListClusterStreamingJobsResultOutput)
 }
 

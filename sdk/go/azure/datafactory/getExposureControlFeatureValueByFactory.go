@@ -45,7 +45,11 @@ func GetExposureControlFeatureValueByFactoryOutput(ctx *pulumi.Context, args Get
 		ApplyT(func(v interface{}) (GetExposureControlFeatureValueByFactoryResult, error) {
 			args := v.(GetExposureControlFeatureValueByFactoryArgs)
 			r, err := GetExposureControlFeatureValueByFactory(ctx, &args, opts...)
-			return *r, err
+			var s GetExposureControlFeatureValueByFactoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetExposureControlFeatureValueByFactoryResultOutput)
 }
 

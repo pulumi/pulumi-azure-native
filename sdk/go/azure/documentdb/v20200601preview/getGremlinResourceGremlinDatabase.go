@@ -54,7 +54,11 @@ func LookupGremlinResourceGremlinDatabaseOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupGremlinResourceGremlinDatabaseResult, error) {
 			args := v.(LookupGremlinResourceGremlinDatabaseArgs)
 			r, err := LookupGremlinResourceGremlinDatabase(ctx, &args, opts...)
-			return *r, err
+			var s LookupGremlinResourceGremlinDatabaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGremlinResourceGremlinDatabaseResultOutput)
 }
 

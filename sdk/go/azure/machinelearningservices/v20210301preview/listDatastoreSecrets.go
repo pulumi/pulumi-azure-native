@@ -40,7 +40,11 @@ func ListDatastoreSecretsOutput(ctx *pulumi.Context, args ListDatastoreSecretsOu
 		ApplyT(func(v interface{}) (ListDatastoreSecretsResult, error) {
 			args := v.(ListDatastoreSecretsArgs)
 			r, err := ListDatastoreSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListDatastoreSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDatastoreSecretsResultOutput)
 }
 

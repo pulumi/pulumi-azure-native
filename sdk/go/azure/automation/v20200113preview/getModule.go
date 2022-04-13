@@ -72,7 +72,11 @@ func LookupModuleOutput(ctx *pulumi.Context, args LookupModuleOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupModuleResult, error) {
 			args := v.(LookupModuleArgs)
 			r, err := LookupModule(ctx, &args, opts...)
-			return *r, err
+			var s LookupModuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupModuleResultOutput)
 }
 

@@ -80,7 +80,11 @@ func LookupVirtualMachineScaleSetVMOutput(ctx *pulumi.Context, args LookupVirtua
 		ApplyT(func(v interface{}) (LookupVirtualMachineScaleSetVMResult, error) {
 			args := v.(LookupVirtualMachineScaleSetVMArgs)
 			r, err := LookupVirtualMachineScaleSetVM(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineScaleSetVMResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineScaleSetVMResultOutput)
 }
 

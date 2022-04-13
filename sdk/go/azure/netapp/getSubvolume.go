@@ -57,7 +57,11 @@ func LookupSubvolumeOutput(ctx *pulumi.Context, args LookupSubvolumeOutputArgs, 
 		ApplyT(func(v interface{}) (LookupSubvolumeResult, error) {
 			args := v.(LookupSubvolumeArgs)
 			r, err := LookupSubvolume(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubvolumeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubvolumeResultOutput)
 }
 

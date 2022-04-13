@@ -59,7 +59,11 @@ func LookupWorkloadNetworkSegmentOutput(ctx *pulumi.Context, args LookupWorkload
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkSegmentResult, error) {
 			args := v.(LookupWorkloadNetworkSegmentArgs)
 			r, err := LookupWorkloadNetworkSegment(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkSegmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkSegmentResultOutput)
 }
 

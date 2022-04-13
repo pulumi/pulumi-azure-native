@@ -48,7 +48,11 @@ func LookupHybridConnectionAuthorizationRuleOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupHybridConnectionAuthorizationRuleResult, error) {
 			args := v.(LookupHybridConnectionAuthorizationRuleArgs)
 			r, err := LookupHybridConnectionAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupHybridConnectionAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHybridConnectionAuthorizationRuleResultOutput)
 }
 

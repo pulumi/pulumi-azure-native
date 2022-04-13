@@ -50,7 +50,11 @@ func LookupReplicationFabricOutput(ctx *pulumi.Context, args LookupReplicationFa
 		ApplyT(func(v interface{}) (LookupReplicationFabricResult, error) {
 			args := v.(LookupReplicationFabricArgs)
 			r, err := LookupReplicationFabric(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationFabricResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationFabricResultOutput)
 }
 

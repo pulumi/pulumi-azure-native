@@ -50,7 +50,11 @@ func LookupManagementLockByScopeOutput(ctx *pulumi.Context, args LookupManagemen
 		ApplyT(func(v interface{}) (LookupManagementLockByScopeResult, error) {
 			args := v.(LookupManagementLockByScopeArgs)
 			r, err := LookupManagementLockByScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementLockByScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementLockByScopeResultOutput)
 }
 

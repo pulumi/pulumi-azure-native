@@ -61,7 +61,11 @@ func LookupAlertProcessingRuleByNameOutput(ctx *pulumi.Context, args LookupAlert
 		ApplyT(func(v interface{}) (LookupAlertProcessingRuleByNameResult, error) {
 			args := v.(LookupAlertProcessingRuleByNameArgs)
 			r, err := LookupAlertProcessingRuleByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupAlertProcessingRuleByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAlertProcessingRuleByNameResultOutput)
 }
 

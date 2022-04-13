@@ -55,7 +55,11 @@ func LookupEnterpriseChannelOutput(ctx *pulumi.Context, args LookupEnterpriseCha
 		ApplyT(func(v interface{}) (LookupEnterpriseChannelResult, error) {
 			args := v.(LookupEnterpriseChannelArgs)
 			r, err := LookupEnterpriseChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnterpriseChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnterpriseChannelResultOutput)
 }
 

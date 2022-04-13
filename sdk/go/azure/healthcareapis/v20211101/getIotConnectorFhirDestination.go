@@ -58,7 +58,11 @@ func LookupIotConnectorFhirDestinationOutput(ctx *pulumi.Context, args LookupIot
 		ApplyT(func(v interface{}) (LookupIotConnectorFhirDestinationResult, error) {
 			args := v.(LookupIotConnectorFhirDestinationArgs)
 			r, err := LookupIotConnectorFhirDestination(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotConnectorFhirDestinationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotConnectorFhirDestinationResultOutput)
 }
 

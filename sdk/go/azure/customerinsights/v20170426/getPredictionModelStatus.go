@@ -60,7 +60,11 @@ func GetPredictionModelStatusOutput(ctx *pulumi.Context, args GetPredictionModel
 		ApplyT(func(v interface{}) (GetPredictionModelStatusResult, error) {
 			args := v.(GetPredictionModelStatusArgs)
 			r, err := GetPredictionModelStatus(ctx, &args, opts...)
-			return *r, err
+			var s GetPredictionModelStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetPredictionModelStatusResultOutput)
 }
 

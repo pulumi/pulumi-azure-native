@@ -66,7 +66,11 @@ func ListShareSynchronizationDetailsOutput(ctx *pulumi.Context, args ListShareSy
 		ApplyT(func(v interface{}) (ListShareSynchronizationDetailsResult, error) {
 			args := v.(ListShareSynchronizationDetailsArgs)
 			r, err := ListShareSynchronizationDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListShareSynchronizationDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListShareSynchronizationDetailsResultOutput)
 }
 

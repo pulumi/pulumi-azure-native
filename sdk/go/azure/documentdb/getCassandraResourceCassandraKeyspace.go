@@ -51,7 +51,11 @@ func LookupCassandraResourceCassandraKeyspaceOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupCassandraResourceCassandraKeyspaceResult, error) {
 			args := v.(LookupCassandraResourceCassandraKeyspaceArgs)
 			r, err := LookupCassandraResourceCassandraKeyspace(ctx, &args, opts...)
-			return *r, err
+			var s LookupCassandraResourceCassandraKeyspaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCassandraResourceCassandraKeyspaceResultOutput)
 }
 

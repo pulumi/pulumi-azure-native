@@ -51,7 +51,11 @@ func LookupScopeAssignmentOutput(ctx *pulumi.Context, args LookupScopeAssignment
 		ApplyT(func(v interface{}) (LookupScopeAssignmentResult, error) {
 			args := v.(LookupScopeAssignmentArgs)
 			r, err := LookupScopeAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupScopeAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScopeAssignmentResultOutput)
 }
 

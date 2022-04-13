@@ -52,7 +52,11 @@ func LookupServerAzureADAdministratorOutput(ctx *pulumi.Context, args LookupServ
 		ApplyT(func(v interface{}) (LookupServerAzureADAdministratorResult, error) {
 			args := v.(LookupServerAzureADAdministratorArgs)
 			r, err := LookupServerAzureADAdministrator(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerAzureADAdministratorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerAzureADAdministratorResultOutput)
 }
 

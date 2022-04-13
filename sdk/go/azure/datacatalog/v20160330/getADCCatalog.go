@@ -60,7 +60,11 @@ func LookupADCCatalogOutput(ctx *pulumi.Context, args LookupADCCatalogOutputArgs
 		ApplyT(func(v interface{}) (LookupADCCatalogResult, error) {
 			args := v.(LookupADCCatalogArgs)
 			r, err := LookupADCCatalog(ctx, &args, opts...)
-			return *r, err
+			var s LookupADCCatalogResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADCCatalogResultOutput)
 }
 

@@ -69,7 +69,11 @@ func LookupNamespaceNetworkRuleSetOutput(ctx *pulumi.Context, args LookupNamespa
 		ApplyT(func(v interface{}) (LookupNamespaceNetworkRuleSetResult, error) {
 			args := v.(LookupNamespaceNetworkRuleSetArgs)
 			r, err := LookupNamespaceNetworkRuleSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupNamespaceNetworkRuleSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNamespaceNetworkRuleSetResultOutput)
 }
 

@@ -50,7 +50,11 @@ func LookupBindingOutput(ctx *pulumi.Context, args LookupBindingOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupBindingResult, error) {
 			args := v.(LookupBindingArgs)
 			r, err := LookupBinding(ctx, &args, opts...)
-			return *r, err
+			var s LookupBindingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBindingResultOutput)
 }
 

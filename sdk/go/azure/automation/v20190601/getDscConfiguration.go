@@ -70,7 +70,11 @@ func LookupDscConfigurationOutput(ctx *pulumi.Context, args LookupDscConfigurati
 		ApplyT(func(v interface{}) (LookupDscConfigurationResult, error) {
 			args := v.(LookupDscConfigurationArgs)
 			r, err := LookupDscConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDscConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDscConfigurationResultOutput)
 }
 

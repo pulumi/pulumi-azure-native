@@ -65,7 +65,11 @@ func LookupOpenShiftClusterOutput(ctx *pulumi.Context, args LookupOpenShiftClust
 		ApplyT(func(v interface{}) (LookupOpenShiftClusterResult, error) {
 			args := v.(LookupOpenShiftClusterArgs)
 			r, err := LookupOpenShiftCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupOpenShiftClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOpenShiftClusterResultOutput)
 }
 

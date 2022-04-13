@@ -55,7 +55,11 @@ func LookupEntityAnalyticsOutput(ctx *pulumi.Context, args LookupEntityAnalytics
 		ApplyT(func(v interface{}) (LookupEntityAnalyticsResult, error) {
 			args := v.(LookupEntityAnalyticsArgs)
 			r, err := LookupEntityAnalytics(ctx, &args, opts...)
-			return *r, err
+			var s LookupEntityAnalyticsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEntityAnalyticsResultOutput)
 }
 

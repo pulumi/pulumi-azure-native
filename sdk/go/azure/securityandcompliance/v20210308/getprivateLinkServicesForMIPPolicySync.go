@@ -56,7 +56,11 @@ func GetprivateLinkServicesForMIPPolicySyncOutput(ctx *pulumi.Context, args Getp
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForMIPPolicySyncResult, error) {
 			args := v.(GetprivateLinkServicesForMIPPolicySyncArgs)
 			r, err := GetprivateLinkServicesForMIPPolicySync(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForMIPPolicySyncResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForMIPPolicySyncResultOutput)
 }
 

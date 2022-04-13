@@ -52,7 +52,11 @@ func LookupBlobInventoryPolicyOutput(ctx *pulumi.Context, args LookupBlobInvento
 		ApplyT(func(v interface{}) (LookupBlobInventoryPolicyResult, error) {
 			args := v.(LookupBlobInventoryPolicyArgs)
 			r, err := LookupBlobInventoryPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobInventoryPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobInventoryPolicyResultOutput)
 }
 

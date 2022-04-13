@@ -45,7 +45,11 @@ func ListMachineLearningComputeNodesOutput(ctx *pulumi.Context, args ListMachine
 		ApplyT(func(v interface{}) (ListMachineLearningComputeNodesResult, error) {
 			args := v.(ListMachineLearningComputeNodesArgs)
 			r, err := ListMachineLearningComputeNodes(ctx, &args, opts...)
-			return *r, err
+			var s ListMachineLearningComputeNodesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMachineLearningComputeNodesResultOutput)
 }
 

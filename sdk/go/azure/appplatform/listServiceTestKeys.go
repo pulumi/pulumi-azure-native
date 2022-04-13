@@ -47,7 +47,11 @@ func ListServiceTestKeysOutput(ctx *pulumi.Context, args ListServiceTestKeysOutp
 		ApplyT(func(v interface{}) (ListServiceTestKeysResult, error) {
 			args := v.(ListServiceTestKeysArgs)
 			r, err := ListServiceTestKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListServiceTestKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListServiceTestKeysResultOutput)
 }
 

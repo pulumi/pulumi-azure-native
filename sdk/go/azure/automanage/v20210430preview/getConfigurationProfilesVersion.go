@@ -52,7 +52,11 @@ func LookupConfigurationProfilesVersionOutput(ctx *pulumi.Context, args LookupCo
 		ApplyT(func(v interface{}) (LookupConfigurationProfilesVersionResult, error) {
 			args := v.(LookupConfigurationProfilesVersionArgs)
 			r, err := LookupConfigurationProfilesVersion(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationProfilesVersionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationProfilesVersionResultOutput)
 }
 

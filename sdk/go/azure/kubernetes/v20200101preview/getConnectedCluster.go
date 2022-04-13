@@ -76,7 +76,11 @@ func LookupConnectedClusterOutput(ctx *pulumi.Context, args LookupConnectedClust
 		ApplyT(func(v interface{}) (LookupConnectedClusterResult, error) {
 			args := v.(LookupConnectedClusterArgs)
 			r, err := LookupConnectedCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupConnectedClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConnectedClusterResultOutput)
 }
 

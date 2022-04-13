@@ -91,7 +91,11 @@ func LookupKustoPoolOutput(ctx *pulumi.Context, args LookupKustoPoolOutputArgs, 
 		ApplyT(func(v interface{}) (LookupKustoPoolResult, error) {
 			args := v.(LookupKustoPoolArgs)
 			r, err := LookupKustoPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoPoolResultOutput)
 }
 

@@ -49,7 +49,11 @@ func ListWebAppApplicationSettingsSlotOutput(ctx *pulumi.Context, args ListWebAp
 		ApplyT(func(v interface{}) (ListWebAppApplicationSettingsSlotResult, error) {
 			args := v.(ListWebAppApplicationSettingsSlotArgs)
 			r, err := ListWebAppApplicationSettingsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppApplicationSettingsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppApplicationSettingsSlotResultOutput)
 }
 

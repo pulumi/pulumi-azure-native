@@ -56,7 +56,11 @@ func LookupIpGroupOutput(ctx *pulumi.Context, args LookupIpGroupOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupIpGroupResult, error) {
 			args := v.(LookupIpGroupArgs)
 			r, err := LookupIpGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupIpGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIpGroupResultOutput)
 }
 

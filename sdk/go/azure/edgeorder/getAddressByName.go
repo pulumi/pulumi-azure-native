@@ -55,7 +55,11 @@ func LookupAddressByNameOutput(ctx *pulumi.Context, args LookupAddressByNameOutp
 		ApplyT(func(v interface{}) (LookupAddressByNameResult, error) {
 			args := v.(LookupAddressByNameArgs)
 			r, err := LookupAddressByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupAddressByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAddressByNameResultOutput)
 }
 

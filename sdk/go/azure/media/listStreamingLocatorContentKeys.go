@@ -41,7 +41,11 @@ func ListStreamingLocatorContentKeysOutput(ctx *pulumi.Context, args ListStreami
 		ApplyT(func(v interface{}) (ListStreamingLocatorContentKeysResult, error) {
 			args := v.(ListStreamingLocatorContentKeysArgs)
 			r, err := ListStreamingLocatorContentKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListStreamingLocatorContentKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStreamingLocatorContentKeysResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupStorageOutput(ctx *pulumi.Context, args LookupStorageOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupStorageResult, error) {
 			args := v.(LookupStorageArgs)
 			r, err := LookupStorage(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageResultOutput)
 }
 

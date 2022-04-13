@@ -41,7 +41,11 @@ func GetBuildLogLinkOutput(ctx *pulumi.Context, args GetBuildLogLinkOutputArgs, 
 		ApplyT(func(v interface{}) (GetBuildLogLinkResult, error) {
 			args := v.(GetBuildLogLinkArgs)
 			r, err := GetBuildLogLink(ctx, &args, opts...)
-			return *r, err
+			var s GetBuildLogLinkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetBuildLogLinkResultOutput)
 }
 

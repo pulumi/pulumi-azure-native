@@ -52,7 +52,11 @@ func LookupConnectionGatewayOutput(ctx *pulumi.Context, args LookupConnectionGat
 		ApplyT(func(v interface{}) (LookupConnectionGatewayResult, error) {
 			args := v.(LookupConnectionGatewayArgs)
 			r, err := LookupConnectionGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupConnectionGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConnectionGatewayResultOutput)
 }
 

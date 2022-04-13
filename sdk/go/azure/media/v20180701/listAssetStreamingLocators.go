@@ -40,7 +40,11 @@ func ListAssetStreamingLocatorsOutput(ctx *pulumi.Context, args ListAssetStreami
 		ApplyT(func(v interface{}) (ListAssetStreamingLocatorsResult, error) {
 			args := v.(ListAssetStreamingLocatorsArgs)
 			r, err := ListAssetStreamingLocators(ctx, &args, opts...)
-			return *r, err
+			var s ListAssetStreamingLocatorsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAssetStreamingLocatorsResultOutput)
 }
 

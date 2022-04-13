@@ -42,7 +42,11 @@ func ListWebAppHostKeysOutput(ctx *pulumi.Context, args ListWebAppHostKeysOutput
 		ApplyT(func(v interface{}) (ListWebAppHostKeysResult, error) {
 			args := v.(ListWebAppHostKeysArgs)
 			r, err := ListWebAppHostKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppHostKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppHostKeysResultOutput)
 }
 

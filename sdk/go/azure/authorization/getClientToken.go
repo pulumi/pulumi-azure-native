@@ -36,7 +36,11 @@ func GetClientTokenOutput(ctx *pulumi.Context, args GetClientTokenOutputArgs, op
 		ApplyT(func(v interface{}) (GetClientTokenResult, error) {
 			args := v.(GetClientTokenArgs)
 			r, err := GetClientToken(ctx, &args, opts...)
-			return *r, err
+			var s GetClientTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetClientTokenResultOutput)
 }
 

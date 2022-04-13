@@ -50,7 +50,11 @@ func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupTriggerResult, error) {
 			args := v.(LookupTriggerArgs)
 			r, err := LookupTrigger(ctx, &args, opts...)
-			return *r, err
+			var s LookupTriggerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTriggerResultOutput)
 }
 

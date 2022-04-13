@@ -46,7 +46,11 @@ func ListEffectiveVirtualNetworkByNetworkManagerOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (ListEffectiveVirtualNetworkByNetworkManagerResult, error) {
 			args := v.(ListEffectiveVirtualNetworkByNetworkManagerArgs)
 			r, err := ListEffectiveVirtualNetworkByNetworkManager(ctx, &args, opts...)
-			return *r, err
+			var s ListEffectiveVirtualNetworkByNetworkManagerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListEffectiveVirtualNetworkByNetworkManagerResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupSynapseWorkspaceSqlPoolTableDataSetOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupSynapseWorkspaceSqlPoolTableDataSetResult, error) {
 			args := v.(LookupSynapseWorkspaceSqlPoolTableDataSetArgs)
 			r, err := LookupSynapseWorkspaceSqlPoolTableDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupSynapseWorkspaceSqlPoolTableDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSynapseWorkspaceSqlPoolTableDataSetResultOutput)
 }
 

@@ -41,7 +41,11 @@ func GetProjectKeysOutput(ctx *pulumi.Context, args GetProjectKeysOutputArgs, op
 		ApplyT(func(v interface{}) (GetProjectKeysResult, error) {
 			args := v.(GetProjectKeysArgs)
 			r, err := GetProjectKeys(ctx, &args, opts...)
-			return *r, err
+			var s GetProjectKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetProjectKeysResultOutput)
 }
 

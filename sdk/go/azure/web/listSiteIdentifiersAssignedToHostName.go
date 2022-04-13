@@ -39,7 +39,11 @@ func ListSiteIdentifiersAssignedToHostNameOutput(ctx *pulumi.Context, args ListS
 		ApplyT(func(v interface{}) (ListSiteIdentifiersAssignedToHostNameResult, error) {
 			args := v.(ListSiteIdentifiersAssignedToHostNameArgs)
 			r, err := ListSiteIdentifiersAssignedToHostName(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteIdentifiersAssignedToHostNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteIdentifiersAssignedToHostNameResultOutput)
 }
 

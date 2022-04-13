@@ -55,7 +55,11 @@ func LookupLongTermRetentionPolicyOutput(ctx *pulumi.Context, args LookupLongTer
 		ApplyT(func(v interface{}) (LookupLongTermRetentionPolicyResult, error) {
 			args := v.(LookupLongTermRetentionPolicyArgs)
 			r, err := LookupLongTermRetentionPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupLongTermRetentionPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLongTermRetentionPolicyResultOutput)
 }
 

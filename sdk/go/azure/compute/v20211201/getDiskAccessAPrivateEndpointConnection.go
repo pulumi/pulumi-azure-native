@@ -50,7 +50,11 @@ func LookupDiskAccessAPrivateEndpointConnectionOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupDiskAccessAPrivateEndpointConnectionResult, error) {
 			args := v.(LookupDiskAccessAPrivateEndpointConnectionArgs)
 			r, err := LookupDiskAccessAPrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupDiskAccessAPrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDiskAccessAPrivateEndpointConnectionResultOutput)
 }
 

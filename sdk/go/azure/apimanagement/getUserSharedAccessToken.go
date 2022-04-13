@@ -57,7 +57,11 @@ func GetUserSharedAccessTokenOutput(ctx *pulumi.Context, args GetUserSharedAcces
 		ApplyT(func(v interface{}) (GetUserSharedAccessTokenResult, error) {
 			args := v.(GetUserSharedAccessTokenArgs)
 			r, err := GetUserSharedAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s GetUserSharedAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetUserSharedAccessTokenResultOutput)
 }
 

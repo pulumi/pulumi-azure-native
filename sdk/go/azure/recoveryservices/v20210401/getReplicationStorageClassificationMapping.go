@@ -52,7 +52,11 @@ func LookupReplicationStorageClassificationMappingOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (LookupReplicationStorageClassificationMappingResult, error) {
 			args := v.(LookupReplicationStorageClassificationMappingArgs)
 			r, err := LookupReplicationStorageClassificationMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationStorageClassificationMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationStorageClassificationMappingResultOutput)
 }
 

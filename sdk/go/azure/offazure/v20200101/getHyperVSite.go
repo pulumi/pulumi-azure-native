@@ -49,7 +49,11 @@ func LookupHyperVSiteOutput(ctx *pulumi.Context, args LookupHyperVSiteOutputArgs
 		ApplyT(func(v interface{}) (LookupHyperVSiteResult, error) {
 			args := v.(LookupHyperVSiteArgs)
 			r, err := LookupHyperVSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupHyperVSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHyperVSiteResultOutput)
 }
 

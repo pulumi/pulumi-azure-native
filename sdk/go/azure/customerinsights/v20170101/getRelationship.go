@@ -70,7 +70,11 @@ func LookupRelationshipOutput(ctx *pulumi.Context, args LookupRelationshipOutput
 		ApplyT(func(v interface{}) (LookupRelationshipResult, error) {
 			args := v.(LookupRelationshipArgs)
 			r, err := LookupRelationship(ctx, &args, opts...)
-			return *r, err
+			var s LookupRelationshipResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRelationshipResultOutput)
 }
 

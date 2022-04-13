@@ -45,7 +45,11 @@ func ListActiveSecurityUserRuleOutput(ctx *pulumi.Context, args ListActiveSecuri
 		ApplyT(func(v interface{}) (ListActiveSecurityUserRuleResult, error) {
 			args := v.(ListActiveSecurityUserRuleArgs)
 			r, err := ListActiveSecurityUserRule(ctx, &args, opts...)
-			return *r, err
+			var s ListActiveSecurityUserRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListActiveSecurityUserRuleResultOutput)
 }
 

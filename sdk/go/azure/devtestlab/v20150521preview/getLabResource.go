@@ -64,7 +64,11 @@ func LookupLabResourceOutput(ctx *pulumi.Context, args LookupLabResourceOutputAr
 		ApplyT(func(v interface{}) (LookupLabResourceResult, error) {
 			args := v.(LookupLabResourceArgs)
 			r, err := LookupLabResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupLabResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLabResourceResultOutput)
 }
 

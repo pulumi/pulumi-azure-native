@@ -52,7 +52,11 @@ func ListSiteMetadataSlotOutput(ctx *pulumi.Context, args ListSiteMetadataSlotOu
 		ApplyT(func(v interface{}) (ListSiteMetadataSlotResult, error) {
 			args := v.(ListSiteMetadataSlotArgs)
 			r, err := ListSiteMetadataSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteMetadataSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteMetadataSlotResultOutput)
 }
 

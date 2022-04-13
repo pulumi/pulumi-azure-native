@@ -58,7 +58,11 @@ func GetApplicationGatewayBackendHealthOnDemandOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (GetApplicationGatewayBackendHealthOnDemandResult, error) {
 			args := v.(GetApplicationGatewayBackendHealthOnDemandArgs)
 			r, err := GetApplicationGatewayBackendHealthOnDemand(ctx, &args, opts...)
-			return *r, err
+			var s GetApplicationGatewayBackendHealthOnDemandResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetApplicationGatewayBackendHealthOnDemandResultOutput)
 }
 

@@ -57,7 +57,11 @@ func LookupNspAssociationOutput(ctx *pulumi.Context, args LookupNspAssociationOu
 		ApplyT(func(v interface{}) (LookupNspAssociationResult, error) {
 			args := v.(LookupNspAssociationArgs)
 			r, err := LookupNspAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupNspAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNspAssociationResultOutput)
 }
 

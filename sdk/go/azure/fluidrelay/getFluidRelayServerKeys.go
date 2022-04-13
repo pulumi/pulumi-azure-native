@@ -41,7 +41,11 @@ func GetFluidRelayServerKeysOutput(ctx *pulumi.Context, args GetFluidRelayServer
 		ApplyT(func(v interface{}) (GetFluidRelayServerKeysResult, error) {
 			args := v.(GetFluidRelayServerKeysArgs)
 			r, err := GetFluidRelayServerKeys(ctx, &args, opts...)
-			return *r, err
+			var s GetFluidRelayServerKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetFluidRelayServerKeysResultOutput)
 }
 

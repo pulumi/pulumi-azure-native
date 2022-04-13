@@ -67,7 +67,11 @@ func ListWebAppBackupConfigurationSlotOutput(ctx *pulumi.Context, args ListWebAp
 		ApplyT(func(v interface{}) (ListWebAppBackupConfigurationSlotResult, error) {
 			args := v.(ListWebAppBackupConfigurationSlotArgs)
 			r, err := ListWebAppBackupConfigurationSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppBackupConfigurationSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppBackupConfigurationSlotResultOutput)
 }
 

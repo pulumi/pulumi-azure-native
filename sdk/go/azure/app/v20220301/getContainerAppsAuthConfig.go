@@ -56,7 +56,11 @@ func LookupContainerAppsAuthConfigOutput(ctx *pulumi.Context, args LookupContain
 		ApplyT(func(v interface{}) (LookupContainerAppsAuthConfigResult, error) {
 			args := v.(LookupContainerAppsAuthConfigArgs)
 			r, err := LookupContainerAppsAuthConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupContainerAppsAuthConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContainerAppsAuthConfigResultOutput)
 }
 

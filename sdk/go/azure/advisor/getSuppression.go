@@ -51,7 +51,11 @@ func LookupSuppressionOutput(ctx *pulumi.Context, args LookupSuppressionOutputAr
 		ApplyT(func(v interface{}) (LookupSuppressionResult, error) {
 			args := v.(LookupSuppressionArgs)
 			r, err := LookupSuppression(ctx, &args, opts...)
-			return *r, err
+			var s LookupSuppressionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSuppressionResultOutput)
 }
 

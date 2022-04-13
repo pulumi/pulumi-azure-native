@@ -49,7 +49,11 @@ func LookupSkusNestedResourceTypeThirdOutput(ctx *pulumi.Context, args LookupSku
 		ApplyT(func(v interface{}) (LookupSkusNestedResourceTypeThirdResult, error) {
 			args := v.(LookupSkusNestedResourceTypeThirdArgs)
 			r, err := LookupSkusNestedResourceTypeThird(ctx, &args, opts...)
-			return *r, err
+			var s LookupSkusNestedResourceTypeThirdResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSkusNestedResourceTypeThirdResultOutput)
 }
 

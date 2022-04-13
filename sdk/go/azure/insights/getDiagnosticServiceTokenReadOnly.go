@@ -37,7 +37,11 @@ func GetDiagnosticServiceTokenReadOnlyOutput(ctx *pulumi.Context, args GetDiagno
 		ApplyT(func(v interface{}) (GetDiagnosticServiceTokenReadOnlyResult, error) {
 			args := v.(GetDiagnosticServiceTokenReadOnlyArgs)
 			r, err := GetDiagnosticServiceTokenReadOnly(ctx, &args, opts...)
-			return *r, err
+			var s GetDiagnosticServiceTokenReadOnlyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDiagnosticServiceTokenReadOnlyResultOutput)
 }
 

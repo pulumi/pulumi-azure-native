@@ -58,7 +58,11 @@ func LookupReferenceDataSetOutput(ctx *pulumi.Context, args LookupReferenceDataS
 		ApplyT(func(v interface{}) (LookupReferenceDataSetResult, error) {
 			args := v.(LookupReferenceDataSetArgs)
 			r, err := LookupReferenceDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupReferenceDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReferenceDataSetResultOutput)
 }
 

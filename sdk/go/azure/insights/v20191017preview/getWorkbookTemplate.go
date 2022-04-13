@@ -56,7 +56,11 @@ func LookupWorkbookTemplateOutput(ctx *pulumi.Context, args LookupWorkbookTempla
 		ApplyT(func(v interface{}) (LookupWorkbookTemplateResult, error) {
 			args := v.(LookupWorkbookTemplateArgs)
 			r, err := LookupWorkbookTemplate(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkbookTemplateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkbookTemplateResultOutput)
 }
 

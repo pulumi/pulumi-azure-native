@@ -65,7 +65,11 @@ func LookupApplicationGatewayPrivateEndpointConnectionOutput(ctx *pulumi.Context
 		ApplyT(func(v interface{}) (LookupApplicationGatewayPrivateEndpointConnectionResult, error) {
 			args := v.(LookupApplicationGatewayPrivateEndpointConnectionArgs)
 			r, err := LookupApplicationGatewayPrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationGatewayPrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationGatewayPrivateEndpointConnectionResultOutput)
 }
 

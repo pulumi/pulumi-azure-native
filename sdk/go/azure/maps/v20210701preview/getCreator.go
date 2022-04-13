@@ -50,7 +50,11 @@ func LookupCreatorOutput(ctx *pulumi.Context, args LookupCreatorOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupCreatorResult, error) {
 			args := v.(LookupCreatorArgs)
 			r, err := LookupCreator(ctx, &args, opts...)
-			return *r, err
+			var s LookupCreatorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCreatorResultOutput)
 }
 

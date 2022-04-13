@@ -92,7 +92,11 @@ func LookupServiceFabricScheduleOutput(ctx *pulumi.Context, args LookupServiceFa
 		ApplyT(func(v interface{}) (LookupServiceFabricScheduleResult, error) {
 			args := v.(LookupServiceFabricScheduleArgs)
 			r, err := LookupServiceFabricSchedule(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceFabricScheduleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceFabricScheduleResultOutput)
 }
 

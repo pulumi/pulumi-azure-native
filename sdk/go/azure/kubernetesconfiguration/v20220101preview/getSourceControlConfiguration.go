@@ -89,7 +89,11 @@ func LookupSourceControlConfigurationOutput(ctx *pulumi.Context, args LookupSour
 		ApplyT(func(v interface{}) (LookupSourceControlConfigurationResult, error) {
 			args := v.(LookupSourceControlConfigurationArgs)
 			r, err := LookupSourceControlConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupSourceControlConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSourceControlConfigurationResultOutput)
 }
 

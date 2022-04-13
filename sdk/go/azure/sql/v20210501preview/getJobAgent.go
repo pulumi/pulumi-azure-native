@@ -54,7 +54,11 @@ func LookupJobAgentOutput(ctx *pulumi.Context, args LookupJobAgentOutputArgs, op
 		ApplyT(func(v interface{}) (LookupJobAgentResult, error) {
 			args := v.(LookupJobAgentArgs)
 			r, err := LookupJobAgent(ctx, &args, opts...)
-			return *r, err
+			var s LookupJobAgentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJobAgentResultOutput)
 }
 

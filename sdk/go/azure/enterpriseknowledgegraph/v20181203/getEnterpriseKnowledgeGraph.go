@@ -50,7 +50,11 @@ func LookupEnterpriseKnowledgeGraphOutput(ctx *pulumi.Context, args LookupEnterp
 		ApplyT(func(v interface{}) (LookupEnterpriseKnowledgeGraphResult, error) {
 			args := v.(LookupEnterpriseKnowledgeGraphArgs)
 			r, err := LookupEnterpriseKnowledgeGraph(ctx, &args, opts...)
-			return *r, err
+			var s LookupEnterpriseKnowledgeGraphResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEnterpriseKnowledgeGraphResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupProtectionContainerOutput(ctx *pulumi.Context, args LookupProtectionC
 		ApplyT(func(v interface{}) (LookupProtectionContainerResult, error) {
 			args := v.(LookupProtectionContainerArgs)
 			r, err := LookupProtectionContainer(ctx, &args, opts...)
-			return *r, err
+			var s LookupProtectionContainerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProtectionContainerResultOutput)
 }
 

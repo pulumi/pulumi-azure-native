@@ -39,7 +39,11 @@ func ListServerGatewayStatusOutput(ctx *pulumi.Context, args ListServerGatewaySt
 		ApplyT(func(v interface{}) (ListServerGatewayStatusResult, error) {
 			args := v.(ListServerGatewayStatusArgs)
 			r, err := ListServerGatewayStatus(ctx, &args, opts...)
-			return *r, err
+			var s ListServerGatewayStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListServerGatewayStatusResultOutput)
 }
 

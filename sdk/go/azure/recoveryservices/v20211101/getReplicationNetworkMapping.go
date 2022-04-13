@@ -52,7 +52,11 @@ func LookupReplicationNetworkMappingOutput(ctx *pulumi.Context, args LookupRepli
 		ApplyT(func(v interface{}) (LookupReplicationNetworkMappingResult, error) {
 			args := v.(LookupReplicationNetworkMappingArgs)
 			r, err := LookupReplicationNetworkMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationNetworkMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationNetworkMappingResultOutput)
 }
 

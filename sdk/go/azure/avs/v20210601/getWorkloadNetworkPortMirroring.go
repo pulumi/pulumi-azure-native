@@ -58,7 +58,11 @@ func LookupWorkloadNetworkPortMirroringOutput(ctx *pulumi.Context, args LookupWo
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkPortMirroringResult, error) {
 			args := v.(LookupWorkloadNetworkPortMirroringArgs)
 			r, err := LookupWorkloadNetworkPortMirroring(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkPortMirroringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkPortMirroringResultOutput)
 }
 

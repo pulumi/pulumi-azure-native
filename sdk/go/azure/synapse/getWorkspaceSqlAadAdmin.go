@@ -51,7 +51,11 @@ func LookupWorkspaceSqlAadAdminOutput(ctx *pulumi.Context, args LookupWorkspaceS
 		ApplyT(func(v interface{}) (LookupWorkspaceSqlAadAdminResult, error) {
 			args := v.(LookupWorkspaceSqlAadAdminArgs)
 			r, err := LookupWorkspaceSqlAadAdmin(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkspaceSqlAadAdminResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkspaceSqlAadAdminResultOutput)
 }
 

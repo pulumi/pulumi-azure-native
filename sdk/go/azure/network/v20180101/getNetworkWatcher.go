@@ -64,7 +64,11 @@ func LookupNetworkWatcherOutput(ctx *pulumi.Context, args LookupNetworkWatcherOu
 		ApplyT(func(v interface{}) (LookupNetworkWatcherResult, error) {
 			args := v.(LookupNetworkWatcherArgs)
 			r, err := LookupNetworkWatcher(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkWatcherResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkWatcherResultOutput)
 }
 

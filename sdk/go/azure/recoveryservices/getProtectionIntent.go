@@ -55,7 +55,11 @@ func LookupProtectionIntentOutput(ctx *pulumi.Context, args LookupProtectionInte
 		ApplyT(func(v interface{}) (LookupProtectionIntentResult, error) {
 			args := v.(LookupProtectionIntentArgs)
 			r, err := LookupProtectionIntent(ctx, &args, opts...)
-			return *r, err
+			var s LookupProtectionIntentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProtectionIntentResultOutput)
 }
 

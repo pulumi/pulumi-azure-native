@@ -54,7 +54,11 @@ func LookupSiteSlotConfigNamesOutput(ctx *pulumi.Context, args LookupSiteSlotCon
 		ApplyT(func(v interface{}) (LookupSiteSlotConfigNamesResult, error) {
 			args := v.(LookupSiteSlotConfigNamesArgs)
 			r, err := LookupSiteSlotConfigNames(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteSlotConfigNamesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteSlotConfigNamesResultOutput)
 }
 

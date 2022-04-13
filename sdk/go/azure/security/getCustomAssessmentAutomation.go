@@ -59,7 +59,11 @@ func LookupCustomAssessmentAutomationOutput(ctx *pulumi.Context, args LookupCust
 		ApplyT(func(v interface{}) (LookupCustomAssessmentAutomationResult, error) {
 			args := v.(LookupCustomAssessmentAutomationArgs)
 			r, err := LookupCustomAssessmentAutomation(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomAssessmentAutomationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomAssessmentAutomationResultOutput)
 }
 

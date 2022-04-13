@@ -53,7 +53,11 @@ func LookupCommitmentPlanOutput(ctx *pulumi.Context, args LookupCommitmentPlanOu
 		ApplyT(func(v interface{}) (LookupCommitmentPlanResult, error) {
 			args := v.(LookupCommitmentPlanArgs)
 			r, err := LookupCommitmentPlan(ctx, &args, opts...)
-			return *r, err
+			var s LookupCommitmentPlanResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCommitmentPlanResultOutput)
 }
 

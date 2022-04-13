@@ -46,7 +46,11 @@ func ListNetworkManagerDeploymentStatusOutput(ctx *pulumi.Context, args ListNetw
 		ApplyT(func(v interface{}) (ListNetworkManagerDeploymentStatusResult, error) {
 			args := v.(ListNetworkManagerDeploymentStatusArgs)
 			r, err := ListNetworkManagerDeploymentStatus(ctx, &args, opts...)
-			return *r, err
+			var s ListNetworkManagerDeploymentStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNetworkManagerDeploymentStatusResultOutput)
 }
 

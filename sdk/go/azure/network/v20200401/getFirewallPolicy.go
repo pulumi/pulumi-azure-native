@@ -64,7 +64,11 @@ func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOu
 		ApplyT(func(v interface{}) (LookupFirewallPolicyResult, error) {
 			args := v.(LookupFirewallPolicyArgs)
 			r, err := LookupFirewallPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupFirewallPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFirewallPolicyResultOutput)
 }
 

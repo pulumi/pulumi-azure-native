@@ -43,7 +43,11 @@ func ListIntegrationAccountCallbackUrlOutput(ctx *pulumi.Context, args ListInteg
 		ApplyT(func(v interface{}) (ListIntegrationAccountCallbackUrlResult, error) {
 			args := v.(ListIntegrationAccountCallbackUrlArgs)
 			r, err := ListIntegrationAccountCallbackUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListIntegrationAccountCallbackUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIntegrationAccountCallbackUrlResultOutput)
 }
 

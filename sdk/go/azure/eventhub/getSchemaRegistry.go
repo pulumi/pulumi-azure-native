@@ -59,7 +59,11 @@ func LookupSchemaRegistryOutput(ctx *pulumi.Context, args LookupSchemaRegistryOu
 		ApplyT(func(v interface{}) (LookupSchemaRegistryResult, error) {
 			args := v.(LookupSchemaRegistryArgs)
 			r, err := LookupSchemaRegistry(ctx, &args, opts...)
-			return *r, err
+			var s LookupSchemaRegistryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSchemaRegistryResultOutput)
 }
 

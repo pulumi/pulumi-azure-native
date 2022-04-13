@@ -55,7 +55,11 @@ func LookupGeoBackupPolicyOutput(ctx *pulumi.Context, args LookupGeoBackupPolicy
 		ApplyT(func(v interface{}) (LookupGeoBackupPolicyResult, error) {
 			args := v.(LookupGeoBackupPolicyArgs)
 			r, err := LookupGeoBackupPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupGeoBackupPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGeoBackupPolicyResultOutput)
 }
 

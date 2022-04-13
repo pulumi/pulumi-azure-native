@@ -53,7 +53,11 @@ func LookupMoveCollectionOutput(ctx *pulumi.Context, args LookupMoveCollectionOu
 		ApplyT(func(v interface{}) (LookupMoveCollectionResult, error) {
 			args := v.(LookupMoveCollectionArgs)
 			r, err := LookupMoveCollection(ctx, &args, opts...)
-			return *r, err
+			var s LookupMoveCollectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMoveCollectionResultOutput)
 }
 

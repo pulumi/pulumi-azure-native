@@ -53,7 +53,11 @@ func LookupCodelessUiDataConnectorOutput(ctx *pulumi.Context, args LookupCodeles
 		ApplyT(func(v interface{}) (LookupCodelessUiDataConnectorResult, error) {
 			args := v.(LookupCodelessUiDataConnectorArgs)
 			r, err := LookupCodelessUiDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupCodelessUiDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCodelessUiDataConnectorResultOutput)
 }
 

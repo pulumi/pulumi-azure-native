@@ -61,7 +61,11 @@ func LookupPublishedBlueprintOutput(ctx *pulumi.Context, args LookupPublishedBlu
 		ApplyT(func(v interface{}) (LookupPublishedBlueprintResult, error) {
 			args := v.(LookupPublishedBlueprintArgs)
 			r, err := LookupPublishedBlueprint(ctx, &args, opts...)
-			return *r, err
+			var s LookupPublishedBlueprintResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPublishedBlueprintResultOutput)
 }
 

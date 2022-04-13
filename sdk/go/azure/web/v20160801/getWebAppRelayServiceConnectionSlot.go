@@ -55,7 +55,11 @@ func LookupWebAppRelayServiceConnectionSlotOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupWebAppRelayServiceConnectionSlotResult, error) {
 			args := v.(LookupWebAppRelayServiceConnectionSlotArgs)
 			r, err := LookupWebAppRelayServiceConnectionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppRelayServiceConnectionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppRelayServiceConnectionSlotResultOutput)
 }
 

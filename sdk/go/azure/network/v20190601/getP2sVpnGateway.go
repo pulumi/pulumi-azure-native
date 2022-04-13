@@ -62,7 +62,11 @@ func LookupP2sVpnGatewayOutput(ctx *pulumi.Context, args LookupP2sVpnGatewayOutp
 		ApplyT(func(v interface{}) (LookupP2sVpnGatewayResult, error) {
 			args := v.(LookupP2sVpnGatewayArgs)
 			r, err := LookupP2sVpnGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupP2sVpnGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupP2sVpnGatewayResultOutput)
 }
 

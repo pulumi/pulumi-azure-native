@@ -54,7 +54,11 @@ func LookupKustoPoolDatabaseOutput(ctx *pulumi.Context, args LookupKustoPoolData
 		ApplyT(func(v interface{}) (LookupKustoPoolDatabaseResult, error) {
 			args := v.(LookupKustoPoolDatabaseArgs)
 			r, err := LookupKustoPoolDatabase(ctx, &args, opts...)
-			return *r, err
+			var s LookupKustoPoolDatabaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKustoPoolDatabaseResultOutput)
 }
 

@@ -39,7 +39,11 @@ func GetVirtualNetworkGatewayLearnedRoutesOutput(ctx *pulumi.Context, args GetVi
 		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayLearnedRoutesResult, error) {
 			args := v.(GetVirtualNetworkGatewayLearnedRoutesArgs)
 			r, err := GetVirtualNetworkGatewayLearnedRoutes(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualNetworkGatewayLearnedRoutesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualNetworkGatewayLearnedRoutesResultOutput)
 }
 

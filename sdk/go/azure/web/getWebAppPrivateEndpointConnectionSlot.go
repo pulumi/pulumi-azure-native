@@ -56,7 +56,11 @@ func LookupWebAppPrivateEndpointConnectionSlotOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupWebAppPrivateEndpointConnectionSlotResult, error) {
 			args := v.(LookupWebAppPrivateEndpointConnectionSlotArgs)
 			r, err := LookupWebAppPrivateEndpointConnectionSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppPrivateEndpointConnectionSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppPrivateEndpointConnectionSlotResultOutput)
 }
 

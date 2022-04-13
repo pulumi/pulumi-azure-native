@@ -39,7 +39,11 @@ func ListClusterUpgradableVersionsOutput(ctx *pulumi.Context, args ListClusterUp
 		ApplyT(func(v interface{}) (ListClusterUpgradableVersionsResult, error) {
 			args := v.(ListClusterUpgradableVersionsArgs)
 			r, err := ListClusterUpgradableVersions(ctx, &args, opts...)
-			return *r, err
+			var s ListClusterUpgradableVersionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListClusterUpgradableVersionsResultOutput)
 }
 

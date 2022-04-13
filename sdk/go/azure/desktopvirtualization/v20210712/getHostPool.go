@@ -97,7 +97,11 @@ func LookupHostPoolOutput(ctx *pulumi.Context, args LookupHostPoolOutputArgs, op
 		ApplyT(func(v interface{}) (LookupHostPoolResult, error) {
 			args := v.(LookupHostPoolArgs)
 			r, err := LookupHostPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupHostPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHostPoolResultOutput)
 }
 

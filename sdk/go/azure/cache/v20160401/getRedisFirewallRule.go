@@ -50,7 +50,11 @@ func LookupRedisFirewallRuleOutput(ctx *pulumi.Context, args LookupRedisFirewall
 		ApplyT(func(v interface{}) (LookupRedisFirewallRuleResult, error) {
 			args := v.(LookupRedisFirewallRuleArgs)
 			r, err := LookupRedisFirewallRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupRedisFirewallRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRedisFirewallRuleResultOutput)
 }
 

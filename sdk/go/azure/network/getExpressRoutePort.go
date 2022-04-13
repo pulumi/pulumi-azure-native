@@ -73,7 +73,11 @@ func LookupExpressRoutePortOutput(ctx *pulumi.Context, args LookupExpressRoutePo
 		ApplyT(func(v interface{}) (LookupExpressRoutePortResult, error) {
 			args := v.(LookupExpressRoutePortArgs)
 			r, err := LookupExpressRoutePort(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRoutePortResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRoutePortResultOutput)
 }
 

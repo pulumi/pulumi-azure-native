@@ -57,7 +57,11 @@ func LookupSqlResourceSqlUserDefinedFunctionOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlUserDefinedFunctionResult, error) {
 			args := v.(LookupSqlResourceSqlUserDefinedFunctionArgs)
 			r, err := LookupSqlResourceSqlUserDefinedFunction(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlUserDefinedFunctionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlUserDefinedFunctionResultOutput)
 }
 

@@ -75,7 +75,11 @@ func LookupServerFarmOutput(ctx *pulumi.Context, args LookupServerFarmOutputArgs
 		ApplyT(func(v interface{}) (LookupServerFarmResult, error) {
 			args := v.(LookupServerFarmArgs)
 			r, err := LookupServerFarm(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerFarmResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerFarmResultOutput)
 }
 

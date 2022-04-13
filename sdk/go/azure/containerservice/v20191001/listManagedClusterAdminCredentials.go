@@ -38,7 +38,11 @@ func ListManagedClusterAdminCredentialsOutput(ctx *pulumi.Context, args ListMana
 		ApplyT(func(v interface{}) (ListManagedClusterAdminCredentialsResult, error) {
 			args := v.(ListManagedClusterAdminCredentialsArgs)
 			r, err := ListManagedClusterAdminCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListManagedClusterAdminCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListManagedClusterAdminCredentialsResultOutput)
 }
 

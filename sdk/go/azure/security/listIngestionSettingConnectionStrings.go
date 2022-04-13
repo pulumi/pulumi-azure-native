@@ -37,7 +37,11 @@ func ListIngestionSettingConnectionStringsOutput(ctx *pulumi.Context, args ListI
 		ApplyT(func(v interface{}) (ListIngestionSettingConnectionStringsResult, error) {
 			args := v.(ListIngestionSettingConnectionStringsArgs)
 			r, err := ListIngestionSettingConnectionStrings(ctx, &args, opts...)
-			return *r, err
+			var s ListIngestionSettingConnectionStringsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIngestionSettingConnectionStringsResultOutput)
 }
 

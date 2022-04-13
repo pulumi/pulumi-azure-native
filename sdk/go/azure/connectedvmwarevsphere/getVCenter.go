@@ -73,7 +73,11 @@ func LookupVCenterOutput(ctx *pulumi.Context, args LookupVCenterOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupVCenterResult, error) {
 			args := v.(LookupVCenterArgs)
 			r, err := LookupVCenter(ctx, &args, opts...)
-			return *r, err
+			var s LookupVCenterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVCenterResultOutput)
 }
 

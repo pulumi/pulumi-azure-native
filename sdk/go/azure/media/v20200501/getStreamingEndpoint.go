@@ -82,7 +82,11 @@ func LookupStreamingEndpointOutput(ctx *pulumi.Context, args LookupStreamingEndp
 		ApplyT(func(v interface{}) (LookupStreamingEndpointResult, error) {
 			args := v.(LookupStreamingEndpointArgs)
 			r, err := LookupStreamingEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupStreamingEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStreamingEndpointResultOutput)
 }
 

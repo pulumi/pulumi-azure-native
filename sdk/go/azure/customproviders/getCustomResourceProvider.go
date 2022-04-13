@@ -55,7 +55,11 @@ func LookupCustomResourceProviderOutput(ctx *pulumi.Context, args LookupCustomRe
 		ApplyT(func(v interface{}) (LookupCustomResourceProviderResult, error) {
 			args := v.(LookupCustomResourceProviderArgs)
 			r, err := LookupCustomResourceProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomResourceProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomResourceProviderResultOutput)
 }
 

@@ -60,7 +60,11 @@ func LookupSiteSourceControlOutput(ctx *pulumi.Context, args LookupSiteSourceCon
 		ApplyT(func(v interface{}) (LookupSiteSourceControlResult, error) {
 			args := v.(LookupSiteSourceControlArgs)
 			r, err := LookupSiteSourceControl(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteSourceControlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteSourceControlResultOutput)
 }
 

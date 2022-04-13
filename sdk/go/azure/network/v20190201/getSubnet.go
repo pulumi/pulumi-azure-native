@@ -76,7 +76,11 @@ func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupSubnetResult, error) {
 			args := v.(LookupSubnetArgs)
 			r, err := LookupSubnet(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubnetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubnetResultOutput)
 }
 

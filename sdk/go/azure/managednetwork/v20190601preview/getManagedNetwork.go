@@ -54,7 +54,11 @@ func LookupManagedNetworkOutput(ctx *pulumi.Context, args LookupManagedNetworkOu
 		ApplyT(func(v interface{}) (LookupManagedNetworkResult, error) {
 			args := v.(LookupManagedNetworkArgs)
 			r, err := LookupManagedNetwork(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedNetworkResultOutput)
 }
 

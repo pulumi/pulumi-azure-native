@@ -62,7 +62,11 @@ func LookupSpatialAnchorsAccountOutput(ctx *pulumi.Context, args LookupSpatialAn
 		ApplyT(func(v interface{}) (LookupSpatialAnchorsAccountResult, error) {
 			args := v.(LookupSpatialAnchorsAccountArgs)
 			r, err := LookupSpatialAnchorsAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupSpatialAnchorsAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSpatialAnchorsAccountResultOutput)
 }
 

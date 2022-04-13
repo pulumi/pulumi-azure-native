@@ -37,7 +37,11 @@ func GetDnsResourceReferenceByTarResourcesOutput(ctx *pulumi.Context, args GetDn
 		ApplyT(func(v interface{}) (GetDnsResourceReferenceByTarResourcesResult, error) {
 			args := v.(GetDnsResourceReferenceByTarResourcesArgs)
 			r, err := GetDnsResourceReferenceByTarResources(ctx, &args, opts...)
-			return *r, err
+			var s GetDnsResourceReferenceByTarResourcesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDnsResourceReferenceByTarResourcesResultOutput)
 }
 

@@ -42,7 +42,11 @@ func GetTriggerEventSubscriptionStatusOutput(ctx *pulumi.Context, args GetTrigge
 		ApplyT(func(v interface{}) (GetTriggerEventSubscriptionStatusResult, error) {
 			args := v.(GetTriggerEventSubscriptionStatusArgs)
 			r, err := GetTriggerEventSubscriptionStatus(ctx, &args, opts...)
-			return *r, err
+			var s GetTriggerEventSubscriptionStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTriggerEventSubscriptionStatusResultOutput)
 }
 

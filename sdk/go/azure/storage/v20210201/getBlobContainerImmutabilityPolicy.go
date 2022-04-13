@@ -54,7 +54,11 @@ func LookupBlobContainerImmutabilityPolicyOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupBlobContainerImmutabilityPolicyResult, error) {
 			args := v.(LookupBlobContainerImmutabilityPolicyArgs)
 			r, err := LookupBlobContainerImmutabilityPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobContainerImmutabilityPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobContainerImmutabilityPolicyResultOutput)
 }
 

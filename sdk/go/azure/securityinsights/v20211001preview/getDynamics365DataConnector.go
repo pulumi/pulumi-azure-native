@@ -55,7 +55,11 @@ func LookupDynamics365DataConnectorOutput(ctx *pulumi.Context, args LookupDynami
 		ApplyT(func(v interface{}) (LookupDynamics365DataConnectorResult, error) {
 			args := v.(LookupDynamics365DataConnectorArgs)
 			r, err := LookupDynamics365DataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupDynamics365DataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDynamics365DataConnectorResultOutput)
 }
 

@@ -36,7 +36,11 @@ func ListIngestionSettingTokensOutput(ctx *pulumi.Context, args ListIngestionSet
 		ApplyT(func(v interface{}) (ListIngestionSettingTokensResult, error) {
 			args := v.(ListIngestionSettingTokensArgs)
 			r, err := ListIngestionSettingTokens(ctx, &args, opts...)
-			return *r, err
+			var s ListIngestionSettingTokensResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIngestionSettingTokensResultOutput)
 }
 

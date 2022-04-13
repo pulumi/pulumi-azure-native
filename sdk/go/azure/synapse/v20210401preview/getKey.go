@@ -48,7 +48,11 @@ func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupKeyResult, error) {
 			args := v.(LookupKeyArgs)
 			r, err := LookupKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKeyResultOutput)
 }
 

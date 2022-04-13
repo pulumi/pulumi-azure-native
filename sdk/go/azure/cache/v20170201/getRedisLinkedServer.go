@@ -54,7 +54,11 @@ func LookupRedisLinkedServerOutput(ctx *pulumi.Context, args LookupRedisLinkedSe
 		ApplyT(func(v interface{}) (LookupRedisLinkedServerResult, error) {
 			args := v.(LookupRedisLinkedServerArgs)
 			r, err := LookupRedisLinkedServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupRedisLinkedServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRedisLinkedServerResultOutput)
 }
 

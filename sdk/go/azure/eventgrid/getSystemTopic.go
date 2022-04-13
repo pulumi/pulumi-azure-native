@@ -59,7 +59,11 @@ func LookupSystemTopicOutput(ctx *pulumi.Context, args LookupSystemTopicOutputAr
 		ApplyT(func(v interface{}) (LookupSystemTopicResult, error) {
 			args := v.(LookupSystemTopicArgs)
 			r, err := LookupSystemTopic(ctx, &args, opts...)
-			return *r, err
+			var s LookupSystemTopicResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSystemTopicResultOutput)
 }
 

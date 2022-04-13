@@ -54,7 +54,11 @@ func LookupAvailabilityGroupListenerOutput(ctx *pulumi.Context, args LookupAvail
 		ApplyT(func(v interface{}) (LookupAvailabilityGroupListenerResult, error) {
 			args := v.(LookupAvailabilityGroupListenerArgs)
 			r, err := LookupAvailabilityGroupListener(ctx, &args, opts...)
-			return *r, err
+			var s LookupAvailabilityGroupListenerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAvailabilityGroupListenerResultOutput)
 }
 

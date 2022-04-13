@@ -43,7 +43,11 @@ func ListDnsForwardingRulesetByVirtualNetworkOutput(ctx *pulumi.Context, args Li
 		ApplyT(func(v interface{}) (ListDnsForwardingRulesetByVirtualNetworkResult, error) {
 			args := v.(ListDnsForwardingRulesetByVirtualNetworkArgs)
 			r, err := ListDnsForwardingRulesetByVirtualNetwork(ctx, &args, opts...)
-			return *r, err
+			var s ListDnsForwardingRulesetByVirtualNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDnsForwardingRulesetByVirtualNetworkResultOutput)
 }
 

@@ -80,7 +80,11 @@ func LookupBookmarkOutput(ctx *pulumi.Context, args LookupBookmarkOutputArgs, op
 		ApplyT(func(v interface{}) (LookupBookmarkResult, error) {
 			args := v.(LookupBookmarkArgs)
 			r, err := LookupBookmark(ctx, &args, opts...)
-			return *r, err
+			var s LookupBookmarkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBookmarkResultOutput)
 }
 

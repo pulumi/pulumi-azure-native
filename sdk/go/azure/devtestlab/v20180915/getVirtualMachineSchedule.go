@@ -89,7 +89,11 @@ func LookupVirtualMachineScheduleOutput(ctx *pulumi.Context, args LookupVirtualM
 		ApplyT(func(v interface{}) (LookupVirtualMachineScheduleResult, error) {
 			args := v.(LookupVirtualMachineScheduleArgs)
 			r, err := LookupVirtualMachineSchedule(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineScheduleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineScheduleResultOutput)
 }
 

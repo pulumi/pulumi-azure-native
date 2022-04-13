@@ -59,7 +59,11 @@ func LookupMediaServiceOutput(ctx *pulumi.Context, args LookupMediaServiceOutput
 		ApplyT(func(v interface{}) (LookupMediaServiceResult, error) {
 			args := v.(LookupMediaServiceArgs)
 			r, err := LookupMediaService(ctx, &args, opts...)
-			return *r, err
+			var s LookupMediaServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMediaServiceResultOutput)
 }
 

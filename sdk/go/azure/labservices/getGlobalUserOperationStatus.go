@@ -39,7 +39,11 @@ func GetGlobalUserOperationStatusOutput(ctx *pulumi.Context, args GetGlobalUserO
 		ApplyT(func(v interface{}) (GetGlobalUserOperationStatusResult, error) {
 			args := v.(GetGlobalUserOperationStatusArgs)
 			r, err := GetGlobalUserOperationStatus(ctx, &args, opts...)
-			return *r, err
+			var s GetGlobalUserOperationStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetGlobalUserOperationStatusResultOutput)
 }
 

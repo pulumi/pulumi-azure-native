@@ -49,7 +49,11 @@ func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupDatasetResult, error) {
 			args := v.(LookupDatasetArgs)
 			r, err := LookupDataset(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatasetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatasetResultOutput)
 }
 

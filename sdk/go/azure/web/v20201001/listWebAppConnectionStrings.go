@@ -48,7 +48,11 @@ func ListWebAppConnectionStringsOutput(ctx *pulumi.Context, args ListWebAppConne
 		ApplyT(func(v interface{}) (ListWebAppConnectionStringsResult, error) {
 			args := v.(ListWebAppConnectionStringsArgs)
 			r, err := ListWebAppConnectionStrings(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppConnectionStringsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppConnectionStringsResultOutput)
 }
 

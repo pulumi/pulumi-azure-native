@@ -50,7 +50,11 @@ func ListSiteMetadataOutput(ctx *pulumi.Context, args ListSiteMetadataOutputArgs
 		ApplyT(func(v interface{}) (ListSiteMetadataResult, error) {
 			args := v.(ListSiteMetadataArgs)
 			r, err := ListSiteMetadata(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteMetadataResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteMetadataResultOutput)
 }
 

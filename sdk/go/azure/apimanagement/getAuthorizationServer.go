@@ -77,7 +77,11 @@ func LookupAuthorizationServerOutput(ctx *pulumi.Context, args LookupAuthorizati
 		ApplyT(func(v interface{}) (LookupAuthorizationServerResult, error) {
 			args := v.(LookupAuthorizationServerArgs)
 			r, err := LookupAuthorizationServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupAuthorizationServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAuthorizationServerResultOutput)
 }
 

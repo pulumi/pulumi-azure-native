@@ -69,7 +69,11 @@ func LookupDscpConfigurationOutput(ctx *pulumi.Context, args LookupDscpConfigura
 		ApplyT(func(v interface{}) (LookupDscpConfigurationResult, error) {
 			args := v.(LookupDscpConfigurationArgs)
 			r, err := LookupDscpConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupDscpConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDscpConfigurationResultOutput)
 }
 

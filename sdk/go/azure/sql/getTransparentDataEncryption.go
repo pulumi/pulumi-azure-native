@@ -51,7 +51,11 @@ func LookupTransparentDataEncryptionOutput(ctx *pulumi.Context, args LookupTrans
 		ApplyT(func(v interface{}) (LookupTransparentDataEncryptionResult, error) {
 			args := v.(LookupTransparentDataEncryptionArgs)
 			r, err := LookupTransparentDataEncryption(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransparentDataEncryptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransparentDataEncryptionResultOutput)
 }
 

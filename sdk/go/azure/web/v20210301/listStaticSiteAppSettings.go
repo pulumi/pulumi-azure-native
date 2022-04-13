@@ -46,7 +46,11 @@ func ListStaticSiteAppSettingsOutput(ctx *pulumi.Context, args ListStaticSiteApp
 		ApplyT(func(v interface{}) (ListStaticSiteAppSettingsResult, error) {
 			args := v.(ListStaticSiteAppSettingsArgs)
 			r, err := ListStaticSiteAppSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListStaticSiteAppSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStaticSiteAppSettingsResultOutput)
 }
 

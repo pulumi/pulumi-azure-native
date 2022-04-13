@@ -52,7 +52,11 @@ func LookupSqlResourceSqlRoleDefinitionOutput(ctx *pulumi.Context, args LookupSq
 		ApplyT(func(v interface{}) (LookupSqlResourceSqlRoleDefinitionResult, error) {
 			args := v.(LookupSqlResourceSqlRoleDefinitionArgs)
 			r, err := LookupSqlResourceSqlRoleDefinition(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlResourceSqlRoleDefinitionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlResourceSqlRoleDefinitionResultOutput)
 }
 

@@ -59,7 +59,11 @@ func LookupActiveDirectoryConnectorOutput(ctx *pulumi.Context, args LookupActive
 		ApplyT(func(v interface{}) (LookupActiveDirectoryConnectorResult, error) {
 			args := v.(LookupActiveDirectoryConnectorArgs)
 			r, err := LookupActiveDirectoryConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupActiveDirectoryConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupActiveDirectoryConnectorResultOutput)
 }
 

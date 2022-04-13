@@ -52,7 +52,11 @@ func LookupReplicationvCenterOutput(ctx *pulumi.Context, args LookupReplicationv
 		ApplyT(func(v interface{}) (LookupReplicationvCenterResult, error) {
 			args := v.(LookupReplicationvCenterArgs)
 			r, err := LookupReplicationvCenter(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationvCenterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationvCenterResultOutput)
 }
 

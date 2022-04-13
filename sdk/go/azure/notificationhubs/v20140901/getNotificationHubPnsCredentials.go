@@ -50,7 +50,11 @@ func GetNotificationHubPnsCredentialsOutput(ctx *pulumi.Context, args GetNotific
 		ApplyT(func(v interface{}) (GetNotificationHubPnsCredentialsResult, error) {
 			args := v.(GetNotificationHubPnsCredentialsArgs)
 			r, err := GetNotificationHubPnsCredentials(ctx, &args, opts...)
-			return *r, err
+			var s GetNotificationHubPnsCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetNotificationHubPnsCredentialsResultOutput)
 }
 

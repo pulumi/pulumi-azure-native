@@ -45,7 +45,11 @@ func GetTestResultVideoDownloadURLOutput(ctx *pulumi.Context, args GetTestResult
 		ApplyT(func(v interface{}) (GetTestResultVideoDownloadURLResult, error) {
 			args := v.(GetTestResultVideoDownloadURLArgs)
 			r, err := GetTestResultVideoDownloadURL(ctx, &args, opts...)
-			return *r, err
+			var s GetTestResultVideoDownloadURLResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTestResultVideoDownloadURLResultOutput)
 }
 

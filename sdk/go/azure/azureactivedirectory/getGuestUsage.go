@@ -49,7 +49,11 @@ func LookupGuestUsageOutput(ctx *pulumi.Context, args LookupGuestUsageOutputArgs
 		ApplyT(func(v interface{}) (LookupGuestUsageResult, error) {
 			args := v.(LookupGuestUsageArgs)
 			r, err := LookupGuestUsage(ctx, &args, opts...)
-			return *r, err
+			var s LookupGuestUsageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGuestUsageResultOutput)
 }
 

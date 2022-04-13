@@ -55,7 +55,11 @@ func LookupOfficeIRMDataConnectorOutput(ctx *pulumi.Context, args LookupOfficeIR
 		ApplyT(func(v interface{}) (LookupOfficeIRMDataConnectorResult, error) {
 			args := v.(LookupOfficeIRMDataConnectorArgs)
 			r, err := LookupOfficeIRMDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupOfficeIRMDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOfficeIRMDataConnectorResultOutput)
 }
 

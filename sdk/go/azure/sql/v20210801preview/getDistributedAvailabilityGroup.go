@@ -64,7 +64,11 @@ func LookupDistributedAvailabilityGroupOutput(ctx *pulumi.Context, args LookupDi
 		ApplyT(func(v interface{}) (LookupDistributedAvailabilityGroupResult, error) {
 			args := v.(LookupDistributedAvailabilityGroupArgs)
 			r, err := LookupDistributedAvailabilityGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDistributedAvailabilityGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDistributedAvailabilityGroupResultOutput)
 }
 

@@ -42,7 +42,11 @@ func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupAliasResult, error) {
 			args := v.(LookupAliasArgs)
 			r, err := LookupAlias(ctx, &args, opts...)
-			return *r, err
+			var s LookupAliasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAliasResultOutput)
 }
 

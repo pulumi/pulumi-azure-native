@@ -61,7 +61,11 @@ func ListProductDetailsOutput(ctx *pulumi.Context, args ListProductDetailsOutput
 		ApplyT(func(v interface{}) (ListProductDetailsResult, error) {
 			args := v.(ListProductDetailsArgs)
 			r, err := ListProductDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListProductDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListProductDetailsResultOutput)
 }
 

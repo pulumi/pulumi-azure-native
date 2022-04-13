@@ -74,7 +74,11 @@ func LookupSoftwareUpdateConfigurationByNameOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupSoftwareUpdateConfigurationByNameResult, error) {
 			args := v.(LookupSoftwareUpdateConfigurationByNameArgs)
 			r, err := LookupSoftwareUpdateConfigurationByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupSoftwareUpdateConfigurationByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSoftwareUpdateConfigurationByNameResultOutput)
 }
 

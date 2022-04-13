@@ -43,7 +43,11 @@ func GetMonitorDefaultKeyOutput(ctx *pulumi.Context, args GetMonitorDefaultKeyOu
 		ApplyT(func(v interface{}) (GetMonitorDefaultKeyResult, error) {
 			args := v.(GetMonitorDefaultKeyArgs)
 			r, err := GetMonitorDefaultKey(ctx, &args, opts...)
-			return *r, err
+			var s GetMonitorDefaultKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetMonitorDefaultKeyResultOutput)
 }
 

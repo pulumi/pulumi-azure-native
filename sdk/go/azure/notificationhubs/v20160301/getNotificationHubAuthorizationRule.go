@@ -56,7 +56,11 @@ func LookupNotificationHubAuthorizationRuleOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupNotificationHubAuthorizationRuleResult, error) {
 			args := v.(LookupNotificationHubAuthorizationRuleArgs)
 			r, err := LookupNotificationHubAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupNotificationHubAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNotificationHubAuthorizationRuleResultOutput)
 }
 

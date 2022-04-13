@@ -68,7 +68,11 @@ func ListChannelWithKeysOutput(ctx *pulumi.Context, args ListChannelWithKeysOutp
 		ApplyT(func(v interface{}) (ListChannelWithKeysResult, error) {
 			args := v.(ListChannelWithKeysArgs)
 			r, err := ListChannelWithKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListChannelWithKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListChannelWithKeysResultOutput)
 }
 

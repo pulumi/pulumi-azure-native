@@ -39,7 +39,11 @@ func LookupConsoleWithLocationOutput(ctx *pulumi.Context, args LookupConsoleWith
 		ApplyT(func(v interface{}) (LookupConsoleWithLocationResult, error) {
 			args := v.(LookupConsoleWithLocationArgs)
 			r, err := LookupConsoleWithLocation(ctx, &args, opts...)
-			return *r, err
+			var s LookupConsoleWithLocationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConsoleWithLocationResultOutput)
 }
 

@@ -88,7 +88,11 @@ func LookupAgentPoolOutput(ctx *pulumi.Context, args LookupAgentPoolOutputArgs, 
 		ApplyT(func(v interface{}) (LookupAgentPoolResult, error) {
 			args := v.(LookupAgentPoolArgs)
 			r, err := LookupAgentPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupAgentPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAgentPoolResultOutput)
 }
 

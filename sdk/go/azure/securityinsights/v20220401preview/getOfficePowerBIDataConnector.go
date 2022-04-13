@@ -55,7 +55,11 @@ func LookupOfficePowerBIDataConnectorOutput(ctx *pulumi.Context, args LookupOffi
 		ApplyT(func(v interface{}) (LookupOfficePowerBIDataConnectorResult, error) {
 			args := v.(LookupOfficePowerBIDataConnectorArgs)
 			r, err := LookupOfficePowerBIDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupOfficePowerBIDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOfficePowerBIDataConnectorResultOutput)
 }
 

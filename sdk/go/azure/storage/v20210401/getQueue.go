@@ -46,7 +46,11 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupQueueResult, error) {
 			args := v.(LookupQueueArgs)
 			r, err := LookupQueue(ctx, &args, opts...)
-			return *r, err
+			var s LookupQueueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQueueResultOutput)
 }
 

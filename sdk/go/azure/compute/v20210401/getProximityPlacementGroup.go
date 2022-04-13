@@ -58,7 +58,11 @@ func LookupProximityPlacementGroupOutput(ctx *pulumi.Context, args LookupProximi
 		ApplyT(func(v interface{}) (LookupProximityPlacementGroupResult, error) {
 			args := v.(LookupProximityPlacementGroupArgs)
 			r, err := LookupProximityPlacementGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupProximityPlacementGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProximityPlacementGroupResultOutput)
 }
 

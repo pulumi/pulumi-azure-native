@@ -42,7 +42,11 @@ func ListSubscriptionSecretsOutput(ctx *pulumi.Context, args ListSubscriptionSec
 		ApplyT(func(v interface{}) (ListSubscriptionSecretsResult, error) {
 			args := v.(ListSubscriptionSecretsArgs)
 			r, err := ListSubscriptionSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListSubscriptionSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSubscriptionSecretsResultOutput)
 }
 

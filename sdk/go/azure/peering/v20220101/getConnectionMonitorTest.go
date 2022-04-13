@@ -58,7 +58,11 @@ func LookupConnectionMonitorTestOutput(ctx *pulumi.Context, args LookupConnectio
 		ApplyT(func(v interface{}) (LookupConnectionMonitorTestResult, error) {
 			args := v.(LookupConnectionMonitorTestArgs)
 			r, err := LookupConnectionMonitorTest(ctx, &args, opts...)
-			return *r, err
+			var s LookupConnectionMonitorTestResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConnectionMonitorTestResultOutput)
 }
 

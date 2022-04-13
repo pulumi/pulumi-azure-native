@@ -39,7 +39,11 @@ func GetApiManagementServiceSsoTokenOutput(ctx *pulumi.Context, args GetApiManag
 		ApplyT(func(v interface{}) (GetApiManagementServiceSsoTokenResult, error) {
 			args := v.(GetApiManagementServiceSsoTokenArgs)
 			r, err := GetApiManagementServiceSsoToken(ctx, &args, opts...)
-			return *r, err
+			var s GetApiManagementServiceSsoTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetApiManagementServiceSsoTokenResultOutput)
 }
 

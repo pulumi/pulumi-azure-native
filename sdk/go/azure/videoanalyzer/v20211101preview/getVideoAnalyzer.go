@@ -66,7 +66,11 @@ func LookupVideoAnalyzerOutput(ctx *pulumi.Context, args LookupVideoAnalyzerOutp
 		ApplyT(func(v interface{}) (LookupVideoAnalyzerResult, error) {
 			args := v.(LookupVideoAnalyzerArgs)
 			r, err := LookupVideoAnalyzer(ctx, &args, opts...)
-			return *r, err
+			var s LookupVideoAnalyzerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVideoAnalyzerResultOutput)
 }
 

@@ -61,7 +61,11 @@ func LookupADLSGen1FolderDataSetOutput(ctx *pulumi.Context, args LookupADLSGen1F
 		ApplyT(func(v interface{}) (LookupADLSGen1FolderDataSetResult, error) {
 			args := v.(LookupADLSGen1FolderDataSetArgs)
 			r, err := LookupADLSGen1FolderDataSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupADLSGen1FolderDataSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADLSGen1FolderDataSetResultOutput)
 }
 

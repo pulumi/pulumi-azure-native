@@ -69,7 +69,11 @@ func LookupADLSGen2FileDataSetMappingOutput(ctx *pulumi.Context, args LookupADLS
 		ApplyT(func(v interface{}) (LookupADLSGen2FileDataSetMappingResult, error) {
 			args := v.(LookupADLSGen2FileDataSetMappingArgs)
 			r, err := LookupADLSGen2FileDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupADLSGen2FileDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADLSGen2FileDataSetMappingResultOutput)
 }
 

@@ -66,7 +66,11 @@ func ListVirtualMachineApplicableSchedulesOutput(ctx *pulumi.Context, args ListV
 		ApplyT(func(v interface{}) (ListVirtualMachineApplicableSchedulesResult, error) {
 			args := v.(ListVirtualMachineApplicableSchedulesArgs)
 			r, err := ListVirtualMachineApplicableSchedules(ctx, &args, opts...)
-			return *r, err
+			var s ListVirtualMachineApplicableSchedulesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListVirtualMachineApplicableSchedulesResultOutput)
 }
 

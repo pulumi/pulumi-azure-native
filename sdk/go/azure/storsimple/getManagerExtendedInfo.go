@@ -59,7 +59,11 @@ func LookupManagerExtendedInfoOutput(ctx *pulumi.Context, args LookupManagerExte
 		ApplyT(func(v interface{}) (LookupManagerExtendedInfoResult, error) {
 			args := v.(LookupManagerExtendedInfoArgs)
 			r, err := LookupManagerExtendedInfo(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagerExtendedInfoResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagerExtendedInfoResultOutput)
 }
 

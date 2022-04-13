@@ -64,7 +64,11 @@ func LookupSensorOutput(ctx *pulumi.Context, args LookupSensorOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupSensorResult, error) {
 			args := v.(LookupSensorArgs)
 			r, err := LookupSensor(ctx, &args, opts...)
-			return *r, err
+			var s LookupSensorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSensorResultOutput)
 }
 

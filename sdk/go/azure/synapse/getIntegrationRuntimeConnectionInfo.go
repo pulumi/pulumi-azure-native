@@ -51,7 +51,11 @@ func GetIntegrationRuntimeConnectionInfoOutput(ctx *pulumi.Context, args GetInte
 		ApplyT(func(v interface{}) (GetIntegrationRuntimeConnectionInfoResult, error) {
 			args := v.(GetIntegrationRuntimeConnectionInfoArgs)
 			r, err := GetIntegrationRuntimeConnectionInfo(ctx, &args, opts...)
-			return *r, err
+			var s GetIntegrationRuntimeConnectionInfoResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetIntegrationRuntimeConnectionInfoResultOutput)
 }
 

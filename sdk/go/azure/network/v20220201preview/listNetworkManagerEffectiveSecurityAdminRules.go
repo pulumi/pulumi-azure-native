@@ -42,7 +42,11 @@ func ListNetworkManagerEffectiveSecurityAdminRulesOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (ListNetworkManagerEffectiveSecurityAdminRulesResult, error) {
 			args := v.(ListNetworkManagerEffectiveSecurityAdminRulesArgs)
 			r, err := ListNetworkManagerEffectiveSecurityAdminRules(ctx, &args, opts...)
-			return *r, err
+			var s ListNetworkManagerEffectiveSecurityAdminRulesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNetworkManagerEffectiveSecurityAdminRulesResultOutput)
 }
 

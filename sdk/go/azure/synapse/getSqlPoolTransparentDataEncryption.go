@@ -51,7 +51,11 @@ func LookupSqlPoolTransparentDataEncryptionOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupSqlPoolTransparentDataEncryptionResult, error) {
 			args := v.(LookupSqlPoolTransparentDataEncryptionArgs)
 			r, err := LookupSqlPoolTransparentDataEncryption(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolTransparentDataEncryptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolTransparentDataEncryptionResultOutput)
 }
 

@@ -59,7 +59,11 @@ func ListBuildTaskSourceRepositoryPropertiesOutput(ctx *pulumi.Context, args Lis
 		ApplyT(func(v interface{}) (ListBuildTaskSourceRepositoryPropertiesResult, error) {
 			args := v.(ListBuildTaskSourceRepositoryPropertiesArgs)
 			r, err := ListBuildTaskSourceRepositoryProperties(ctx, &args, opts...)
-			return *r, err
+			var s ListBuildTaskSourceRepositoryPropertiesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBuildTaskSourceRepositoryPropertiesResultOutput)
 }
 

@@ -49,7 +49,11 @@ func GetContentKeyPolicyPropertiesWithSecretsOutput(ctx *pulumi.Context, args Ge
 		ApplyT(func(v interface{}) (GetContentKeyPolicyPropertiesWithSecretsResult, error) {
 			args := v.(GetContentKeyPolicyPropertiesWithSecretsArgs)
 			r, err := GetContentKeyPolicyPropertiesWithSecrets(ctx, &args, opts...)
-			return *r, err
+			var s GetContentKeyPolicyPropertiesWithSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetContentKeyPolicyPropertiesWithSecretsResultOutput)
 }
 

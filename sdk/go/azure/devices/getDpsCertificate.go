@@ -49,7 +49,11 @@ func LookupDpsCertificateOutput(ctx *pulumi.Context, args LookupDpsCertificateOu
 		ApplyT(func(v interface{}) (LookupDpsCertificateResult, error) {
 			args := v.(LookupDpsCertificateArgs)
 			r, err := LookupDpsCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupDpsCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDpsCertificateResultOutput)
 }
 

@@ -71,7 +71,11 @@ func LookupAssignmentOutput(ctx *pulumi.Context, args LookupAssignmentOutputArgs
 		ApplyT(func(v interface{}) (LookupAssignmentResult, error) {
 			args := v.(LookupAssignmentArgs)
 			r, err := LookupAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAssignmentResultOutput)
 }
 

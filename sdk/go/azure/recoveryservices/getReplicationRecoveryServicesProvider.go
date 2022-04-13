@@ -51,7 +51,11 @@ func LookupReplicationRecoveryServicesProviderOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupReplicationRecoveryServicesProviderResult, error) {
 			args := v.(LookupReplicationRecoveryServicesProviderArgs)
 			r, err := LookupReplicationRecoveryServicesProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationRecoveryServicesProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationRecoveryServicesProviderResultOutput)
 }
 

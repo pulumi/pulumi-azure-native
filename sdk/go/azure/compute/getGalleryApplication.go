@@ -61,7 +61,11 @@ func LookupGalleryApplicationOutput(ctx *pulumi.Context, args LookupGalleryAppli
 		ApplyT(func(v interface{}) (LookupGalleryApplicationResult, error) {
 			args := v.(LookupGalleryApplicationArgs)
 			r, err := LookupGalleryApplication(ctx, &args, opts...)
-			return *r, err
+			var s LookupGalleryApplicationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGalleryApplicationResultOutput)
 }
 

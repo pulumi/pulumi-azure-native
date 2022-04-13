@@ -55,7 +55,11 @@ func LookupConnectionTypeOutput(ctx *pulumi.Context, args LookupConnectionTypeOu
 		ApplyT(func(v interface{}) (LookupConnectionTypeResult, error) {
 			args := v.(LookupConnectionTypeArgs)
 			r, err := LookupConnectionType(ctx, &args, opts...)
-			return *r, err
+			var s LookupConnectionTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConnectionTypeResultOutput)
 }
 

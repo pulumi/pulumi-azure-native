@@ -59,7 +59,11 @@ func LookupSiteRelayServiceConnectionOutput(ctx *pulumi.Context, args LookupSite
 		ApplyT(func(v interface{}) (LookupSiteRelayServiceConnectionResult, error) {
 			args := v.(LookupSiteRelayServiceConnectionArgs)
 			r, err := LookupSiteRelayServiceConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteRelayServiceConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteRelayServiceConnectionResultOutput)
 }
 

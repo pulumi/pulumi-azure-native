@@ -48,7 +48,11 @@ func LookupIotHubResourceEventHubConsumerGroupOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupIotHubResourceEventHubConsumerGroupResult, error) {
 			args := v.(LookupIotHubResourceEventHubConsumerGroupArgs)
 			r, err := LookupIotHubResourceEventHubConsumerGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotHubResourceEventHubConsumerGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotHubResourceEventHubConsumerGroupResultOutput)
 }
 

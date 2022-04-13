@@ -53,7 +53,11 @@ func LookupSignalRCustomDomainOutput(ctx *pulumi.Context, args LookupSignalRCust
 		ApplyT(func(v interface{}) (LookupSignalRCustomDomainResult, error) {
 			args := v.(LookupSignalRCustomDomainArgs)
 			r, err := LookupSignalRCustomDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupSignalRCustomDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSignalRCustomDomainResultOutput)
 }
 

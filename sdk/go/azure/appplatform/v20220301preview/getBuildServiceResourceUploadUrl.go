@@ -42,7 +42,11 @@ func GetBuildServiceResourceUploadUrlOutput(ctx *pulumi.Context, args GetBuildSe
 		ApplyT(func(v interface{}) (GetBuildServiceResourceUploadUrlResult, error) {
 			args := v.(GetBuildServiceResourceUploadUrlArgs)
 			r, err := GetBuildServiceResourceUploadUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetBuildServiceResourceUploadUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetBuildServiceResourceUploadUrlResultOutput)
 }
 

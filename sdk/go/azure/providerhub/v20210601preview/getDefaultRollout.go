@@ -46,7 +46,11 @@ func LookupDefaultRolloutOutput(ctx *pulumi.Context, args LookupDefaultRolloutOu
 		ApplyT(func(v interface{}) (LookupDefaultRolloutResult, error) {
 			args := v.(LookupDefaultRolloutArgs)
 			r, err := LookupDefaultRollout(ctx, &args, opts...)
-			return *r, err
+			var s LookupDefaultRolloutResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDefaultRolloutResultOutput)
 }
 

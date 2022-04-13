@@ -55,7 +55,11 @@ func LookupCodelessApiPollingDataConnectorOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupCodelessApiPollingDataConnectorResult, error) {
 			args := v.(LookupCodelessApiPollingDataConnectorArgs)
 			r, err := LookupCodelessApiPollingDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupCodelessApiPollingDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCodelessApiPollingDataConnectorResultOutput)
 }
 

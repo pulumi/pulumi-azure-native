@@ -38,7 +38,11 @@ func ListDelegationSettingSecretsOutput(ctx *pulumi.Context, args ListDelegation
 		ApplyT(func(v interface{}) (ListDelegationSettingSecretsResult, error) {
 			args := v.(ListDelegationSettingSecretsArgs)
 			r, err := ListDelegationSettingSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListDelegationSettingSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDelegationSettingSecretsResultOutput)
 }
 

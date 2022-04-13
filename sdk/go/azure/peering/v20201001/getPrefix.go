@@ -62,7 +62,11 @@ func LookupPrefixOutput(ctx *pulumi.Context, args LookupPrefixOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupPrefixResult, error) {
 			args := v.(LookupPrefixArgs)
 			r, err := LookupPrefix(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrefixResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrefixResultOutput)
 }
 

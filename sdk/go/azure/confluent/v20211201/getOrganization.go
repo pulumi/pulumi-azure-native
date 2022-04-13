@@ -60,7 +60,11 @@ func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutput
 		ApplyT(func(v interface{}) (LookupOrganizationResult, error) {
 			args := v.(LookupOrganizationArgs)
 			r, err := LookupOrganization(ctx, &args, opts...)
-			return *r, err
+			var s LookupOrganizationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOrganizationResultOutput)
 }
 

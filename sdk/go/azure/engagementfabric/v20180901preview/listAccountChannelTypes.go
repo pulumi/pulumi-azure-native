@@ -38,7 +38,11 @@ func ListAccountChannelTypesOutput(ctx *pulumi.Context, args ListAccountChannelT
 		ApplyT(func(v interface{}) (ListAccountChannelTypesResult, error) {
 			args := v.(ListAccountChannelTypesArgs)
 			r, err := ListAccountChannelTypes(ctx, &args, opts...)
-			return *r, err
+			var s ListAccountChannelTypesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAccountChannelTypesResultOutput)
 }
 

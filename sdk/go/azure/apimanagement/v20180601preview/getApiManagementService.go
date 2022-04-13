@@ -105,7 +105,11 @@ func LookupApiManagementServiceOutput(ctx *pulumi.Context, args LookupApiManagem
 		ApplyT(func(v interface{}) (LookupApiManagementServiceResult, error) {
 			args := v.(LookupApiManagementServiceArgs)
 			r, err := LookupApiManagementService(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiManagementServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiManagementServiceResultOutput)
 }
 

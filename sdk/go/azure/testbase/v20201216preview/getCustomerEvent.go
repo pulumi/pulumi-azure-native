@@ -50,7 +50,11 @@ func LookupCustomerEventOutput(ctx *pulumi.Context, args LookupCustomerEventOutp
 		ApplyT(func(v interface{}) (LookupCustomerEventResult, error) {
 			args := v.(LookupCustomerEventArgs)
 			r, err := LookupCustomerEvent(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomerEventResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomerEventResultOutput)
 }
 

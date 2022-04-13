@@ -59,7 +59,11 @@ func LookupWebPubSubHubOutput(ctx *pulumi.Context, args LookupWebPubSubHubOutput
 		ApplyT(func(v interface{}) (LookupWebPubSubHubResult, error) {
 			args := v.(LookupWebPubSubHubArgs)
 			r, err := LookupWebPubSubHub(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebPubSubHubResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebPubSubHubResultOutput)
 }
 

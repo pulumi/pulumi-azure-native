@@ -92,7 +92,11 @@ func LookupRegisteredServerOutput(ctx *pulumi.Context, args LookupRegisteredServ
 		ApplyT(func(v interface{}) (LookupRegisteredServerResult, error) {
 			args := v.(LookupRegisteredServerArgs)
 			r, err := LookupRegisteredServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupRegisteredServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRegisteredServerResultOutput)
 }
 

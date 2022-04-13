@@ -72,7 +72,11 @@ func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, 
 		ApplyT(func(v interface{}) (LookupRecordSetResult, error) {
 			args := v.(LookupRecordSetArgs)
 			r, err := LookupRecordSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupRecordSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRecordSetResultOutput)
 }
 

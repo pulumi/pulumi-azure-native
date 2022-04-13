@@ -52,7 +52,11 @@ func GetFactoryDataPlaneAccessOutput(ctx *pulumi.Context, args GetFactoryDataPla
 		ApplyT(func(v interface{}) (GetFactoryDataPlaneAccessResult, error) {
 			args := v.(GetFactoryDataPlaneAccessArgs)
 			r, err := GetFactoryDataPlaneAccess(ctx, &args, opts...)
-			return *r, err
+			var s GetFactoryDataPlaneAccessResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetFactoryDataPlaneAccessResultOutput)
 }
 

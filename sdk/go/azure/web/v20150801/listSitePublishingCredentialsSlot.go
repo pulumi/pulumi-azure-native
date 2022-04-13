@@ -56,7 +56,11 @@ func ListSitePublishingCredentialsSlotOutput(ctx *pulumi.Context, args ListSiteP
 		ApplyT(func(v interface{}) (ListSitePublishingCredentialsSlotResult, error) {
 			args := v.(ListSitePublishingCredentialsSlotArgs)
 			r, err := ListSitePublishingCredentialsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSitePublishingCredentialsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSitePublishingCredentialsSlotResultOutput)
 }
 

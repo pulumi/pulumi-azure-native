@@ -76,7 +76,11 @@ func LookupSqlVirtualMachineOutput(ctx *pulumi.Context, args LookupSqlVirtualMac
 		ApplyT(func(v interface{}) (LookupSqlVirtualMachineResult, error) {
 			args := v.(LookupSqlVirtualMachineArgs)
 			r, err := LookupSqlVirtualMachine(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlVirtualMachineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlVirtualMachineResultOutput)
 }
 

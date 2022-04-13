@@ -54,7 +54,11 @@ func ListSchemaContentCallbackUrlOutput(ctx *pulumi.Context, args ListSchemaCont
 		ApplyT(func(v interface{}) (ListSchemaContentCallbackUrlResult, error) {
 			args := v.(ListSchemaContentCallbackUrlArgs)
 			r, err := ListSchemaContentCallbackUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListSchemaContentCallbackUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSchemaContentCallbackUrlResultOutput)
 }
 

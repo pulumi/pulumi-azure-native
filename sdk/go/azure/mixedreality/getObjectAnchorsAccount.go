@@ -62,7 +62,11 @@ func LookupObjectAnchorsAccountOutput(ctx *pulumi.Context, args LookupObjectAnch
 		ApplyT(func(v interface{}) (LookupObjectAnchorsAccountResult, error) {
 			args := v.(LookupObjectAnchorsAccountArgs)
 			r, err := LookupObjectAnchorsAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupObjectAnchorsAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupObjectAnchorsAccountResultOutput)
 }
 

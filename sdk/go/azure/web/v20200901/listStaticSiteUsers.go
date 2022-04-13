@@ -42,7 +42,11 @@ func ListStaticSiteUsersOutput(ctx *pulumi.Context, args ListStaticSiteUsersOutp
 		ApplyT(func(v interface{}) (ListStaticSiteUsersResult, error) {
 			args := v.(ListStaticSiteUsersArgs)
 			r, err := ListStaticSiteUsers(ctx, &args, opts...)
-			return *r, err
+			var s ListStaticSiteUsersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStaticSiteUsersResultOutput)
 }
 

@@ -54,7 +54,11 @@ func LookupSignalRCustomCertificateOutput(ctx *pulumi.Context, args LookupSignal
 		ApplyT(func(v interface{}) (LookupSignalRCustomCertificateResult, error) {
 			args := v.(LookupSignalRCustomCertificateArgs)
 			r, err := LookupSignalRCustomCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupSignalRCustomCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSignalRCustomCertificateResultOutput)
 }
 

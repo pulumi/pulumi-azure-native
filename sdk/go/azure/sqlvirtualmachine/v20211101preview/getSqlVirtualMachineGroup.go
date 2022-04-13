@@ -62,7 +62,11 @@ func LookupSqlVirtualMachineGroupOutput(ctx *pulumi.Context, args LookupSqlVirtu
 		ApplyT(func(v interface{}) (LookupSqlVirtualMachineGroupResult, error) {
 			args := v.(LookupSqlVirtualMachineGroupArgs)
 			r, err := LookupSqlVirtualMachineGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlVirtualMachineGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlVirtualMachineGroupResultOutput)
 }
 

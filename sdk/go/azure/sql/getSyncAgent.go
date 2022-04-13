@@ -57,7 +57,11 @@ func LookupSyncAgentOutput(ctx *pulumi.Context, args LookupSyncAgentOutputArgs, 
 		ApplyT(func(v interface{}) (LookupSyncAgentResult, error) {
 			args := v.(LookupSyncAgentArgs)
 			r, err := LookupSyncAgent(ctx, &args, opts...)
-			return *r, err
+			var s LookupSyncAgentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSyncAgentResultOutput)
 }
 

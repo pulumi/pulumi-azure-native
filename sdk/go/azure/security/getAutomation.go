@@ -61,7 +61,11 @@ func LookupAutomationOutput(ctx *pulumi.Context, args LookupAutomationOutputArgs
 		ApplyT(func(v interface{}) (LookupAutomationResult, error) {
 			args := v.(LookupAutomationArgs)
 			r, err := LookupAutomation(ctx, &args, opts...)
-			return *r, err
+			var s LookupAutomationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAutomationResultOutput)
 }
 

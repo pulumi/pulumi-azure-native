@@ -49,7 +49,11 @@ func LookupManagedNetworkPeeringPolicyOutput(ctx *pulumi.Context, args LookupMan
 		ApplyT(func(v interface{}) (LookupManagedNetworkPeeringPolicyResult, error) {
 			args := v.(LookupManagedNetworkPeeringPolicyArgs)
 			r, err := LookupManagedNetworkPeeringPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedNetworkPeeringPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedNetworkPeeringPolicyResultOutput)
 }
 

@@ -50,7 +50,11 @@ func ListFirewallPolicyIdpsSignatureOutput(ctx *pulumi.Context, args ListFirewal
 		ApplyT(func(v interface{}) (ListFirewallPolicyIdpsSignatureResult, error) {
 			args := v.(ListFirewallPolicyIdpsSignatureArgs)
 			r, err := ListFirewallPolicyIdpsSignature(ctx, &args, opts...)
-			return *r, err
+			var s ListFirewallPolicyIdpsSignatureResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListFirewallPolicyIdpsSignatureResultOutput)
 }
 

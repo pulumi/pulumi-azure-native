@@ -70,7 +70,11 @@ func LookupSyncMemberOutput(ctx *pulumi.Context, args LookupSyncMemberOutputArgs
 		ApplyT(func(v interface{}) (LookupSyncMemberResult, error) {
 			args := v.(LookupSyncMemberArgs)
 			r, err := LookupSyncMember(ctx, &args, opts...)
-			return *r, err
+			var s LookupSyncMemberResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSyncMemberResultOutput)
 }
 

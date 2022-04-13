@@ -41,7 +41,11 @@ func ListMonitorHostsOutput(ctx *pulumi.Context, args ListMonitorHostsOutputArgs
 		ApplyT(func(v interface{}) (ListMonitorHostsResult, error) {
 			args := v.(ListMonitorHostsArgs)
 			r, err := ListMonitorHosts(ctx, &args, opts...)
-			return *r, err
+			var s ListMonitorHostsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMonitorHostsResultOutput)
 }
 

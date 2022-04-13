@@ -53,7 +53,11 @@ func LookupApplicationTypeOutput(ctx *pulumi.Context, args LookupApplicationType
 		ApplyT(func(v interface{}) (LookupApplicationTypeResult, error) {
 			args := v.(LookupApplicationTypeArgs)
 			r, err := LookupApplicationType(ctx, &args, opts...)
-			return *r, err
+			var s LookupApplicationTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApplicationTypeResultOutput)
 }
 

@@ -124,7 +124,11 @@ func LookupIoMAMPolicyByNameOutput(ctx *pulumi.Context, args LookupIoMAMPolicyBy
 		ApplyT(func(v interface{}) (LookupIoMAMPolicyByNameResult, error) {
 			args := v.(LookupIoMAMPolicyByNameArgs)
 			r, err := LookupIoMAMPolicyByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupIoMAMPolicyByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIoMAMPolicyByNameResultOutput)
 }
 

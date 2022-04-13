@@ -57,7 +57,11 @@ func GetprivateLinkForAzureAdOutput(ctx *pulumi.Context, args GetprivateLinkForA
 		ApplyT(func(v interface{}) (GetprivateLinkForAzureAdResult, error) {
 			args := v.(GetprivateLinkForAzureAdArgs)
 			r, err := GetprivateLinkForAzureAd(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkForAzureAdResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkForAzureAdResultOutput)
 }
 

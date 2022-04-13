@@ -56,7 +56,11 @@ func LookupDatabaseAccountCassandraTableOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDatabaseAccountCassandraTableResult, error) {
 			args := v.(LookupDatabaseAccountCassandraTableArgs)
 			r, err := LookupDatabaseAccountCassandraTable(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseAccountCassandraTableResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseAccountCassandraTableResultOutput)
 }
 

@@ -48,7 +48,11 @@ func LookupHcxEnterpriseSiteOutput(ctx *pulumi.Context, args LookupHcxEnterprise
 		ApplyT(func(v interface{}) (LookupHcxEnterpriseSiteResult, error) {
 			args := v.(LookupHcxEnterpriseSiteArgs)
 			r, err := LookupHcxEnterpriseSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupHcxEnterpriseSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHcxEnterpriseSiteResultOutput)
 }
 

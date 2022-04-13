@@ -54,7 +54,11 @@ func LookupNetworkSecurityPerimeterOutput(ctx *pulumi.Context, args LookupNetwor
 		ApplyT(func(v interface{}) (LookupNetworkSecurityPerimeterResult, error) {
 			args := v.(LookupNetworkSecurityPerimeterArgs)
 			r, err := LookupNetworkSecurityPerimeter(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkSecurityPerimeterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkSecurityPerimeterResultOutput)
 }
 

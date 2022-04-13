@@ -160,7 +160,11 @@ func LookupWebAppOutput(ctx *pulumi.Context, args LookupWebAppOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupWebAppResult, error) {
 			args := v.(LookupWebAppArgs)
 			r, err := LookupWebApp(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppResultOutput)
 }
 

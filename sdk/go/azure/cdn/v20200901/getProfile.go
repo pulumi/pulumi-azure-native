@@ -56,7 +56,11 @@ func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupProfileResult, error) {
 			args := v.(LookupProfileArgs)
 			r, err := LookupProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProfileResultOutput)
 }
 

@@ -75,7 +75,11 @@ func LookupCustomImageOutput(ctx *pulumi.Context, args LookupCustomImageOutputAr
 		ApplyT(func(v interface{}) (LookupCustomImageResult, error) {
 			args := v.(LookupCustomImageArgs)
 			r, err := LookupCustomImage(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomImageResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomImageResultOutput)
 }
 

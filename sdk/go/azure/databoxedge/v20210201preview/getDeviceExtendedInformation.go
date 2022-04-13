@@ -60,7 +60,11 @@ func GetDeviceExtendedInformationOutput(ctx *pulumi.Context, args GetDeviceExten
 		ApplyT(func(v interface{}) (GetDeviceExtendedInformationResult, error) {
 			args := v.(GetDeviceExtendedInformationArgs)
 			r, err := GetDeviceExtendedInformation(ctx, &args, opts...)
-			return *r, err
+			var s GetDeviceExtendedInformationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetDeviceExtendedInformationResultOutput)
 }
 

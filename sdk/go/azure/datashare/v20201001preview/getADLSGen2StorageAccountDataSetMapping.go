@@ -67,7 +67,11 @@ func LookupADLSGen2StorageAccountDataSetMappingOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupADLSGen2StorageAccountDataSetMappingResult, error) {
 			args := v.(LookupADLSGen2StorageAccountDataSetMappingArgs)
 			r, err := LookupADLSGen2StorageAccountDataSetMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupADLSGen2StorageAccountDataSetMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupADLSGen2StorageAccountDataSetMappingResultOutput)
 }
 

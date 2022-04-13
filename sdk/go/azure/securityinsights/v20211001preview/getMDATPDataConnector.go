@@ -55,7 +55,11 @@ func LookupMDATPDataConnectorOutput(ctx *pulumi.Context, args LookupMDATPDataCon
 		ApplyT(func(v interface{}) (LookupMDATPDataConnectorResult, error) {
 			args := v.(LookupMDATPDataConnectorArgs)
 			r, err := LookupMDATPDataConnector(ctx, &args, opts...)
-			return *r, err
+			var s LookupMDATPDataConnectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMDATPDataConnectorResultOutput)
 }
 

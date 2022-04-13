@@ -52,7 +52,11 @@ func ListConnectionConsentLinksOutput(ctx *pulumi.Context, args ListConnectionCo
 		ApplyT(func(v interface{}) (ListConnectionConsentLinksResult, error) {
 			args := v.(ListConnectionConsentLinksArgs)
 			r, err := ListConnectionConsentLinks(ctx, &args, opts...)
-			return *r, err
+			var s ListConnectionConsentLinksResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListConnectionConsentLinksResultOutput)
 }
 

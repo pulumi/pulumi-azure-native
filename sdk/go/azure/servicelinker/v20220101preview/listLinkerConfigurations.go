@@ -38,7 +38,11 @@ func ListLinkerConfigurationsOutput(ctx *pulumi.Context, args ListLinkerConfigur
 		ApplyT(func(v interface{}) (ListLinkerConfigurationsResult, error) {
 			args := v.(ListLinkerConfigurationsArgs)
 			r, err := ListLinkerConfigurations(ctx, &args, opts...)
-			return *r, err
+			var s ListLinkerConfigurationsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListLinkerConfigurationsResultOutput)
 }
 

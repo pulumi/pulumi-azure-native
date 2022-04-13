@@ -41,7 +41,11 @@ func GetManagerDevicePublicEncryptionKeyOutput(ctx *pulumi.Context, args GetMana
 		ApplyT(func(v interface{}) (GetManagerDevicePublicEncryptionKeyResult, error) {
 			args := v.(GetManagerDevicePublicEncryptionKeyArgs)
 			r, err := GetManagerDevicePublicEncryptionKey(ctx, &args, opts...)
-			return *r, err
+			var s GetManagerDevicePublicEncryptionKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetManagerDevicePublicEncryptionKeyResultOutput)
 }
 

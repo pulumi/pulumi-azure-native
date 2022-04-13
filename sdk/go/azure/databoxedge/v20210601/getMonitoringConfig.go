@@ -48,7 +48,11 @@ func LookupMonitoringConfigOutput(ctx *pulumi.Context, args LookupMonitoringConf
 		ApplyT(func(v interface{}) (LookupMonitoringConfigResult, error) {
 			args := v.(LookupMonitoringConfigArgs)
 			r, err := LookupMonitoringConfig(ctx, &args, opts...)
-			return *r, err
+			var s LookupMonitoringConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMonitoringConfigResultOutput)
 }
 

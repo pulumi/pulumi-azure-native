@@ -40,7 +40,11 @@ func GetTopicEventSubscriptionFullUrlOutput(ctx *pulumi.Context, args GetTopicEv
 		ApplyT(func(v interface{}) (GetTopicEventSubscriptionFullUrlResult, error) {
 			args := v.(GetTopicEventSubscriptionFullUrlArgs)
 			r, err := GetTopicEventSubscriptionFullUrl(ctx, &args, opts...)
-			return *r, err
+			var s GetTopicEventSubscriptionFullUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTopicEventSubscriptionFullUrlResultOutput)
 }
 

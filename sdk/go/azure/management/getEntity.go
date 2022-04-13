@@ -61,7 +61,11 @@ func GetEntityOutput(ctx *pulumi.Context, args GetEntityOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (GetEntityResult, error) {
 			args := v.(GetEntityArgs)
 			r, err := GetEntity(ctx, &args, opts...)
-			return *r, err
+			var s GetEntityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetEntityResultOutput)
 }
 

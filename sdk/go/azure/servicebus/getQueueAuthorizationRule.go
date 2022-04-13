@@ -49,7 +49,11 @@ func LookupQueueAuthorizationRuleOutput(ctx *pulumi.Context, args LookupQueueAut
 		ApplyT(func(v interface{}) (LookupQueueAuthorizationRuleResult, error) {
 			args := v.(LookupQueueAuthorizationRuleArgs)
 			r, err := LookupQueueAuthorizationRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupQueueAuthorizationRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQueueAuthorizationRuleResultOutput)
 }
 

@@ -55,7 +55,11 @@ func LookupApiIssueAttachmentOutput(ctx *pulumi.Context, args LookupApiIssueAtta
 		ApplyT(func(v interface{}) (LookupApiIssueAttachmentResult, error) {
 			args := v.(LookupApiIssueAttachmentArgs)
 			r, err := LookupApiIssueAttachment(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiIssueAttachmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiIssueAttachmentResultOutput)
 }
 

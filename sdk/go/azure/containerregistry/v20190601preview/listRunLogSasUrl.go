@@ -42,7 +42,11 @@ func ListRunLogSasUrlOutput(ctx *pulumi.Context, args ListRunLogSasUrlOutputArgs
 		ApplyT(func(v interface{}) (ListRunLogSasUrlResult, error) {
 			args := v.(ListRunLogSasUrlArgs)
 			r, err := ListRunLogSasUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListRunLogSasUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRunLogSasUrlResultOutput)
 }
 

@@ -55,7 +55,11 @@ func LookupOpenIdConnectProviderOutput(ctx *pulumi.Context, args LookupOpenIdCon
 		ApplyT(func(v interface{}) (LookupOpenIdConnectProviderResult, error) {
 			args := v.(LookupOpenIdConnectProviderArgs)
 			r, err := LookupOpenIdConnectProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupOpenIdConnectProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOpenIdConnectProviderResultOutput)
 }
 

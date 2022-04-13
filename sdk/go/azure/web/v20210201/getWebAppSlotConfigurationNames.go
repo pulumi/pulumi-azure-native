@@ -50,7 +50,11 @@ func LookupWebAppSlotConfigurationNamesOutput(ctx *pulumi.Context, args LookupWe
 		ApplyT(func(v interface{}) (LookupWebAppSlotConfigurationNamesResult, error) {
 			args := v.(LookupWebAppSlotConfigurationNamesArgs)
 			r, err := LookupWebAppSlotConfigurationNames(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppSlotConfigurationNamesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppSlotConfigurationNamesResultOutput)
 }
 

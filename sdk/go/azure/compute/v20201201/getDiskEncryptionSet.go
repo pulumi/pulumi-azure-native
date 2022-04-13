@@ -60,7 +60,11 @@ func LookupDiskEncryptionSetOutput(ctx *pulumi.Context, args LookupDiskEncryptio
 		ApplyT(func(v interface{}) (LookupDiskEncryptionSetResult, error) {
 			args := v.(LookupDiskEncryptionSetArgs)
 			r, err := LookupDiskEncryptionSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupDiskEncryptionSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDiskEncryptionSetResultOutput)
 }
 

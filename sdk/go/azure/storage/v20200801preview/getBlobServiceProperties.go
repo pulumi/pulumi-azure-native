@@ -66,7 +66,11 @@ func LookupBlobServicePropertiesOutput(ctx *pulumi.Context, args LookupBlobServi
 		ApplyT(func(v interface{}) (LookupBlobServicePropertiesResult, error) {
 			args := v.(LookupBlobServicePropertiesArgs)
 			r, err := LookupBlobServiceProperties(ctx, &args, opts...)
-			return *r, err
+			var s LookupBlobServicePropertiesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBlobServicePropertiesResultOutput)
 }
 

@@ -81,7 +81,11 @@ func LookupConnectedRegistryOutput(ctx *pulumi.Context, args LookupConnectedRegi
 		ApplyT(func(v interface{}) (LookupConnectedRegistryResult, error) {
 			args := v.(LookupConnectedRegistryArgs)
 			r, err := LookupConnectedRegistry(ctx, &args, opts...)
-			return *r, err
+			var s LookupConnectedRegistryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConnectedRegistryResultOutput)
 }
 

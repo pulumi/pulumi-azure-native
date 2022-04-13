@@ -86,7 +86,11 @@ func LookupGlobalScheduleOutput(ctx *pulumi.Context, args LookupGlobalScheduleOu
 		ApplyT(func(v interface{}) (LookupGlobalScheduleResult, error) {
 			args := v.(LookupGlobalScheduleArgs)
 			r, err := LookupGlobalSchedule(ctx, &args, opts...)
-			return *r, err
+			var s LookupGlobalScheduleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGlobalScheduleResultOutput)
 }
 

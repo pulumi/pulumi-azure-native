@@ -58,7 +58,11 @@ func LookupInboundEndpointOutput(ctx *pulumi.Context, args LookupInboundEndpoint
 		ApplyT(func(v interface{}) (LookupInboundEndpointResult, error) {
 			args := v.(LookupInboundEndpointArgs)
 			r, err := LookupInboundEndpoint(ctx, &args, opts...)
-			return *r, err
+			var s LookupInboundEndpointResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInboundEndpointResultOutput)
 }
 

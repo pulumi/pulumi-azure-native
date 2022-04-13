@@ -45,7 +45,11 @@ func ListActiveConnectivityConfigurationOutput(ctx *pulumi.Context, args ListAct
 		ApplyT(func(v interface{}) (ListActiveConnectivityConfigurationResult, error) {
 			args := v.(ListActiveConnectivityConfigurationArgs)
 			r, err := ListActiveConnectivityConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s ListActiveConnectivityConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListActiveConnectivityConfigurationResultOutput)
 }
 

@@ -39,7 +39,11 @@ func ListClusterFollowerDatabasesOutput(ctx *pulumi.Context, args ListClusterFol
 		ApplyT(func(v interface{}) (ListClusterFollowerDatabasesResult, error) {
 			args := v.(ListClusterFollowerDatabasesArgs)
 			r, err := ListClusterFollowerDatabases(ctx, &args, opts...)
-			return *r, err
+			var s ListClusterFollowerDatabasesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListClusterFollowerDatabasesResultOutput)
 }
 

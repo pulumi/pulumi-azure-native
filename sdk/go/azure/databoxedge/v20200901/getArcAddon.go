@@ -67,7 +67,11 @@ func LookupArcAddonOutput(ctx *pulumi.Context, args LookupArcAddonOutputArgs, op
 		ApplyT(func(v interface{}) (LookupArcAddonResult, error) {
 			args := v.(LookupArcAddonArgs)
 			r, err := LookupArcAddon(ctx, &args, opts...)
-			return *r, err
+			var s LookupArcAddonResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupArcAddonResultOutput)
 }
 

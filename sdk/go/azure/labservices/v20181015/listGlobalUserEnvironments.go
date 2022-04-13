@@ -38,7 +38,11 @@ func ListGlobalUserEnvironmentsOutput(ctx *pulumi.Context, args ListGlobalUserEn
 		ApplyT(func(v interface{}) (ListGlobalUserEnvironmentsResult, error) {
 			args := v.(ListGlobalUserEnvironmentsArgs)
 			r, err := ListGlobalUserEnvironments(ctx, &args, opts...)
-			return *r, err
+			var s ListGlobalUserEnvironmentsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListGlobalUserEnvironmentsResultOutput)
 }
 

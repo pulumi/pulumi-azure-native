@@ -41,7 +41,11 @@ func GetActiveSessionsOutput(ctx *pulumi.Context, args GetActiveSessionsOutputAr
 		ApplyT(func(v interface{}) (GetActiveSessionsResult, error) {
 			args := v.(GetActiveSessionsArgs)
 			r, err := GetActiveSessions(ctx, &args, opts...)
-			return *r, err
+			var s GetActiveSessionsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetActiveSessionsResultOutput)
 }
 

@@ -92,7 +92,11 @@ func ListSiteBackupStatusSecretsOutput(ctx *pulumi.Context, args ListSiteBackupS
 		ApplyT(func(v interface{}) (ListSiteBackupStatusSecretsResult, error) {
 			args := v.(ListSiteBackupStatusSecretsArgs)
 			r, err := ListSiteBackupStatusSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteBackupStatusSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteBackupStatusSecretsResultOutput)
 }
 

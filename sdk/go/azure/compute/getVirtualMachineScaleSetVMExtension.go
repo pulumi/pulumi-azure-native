@@ -67,7 +67,11 @@ func LookupVirtualMachineScaleSetVMExtensionOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupVirtualMachineScaleSetVMExtensionResult, error) {
 			args := v.(LookupVirtualMachineScaleSetVMExtensionArgs)
 			r, err := LookupVirtualMachineScaleSetVMExtension(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualMachineScaleSetVMExtensionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualMachineScaleSetVMExtensionResultOutput)
 }
 

@@ -82,7 +82,11 @@ func LookupExpressRouteCircuitPeeringOutput(ctx *pulumi.Context, args LookupExpr
 		ApplyT(func(v interface{}) (LookupExpressRouteCircuitPeeringResult, error) {
 			args := v.(LookupExpressRouteCircuitPeeringArgs)
 			r, err := LookupExpressRouteCircuitPeering(ctx, &args, opts...)
-			return *r, err
+			var s LookupExpressRouteCircuitPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupExpressRouteCircuitPeeringResultOutput)
 }
 

@@ -53,7 +53,11 @@ func ListWorkflowCallbackUrlOutput(ctx *pulumi.Context, args ListWorkflowCallbac
 		ApplyT(func(v interface{}) (ListWorkflowCallbackUrlResult, error) {
 			args := v.(ListWorkflowCallbackUrlArgs)
 			r, err := ListWorkflowCallbackUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkflowCallbackUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkflowCallbackUrlResultOutput)
 }
 

@@ -88,7 +88,11 @@ func LookupIotSecuritySolutionOutput(ctx *pulumi.Context, args LookupIotSecurity
 		ApplyT(func(v interface{}) (LookupIotSecuritySolutionResult, error) {
 			args := v.(LookupIotSecuritySolutionArgs)
 			r, err := LookupIotSecuritySolution(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotSecuritySolutionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotSecuritySolutionResultOutput)
 }
 

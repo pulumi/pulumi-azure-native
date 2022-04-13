@@ -49,7 +49,11 @@ func LookupBackupShortTermRetentionPolicyOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupBackupShortTermRetentionPolicyResult, error) {
 			args := v.(LookupBackupShortTermRetentionPolicyArgs)
 			r, err := LookupBackupShortTermRetentionPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupBackupShortTermRetentionPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBackupShortTermRetentionPolicyResultOutput)
 }
 

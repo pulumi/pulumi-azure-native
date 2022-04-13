@@ -43,7 +43,11 @@ func GetIntegrationRuntimeStatusOutput(ctx *pulumi.Context, args GetIntegrationR
 		ApplyT(func(v interface{}) (GetIntegrationRuntimeStatusResult, error) {
 			args := v.(GetIntegrationRuntimeStatusArgs)
 			r, err := GetIntegrationRuntimeStatus(ctx, &args, opts...)
-			return *r, err
+			var s GetIntegrationRuntimeStatusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetIntegrationRuntimeStatusResultOutput)
 }
 

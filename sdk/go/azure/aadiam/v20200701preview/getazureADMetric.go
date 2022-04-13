@@ -47,7 +47,11 @@ func GetazureADMetricOutput(ctx *pulumi.Context, args GetazureADMetricOutputArgs
 		ApplyT(func(v interface{}) (GetazureADMetricResult, error) {
 			args := v.(GetazureADMetricArgs)
 			r, err := GetazureADMetric(ctx, &args, opts...)
-			return *r, err
+			var s GetazureADMetricResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetazureADMetricResultOutput)
 }
 

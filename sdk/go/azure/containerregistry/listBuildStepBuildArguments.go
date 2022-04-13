@@ -45,7 +45,11 @@ func ListBuildStepBuildArgumentsOutput(ctx *pulumi.Context, args ListBuildStepBu
 		ApplyT(func(v interface{}) (ListBuildStepBuildArgumentsResult, error) {
 			args := v.(ListBuildStepBuildArgumentsArgs)
 			r, err := ListBuildStepBuildArguments(ctx, &args, opts...)
-			return *r, err
+			var s ListBuildStepBuildArgumentsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBuildStepBuildArgumentsResultOutput)
 }
 

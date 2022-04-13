@@ -65,7 +65,11 @@ func LookupIotHubResourceOutput(ctx *pulumi.Context, args LookupIotHubResourceOu
 		ApplyT(func(v interface{}) (LookupIotHubResourceResult, error) {
 			args := v.(LookupIotHubResourceArgs)
 			r, err := LookupIotHubResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupIotHubResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIotHubResourceResultOutput)
 }
 

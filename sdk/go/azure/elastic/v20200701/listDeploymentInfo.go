@@ -44,7 +44,11 @@ func ListDeploymentInfoOutput(ctx *pulumi.Context, args ListDeploymentInfoOutput
 		ApplyT(func(v interface{}) (ListDeploymentInfoResult, error) {
 			args := v.(ListDeploymentInfoArgs)
 			r, err := ListDeploymentInfo(ctx, &args, opts...)
-			return *r, err
+			var s ListDeploymentInfoResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDeploymentInfoResultOutput)
 }
 

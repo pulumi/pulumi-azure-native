@@ -65,7 +65,11 @@ func LookupPostgresInstanceOutput(ctx *pulumi.Context, args LookupPostgresInstan
 		ApplyT(func(v interface{}) (LookupPostgresInstanceResult, error) {
 			args := v.(LookupPostgresInstanceArgs)
 			r, err := LookupPostgresInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupPostgresInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPostgresInstanceResultOutput)
 }
 

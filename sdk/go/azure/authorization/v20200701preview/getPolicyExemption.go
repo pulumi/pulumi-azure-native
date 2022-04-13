@@ -58,7 +58,11 @@ func LookupPolicyExemptionOutput(ctx *pulumi.Context, args LookupPolicyExemption
 		ApplyT(func(v interface{}) (LookupPolicyExemptionResult, error) {
 			args := v.(LookupPolicyExemptionArgs)
 			r, err := LookupPolicyExemption(ctx, &args, opts...)
-			return *r, err
+			var s LookupPolicyExemptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPolicyExemptionResultOutput)
 }
 

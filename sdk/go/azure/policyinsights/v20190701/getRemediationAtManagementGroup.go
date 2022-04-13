@@ -60,7 +60,11 @@ func LookupRemediationAtManagementGroupOutput(ctx *pulumi.Context, args LookupRe
 		ApplyT(func(v interface{}) (LookupRemediationAtManagementGroupResult, error) {
 			args := v.(LookupRemediationAtManagementGroupArgs)
 			r, err := LookupRemediationAtManagementGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupRemediationAtManagementGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRemediationAtManagementGroupResultOutput)
 }
 

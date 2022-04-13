@@ -47,7 +47,11 @@ func LookupTrustedIdProviderOutput(ctx *pulumi.Context, args LookupTrustedIdProv
 		ApplyT(func(v interface{}) (LookupTrustedIdProviderResult, error) {
 			args := v.(LookupTrustedIdProviderArgs)
 			r, err := LookupTrustedIdProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupTrustedIdProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTrustedIdProviderResultOutput)
 }
 

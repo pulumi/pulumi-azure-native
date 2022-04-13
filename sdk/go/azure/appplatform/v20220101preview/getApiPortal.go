@@ -63,7 +63,11 @@ func LookupApiPortalOutput(ctx *pulumi.Context, args LookupApiPortalOutputArgs, 
 		ApplyT(func(v interface{}) (LookupApiPortalResult, error) {
 			args := v.(LookupApiPortalArgs)
 			r, err := LookupApiPortal(ctx, &args, opts...)
-			return *r, err
+			var s LookupApiPortalResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupApiPortalResultOutput)
 }
 

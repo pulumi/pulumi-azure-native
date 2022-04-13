@@ -54,7 +54,11 @@ func GetgetbotOutput(ctx *pulumi.Context, args GetgetbotOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (GetgetbotResult, error) {
 			args := v.(GetgetbotArgs)
 			r, err := Getgetbot(ctx, &args, opts...)
-			return *r, err
+			var s GetgetbotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetgetbotResultOutput)
 }
 

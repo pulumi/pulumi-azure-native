@@ -49,7 +49,11 @@ func GetImageUploadUrlForEntityTypeOutput(ctx *pulumi.Context, args GetImageUplo
 		ApplyT(func(v interface{}) (GetImageUploadUrlForEntityTypeResult, error) {
 			args := v.(GetImageUploadUrlForEntityTypeArgs)
 			r, err := GetImageUploadUrlForEntityType(ctx, &args, opts...)
-			return *r, err
+			var s GetImageUploadUrlForEntityTypeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetImageUploadUrlForEntityTypeResultOutput)
 }
 

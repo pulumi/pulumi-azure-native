@@ -69,7 +69,11 @@ func LookupOuContainerOutput(ctx *pulumi.Context, args LookupOuContainerOutputAr
 		ApplyT(func(v interface{}) (LookupOuContainerResult, error) {
 			args := v.(LookupOuContainerArgs)
 			r, err := LookupOuContainer(ctx, &args, opts...)
-			return *r, err
+			var s LookupOuContainerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOuContainerResultOutput)
 }
 

@@ -80,7 +80,11 @@ func LookupRunbookOutput(ctx *pulumi.Context, args LookupRunbookOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupRunbookResult, error) {
 			args := v.(LookupRunbookArgs)
 			r, err := LookupRunbook(ctx, &args, opts...)
-			return *r, err
+			var s LookupRunbookResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRunbookResultOutput)
 }
 

@@ -69,7 +69,11 @@ func LookupLongTermEnvironmentOutput(ctx *pulumi.Context, args LookupLongTermEnv
 		ApplyT(func(v interface{}) (LookupLongTermEnvironmentResult, error) {
 			args := v.(LookupLongTermEnvironmentArgs)
 			r, err := LookupLongTermEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupLongTermEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLongTermEnvironmentResultOutput)
 }
 

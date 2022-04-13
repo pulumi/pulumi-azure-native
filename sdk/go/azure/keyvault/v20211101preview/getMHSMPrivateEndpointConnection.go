@@ -60,7 +60,11 @@ func LookupMHSMPrivateEndpointConnectionOutput(ctx *pulumi.Context, args LookupM
 		ApplyT(func(v interface{}) (LookupMHSMPrivateEndpointConnectionResult, error) {
 			args := v.(LookupMHSMPrivateEndpointConnectionArgs)
 			r, err := LookupMHSMPrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupMHSMPrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMHSMPrivateEndpointConnectionResultOutput)
 }
 

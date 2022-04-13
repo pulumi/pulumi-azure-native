@@ -36,7 +36,11 @@ func ListPrivateStoreStopSellOffersPlansNotificationsOutput(ctx *pulumi.Context,
 		ApplyT(func(v interface{}) (ListPrivateStoreStopSellOffersPlansNotificationsResult, error) {
 			args := v.(ListPrivateStoreStopSellOffersPlansNotificationsArgs)
 			r, err := ListPrivateStoreStopSellOffersPlansNotifications(ctx, &args, opts...)
-			return *r, err
+			var s ListPrivateStoreStopSellOffersPlansNotificationsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListPrivateStoreStopSellOffersPlansNotificationsResultOutput)
 }
 

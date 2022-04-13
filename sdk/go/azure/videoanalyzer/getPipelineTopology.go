@@ -71,7 +71,11 @@ func LookupPipelineTopologyOutput(ctx *pulumi.Context, args LookupPipelineTopolo
 		ApplyT(func(v interface{}) (LookupPipelineTopologyResult, error) {
 			args := v.(LookupPipelineTopologyArgs)
 			r, err := LookupPipelineTopology(ctx, &args, opts...)
-			return *r, err
+			var s LookupPipelineTopologyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPipelineTopologyResultOutput)
 }
 

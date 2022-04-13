@@ -53,7 +53,11 @@ func LookupIntegrationServiceEnvironmentOutput(ctx *pulumi.Context, args LookupI
 		ApplyT(func(v interface{}) (LookupIntegrationServiceEnvironmentResult, error) {
 			args := v.(LookupIntegrationServiceEnvironmentArgs)
 			r, err := LookupIntegrationServiceEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationServiceEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationServiceEnvironmentResultOutput)
 }
 

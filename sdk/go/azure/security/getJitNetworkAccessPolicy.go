@@ -52,7 +52,11 @@ func LookupJitNetworkAccessPolicyOutput(ctx *pulumi.Context, args LookupJitNetwo
 		ApplyT(func(v interface{}) (LookupJitNetworkAccessPolicyResult, error) {
 			args := v.(LookupJitNetworkAccessPolicyArgs)
 			r, err := LookupJitNetworkAccessPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupJitNetworkAccessPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJitNetworkAccessPolicyResultOutput)
 }
 

@@ -43,7 +43,11 @@ func ListGatewayKeysOutput(ctx *pulumi.Context, args ListGatewayKeysOutputArgs, 
 		ApplyT(func(v interface{}) (ListGatewayKeysResult, error) {
 			args := v.(ListGatewayKeysArgs)
 			r, err := ListGatewayKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListGatewayKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListGatewayKeysResultOutput)
 }
 

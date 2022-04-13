@@ -60,7 +60,11 @@ func LookupIncidentCommentOutput(ctx *pulumi.Context, args LookupIncidentComment
 		ApplyT(func(v interface{}) (LookupIncidentCommentResult, error) {
 			args := v.(LookupIncidentCommentArgs)
 			r, err := LookupIncidentComment(ctx, &args, opts...)
-			return *r, err
+			var s LookupIncidentCommentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIncidentCommentResultOutput)
 }
 

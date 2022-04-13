@@ -48,7 +48,11 @@ func LookupSubscriptionNetworkManagerConnectionOutput(ctx *pulumi.Context, args 
 		ApplyT(func(v interface{}) (LookupSubscriptionNetworkManagerConnectionResult, error) {
 			args := v.(LookupSubscriptionNetworkManagerConnectionArgs)
 			r, err := LookupSubscriptionNetworkManagerConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupSubscriptionNetworkManagerConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSubscriptionNetworkManagerConnectionResultOutput)
 }
 

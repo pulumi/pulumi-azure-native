@@ -50,7 +50,11 @@ func LookupDataCollectionRuleAssociationOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDataCollectionRuleAssociationResult, error) {
 			args := v.(LookupDataCollectionRuleAssociationArgs)
 			r, err := LookupDataCollectionRuleAssociation(ctx, &args, opts...)
-			return *r, err
+			var s LookupDataCollectionRuleAssociationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDataCollectionRuleAssociationResultOutput)
 }
 

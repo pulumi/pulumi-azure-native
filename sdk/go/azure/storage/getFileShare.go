@@ -77,7 +77,11 @@ func LookupFileShareOutput(ctx *pulumi.Context, args LookupFileShareOutputArgs, 
 		ApplyT(func(v interface{}) (LookupFileShareResult, error) {
 			args := v.(LookupFileShareArgs)
 			r, err := LookupFileShare(ctx, &args, opts...)
-			return *r, err
+			var s LookupFileShareResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFileShareResultOutput)
 }
 

@@ -51,7 +51,11 @@ func LookupPrivateAtlaseOutput(ctx *pulumi.Context, args LookupPrivateAtlaseOutp
 		ApplyT(func(v interface{}) (LookupPrivateAtlaseResult, error) {
 			args := v.(LookupPrivateAtlaseArgs)
 			r, err := LookupPrivateAtlase(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateAtlaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateAtlaseResultOutput)
 }
 

@@ -55,7 +55,11 @@ func LookupWebAppPublicCertificateSlotOutput(ctx *pulumi.Context, args LookupWeb
 		ApplyT(func(v interface{}) (LookupWebAppPublicCertificateSlotResult, error) {
 			args := v.(LookupWebAppPublicCertificateSlotArgs)
 			r, err := LookupWebAppPublicCertificateSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppPublicCertificateSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppPublicCertificateSlotResultOutput)
 }
 

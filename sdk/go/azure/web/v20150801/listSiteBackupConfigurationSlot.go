@@ -58,7 +58,11 @@ func ListSiteBackupConfigurationSlotOutput(ctx *pulumi.Context, args ListSiteBac
 		ApplyT(func(v interface{}) (ListSiteBackupConfigurationSlotResult, error) {
 			args := v.(ListSiteBackupConfigurationSlotArgs)
 			r, err := ListSiteBackupConfigurationSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListSiteBackupConfigurationSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSiteBackupConfigurationSlotResultOutput)
 }
 

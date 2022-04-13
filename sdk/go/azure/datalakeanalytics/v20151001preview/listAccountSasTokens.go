@@ -44,7 +44,11 @@ func ListAccountSasTokensOutput(ctx *pulumi.Context, args ListAccountSasTokensOu
 		ApplyT(func(v interface{}) (ListAccountSasTokensResult, error) {
 			args := v.(ListAccountSasTokensArgs)
 			r, err := ListAccountSasTokens(ctx, &args, opts...)
-			return *r, err
+			var s ListAccountSasTokensResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAccountSasTokensResultOutput)
 }
 

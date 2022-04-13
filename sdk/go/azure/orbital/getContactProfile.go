@@ -61,7 +61,11 @@ func LookupContactProfileOutput(ctx *pulumi.Context, args LookupContactProfileOu
 		ApplyT(func(v interface{}) (LookupContactProfileResult, error) {
 			args := v.(LookupContactProfileArgs)
 			r, err := LookupContactProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupContactProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContactProfileResultOutput)
 }
 

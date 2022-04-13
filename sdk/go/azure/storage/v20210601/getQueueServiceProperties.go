@@ -46,7 +46,11 @@ func LookupQueueServicePropertiesOutput(ctx *pulumi.Context, args LookupQueueSer
 		ApplyT(func(v interface{}) (LookupQueueServicePropertiesResult, error) {
 			args := v.(LookupQueueServicePropertiesArgs)
 			r, err := LookupQueueServiceProperties(ctx, &args, opts...)
-			return *r, err
+			var s LookupQueueServicePropertiesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupQueueServicePropertiesResultOutput)
 }
 

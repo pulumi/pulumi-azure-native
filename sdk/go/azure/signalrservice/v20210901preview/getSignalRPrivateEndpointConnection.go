@@ -52,7 +52,11 @@ func LookupSignalRPrivateEndpointConnectionOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupSignalRPrivateEndpointConnectionResult, error) {
 			args := v.(LookupSignalRPrivateEndpointConnectionArgs)
 			r, err := LookupSignalRPrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupSignalRPrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSignalRPrivateEndpointConnectionResultOutput)
 }
 

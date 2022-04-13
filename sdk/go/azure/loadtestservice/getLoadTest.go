@@ -57,7 +57,11 @@ func LookupLoadTestOutput(ctx *pulumi.Context, args LookupLoadTestOutputArgs, op
 		ApplyT(func(v interface{}) (LookupLoadTestResult, error) {
 			args := v.(LookupLoadTestArgs)
 			r, err := LookupLoadTest(ctx, &args, opts...)
-			return *r, err
+			var s LookupLoadTestResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLoadTestResultOutput)
 }
 

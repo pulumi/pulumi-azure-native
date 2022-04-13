@@ -41,7 +41,11 @@ func ListDomainSharedAccessKeysOutput(ctx *pulumi.Context, args ListDomainShared
 		ApplyT(func(v interface{}) (ListDomainSharedAccessKeysResult, error) {
 			args := v.(ListDomainSharedAccessKeysArgs)
 			r, err := ListDomainSharedAccessKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListDomainSharedAccessKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListDomainSharedAccessKeysResultOutput)
 }
 

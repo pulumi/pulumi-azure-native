@@ -60,7 +60,11 @@ func LookupDaprComponentOutput(ctx *pulumi.Context, args LookupDaprComponentOutp
 		ApplyT(func(v interface{}) (LookupDaprComponentResult, error) {
 			args := v.(LookupDaprComponentArgs)
 			r, err := LookupDaprComponent(ctx, &args, opts...)
-			return *r, err
+			var s LookupDaprComponentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDaprComponentResultOutput)
 }
 

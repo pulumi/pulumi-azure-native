@@ -62,7 +62,11 @@ func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupCacheResult, error) {
 			args := v.(LookupCacheArgs)
 			r, err := LookupCache(ctx, &args, opts...)
-			return *r, err
+			var s LookupCacheResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCacheResultOutput)
 }
 

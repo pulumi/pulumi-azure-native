@@ -50,7 +50,11 @@ func ListManagedClusterAccessProfileOutput(ctx *pulumi.Context, args ListManaged
 		ApplyT(func(v interface{}) (ListManagedClusterAccessProfileResult, error) {
 			args := v.(ListManagedClusterAccessProfileArgs)
 			r, err := ListManagedClusterAccessProfile(ctx, &args, opts...)
-			return *r, err
+			var s ListManagedClusterAccessProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListManagedClusterAccessProfileResultOutput)
 }
 

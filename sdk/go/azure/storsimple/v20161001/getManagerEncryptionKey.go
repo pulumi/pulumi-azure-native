@@ -42,7 +42,11 @@ func GetManagerEncryptionKeyOutput(ctx *pulumi.Context, args GetManagerEncryptio
 		ApplyT(func(v interface{}) (GetManagerEncryptionKeyResult, error) {
 			args := v.(GetManagerEncryptionKeyArgs)
 			r, err := GetManagerEncryptionKey(ctx, &args, opts...)
-			return *r, err
+			var s GetManagerEncryptionKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetManagerEncryptionKeyResultOutput)
 }
 

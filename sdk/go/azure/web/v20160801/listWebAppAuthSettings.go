@@ -131,7 +131,11 @@ func ListWebAppAuthSettingsOutput(ctx *pulumi.Context, args ListWebAppAuthSettin
 		ApplyT(func(v interface{}) (ListWebAppAuthSettingsResult, error) {
 			args := v.(ListWebAppAuthSettingsArgs)
 			r, err := ListWebAppAuthSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppAuthSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppAuthSettingsResultOutput)
 }
 

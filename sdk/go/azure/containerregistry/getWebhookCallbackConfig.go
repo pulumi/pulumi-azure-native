@@ -43,7 +43,11 @@ func GetWebhookCallbackConfigOutput(ctx *pulumi.Context, args GetWebhookCallback
 		ApplyT(func(v interface{}) (GetWebhookCallbackConfigResult, error) {
 			args := v.(GetWebhookCallbackConfigArgs)
 			r, err := GetWebhookCallbackConfig(ctx, &args, opts...)
-			return *r, err
+			var s GetWebhookCallbackConfigResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetWebhookCallbackConfigResultOutput)
 }
 

@@ -62,7 +62,11 @@ func LookupMyWorkbookOutput(ctx *pulumi.Context, args LookupMyWorkbookOutputArgs
 		ApplyT(func(v interface{}) (LookupMyWorkbookResult, error) {
 			args := v.(LookupMyWorkbookArgs)
 			r, err := LookupMyWorkbook(ctx, &args, opts...)
-			return *r, err
+			var s LookupMyWorkbookResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMyWorkbookResultOutput)
 }
 

@@ -53,7 +53,11 @@ func LookupPrivateEndpointConnectionsAdtAPIOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionsAdtAPIResult, error) {
 			args := v.(LookupPrivateEndpointConnectionsAdtAPIArgs)
 			r, err := LookupPrivateEndpointConnectionsAdtAPI(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionsAdtAPIResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionsAdtAPIResultOutput)
 }
 

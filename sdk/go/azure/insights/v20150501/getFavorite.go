@@ -60,7 +60,11 @@ func LookupFavoriteOutput(ctx *pulumi.Context, args LookupFavoriteOutputArgs, op
 		ApplyT(func(v interface{}) (LookupFavoriteResult, error) {
 			args := v.(LookupFavoriteArgs)
 			r, err := LookupFavorite(ctx, &args, opts...)
-			return *r, err
+			var s LookupFavoriteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFavoriteResultOutput)
 }
 

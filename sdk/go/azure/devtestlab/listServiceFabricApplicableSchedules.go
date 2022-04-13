@@ -68,7 +68,11 @@ func ListServiceFabricApplicableSchedulesOutput(ctx *pulumi.Context, args ListSe
 		ApplyT(func(v interface{}) (ListServiceFabricApplicableSchedulesResult, error) {
 			args := v.(ListServiceFabricApplicableSchedulesArgs)
 			r, err := ListServiceFabricApplicableSchedules(ctx, &args, opts...)
-			return *r, err
+			var s ListServiceFabricApplicableSchedulesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListServiceFabricApplicableSchedulesResultOutput)
 }
 

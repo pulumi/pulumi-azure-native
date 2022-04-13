@@ -69,7 +69,11 @@ func LookupPolicyDefinitionAtManagementGroupOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupPolicyDefinitionAtManagementGroupResult, error) {
 			args := v.(LookupPolicyDefinitionAtManagementGroupArgs)
 			r, err := LookupPolicyDefinitionAtManagementGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupPolicyDefinitionAtManagementGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPolicyDefinitionAtManagementGroupResultOutput)
 }
 

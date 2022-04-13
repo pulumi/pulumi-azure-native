@@ -42,7 +42,11 @@ func ListWebAppSiteBackupsSlotOutput(ctx *pulumi.Context, args ListWebAppSiteBac
 		ApplyT(func(v interface{}) (ListWebAppSiteBackupsSlotResult, error) {
 			args := v.(ListWebAppSiteBackupsSlotArgs)
 			r, err := ListWebAppSiteBackupsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppSiteBackupsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppSiteBackupsSlotResultOutput)
 }
 

@@ -42,7 +42,11 @@ func ListTopLevelDomainAgreementsOutput(ctx *pulumi.Context, args ListTopLevelDo
 		ApplyT(func(v interface{}) (ListTopLevelDomainAgreementsResult, error) {
 			args := v.(ListTopLevelDomainAgreementsArgs)
 			r, err := ListTopLevelDomainAgreements(ctx, &args, opts...)
-			return *r, err
+			var s ListTopLevelDomainAgreementsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTopLevelDomainAgreementsResultOutput)
 }
 

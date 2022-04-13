@@ -58,7 +58,11 @@ func LookupSqlPoolWorkloadGroupOutput(ctx *pulumi.Context, args LookupSqlPoolWor
 		ApplyT(func(v interface{}) (LookupSqlPoolWorkloadGroupResult, error) {
 			args := v.(LookupSqlPoolWorkloadGroupArgs)
 			r, err := LookupSqlPoolWorkloadGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlPoolWorkloadGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlPoolWorkloadGroupResultOutput)
 }
 

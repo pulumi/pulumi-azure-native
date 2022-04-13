@@ -80,7 +80,11 @@ func LookupStaticSiteOutput(ctx *pulumi.Context, args LookupStaticSiteOutputArgs
 		ApplyT(func(v interface{}) (LookupStaticSiteResult, error) {
 			args := v.(LookupStaticSiteArgs)
 			r, err := LookupStaticSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupStaticSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStaticSiteResultOutput)
 }
 

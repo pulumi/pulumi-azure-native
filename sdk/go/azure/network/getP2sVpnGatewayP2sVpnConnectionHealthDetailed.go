@@ -43,7 +43,11 @@ func GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutput(ctx *pulumi.Context, a
 		ApplyT(func(v interface{}) (GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, error) {
 			args := v.(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs)
 			r, err := GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx, &args, opts...)
-			return *r, err
+			var s GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResultOutput)
 }
 

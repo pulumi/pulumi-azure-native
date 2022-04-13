@@ -66,7 +66,11 @@ func LookupSqlManagedInstanceOutput(ctx *pulumi.Context, args LookupSqlManagedIn
 		ApplyT(func(v interface{}) (LookupSqlManagedInstanceResult, error) {
 			args := v.(LookupSqlManagedInstanceArgs)
 			r, err := LookupSqlManagedInstance(ctx, &args, opts...)
-			return *r, err
+			var s LookupSqlManagedInstanceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSqlManagedInstanceResultOutput)
 }
 

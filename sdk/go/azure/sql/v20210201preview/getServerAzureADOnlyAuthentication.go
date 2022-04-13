@@ -46,7 +46,11 @@ func LookupServerAzureADOnlyAuthenticationOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupServerAzureADOnlyAuthenticationResult, error) {
 			args := v.(LookupServerAzureADOnlyAuthenticationArgs)
 			r, err := LookupServerAzureADOnlyAuthentication(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerAzureADOnlyAuthenticationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerAzureADOnlyAuthenticationResultOutput)
 }
 

@@ -42,7 +42,11 @@ func ListConfigurationStoreKeysOutput(ctx *pulumi.Context, args ListConfiguratio
 		ApplyT(func(v interface{}) (ListConfigurationStoreKeysResult, error) {
 			args := v.(ListConfigurationStoreKeysArgs)
 			r, err := ListConfigurationStoreKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListConfigurationStoreKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListConfigurationStoreKeysResultOutput)
 }
 

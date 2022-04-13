@@ -43,7 +43,11 @@ func LookupOnPremiseSensorOutput(ctx *pulumi.Context, args LookupOnPremiseSensor
 		ApplyT(func(v interface{}) (LookupOnPremiseSensorResult, error) {
 			args := v.(LookupOnPremiseSensorArgs)
 			r, err := LookupOnPremiseSensor(ctx, &args, opts...)
-			return *r, err
+			var s LookupOnPremiseSensorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOnPremiseSensorResultOutput)
 }
 

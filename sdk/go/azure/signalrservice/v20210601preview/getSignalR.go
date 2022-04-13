@@ -122,7 +122,11 @@ func LookupSignalROutput(ctx *pulumi.Context, args LookupSignalROutputArgs, opts
 		ApplyT(func(v interface{}) (LookupSignalRResult, error) {
 			args := v.(LookupSignalRArgs)
 			r, err := LookupSignalR(ctx, &args, opts...)
-			return *r, err
+			var s LookupSignalRResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSignalRResultOutput)
 }
 

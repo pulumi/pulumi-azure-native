@@ -61,7 +61,11 @@ func LookupBatchAccountOutput(ctx *pulumi.Context, args LookupBatchAccountOutput
 		ApplyT(func(v interface{}) (LookupBatchAccountResult, error) {
 			args := v.(LookupBatchAccountArgs)
 			r, err := LookupBatchAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupBatchAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBatchAccountResultOutput)
 }
 

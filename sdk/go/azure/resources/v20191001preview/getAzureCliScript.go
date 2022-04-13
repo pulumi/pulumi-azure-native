@@ -100,7 +100,11 @@ func LookupAzureCliScriptOutput(ctx *pulumi.Context, args LookupAzureCliScriptOu
 		ApplyT(func(v interface{}) (LookupAzureCliScriptResult, error) {
 			args := v.(LookupAzureCliScriptArgs)
 			r, err := LookupAzureCliScript(ctx, &args, opts...)
-			return *r, err
+			var s LookupAzureCliScriptResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAzureCliScriptResultOutput)
 }
 

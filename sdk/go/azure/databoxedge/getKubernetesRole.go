@@ -62,7 +62,11 @@ func LookupKubernetesRoleOutput(ctx *pulumi.Context, args LookupKubernetesRoleOu
 		ApplyT(func(v interface{}) (LookupKubernetesRoleResult, error) {
 			args := v.(LookupKubernetesRoleArgs)
 			r, err := LookupKubernetesRole(ctx, &args, opts...)
-			return *r, err
+			var s LookupKubernetesRoleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupKubernetesRoleResultOutput)
 }
 

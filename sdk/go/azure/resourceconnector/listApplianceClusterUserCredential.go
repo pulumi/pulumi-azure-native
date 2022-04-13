@@ -41,7 +41,11 @@ func ListApplianceClusterUserCredentialOutput(ctx *pulumi.Context, args ListAppl
 		ApplyT(func(v interface{}) (ListApplianceClusterUserCredentialResult, error) {
 			args := v.(ListApplianceClusterUserCredentialArgs)
 			r, err := ListApplianceClusterUserCredential(ctx, &args, opts...)
-			return *r, err
+			var s ListApplianceClusterUserCredentialResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListApplianceClusterUserCredentialResultOutput)
 }
 

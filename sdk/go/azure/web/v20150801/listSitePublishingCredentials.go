@@ -54,7 +54,11 @@ func ListSitePublishingCredentialsOutput(ctx *pulumi.Context, args ListSitePubli
 		ApplyT(func(v interface{}) (ListSitePublishingCredentialsResult, error) {
 			args := v.(ListSitePublishingCredentialsArgs)
 			r, err := ListSitePublishingCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListSitePublishingCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSitePublishingCredentialsResultOutput)
 }
 

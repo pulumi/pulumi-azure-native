@@ -41,7 +41,11 @@ func LookupResourceTypeRegistrationOutput(ctx *pulumi.Context, args LookupResour
 		ApplyT(func(v interface{}) (LookupResourceTypeRegistrationResult, error) {
 			args := v.(LookupResourceTypeRegistrationArgs)
 			r, err := LookupResourceTypeRegistration(ctx, &args, opts...)
-			return *r, err
+			var s LookupResourceTypeRegistrationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupResourceTypeRegistrationResultOutput)
 }
 

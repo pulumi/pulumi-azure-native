@@ -58,7 +58,11 @@ func LookupLabAccountOutput(ctx *pulumi.Context, args LookupLabAccountOutputArgs
 		ApplyT(func(v interface{}) (LookupLabAccountResult, error) {
 			args := v.(LookupLabAccountArgs)
 			r, err := LookupLabAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupLabAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLabAccountResultOutput)
 }
 

@@ -40,7 +40,11 @@ func GetVirtualMachineRdpFileContentsOutput(ctx *pulumi.Context, args GetVirtual
 		ApplyT(func(v interface{}) (GetVirtualMachineRdpFileContentsResult, error) {
 			args := v.(GetVirtualMachineRdpFileContentsArgs)
 			r, err := GetVirtualMachineRdpFileContents(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualMachineRdpFileContentsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualMachineRdpFileContentsResultOutput)
 }
 

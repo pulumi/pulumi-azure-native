@@ -58,7 +58,11 @@ func GetprivateLinkServicesForEDMUploadOutput(ctx *pulumi.Context, args Getpriva
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForEDMUploadResult, error) {
 			args := v.(GetprivateLinkServicesForEDMUploadArgs)
 			r, err := GetprivateLinkServicesForEDMUpload(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForEDMUploadResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForEDMUploadResultOutput)
 }
 

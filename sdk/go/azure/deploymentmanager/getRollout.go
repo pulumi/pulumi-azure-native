@@ -67,7 +67,11 @@ func LookupRolloutOutput(ctx *pulumi.Context, args LookupRolloutOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupRolloutResult, error) {
 			args := v.(LookupRolloutArgs)
 			r, err := LookupRollout(ctx, &args, opts...)
-			return *r, err
+			var s LookupRolloutResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRolloutResultOutput)
 }
 

@@ -69,7 +69,11 @@ func LookupGen2EnvironmentOutput(ctx *pulumi.Context, args LookupGen2Environment
 		ApplyT(func(v interface{}) (LookupGen2EnvironmentResult, error) {
 			args := v.(LookupGen2EnvironmentArgs)
 			r, err := LookupGen2Environment(ctx, &args, opts...)
-			return *r, err
+			var s LookupGen2EnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGen2EnvironmentResultOutput)
 }
 

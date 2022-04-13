@@ -50,7 +50,11 @@ func LookupStorageAccountManagementPoliciesOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupStorageAccountManagementPoliciesResult, error) {
 			args := v.(LookupStorageAccountManagementPoliciesArgs)
 			r, err := LookupStorageAccountManagementPolicies(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageAccountManagementPoliciesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageAccountManagementPoliciesResultOutput)
 }
 

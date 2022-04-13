@@ -64,7 +64,11 @@ func LookupReadOnlyFollowingDatabaseOutput(ctx *pulumi.Context, args LookupReadO
 		ApplyT(func(v interface{}) (LookupReadOnlyFollowingDatabaseResult, error) {
 			args := v.(LookupReadOnlyFollowingDatabaseArgs)
 			r, err := LookupReadOnlyFollowingDatabase(ctx, &args, opts...)
-			return *r, err
+			var s LookupReadOnlyFollowingDatabaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReadOnlyFollowingDatabaseResultOutput)
 }
 

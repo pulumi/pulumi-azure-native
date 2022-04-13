@@ -85,7 +85,11 @@ func LookupVirtualNetworkOutput(ctx *pulumi.Context, args LookupVirtualNetworkOu
 		ApplyT(func(v interface{}) (LookupVirtualNetworkResult, error) {
 			args := v.(LookupVirtualNetworkArgs)
 			r, err := LookupVirtualNetwork(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualNetworkResultOutput)
 }
 

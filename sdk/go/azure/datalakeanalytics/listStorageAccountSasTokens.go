@@ -45,7 +45,11 @@ func ListStorageAccountSasTokensOutput(ctx *pulumi.Context, args ListStorageAcco
 		ApplyT(func(v interface{}) (ListStorageAccountSasTokensResult, error) {
 			args := v.(ListStorageAccountSasTokensArgs)
 			r, err := ListStorageAccountSasTokens(ctx, &args, opts...)
-			return *r, err
+			var s ListStorageAccountSasTokensResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStorageAccountSasTokensResultOutput)
 }
 

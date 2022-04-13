@@ -50,7 +50,11 @@ func GetLogAnalyticExportRequestRateByIntervalOutput(ctx *pulumi.Context, args G
 		ApplyT(func(v interface{}) (GetLogAnalyticExportRequestRateByIntervalResult, error) {
 			args := v.(GetLogAnalyticExportRequestRateByIntervalArgs)
 			r, err := GetLogAnalyticExportRequestRateByInterval(ctx, &args, opts...)
-			return *r, err
+			var s GetLogAnalyticExportRequestRateByIntervalResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetLogAnalyticExportRequestRateByIntervalResultOutput)
 }
 

@@ -50,7 +50,11 @@ func GetEntityInsightsOutput(ctx *pulumi.Context, args GetEntityInsightsOutputAr
 		ApplyT(func(v interface{}) (GetEntityInsightsResult, error) {
 			args := v.(GetEntityInsightsArgs)
 			r, err := GetEntityInsights(ctx, &args, opts...)
-			return *r, err
+			var s GetEntityInsightsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetEntityInsightsResultOutput)
 }
 

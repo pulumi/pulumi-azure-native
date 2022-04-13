@@ -52,7 +52,11 @@ func LookupWebAppPublicCertificateOutput(ctx *pulumi.Context, args LookupWebAppP
 		ApplyT(func(v interface{}) (LookupWebAppPublicCertificateResult, error) {
 			args := v.(LookupWebAppPublicCertificateArgs)
 			r, err := LookupWebAppPublicCertificate(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppPublicCertificateResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppPublicCertificateResultOutput)
 }
 

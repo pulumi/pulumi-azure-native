@@ -42,7 +42,11 @@ func ListSubAccountMonitoredResourcesOutput(ctx *pulumi.Context, args ListSubAcc
 		ApplyT(func(v interface{}) (ListSubAccountMonitoredResourcesResult, error) {
 			args := v.(ListSubAccountMonitoredResourcesArgs)
 			r, err := ListSubAccountMonitoredResources(ctx, &args, opts...)
-			return *r, err
+			var s ListSubAccountMonitoredResourcesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSubAccountMonitoredResourcesResultOutput)
 }
 

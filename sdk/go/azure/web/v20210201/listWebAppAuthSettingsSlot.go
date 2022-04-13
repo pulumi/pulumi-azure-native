@@ -174,7 +174,11 @@ func ListWebAppAuthSettingsSlotOutput(ctx *pulumi.Context, args ListWebAppAuthSe
 		ApplyT(func(v interface{}) (ListWebAppAuthSettingsSlotResult, error) {
 			args := v.(ListWebAppAuthSettingsSlotArgs)
 			r, err := ListWebAppAuthSettingsSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppAuthSettingsSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppAuthSettingsSlotResultOutput)
 }
 

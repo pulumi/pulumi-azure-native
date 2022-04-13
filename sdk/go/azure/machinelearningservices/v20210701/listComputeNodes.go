@@ -42,7 +42,11 @@ func ListComputeNodesOutput(ctx *pulumi.Context, args ListComputeNodesOutputArgs
 		ApplyT(func(v interface{}) (ListComputeNodesResult, error) {
 			args := v.(ListComputeNodesArgs)
 			r, err := ListComputeNodes(ctx, &args, opts...)
-			return *r, err
+			var s ListComputeNodesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListComputeNodesResultOutput)
 }
 

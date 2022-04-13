@@ -142,7 +142,11 @@ func LookupServerBlobAuditingPolicyOutput(ctx *pulumi.Context, args LookupServer
 		ApplyT(func(v interface{}) (LookupServerBlobAuditingPolicyResult, error) {
 			args := v.(LookupServerBlobAuditingPolicyArgs)
 			r, err := LookupServerBlobAuditingPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerBlobAuditingPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerBlobAuditingPolicyResultOutput)
 }
 

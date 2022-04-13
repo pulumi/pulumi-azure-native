@@ -46,7 +46,11 @@ func LookupManagementLockOutput(ctx *pulumi.Context, args LookupManagementLockOu
 		ApplyT(func(v interface{}) (LookupManagementLockResult, error) {
 			args := v.(LookupManagementLockArgs)
 			r, err := LookupManagementLock(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagementLockResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagementLockResultOutput)
 }
 

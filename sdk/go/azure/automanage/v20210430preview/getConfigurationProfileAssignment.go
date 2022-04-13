@@ -48,7 +48,11 @@ func LookupConfigurationProfileAssignmentOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupConfigurationProfileAssignmentResult, error) {
 			args := v.(LookupConfigurationProfileAssignmentArgs)
 			r, err := LookupConfigurationProfileAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationProfileAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationProfileAssignmentResultOutput)
 }
 

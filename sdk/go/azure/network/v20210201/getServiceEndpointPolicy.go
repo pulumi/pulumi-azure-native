@@ -60,7 +60,11 @@ func LookupServiceEndpointPolicyOutput(ctx *pulumi.Context, args LookupServiceEn
 		ApplyT(func(v interface{}) (LookupServiceEndpointPolicyResult, error) {
 			args := v.(LookupServiceEndpointPolicyArgs)
 			r, err := LookupServiceEndpointPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupServiceEndpointPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServiceEndpointPolicyResultOutput)
 }
 

@@ -60,7 +60,11 @@ func LookupVendorSkusOutput(ctx *pulumi.Context, args LookupVendorSkusOutputArgs
 		ApplyT(func(v interface{}) (LookupVendorSkusResult, error) {
 			args := v.(LookupVendorSkusArgs)
 			r, err := LookupVendorSkus(ctx, &args, opts...)
-			return *r, err
+			var s LookupVendorSkusResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVendorSkusResultOutput)
 }
 

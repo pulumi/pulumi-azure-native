@@ -48,7 +48,11 @@ func LookupConfigurationProfilePreferenceOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupConfigurationProfilePreferenceResult, error) {
 			args := v.(LookupConfigurationProfilePreferenceArgs)
 			r, err := LookupConfigurationProfilePreference(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationProfilePreferenceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationProfilePreferenceResultOutput)
 }
 

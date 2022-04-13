@@ -84,7 +84,11 @@ func LookupFrontDoorOutput(ctx *pulumi.Context, args LookupFrontDoorOutputArgs, 
 		ApplyT(func(v interface{}) (LookupFrontDoorResult, error) {
 			args := v.(LookupFrontDoorArgs)
 			r, err := LookupFrontDoor(ctx, &args, opts...)
-			return *r, err
+			var s LookupFrontDoorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFrontDoorResultOutput)
 }
 

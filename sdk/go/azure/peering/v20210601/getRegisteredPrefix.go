@@ -54,7 +54,11 @@ func LookupRegisteredPrefixOutput(ctx *pulumi.Context, args LookupRegisteredPref
 		ApplyT(func(v interface{}) (LookupRegisteredPrefixResult, error) {
 			args := v.(LookupRegisteredPrefixArgs)
 			r, err := LookupRegisteredPrefix(ctx, &args, opts...)
-			return *r, err
+			var s LookupRegisteredPrefixResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRegisteredPrefixResultOutput)
 }
 

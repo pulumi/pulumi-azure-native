@@ -58,7 +58,11 @@ func LookupWorkloadNetworkDnsZoneOutput(ctx *pulumi.Context, args LookupWorkload
 		ApplyT(func(v interface{}) (LookupWorkloadNetworkDnsZoneResult, error) {
 			args := v.(LookupWorkloadNetworkDnsZoneArgs)
 			r, err := LookupWorkloadNetworkDnsZone(ctx, &args, opts...)
-			return *r, err
+			var s LookupWorkloadNetworkDnsZoneResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWorkloadNetworkDnsZoneResultOutput)
 }
 

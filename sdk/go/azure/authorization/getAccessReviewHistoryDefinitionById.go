@@ -73,7 +73,11 @@ func LookupAccessReviewHistoryDefinitionByIdOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupAccessReviewHistoryDefinitionByIdResult, error) {
 			args := v.(LookupAccessReviewHistoryDefinitionByIdArgs)
 			r, err := LookupAccessReviewHistoryDefinitionById(ctx, &args, opts...)
-			return *r, err
+			var s LookupAccessReviewHistoryDefinitionByIdResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAccessReviewHistoryDefinitionByIdResultOutput)
 }
 

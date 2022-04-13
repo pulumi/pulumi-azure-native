@@ -66,7 +66,11 @@ func LookupPacketCoreDataPlaneOutput(ctx *pulumi.Context, args LookupPacketCoreD
 		ApplyT(func(v interface{}) (LookupPacketCoreDataPlaneResult, error) {
 			args := v.(LookupPacketCoreDataPlaneArgs)
 			r, err := LookupPacketCoreDataPlane(ctx, &args, opts...)
-			return *r, err
+			var s LookupPacketCoreDataPlaneResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPacketCoreDataPlaneResultOutput)
 }
 

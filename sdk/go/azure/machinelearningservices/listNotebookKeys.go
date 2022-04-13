@@ -37,7 +37,11 @@ func ListNotebookKeysOutput(ctx *pulumi.Context, args ListNotebookKeysOutputArgs
 		ApplyT(func(v interface{}) (ListNotebookKeysResult, error) {
 			args := v.(ListNotebookKeysArgs)
 			r, err := ListNotebookKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListNotebookKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNotebookKeysResultOutput)
 }
 

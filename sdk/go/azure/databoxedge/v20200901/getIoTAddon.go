@@ -63,7 +63,11 @@ func LookupIoTAddonOutput(ctx *pulumi.Context, args LookupIoTAddonOutputArgs, op
 		ApplyT(func(v interface{}) (LookupIoTAddonResult, error) {
 			args := v.(LookupIoTAddonArgs)
 			r, err := LookupIoTAddon(ctx, &args, opts...)
-			return *r, err
+			var s LookupIoTAddonResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIoTAddonResultOutput)
 }
 

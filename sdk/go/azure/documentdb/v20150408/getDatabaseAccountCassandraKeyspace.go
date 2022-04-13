@@ -50,7 +50,11 @@ func LookupDatabaseAccountCassandraKeyspaceOutput(ctx *pulumi.Context, args Look
 		ApplyT(func(v interface{}) (LookupDatabaseAccountCassandraKeyspaceResult, error) {
 			args := v.(LookupDatabaseAccountCassandraKeyspaceArgs)
 			r, err := LookupDatabaseAccountCassandraKeyspace(ctx, &args, opts...)
-			return *r, err
+			var s LookupDatabaseAccountCassandraKeyspaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDatabaseAccountCassandraKeyspaceResultOutput)
 }
 

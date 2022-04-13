@@ -43,7 +43,11 @@ func ListWorkspaceNotebookAccessTokenOutput(ctx *pulumi.Context, args ListWorksp
 		ApplyT(func(v interface{}) (ListWorkspaceNotebookAccessTokenResult, error) {
 			args := v.(ListWorkspaceNotebookAccessTokenArgs)
 			r, err := ListWorkspaceNotebookAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s ListWorkspaceNotebookAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWorkspaceNotebookAccessTokenResultOutput)
 }
 

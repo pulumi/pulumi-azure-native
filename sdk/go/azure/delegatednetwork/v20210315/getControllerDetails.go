@@ -56,7 +56,11 @@ func LookupControllerDetailsOutput(ctx *pulumi.Context, args LookupControllerDet
 		ApplyT(func(v interface{}) (LookupControllerDetailsResult, error) {
 			args := v.(LookupControllerDetailsArgs)
 			r, err := LookupControllerDetails(ctx, &args, opts...)
-			return *r, err
+			var s LookupControllerDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupControllerDetailsResultOutput)
 }
 

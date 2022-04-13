@@ -59,7 +59,11 @@ func LookupRoleAssignmentArtifactOutput(ctx *pulumi.Context, args LookupRoleAssi
 		ApplyT(func(v interface{}) (LookupRoleAssignmentArtifactResult, error) {
 			args := v.(LookupRoleAssignmentArtifactArgs)
 			r, err := LookupRoleAssignmentArtifact(ctx, &args, opts...)
-			return *r, err
+			var s LookupRoleAssignmentArtifactResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRoleAssignmentArtifactResultOutput)
 }
 

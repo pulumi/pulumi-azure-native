@@ -41,7 +41,11 @@ func ListRedisKeysOutput(ctx *pulumi.Context, args ListRedisKeysOutputArgs, opts
 		ApplyT(func(v interface{}) (ListRedisKeysResult, error) {
 			args := v.(ListRedisKeysArgs)
 			r, err := ListRedisKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListRedisKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRedisKeysResultOutput)
 }
 

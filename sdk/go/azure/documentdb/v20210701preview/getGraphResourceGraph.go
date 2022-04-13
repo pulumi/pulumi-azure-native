@@ -52,7 +52,11 @@ func LookupGraphResourceGraphOutput(ctx *pulumi.Context, args LookupGraphResourc
 		ApplyT(func(v interface{}) (LookupGraphResourceGraphResult, error) {
 			args := v.(LookupGraphResourceGraphArgs)
 			r, err := LookupGraphResourceGraph(ctx, &args, opts...)
-			return *r, err
+			var s LookupGraphResourceGraphResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGraphResourceGraphResultOutput)
 }
 

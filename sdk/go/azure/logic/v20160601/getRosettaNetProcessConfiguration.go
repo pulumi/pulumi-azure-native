@@ -68,7 +68,11 @@ func LookupRosettaNetProcessConfigurationOutput(ctx *pulumi.Context, args Lookup
 		ApplyT(func(v interface{}) (LookupRosettaNetProcessConfigurationResult, error) {
 			args := v.(LookupRosettaNetProcessConfigurationArgs)
 			r, err := LookupRosettaNetProcessConfiguration(ctx, &args, opts...)
-			return *r, err
+			var s LookupRosettaNetProcessConfigurationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRosettaNetProcessConfigurationResultOutput)
 }
 

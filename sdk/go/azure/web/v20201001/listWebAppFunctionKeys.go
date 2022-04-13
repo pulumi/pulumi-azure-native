@@ -50,7 +50,11 @@ func ListWebAppFunctionKeysOutput(ctx *pulumi.Context, args ListWebAppFunctionKe
 		ApplyT(func(v interface{}) (ListWebAppFunctionKeysResult, error) {
 			args := v.(ListWebAppFunctionKeysArgs)
 			r, err := ListWebAppFunctionKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppFunctionKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppFunctionKeysResultOutput)
 }
 

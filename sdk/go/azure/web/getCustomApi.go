@@ -53,7 +53,11 @@ func LookupCustomApiOutput(ctx *pulumi.Context, args LookupCustomApiOutputArgs, 
 		ApplyT(func(v interface{}) (LookupCustomApiResult, error) {
 			args := v.(LookupCustomApiArgs)
 			r, err := LookupCustomApi(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomApiResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomApiResultOutput)
 }
 

@@ -51,7 +51,11 @@ func LookupMigrateProjectOutput(ctx *pulumi.Context, args LookupMigrateProjectOu
 		ApplyT(func(v interface{}) (LookupMigrateProjectResult, error) {
 			args := v.(LookupMigrateProjectArgs)
 			r, err := LookupMigrateProject(ctx, &args, opts...)
-			return *r, err
+			var s LookupMigrateProjectResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMigrateProjectResultOutput)
 }
 

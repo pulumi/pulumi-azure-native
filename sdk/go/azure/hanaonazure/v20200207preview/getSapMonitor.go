@@ -62,7 +62,11 @@ func LookupSapMonitorOutput(ctx *pulumi.Context, args LookupSapMonitorOutputArgs
 		ApplyT(func(v interface{}) (LookupSapMonitorResult, error) {
 			args := v.(LookupSapMonitorArgs)
 			r, err := LookupSapMonitor(ctx, &args, opts...)
-			return *r, err
+			var s LookupSapMonitorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSapMonitorResultOutput)
 }
 

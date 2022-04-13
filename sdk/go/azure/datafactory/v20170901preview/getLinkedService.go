@@ -50,7 +50,11 @@ func LookupLinkedServiceOutput(ctx *pulumi.Context, args LookupLinkedServiceOutp
 		ApplyT(func(v interface{}) (LookupLinkedServiceResult, error) {
 			args := v.(LookupLinkedServiceArgs)
 			r, err := LookupLinkedService(ctx, &args, opts...)
-			return *r, err
+			var s LookupLinkedServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLinkedServiceResultOutput)
 }
 

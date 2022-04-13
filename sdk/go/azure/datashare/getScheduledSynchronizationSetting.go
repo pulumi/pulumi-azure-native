@@ -62,7 +62,11 @@ func LookupScheduledSynchronizationSettingOutput(ctx *pulumi.Context, args Looku
 		ApplyT(func(v interface{}) (LookupScheduledSynchronizationSettingResult, error) {
 			args := v.(LookupScheduledSynchronizationSettingArgs)
 			r, err := LookupScheduledSynchronizationSetting(ctx, &args, opts...)
-			return *r, err
+			var s LookupScheduledSynchronizationSettingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScheduledSynchronizationSettingResultOutput)
 }
 

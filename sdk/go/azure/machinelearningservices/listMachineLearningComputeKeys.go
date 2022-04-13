@@ -41,7 +41,11 @@ func ListMachineLearningComputeKeysOutput(ctx *pulumi.Context, args ListMachineL
 		ApplyT(func(v interface{}) (ListMachineLearningComputeKeysResult, error) {
 			args := v.(ListMachineLearningComputeKeysArgs)
 			r, err := ListMachineLearningComputeKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListMachineLearningComputeKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListMachineLearningComputeKeysResultOutput)
 }
 

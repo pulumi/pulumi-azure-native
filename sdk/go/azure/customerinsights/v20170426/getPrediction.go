@@ -78,7 +78,11 @@ func LookupPredictionOutput(ctx *pulumi.Context, args LookupPredictionOutputArgs
 		ApplyT(func(v interface{}) (LookupPredictionResult, error) {
 			args := v.(LookupPredictionArgs)
 			r, err := LookupPrediction(ctx, &args, opts...)
-			return *r, err
+			var s LookupPredictionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPredictionResultOutput)
 }
 

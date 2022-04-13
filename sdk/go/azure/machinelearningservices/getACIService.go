@@ -59,7 +59,11 @@ func LookupACIServiceOutput(ctx *pulumi.Context, args LookupACIServiceOutputArgs
 		ApplyT(func(v interface{}) (LookupACIServiceResult, error) {
 			args := v.(LookupACIServiceArgs)
 			r, err := LookupACIService(ctx, &args, opts...)
-			return *r, err
+			var s LookupACIServiceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupACIServiceResultOutput)
 }
 

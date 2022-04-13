@@ -44,7 +44,11 @@ func LookupDeploymentAtSubscriptionScopeOutput(ctx *pulumi.Context, args LookupD
 		ApplyT(func(v interface{}) (LookupDeploymentAtSubscriptionScopeResult, error) {
 			args := v.(LookupDeploymentAtSubscriptionScopeArgs)
 			r, err := LookupDeploymentAtSubscriptionScope(ctx, &args, opts...)
-			return *r, err
+			var s LookupDeploymentAtSubscriptionScopeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDeploymentAtSubscriptionScopeResultOutput)
 }
 

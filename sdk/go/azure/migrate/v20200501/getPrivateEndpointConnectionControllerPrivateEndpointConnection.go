@@ -50,7 +50,11 @@ func LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionOutput(ct
 		ApplyT(func(v interface{}) (LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult, error) {
 			args := v.(LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionArgs)
 			r, err := LookupPrivateEndpointConnectionControllerPrivateEndpointConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPrivateEndpointConnectionControllerPrivateEndpointConnectionResultOutput)
 }
 

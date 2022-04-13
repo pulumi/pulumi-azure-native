@@ -41,7 +41,11 @@ func ListRegistryBuildSourceUploadUrlOutput(ctx *pulumi.Context, args ListRegist
 		ApplyT(func(v interface{}) (ListRegistryBuildSourceUploadUrlResult, error) {
 			args := v.(ListRegistryBuildSourceUploadUrlArgs)
 			r, err := ListRegistryBuildSourceUploadUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListRegistryBuildSourceUploadUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRegistryBuildSourceUploadUrlResultOutput)
 }
 

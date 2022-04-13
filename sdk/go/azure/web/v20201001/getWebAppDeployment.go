@@ -66,7 +66,11 @@ func LookupWebAppDeploymentOutput(ctx *pulumi.Context, args LookupWebAppDeployme
 		ApplyT(func(v interface{}) (LookupWebAppDeploymentResult, error) {
 			args := v.(LookupWebAppDeploymentArgs)
 			r, err := LookupWebAppDeployment(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppDeploymentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppDeploymentResultOutput)
 }
 

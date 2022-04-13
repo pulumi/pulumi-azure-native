@@ -69,7 +69,11 @@ func LookupScriptOutput(ctx *pulumi.Context, args LookupScriptOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupScriptResult, error) {
 			args := v.(LookupScriptArgs)
 			r, err := LookupScript(ctx, &args, opts...)
-			return *r, err
+			var s LookupScriptResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupScriptResultOutput)
 }
 

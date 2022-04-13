@@ -65,7 +65,11 @@ func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupSiteResult, error) {
 			args := v.(LookupSiteArgs)
 			r, err := LookupSite(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteResultOutput)
 }
 

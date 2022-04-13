@@ -44,7 +44,11 @@ func ListSignalRKeysOutput(ctx *pulumi.Context, args ListSignalRKeysOutputArgs, 
 		ApplyT(func(v interface{}) (ListSignalRKeysResult, error) {
 			args := v.(ListSignalRKeysArgs)
 			r, err := ListSignalRKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListSignalRKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSignalRKeysResultOutput)
 }
 

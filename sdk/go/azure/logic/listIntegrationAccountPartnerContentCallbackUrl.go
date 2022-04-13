@@ -55,7 +55,11 @@ func ListIntegrationAccountPartnerContentCallbackUrlOutput(ctx *pulumi.Context, 
 		ApplyT(func(v interface{}) (ListIntegrationAccountPartnerContentCallbackUrlResult, error) {
 			args := v.(ListIntegrationAccountPartnerContentCallbackUrlArgs)
 			r, err := ListIntegrationAccountPartnerContentCallbackUrl(ctx, &args, opts...)
-			return *r, err
+			var s ListIntegrationAccountPartnerContentCallbackUrlResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIntegrationAccountPartnerContentCallbackUrlResultOutput)
 }
 

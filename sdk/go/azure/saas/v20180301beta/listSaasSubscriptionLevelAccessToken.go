@@ -40,7 +40,11 @@ func ListSaasSubscriptionLevelAccessTokenOutput(ctx *pulumi.Context, args ListSa
 		ApplyT(func(v interface{}) (ListSaasSubscriptionLevelAccessTokenResult, error) {
 			args := v.(ListSaasSubscriptionLevelAccessTokenArgs)
 			r, err := ListSaasSubscriptionLevelAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s ListSaasSubscriptionLevelAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSaasSubscriptionLevelAccessTokenResultOutput)
 }
 

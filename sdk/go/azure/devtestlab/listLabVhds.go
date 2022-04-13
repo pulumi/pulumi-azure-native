@@ -41,7 +41,11 @@ func ListLabVhdsOutput(ctx *pulumi.Context, args ListLabVhdsOutputArgs, opts ...
 		ApplyT(func(v interface{}) (ListLabVhdsResult, error) {
 			args := v.(ListLabVhdsArgs)
 			r, err := ListLabVhds(ctx, &args, opts...)
-			return *r, err
+			var s ListLabVhdsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListLabVhdsResultOutput)
 }
 

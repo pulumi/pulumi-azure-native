@@ -51,7 +51,11 @@ func LookupAccessControlRecordOutput(ctx *pulumi.Context, args LookupAccessContr
 		ApplyT(func(v interface{}) (LookupAccessControlRecordResult, error) {
 			args := v.(LookupAccessControlRecordArgs)
 			r, err := LookupAccessControlRecord(ctx, &args, opts...)
-			return *r, err
+			var s LookupAccessControlRecordResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAccessControlRecordResultOutput)
 }
 

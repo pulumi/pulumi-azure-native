@@ -47,7 +47,11 @@ func LookupComponentLinkedStorageAccountOutput(ctx *pulumi.Context, args LookupC
 		ApplyT(func(v interface{}) (LookupComponentLinkedStorageAccountResult, error) {
 			args := v.(LookupComponentLinkedStorageAccountArgs)
 			r, err := LookupComponentLinkedStorageAccount(ctx, &args, opts...)
-			return *r, err
+			var s LookupComponentLinkedStorageAccountResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupComponentLinkedStorageAccountResultOutput)
 }
 

@@ -40,7 +40,11 @@ func ListOpenIdConnectProviderSecretsOutput(ctx *pulumi.Context, args ListOpenId
 		ApplyT(func(v interface{}) (ListOpenIdConnectProviderSecretsResult, error) {
 			args := v.(ListOpenIdConnectProviderSecretsArgs)
 			r, err := ListOpenIdConnectProviderSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListOpenIdConnectProviderSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListOpenIdConnectProviderSecretsResultOutput)
 }
 

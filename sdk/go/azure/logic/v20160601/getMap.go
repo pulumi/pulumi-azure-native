@@ -64,7 +64,11 @@ func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulu
 		ApplyT(func(v interface{}) (LookupMapResult, error) {
 			args := v.(LookupMapArgs)
 			r, err := LookupMap(ctx, &args, opts...)
-			return *r, err
+			var s LookupMapResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMapResultOutput)
 }
 

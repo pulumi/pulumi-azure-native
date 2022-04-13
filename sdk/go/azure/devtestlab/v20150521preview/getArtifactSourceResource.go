@@ -66,7 +66,11 @@ func LookupArtifactSourceResourceOutput(ctx *pulumi.Context, args LookupArtifact
 		ApplyT(func(v interface{}) (LookupArtifactSourceResourceResult, error) {
 			args := v.(LookupArtifactSourceResourceArgs)
 			r, err := LookupArtifactSourceResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupArtifactSourceResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupArtifactSourceResourceResultOutput)
 }
 

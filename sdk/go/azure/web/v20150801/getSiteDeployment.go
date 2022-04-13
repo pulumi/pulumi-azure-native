@@ -70,7 +70,11 @@ func LookupSiteDeploymentOutput(ctx *pulumi.Context, args LookupSiteDeploymentOu
 		ApplyT(func(v interface{}) (LookupSiteDeploymentResult, error) {
 			args := v.(LookupSiteDeploymentArgs)
 			r, err := LookupSiteDeployment(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteDeploymentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteDeploymentResultOutput)
 }
 

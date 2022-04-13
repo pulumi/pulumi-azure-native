@@ -101,7 +101,11 @@ func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfa
 		ApplyT(func(v interface{}) (LookupNetworkInterfaceResult, error) {
 			args := v.(LookupNetworkInterfaceArgs)
 			r, err := LookupNetworkInterface(ctx, &args, opts...)
-			return *r, err
+			var s LookupNetworkInterfaceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNetworkInterfaceResultOutput)
 }
 

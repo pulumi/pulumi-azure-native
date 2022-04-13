@@ -70,7 +70,11 @@ func LookupEventGridDataConnectionOutput(ctx *pulumi.Context, args LookupEventGr
 		ApplyT(func(v interface{}) (LookupEventGridDataConnectionResult, error) {
 			args := v.(LookupEventGridDataConnectionArgs)
 			r, err := LookupEventGridDataConnection(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventGridDataConnectionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventGridDataConnectionResultOutput)
 }
 

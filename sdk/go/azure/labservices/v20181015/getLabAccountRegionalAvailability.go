@@ -38,7 +38,11 @@ func GetLabAccountRegionalAvailabilityOutput(ctx *pulumi.Context, args GetLabAcc
 		ApplyT(func(v interface{}) (GetLabAccountRegionalAvailabilityResult, error) {
 			args := v.(GetLabAccountRegionalAvailabilityArgs)
 			r, err := GetLabAccountRegionalAvailability(ctx, &args, opts...)
-			return *r, err
+			var s GetLabAccountRegionalAvailabilityResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetLabAccountRegionalAvailabilityResultOutput)
 }
 

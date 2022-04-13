@@ -60,7 +60,11 @@ func LookupAttestationAtSubscriptionOutput(ctx *pulumi.Context, args LookupAttes
 		ApplyT(func(v interface{}) (LookupAttestationAtSubscriptionResult, error) {
 			args := v.(LookupAttestationAtSubscriptionArgs)
 			r, err := LookupAttestationAtSubscription(ctx, &args, opts...)
-			return *r, err
+			var s LookupAttestationAtSubscriptionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAttestationAtSubscriptionResultOutput)
 }
 

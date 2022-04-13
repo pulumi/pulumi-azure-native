@@ -44,7 +44,11 @@ func ListRemediationDeploymentsAtManagementGroupOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (ListRemediationDeploymentsAtManagementGroupResult, error) {
 			args := v.(ListRemediationDeploymentsAtManagementGroupArgs)
 			r, err := ListRemediationDeploymentsAtManagementGroup(ctx, &args, opts...)
-			return *r, err
+			var s ListRemediationDeploymentsAtManagementGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListRemediationDeploymentsAtManagementGroupResultOutput)
 }
 

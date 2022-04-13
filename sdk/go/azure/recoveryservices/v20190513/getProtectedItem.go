@@ -58,7 +58,11 @@ func LookupProtectedItemOutput(ctx *pulumi.Context, args LookupProtectedItemOutp
 		ApplyT(func(v interface{}) (LookupProtectedItemResult, error) {
 			args := v.(LookupProtectedItemArgs)
 			r, err := LookupProtectedItem(ctx, &args, opts...)
-			return *r, err
+			var s LookupProtectedItemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProtectedItemResultOutput)
 }
 

@@ -41,7 +41,11 @@ func ListJobCredentialsOutput(ctx *pulumi.Context, args ListJobCredentialsOutput
 		ApplyT(func(v interface{}) (ListJobCredentialsResult, error) {
 			args := v.(ListJobCredentialsArgs)
 			r, err := ListJobCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListJobCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListJobCredentialsResultOutput)
 }
 

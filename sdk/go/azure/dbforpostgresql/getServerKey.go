@@ -53,7 +53,11 @@ func LookupServerKeyOutput(ctx *pulumi.Context, args LookupServerKeyOutputArgs, 
 		ApplyT(func(v interface{}) (LookupServerKeyResult, error) {
 			args := v.(LookupServerKeyArgs)
 			r, err := LookupServerKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerKeyResultOutput)
 }
 

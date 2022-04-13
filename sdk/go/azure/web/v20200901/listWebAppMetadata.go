@@ -48,7 +48,11 @@ func ListWebAppMetadataOutput(ctx *pulumi.Context, args ListWebAppMetadataOutput
 		ApplyT(func(v interface{}) (ListWebAppMetadataResult, error) {
 			args := v.(ListWebAppMetadataArgs)
 			r, err := ListWebAppMetadata(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppMetadataResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppMetadataResultOutput)
 }
 

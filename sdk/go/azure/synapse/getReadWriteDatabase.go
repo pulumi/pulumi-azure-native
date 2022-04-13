@@ -64,7 +64,11 @@ func LookupReadWriteDatabaseOutput(ctx *pulumi.Context, args LookupReadWriteData
 		ApplyT(func(v interface{}) (LookupReadWriteDatabaseResult, error) {
 			args := v.(LookupReadWriteDatabaseArgs)
 			r, err := LookupReadWriteDatabase(ctx, &args, opts...)
-			return *r, err
+			var s LookupReadWriteDatabaseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReadWriteDatabaseResultOutput)
 }
 

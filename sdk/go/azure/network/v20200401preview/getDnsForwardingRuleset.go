@@ -56,7 +56,11 @@ func LookupDnsForwardingRulesetOutput(ctx *pulumi.Context, args LookupDnsForward
 		ApplyT(func(v interface{}) (LookupDnsForwardingRulesetResult, error) {
 			args := v.(LookupDnsForwardingRulesetArgs)
 			r, err := LookupDnsForwardingRuleset(ctx, &args, opts...)
-			return *r, err
+			var s LookupDnsForwardingRulesetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDnsForwardingRulesetResultOutput)
 }
 

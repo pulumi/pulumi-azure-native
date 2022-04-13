@@ -73,7 +73,11 @@ func LookupActivityCustomEntityQueryOutput(ctx *pulumi.Context, args LookupActiv
 		ApplyT(func(v interface{}) (LookupActivityCustomEntityQueryResult, error) {
 			args := v.(LookupActivityCustomEntityQueryArgs)
 			r, err := LookupActivityCustomEntityQuery(ctx, &args, opts...)
-			return *r, err
+			var s LookupActivityCustomEntityQueryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupActivityCustomEntityQueryResultOutput)
 }
 

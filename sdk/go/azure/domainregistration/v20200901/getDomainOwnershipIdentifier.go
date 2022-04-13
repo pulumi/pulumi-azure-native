@@ -52,7 +52,11 @@ func LookupDomainOwnershipIdentifierOutput(ctx *pulumi.Context, args LookupDomai
 		ApplyT(func(v interface{}) (LookupDomainOwnershipIdentifierResult, error) {
 			args := v.(LookupDomainOwnershipIdentifierArgs)
 			r, err := LookupDomainOwnershipIdentifier(ctx, &args, opts...)
-			return *r, err
+			var s LookupDomainOwnershipIdentifierResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDomainOwnershipIdentifierResultOutput)
 }
 

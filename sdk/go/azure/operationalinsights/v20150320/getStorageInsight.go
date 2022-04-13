@@ -58,7 +58,11 @@ func LookupStorageInsightOutput(ctx *pulumi.Context, args LookupStorageInsightOu
 		ApplyT(func(v interface{}) (LookupStorageInsightResult, error) {
 			args := v.(LookupStorageInsightArgs)
 			r, err := LookupStorageInsight(ctx, &args, opts...)
-			return *r, err
+			var s LookupStorageInsightResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStorageInsightResultOutput)
 }
 

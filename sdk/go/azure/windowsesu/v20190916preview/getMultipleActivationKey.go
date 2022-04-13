@@ -74,7 +74,11 @@ func LookupMultipleActivationKeyOutput(ctx *pulumi.Context, args LookupMultipleA
 		ApplyT(func(v interface{}) (LookupMultipleActivationKeyResult, error) {
 			args := v.(LookupMultipleActivationKeyArgs)
 			r, err := LookupMultipleActivationKey(ctx, &args, opts...)
-			return *r, err
+			var s LookupMultipleActivationKeyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMultipleActivationKeyResultOutput)
 }
 

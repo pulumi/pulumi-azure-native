@@ -45,7 +45,11 @@ func ListAssetContainerSasOutput(ctx *pulumi.Context, args ListAssetContainerSas
 		ApplyT(func(v interface{}) (ListAssetContainerSasResult, error) {
 			args := v.(ListAssetContainerSasArgs)
 			r, err := ListAssetContainerSas(ctx, &args, opts...)
-			return *r, err
+			var s ListAssetContainerSasResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListAssetContainerSasResultOutput)
 }
 

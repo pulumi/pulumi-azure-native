@@ -96,7 +96,11 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 		ApplyT(func(v interface{}) (LookupVolumeResult, error) {
 			args := v.(LookupVolumeArgs)
 			r, err := LookupVolume(ctx, &args, opts...)
-			return *r, err
+			var s LookupVolumeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVolumeResultOutput)
 }
 

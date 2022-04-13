@@ -43,7 +43,11 @@ func ListLocalUserKeysOutput(ctx *pulumi.Context, args ListLocalUserKeysOutputAr
 		ApplyT(func(v interface{}) (ListLocalUserKeysResult, error) {
 			args := v.(ListLocalUserKeysArgs)
 			r, err := ListLocalUserKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListLocalUserKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListLocalUserKeysResultOutput)
 }
 

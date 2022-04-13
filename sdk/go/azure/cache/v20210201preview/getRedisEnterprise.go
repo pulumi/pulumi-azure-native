@@ -62,7 +62,11 @@ func LookupRedisEnterpriseOutput(ctx *pulumi.Context, args LookupRedisEnterprise
 		ApplyT(func(v interface{}) (LookupRedisEnterpriseResult, error) {
 			args := v.(LookupRedisEnterpriseArgs)
 			r, err := LookupRedisEnterprise(ctx, &args, opts...)
-			return *r, err
+			var s LookupRedisEnterpriseResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRedisEnterpriseResultOutput)
 }
 

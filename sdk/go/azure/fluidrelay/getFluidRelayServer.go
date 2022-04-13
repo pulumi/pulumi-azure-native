@@ -55,7 +55,11 @@ func LookupFluidRelayServerOutput(ctx *pulumi.Context, args LookupFluidRelayServ
 		ApplyT(func(v interface{}) (LookupFluidRelayServerResult, error) {
 			args := v.(LookupFluidRelayServerArgs)
 			r, err := LookupFluidRelayServer(ctx, &args, opts...)
-			return *r, err
+			var s LookupFluidRelayServerResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFluidRelayServerResultOutput)
 }
 

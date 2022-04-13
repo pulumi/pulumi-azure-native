@@ -53,7 +53,11 @@ func LookupReplicationProtectionContainerMappingOutput(ctx *pulumi.Context, args
 		ApplyT(func(v interface{}) (LookupReplicationProtectionContainerMappingResult, error) {
 			args := v.(LookupReplicationProtectionContainerMappingArgs)
 			r, err := LookupReplicationProtectionContainerMapping(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationProtectionContainerMappingResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationProtectionContainerMappingResultOutput)
 }
 

@@ -56,7 +56,11 @@ func LookupAzureFirewallOutput(ctx *pulumi.Context, args LookupAzureFirewallOutp
 		ApplyT(func(v interface{}) (LookupAzureFirewallResult, error) {
 			args := v.(LookupAzureFirewallArgs)
 			r, err := LookupAzureFirewall(ctx, &args, opts...)
-			return *r, err
+			var s LookupAzureFirewallResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAzureFirewallResultOutput)
 }
 

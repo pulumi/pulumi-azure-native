@@ -51,7 +51,11 @@ func LookupWebAppDomainOwnershipIdentifierSlotOutput(ctx *pulumi.Context, args L
 		ApplyT(func(v interface{}) (LookupWebAppDomainOwnershipIdentifierSlotResult, error) {
 			args := v.(LookupWebAppDomainOwnershipIdentifierSlotArgs)
 			r, err := LookupWebAppDomainOwnershipIdentifierSlot(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebAppDomainOwnershipIdentifierSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebAppDomainOwnershipIdentifierSlotResultOutput)
 }
 

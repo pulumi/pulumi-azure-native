@@ -64,7 +64,11 @@ func GetRecoveryPointAccessTokenOutput(ctx *pulumi.Context, args GetRecoveryPoin
 		ApplyT(func(v interface{}) (GetRecoveryPointAccessTokenResult, error) {
 			args := v.(GetRecoveryPointAccessTokenArgs)
 			r, err := GetRecoveryPointAccessToken(ctx, &args, opts...)
-			return *r, err
+			var s GetRecoveryPointAccessTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetRecoveryPointAccessTokenResultOutput)
 }
 

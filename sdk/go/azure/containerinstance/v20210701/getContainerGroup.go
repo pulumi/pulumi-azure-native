@@ -79,7 +79,11 @@ func LookupContainerGroupOutput(ctx *pulumi.Context, args LookupContainerGroupOu
 		ApplyT(func(v interface{}) (LookupContainerGroupResult, error) {
 			args := v.(LookupContainerGroupArgs)
 			r, err := LookupContainerGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupContainerGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupContainerGroupResultOutput)
 }
 

@@ -58,7 +58,11 @@ func LookupLocalNetworkGatewayOutput(ctx *pulumi.Context, args LookupLocalNetwor
 		ApplyT(func(v interface{}) (LookupLocalNetworkGatewayResult, error) {
 			args := v.(LookupLocalNetworkGatewayArgs)
 			r, err := LookupLocalNetworkGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupLocalNetworkGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLocalNetworkGatewayResultOutput)
 }
 

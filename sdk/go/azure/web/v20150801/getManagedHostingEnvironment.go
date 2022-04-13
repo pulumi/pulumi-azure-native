@@ -71,7 +71,11 @@ func LookupManagedHostingEnvironmentOutput(ctx *pulumi.Context, args LookupManag
 		ApplyT(func(v interface{}) (LookupManagedHostingEnvironmentResult, error) {
 			args := v.(LookupManagedHostingEnvironmentArgs)
 			r, err := LookupManagedHostingEnvironment(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedHostingEnvironmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedHostingEnvironmentResultOutput)
 }
 

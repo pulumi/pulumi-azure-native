@@ -47,7 +47,11 @@ func ListCustomApiWsdlInterfacesOutput(ctx *pulumi.Context, args ListCustomApiWs
 		ApplyT(func(v interface{}) (ListCustomApiWsdlInterfacesResult, error) {
 			args := v.(ListCustomApiWsdlInterfacesArgs)
 			r, err := ListCustomApiWsdlInterfaces(ctx, &args, opts...)
-			return *r, err
+			var s ListCustomApiWsdlInterfacesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListCustomApiWsdlInterfacesResultOutput)
 }
 

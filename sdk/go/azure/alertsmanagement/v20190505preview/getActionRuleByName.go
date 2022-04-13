@@ -48,7 +48,11 @@ func LookupActionRuleByNameOutput(ctx *pulumi.Context, args LookupActionRuleByNa
 		ApplyT(func(v interface{}) (LookupActionRuleByNameResult, error) {
 			args := v.(LookupActionRuleByNameArgs)
 			r, err := LookupActionRuleByName(ctx, &args, opts...)
-			return *r, err
+			var s LookupActionRuleByNameResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupActionRuleByNameResultOutput)
 }
 

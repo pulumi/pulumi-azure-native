@@ -65,7 +65,11 @@ func LookupMobileNetworkOutput(ctx *pulumi.Context, args LookupMobileNetworkOutp
 		ApplyT(func(v interface{}) (LookupMobileNetworkResult, error) {
 			args := v.(LookupMobileNetworkArgs)
 			r, err := LookupMobileNetwork(ctx, &args, opts...)
-			return *r, err
+			var s LookupMobileNetworkResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMobileNetworkResultOutput)
 }
 

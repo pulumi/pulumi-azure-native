@@ -63,7 +63,11 @@ func LookupAFDCustomDomainOutput(ctx *pulumi.Context, args LookupAFDCustomDomain
 		ApplyT(func(v interface{}) (LookupAFDCustomDomainResult, error) {
 			args := v.(LookupAFDCustomDomainArgs)
 			r, err := LookupAFDCustomDomain(ctx, &args, opts...)
-			return *r, err
+			var s LookupAFDCustomDomainResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAFDCustomDomainResultOutput)
 }
 

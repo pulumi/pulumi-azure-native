@@ -43,7 +43,11 @@ func ListWebAppFunctionSecretsOutput(ctx *pulumi.Context, args ListWebAppFunctio
 		ApplyT(func(v interface{}) (ListWebAppFunctionSecretsResult, error) {
 			args := v.(ListWebAppFunctionSecretsArgs)
 			r, err := ListWebAppFunctionSecrets(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppFunctionSecretsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppFunctionSecretsResultOutput)
 }
 

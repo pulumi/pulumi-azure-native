@@ -52,7 +52,11 @@ func ListWebAppFunctionKeysSlotOutput(ctx *pulumi.Context, args ListWebAppFuncti
 		ApplyT(func(v interface{}) (ListWebAppFunctionKeysSlotResult, error) {
 			args := v.(ListWebAppFunctionKeysSlotArgs)
 			r, err := ListWebAppFunctionKeysSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppFunctionKeysSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppFunctionKeysSlotResultOutput)
 }
 

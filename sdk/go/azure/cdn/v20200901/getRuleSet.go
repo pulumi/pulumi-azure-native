@@ -49,7 +49,11 @@ func LookupRuleSetOutput(ctx *pulumi.Context, args LookupRuleSetOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupRuleSetResult, error) {
 			args := v.(LookupRuleSetArgs)
 			r, err := LookupRuleSet(ctx, &args, opts...)
-			return *r, err
+			var s LookupRuleSetResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRuleSetResultOutput)
 }
 

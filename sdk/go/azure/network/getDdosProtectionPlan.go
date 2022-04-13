@@ -55,7 +55,11 @@ func LookupDdosProtectionPlanOutput(ctx *pulumi.Context, args LookupDdosProtecti
 		ApplyT(func(v interface{}) (LookupDdosProtectionPlanResult, error) {
 			args := v.(LookupDdosProtectionPlanArgs)
 			r, err := LookupDdosProtectionPlan(ctx, &args, opts...)
-			return *r, err
+			var s LookupDdosProtectionPlanResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDdosProtectionPlanResultOutput)
 }
 

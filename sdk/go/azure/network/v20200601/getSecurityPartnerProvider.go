@@ -56,7 +56,11 @@ func LookupSecurityPartnerProviderOutput(ctx *pulumi.Context, args LookupSecurit
 		ApplyT(func(v interface{}) (LookupSecurityPartnerProviderResult, error) {
 			args := v.(LookupSecurityPartnerProviderArgs)
 			r, err := LookupSecurityPartnerProvider(ctx, &args, opts...)
-			return *r, err
+			var s LookupSecurityPartnerProviderResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSecurityPartnerProviderResultOutput)
 }
 

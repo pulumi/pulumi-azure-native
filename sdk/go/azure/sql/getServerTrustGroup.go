@@ -49,7 +49,11 @@ func LookupServerTrustGroupOutput(ctx *pulumi.Context, args LookupServerTrustGro
 		ApplyT(func(v interface{}) (LookupServerTrustGroupResult, error) {
 			args := v.(LookupServerTrustGroupArgs)
 			r, err := LookupServerTrustGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerTrustGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerTrustGroupResultOutput)
 }
 

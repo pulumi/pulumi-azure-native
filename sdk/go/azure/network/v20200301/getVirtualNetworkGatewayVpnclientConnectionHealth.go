@@ -38,7 +38,11 @@ func GetVirtualNetworkGatewayVpnclientConnectionHealthOutput(ctx *pulumi.Context
 		ApplyT(func(v interface{}) (GetVirtualNetworkGatewayVpnclientConnectionHealthResult, error) {
 			args := v.(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs)
 			r, err := GetVirtualNetworkGatewayVpnclientConnectionHealth(ctx, &args, opts...)
-			return *r, err
+			var s GetVirtualNetworkGatewayVpnclientConnectionHealthResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetVirtualNetworkGatewayVpnclientConnectionHealthResultOutput)
 }
 

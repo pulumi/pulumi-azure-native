@@ -71,7 +71,11 @@ func LookupMicrosoftSecurityIncidentCreationAlertRuleOutput(ctx *pulumi.Context,
 		ApplyT(func(v interface{}) (LookupMicrosoftSecurityIncidentCreationAlertRuleResult, error) {
 			args := v.(LookupMicrosoftSecurityIncidentCreationAlertRuleArgs)
 			r, err := LookupMicrosoftSecurityIncidentCreationAlertRule(ctx, &args, opts...)
-			return *r, err
+			var s LookupMicrosoftSecurityIncidentCreationAlertRuleResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupMicrosoftSecurityIncidentCreationAlertRuleResultOutput)
 }
 

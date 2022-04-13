@@ -51,7 +51,11 @@ func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs
 		ApplyT(func(v interface{}) (LookupAssessmentResult, error) {
 			args := v.(LookupAssessmentArgs)
 			r, err := LookupAssessment(ctx, &args, opts...)
-			return *r, err
+			var s LookupAssessmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAssessmentResultOutput)
 }
 

@@ -55,7 +55,11 @@ func LookupVirtualWANOutput(ctx *pulumi.Context, args LookupVirtualWANOutputArgs
 		ApplyT(func(v interface{}) (LookupVirtualWANResult, error) {
 			args := v.(LookupVirtualWANArgs)
 			r, err := LookupVirtualWAN(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualWANResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualWANResultOutput)
 }
 

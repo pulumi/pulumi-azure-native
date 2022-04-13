@@ -56,7 +56,11 @@ func LookupWebPubSubSharedPrivateLinkResourceOutput(ctx *pulumi.Context, args Lo
 		ApplyT(func(v interface{}) (LookupWebPubSubSharedPrivateLinkResourceResult, error) {
 			args := v.(LookupWebPubSubSharedPrivateLinkResourceArgs)
 			r, err := LookupWebPubSubSharedPrivateLinkResource(ctx, &args, opts...)
-			return *r, err
+			var s LookupWebPubSubSharedPrivateLinkResourceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupWebPubSubSharedPrivateLinkResourceResultOutput)
 }
 

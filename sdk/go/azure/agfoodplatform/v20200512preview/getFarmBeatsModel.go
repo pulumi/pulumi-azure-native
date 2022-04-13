@@ -52,7 +52,11 @@ func LookupFarmBeatsModelOutput(ctx *pulumi.Context, args LookupFarmBeatsModelOu
 		ApplyT(func(v interface{}) (LookupFarmBeatsModelResult, error) {
 			args := v.(LookupFarmBeatsModelArgs)
 			r, err := LookupFarmBeatsModel(ctx, &args, opts...)
-			return *r, err
+			var s LookupFarmBeatsModelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFarmBeatsModelResultOutput)
 }
 

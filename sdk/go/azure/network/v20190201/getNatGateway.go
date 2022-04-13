@@ -64,7 +64,11 @@ func LookupNatGatewayOutput(ctx *pulumi.Context, args LookupNatGatewayOutputArgs
 		ApplyT(func(v interface{}) (LookupNatGatewayResult, error) {
 			args := v.(LookupNatGatewayArgs)
 			r, err := LookupNatGateway(ctx, &args, opts...)
-			return *r, err
+			var s LookupNatGatewayResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupNatGatewayResultOutput)
 }
 

@@ -39,7 +39,11 @@ func ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(ctx *
 		ApplyT(func(v interface{}) (ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult, error) {
 			args := v.(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionArgs)
 			r, err := ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission(ctx, &args, opts...)
-			return *r, err
+			var s ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResultOutput)
 }
 

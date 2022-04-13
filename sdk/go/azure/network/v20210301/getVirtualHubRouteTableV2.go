@@ -50,7 +50,11 @@ func LookupVirtualHubRouteTableV2Output(ctx *pulumi.Context, args LookupVirtualH
 		ApplyT(func(v interface{}) (LookupVirtualHubRouteTableV2Result, error) {
 			args := v.(LookupVirtualHubRouteTableV2Args)
 			r, err := LookupVirtualHubRouteTableV2(ctx, &args, opts...)
-			return *r, err
+			var s LookupVirtualHubRouteTableV2Result
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVirtualHubRouteTableV2ResultOutput)
 }
 

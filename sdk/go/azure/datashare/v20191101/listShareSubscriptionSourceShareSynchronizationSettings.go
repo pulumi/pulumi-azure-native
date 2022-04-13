@@ -44,7 +44,11 @@ func ListShareSubscriptionSourceShareSynchronizationSettingsOutput(ctx *pulumi.C
 		ApplyT(func(v interface{}) (ListShareSubscriptionSourceShareSynchronizationSettingsResult, error) {
 			args := v.(ListShareSubscriptionSourceShareSynchronizationSettingsArgs)
 			r, err := ListShareSubscriptionSourceShareSynchronizationSettings(ctx, &args, opts...)
-			return *r, err
+			var s ListShareSubscriptionSourceShareSynchronizationSettingsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListShareSubscriptionSourceShareSynchronizationSettingsResultOutput)
 }
 

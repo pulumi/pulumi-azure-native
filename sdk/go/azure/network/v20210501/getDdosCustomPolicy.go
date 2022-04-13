@@ -56,7 +56,11 @@ func LookupDdosCustomPolicyOutput(ctx *pulumi.Context, args LookupDdosCustomPoli
 		ApplyT(func(v interface{}) (LookupDdosCustomPolicyResult, error) {
 			args := v.(LookupDdosCustomPolicyArgs)
 			r, err := LookupDdosCustomPolicy(ctx, &args, opts...)
-			return *r, err
+			var s LookupDdosCustomPolicyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDdosCustomPolicyResultOutput)
 }
 

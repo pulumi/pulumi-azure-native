@@ -44,7 +44,11 @@ func ListIntegrationAccountKeyVaultKeysOutput(ctx *pulumi.Context, args ListInte
 		ApplyT(func(v interface{}) (ListIntegrationAccountKeyVaultKeysResult, error) {
 			args := v.(ListIntegrationAccountKeyVaultKeysArgs)
 			r, err := ListIntegrationAccountKeyVaultKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListIntegrationAccountKeyVaultKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListIntegrationAccountKeyVaultKeysResultOutput)
 }
 

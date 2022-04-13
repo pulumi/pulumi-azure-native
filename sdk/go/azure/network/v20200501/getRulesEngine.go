@@ -48,7 +48,11 @@ func LookupRulesEngineOutput(ctx *pulumi.Context, args LookupRulesEngineOutputAr
 		ApplyT(func(v interface{}) (LookupRulesEngineResult, error) {
 			args := v.(LookupRulesEngineArgs)
 			r, err := LookupRulesEngine(ctx, &args, opts...)
-			return *r, err
+			var s LookupRulesEngineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupRulesEngineResultOutput)
 }
 

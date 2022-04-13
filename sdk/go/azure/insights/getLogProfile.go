@@ -55,7 +55,11 @@ func LookupLogProfileOutput(ctx *pulumi.Context, args LookupLogProfileOutputArgs
 		ApplyT(func(v interface{}) (LookupLogProfileResult, error) {
 			args := v.(LookupLogProfileArgs)
 			r, err := LookupLogProfile(ctx, &args, opts...)
-			return *r, err
+			var s LookupLogProfileResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupLogProfileResultOutput)
 }
 

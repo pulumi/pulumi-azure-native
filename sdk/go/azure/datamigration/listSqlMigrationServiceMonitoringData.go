@@ -41,7 +41,11 @@ func ListSqlMigrationServiceMonitoringDataOutput(ctx *pulumi.Context, args ListS
 		ApplyT(func(v interface{}) (ListSqlMigrationServiceMonitoringDataResult, error) {
 			args := v.(ListSqlMigrationServiceMonitoringDataArgs)
 			r, err := ListSqlMigrationServiceMonitoringData(ctx, &args, opts...)
-			return *r, err
+			var s ListSqlMigrationServiceMonitoringDataResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListSqlMigrationServiceMonitoringDataResultOutput)
 }
 

@@ -59,7 +59,11 @@ func LookupDedicatedHostGroupOutput(ctx *pulumi.Context, args LookupDedicatedHos
 		ApplyT(func(v interface{}) (LookupDedicatedHostGroupResult, error) {
 			args := v.(LookupDedicatedHostGroupArgs)
 			r, err := LookupDedicatedHostGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupDedicatedHostGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupDedicatedHostGroupResultOutput)
 }
 

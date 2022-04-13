@@ -63,7 +63,11 @@ func LookupSensitivityLabelOutput(ctx *pulumi.Context, args LookupSensitivityLab
 		ApplyT(func(v interface{}) (LookupSensitivityLabelResult, error) {
 			args := v.(LookupSensitivityLabelArgs)
 			r, err := LookupSensitivityLabel(ctx, &args, opts...)
-			return *r, err
+			var s LookupSensitivityLabelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSensitivityLabelResultOutput)
 }
 

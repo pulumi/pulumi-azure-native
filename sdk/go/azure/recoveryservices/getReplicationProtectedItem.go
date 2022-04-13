@@ -53,7 +53,11 @@ func LookupReplicationProtectedItemOutput(ctx *pulumi.Context, args LookupReplic
 		ApplyT(func(v interface{}) (LookupReplicationProtectedItemResult, error) {
 			args := v.(LookupReplicationProtectedItemArgs)
 			r, err := LookupReplicationProtectedItem(ctx, &args, opts...)
-			return *r, err
+			var s LookupReplicationProtectedItemResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupReplicationProtectedItemResultOutput)
 }
 

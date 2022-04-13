@@ -56,7 +56,11 @@ func LookupConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupConfigu
 		ApplyT(func(v interface{}) (LookupConfigurationAssignmentResult, error) {
 			args := v.(LookupConfigurationAssignmentArgs)
 			r, err := LookupConfigurationAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupConfigurationAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupConfigurationAssignmentResultOutput)
 }
 

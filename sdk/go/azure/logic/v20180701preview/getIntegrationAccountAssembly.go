@@ -50,7 +50,11 @@ func LookupIntegrationAccountAssemblyOutput(ctx *pulumi.Context, args LookupInte
 		ApplyT(func(v interface{}) (LookupIntegrationAccountAssemblyResult, error) {
 			args := v.(LookupIntegrationAccountAssemblyArgs)
 			r, err := LookupIntegrationAccountAssembly(ctx, &args, opts...)
-			return *r, err
+			var s LookupIntegrationAccountAssemblyResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupIntegrationAccountAssemblyResultOutput)
 }
 

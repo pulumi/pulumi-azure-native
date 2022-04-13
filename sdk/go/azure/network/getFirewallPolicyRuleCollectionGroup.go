@@ -53,7 +53,11 @@ func LookupFirewallPolicyRuleCollectionGroupOutput(ctx *pulumi.Context, args Loo
 		ApplyT(func(v interface{}) (LookupFirewallPolicyRuleCollectionGroupResult, error) {
 			args := v.(LookupFirewallPolicyRuleCollectionGroupArgs)
 			r, err := LookupFirewallPolicyRuleCollectionGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupFirewallPolicyRuleCollectionGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFirewallPolicyRuleCollectionGroupResultOutput)
 }
 

@@ -52,7 +52,11 @@ func LookupManagedInstanceAdministratorOutput(ctx *pulumi.Context, args LookupMa
 		ApplyT(func(v interface{}) (LookupManagedInstanceAdministratorResult, error) {
 			args := v.(LookupManagedInstanceAdministratorArgs)
 			r, err := LookupManagedInstanceAdministrator(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedInstanceAdministratorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedInstanceAdministratorResultOutput)
 }
 

@@ -44,7 +44,11 @@ func ListWebPubSubKeysOutput(ctx *pulumi.Context, args ListWebPubSubKeysOutputAr
 		ApplyT(func(v interface{}) (ListWebPubSubKeysResult, error) {
 			args := v.(ListWebPubSubKeysArgs)
 			r, err := ListWebPubSubKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListWebPubSubKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebPubSubKeysResultOutput)
 }
 

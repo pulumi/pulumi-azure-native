@@ -55,7 +55,11 @@ func LookupVolumeGroupOutput(ctx *pulumi.Context, args LookupVolumeGroupOutputAr
 		ApplyT(func(v interface{}) (LookupVolumeGroupResult, error) {
 			args := v.(LookupVolumeGroupArgs)
 			r, err := LookupVolumeGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupVolumeGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupVolumeGroupResultOutput)
 }
 

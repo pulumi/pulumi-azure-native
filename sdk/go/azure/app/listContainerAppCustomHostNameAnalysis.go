@@ -69,7 +69,11 @@ func ListContainerAppCustomHostNameAnalysisOutput(ctx *pulumi.Context, args List
 		ApplyT(func(v interface{}) (ListContainerAppCustomHostNameAnalysisResult, error) {
 			args := v.(ListContainerAppCustomHostNameAnalysisArgs)
 			r, err := ListContainerAppCustomHostNameAnalysis(ctx, &args, opts...)
-			return *r, err
+			var s ListContainerAppCustomHostNameAnalysisResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListContainerAppCustomHostNameAnalysisResultOutput)
 }
 

@@ -57,7 +57,11 @@ func GetprivateLinkServicesForM365ComplianceCenterOutput(ctx *pulumi.Context, ar
 		ApplyT(func(v interface{}) (GetprivateLinkServicesForM365ComplianceCenterResult, error) {
 			args := v.(GetprivateLinkServicesForM365ComplianceCenterArgs)
 			r, err := GetprivateLinkServicesForM365ComplianceCenter(ctx, &args, opts...)
-			return *r, err
+			var s GetprivateLinkServicesForM365ComplianceCenterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetprivateLinkServicesForM365ComplianceCenterResultOutput)
 }
 

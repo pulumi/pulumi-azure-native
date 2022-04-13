@@ -62,7 +62,11 @@ func LookupCapacityDetailsOutput(ctx *pulumi.Context, args LookupCapacityDetails
 		ApplyT(func(v interface{}) (LookupCapacityDetailsResult, error) {
 			args := v.(LookupCapacityDetailsArgs)
 			r, err := LookupCapacityDetails(ctx, &args, opts...)
-			return *r, err
+			var s LookupCapacityDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCapacityDetailsResultOutput)
 }
 

@@ -50,7 +50,11 @@ func ListWebAppMetadataSlotOutput(ctx *pulumi.Context, args ListWebAppMetadataSl
 		ApplyT(func(v interface{}) (ListWebAppMetadataSlotResult, error) {
 			args := v.(ListWebAppMetadataSlotArgs)
 			r, err := ListWebAppMetadataSlot(ctx, &args, opts...)
-			return *r, err
+			var s ListWebAppMetadataSlotResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebAppMetadataSlotResultOutput)
 }
 

@@ -58,7 +58,11 @@ func LookupTransactionNodeOutput(ctx *pulumi.Context, args LookupTransactionNode
 		ApplyT(func(v interface{}) (LookupTransactionNodeResult, error) {
 			args := v.(LookupTransactionNodeArgs)
 			r, err := LookupTransactionNode(ctx, &args, opts...)
-			return *r, err
+			var s LookupTransactionNodeResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupTransactionNodeResultOutput)
 }
 

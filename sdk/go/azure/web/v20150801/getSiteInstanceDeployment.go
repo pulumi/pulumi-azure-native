@@ -72,7 +72,11 @@ func LookupSiteInstanceDeploymentOutput(ctx *pulumi.Context, args LookupSiteInst
 		ApplyT(func(v interface{}) (LookupSiteInstanceDeploymentResult, error) {
 			args := v.(LookupSiteInstanceDeploymentArgs)
 			r, err := LookupSiteInstanceDeployment(ctx, &args, opts...)
-			return *r, err
+			var s LookupSiteInstanceDeploymentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSiteInstanceDeploymentResultOutput)
 }
 

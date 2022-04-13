@@ -72,7 +72,11 @@ func ListTaskRunDetailsOutput(ctx *pulumi.Context, args ListTaskRunDetailsOutput
 		ApplyT(func(v interface{}) (ListTaskRunDetailsResult, error) {
 			args := v.(ListTaskRunDetailsArgs)
 			r, err := ListTaskRunDetails(ctx, &args, opts...)
-			return *r, err
+			var s ListTaskRunDetailsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListTaskRunDetailsResultOutput)
 }
 

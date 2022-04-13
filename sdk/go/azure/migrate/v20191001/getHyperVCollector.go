@@ -41,7 +41,11 @@ func LookupHyperVCollectorOutput(ctx *pulumi.Context, args LookupHyperVCollector
 		ApplyT(func(v interface{}) (LookupHyperVCollectorResult, error) {
 			args := v.(LookupHyperVCollectorArgs)
 			r, err := LookupHyperVCollector(ctx, &args, opts...)
-			return *r, err
+			var s LookupHyperVCollectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupHyperVCollectorResultOutput)
 }
 

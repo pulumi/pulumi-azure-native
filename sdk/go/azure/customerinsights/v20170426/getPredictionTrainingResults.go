@@ -48,7 +48,11 @@ func GetPredictionTrainingResultsOutput(ctx *pulumi.Context, args GetPredictionT
 		ApplyT(func(v interface{}) (GetPredictionTrainingResultsResult, error) {
 			args := v.(GetPredictionTrainingResultsArgs)
 			r, err := GetPredictionTrainingResults(ctx, &args, opts...)
-			return *r, err
+			var s GetPredictionTrainingResultsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetPredictionTrainingResultsResultOutput)
 }
 

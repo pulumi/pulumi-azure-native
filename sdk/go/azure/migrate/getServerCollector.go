@@ -42,7 +42,11 @@ func LookupServerCollectorOutput(ctx *pulumi.Context, args LookupServerCollector
 		ApplyT(func(v interface{}) (LookupServerCollectorResult, error) {
 			args := v.(LookupServerCollectorArgs)
 			r, err := LookupServerCollector(ctx, &args, opts...)
-			return *r, err
+			var s LookupServerCollectorResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupServerCollectorResultOutput)
 }
 

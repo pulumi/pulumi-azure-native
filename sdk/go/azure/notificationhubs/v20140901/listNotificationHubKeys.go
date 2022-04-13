@@ -44,7 +44,11 @@ func ListNotificationHubKeysOutput(ctx *pulumi.Context, args ListNotificationHub
 		ApplyT(func(v interface{}) (ListNotificationHubKeysResult, error) {
 			args := v.(ListNotificationHubKeysArgs)
 			r, err := ListNotificationHubKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListNotificationHubKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNotificationHubKeysResultOutput)
 }
 

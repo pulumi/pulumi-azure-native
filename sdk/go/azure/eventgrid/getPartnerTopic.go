@@ -69,7 +69,11 @@ func LookupPartnerTopicOutput(ctx *pulumi.Context, args LookupPartnerTopicOutput
 		ApplyT(func(v interface{}) (LookupPartnerTopicResult, error) {
 			args := v.(LookupPartnerTopicArgs)
 			r, err := LookupPartnerTopic(ctx, &args, opts...)
-			return *r, err
+			var s LookupPartnerTopicResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPartnerTopicResultOutput)
 }
 

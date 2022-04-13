@@ -103,7 +103,11 @@ func LookupManagedClusterOutput(ctx *pulumi.Context, args LookupManagedClusterOu
 		ApplyT(func(v interface{}) (LookupManagedClusterResult, error) {
 			args := v.(LookupManagedClusterArgs)
 			r, err := LookupManagedCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupManagedClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupManagedClusterResultOutput)
 }
 

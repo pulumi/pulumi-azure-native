@@ -73,7 +73,11 @@ func LookupEventChannelOutput(ctx *pulumi.Context, args LookupEventChannelOutput
 		ApplyT(func(v interface{}) (LookupEventChannelResult, error) {
 			args := v.(LookupEventChannelArgs)
 			r, err := LookupEventChannel(ctx, &args, opts...)
-			return *r, err
+			var s LookupEventChannelResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupEventChannelResultOutput)
 }
 

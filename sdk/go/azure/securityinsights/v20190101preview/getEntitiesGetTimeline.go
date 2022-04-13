@@ -52,7 +52,11 @@ func GetEntitiesGetTimelineOutput(ctx *pulumi.Context, args GetEntitiesGetTimeli
 		ApplyT(func(v interface{}) (GetEntitiesGetTimelineResult, error) {
 			args := v.(GetEntitiesGetTimelineArgs)
 			r, err := GetEntitiesGetTimeline(ctx, &args, opts...)
-			return *r, err
+			var s GetEntitiesGetTimelineResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetEntitiesGetTimelineResultOutput)
 }
 

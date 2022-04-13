@@ -83,7 +83,11 @@ func LookupOpenShiftManagedClusterOutput(ctx *pulumi.Context, args LookupOpenShi
 		ApplyT(func(v interface{}) (LookupOpenShiftManagedClusterResult, error) {
 			args := v.(LookupOpenShiftManagedClusterArgs)
 			r, err := LookupOpenShiftManagedCluster(ctx, &args, opts...)
-			return *r, err
+			var s LookupOpenShiftManagedClusterResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupOpenShiftManagedClusterResultOutput)
 }
 

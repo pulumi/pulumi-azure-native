@@ -101,7 +101,11 @@ func LookupAzurePowerShellScriptOutput(ctx *pulumi.Context, args LookupAzurePowe
 		ApplyT(func(v interface{}) (LookupAzurePowerShellScriptResult, error) {
 			args := v.(LookupAzurePowerShellScriptArgs)
 			r, err := LookupAzurePowerShellScript(ctx, &args, opts...)
-			return *r, err
+			var s LookupAzurePowerShellScriptResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupAzurePowerShellScriptResultOutput)
 }
 

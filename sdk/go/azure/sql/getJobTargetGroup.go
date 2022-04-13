@@ -49,7 +49,11 @@ func LookupJobTargetGroupOutput(ctx *pulumi.Context, args LookupJobTargetGroupOu
 		ApplyT(func(v interface{}) (LookupJobTargetGroupResult, error) {
 			args := v.(LookupJobTargetGroupArgs)
 			r, err := LookupJobTargetGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupJobTargetGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupJobTargetGroupResultOutput)
 }
 

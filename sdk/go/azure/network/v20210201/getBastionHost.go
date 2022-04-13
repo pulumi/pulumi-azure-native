@@ -67,7 +67,11 @@ func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputAr
 		ApplyT(func(v interface{}) (LookupBastionHostResult, error) {
 			args := v.(LookupBastionHostArgs)
 			r, err := LookupBastionHost(ctx, &args, opts...)
-			return *r, err
+			var s LookupBastionHostResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupBastionHostResultOutput)
 }
 

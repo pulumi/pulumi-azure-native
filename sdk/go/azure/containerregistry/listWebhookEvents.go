@@ -43,7 +43,11 @@ func ListWebhookEventsOutput(ctx *pulumi.Context, args ListWebhookEventsOutputAr
 		ApplyT(func(v interface{}) (ListWebhookEventsResult, error) {
 			args := v.(ListWebhookEventsArgs)
 			r, err := ListWebhookEvents(ctx, &args, opts...)
-			return *r, err
+			var s ListWebhookEventsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListWebhookEventsResultOutput)
 }
 

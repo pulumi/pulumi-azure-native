@@ -48,7 +48,11 @@ func ListEndpointCredentialsOutput(ctx *pulumi.Context, args ListEndpointCredent
 		ApplyT(func(v interface{}) (ListEndpointCredentialsResult, error) {
 			args := v.(ListEndpointCredentialsArgs)
 			r, err := ListEndpointCredentials(ctx, &args, opts...)
-			return *r, err
+			var s ListEndpointCredentialsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListEndpointCredentialsResultOutput)
 }
 

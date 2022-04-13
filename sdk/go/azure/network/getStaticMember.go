@@ -53,7 +53,11 @@ func LookupStaticMemberOutput(ctx *pulumi.Context, args LookupStaticMemberOutput
 		ApplyT(func(v interface{}) (LookupStaticMemberResult, error) {
 			args := v.(LookupStaticMemberArgs)
 			r, err := LookupStaticMember(ctx, &args, opts...)
-			return *r, err
+			var s LookupStaticMemberResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupStaticMemberResultOutput)
 }
 

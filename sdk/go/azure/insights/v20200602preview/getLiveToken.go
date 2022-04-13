@@ -36,7 +36,11 @@ func GetLiveTokenOutput(ctx *pulumi.Context, args GetLiveTokenOutputArgs, opts .
 		ApplyT(func(v interface{}) (GetLiveTokenResult, error) {
 			args := v.(GetLiveTokenArgs)
 			r, err := GetLiveToken(ctx, &args, opts...)
-			return *r, err
+			var s GetLiveTokenResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetLiveTokenResultOutput)
 }
 

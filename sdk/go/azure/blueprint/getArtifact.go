@@ -49,7 +49,11 @@ func LookupArtifactOutput(ctx *pulumi.Context, args LookupArtifactOutputArgs, op
 		ApplyT(func(v interface{}) (LookupArtifactResult, error) {
 			args := v.(LookupArtifactArgs)
 			r, err := LookupArtifact(ctx, &args, opts...)
-			return *r, err
+			var s LookupArtifactResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupArtifactResultOutput)
 }
 

@@ -71,7 +71,11 @@ func LookupInvitationOutput(ctx *pulumi.Context, args LookupInvitationOutputArgs
 		ApplyT(func(v interface{}) (LookupInvitationResult, error) {
 			args := v.(LookupInvitationArgs)
 			r, err := LookupInvitation(ctx, &args, opts...)
-			return *r, err
+			var s LookupInvitationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupInvitationResultOutput)
 }
 

@@ -66,7 +66,11 @@ func LookupSliceOutput(ctx *pulumi.Context, args LookupSliceOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupSliceResult, error) {
 			args := v.(LookupSliceArgs)
 			r, err := LookupSlice(ctx, &args, opts...)
-			return *r, err
+			var s LookupSliceResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupSliceResultOutput)
 }
 

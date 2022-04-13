@@ -49,7 +49,11 @@ func LookupCustomEntityStoreAssignmentOutput(ctx *pulumi.Context, args LookupCus
 		ApplyT(func(v interface{}) (LookupCustomEntityStoreAssignmentResult, error) {
 			args := v.(LookupCustomEntityStoreAssignmentArgs)
 			r, err := LookupCustomEntityStoreAssignment(ctx, &args, opts...)
-			return *r, err
+			var s LookupCustomEntityStoreAssignmentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupCustomEntityStoreAssignmentResultOutput)
 }
 

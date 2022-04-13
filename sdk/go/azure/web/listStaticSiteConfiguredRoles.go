@@ -47,7 +47,11 @@ func ListStaticSiteConfiguredRolesOutput(ctx *pulumi.Context, args ListStaticSit
 		ApplyT(func(v interface{}) (ListStaticSiteConfiguredRolesResult, error) {
 			args := v.(ListStaticSiteConfiguredRolesArgs)
 			r, err := ListStaticSiteConfiguredRoles(ctx, &args, opts...)
-			return *r, err
+			var s ListStaticSiteConfiguredRolesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListStaticSiteConfiguredRolesResultOutput)
 }
 

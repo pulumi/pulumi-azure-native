@@ -60,7 +60,11 @@ func LookupFailoverGroupOutput(ctx *pulumi.Context, args LookupFailoverGroupOutp
 		ApplyT(func(v interface{}) (LookupFailoverGroupResult, error) {
 			args := v.(LookupFailoverGroupArgs)
 			r, err := LookupFailoverGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupFailoverGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupFailoverGroupResultOutput)
 }
 

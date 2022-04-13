@@ -59,7 +59,11 @@ func LookupPeeringOutput(ctx *pulumi.Context, args LookupPeeringOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupPeeringResult, error) {
 			args := v.(LookupPeeringArgs)
 			r, err := LookupPeering(ctx, &args, opts...)
-			return *r, err
+			var s LookupPeeringResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPeeringResultOutput)
 }
 

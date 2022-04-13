@@ -52,7 +52,11 @@ func ListNamespaceKeysOutput(ctx *pulumi.Context, args ListNamespaceKeysOutputAr
 		ApplyT(func(v interface{}) (ListNamespaceKeysResult, error) {
 			args := v.(ListNamespaceKeysArgs)
 			r, err := ListNamespaceKeys(ctx, &args, opts...)
-			return *r, err
+			var s ListNamespaceKeysResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(ListNamespaceKeysResultOutput)
 }
 
