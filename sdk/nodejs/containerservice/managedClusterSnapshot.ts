@@ -104,7 +104,7 @@ export class ManagedClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedClusterSnapshot.__pulumiType, name, resourceInputs, opts);
     }

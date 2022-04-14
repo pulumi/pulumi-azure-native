@@ -4974,6 +4974,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerservice/v20220302preview",
+  "fqn": "pulumi_azure_native.containerservice.v20220302preview",
+  "classes": {
+   "azure-native:containerservice/v20220302preview:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20220302preview:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20220302preview:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
+   "azure-native:containerservice/v20220302preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerservice/v20220302preview:Snapshot": "Snapshot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "costmanagement",
   "fqn": "pulumi_azure_native.costmanagement",
   "classes": {
