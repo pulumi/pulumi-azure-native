@@ -72738,6 +72738,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-07-01-preview",
           "2022-04-01-preview",
           "2022-01-01-preview",
           "2021-10-01-preview",
@@ -73064,6 +73065,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01-preview",
           "2022-04-01-preview",
           "2022-01-01-preview",
           "2021-10-01-preview",
@@ -104641,6 +104643,21 @@
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-10-21-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "global"
+        ],
+        "properties": null,
+        "resourceType": "operations"
       }
     ]
   },
@@ -109278,6 +109295,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01",
           "2021-11-01-preview",
           "2021-01-01-privatepreview"
         ],
@@ -109292,6 +109310,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01",
           "2021-11-01-preview",
           "2021-01-01-privatepreview"
         ],
@@ -109326,6 +109345,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01",
           "2021-11-01-preview",
           "2021-01-01-privatepreview"
         ],
@@ -109340,6 +109360,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01",
           "2022-01-01-preview",
           "2021-11-01-preview"
         ],
