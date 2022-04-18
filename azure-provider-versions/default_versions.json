@@ -117,15 +117,15 @@
         "listTenantAccessSecrets": "2020-12-01"
     },
     "App": {
-        "Certificate": "2022-01-01-preview",
-        "ContainerApp": "2022-01-01-preview",
-        "ContainerAppsAuthConfig": "2022-01-01-preview",
-        "ContainerAppsSourceControl": "2022-01-01-preview",
-        "DaprComponent": "2022-01-01-preview",
-        "ManagedEnvironment": "2022-01-01-preview",
-        "ManagedEnvironmentsStorage": "2022-01-01-preview",
-        "listContainerAppCustomHostNameAnalysis": "2022-01-01-preview",
-        "listContainerAppSecrets": "2022-01-01-preview",
+        "Certificate": "2022-03-01",
+        "ContainerApp": "2022-03-01",
+        "ContainerAppsAuthConfig": "2022-03-01",
+        "ContainerAppsSourceControl": "2022-03-01",
+        "DaprComponent": "2022-03-01",
+        "ManagedEnvironment": "2022-03-01",
+        "ManagedEnvironmentsStorage": "2022-03-01",
+        "listContainerAppCustomHostNameAnalysis": "2022-03-01",
+        "listContainerAppSecrets": "2022-03-01",
         "listDaprComponentSecrets": "2022-03-01"
     },
     "AppConfiguration": {
@@ -442,6 +442,8 @@
         "ReportByBillingAccount": "2018-08-01-preview",
         "ReportByDepartment": "2018-08-01-preview",
         "ReportByResourceGroupName": "2018-08-01-preview",
+        "ScheduledAction": "2022-04-01-preview",
+        "ScheduledActionByScope": "2022-04-01-preview",
         "Setting": "2019-11-01",
         "View": "2019-11-01",
         "ViewByScope": "2019-11-01"
