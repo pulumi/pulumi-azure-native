@@ -17,6 +17,8 @@ type NspAssociation struct {
 
 	// Access mode on the association.
 	AccessMode pulumi.StringPtrOutput `pulumi:"accessMode"`
+	// Specifies if there are provisioning issues
+	HasProvisioningIssues pulumi.StringOutput `pulumi:"hasProvisioningIssues"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.

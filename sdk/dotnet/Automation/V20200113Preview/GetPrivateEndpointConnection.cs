@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Gets the groupIds.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
         /// Fully qualified resource Id for the resource
         /// </summary>
         public readonly string Id;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

@@ -4469,7 +4469,7 @@ func (o ClientRegistrationResponsePtrOutput) ClientSecretSettingName() pulumi.St
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type Configuration struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode *string `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr *Dapr `pulumi:"dapr"`
@@ -4506,7 +4506,7 @@ type ConfigurationInput interface {
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type ConfigurationArgs struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode pulumi.StringPtrInput `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr DaprPtrInput `pulumi:"dapr"`
@@ -4597,7 +4597,7 @@ func (o ConfigurationOutput) ToConfigurationPtrOutputWithContext(ctx context.Con
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Configuration) *string { return v.ActiveRevisionsMode }).(pulumi.StringPtrOutput)
 }
@@ -4647,7 +4647,7 @@ func (o ConfigurationPtrOutput) Elem() ConfigurationOutput {
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationPtrOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Configuration) *string {
 		if v == nil {
@@ -4700,7 +4700,7 @@ func (o ConfigurationPtrOutput) Secrets() SecretArrayOutput {
 // Non versioned Container App configuration properties that define the mutable settings of a Container app
 type ConfigurationResponse struct {
 	// ActiveRevisionsMode controls how active revisions are handled for the Container app:
-	// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+	// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 	ActiveRevisionsMode *string `pulumi:"activeRevisionsMode"`
 	// Dapr configuration for the Container App.
 	Dapr *DaprResponse `pulumi:"dapr"`
@@ -4739,7 +4739,7 @@ func (o ConfigurationResponseOutput) ToConfigurationResponseOutputWithContext(ct
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationResponseOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationResponse) *string { return v.ActiveRevisionsMode }).(pulumi.StringPtrOutput)
 }
@@ -4789,7 +4789,7 @@ func (o ConfigurationResponsePtrOutput) Elem() ConfigurationResponseOutput {
 }
 
 // ActiveRevisionsMode controls how active revisions are handled for the Container app:
-// <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+// <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
 func (o ConfigurationResponsePtrOutput) ActiveRevisionsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationResponse) *string {
 		if v == nil {
@@ -9186,8 +9186,10 @@ func (o GitHubResponsePtrOutput) Registration() ClientRegistrationResponsePtrOut
 type GithubActionConfiguration struct {
 	// AzureCredentials configurations.
 	AzureCredentials *AzureCredentials `pulumi:"azureCredentials"`
-	// Docker file path
-	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Context path
+	ContextPath *string `pulumi:"contextPath"`
+	// Image name
+	Image *string `pulumi:"image"`
 	// Operation system
 	Os *string `pulumi:"os"`
 	// Code or Image
@@ -9196,7 +9198,7 @@ type GithubActionConfiguration struct {
 	RegistryInfo *RegistryInfo `pulumi:"registryInfo"`
 	// Runtime stack
 	RuntimeStack *string `pulumi:"runtimeStack"`
-	// Runtime Version
+	// Runtime version
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 }
 
@@ -9215,8 +9217,10 @@ type GithubActionConfigurationInput interface {
 type GithubActionConfigurationArgs struct {
 	// AzureCredentials configurations.
 	AzureCredentials AzureCredentialsPtrInput `pulumi:"azureCredentials"`
-	// Docker file path
-	DockerfilePath pulumi.StringPtrInput `pulumi:"dockerfilePath"`
+	// Context path
+	ContextPath pulumi.StringPtrInput `pulumi:"contextPath"`
+	// Image name
+	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Operation system
 	Os pulumi.StringPtrInput `pulumi:"os"`
 	// Code or Image
@@ -9225,7 +9229,7 @@ type GithubActionConfigurationArgs struct {
 	RegistryInfo RegistryInfoPtrInput `pulumi:"registryInfo"`
 	// Runtime stack
 	RuntimeStack pulumi.StringPtrInput `pulumi:"runtimeStack"`
-	// Runtime Version
+	// Runtime version
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
 
@@ -9312,9 +9316,14 @@ func (o GithubActionConfigurationOutput) AzureCredentials() AzureCredentialsPtrO
 	return o.ApplyT(func(v GithubActionConfiguration) *AzureCredentials { return v.AzureCredentials }).(AzureCredentialsPtrOutput)
 }
 
-// Docker file path
-func (o GithubActionConfigurationOutput) DockerfilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GithubActionConfiguration) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
+// Context path
+func (o GithubActionConfigurationOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubActionConfiguration) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// Image name
+func (o GithubActionConfigurationOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubActionConfiguration) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Operation system
@@ -9337,7 +9346,7 @@ func (o GithubActionConfigurationOutput) RuntimeStack() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GithubActionConfiguration) *string { return v.RuntimeStack }).(pulumi.StringPtrOutput)
 }
 
-// Runtime Version
+// Runtime version
 func (o GithubActionConfigurationOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GithubActionConfiguration) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -9376,13 +9385,23 @@ func (o GithubActionConfigurationPtrOutput) AzureCredentials() AzureCredentialsP
 	}).(AzureCredentialsPtrOutput)
 }
 
-// Docker file path
-func (o GithubActionConfigurationPtrOutput) DockerfilePath() pulumi.StringPtrOutput {
+// Context path
+func (o GithubActionConfigurationPtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GithubActionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DockerfilePath
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image name
+func (o GithubActionConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubActionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9426,7 +9445,7 @@ func (o GithubActionConfigurationPtrOutput) RuntimeStack() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime Version
+// Runtime version
 func (o GithubActionConfigurationPtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GithubActionConfiguration) *string {
 		if v == nil {
@@ -9440,8 +9459,10 @@ func (o GithubActionConfigurationPtrOutput) RuntimeVersion() pulumi.StringPtrOut
 type GithubActionConfigurationResponse struct {
 	// AzureCredentials configurations.
 	AzureCredentials *AzureCredentialsResponse `pulumi:"azureCredentials"`
-	// Docker file path
-	DockerfilePath *string `pulumi:"dockerfilePath"`
+	// Context path
+	ContextPath *string `pulumi:"contextPath"`
+	// Image name
+	Image *string `pulumi:"image"`
 	// Operation system
 	Os *string `pulumi:"os"`
 	// Code or Image
@@ -9450,7 +9471,7 @@ type GithubActionConfigurationResponse struct {
 	RegistryInfo *RegistryInfoResponse `pulumi:"registryInfo"`
 	// Runtime stack
 	RuntimeStack *string `pulumi:"runtimeStack"`
-	// Runtime Version
+	// Runtime version
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
 }
 
@@ -9474,9 +9495,14 @@ func (o GithubActionConfigurationResponseOutput) AzureCredentials() AzureCredent
 	return o.ApplyT(func(v GithubActionConfigurationResponse) *AzureCredentialsResponse { return v.AzureCredentials }).(AzureCredentialsResponsePtrOutput)
 }
 
-// Docker file path
-func (o GithubActionConfigurationResponseOutput) DockerfilePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GithubActionConfigurationResponse) *string { return v.DockerfilePath }).(pulumi.StringPtrOutput)
+// Context path
+func (o GithubActionConfigurationResponseOutput) ContextPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubActionConfigurationResponse) *string { return v.ContextPath }).(pulumi.StringPtrOutput)
+}
+
+// Image name
+func (o GithubActionConfigurationResponseOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GithubActionConfigurationResponse) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
 // Operation system
@@ -9499,7 +9525,7 @@ func (o GithubActionConfigurationResponseOutput) RuntimeStack() pulumi.StringPtr
 	return o.ApplyT(func(v GithubActionConfigurationResponse) *string { return v.RuntimeStack }).(pulumi.StringPtrOutput)
 }
 
-// Runtime Version
+// Runtime version
 func (o GithubActionConfigurationResponseOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GithubActionConfigurationResponse) *string { return v.RuntimeVersion }).(pulumi.StringPtrOutput)
 }
@@ -9538,13 +9564,23 @@ func (o GithubActionConfigurationResponsePtrOutput) AzureCredentials() AzureCred
 	}).(AzureCredentialsResponsePtrOutput)
 }
 
-// Docker file path
-func (o GithubActionConfigurationResponsePtrOutput) DockerfilePath() pulumi.StringPtrOutput {
+// Context path
+func (o GithubActionConfigurationResponsePtrOutput) ContextPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GithubActionConfigurationResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.DockerfilePath
+		return v.ContextPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Image name
+func (o GithubActionConfigurationResponsePtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GithubActionConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Image
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9588,7 +9624,7 @@ func (o GithubActionConfigurationResponsePtrOutput) RuntimeStack() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Runtime Version
+// Runtime version
 func (o GithubActionConfigurationResponsePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GithubActionConfigurationResponse) *string {
 		if v == nil {
@@ -15039,6 +15075,8 @@ func (o QueueScaleRuleResponsePtrOutput) QueueName() pulumi.StringPtrOutput {
 
 // Container App Private Registry
 type RegistryCredentials struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity *string `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef *string `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15060,6 +15098,8 @@ type RegistryCredentialsInput interface {
 
 // Container App Private Registry
 type RegistryCredentialsArgs struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef pulumi.StringPtrInput `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15120,6 +15160,11 @@ func (o RegistryCredentialsOutput) ToRegistryCredentialsOutputWithContext(ctx co
 	return o
 }
 
+// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+func (o RegistryCredentialsOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryCredentials) *string { return v.Identity }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Secret that contains the registry login password
 func (o RegistryCredentialsOutput) PasswordSecretRef() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RegistryCredentials) *string { return v.PasswordSecretRef }).(pulumi.StringPtrOutput)
@@ -15157,6 +15202,8 @@ func (o RegistryCredentialsArrayOutput) Index(i pulumi.IntInput) RegistryCredent
 
 // Container App Private Registry
 type RegistryCredentialsResponse struct {
+	// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+	Identity *string `pulumi:"identity"`
 	// The name of the Secret that contains the registry login password
 	PasswordSecretRef *string `pulumi:"passwordSecretRef"`
 	// Container Registry Server
@@ -15178,6 +15225,11 @@ func (o RegistryCredentialsResponseOutput) ToRegistryCredentialsResponseOutput()
 
 func (o RegistryCredentialsResponseOutput) ToRegistryCredentialsResponseOutputWithContext(ctx context.Context) RegistryCredentialsResponseOutput {
 	return o
+}
+
+// A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+func (o RegistryCredentialsResponseOutput) Identity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistryCredentialsResponse) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Secret that contains the registry login password
@@ -16634,6 +16686,8 @@ func (o TemplateResponsePtrOutput) Volumes() VolumeResponseArrayOutput {
 
 // Traffic weight assigned to a revision
 type TrafficWeight struct {
+	// Associates a traffic label with a revision
+	Label *string `pulumi:"label"`
 	// Indicates that the traffic weight belongs to a latest stable revision
 	LatestRevision *bool `pulumi:"latestRevision"`
 	// Name of a revision
@@ -16668,6 +16722,8 @@ type TrafficWeightInput interface {
 
 // Traffic weight assigned to a revision
 type TrafficWeightArgs struct {
+	// Associates a traffic label with a revision
+	Label pulumi.StringPtrInput `pulumi:"label"`
 	// Indicates that the traffic weight belongs to a latest stable revision
 	LatestRevision pulumi.BoolPtrInput `pulumi:"latestRevision"`
 	// Name of a revision
@@ -16728,6 +16784,11 @@ func (o TrafficWeightOutput) ToTrafficWeightOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Associates a traffic label with a revision
+func (o TrafficWeightOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrafficWeight) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
 // Indicates that the traffic weight belongs to a latest stable revision
 func (o TrafficWeightOutput) LatestRevision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TrafficWeight) *bool { return v.LatestRevision }).(pulumi.BoolPtrOutput)
@@ -16765,6 +16826,8 @@ func (o TrafficWeightArrayOutput) Index(i pulumi.IntInput) TrafficWeightOutput {
 
 // Traffic weight assigned to a revision
 type TrafficWeightResponse struct {
+	// Associates a traffic label with a revision
+	Label *string `pulumi:"label"`
 	// Indicates that the traffic weight belongs to a latest stable revision
 	LatestRevision *bool `pulumi:"latestRevision"`
 	// Name of a revision
@@ -16799,6 +16862,11 @@ func (o TrafficWeightResponseOutput) ToTrafficWeightResponseOutput() TrafficWeig
 
 func (o TrafficWeightResponseOutput) ToTrafficWeightResponseOutputWithContext(ctx context.Context) TrafficWeightResponseOutput {
 	return o
+}
+
+// Associates a traffic label with a revision
+func (o TrafficWeightResponseOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrafficWeightResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
 // Indicates that the traffic weight belongs to a latest stable revision

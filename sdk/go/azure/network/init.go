@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AzureFirewall{}
 	case "azure-native:network:BastionHost":
 		r = &BastionHost{}
+	case "azure-native:network:ConfigurationPolicyGroup":
+		r = &ConfigurationPolicyGroup{}
 	case "azure-native:network:ConnectionMonitor":
 		r = &ConnectionMonitor{}
 	case "azure-native:network:ConnectivityConfiguration":
@@ -75,6 +77,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ExpressRouteGateway{}
 	case "azure-native:network:ExpressRoutePort":
 		r = &ExpressRoutePort{}
+	case "azure-native:network:ExpressRoutePortAuthorization":
+		r = &ExpressRoutePortAuthorization{}
 	case "azure-native:network:FirewallPolicy":
 		r = &FirewallPolicy{}
 	case "azure-native:network:FirewallPolicyRuleCollectionGroup":

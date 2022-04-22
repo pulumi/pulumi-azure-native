@@ -21,10 +21,13 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None):
+    def __init__(__self__, app_logs_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, zone_redundant=None):
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if dapr_ai_connection_string and not isinstance(dapr_ai_connection_string, str):
+            raise TypeError("Expected argument 'dapr_ai_connection_string' to be a str")
+        pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key and not isinstance(dapr_ai_instrumentation_key, str):
             raise TypeError("Expected argument 'dapr_ai_instrumentation_key' to be a str")
         pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
@@ -61,6 +64,9 @@ class GetManagedEnvironmentResult:
         if vnet_configuration and not isinstance(vnet_configuration, dict):
             raise TypeError("Expected argument 'vnet_configuration' to be a dict")
         pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="appLogsConfiguration")
@@ -71,6 +77,14 @@ class GetManagedEnvironmentResult:
         supported
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="daprAIConnectionString")
+    def dapr_ai_connection_string(self) -> Optional[str]:
+        """
+        Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        """
+        return pulumi.get(self, "dapr_ai_connection_string")
 
     @property
     @pulumi.getter(name="daprAIInstrumentationKey")
@@ -168,6 +182,14 @@ class GetManagedEnvironmentResult:
         """
         return pulumi.get(self, "vnet_configuration")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Whether or not this Managed Environment is zone-redundant.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -176,6 +198,7 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             yield self
         return GetManagedEnvironmentResult(
             app_logs_configuration=self.app_logs_configuration,
+            dapr_ai_connection_string=self.dapr_ai_connection_string,
             dapr_ai_instrumentation_key=self.dapr_ai_instrumentation_key,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
@@ -187,7 +210,8 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            vnet_configuration=self.vnet_configuration)
+            vnet_configuration=self.vnet_configuration,
+            zone_redundant=self.zone_redundant)
 
 
 def get_managed_environment(name: Optional[str] = None,
@@ -195,7 +219,7 @@ def get_managed_environment(name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
     An environment for hosting container apps
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str name: Name of the Environment.
@@ -212,6 +236,7 @@ def get_managed_environment(name: Optional[str] = None,
 
     return AwaitableGetManagedEnvironmentResult(
         app_logs_configuration=__ret__.app_logs_configuration,
+        dapr_ai_connection_string=__ret__.dapr_ai_connection_string,
         dapr_ai_instrumentation_key=__ret__.dapr_ai_instrumentation_key,
         default_domain=__ret__.default_domain,
         deployment_errors=__ret__.deployment_errors,
@@ -223,7 +248,8 @@ def get_managed_environment(name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
-        vnet_configuration=__ret__.vnet_configuration)
+        vnet_configuration=__ret__.vnet_configuration,
+        zone_redundant=__ret__.zone_redundant)
 
 
 @_utilities.lift_output_func(get_managed_environment)
@@ -232,7 +258,7 @@ def get_managed_environment_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     An environment for hosting container apps
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str name: Name of the Environment.

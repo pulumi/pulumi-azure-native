@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Resources.V20210501
                     new Pulumi.Alias { Type = "azure-native:resources:TemplateSpec"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpec"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpec"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpec"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

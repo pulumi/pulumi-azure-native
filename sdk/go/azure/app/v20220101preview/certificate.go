@@ -12,6 +12,8 @@ import (
 )
 
 // Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
+//
+// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type Certificate struct {
 	pulumi.CustomResourceState
 

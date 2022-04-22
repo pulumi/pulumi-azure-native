@@ -118,7 +118,12 @@ class ContainerAppsSourceControlArgs:
         pulumi.set(self, "repo_url", value)
 
 
+warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
+
 class ContainerAppsSourceControl(pulumi.CustomResource):
+    warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,6 +180,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""ContainerAppsSourceControl is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

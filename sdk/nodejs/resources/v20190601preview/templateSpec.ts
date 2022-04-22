@@ -103,7 +103,7 @@ export class TemplateSpec extends pulumi.CustomResource {
             resourceInputs["versions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources:TemplateSpec" }, { type: "azure-native:resources/v20210301preview:TemplateSpec" }, { type: "azure-native:resources/v20210501:TemplateSpec" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:TemplateSpec" }, { type: "azure-native:resources/v20210301preview:TemplateSpec" }, { type: "azure-native:resources/v20210501:TemplateSpec" }, { type: "azure-native:resources/v20220201:TemplateSpec" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateSpec.__pulumiType, name, resourceInputs, opts);
     }

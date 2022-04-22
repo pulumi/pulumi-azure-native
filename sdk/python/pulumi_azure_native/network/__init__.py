@@ -13,6 +13,7 @@ from .application_gateway_private_endpoint_connection import *
 from .application_security_group import *
 from .azure_firewall import *
 from .bastion_host import *
+from .configuration_policy_group import *
 from .connection_monitor import *
 from .connectivity_configuration import *
 from .custom_ip_prefix import *
@@ -33,6 +34,7 @@ from .express_route_connection import *
 from .express_route_cross_connection_peering import *
 from .express_route_gateway import *
 from .express_route_port import *
+from .express_route_port_authorization import *
 from .firewall_policy import *
 from .firewall_policy_rule_collection_group import *
 from .firewall_policy_rule_group import *
@@ -49,6 +51,7 @@ from .get_application_security_group import *
 from .get_azure_firewall import *
 from .get_bastion_host import *
 from .get_bastion_shareable_link import *
+from .get_configuration_policy_group import *
 from .get_connection_monitor import *
 from .get_connectivity_configuration import *
 from .get_custom_ip_prefix import *
@@ -70,6 +73,7 @@ from .get_express_route_connection import *
 from .get_express_route_cross_connection_peering import *
 from .get_express_route_gateway import *
 from .get_express_route_port import *
+from .get_express_route_port_authorization import *
 from .get_firewall_policy import *
 from .get_firewall_policy_rule_collection_group import *
 from .get_firewall_policy_rule_group import *
@@ -372,6 +376,8 @@ if typing.TYPE_CHECKING:
     v20210501 = __v20210501
     import pulumi_azure_native.network.v20210501preview as __v20210501preview
     v20210501preview = __v20210501preview
+    import pulumi_azure_native.network.v20210801 as __v20210801
+    v20210801 = __v20210801
     import pulumi_azure_native.network.v20220201preview as __v20220201preview
     v20220201preview = __v20220201preview
 else:
@@ -431,5 +437,6 @@ else:
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.network.v20210301preview')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.network.v20210501')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.network.v20210501preview')
+    v20210801 = _utilities.lazy_import('pulumi_azure_native.network.v20210801')
     v20220201preview = _utilities.lazy_import('pulumi_azure_native.network.v20220201preview')
 

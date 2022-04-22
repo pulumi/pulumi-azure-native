@@ -11,7 +11,7 @@ import (
 )
 
 // Container App SourceControl.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 func LookupContainerAppsSourceControl(ctx *pulumi.Context, args *LookupContainerAppsSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupContainerAppsSourceControlResult, error) {
 	var rv LookupContainerAppsSourceControlResult
 	err := ctx.Invoke("azure-native:app:getContainerAppsSourceControl", args, &rv, opts...)

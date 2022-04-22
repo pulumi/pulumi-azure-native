@@ -218,7 +218,7 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListContainerAppCustomHostNameAnalysisResult:
     """
     Custom domain analysis.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -260,7 +260,7 @@ def list_container_app_custom_host_name_analysis_output(container_app_name: Opti
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppCustomHostNameAnalysisResult]:
     """
     Custom domain analysis.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str container_app_name: Name of the Container App.

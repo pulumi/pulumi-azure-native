@@ -87,7 +87,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }, { type: "azure-native:databoxedge/v20220301:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-native:databoxedge/v20190701:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }, { type: "azure-native:databoxedge/v20220301:User" }, { type: "azure-native:databoxedge/v20220401preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

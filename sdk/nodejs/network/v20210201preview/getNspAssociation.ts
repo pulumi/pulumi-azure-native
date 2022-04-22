@@ -45,6 +45,10 @@ export interface GetNspAssociationResult {
      */
     readonly accessMode?: string;
     /**
+     * Specifies if there are provisioning issues
+     */
+    readonly hasProvisioningIssues: string;
+    /**
      * Resource ID.
      */
     readonly id: string;

@@ -31,7 +31,7 @@ class AccessMode(str, Enum):
 class ActiveRevisionsMode(str, Enum):
     """
     ActiveRevisionsMode controls how active revisions are handled for the Container app:
-    <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+    <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
     """
     MULTIPLE = "multiple"
     SINGLE = "single"

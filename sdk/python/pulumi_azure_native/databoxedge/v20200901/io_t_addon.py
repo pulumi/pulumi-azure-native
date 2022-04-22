@@ -225,7 +225,7 @@ class IoTAddon(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTAddon")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTAddon"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTAddon")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTAddon, __self__).__init__(
             'azure-native:databoxedge/v20200901:IoTAddon',

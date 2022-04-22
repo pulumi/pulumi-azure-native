@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Container App SourceControl.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsSourceControl")]
     public partial class ContainerAppsSourceControl : Pulumi.CustomResource

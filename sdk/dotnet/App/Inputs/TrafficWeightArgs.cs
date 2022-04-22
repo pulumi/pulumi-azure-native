@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class TrafficWeightArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Associates a traffic label with a revision
+        /// </summary>
+        [Input("label")]
+        public Input<string>? Label { get; set; }
+
+        /// <summary>
         /// Indicates that the traffic weight belongs to a latest stable revision
         /// </summary>
         [Input("latestRevision")]

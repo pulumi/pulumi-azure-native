@@ -122,7 +122,7 @@ def get_certificate(managed_environment_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str managed_environment_name: Name of the Managed Environment.
@@ -156,7 +156,7 @@ def get_certificate_output(managed_environment_name: Optional[pulumi.Input[str]]
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str managed_environment_name: Name of the Managed Environment.

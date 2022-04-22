@@ -33,10 +33,9 @@ export const AdminRuleKind = {
 export type AdminRuleKind = (typeof AdminRuleKind)[keyof typeof AdminRuleKind];
 
 export const AssociationAccessMode = {
-    Unspecified: "Unspecified",
-    EnforceMode: "EnforceMode",
-    LearningMode: "LearningMode",
-    DryRunMode: "DryRunMode",
+    Learning: "Learning",
+    Enforced: "Enforced",
+    Audit: "Audit",
 } as const;
 
 /**

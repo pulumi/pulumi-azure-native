@@ -16,6 +16,8 @@ from .get_report import *
 from .get_report_by_billing_account import *
 from .get_report_by_department import *
 from .get_report_by_resource_group_name import *
+from .get_scheduled_action import *
+from .get_scheduled_action_by_scope import *
 from .get_setting import *
 from .get_view import *
 from .get_view_by_scope import *
@@ -23,6 +25,8 @@ from .report import *
 from .report_by_billing_account import *
 from .report_by_department import *
 from .report_by_resource_group_name import *
+from .scheduled_action import *
+from .scheduled_action_by_scope import *
 from .setting import *
 from .view import *
 from .view_by_scope import *
@@ -57,6 +61,8 @@ if typing.TYPE_CHECKING:
     v20210101 = __v20210101
     import pulumi_azure_native.costmanagement.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.costmanagement.v20220401preview as __v20220401preview
+    v20220401preview = __v20220401preview
 else:
     v20180531 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180531')
     v20180801preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20180801preview')
@@ -71,4 +77,5 @@ else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20201201preview')
     v20210101 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20210101')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20211001')
+    v20220401preview = _utilities.lazy_import('pulumi_azure_native.costmanagement.v20220401preview')
 

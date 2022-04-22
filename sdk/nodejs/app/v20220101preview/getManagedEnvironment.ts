@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An environment for hosting container apps
  */
+/** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
+    pulumi.log.warn("getManagedEnvironment is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

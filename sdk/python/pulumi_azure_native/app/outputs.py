@@ -1174,7 +1174,7 @@ class ConfigurationResponse(dict):
         """
         Non versioned Container App configuration properties that define the mutable settings of a Container app
         :param str active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
-               <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+               <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
         :param 'DaprResponse' dapr: Dapr configuration for the Container App.
         :param 'IngressResponse' ingress: Ingress configurations.
         :param Sequence['RegistryCredentialsResponse'] registries: Collection of private container registry credentials for containers used by the Container app
@@ -1196,7 +1196,7 @@ class ConfigurationResponse(dict):
     def active_revisions_mode(self) -> Optional[str]:
         """
         ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
         """
         return pulumi.get(self, "active_revisions_mode")
 
@@ -2563,8 +2563,8 @@ class GithubActionConfigurationResponse(dict):
         suggest = None
         if key == "azureCredentials":
             suggest = "azure_credentials"
-        elif key == "dockerfilePath":
-            suggest = "dockerfile_path"
+        elif key == "contextPath":
+            suggest = "context_path"
         elif key == "publishType":
             suggest = "publish_type"
         elif key == "registryInfo":
@@ -2587,7 +2587,8 @@ class GithubActionConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  azure_credentials: Optional['outputs.AzureCredentialsResponse'] = None,
-                 dockerfile_path: Optional[str] = None,
+                 context_path: Optional[str] = None,
+                 image: Optional[str] = None,
                  os: Optional[str] = None,
                  publish_type: Optional[str] = None,
                  registry_info: Optional['outputs.RegistryInfoResponse'] = None,
@@ -2596,17 +2597,20 @@ class GithubActionConfigurationResponse(dict):
         """
         Configuration properties that define the mutable settings of a Container App SourceControl
         :param 'AzureCredentialsResponse' azure_credentials: AzureCredentials configurations.
-        :param str dockerfile_path: Docker file path
+        :param str context_path: Context path
+        :param str image: Image name
         :param str os: Operation system
         :param str publish_type: Code or Image
         :param 'RegistryInfoResponse' registry_info: Registry configurations.
         :param str runtime_stack: Runtime stack
-        :param str runtime_version: Runtime Version
+        :param str runtime_version: Runtime version
         """
         if azure_credentials is not None:
             pulumi.set(__self__, "azure_credentials", azure_credentials)
-        if dockerfile_path is not None:
-            pulumi.set(__self__, "dockerfile_path", dockerfile_path)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if os is not None:
             pulumi.set(__self__, "os", os)
         if publish_type is not None:
@@ -2627,12 +2631,20 @@ class GithubActionConfigurationResponse(dict):
         return pulumi.get(self, "azure_credentials")
 
     @property
-    @pulumi.getter(name="dockerfilePath")
-    def dockerfile_path(self) -> Optional[str]:
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[str]:
         """
-        Docker file path
+        Context path
         """
-        return pulumi.get(self, "dockerfile_path")
+        return pulumi.get(self, "context_path")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        Image name
+        """
+        return pulumi.get(self, "image")
 
     @property
     @pulumi.getter
@@ -2670,7 +2682,7 @@ class GithubActionConfigurationResponse(dict):
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[str]:
         """
-        Runtime Version
+        Runtime version
         """
         return pulumi.get(self, "runtime_version")
 
@@ -3975,21 +3987,33 @@ class RegistryCredentialsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 identity: Optional[str] = None,
                  password_secret_ref: Optional[str] = None,
                  server: Optional[str] = None,
                  username: Optional[str] = None):
         """
         Container App Private Registry
+        :param str identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param str password_secret_ref: The name of the Secret that contains the registry login password
         :param str server: Container Registry Server
         :param str username: Container Registry Username
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="passwordSecretRef")
@@ -4504,15 +4528,19 @@ class TrafficWeightResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 label: Optional[str] = None,
                  latest_revision: Optional[bool] = None,
                  revision_name: Optional[str] = None,
                  weight: Optional[int] = None):
         """
         Traffic weight assigned to a revision
+        :param str label: Associates a traffic label with a revision
         :param bool latest_revision: Indicates that the traffic weight belongs to a latest stable revision
         :param str revision_name: Name of a revision
         :param int weight: Traffic weight assigned to a revision
         """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if latest_revision is None:
             latest_revision = False
         if latest_revision is not None:
@@ -4521,6 +4549,14 @@ class TrafficWeightResponse(dict):
             pulumi.set(__self__, "revision_name", revision_name)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        Associates a traffic label with a revision
+        """
+        return pulumi.get(self, "label")
 
     @property
     @pulumi.getter(name="latestRevision")

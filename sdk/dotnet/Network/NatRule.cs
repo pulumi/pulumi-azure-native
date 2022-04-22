@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:NatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:NatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:NatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

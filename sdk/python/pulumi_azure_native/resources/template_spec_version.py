@@ -196,7 +196,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Template Spec Version object.
-        API Version: 2021-05-01.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +219,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template Spec Version object.
-        API Version: 2021-05-01.
+        API Version: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190601preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20210301preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20210501:TemplateSpecVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190601preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20210301preview:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20210501:TemplateSpecVersion"), pulumi.Alias(type_="azure-native:resources/v20220201:TemplateSpecVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateSpecVersion, __self__).__init__(
             'azure-native:resources:TemplateSpecVersion',

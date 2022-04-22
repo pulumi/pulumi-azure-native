@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App Secrets Collection ARM resource.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function listContainerAppSecrets(args: ListContainerAppSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppSecretsResult> {
     if (!opts) {

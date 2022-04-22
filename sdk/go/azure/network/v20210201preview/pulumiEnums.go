@@ -31,10 +31,9 @@ const (
 type AssociationAccessMode string
 
 const (
-	AssociationAccessModeUnspecified  = AssociationAccessMode("Unspecified")
-	AssociationAccessModeEnforceMode  = AssociationAccessMode("EnforceMode")
-	AssociationAccessModeLearningMode = AssociationAccessMode("LearningMode")
-	AssociationAccessModeDryRunMode   = AssociationAccessMode("DryRunMode")
+	AssociationAccessModeLearning = AssociationAccessMode("Learning")
+	AssociationAccessModeEnforced = AssociationAccessMode("Enforced")
+	AssociationAccessModeAudit    = AssociationAccessMode("Audit")
 )
 
 // Configuration Deployment Type.

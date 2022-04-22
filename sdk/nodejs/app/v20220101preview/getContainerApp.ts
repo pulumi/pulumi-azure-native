@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Container App.
  */
+/** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
+    pulumi.log.warn("getContainerApp is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

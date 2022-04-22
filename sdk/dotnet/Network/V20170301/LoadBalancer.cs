@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.Network.V20170301
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:LoadBalancer"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:LoadBalancer"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:LoadBalancer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

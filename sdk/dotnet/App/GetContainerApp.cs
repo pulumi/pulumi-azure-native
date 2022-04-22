@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container App.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());

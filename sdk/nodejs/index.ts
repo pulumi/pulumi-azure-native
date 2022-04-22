@@ -82,7 +82,9 @@ import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as dynamics365fraudprotection from "./dynamics365fraudprotection";
 import * as edgeorder from "./edgeorder";
+import * as education from "./education";
 import * as elastic from "./elastic";
+import * as elasticsan from "./elasticsan";
 import * as engagementfabric from "./engagementfabric";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
@@ -132,7 +134,6 @@ import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as netapp from "./netapp";
 import * as network from "./network";
-import * as notebooks from "./notebooks";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
 import * as openenergyplatform from "./openenergyplatform";
@@ -157,6 +158,7 @@ import * as resourcegraph from "./resourcegraph";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
+import * as scvmm from "./scvmm";
 import * as search from "./search";
 import * as security from "./security";
 import * as securityandcompliance from "./securityandcompliance";
@@ -267,7 +269,9 @@ export {
     domainregistration,
     dynamics365fraudprotection,
     edgeorder,
+    education,
     elastic,
+    elasticsan,
     engagementfabric,
     enterpriseknowledgegraph,
     eventgrid,
@@ -317,7 +321,6 @@ export {
     mobilenetwork,
     netapp,
     network,
-    notebooks,
     notificationhubs,
     offazure,
     openenergyplatform,
@@ -342,6 +345,7 @@ export {
     resources,
     saas,
     scheduler,
+    scvmm,
     search,
     security,
     securityandcompliance,

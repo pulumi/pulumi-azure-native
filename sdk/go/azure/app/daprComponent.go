@@ -12,7 +12,7 @@ import (
 )
 
 // Dapr Component.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 type DaprComponent struct {
 	pulumi.CustomResourceState
 

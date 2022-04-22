@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Network.V20210501
                     new Pulumi.Alias { Type = "azure-native:network:VirtualNetworkGatewayNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualNetworkGatewayNatRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualNetworkGatewayNatRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:VirtualNetworkGatewayNatRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

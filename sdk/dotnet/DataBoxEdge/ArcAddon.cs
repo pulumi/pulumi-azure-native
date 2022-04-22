@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:ArcAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:ArcAddon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

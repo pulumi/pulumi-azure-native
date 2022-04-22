@@ -71,7 +71,7 @@ class GetExpressRouteGatewayResult:
 
     @property
     @pulumi.getter(name="expressRouteConnections")
-    def express_route_connections(self) -> Sequence['outputs.ExpressRouteConnectionResponse']:
+    def express_route_connections(self) -> Optional[Sequence['outputs.ExpressRouteConnectionResponse']]:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
         """

@@ -731,7 +731,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpoint":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
             suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
@@ -751,6 +753,7 @@ class PrivateEndpointConnectionResponse(dict):
                  id: str,
                  name: str,
                  type: str,
+                 group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
@@ -758,12 +761,15 @@ class PrivateEndpointConnectionResponse(dict):
         :param str id: Fully qualified resource Id for the resource
         :param str name: The name of the resource
         :param str type: The type of the resource.
+        :param Sequence[str] group_ids: Gets the groupIds.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
@@ -792,6 +798,14 @@ class PrivateEndpointConnectionResponse(dict):
         The type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Gets the groupIds.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter(name="privateEndpoint")

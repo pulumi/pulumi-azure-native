@@ -46,7 +46,7 @@ export interface GetExpressRouteGatewayResult {
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      */
-    readonly expressRouteConnections: outputs.network.v20210501.ExpressRouteConnectionResponse[];
+    readonly expressRouteConnections?: outputs.network.v20210501.ExpressRouteConnectionResponse[];
     /**
      * Resource ID.
      */

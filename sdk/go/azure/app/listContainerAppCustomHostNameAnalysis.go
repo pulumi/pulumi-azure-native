@@ -11,7 +11,7 @@ import (
 )
 
 // Custom domain analysis.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 func ListContainerAppCustomHostNameAnalysis(ctx *pulumi.Context, args *ListContainerAppCustomHostNameAnalysisArgs, opts ...pulumi.InvokeOption) (*ListContainerAppCustomHostNameAnalysisResult, error) {
 	var rv ListContainerAppCustomHostNameAnalysisResult
 	err := ctx.Invoke("azure-native:app:listContainerAppCustomHostNameAnalysis", args, &rv, opts...)

@@ -217,7 +217,7 @@ def get_container_app(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppResult:
     """
     Container App.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str name: Name of the Container App.
@@ -256,7 +256,7 @@ def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppResult]:
     """
     Container App.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str name: Name of the Container App.

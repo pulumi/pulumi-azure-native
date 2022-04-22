@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The routing intent child resource of a Virtual hub.
- * API Version: 2021-05-01.
+ * API Version: 2021-08-01.
  */
 export function getRoutingIntent(args: GetRoutingIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoutingIntentResult> {
     if (!opts) {

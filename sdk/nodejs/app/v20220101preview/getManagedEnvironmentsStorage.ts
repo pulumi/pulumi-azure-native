@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Storage resource for managedEnvironment.
  */
+/** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentsStorageResult> {
+    pulumi.log.warn("getManagedEnvironmentsStorage is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

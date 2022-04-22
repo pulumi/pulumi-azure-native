@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Template Spec Version object.
-    /// API Version: 2021-05-01.
+    /// API Version: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TemplateSpecVersion")]
     public partial class TemplateSpecVersion : Pulumi.CustomResource
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Resources
                     new Pulumi.Alias { Type = "azure-native:resources/v20190601preview:TemplateSpecVersion"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210301preview:TemplateSpecVersion"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210501:TemplateSpecVersion"},
+                    new Pulumi.Alias { Type = "azure-native:resources/v20220201:TemplateSpecVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

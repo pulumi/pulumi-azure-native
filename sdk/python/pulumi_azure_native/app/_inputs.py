@@ -974,7 +974,7 @@ class ConfigurationArgs:
         """
         Non versioned Container App configuration properties that define the mutable settings of a Container app
         :param pulumi.Input[Union[str, 'ActiveRevisionsMode']] active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
-               <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+               <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
         :param pulumi.Input['DaprArgs'] dapr: Dapr configuration for the Container App.
         :param pulumi.Input['IngressArgs'] ingress: Ingress configurations.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryCredentialsArgs']]] registries: Collection of private container registry credentials for containers used by the Container app
@@ -996,7 +996,7 @@ class ConfigurationArgs:
     def active_revisions_mode(self) -> Optional[pulumi.Input[Union[str, 'ActiveRevisionsMode']]]:
         """
         ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
+        <list><item>Multiple: multiple revisions can be active.</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.</item></list>
         """
         return pulumi.get(self, "active_revisions_mode")
 
@@ -2165,7 +2165,8 @@ class GitHubArgs:
 class GithubActionConfigurationArgs:
     def __init__(__self__, *,
                  azure_credentials: Optional[pulumi.Input['AzureCredentialsArgs']] = None,
-                 dockerfile_path: Optional[pulumi.Input[str]] = None,
+                 context_path: Optional[pulumi.Input[str]] = None,
+                 image: Optional[pulumi.Input[str]] = None,
                  os: Optional[pulumi.Input[str]] = None,
                  publish_type: Optional[pulumi.Input[str]] = None,
                  registry_info: Optional[pulumi.Input['RegistryInfoArgs']] = None,
@@ -2174,17 +2175,20 @@ class GithubActionConfigurationArgs:
         """
         Configuration properties that define the mutable settings of a Container App SourceControl
         :param pulumi.Input['AzureCredentialsArgs'] azure_credentials: AzureCredentials configurations.
-        :param pulumi.Input[str] dockerfile_path: Docker file path
+        :param pulumi.Input[str] context_path: Context path
+        :param pulumi.Input[str] image: Image name
         :param pulumi.Input[str] os: Operation system
         :param pulumi.Input[str] publish_type: Code or Image
         :param pulumi.Input['RegistryInfoArgs'] registry_info: Registry configurations.
         :param pulumi.Input[str] runtime_stack: Runtime stack
-        :param pulumi.Input[str] runtime_version: Runtime Version
+        :param pulumi.Input[str] runtime_version: Runtime version
         """
         if azure_credentials is not None:
             pulumi.set(__self__, "azure_credentials", azure_credentials)
-        if dockerfile_path is not None:
-            pulumi.set(__self__, "dockerfile_path", dockerfile_path)
+        if context_path is not None:
+            pulumi.set(__self__, "context_path", context_path)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
         if os is not None:
             pulumi.set(__self__, "os", os)
         if publish_type is not None:
@@ -2209,16 +2213,28 @@ class GithubActionConfigurationArgs:
         pulumi.set(self, "azure_credentials", value)
 
     @property
-    @pulumi.getter(name="dockerfilePath")
-    def dockerfile_path(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="contextPath")
+    def context_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Docker file path
+        Context path
         """
-        return pulumi.get(self, "dockerfile_path")
+        return pulumi.get(self, "context_path")
 
-    @dockerfile_path.setter
-    def dockerfile_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dockerfile_path", value)
+    @context_path.setter
+    def context_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context_path", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        """
+        Image name
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
 
     @property
     @pulumi.getter
@@ -2272,7 +2288,7 @@ class GithubActionConfigurationArgs:
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Runtime Version
+        Runtime version
         """
         return pulumi.get(self, "runtime_version")
 
@@ -3383,21 +3399,37 @@ class QueueScaleRuleArgs:
 @pulumi.input_type
 class RegistryCredentialsArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
                  password_secret_ref: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Container App Private Registry
+        :param pulumi.Input[str] identity: A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
         :param pulumi.Input[str] password_secret_ref: The name of the Secret that contains the registry login password
         :param pulumi.Input[str] server: Container Registry Server
         :param pulumi.Input[str] username: Container Registry Username
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if password_secret_ref is not None:
             pulumi.set(__self__, "password_secret_ref", password_secret_ref)
         if server is not None:
             pulumi.set(__self__, "server", server)
         if username is not None:
             pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Managed Identity to use to authenticate with Azure Container Registry. For user-assigned identities, use the full user-assigned identity Resource ID. For system-assigned identities, use 'system'
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="passwordSecretRef")
@@ -3777,15 +3809,19 @@ class TemplateArgs:
 @pulumi.input_type
 class TrafficWeightArgs:
     def __init__(__self__, *,
+                 label: Optional[pulumi.Input[str]] = None,
                  latest_revision: Optional[pulumi.Input[bool]] = None,
                  revision_name: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         Traffic weight assigned to a revision
+        :param pulumi.Input[str] label: Associates a traffic label with a revision
         :param pulumi.Input[bool] latest_revision: Indicates that the traffic weight belongs to a latest stable revision
         :param pulumi.Input[str] revision_name: Name of a revision
         :param pulumi.Input[int] weight: Traffic weight assigned to a revision
         """
+        if label is not None:
+            pulumi.set(__self__, "label", label)
         if latest_revision is None:
             latest_revision = False
         if latest_revision is not None:
@@ -3794,6 +3830,18 @@ class TrafficWeightArgs:
             pulumi.set(__self__, "revision_name", revision_name)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        Associates a traffic label with a revision
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
 
     @property
     @pulumi.getter(name="latestRevision")

@@ -12,7 +12,7 @@ import (
 )
 
 // Container App.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 type ContainerApp struct {
 	pulumi.CustomResourceState
 

@@ -15,6 +15,8 @@ export * from "./getReport";
 export * from "./getReportByBillingAccount";
 export * from "./getReportByDepartment";
 export * from "./getReportByResourceGroupName";
+export * from "./getScheduledAction";
+export * from "./getScheduledActionByScope";
 export * from "./getSetting";
 export * from "./getView";
 export * from "./getViewByScope";
@@ -22,6 +24,8 @@ export * from "./report";
 export * from "./reportByBillingAccount";
 export * from "./reportByDepartment";
 export * from "./reportByResourceGroupName";
+export * from "./scheduledAction";
+export * from "./scheduledActionByScope";
 export * from "./setting";
 export * from "./view";
 export * from "./viewByScope";
@@ -43,6 +47,7 @@ import * as v20200601 from "./v20200601";
 import * as v20201201preview from "./v20201201preview";
 import * as v20210101 from "./v20210101";
 import * as v20211001 from "./v20211001";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20180531,
@@ -58,6 +63,7 @@ export {
     v20201201preview,
     v20210101,
     v20211001,
+    v20220401preview,
 };
 
 // Import resources to register:
@@ -68,6 +74,8 @@ import { Report } from "./report";
 import { ReportByBillingAccount } from "./reportByBillingAccount";
 import { ReportByDepartment } from "./reportByDepartment";
 import { ReportByResourceGroupName } from "./reportByResourceGroupName";
+import { ScheduledAction } from "./scheduledAction";
+import { ScheduledActionByScope } from "./scheduledActionByScope";
 import { Setting } from "./setting";
 import { View } from "./view";
 import { ViewByScope } from "./viewByScope";
@@ -90,6 +98,10 @@ const _module = {
                 return new ReportByDepartment(name, <any>undefined, { urn })
             case "azure-native:costmanagement:ReportByResourceGroupName":
                 return new ReportByResourceGroupName(name, <any>undefined, { urn })
+            case "azure-native:costmanagement:ScheduledAction":
+                return new ScheduledAction(name, <any>undefined, { urn })
+            case "azure-native:costmanagement:ScheduledActionByScope":
+                return new ScheduledActionByScope(name, <any>undefined, { urn })
             case "azure-native:costmanagement:Setting":
                 return new Setting(name, <any>undefined, { urn })
             case "azure-native:costmanagement:View":

@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Container"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

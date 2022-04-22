@@ -203,6 +203,7 @@ __all__ = [
     'LoadBalancingRuleResponse',
     'LoadBalancingSettingsModelResponse',
     'LocalNetworkGatewayResponse',
+    'LoggingCategoryResponse',
     'ManagedRuleExclusionResponse',
     'ManagedRuleGroupOverrideResponse',
     'ManagedRuleOverrideResponse',
@@ -337,6 +338,7 @@ __all__ = [
     'VpnServerConfigRadiusServerRootCertificateResponse',
     'VpnServerConfigVpnClientRevokedCertificateResponse',
     'VpnServerConfigVpnClientRootCertificateResponse',
+    'VpnServerConfigurationPolicyGroupMemberResponse',
     'VpnSiteLinkConnectionResponse',
     'VpnSiteLinkResponse',
     'WebApplicationFirewallCustomRuleResponse',
@@ -18528,6 +18530,29 @@ class LocalNetworkGatewayResponse(dict):
 
 
 @pulumi.output_type
+class LoggingCategoryResponse(dict):
+    """
+    Logging Category
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        Logging Category
+        :param str name: The name of the logging category.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the logging category.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class ManagedRuleExclusionResponse(dict):
     """
     Exclude variables from managed rule evaluation.
@@ -31385,6 +31410,72 @@ class VpnServerConfigVpnClientRootCertificateResponse(dict):
         The certificate public data.
         """
         return pulumi.get(self, "public_cert_data")
+
+
+@pulumi.output_type
+class VpnServerConfigurationPolicyGroupMemberResponse(dict):
+    """
+    VpnServerConfiguration PolicyGroup member
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeType":
+            suggest = "attribute_type"
+        elif key == "attributeValue":
+            suggest = "attribute_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpnServerConfigurationPolicyGroupMemberResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpnServerConfigurationPolicyGroupMemberResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpnServerConfigurationPolicyGroupMemberResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_type: Optional[str] = None,
+                 attribute_value: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        VpnServerConfiguration PolicyGroup member
+        :param str attribute_type: The Vpn Policy member attribute type.
+        :param str attribute_value: The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+        :param str name: Name of the VpnServerConfigurationPolicyGroupMember.
+        """
+        if attribute_type is not None:
+            pulumi.set(__self__, "attribute_type", attribute_type)
+        if attribute_value is not None:
+            pulumi.set(__self__, "attribute_value", attribute_value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> Optional[str]:
+        """
+        The Vpn Policy member attribute type.
+        """
+        return pulumi.get(self, "attribute_type")
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> Optional[str]:
+        """
+        The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+        """
+        return pulumi.get(self, "attribute_value")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the VpnServerConfigurationPolicyGroupMember.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

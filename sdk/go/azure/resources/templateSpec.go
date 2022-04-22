@@ -12,7 +12,7 @@ import (
 )
 
 // Template Spec object.
-// API Version: 2021-05-01.
+// API Version: 2022-02-01.
 type TemplateSpec struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +55,9 @@ func NewTemplateSpec(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20210501:TemplateSpec"),
+		},
+		{
+			Type: pulumi.String("azure-native:resources/v20220201:TemplateSpec"),
 		},
 	})
 	opts = append(opts, aliases)

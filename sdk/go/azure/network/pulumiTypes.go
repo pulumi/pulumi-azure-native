@@ -39480,6 +39480,152 @@ func (o LocalNetworkGatewayResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Logging Category
+type LoggingCategory struct {
+	// The name of the logging category.
+	Name *string `pulumi:"name"`
+}
+
+// LoggingCategoryInput is an input type that accepts LoggingCategoryArgs and LoggingCategoryOutput values.
+// You can construct a concrete instance of `LoggingCategoryInput` via:
+//
+//          LoggingCategoryArgs{...}
+type LoggingCategoryInput interface {
+	pulumi.Input
+
+	ToLoggingCategoryOutput() LoggingCategoryOutput
+	ToLoggingCategoryOutputWithContext(context.Context) LoggingCategoryOutput
+}
+
+// Logging Category
+type LoggingCategoryArgs struct {
+	// The name of the logging category.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LoggingCategoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingCategory)(nil)).Elem()
+}
+
+func (i LoggingCategoryArgs) ToLoggingCategoryOutput() LoggingCategoryOutput {
+	return i.ToLoggingCategoryOutputWithContext(context.Background())
+}
+
+func (i LoggingCategoryArgs) ToLoggingCategoryOutputWithContext(ctx context.Context) LoggingCategoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingCategoryOutput)
+}
+
+// LoggingCategoryArrayInput is an input type that accepts LoggingCategoryArray and LoggingCategoryArrayOutput values.
+// You can construct a concrete instance of `LoggingCategoryArrayInput` via:
+//
+//          LoggingCategoryArray{ LoggingCategoryArgs{...} }
+type LoggingCategoryArrayInput interface {
+	pulumi.Input
+
+	ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput
+	ToLoggingCategoryArrayOutputWithContext(context.Context) LoggingCategoryArrayOutput
+}
+
+type LoggingCategoryArray []LoggingCategoryInput
+
+func (LoggingCategoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingCategory)(nil)).Elem()
+}
+
+func (i LoggingCategoryArray) ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput {
+	return i.ToLoggingCategoryArrayOutputWithContext(context.Background())
+}
+
+func (i LoggingCategoryArray) ToLoggingCategoryArrayOutputWithContext(ctx context.Context) LoggingCategoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoggingCategoryArrayOutput)
+}
+
+// Logging Category
+type LoggingCategoryOutput struct{ *pulumi.OutputState }
+
+func (LoggingCategoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingCategory)(nil)).Elem()
+}
+
+func (o LoggingCategoryOutput) ToLoggingCategoryOutput() LoggingCategoryOutput {
+	return o
+}
+
+func (o LoggingCategoryOutput) ToLoggingCategoryOutputWithContext(ctx context.Context) LoggingCategoryOutput {
+	return o
+}
+
+// The name of the logging category.
+func (o LoggingCategoryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggingCategory) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LoggingCategoryArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingCategoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingCategory)(nil)).Elem()
+}
+
+func (o LoggingCategoryArrayOutput) ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput {
+	return o
+}
+
+func (o LoggingCategoryArrayOutput) ToLoggingCategoryArrayOutputWithContext(ctx context.Context) LoggingCategoryArrayOutput {
+	return o
+}
+
+func (o LoggingCategoryArrayOutput) Index(i pulumi.IntInput) LoggingCategoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingCategory {
+		return vs[0].([]LoggingCategory)[vs[1].(int)]
+	}).(LoggingCategoryOutput)
+}
+
+// Logging Category
+type LoggingCategoryResponse struct {
+	// The name of the logging category.
+	Name *string `pulumi:"name"`
+}
+
+// Logging Category
+type LoggingCategoryResponseOutput struct{ *pulumi.OutputState }
+
+func (LoggingCategoryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoggingCategoryResponse)(nil)).Elem()
+}
+
+func (o LoggingCategoryResponseOutput) ToLoggingCategoryResponseOutput() LoggingCategoryResponseOutput {
+	return o
+}
+
+func (o LoggingCategoryResponseOutput) ToLoggingCategoryResponseOutputWithContext(ctx context.Context) LoggingCategoryResponseOutput {
+	return o
+}
+
+// The name of the logging category.
+func (o LoggingCategoryResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggingCategoryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type LoggingCategoryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LoggingCategoryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LoggingCategoryResponse)(nil)).Elem()
+}
+
+func (o LoggingCategoryResponseArrayOutput) ToLoggingCategoryResponseArrayOutput() LoggingCategoryResponseArrayOutput {
+	return o
+}
+
+func (o LoggingCategoryResponseArrayOutput) ToLoggingCategoryResponseArrayOutputWithContext(ctx context.Context) LoggingCategoryResponseArrayOutput {
+	return o
+}
+
+func (o LoggingCategoryResponseArrayOutput) Index(i pulumi.IntInput) LoggingCategoryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingCategoryResponse {
+		return vs[0].([]LoggingCategoryResponse)[vs[1].(int)]
+	}).(LoggingCategoryResponseOutput)
+}
+
 // Exclude variables from managed rule evaluation.
 type ManagedRuleExclusion struct {
 	// The variable type to be excluded.
@@ -69478,6 +69624,184 @@ func (o VpnServerConfigVpnClientRootCertificateResponseArrayOutput) Index(i pulu
 	}).(VpnServerConfigVpnClientRootCertificateResponseOutput)
 }
 
+// VpnServerConfiguration PolicyGroup member
+type VpnServerConfigurationPolicyGroupMember struct {
+	// The Vpn Policy member attribute type.
+	AttributeType *string `pulumi:"attributeType"`
+	// The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+	AttributeValue *string `pulumi:"attributeValue"`
+	// Name of the VpnServerConfigurationPolicyGroupMember.
+	Name *string `pulumi:"name"`
+}
+
+// VpnServerConfigurationPolicyGroupMemberInput is an input type that accepts VpnServerConfigurationPolicyGroupMemberArgs and VpnServerConfigurationPolicyGroupMemberOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationPolicyGroupMemberInput` via:
+//
+//          VpnServerConfigurationPolicyGroupMemberArgs{...}
+type VpnServerConfigurationPolicyGroupMemberInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationPolicyGroupMemberOutput() VpnServerConfigurationPolicyGroupMemberOutput
+	ToVpnServerConfigurationPolicyGroupMemberOutputWithContext(context.Context) VpnServerConfigurationPolicyGroupMemberOutput
+}
+
+// VpnServerConfiguration PolicyGroup member
+type VpnServerConfigurationPolicyGroupMemberArgs struct {
+	// The Vpn Policy member attribute type.
+	AttributeType pulumi.StringPtrInput `pulumi:"attributeType"`
+	// The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+	AttributeValue pulumi.StringPtrInput `pulumi:"attributeValue"`
+	// Name of the VpnServerConfigurationPolicyGroupMember.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (VpnServerConfigurationPolicyGroupMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationPolicyGroupMember)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationPolicyGroupMemberArgs) ToVpnServerConfigurationPolicyGroupMemberOutput() VpnServerConfigurationPolicyGroupMemberOutput {
+	return i.ToVpnServerConfigurationPolicyGroupMemberOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationPolicyGroupMemberArgs) ToVpnServerConfigurationPolicyGroupMemberOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupMemberOutput)
+}
+
+// VpnServerConfigurationPolicyGroupMemberArrayInput is an input type that accepts VpnServerConfigurationPolicyGroupMemberArray and VpnServerConfigurationPolicyGroupMemberArrayOutput values.
+// You can construct a concrete instance of `VpnServerConfigurationPolicyGroupMemberArrayInput` via:
+//
+//          VpnServerConfigurationPolicyGroupMemberArray{ VpnServerConfigurationPolicyGroupMemberArgs{...} }
+type VpnServerConfigurationPolicyGroupMemberArrayInput interface {
+	pulumi.Input
+
+	ToVpnServerConfigurationPolicyGroupMemberArrayOutput() VpnServerConfigurationPolicyGroupMemberArrayOutput
+	ToVpnServerConfigurationPolicyGroupMemberArrayOutputWithContext(context.Context) VpnServerConfigurationPolicyGroupMemberArrayOutput
+}
+
+type VpnServerConfigurationPolicyGroupMemberArray []VpnServerConfigurationPolicyGroupMemberInput
+
+func (VpnServerConfigurationPolicyGroupMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationPolicyGroupMember)(nil)).Elem()
+}
+
+func (i VpnServerConfigurationPolicyGroupMemberArray) ToVpnServerConfigurationPolicyGroupMemberArrayOutput() VpnServerConfigurationPolicyGroupMemberArrayOutput {
+	return i.ToVpnServerConfigurationPolicyGroupMemberArrayOutputWithContext(context.Background())
+}
+
+func (i VpnServerConfigurationPolicyGroupMemberArray) ToVpnServerConfigurationPolicyGroupMemberArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupMemberArrayOutput)
+}
+
+// VpnServerConfiguration PolicyGroup member
+type VpnServerConfigurationPolicyGroupMemberOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationPolicyGroupMember)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberOutput) ToVpnServerConfigurationPolicyGroupMemberOutput() VpnServerConfigurationPolicyGroupMemberOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberOutput) ToVpnServerConfigurationPolicyGroupMemberOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberOutput {
+	return o
+}
+
+// The Vpn Policy member attribute type.
+func (o VpnServerConfigurationPolicyGroupMemberOutput) AttributeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMember) *string { return v.AttributeType }).(pulumi.StringPtrOutput)
+}
+
+// The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+func (o VpnServerConfigurationPolicyGroupMemberOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMember) *string { return v.AttributeValue }).(pulumi.StringPtrOutput)
+}
+
+// Name of the VpnServerConfigurationPolicyGroupMember.
+func (o VpnServerConfigurationPolicyGroupMemberOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMember) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type VpnServerConfigurationPolicyGroupMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationPolicyGroupMember)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberArrayOutput) ToVpnServerConfigurationPolicyGroupMemberArrayOutput() VpnServerConfigurationPolicyGroupMemberArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberArrayOutput) ToVpnServerConfigurationPolicyGroupMemberArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationPolicyGroupMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationPolicyGroupMember {
+		return vs[0].([]VpnServerConfigurationPolicyGroupMember)[vs[1].(int)]
+	}).(VpnServerConfigurationPolicyGroupMemberOutput)
+}
+
+// VpnServerConfiguration PolicyGroup member
+type VpnServerConfigurationPolicyGroupMemberResponse struct {
+	// The Vpn Policy member attribute type.
+	AttributeType *string `pulumi:"attributeType"`
+	// The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+	AttributeValue *string `pulumi:"attributeValue"`
+	// Name of the VpnServerConfigurationPolicyGroupMember.
+	Name *string `pulumi:"name"`
+}
+
+// VpnServerConfiguration PolicyGroup member
+type VpnServerConfigurationPolicyGroupMemberResponseOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupMemberResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnServerConfigurationPolicyGroupMemberResponse)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberResponseOutput) ToVpnServerConfigurationPolicyGroupMemberResponseOutput() VpnServerConfigurationPolicyGroupMemberResponseOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberResponseOutput) ToVpnServerConfigurationPolicyGroupMemberResponseOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberResponseOutput {
+	return o
+}
+
+// The Vpn Policy member attribute type.
+func (o VpnServerConfigurationPolicyGroupMemberResponseOutput) AttributeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMemberResponse) *string { return v.AttributeType }).(pulumi.StringPtrOutput)
+}
+
+// The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+func (o VpnServerConfigurationPolicyGroupMemberResponseOutput) AttributeValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMemberResponse) *string { return v.AttributeValue }).(pulumi.StringPtrOutput)
+}
+
+// Name of the VpnServerConfigurationPolicyGroupMember.
+func (o VpnServerConfigurationPolicyGroupMemberResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpnServerConfigurationPolicyGroupMemberResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type VpnServerConfigurationPolicyGroupMemberResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VpnServerConfigurationPolicyGroupMemberResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnServerConfigurationPolicyGroupMemberResponse)(nil)).Elem()
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberResponseArrayOutput) ToVpnServerConfigurationPolicyGroupMemberResponseArrayOutput() VpnServerConfigurationPolicyGroupMemberResponseArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberResponseArrayOutput) ToVpnServerConfigurationPolicyGroupMemberResponseArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMemberResponseArrayOutput {
+	return o
+}
+
+func (o VpnServerConfigurationPolicyGroupMemberResponseArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationPolicyGroupMemberResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnServerConfigurationPolicyGroupMemberResponse {
+		return vs[0].([]VpnServerConfigurationPolicyGroupMemberResponse)[vs[1].(int)]
+	}).(VpnServerConfigurationPolicyGroupMemberResponseOutput)
+}
+
 // VpnSiteLink Resource.
 type VpnSiteLink struct {
 	// The set of bgp properties.
@@ -71001,6 +71325,10 @@ func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponseOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponsePtrOutput{})
+	pulumi.RegisterOutputType(LoggingCategoryOutput{})
+	pulumi.RegisterOutputType(LoggingCategoryArrayOutput{})
+	pulumi.RegisterOutputType(LoggingCategoryResponseOutput{})
+	pulumi.RegisterOutputType(LoggingCategoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionResponseOutput{})
@@ -71467,6 +71795,10 @@ func init() {
 	pulumi.RegisterOutputType(VpnServerConfigVpnClientRootCertificateArrayOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigVpnClientRootCertificateResponseOutput{})
 	pulumi.RegisterOutputType(VpnServerConfigVpnClientRootCertificateResponseArrayOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupMemberOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupMemberArrayOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupMemberResponseOutput{})
+	pulumi.RegisterOutputType(VpnServerConfigurationPolicyGroupMemberResponseArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkArrayOutput{})
 	pulumi.RegisterOutputType(VpnSiteLinkConnectionOutput{})

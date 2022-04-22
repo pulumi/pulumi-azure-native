@@ -174,6 +174,7 @@ __all__ = [
     'LoadBalancingRuleArgs',
     'LoadBalancingSettingsModelArgs',
     'LocalNetworkGatewayArgs',
+    'LoggingCategoryArgs',
     'ManagedRuleExclusionArgs',
     'ManagedRuleGroupOverrideArgs',
     'ManagedRuleOverrideArgs',
@@ -286,6 +287,7 @@ __all__ = [
     'VpnServerConfigRadiusServerRootCertificateArgs',
     'VpnServerConfigVpnClientRevokedCertificateArgs',
     'VpnServerConfigVpnClientRootCertificateArgs',
+    'VpnServerConfigurationPolicyGroupMemberArgs',
     'VpnSiteLinkConnectionArgs',
     'VpnSiteLinkArgs',
     'WebApplicationFirewallCustomRuleArgs',
@@ -12250,6 +12252,30 @@ class LocalNetworkGatewayArgs:
 
 
 @pulumi.input_type
+class LoggingCategoryArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Logging Category
+        :param pulumi.Input[str] name: The name of the logging category.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the logging category.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class ManagedRuleExclusionArgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']],
@@ -14277,11 +14303,11 @@ class Office365PolicyPropertiesArgs:
 class OrderBy:
     def __init__(__self__, *,
                  field: Optional[str] = None,
-                 order: Optional[str] = None):
+                 order: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']] = None):
         """
         Describes a column to sort
         :param str field: Describes the actual column name to sort by
-        :param str order: Describes if results should be in ascending/descending order
+        :param Union[str, 'FirewallPolicyIDPSQuerySortOrder'] order: Describes if results should be in ascending/descending order
         """
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -14302,14 +14328,14 @@ class OrderBy:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[str]:
+    def order(self) -> Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]:
         """
         Describes if results should be in ascending/descending order
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[str]):
+    def order(self, value: Optional[Union[str, 'FirewallPolicyIDPSQuerySortOrder']]):
         pulumi.set(self, "order", value)
 
 
@@ -20860,6 +20886,62 @@ class VpnServerConfigVpnClientRootCertificateArgs:
     @public_cert_data.setter
     def public_cert_data(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_cert_data", value)
+
+
+@pulumi.input_type
+class VpnServerConfigurationPolicyGroupMemberArgs:
+    def __init__(__self__, *,
+                 attribute_type: Optional[pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']]] = None,
+                 attribute_value: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        VpnServerConfiguration PolicyGroup member
+        :param pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']] attribute_type: The Vpn Policy member attribute type.
+        :param pulumi.Input[str] attribute_value: The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+        :param pulumi.Input[str] name: Name of the VpnServerConfigurationPolicyGroupMember.
+        """
+        if attribute_type is not None:
+            pulumi.set(__self__, "attribute_type", attribute_type)
+        if attribute_value is not None:
+            pulumi.set(__self__, "attribute_value", attribute_value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="attributeType")
+    def attribute_type(self) -> Optional[pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']]]:
+        """
+        The Vpn Policy member attribute type.
+        """
+        return pulumi.get(self, "attribute_type")
+
+    @attribute_type.setter
+    def attribute_type(self, value: Optional[pulumi.Input[Union[str, 'VpnPolicyMemberAttributeType']]]):
+        pulumi.set(self, "attribute_type", value)
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of Attribute used for this VpnServerConfigurationPolicyGroupMember.
+        """
+        return pulumi.get(self, "attribute_value")
+
+    @attribute_value.setter
+    def attribute_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attribute_value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the VpnServerConfigurationPolicyGroupMember.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

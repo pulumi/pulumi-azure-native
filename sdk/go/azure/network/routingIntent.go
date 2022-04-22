@@ -12,7 +12,7 @@ import (
 )
 
 // The routing intent child resource of a Virtual hub.
-// API Version: 2021-05-01.
+// API Version: 2021-08-01.
 type RoutingIntent struct {
 	pulumi.CustomResourceState
 
@@ -44,6 +44,9 @@ func NewRoutingIntent(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network/v20210501:RoutingIntent"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210801:RoutingIntent"),
 		},
 	})
 	opts = append(opts, aliases)

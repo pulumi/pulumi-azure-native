@@ -52,10 +52,9 @@ class AssociationAccessMode(str, Enum):
     """
     Access mode on the association.
     """
-    UNSPECIFIED = "Unspecified"
-    ENFORCE_MODE = "EnforceMode"
-    LEARNING_MODE = "LearningMode"
-    DRY_RUN_MODE = "DryRunMode"
+    LEARNING = "Learning"
+    ENFORCED = "Enforced"
+    AUDIT = "Audit"
 
 
 class ConfigurationType(str, Enum):

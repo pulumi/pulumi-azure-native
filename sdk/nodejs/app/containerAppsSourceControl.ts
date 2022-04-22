@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App SourceControl.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export class ContainerAppsSourceControl extends pulumi.CustomResource {
     /**

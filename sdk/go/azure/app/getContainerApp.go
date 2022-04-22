@@ -11,7 +11,7 @@ import (
 )
 
 // Container App.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 func LookupContainerApp(ctx *pulumi.Context, args *LookupContainerAppArgs, opts ...pulumi.InvokeOption) (*LookupContainerAppResult, error) {
 	var rv LookupContainerAppResult
 	err := ctx.Invoke("azure-native:app:getContainerApp", args, &rv, opts...)

@@ -271,6 +271,7 @@ class NspAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["has_provisioning_issues"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NspAssociation")])
@@ -298,6 +299,7 @@ class NspAssociation(pulumi.CustomResource):
         __props__ = NspAssociationArgs.__new__(NspAssociationArgs)
 
         __props__.__dict__["access_mode"] = None
+        __props__.__dict__["has_provisioning_issues"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_link_resource"] = None
@@ -314,6 +316,14 @@ class NspAssociation(pulumi.CustomResource):
         Access mode on the association.
         """
         return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter(name="hasProvisioningIssues")
+    def has_provisioning_issues(self) -> pulumi.Output[str]:
+        """
+        Specifies if there are provisioning issues
+        """
+        return pulumi.get(self, "has_provisioning_issues")
 
     @property
     @pulumi.getter

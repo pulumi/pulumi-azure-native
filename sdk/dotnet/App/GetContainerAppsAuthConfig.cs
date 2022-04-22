@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContainerAppsAuthConfigResult> InvokeAsync(GetContainerAppsAuthConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import (
 )
 
 // Dapr Component.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 func LookupDaprComponent(ctx *pulumi.Context, args *LookupDaprComponentArgs, opts ...pulumi.InvokeOption) (*LookupDaprComponentResult, error) {
 	var rv LookupDaprComponentResult
 	err := ctx.Invoke("azure-native:app:getDaprComponent", args, &rv, opts...)

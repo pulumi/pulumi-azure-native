@@ -8,15 +8,18 @@ import * as utilities from "../utilities";
 export * from "./endpoint";
 export * from "./getEndpoint";
 export * from "./listEndpointCredentials";
+export * from "./listEndpointManagedProxyDetails";
 
 // Export enums:
 export * from "../types/enums/hybridconnectivity";
 
 // Export sub-modules:
 import * as v20211006preview from "./v20211006preview";
+import * as v20220501preview from "./v20220501preview";
 
 export {
     v20211006preview,
+    v20220501preview,
 };
 
 // Import resources to register:

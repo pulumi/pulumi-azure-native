@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom domain analysis.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function listContainerAppCustomHostNameAnalysis(args: ListContainerAppCustomHostNameAnalysisArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppCustomHostNameAnalysisResult> {
     if (!opts) {

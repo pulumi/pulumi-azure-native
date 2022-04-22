@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.ContainerService.V20220201
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220101:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220102preview:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:Snapshot"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:Snapshot"},
                 },
             };

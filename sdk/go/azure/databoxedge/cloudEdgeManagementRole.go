@@ -90,6 +90,9 @@ func NewCloudEdgeManagementRole(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20220301:CloudEdgeManagementRole"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CloudEdgeManagementRole

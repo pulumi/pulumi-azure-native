@@ -36,6 +36,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the groupIds.
+     */
+    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -70,6 +74,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
             resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
@@ -77,6 +82,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -97,6 +103,10 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the automation account.
      */
     automationAccountName: pulumi.Input<string>;
+    /**
+     * Gets the groupIds.
+     */
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Private endpoint which the connection belongs to.
      */

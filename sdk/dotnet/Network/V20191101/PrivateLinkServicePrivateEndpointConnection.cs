@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Network.V20191101
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateLinkServicePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateLinkServicePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
