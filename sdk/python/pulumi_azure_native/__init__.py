@@ -8960,6 +8960,21 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "healthcareapis/v20220131preview",
+  "fqn": "pulumi_azure_native.healthcareapis.v20220131preview",
+  "classes": {
+   "azure-native:healthcareapis/v20220131preview:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20220131preview:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20220131preview:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20220131preview:Service": "Service",
+   "azure-native:healthcareapis/v20220131preview:Workspace": "Workspace",
+   "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection": "WorkspacePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "hybridcompute",
   "fqn": "pulumi_azure_native.hybridcompute",
   "classes": {
@@ -15466,6 +15481,20 @@ _utilities.register(
   "classes": {
    "azure-native:relay/v20180101preview:Namespace": "Namespace",
    "azure-native:relay/v20180101preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "relay/v20211101",
+  "fqn": "pulumi_azure_native.relay.v20211101",
+  "classes": {
+   "azure-native:relay/v20211101:HybridConnection": "HybridConnection",
+   "azure-native:relay/v20211101:HybridConnectionAuthorizationRule": "HybridConnectionAuthorizationRule",
+   "azure-native:relay/v20211101:Namespace": "Namespace",
+   "azure-native:relay/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:relay/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:relay/v20211101:WCFRelay": "WCFRelay",
+   "azure-native:relay/v20211101:WCFRelayAuthorizationRule": "WCFRelayAuthorizationRule"
   }
  },
  {

@@ -65,6 +65,9 @@ func NewIotConnectorFhirDestination(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotConnectorFhirDestination

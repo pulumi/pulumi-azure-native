@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Relay
                 {
                     new Pulumi.Alias { Type = "azure-native:relay/v20160701:HybridConnection"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

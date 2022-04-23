@@ -173,7 +173,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["rights"] = rights
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:WCFRelayAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20160701:WCFRelayAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:WCFRelayAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20160701:WCFRelayAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20211101:WCFRelayAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WCFRelayAuthorizationRule, __self__).__init__(
             'azure-native:relay/v20170401:WCFRelayAuthorizationRule',

@@ -221,7 +221,7 @@ class WCFRelay(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20170401:WCFRelay")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20170401:WCFRelay"), pulumi.Alias(type_="azure-native:relay/v20211101:WCFRelay")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WCFRelay, __self__).__init__(
             'azure-native:relay/v20160701:WCFRelay',

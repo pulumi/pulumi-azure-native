@@ -18017,6 +18017,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-22",
           "2020-01-13-preview"
         ],
         "capabilities": "None",
@@ -18073,6 +18074,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-22",
           "2020-01-13-preview"
         ],
         "capabilities": "None",
@@ -18129,6 +18131,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-22",
           "2020-01-13-preview"
         ],
         "capabilities": "None",
@@ -84219,6 +84222,7 @@
         "locationMappings": null,
         "locations": [
           "West US 2",
+          "West US 3",
           "East US",
           "North Europe"
         ],

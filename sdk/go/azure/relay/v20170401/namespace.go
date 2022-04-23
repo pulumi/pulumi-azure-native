@@ -56,6 +56,9 @@ func NewNamespace(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:relay/v20180101preview:Namespace"),
 		},
+		{
+			Type: pulumi.String("azure-native:relay/v20211101:Namespace"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Namespace

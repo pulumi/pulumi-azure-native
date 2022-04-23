@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Relay
                     new Pulumi.Alias { Type = "azure-native:relay/v20160701:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20180101preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

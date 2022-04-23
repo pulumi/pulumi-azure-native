@@ -83,6 +83,7 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:relay:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
