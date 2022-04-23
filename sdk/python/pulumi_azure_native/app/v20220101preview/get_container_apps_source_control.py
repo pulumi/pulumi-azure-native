@@ -16,6 +16,8 @@ __all__ = [
     'get_container_apps_source_control_output',
 ]
 
+warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContainerAppsSourceControlResult:
     """
@@ -142,6 +144,7 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
     :param str name: Name of the Container App SourceControl.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_container_apps_source_control is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['containerAppName'] = container_app_name
     __args__['name'] = name
@@ -176,4 +179,5 @@ def get_container_apps_source_control_output(container_app_name: Optional[pulumi
     :param str name: Name of the Container App SourceControl.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_container_apps_source_control is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

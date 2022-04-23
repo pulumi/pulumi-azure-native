@@ -11,6 +11,8 @@ import (
 )
 
 // Dapr Component.
+//
+// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupDaprComponent(ctx *pulumi.Context, args *LookupDaprComponentArgs, opts ...pulumi.InvokeOption) (*LookupDaprComponentResult, error) {
 	var rv LookupDaprComponentResult
 	err := ctx.Invoke("azure-native:app/v20220101preview:getDaprComponent", args, &rv, opts...)

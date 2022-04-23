@@ -12,6 +12,8 @@ import (
 )
 
 // Container App SourceControl.
+//
+// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type ContainerAppsSourceControl struct {
 	pulumi.CustomResourceState
 

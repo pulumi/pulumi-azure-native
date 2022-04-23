@@ -12,7 +12,7 @@ import (
 )
 
 // Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 type ContainerAppsAuthConfig struct {
 	pulumi.CustomResourceState
 

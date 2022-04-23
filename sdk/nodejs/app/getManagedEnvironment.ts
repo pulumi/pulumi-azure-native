@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment for hosting container apps
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetManagedEnvironmentResult {
      * supported
      */
     readonly appLogsConfiguration?: outputs.app.AppLogsConfigurationResponse;
+    /**
+     * Application Insights connection string used by Dapr to export Service to Service communication telemetry
+     */
+    readonly daprAIConnectionString?: string;
     /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
@@ -90,6 +94,10 @@ export interface GetManagedEnvironmentResult {
      * Vnet configuration for the environment
      */
     readonly vnetConfiguration?: outputs.app.VnetConfigurationResponse;
+    /**
+     * Whether or not this Managed Environment is zone-redundant.
+     */
+    readonly zoneRedundant?: boolean;
 }
 
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentResult> {

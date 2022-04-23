@@ -12,7 +12,7 @@ import (
 )
 
 // Storage resource for managedEnvironment.
-// API Version: 2022-01-01-preview.
+// API Version: 2022-03-01.
 type ManagedEnvironmentsStorage struct {
 	pulumi.CustomResourceState
 

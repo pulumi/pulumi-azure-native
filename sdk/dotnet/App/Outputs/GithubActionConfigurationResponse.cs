@@ -21,9 +21,13 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.AzureCredentialsResponse? AzureCredentials;
         /// <summary>
-        /// Docker file path
+        /// Context path
         /// </summary>
-        public readonly string? DockerfilePath;
+        public readonly string? ContextPath;
+        /// <summary>
+        /// Image name
+        /// </summary>
+        public readonly string? Image;
         /// <summary>
         /// Operation system
         /// </summary>
@@ -41,7 +45,7 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? RuntimeStack;
         /// <summary>
-        /// Runtime Version
+        /// Runtime version
         /// </summary>
         public readonly string? RuntimeVersion;
 
@@ -49,7 +53,9 @@ namespace Pulumi.AzureNative.App.Outputs
         private GithubActionConfigurationResponse(
             Outputs.AzureCredentialsResponse? azureCredentials,
 
-            string? dockerfilePath,
+            string? contextPath,
+
+            string? image,
 
             string? os,
 
@@ -62,7 +68,8 @@ namespace Pulumi.AzureNative.App.Outputs
             string? runtimeVersion)
         {
             AzureCredentials = azureCredentials;
-            DockerfilePath = dockerfilePath;
+            ContextPath = contextPath;
+            Image = image;
             Os = os;
             PublishType = publishType;
             RegistryInfo = registryInfo;

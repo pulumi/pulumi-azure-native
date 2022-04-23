@@ -164,7 +164,7 @@ class ContainerApp(pulumi.CustomResource):
                  __props__=None):
         """
         Container App.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Container App SourceControl.
  */
+/** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getContainerAppsSourceControl(args: GetContainerAppsSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSourceControlResult> {
+    pulumi.log.warn("getContainerAppsSourceControl is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

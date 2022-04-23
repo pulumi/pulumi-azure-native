@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class TrafficWeightResponse
     {
         /// <summary>
+        /// Associates a traffic label with a revision
+        /// </summary>
+        public readonly string? Label;
+        /// <summary>
         /// Indicates that the traffic weight belongs to a latest stable revision
         /// </summary>
         public readonly bool? LatestRevision;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private TrafficWeightResponse(
+            string? label,
+
             bool? latestRevision,
 
             string? revisionName,
 
             int? weight)
         {
+            Label = label;
             LatestRevision = latestRevision;
             RevisionName = revisionName;
             Weight = weight;

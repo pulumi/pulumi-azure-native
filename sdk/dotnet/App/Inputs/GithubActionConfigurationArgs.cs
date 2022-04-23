@@ -22,10 +22,16 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<Inputs.AzureCredentialsArgs>? AzureCredentials { get; set; }
 
         /// <summary>
-        /// Docker file path
+        /// Context path
         /// </summary>
-        [Input("dockerfilePath")]
-        public Input<string>? DockerfilePath { get; set; }
+        [Input("contextPath")]
+        public Input<string>? ContextPath { get; set; }
+
+        /// <summary>
+        /// Image name
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
 
         /// <summary>
         /// Operation system
@@ -52,7 +58,7 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? RuntimeStack { get; set; }
 
         /// <summary>
-        /// Runtime Version
+        /// Runtime version
         /// </summary>
         [Input("runtimeVersion")]
         public Input<string>? RuntimeVersion { get; set; }

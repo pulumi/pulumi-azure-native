@@ -163,7 +163,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -184,7 +184,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-        API Version: 2022-01-01-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsAuthConfigArgs args: The arguments to use to populate this resource's properties.

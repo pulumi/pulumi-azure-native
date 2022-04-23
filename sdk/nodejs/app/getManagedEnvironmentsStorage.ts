@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Storage resource for managedEnvironment.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentsStorageResult> {
     if (!opts) {

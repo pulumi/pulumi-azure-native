@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// An environment for hosting container apps
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// An environment for hosting container apps
-        /// API Version: 2022-01-01-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly Outputs.AppLogsConfigurationResponse? AppLogsConfiguration;
         /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        public readonly string? DaprAIConnectionString;
+        /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         /// </summary>
         public readonly string? DaprAIInstrumentationKey;
@@ -123,10 +127,16 @@ namespace Pulumi.AzureNative.App
         /// Vnet configuration for the environment
         /// </summary>
         public readonly Outputs.VnetConfigurationResponse? VnetConfiguration;
+        /// <summary>
+        /// Whether or not this Managed Environment is zone-redundant.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetManagedEnvironmentResult(
             Outputs.AppLogsConfigurationResponse? appLogsConfiguration,
+
+            string? daprAIConnectionString,
 
             string? daprAIInstrumentationKey,
 
@@ -150,9 +160,12 @@ namespace Pulumi.AzureNative.App
 
             string type,
 
-            Outputs.VnetConfigurationResponse? vnetConfiguration)
+            Outputs.VnetConfigurationResponse? vnetConfiguration,
+
+            bool? zoneRedundant)
         {
             AppLogsConfiguration = appLogsConfiguration;
+            DaprAIConnectionString = daprAIConnectionString;
             DaprAIInstrumentationKey = daprAIInstrumentationKey;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;
@@ -165,6 +178,7 @@ namespace Pulumi.AzureNative.App
             Tags = tags;
             Type = type;
             VnetConfiguration = vnetConfiguration;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

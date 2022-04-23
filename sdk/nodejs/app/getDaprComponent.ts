@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Dapr Component.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetDaprComponentResult> {
     if (!opts) {

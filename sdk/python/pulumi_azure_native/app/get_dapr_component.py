@@ -170,7 +170,7 @@ def get_dapr_component(environment_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResult:
     """
     Dapr Component.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str environment_name: Name of the Managed Environment.
@@ -208,7 +208,7 @@ def get_dapr_component_output(environment_name: Optional[pulumi.Input[str]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDaprComponentResult]:
     """
     Dapr Component.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str environment_name: Name of the Managed Environment.

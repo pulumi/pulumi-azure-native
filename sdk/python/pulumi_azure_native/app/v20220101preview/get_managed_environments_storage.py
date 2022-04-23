@@ -16,6 +16,8 @@ __all__ = [
     'get_managed_environments_storage_output',
 ]
 
+warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetManagedEnvironmentsStorageResult:
     """
@@ -104,6 +106,7 @@ def get_managed_environments_storage(env_name: Optional[str] = None,
     :param str name: Name of the storage.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_managed_environments_storage is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['envName'] = env_name
     __args__['name'] = name
@@ -135,4 +138,5 @@ def get_managed_environments_storage_output(env_name: Optional[pulumi.Input[str]
     :param str name: Name of the storage.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_managed_environments_storage is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

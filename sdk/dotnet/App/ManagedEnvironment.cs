@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// An environment for hosting container apps
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ManagedEnvironment")]
     public partial class ManagedEnvironment : Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("appLogsConfiguration")]
         public Output<Outputs.AppLogsConfigurationResponse?> AppLogsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        [Output("daprAIConnectionString")]
+        public Output<string?> DaprAIConnectionString { get; private set; } = null!;
 
         /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
@@ -90,6 +96,12 @@ namespace Pulumi.AzureNative.App
         [Output("vnetConfiguration")]
         public Output<Outputs.VnetConfigurationResponse?> VnetConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not this Managed Environment is zone-redundant.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ManagedEnvironment resource with the given unique name, arguments, and options.
@@ -149,6 +161,12 @@ namespace Pulumi.AzureNative.App
         public Input<Inputs.AppLogsConfigurationArgs>? AppLogsConfiguration { get; set; }
 
         /// <summary>
+        /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+        /// </summary>
+        [Input("daprAIConnectionString")]
+        public Input<string>? DaprAIConnectionString { get; set; }
+
+        /// <summary>
         /// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         /// </summary>
         [Input("daprAIInstrumentationKey")]
@@ -189,6 +207,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("vnetConfiguration")]
         public Input<Inputs.VnetConfigurationArgs>? VnetConfiguration { get; set; }
+
+        /// <summary>
+        /// Whether or not this Managed Environment is zone-redundant.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public ManagedEnvironmentArgs()
         {

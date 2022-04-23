@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * API Version: 2022-01-01-preview.
+ * API Version: 2022-03-01.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
     if (!opts) {

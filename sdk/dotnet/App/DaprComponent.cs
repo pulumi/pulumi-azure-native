@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Dapr Component.
-    /// API Version: 2022-01-01-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DaprComponent")]
     public partial class DaprComponent : Pulumi.CustomResource

@@ -16,6 +16,8 @@ __all__ = [
     'get_container_app_output',
 ]
 
+warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContainerAppResult:
     """
@@ -222,6 +224,7 @@ def get_container_app(name: Optional[str] = None,
     :param str name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_container_app is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
@@ -260,4 +263,5 @@ def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
     :param str name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_container_app is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

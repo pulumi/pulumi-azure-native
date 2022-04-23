@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  */
+/** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
+    pulumi.log.warn("getContainerAppsAuthConfig is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

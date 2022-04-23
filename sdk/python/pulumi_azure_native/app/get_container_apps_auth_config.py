@@ -146,7 +146,7 @@ def get_container_apps_auth_config(container_app_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsAuthConfigResult:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -182,7 +182,7 @@ def get_container_apps_auth_config_output(container_app_name: Optional[pulumi.In
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-    API Version: 2022-01-01-preview.
+    API Version: 2022-03-01.
 
 
     :param str container_app_name: Name of the Container App.
