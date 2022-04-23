@@ -164,7 +164,7 @@ export const LinuxVMGuestPatchMode = {
 export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
 
 export const NetworkApiVersion = {
-    NetworkApiVersion_2020_11_01: "2020-11-01",
+    _2020_11_01: "2020-11-01",
 } as const;
 
 /**

@@ -6,7 +6,7 @@ export const CoreNetworkType = {
     /**
      * 5G core
      */
-    CoreNetworkType_5GC: "5GC",
+    _5GC: "5GC",
     /**
      * EPC / 4G core
      */
