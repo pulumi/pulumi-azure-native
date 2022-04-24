@@ -113,10 +113,9 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AssociationAccessMode Unspecified { get; } = new AssociationAccessMode("Unspecified");
-        public static AssociationAccessMode EnforceMode { get; } = new AssociationAccessMode("EnforceMode");
-        public static AssociationAccessMode LearningMode { get; } = new AssociationAccessMode("LearningMode");
-        public static AssociationAccessMode DryRunMode { get; } = new AssociationAccessMode("DryRunMode");
+        public static AssociationAccessMode Learning { get; } = new AssociationAccessMode("Learning");
+        public static AssociationAccessMode Enforced { get; } = new AssociationAccessMode("Enforced");
+        public static AssociationAccessMode Audit { get; } = new AssociationAccessMode("Audit");
 
         public static bool operator ==(AssociationAccessMode left, AssociationAccessMode right) => left.Equals(right);
         public static bool operator !=(AssociationAccessMode left, AssociationAccessMode right) => !left.Equals(right);

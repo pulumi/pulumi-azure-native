@@ -2545,6 +2545,8 @@ func (o ModuleErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
 
 // A private endpoint connection
 type PrivateEndpointConnectionResponse struct {
+	// Gets the groupIds.
+	GroupIds []string `pulumi:"groupIds"`
 	// Fully qualified resource Id for the resource
 	Id string `pulumi:"id"`
 	// The name of the resource
@@ -2570,6 +2572,11 @@ func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResp
 
 func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
 	return o
+}
+
+// Gets the groupIds.
+func (o PrivateEndpointConnectionResponseOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Fully qualified resource Id for the resource

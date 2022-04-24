@@ -15,6 +15,8 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// Gets the groupIds.
+	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Private endpoint which the connection belongs to.
@@ -78,6 +80,8 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets the groupIds.
+	GroupIds []string `pulumi:"groupIds"`
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
 	// The name of the private endpoint connection.
@@ -92,6 +96,8 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets the groupIds.
+	GroupIds pulumi.StringArrayInput
 	// Private endpoint which the connection belongs to.
 	PrivateEndpoint PrivateEndpointPropertyPtrInput
 	// The name of the private endpoint connection.

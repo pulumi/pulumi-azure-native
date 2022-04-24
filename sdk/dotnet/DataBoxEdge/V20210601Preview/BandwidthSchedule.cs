@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:BandwidthSchedule"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:BandwidthSchedule"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:BandwidthSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

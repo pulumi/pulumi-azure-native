@@ -46,7 +46,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
      */
-    public /*out*/ readonly expressRouteConnections!: pulumi.Output<outputs.network.v20210501.ExpressRouteConnectionResponse[]>;
+    public readonly expressRouteConnections!: pulumi.Output<outputs.network.v20210501.ExpressRouteConnectionResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -90,6 +90,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualHub'");
             }
             resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
+            resourceInputs["expressRouteConnections"] = args ? args.expressRouteConnections : undefined;
             resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -97,7 +98,6 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["expressRouteConnections"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -113,7 +113,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["virtualHub"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteGateway" }, { type: "azure-native:network/v20180801:ExpressRouteGateway" }, { type: "azure-native:network/v20181001:ExpressRouteGateway" }, { type: "azure-native:network/v20181101:ExpressRouteGateway" }, { type: "azure-native:network/v20181201:ExpressRouteGateway" }, { type: "azure-native:network/v20190201:ExpressRouteGateway" }, { type: "azure-native:network/v20190401:ExpressRouteGateway" }, { type: "azure-native:network/v20190601:ExpressRouteGateway" }, { type: "azure-native:network/v20190701:ExpressRouteGateway" }, { type: "azure-native:network/v20190801:ExpressRouteGateway" }, { type: "azure-native:network/v20190901:ExpressRouteGateway" }, { type: "azure-native:network/v20191101:ExpressRouteGateway" }, { type: "azure-native:network/v20191201:ExpressRouteGateway" }, { type: "azure-native:network/v20200301:ExpressRouteGateway" }, { type: "azure-native:network/v20200401:ExpressRouteGateway" }, { type: "azure-native:network/v20200501:ExpressRouteGateway" }, { type: "azure-native:network/v20200601:ExpressRouteGateway" }, { type: "azure-native:network/v20200701:ExpressRouteGateway" }, { type: "azure-native:network/v20200801:ExpressRouteGateway" }, { type: "azure-native:network/v20201101:ExpressRouteGateway" }, { type: "azure-native:network/v20210201:ExpressRouteGateway" }, { type: "azure-native:network/v20210301:ExpressRouteGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteGateway" }, { type: "azure-native:network/v20180801:ExpressRouteGateway" }, { type: "azure-native:network/v20181001:ExpressRouteGateway" }, { type: "azure-native:network/v20181101:ExpressRouteGateway" }, { type: "azure-native:network/v20181201:ExpressRouteGateway" }, { type: "azure-native:network/v20190201:ExpressRouteGateway" }, { type: "azure-native:network/v20190401:ExpressRouteGateway" }, { type: "azure-native:network/v20190601:ExpressRouteGateway" }, { type: "azure-native:network/v20190701:ExpressRouteGateway" }, { type: "azure-native:network/v20190801:ExpressRouteGateway" }, { type: "azure-native:network/v20190901:ExpressRouteGateway" }, { type: "azure-native:network/v20191101:ExpressRouteGateway" }, { type: "azure-native:network/v20191201:ExpressRouteGateway" }, { type: "azure-native:network/v20200301:ExpressRouteGateway" }, { type: "azure-native:network/v20200401:ExpressRouteGateway" }, { type: "azure-native:network/v20200501:ExpressRouteGateway" }, { type: "azure-native:network/v20200601:ExpressRouteGateway" }, { type: "azure-native:network/v20200701:ExpressRouteGateway" }, { type: "azure-native:network/v20200801:ExpressRouteGateway" }, { type: "azure-native:network/v20201101:ExpressRouteGateway" }, { type: "azure-native:network/v20210201:ExpressRouteGateway" }, { type: "azure-native:network/v20210301:ExpressRouteGateway" }, { type: "azure-native:network/v20210801:ExpressRouteGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRouteGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,6 +127,10 @@ export interface ExpressRouteGatewayArgs {
      * Configuration for auto scaling.
      */
     autoScaleConfiguration?: pulumi.Input<inputs.network.v20210501.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
+    /**
+     * List of ExpressRoute connections to the ExpressRoute gateway.
+     */
+    expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.v20210501.ExpressRouteConnectionArgs>[]>;
     /**
      * The name of the ExpressRoute gateway.
      */

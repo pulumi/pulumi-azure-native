@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReportByDepartment{}
 	case "azure-native:costmanagement:ReportByResourceGroupName":
 		r = &ReportByResourceGroupName{}
+	case "azure-native:costmanagement:ScheduledAction":
+		r = &ScheduledAction{}
+	case "azure-native:costmanagement:ScheduledActionByScope":
+		r = &ScheduledActionByScope{}
 	case "azure-native:costmanagement:Setting":
 		r = &Setting{}
 	case "azure-native:costmanagement:View":

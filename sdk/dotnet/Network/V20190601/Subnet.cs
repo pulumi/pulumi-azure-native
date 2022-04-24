@@ -193,6 +193,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:Subnet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:Subnet"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:Subnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

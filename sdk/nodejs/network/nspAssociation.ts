@@ -41,6 +41,10 @@ export class NspAssociation extends pulumi.CustomResource {
      */
     public readonly accessMode!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if there are provisioning issues
+     */
+    public /*out*/ readonly hasProvisioningIssues!: pulumi.Output<string>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -96,10 +100,12 @@ export class NspAssociation extends pulumi.CustomResource {
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessMode"] = undefined /*out*/;
+            resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkResource"] = undefined /*out*/;

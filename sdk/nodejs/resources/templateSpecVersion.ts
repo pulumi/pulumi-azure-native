@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec Version object.
- * API Version: 2021-05-01.
+ * API Version: 2022-02-01.
  */
 export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             resourceInputs["uiFormDefinition"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210301preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210501:TemplateSpecVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210301preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210501:TemplateSpecVersion" }, { type: "azure-native:resources/v20220201:TemplateSpecVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateSpecVersion.__pulumiType, name, resourceInputs, opts);
     }

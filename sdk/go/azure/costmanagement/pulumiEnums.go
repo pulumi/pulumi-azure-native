@@ -49,6 +49,19 @@ const (
 	CostAllocationResourceTypeTag = CostAllocationResourceType("Tag")
 )
 
+// Days of Week.
+type DaysOfWeek string
+
+const (
+	DaysOfWeekMonday    = DaysOfWeek("Monday")
+	DaysOfWeekTuesday   = DaysOfWeek("Tuesday")
+	DaysOfWeekWednesday = DaysOfWeek("Wednesday")
+	DaysOfWeekThursday  = DaysOfWeek("Thursday")
+	DaysOfWeekFriday    = DaysOfWeek("Friday")
+	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
+	DaysOfWeekSunday    = DaysOfWeek("Sunday")
+)
+
 // The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 type ExportType string
 
@@ -56,6 +69,13 @@ const (
 	ExportTypeUsage         = ExportType("Usage")
 	ExportTypeActualCost    = ExportType("ActualCost")
 	ExportTypeAmortizedCost = ExportType("AmortizedCost")
+)
+
+// Destination of the view data. Currently only csv format is supported.
+type FileFormat string
+
+const (
+	FileFormatCsv = FileFormat("Csv")
 )
 
 // The format of the report being delivered.
@@ -179,6 +199,36 @@ const (
 	RuleStatusProcessing = RuleStatus("Processing")
 )
 
+// Frequency of the schedule.
+type ScheduleFrequency string
+
+const (
+	// Cost analysis data will be emailed every day.
+	ScheduleFrequencyDaily = ScheduleFrequency("Daily")
+	// Cost analysis data will be emailed every week.
+	ScheduleFrequencyWeekly = ScheduleFrequency("Weekly")
+	// Cost analysis data will be emailed every month.
+	ScheduleFrequencyMonthly = ScheduleFrequency("Monthly")
+)
+
+// Kind of the scheduled action.
+type ScheduledActionKind string
+
+const (
+	// Cost analysis data will be emailed.
+	ScheduledActionKindEmail = ScheduledActionKind("Email")
+)
+
+// Status of the scheduled action.
+type ScheduledActionStatus string
+
+const (
+	// Scheduled action is saved but will not be executed.
+	ScheduledActionStatusDisabled = ScheduledActionStatus("Disabled")
+	// Scheduled action is saved and will be executed.
+	ScheduledActionStatusEnabled = ScheduledActionStatus("Enabled")
+)
+
 // The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
 type StatusType string
 
@@ -194,6 +244,17 @@ const (
 	TimeframeTypeWeekToDate  = TimeframeType("WeekToDate")
 	TimeframeTypeMonthToDate = TimeframeType("MonthToDate")
 	TimeframeTypeCustom      = TimeframeType("Custom")
+)
+
+// Weeks of month.
+type WeeksOfMonth string
+
+const (
+	WeeksOfMonthFirst  = WeeksOfMonth("First")
+	WeeksOfMonthSecond = WeeksOfMonth("Second")
+	WeeksOfMonthThird  = WeeksOfMonth("Third")
+	WeeksOfMonthFourth = WeeksOfMonth("Fourth")
+	WeeksOfMonthLast   = WeeksOfMonth("Last")
 )
 
 func init() {

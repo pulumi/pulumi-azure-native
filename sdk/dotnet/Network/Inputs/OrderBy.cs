@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// Describes if results should be in ascending/descending order
         /// </summary>
         [Input("order")]
-        public string? Order { get; set; }
+        public Union<string, Pulumi.AzureNative.Network.FirewallPolicyIDPSQuerySortOrder>? Order { get; set; }
 
         public OrderBy()
         {

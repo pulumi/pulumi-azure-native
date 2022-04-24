@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.Automation
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets the groupIds.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -94,6 +100,18 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Input("automationAccountName", required: true)]
         public Input<string> AutomationAccountName { get; set; } = null!;
+
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// Gets the groupIds.
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
 
         /// <summary>
         /// Private endpoint which the connection belongs to.

@@ -65,6 +65,7 @@ __all__ = [
     'ExtendedLocationTypes',
     'FirewallPolicyFilterRuleActionType',
     'FirewallPolicyFilterRuleCollectionActionType',
+    'FirewallPolicyIDPSQuerySortOrder',
     'FirewallPolicyIntrusionDetectionProtocol',
     'FirewallPolicyIntrusionDetectionStateType',
     'FirewallPolicyNatRuleActionType',
@@ -174,6 +175,7 @@ __all__ = [
     'VpnLinkConnectionMode',
     'VpnNatRuleMode',
     'VpnNatRuleType',
+    'VpnPolicyMemberAttributeType',
     'VpnType',
     'WebApplicationFirewallAction',
     'WebApplicationFirewallEnabledState',
@@ -375,10 +377,9 @@ class AssociationAccessMode(str, Enum):
     """
     Access mode on the association.
     """
-    UNSPECIFIED = "Unspecified"
-    ENFORCE_MODE = "EnforceMode"
-    LEARNING_MODE = "LearningMode"
-    DRY_RUN_MODE = "DryRunMode"
+    LEARNING = "Learning"
+    ENFORCED = "Enforced"
+    AUDIT = "Audit"
 
 
 class AuthorizationUseStatus(str, Enum):
@@ -740,6 +741,14 @@ class FirewallPolicyFilterRuleCollectionActionType(str, Enum):
     """
     ALLOW = "Allow"
     DENY = "Deny"
+
+
+class FirewallPolicyIDPSQuerySortOrder(str, Enum):
+    """
+    Describes if results should be in ascending/descending order
+    """
+    ASCENDING = "Ascending"
+    DESCENDING = "Descending"
 
 
 class FirewallPolicyIntrusionDetectionProtocol(str, Enum):
@@ -1784,6 +1793,15 @@ class VpnNatRuleType(str, Enum):
     """
     STATIC = "Static"
     DYNAMIC = "Dynamic"
+
+
+class VpnPolicyMemberAttributeType(str, Enum):
+    """
+    The Vpn Policy member attribute type.
+    """
+    CERTIFICATE_GROUP_ID = "CertificateGroupId"
+    AAD_GROUP_ID = "AADGroupId"
+    RADIUS_AZURE_GROUP_ID = "RadiusAzureGroupId"
 
 
 class VpnType(str, Enum):

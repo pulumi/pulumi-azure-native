@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview
                     new Pulumi.Alias { Type = "azure-native:devices/v20200101:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResource"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResource"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

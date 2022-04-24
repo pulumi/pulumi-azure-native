@@ -10,7 +10,9 @@ __all__ = [
     'ConnectorBillingModel',
     'CostAllocationPolicyType',
     'CostAllocationResourceType',
+    'DaysOfWeek',
     'ExportType',
+    'FileFormat',
     'FormatType',
     'FunctionType',
     'GranularityType',
@@ -25,8 +27,12 @@ __all__ = [
     'ReportTimeframeType',
     'ReportType',
     'RuleStatus',
+    'ScheduleFrequency',
+    'ScheduledActionKind',
+    'ScheduledActionStatus',
     'StatusType',
     'TimeframeType',
+    'WeeksOfMonth',
 ]
 
 
@@ -80,6 +86,19 @@ class CostAllocationResourceType(str, Enum):
     """
 
 
+class DaysOfWeek(str, Enum):
+    """
+    Days of Week.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+
+
 class ExportType(str, Enum):
     """
     The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
@@ -87,6 +106,13 @@ class ExportType(str, Enum):
     USAGE = "Usage"
     ACTUAL_COST = "ActualCost"
     AMORTIZED_COST = "AmortizedCost"
+
+
+class FileFormat(str, Enum):
+    """
+    Destination of the view data. Currently only csv format is supported.
+    """
+    CSV = "Csv"
 
 
 class FormatType(str, Enum):
@@ -216,6 +242,48 @@ class RuleStatus(str, Enum):
     """
 
 
+class ScheduleFrequency(str, Enum):
+    """
+    Frequency of the schedule.
+    """
+    DAILY = "Daily"
+    """
+    Cost analysis data will be emailed every day.
+    """
+    WEEKLY = "Weekly"
+    """
+    Cost analysis data will be emailed every week.
+    """
+    MONTHLY = "Monthly"
+    """
+    Cost analysis data will be emailed every month.
+    """
+
+
+class ScheduledActionKind(str, Enum):
+    """
+    Kind of the scheduled action.
+    """
+    EMAIL = "Email"
+    """
+    Cost analysis data will be emailed.
+    """
+
+
+class ScheduledActionStatus(str, Enum):
+    """
+    Status of the scheduled action.
+    """
+    DISABLED = "Disabled"
+    """
+    Scheduled action is saved but will not be executed.
+    """
+    ENABLED = "Enabled"
+    """
+    Scheduled action is saved and will be executed.
+    """
+
+
 class StatusType(str, Enum):
     """
     The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
@@ -231,3 +299,14 @@ class TimeframeType(str, Enum):
     WEEK_TO_DATE = "WeekToDate"
     MONTH_TO_DATE = "MonthToDate"
     CUSTOM = "Custom"
+
+
+class WeeksOfMonth(str, Enum):
+    """
+    Weeks of month.
+    """
+    FIRST = "First"
+    SECOND = "Second"
+    THIRD = "Third"
+    FOURTH = "Fourth"
+    LAST = "Last"

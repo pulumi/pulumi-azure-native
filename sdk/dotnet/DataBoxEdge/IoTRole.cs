@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:IoTRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:IoTRole"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:IoTRole"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:IoTRole"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

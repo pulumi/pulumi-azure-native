@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> AccessMode { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies if there are provisioning issues
+        /// </summary>
+        [Output("hasProvisioningIssues")]
+        public Output<string> HasProvisioningIssues { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]

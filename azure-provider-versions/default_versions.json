@@ -442,6 +442,8 @@
         "ReportByBillingAccount": "2018-08-01-preview",
         "ReportByDepartment": "2018-08-01-preview",
         "ReportByResourceGroupName": "2018-08-01-preview",
+        "ScheduledAction": "2022-04-01-preview",
+        "ScheduledActionByScope": "2022-04-01-preview",
         "Setting": "2019-11-01",
         "View": "2019-11-01",
         "ViewByScope": "2019-11-01"
@@ -730,6 +732,10 @@
         "listProductFamilies": "2021-12-01"
     },
     "EdgeOrderPartner": {},
+    "Education": {
+        "GetLab": "2021-12-01-preview",
+        "GetStudent": "2021-12-01-preview"
+    },
     "Elastic": {
         "Monitor": "2020-07-01",
         "TagRule": "2020-07-01",
@@ -737,6 +743,11 @@
         "listMonitoredResource": "2020-07-01",
         "listUpgradableVersionDetails": "2021-10-01-preview",
         "listVMHost": "2020-07-01"
+    },
+    "ElasticSan": {
+        "ElasticSan": "2021-11-20-preview",
+        "Volume": "2021-11-20-preview",
+        "VolumeGroup": "2021-11-20-preview"
     },
     "EngagementFabric": {
         "Account": "2018-09-01-preview",
@@ -855,7 +866,8 @@
     },
     "HybridConnectivity": {
         "Endpoint": "2021-10-06-preview",
-        "listEndpointCredentials": "2021-10-06-preview"
+        "listEndpointCredentials": "2021-10-06-preview",
+        "listEndpointManagedProxyDetails": "2022-05-01-preview"
     },
     "HybridData": {
         "DataManager": "2019-06-01",
@@ -1217,6 +1229,7 @@
         "ApplicationSecurityGroup": "2020-11-01",
         "AzureFirewall": "2020-11-01",
         "BastionHost": "2020-11-01",
+        "ConfigurationPolicyGroup": "2021-08-01",
         "ConnectionMonitor": "2020-11-01",
         "ConnectivityConfiguration": "2021-02-01-preview",
         "CustomIPPrefix": "2020-11-01",
@@ -1235,6 +1248,7 @@
         "ExpressRouteCrossConnectionPeering": "2020-11-01",
         "ExpressRouteGateway": "2020-11-01",
         "ExpressRoutePort": "2020-11-01",
+        "ExpressRoutePortAuthorization": "2021-08-01",
         "FirewallPolicy": "2020-11-01",
         "FirewallPolicyRuleCollectionGroup": "2020-11-01",
         "FirewallPolicyRuleGroup": "2020-04-01",
@@ -1285,7 +1299,7 @@
         "RouteFilter": "2020-11-01",
         "RouteFilterRule": "2020-11-01",
         "RouteTable": "2020-11-01",
-        "RoutingIntent": "2021-05-01",
+        "RoutingIntent": "2021-08-01",
         "RulesEngine": "2020-05-01",
         "ScopeConnection": "2022-02-01-preview",
         "SecurityAdminConfiguration": "2021-02-01-preview",
@@ -1312,8 +1326,8 @@
         "VirtualNetworkLink": "2020-06-01",
         "VirtualNetworkPeering": "2020-11-01",
         "VirtualNetworkTap": "2020-11-01",
-        "VirtualRouter": "2021-05-01",
-        "VirtualRouterPeering": "2021-05-01",
+        "VirtualRouter": "2021-08-01",
+        "VirtualRouterPeering": "2021-08-01",
         "VirtualWan": "2020-11-01",
         "VpnConnection": "2020-11-01",
         "VpnGateway": "2020-11-01",
@@ -1329,12 +1343,12 @@
         "getP2sVpnGatewayP2sVpnConnectionHealthDetailed": "2020-11-01",
         "getVirtualNetworkGatewayAdvertisedRoutes": "2020-11-01",
         "getVirtualNetworkGatewayBgpPeerStatus": "2020-11-01",
-        "getVirtualNetworkGatewayConnectionIkeSas": "2021-05-01",
+        "getVirtualNetworkGatewayConnectionIkeSas": "2021-08-01",
         "getVirtualNetworkGatewayLearnedRoutes": "2020-11-01",
-        "getVirtualNetworkGatewayVpnProfilePackageUrl": "2021-05-01",
+        "getVirtualNetworkGatewayVpnProfilePackageUrl": "2021-08-01",
         "getVirtualNetworkGatewayVpnclientConnectionHealth": "2020-11-01",
         "getVirtualNetworkGatewayVpnclientIpsecParameters": "2020-11-01",
-        "getVpnLinkConnectionIkeSas": "2021-05-01",
+        "getVpnLinkConnectionIkeSas": "2021-08-01",
         "listActiveConnectivityConfiguration": "2021-02-01-preview",
         "listActiveSecurityAdminRule": "2021-02-01-preview",
         "listActiveSecurityUserRule": "2021-02-01-preview",
@@ -1343,14 +1357,10 @@
         "listEffectiveConnectivityConfiguration": "2021-02-01-preview",
         "listEffectiveVirtualNetworkByNetworkGroup": "2021-02-01-preview",
         "listEffectiveVirtualNetworkByNetworkManager": "2021-02-01-preview",
-        "listFirewallPolicyIdpsSignature": "2021-05-01",
-        "listFirewallPolicyIdpsSignaturesFilterValue": "2021-05-01",
+        "listFirewallPolicyIdpsSignature": "2021-08-01",
+        "listFirewallPolicyIdpsSignaturesFilterValue": "2021-08-01",
         "listNetworkManagerDeploymentStatus": "2021-02-01-preview",
         "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview"
-    },
-    "Notebooks": {
-        "NotebookProxy": "2019-10-11-preview",
-        "listNotebookProxyCredentials": "2019-10-11-preview"
     },
     "NotificationHubs": {
         "Namespace": "2017-04-01",
@@ -1523,13 +1533,22 @@
         "Resource": "2019-05-01",
         "ResourceGroup": "2019-05-01",
         "TagAtScope": "2019-10-01",
-        "TemplateSpec": "2021-05-01",
-        "TemplateSpecVersion": "2021-05-01"
+        "TemplateSpec": "2022-02-01",
+        "TemplateSpecVersion": "2022-02-01"
     },
     "SaaS": {
         "SaasSubscriptionLevel": "2018-03-01-beta",
         "listSaasResourceAccessToken": "2018-03-01-beta",
         "listSaasSubscriptionLevelAccessToken": "2018-03-01-beta"
+    },
+    "ScVmm": {
+        "AvailabilitySet": "2020-06-05-preview",
+        "Cloud": "2020-06-05-preview",
+        "InventoryItem": "2020-06-05-preview",
+        "VirtualMachine": "2020-06-05-preview",
+        "VirtualMachineTemplate": "2020-06-05-preview",
+        "VirtualNetwork": "2020-06-05-preview",
+        "VmmServer": "2020-06-05-preview"
     },
     "Scheduler": {
         "Job": "2016-03-01",

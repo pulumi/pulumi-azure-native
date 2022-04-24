@@ -49,7 +49,7 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFirewallPolicyIdpsSignaturesFilterValueResult:
     """
     Describes the list of all possible values for a specific filter value
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned
@@ -77,7 +77,7 @@ def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Option
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignaturesFilterValueResult]:
     """
     Describes the list of all possible values for a specific filter value
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param str filter_name: Describes the name of the column which values will be returned

@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.Network.V20200501
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkVirtualAppliance"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:NetworkVirtualAppliance"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkVirtualAppliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

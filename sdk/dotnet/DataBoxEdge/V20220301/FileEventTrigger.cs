@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:FileEventTrigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:FileEventTrigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:FileEventTrigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:FileEventTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -41,6 +41,8 @@ if typing.TYPE_CHECKING:
     v20210601preview = __v20210601preview
     import pulumi_azure_native.healthcareapis.v20211101 as __v20211101
     v20211101 = __v20211101
+    import pulumi_azure_native.healthcareapis.v20220131preview as __v20220131preview
+    v20220131preview = __v20220131preview
 else:
     v20180820preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20180820preview')
     v20190916 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20190916')
@@ -49,4 +51,5 @@ else:
     v20210111 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210111')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20210601preview')
     v20211101 = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20211101')
+    v20220131preview = _utilities.lazy_import('pulumi_azure_native.healthcareapis.v20220131preview')
 

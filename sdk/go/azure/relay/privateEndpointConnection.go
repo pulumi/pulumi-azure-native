@@ -49,6 +49,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:relay/v20180101preview:PrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:relay/v20211101:PrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

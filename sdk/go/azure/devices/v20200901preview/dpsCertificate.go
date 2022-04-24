@@ -60,6 +60,9 @@ func NewDpsCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:devices/v20211015:DpsCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:devices/v20220205:DpsCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DpsCertificate

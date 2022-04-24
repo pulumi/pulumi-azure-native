@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Query result
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignatureResult> InvokeAsync(ListFirewallPolicyIdpsSignatureArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Query result
-        /// API Version: 2021-05-01.
+        /// API Version: 2021-08-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignatureResult> Invoke(ListFirewallPolicyIdpsSignatureInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignatureResult>("azure-native:network:listFirewallPolicyIdpsSignature", args ?? new ListFirewallPolicyIdpsSignatureInvokeArgs(), options.WithDefaults());

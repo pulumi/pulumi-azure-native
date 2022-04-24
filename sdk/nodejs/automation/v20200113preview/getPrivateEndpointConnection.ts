@@ -41,6 +41,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * Gets the groupIds.
+     */
+    readonly groupIds?: string[];
+    /**
      * Fully qualified resource Id for the resource
      */
     readonly id: string;

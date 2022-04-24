@@ -33,6 +33,8 @@ type LookupNspProfileArgs struct {
 type LookupNspProfileResult struct {
 	// Version number that increases with every update to access rules within the profile.
 	AccessRulesVersion string `pulumi:"accessRulesVersion"`
+	// Gets the enabled log categories.
+	EnabledLogCategories []LoggingCategoryResponse `pulumi:"enabledLogCategories"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.
@@ -89,6 +91,11 @@ func (o LookupNspProfileResultOutput) ToLookupNspProfileResultOutputWithContext(
 // Version number that increases with every update to access rules within the profile.
 func (o LookupNspProfileResultOutput) AccessRulesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNspProfileResult) string { return v.AccessRulesVersion }).(pulumi.StringOutput)
+}
+
+// Gets the enabled log categories.
+func (o LookupNspProfileResultOutput) EnabledLogCategories() LoggingCategoryResponseArrayOutput {
+	return o.ApplyT(func(v LookupNspProfileResult) []LoggingCategoryResponse { return v.EnabledLogCategories }).(LoggingCategoryResponseArrayOutput)
 }
 
 // Resource ID.

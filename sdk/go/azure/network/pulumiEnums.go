@@ -199,10 +199,9 @@ const (
 type AssociationAccessMode string
 
 const (
-	AssociationAccessModeUnspecified  = AssociationAccessMode("Unspecified")
-	AssociationAccessModeEnforceMode  = AssociationAccessMode("EnforceMode")
-	AssociationAccessModeLearningMode = AssociationAccessMode("LearningMode")
-	AssociationAccessModeDryRunMode   = AssociationAccessMode("DryRunMode")
+	AssociationAccessModeLearning = AssociationAccessMode("Learning")
+	AssociationAccessModeEnforced = AssociationAccessMode("Enforced")
+	AssociationAccessModeAudit    = AssociationAccessMode("Audit")
 )
 
 // The authorization use status.
@@ -564,6 +563,14 @@ type FirewallPolicyFilterRuleCollectionActionType string
 const (
 	FirewallPolicyFilterRuleCollectionActionTypeAllow = FirewallPolicyFilterRuleCollectionActionType("Allow")
 	FirewallPolicyFilterRuleCollectionActionTypeDeny  = FirewallPolicyFilterRuleCollectionActionType("Deny")
+)
+
+// Describes if results should be in ascending/descending order
+type FirewallPolicyIDPSQuerySortOrder string
+
+const (
+	FirewallPolicyIDPSQuerySortOrderAscending  = FirewallPolicyIDPSQuerySortOrder("Ascending")
+	FirewallPolicyIDPSQuerySortOrderDescending = FirewallPolicyIDPSQuerySortOrder("Descending")
 )
 
 // The rule bypass protocol.
@@ -1765,6 +1772,15 @@ type VpnNatRuleType string
 const (
 	VpnNatRuleTypeStatic  = VpnNatRuleType("Static")
 	VpnNatRuleTypeDynamic = VpnNatRuleType("Dynamic")
+)
+
+// The Vpn Policy member attribute type.
+type VpnPolicyMemberAttributeType string
+
+const (
+	VpnPolicyMemberAttributeTypeCertificateGroupId = VpnPolicyMemberAttributeType("CertificateGroupId")
+	VpnPolicyMemberAttributeTypeAADGroupId         = VpnPolicyMemberAttributeType("AADGroupId")
+	VpnPolicyMemberAttributeTypeRadiusAzureGroupId = VpnPolicyMemberAttributeType("RadiusAzureGroupId")
 )
 
 // The type of this virtual network gateway.

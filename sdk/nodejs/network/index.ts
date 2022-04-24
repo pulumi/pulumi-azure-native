@@ -12,6 +12,7 @@ export * from "./applicationGatewayPrivateEndpointConnection";
 export * from "./applicationSecurityGroup";
 export * from "./azureFirewall";
 export * from "./bastionHost";
+export * from "./configurationPolicyGroup";
 export * from "./connectionMonitor";
 export * from "./connectivityConfiguration";
 export * from "./customIPPrefix";
@@ -32,6 +33,7 @@ export * from "./expressRouteConnection";
 export * from "./expressRouteCrossConnectionPeering";
 export * from "./expressRouteGateway";
 export * from "./expressRoutePort";
+export * from "./expressRoutePortAuthorization";
 export * from "./firewallPolicy";
 export * from "./firewallPolicyRuleCollectionGroup";
 export * from "./firewallPolicyRuleGroup";
@@ -48,6 +50,7 @@ export * from "./getApplicationSecurityGroup";
 export * from "./getAzureFirewall";
 export * from "./getBastionHost";
 export * from "./getBastionShareableLink";
+export * from "./getConfigurationPolicyGroup";
 export * from "./getConnectionMonitor";
 export * from "./getConnectivityConfiguration";
 export * from "./getCustomIPPrefix";
@@ -69,6 +72,7 @@ export * from "./getExpressRouteConnection";
 export * from "./getExpressRouteCrossConnectionPeering";
 export * from "./getExpressRouteGateway";
 export * from "./getExpressRoutePort";
+export * from "./getExpressRoutePortAuthorization";
 export * from "./getFirewallPolicy";
 export * from "./getFirewallPolicyRuleCollectionGroup";
 export * from "./getFirewallPolicyRuleGroup";
@@ -315,6 +319,7 @@ import * as v20210301 from "./v20210301";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210501 from "./v20210501";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210801 from "./v20210801";
 import * as v20220201preview from "./v20220201preview";
 
 export {
@@ -374,6 +379,7 @@ export {
     v20210301preview,
     v20210501,
     v20210501preview,
+    v20210801,
     v20220201preview,
 };
 
@@ -385,6 +391,7 @@ import { ApplicationGatewayPrivateEndpointConnection } from "./applicationGatewa
 import { ApplicationSecurityGroup } from "./applicationSecurityGroup";
 import { AzureFirewall } from "./azureFirewall";
 import { BastionHost } from "./bastionHost";
+import { ConfigurationPolicyGroup } from "./configurationPolicyGroup";
 import { ConnectionMonitor } from "./connectionMonitor";
 import { ConnectivityConfiguration } from "./connectivityConfiguration";
 import { CustomIPPrefix } from "./customIPPrefix";
@@ -405,6 +412,7 @@ import { ExpressRouteConnection } from "./expressRouteConnection";
 import { ExpressRouteCrossConnectionPeering } from "./expressRouteCrossConnectionPeering";
 import { ExpressRouteGateway } from "./expressRouteGateway";
 import { ExpressRoutePort } from "./expressRoutePort";
+import { ExpressRoutePortAuthorization } from "./expressRoutePortAuthorization";
 import { FirewallPolicy } from "./firewallPolicy";
 import { FirewallPolicyRuleCollectionGroup } from "./firewallPolicyRuleCollectionGroup";
 import { FirewallPolicyRuleGroup } from "./firewallPolicyRuleGroup";
@@ -510,6 +518,8 @@ const _module = {
                 return new AzureFirewall(name, <any>undefined, { urn })
             case "azure-native:network:BastionHost":
                 return new BastionHost(name, <any>undefined, { urn })
+            case "azure-native:network:ConfigurationPolicyGroup":
+                return new ConfigurationPolicyGroup(name, <any>undefined, { urn })
             case "azure-native:network:ConnectionMonitor":
                 return new ConnectionMonitor(name, <any>undefined, { urn })
             case "azure-native:network:ConnectivityConfiguration":
@@ -550,6 +560,8 @@ const _module = {
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
             case "azure-native:network:ExpressRoutePort":
                 return new ExpressRoutePort(name, <any>undefined, { urn })
+            case "azure-native:network:ExpressRoutePortAuthorization":
+                return new ExpressRoutePortAuthorization(name, <any>undefined, { urn })
             case "azure-native:network:FirewallPolicy":
                 return new FirewallPolicy(name, <any>undefined, { urn })
             case "azure-native:network:FirewallPolicyRuleCollectionGroup":

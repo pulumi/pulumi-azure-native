@@ -34,6 +34,8 @@ type LookupNspAssociationArgs struct {
 type LookupNspAssociationResult struct {
 	// Access mode on the association.
 	AccessMode *string `pulumi:"accessMode"`
+	// Specifies if there are provisioning issues
+	HasProvisioningIssues string `pulumi:"hasProvisioningIssues"`
 	// Resource ID.
 	Id string `pulumi:"id"`
 	// Resource location.
@@ -96,6 +98,11 @@ func (o LookupNspAssociationResultOutput) ToLookupNspAssociationResultOutputWith
 // Access mode on the association.
 func (o LookupNspAssociationResultOutput) AccessMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNspAssociationResult) *string { return v.AccessMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if there are provisioning issues
+func (o LookupNspAssociationResultOutput) HasProvisioningIssues() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNspAssociationResult) string { return v.HasProvisioningIssues }).(pulumi.StringOutput)
 }
 
 // Resource ID.

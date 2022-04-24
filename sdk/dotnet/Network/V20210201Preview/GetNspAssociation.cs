@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public readonly string? AccessMode;
         /// <summary>
+        /// Specifies if there are provisioning issues
+        /// </summary>
+        public readonly string HasProvisioningIssues;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         private GetNspAssociationResult(
             string? accessMode,
 
+            string hasProvisioningIssues,
+
             string id,
 
             string? location,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
             string type)
         {
             AccessMode = accessMode;
+            HasProvisioningIssues = hasProvisioningIssues;
             Id = id;
             Location = location;
             Name = name;

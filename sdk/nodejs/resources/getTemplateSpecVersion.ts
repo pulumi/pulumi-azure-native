@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec Version object.
- * API Version: 2021-05-01.
+ * API Version: 2022-02-01.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
     if (!opts) {

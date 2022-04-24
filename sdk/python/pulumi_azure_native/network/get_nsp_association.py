@@ -21,10 +21,13 @@ class GetNspAssociationResult:
     """
     The NSP resource association resource
     """
-    def __init__(__self__, access_mode=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, access_mode=None, has_provisioning_issues=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
         if access_mode and not isinstance(access_mode, str):
             raise TypeError("Expected argument 'access_mode' to be a str")
         pulumi.set(__self__, "access_mode", access_mode)
+        if has_provisioning_issues and not isinstance(has_provisioning_issues, str):
+            raise TypeError("Expected argument 'has_provisioning_issues' to be a str")
+        pulumi.set(__self__, "has_provisioning_issues", has_provisioning_issues)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -57,6 +60,14 @@ class GetNspAssociationResult:
         Access mode on the association.
         """
         return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter(name="hasProvisioningIssues")
+    def has_provisioning_issues(self) -> str:
+        """
+        Specifies if there are provisioning issues
+        """
+        return pulumi.get(self, "has_provisioning_issues")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetNspAssociationResult(GetNspAssociationResult):
             yield self
         return GetNspAssociationResult(
             access_mode=self.access_mode,
+            has_provisioning_issues=self.has_provisioning_issues,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -165,6 +177,7 @@ def get_nsp_association(association_name: Optional[str] = None,
 
     return AwaitableGetNspAssociationResult(
         access_mode=__ret__.access_mode,
+        has_provisioning_issues=__ret__.has_provisioning_issues,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Trigger"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

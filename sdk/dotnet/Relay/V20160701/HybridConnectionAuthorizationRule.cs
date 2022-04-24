@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
                 {
                     new Pulumi.Alias { Type = "azure-native:relay:HybridConnectionAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:HybridConnectionAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

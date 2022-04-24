@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Network.V20170801
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:PacketCapture"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:PacketCapture"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:PacketCapture"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

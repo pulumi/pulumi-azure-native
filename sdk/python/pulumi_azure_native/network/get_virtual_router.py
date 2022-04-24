@@ -182,7 +182,7 @@ def get_virtual_router(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
     VirtualRouter Resource.
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.
@@ -221,7 +221,7 @@ def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     VirtualRouter Resource.
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param str expand: Expands referenced resources.

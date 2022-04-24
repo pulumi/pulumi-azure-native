@@ -70,6 +70,9 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualHubBgpConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210801:VirtualHubBgpConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualHubBgpConnection

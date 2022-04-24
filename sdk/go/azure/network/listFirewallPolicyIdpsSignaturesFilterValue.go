@@ -11,7 +11,7 @@ import (
 )
 
 // Describes the list of all possible values for a specific filter value
-// API Version: 2021-05-01.
+// API Version: 2021-08-01.
 func ListFirewallPolicyIdpsSignaturesFilterValue(ctx *pulumi.Context, args *ListFirewallPolicyIdpsSignaturesFilterValueArgs, opts ...pulumi.InvokeOption) (*ListFirewallPolicyIdpsSignaturesFilterValueResult, error) {
 	var rv ListFirewallPolicyIdpsSignaturesFilterValueResult
 	err := ctx.Invoke("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args, &rv, opts...)

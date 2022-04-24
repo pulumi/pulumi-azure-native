@@ -23891,6 +23891,169 @@ func (o ExpressRouteCircuitStatsResponsePtrOutput) SecondarybytesOut() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
+// ExpressRouteConnection resource.
+type ExpressRouteConnectionType struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// The name of the resource.
+	Name string `pulumi:"name"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration *RoutingConfiguration `pulumi:"routingConfiguration"`
+	// The routing weight associated to the connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
+}
+
+// ExpressRouteConnectionTypeInput is an input type that accepts ExpressRouteConnectionTypeArgs and ExpressRouteConnectionTypeOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionTypeInput` via:
+//
+//          ExpressRouteConnectionTypeArgs{...}
+type ExpressRouteConnectionTypeInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionTypeOutput() ExpressRouteConnectionTypeOutput
+	ToExpressRouteConnectionTypeOutputWithContext(context.Context) ExpressRouteConnectionTypeOutput
+}
+
+// ExpressRouteConnection resource.
+type ExpressRouteConnectionTypeArgs struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey pulumi.StringPtrInput `pulumi:"authorizationKey"`
+	// Enable internet security.
+	EnableInternetSecurity pulumi.BoolPtrInput `pulumi:"enableInternetSecurity"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput `pulumi:"expressRouteGatewayBypass"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration RoutingConfigurationPtrInput `pulumi:"routingConfiguration"`
+	// The routing weight associated to the connection.
+	RoutingWeight pulumi.IntPtrInput `pulumi:"routingWeight"`
+}
+
+func (ExpressRouteConnectionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionType)(nil)).Elem()
+}
+
+func (i ExpressRouteConnectionTypeArgs) ToExpressRouteConnectionTypeOutput() ExpressRouteConnectionTypeOutput {
+	return i.ToExpressRouteConnectionTypeOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionTypeArgs) ToExpressRouteConnectionTypeOutputWithContext(ctx context.Context) ExpressRouteConnectionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionTypeOutput)
+}
+
+// ExpressRouteConnectionTypeArrayInput is an input type that accepts ExpressRouteConnectionTypeArray and ExpressRouteConnectionTypeArrayOutput values.
+// You can construct a concrete instance of `ExpressRouteConnectionTypeArrayInput` via:
+//
+//          ExpressRouteConnectionTypeArray{ ExpressRouteConnectionTypeArgs{...} }
+type ExpressRouteConnectionTypeArrayInput interface {
+	pulumi.Input
+
+	ToExpressRouteConnectionTypeArrayOutput() ExpressRouteConnectionTypeArrayOutput
+	ToExpressRouteConnectionTypeArrayOutputWithContext(context.Context) ExpressRouteConnectionTypeArrayOutput
+}
+
+type ExpressRouteConnectionTypeArray []ExpressRouteConnectionTypeInput
+
+func (ExpressRouteConnectionTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressRouteConnectionType)(nil)).Elem()
+}
+
+func (i ExpressRouteConnectionTypeArray) ToExpressRouteConnectionTypeArrayOutput() ExpressRouteConnectionTypeArrayOutput {
+	return i.ToExpressRouteConnectionTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ExpressRouteConnectionTypeArray) ToExpressRouteConnectionTypeArrayOutputWithContext(ctx context.Context) ExpressRouteConnectionTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteConnectionTypeArrayOutput)
+}
+
+// ExpressRouteConnection resource.
+type ExpressRouteConnectionTypeOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressRouteConnectionType)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionTypeOutput) ToExpressRouteConnectionTypeOutput() ExpressRouteConnectionTypeOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionTypeOutput) ToExpressRouteConnectionTypeOutputWithContext(ctx context.Context) ExpressRouteConnectionTypeOutput {
+	return o
+}
+
+// Authorization key to establish the connection.
+func (o ExpressRouteConnectionTypeOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *string { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Enable internet security.
+func (o ExpressRouteConnectionTypeOutput) EnableInternetSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *bool { return v.EnableInternetSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// The ExpressRoute circuit peering.
+func (o ExpressRouteConnectionTypeOutput) ExpressRouteCircuitPeering() ExpressRouteCircuitPeeringIdOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) ExpressRouteCircuitPeeringId { return v.ExpressRouteCircuitPeering }).(ExpressRouteCircuitPeeringIdOutput)
+}
+
+// Enable FastPath to vWan Firewall hub.
+func (o ExpressRouteConnectionTypeOutput) ExpressRouteGatewayBypass() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *bool { return v.ExpressRouteGatewayBypass }).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID.
+func (o ExpressRouteConnectionTypeOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ExpressRouteConnectionTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Routing Configuration indicating the associated and propagated route tables on this connection.
+func (o ExpressRouteConnectionTypeOutput) RoutingConfiguration() RoutingConfigurationPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *RoutingConfiguration { return v.RoutingConfiguration }).(RoutingConfigurationPtrOutput)
+}
+
+// The routing weight associated to the connection.
+func (o ExpressRouteConnectionTypeOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ExpressRouteConnectionType) *int { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+type ExpressRouteConnectionTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressRouteConnectionTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressRouteConnectionType)(nil)).Elem()
+}
+
+func (o ExpressRouteConnectionTypeArrayOutput) ToExpressRouteConnectionTypeArrayOutput() ExpressRouteConnectionTypeArrayOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionTypeArrayOutput) ToExpressRouteConnectionTypeArrayOutputWithContext(ctx context.Context) ExpressRouteConnectionTypeArrayOutput {
+	return o
+}
+
+func (o ExpressRouteConnectionTypeArrayOutput) Index(i pulumi.IntInput) ExpressRouteConnectionTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressRouteConnectionType {
+		return vs[0].([]ExpressRouteConnectionType)[vs[1].(int)]
+	}).(ExpressRouteConnectionTypeOutput)
+}
+
 // The ID of the ExpressRouteConnection.
 type ExpressRouteConnectionIdResponse struct {
 	// The ID of the ExpressRouteConnection.
@@ -61422,6 +61585,8 @@ func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitStatsPtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitStatsResponseOutput{})
 	pulumi.RegisterOutputType(ExpressRouteCircuitStatsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionTypeOutput{})
+	pulumi.RegisterOutputType(ExpressRouteConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(ExpressRouteConnectionIdResponseOutput{})
 	pulumi.RegisterOutputType(ExpressRouteConnectionIdResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteConnectionResponseOutput{})

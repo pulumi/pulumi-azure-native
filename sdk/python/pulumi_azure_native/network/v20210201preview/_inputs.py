@@ -13,6 +13,7 @@ __all__ = [
     'ConnectivityGroupItemArgs',
     'GroupMembersItemArgs',
     'HubArgs',
+    'LoggingCategoryArgs',
     'NetworkManagerPropertiesNetworkManagerScopesArgs',
     'NetworkManagerSecurityGroupItemArgs',
     'PerimeterBasedAccessRuleArgs',
@@ -152,6 +153,30 @@ class HubArgs:
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
+
+
+@pulumi.input_type
+class LoggingCategoryArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Logging Category
+        :param pulumi.Input[str] name: The name of the logging category.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the logging category.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

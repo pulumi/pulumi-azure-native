@@ -67,7 +67,9 @@ import * as digitaltwins from "./digitaltwins";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as edgeorder from "./edgeorder";
+import * as education from "./education";
 import * as elastic from "./elastic";
+import * as elasticsan from "./elasticsan";
 import * as enterpriseknowledgegraph from "./enterpriseknowledgegraph";
 import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
@@ -130,6 +132,7 @@ import * as resourceconnector from "./resourceconnector";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
+import * as scvmm from "./scvmm";
 import * as search from "./search";
 import * as security from "./security";
 import * as securityandcompliance from "./securityandcompliance";
@@ -228,7 +231,9 @@ export {
     documentdb,
     domainregistration,
     edgeorder,
+    education,
     elastic,
+    elasticsan,
     enterpriseknowledgegraph,
     eventgrid,
     eventhub,
@@ -291,6 +296,7 @@ export {
     resources,
     saas,
     scheduler,
+    scvmm,
     search,
     security,
     securityandcompliance,

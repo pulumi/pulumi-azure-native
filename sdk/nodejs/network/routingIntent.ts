@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The routing intent child resource of a Virtual hub.
- * API Version: 2021-05-01.
+ * API Version: 2021-08-01.
  */
 export class RoutingIntent extends pulumi.CustomResource {
     /**
@@ -91,7 +91,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501:RoutingIntent" }, { type: "azure-native:network/v20210801:RoutingIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoutingIntent.__pulumiType, name, resourceInputs, opts);
     }

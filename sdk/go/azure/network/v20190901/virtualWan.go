@@ -127,6 +127,9 @@ func NewVirtualWan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualWan"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210801:VirtualWan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource VirtualWan

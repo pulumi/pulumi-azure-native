@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = [
@@ -67,7 +68,7 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFirewallPolicyIdpsSignatureResult:
     """
     Query result
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values
@@ -108,7 +109,7 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignatureResult]:
     """
     Query result
-    API Version: 2021-05-01.
+    API Version: 2021-08-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values

@@ -115,6 +115,9 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210301:ExpressRouteGateway"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210801:ExpressRouteGateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ExpressRouteGateway
@@ -151,6 +154,8 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 type expressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
+	// List of ExpressRoute connections to the ExpressRoute gateway.
+	ExpressRouteConnections []ExpressRouteConnectionType `pulumi:"expressRouteConnections"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName *string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
@@ -169,6 +174,8 @@ type expressRouteGatewayArgs struct {
 type ExpressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
 	AutoScaleConfiguration ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
+	// List of ExpressRoute connections to the ExpressRoute gateway.
+	ExpressRouteConnections ExpressRouteConnectionTypeArrayInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringPtrInput
 	// Resource ID.

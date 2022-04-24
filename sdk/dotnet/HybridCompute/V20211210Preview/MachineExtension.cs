@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20211210Preview
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:MachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:MachineExtension"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:MachineExtension"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220310:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

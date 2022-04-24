@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Network.V20210501
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:ExpressRouteGateway"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:ExpressRouteGateway"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRouteGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,6 +145,18 @@ namespace Pulumi.AzureNative.Network.V20210501
         /// </summary>
         [Input("autoScaleConfiguration")]
         public Input<Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
+
+        [Input("expressRouteConnections")]
+        private InputList<Inputs.ExpressRouteConnectionArgs>? _expressRouteConnections;
+
+        /// <summary>
+        /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteConnectionArgs> ExpressRouteConnections
+        {
+            get => _expressRouteConnections ?? (_expressRouteConnections = new InputList<Inputs.ExpressRouteConnectionArgs>());
+            set => _expressRouteConnections = value;
+        }
 
         /// <summary>
         /// The name of the ExpressRoute gateway.

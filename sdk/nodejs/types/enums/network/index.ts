@@ -53,6 +53,7 @@ import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210801 from "./v20210801";
 import * as v20220201preview from "./v20220201preview";
 
 export {
@@ -107,6 +108,7 @@ export {
     v20210301,
     v20210501,
     v20210501preview,
+    v20210801,
     v20220201preview,
 };
 
@@ -332,10 +334,9 @@ export const ApplicationGatewayTier = {
 export type ApplicationGatewayTier = (typeof ApplicationGatewayTier)[keyof typeof ApplicationGatewayTier];
 
 export const AssociationAccessMode = {
-    Unspecified: "Unspecified",
-    EnforceMode: "EnforceMode",
-    LearningMode: "LearningMode",
-    DryRunMode: "DryRunMode",
+    Learning: "Learning",
+    Enforced: "Enforced",
+    Audit: "Audit",
 } as const;
 
 /**
@@ -785,6 +786,16 @@ export const FirewallPolicyFilterRuleCollectionActionType = {
  * The type of action.
  */
 export type FirewallPolicyFilterRuleCollectionActionType = (typeof FirewallPolicyFilterRuleCollectionActionType)[keyof typeof FirewallPolicyFilterRuleCollectionActionType];
+
+export const FirewallPolicyIDPSQuerySortOrder = {
+    Ascending: "Ascending",
+    Descending: "Descending",
+} as const;
+
+/**
+ * Describes if results should be in ascending/descending order
+ */
+export type FirewallPolicyIDPSQuerySortOrder = (typeof FirewallPolicyIDPSQuerySortOrder)[keyof typeof FirewallPolicyIDPSQuerySortOrder];
 
 export const FirewallPolicyIntrusionDetectionProtocol = {
     TCP: "TCP",
@@ -2047,6 +2058,17 @@ export const VpnNatRuleType = {
  * The type of NAT rule for VPN NAT.
  */
 export type VpnNatRuleType = (typeof VpnNatRuleType)[keyof typeof VpnNatRuleType];
+
+export const VpnPolicyMemberAttributeType = {
+    CertificateGroupId: "CertificateGroupId",
+    AADGroupId: "AADGroupId",
+    RadiusAzureGroupId: "RadiusAzureGroupId",
+} as const;
+
+/**
+ * The Vpn Policy member attribute type.
+ */
+export type VpnPolicyMemberAttributeType = (typeof VpnPolicyMemberAttributeType)[keyof typeof VpnPolicyMemberAttributeType];
 
 export const VpnType = {
     PolicyBased: "PolicyBased",

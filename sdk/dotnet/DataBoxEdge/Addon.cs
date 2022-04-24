@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:Addon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

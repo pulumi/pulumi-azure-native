@@ -15,6 +15,7 @@ import * as v20200601 from "./v20200601";
 import * as v20201201preview from "./v20201201preview";
 import * as v20210101 from "./v20210101";
 import * as v20211001 from "./v20211001";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20180531,
@@ -30,6 +31,7 @@ export {
     v20201201preview,
     v20210101,
     v20211001,
+    v20220401preview,
 };
 
 export const AccumulatedType = {
@@ -92,6 +94,21 @@ export const CostAllocationResourceType = {
  */
 export type CostAllocationResourceType = (typeof CostAllocationResourceType)[keyof typeof CostAllocationResourceType];
 
+export const DaysOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+/**
+ * Days of Week.
+ */
+export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
+
 export const ExportType = {
     Usage: "Usage",
     ActualCost: "ActualCost",
@@ -102,6 +119,15 @@ export const ExportType = {
  * The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
  */
 export type ExportType = (typeof ExportType)[keyof typeof ExportType];
+
+export const FileFormat = {
+    Csv: "Csv",
+} as const;
+
+/**
+ * Destination of the view data. Currently only csv format is supported.
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
 
 export const FormatType = {
     Csv: "Csv",
@@ -258,6 +284,54 @@ export const RuleStatus = {
  */
 export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
 
+export const ScheduleFrequency = {
+    /**
+     * Cost analysis data will be emailed every day.
+     */
+    Daily: "Daily",
+    /**
+     * Cost analysis data will be emailed every week.
+     */
+    Weekly: "Weekly",
+    /**
+     * Cost analysis data will be emailed every month.
+     */
+    Monthly: "Monthly",
+} as const;
+
+/**
+ * Frequency of the schedule.
+ */
+export type ScheduleFrequency = (typeof ScheduleFrequency)[keyof typeof ScheduleFrequency];
+
+export const ScheduledActionKind = {
+    /**
+     * Cost analysis data will be emailed.
+     */
+    Email: "Email",
+} as const;
+
+/**
+ * Kind of the scheduled action.
+ */
+export type ScheduledActionKind = (typeof ScheduledActionKind)[keyof typeof ScheduledActionKind];
+
+export const ScheduledActionStatus = {
+    /**
+     * Scheduled action is saved but will not be executed.
+     */
+    Disabled: "Disabled",
+    /**
+     * Scheduled action is saved and will be executed.
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Status of the scheduled action.
+ */
+export type ScheduledActionStatus = (typeof ScheduledActionStatus)[keyof typeof ScheduledActionStatus];
+
 export const StatusType = {
     Active: "Active",
     Inactive: "Inactive",
@@ -278,3 +352,16 @@ export const TimeframeType = {
  * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
  */
 export type TimeframeType = (typeof TimeframeType)[keyof typeof TimeframeType];
+
+export const WeeksOfMonth = {
+    First: "First",
+    Second: "Second",
+    Third: "Third",
+    Fourth: "Fourth",
+    Last: "Last",
+} as const;
+
+/**
+ * Weeks of month.
+ */
+export type WeeksOfMonth = (typeof WeeksOfMonth)[keyof typeof WeeksOfMonth];
