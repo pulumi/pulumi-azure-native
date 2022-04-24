@@ -156,7 +156,7 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResourcePrivateEndpointConnection, __self__).__init__(
             'azure-native:devices:IotDpsResourcePrivateEndpointConnection',

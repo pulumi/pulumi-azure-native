@@ -7209,6 +7209,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20220205",
+  "fqn": "pulumi_azure_native.devices.v20220205",
+  "classes": {
+   "azure-native:devices/v20220205:DpsCertificate": "DpsCertificate",
+   "azure-native:devices/v20220205:IotDpsResource": "IotDpsResource",
+   "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "deviceupdate",
   "fqn": "pulumi_azure_native.deviceupdate",
   "classes": {

@@ -159,7 +159,7 @@ class DpsCertificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20180122:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200101:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200301:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200901preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20211015:DpsCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20170821preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20180122:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200101:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200301:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20200901preview:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20211015:DpsCertificate"), pulumi.Alias(type_="azure-native:devices/v20220205:DpsCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DpsCertificate, __self__).__init__(
             'azure-native:devices/v20171115:DpsCertificate',

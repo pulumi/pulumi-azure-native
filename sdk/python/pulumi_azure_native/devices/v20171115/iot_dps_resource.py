@@ -201,7 +201,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devices:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20170821preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20180122:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200101:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200301:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20200901preview:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20211015:IotDpsResource"), pulumi.Alias(type_="azure-native:devices/v20220205:IotDpsResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotDpsResource, __self__).__init__(
             'azure-native:devices/v20171115:IotDpsResource',
