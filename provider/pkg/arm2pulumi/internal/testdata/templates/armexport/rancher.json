@@ -338,10 +338,10 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "osType": "azure_native.compute/v20190701.OperatingSystemTypes.Linux",
+                        "osType": "Linux",
                         "name": "[concat(parameters('virtualMachines_pulumirancher_name'), '_Os_Disk_1')]",
                         "createOption": "FromImage",
-                        "caching": "azure_native.compute/v20190701.CachingTypes.ReadWrite",
+                        "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Standard_LRS",
                             "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_pulumirancher_name'), '_Os_Disk_1'))]"
