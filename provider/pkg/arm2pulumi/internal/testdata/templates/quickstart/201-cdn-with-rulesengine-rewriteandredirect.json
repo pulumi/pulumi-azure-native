@@ -63,7 +63,7 @@
             "originHostHeader": "[parameters('originUrl')]",
             "isHttpAllowed": true,
             "isHttpsAllowed": true,
-            "queryStringCachingBehavior": azure_native.cdn/v20190415.QueryStringCachingBehavior.IgnoreQueryString,
+            "queryStringCachingBehavior": "azure_native.cdn/v20190415.QueryStringCachingBehavior.IgnoreQueryString",
             "contentTypesToCompress": [
               "text/plain",
               "text/html",
