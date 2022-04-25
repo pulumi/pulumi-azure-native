@@ -63,7 +63,7 @@
             "originHostHeader": "[parameters('originUrl')]",
             "isHttpAllowed": true,
             "isHttpsAllowed": true,
-            "queryStringCachingBehavior": "IgnoreQueryString",
+            "queryStringCachingBehavior": azure_native.cdn/v20190415.QueryStringCachingBehavior.IgnoreQueryString,
             "contentTypesToCompress": [
               "text/plain",
               "text/html",
@@ -85,7 +85,7 @@
               "rules": [
                 {
                   "name" :  "PathRewriteBasedOnDeviceMatchCondition",
-                  "order": "1",
+                  "order": 1,
                   "conditions": [
                     {
                       "name": "IsDevice",
@@ -111,7 +111,7 @@
                 },
                 {
                   "name" :  "HttpVersionBasedRedirect",
-                  "order": "2",
+                  "order": 2,
                   "conditions": [
                     {
                       "name": "RequestScheme",
