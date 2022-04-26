@@ -6055,6 +6055,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20220331preview",
+  "fqn": "pulumi_azure_native.dataprotection.v20220331preview",
+  "classes": {
+   "azure-native:dataprotection/v20220331preview:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20220331preview:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20220331preview:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20220331preview:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -15394,6 +15405,14 @@ _utilities.register(
    "azure-native:recoveryservices/v20220101:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20220101:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20220101:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20220131preview",
+  "fqn": "pulumi_azure_native.recoveryservices.v20220131preview",
+  "classes": {
+   "azure-native:recoveryservices/v20220131preview:Vault": "Vault"
   }
  },
  {
