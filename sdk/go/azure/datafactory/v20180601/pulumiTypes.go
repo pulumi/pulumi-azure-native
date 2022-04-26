@@ -19191,8 +19191,150 @@ type PrestoSourceResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Private endpoint which a connection belongs to.
+type PrivateEndpoint struct {
+	// The resource Id for private endpoint
+	Id *string `pulumi:"id"`
+}
+
+// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
+// You can construct a concrete instance of `PrivateEndpointInput` via:
+//
+//          PrivateEndpointArgs{...}
+type PrivateEndpointInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointOutput() PrivateEndpointOutput
+	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
+}
+
+// Private endpoint which a connection belongs to.
+type PrivateEndpointArgs struct {
+	// The resource Id for private endpoint
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
+	return i.ToPrivateEndpointOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
+}
+
+// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
+// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
+//
+//          PrivateEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type PrivateEndpointPtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
+	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
+}
+
+type privateEndpointPtrType PrivateEndpointArgs
+
+func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
+	return (*privateEndpointPtrType)(v)
+}
+
+func (*privateEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
+}
+
+func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
+}
+
+// Private endpoint which a connection belongs to.
+type PrivateEndpointOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
+	return o
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
+		return &v
+	}).(PrivateEndpointPtrOutput)
+}
+
+// The resource Id for private endpoint
+func (o PrivateEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
+}
+
+func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
+}
+
+// The resource Id for private endpoint
+func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // A request to approve or reject a private endpoint connection
 type PrivateLinkConnectionApprovalRequest struct {
+	// The resource of private endpoint.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState *PrivateLinkConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -19210,6 +19352,8 @@ type PrivateLinkConnectionApprovalRequestInput interface {
 
 // A request to approve or reject a private endpoint connection
 type PrivateLinkConnectionApprovalRequestArgs struct {
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
 	// The state of a private link connection
 	PrivateLinkServiceConnectionState PrivateLinkConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -19292,6 +19436,11 @@ func (o PrivateLinkConnectionApprovalRequestOutput) ToPrivateLinkConnectionAppro
 	}).(PrivateLinkConnectionApprovalRequestPtrOutput)
 }
 
+// The resource of private endpoint.
+func (o PrivateLinkConnectionApprovalRequestOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateLinkConnectionApprovalRequest) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+}
+
 // The state of a private link connection
 func (o PrivateLinkConnectionApprovalRequestOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStatePtrOutput {
 	return o.ApplyT(func(v PrivateLinkConnectionApprovalRequest) *PrivateLinkConnectionState {
@@ -19321,6 +19470,16 @@ func (o PrivateLinkConnectionApprovalRequestPtrOutput) Elem() PrivateLinkConnect
 		var ret PrivateLinkConnectionApprovalRequest
 		return ret
 	}).(PrivateLinkConnectionApprovalRequestOutput)
+}
+
+// The resource of private endpoint.
+func (o PrivateLinkConnectionApprovalRequestPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkConnectionApprovalRequest) *PrivateEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpoint
+	}).(PrivateEndpointPtrOutput)
 }
 
 // The state of a private link connection
@@ -27023,6 +27182,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelinePolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PipelineResponseFolderOutput{})
 	pulumi.RegisterOutputType(PipelineResponseFolderPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionApprovalRequestOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionApprovalRequestPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateOutput{})
