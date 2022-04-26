@@ -398,6 +398,7 @@ __all__ = [
     'PrestoLinkedServiceArgs',
     'PrestoObjectDatasetArgs',
     'PrestoSourceArgs',
+    'PrivateEndpointArgs',
     'PrivateLinkConnectionApprovalRequestArgs',
     'PrivateLinkConnectionStateArgs',
     'QuickBooksLinkedServiceArgs',
@@ -57056,15 +57057,55 @@ class PrestoSourceArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint which a connection belongs to.
+        :param pulumi.Input[str] id: The resource Id for private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id for private endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class PrivateLinkConnectionApprovalRequestArgs:
     def __init__(__self__, *,
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkConnectionStateArgs']] = None):
         """
         A request to approve or reject a private endpoint connection
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The resource of private endpoint.
         :param pulumi.Input['PrivateLinkConnectionStateArgs'] private_link_service_connection_state: The state of a private link connection
         """
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+        """
+        The resource of private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")

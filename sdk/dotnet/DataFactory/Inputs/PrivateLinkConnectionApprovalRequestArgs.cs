@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class PrivateLinkConnectionApprovalRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource of private endpoint.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
         /// The state of a private link connection
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
