@@ -49467,6 +49467,7 @@
           "West US",
           "West US 2",
           "West US 3",
+          "Switzerland West",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -49522,6 +49523,7 @@
           "West US",
           "West US 2",
           "West US 3",
+          "Switzerland West",
           "Central US EUAP",
           "East US 2 EUAP"
         ],
@@ -105472,6 +105474,10 @@
       {
         "applicationId": "05cf5e27-931d-47ad-826d-cb9028d8bd7a",
         "roleDefinitionId": "a1ed4c58-2888-4d39-9359-a4186a62bba6"
+      },
+      {
+        "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
+        "roleDefinitionId": "a1ed4c58-2888-4d39-9359-a4186a62bba6"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.NetworkCloud",
@@ -106592,11 +106598,9 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
+        "locations": [],
         "properties": null,
-        "resourceType": "Locations"
+        "resourceType": "locations"
       },
       {
         "aliases": null,
@@ -106611,7 +106615,7 @@
           "West US"
         ],
         "properties": null,
-        "resourceType": "Locations/OperationStatuses"
+        "resourceType": "locations/operationStatuses"
       },
       {
         "aliases": null,
@@ -106622,56 +106626,9 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
+        "locations": [],
         "properties": null,
-        "resourceType": "Operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2022-03-02-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
-        "properties": null,
-        "resourceType": "Titles/Segments"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2022-03-02-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
-        "properties": null,
-        "resourceType": "Titles/TitleDataKeyValues"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2022-03-02-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US"
-        ],
-        "properties": null,
-        "resourceType": "Titles/TitleInternalDataKeyValues"
+        "resourceType": "operations"
       }
     ]
   },
@@ -114960,6 +114917,7 @@
           "East US 2",
           "West US 2",
           "North Europe",
+          "Australia East",
           "East US 2 EUAP",
           "Central US EUAP"
         ],

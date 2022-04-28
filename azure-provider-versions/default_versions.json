@@ -1402,10 +1402,10 @@
         "Solution": "2015-11-01-preview"
     },
     "Orbital": {
-        "Contact": "2021-04-04-preview",
-        "ContactProfile": "2021-04-04-preview",
-        "Spacecraft": "2021-04-04-preview",
-        "listSpacecraftAvailableContacts": "2021-04-04-preview"
+        "Contact": "2022-03-01",
+        "ContactProfile": "2022-03-01",
+        "Spacecraft": "2022-03-01",
+        "listSpacecraftAvailableContacts": "2022-03-01"
     },
     "Peering": {
         "ConnectionMonitorTest": "2021-06-01",
