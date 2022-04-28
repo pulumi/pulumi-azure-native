@@ -22,6 +22,7 @@ import (
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
+	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
@@ -120,6 +121,15 @@ func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, e
 		return nil, errors.Wrap(err, "closing uncompress stream for metadata")
 	}
 	return &resourceMap, nil
+}
+
+func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
+	host, err := provider.NewHostClient(req.GetAddress())
+	if err != nil {
+		return nil, err
+	}
+	p.host = host
+	return &pbempty.Empty{}, nil
 }
 
 // Configure configures the resource provider with "globals" that control its behavior.
