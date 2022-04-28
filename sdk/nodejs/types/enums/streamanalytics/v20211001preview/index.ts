@@ -24,8 +24,8 @@ export const BlobWriteMode = {
 export type BlobWriteMode = (typeof BlobWriteMode)[keyof typeof BlobWriteMode];
 
 export const CompatibilityLevel = {
-    CompatibilityLevel_1_0: "1.0",
-    CompatibilityLevel_1_2: "1.2",
+    _1_0: "1.0",
+    _1_2: "1.2",
 } as const;
 
 /**
