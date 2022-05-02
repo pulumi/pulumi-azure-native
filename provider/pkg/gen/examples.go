@@ -1,4 +1,4 @@
-// Copyright 2021, Pulumi Corporation.  All rights reserved.
+// Copyright 2022, Pulumi Corporation.  All rights reserved.
 
 package gen
 
@@ -9,6 +9,7 @@ import (
 	"os"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
@@ -232,13 +233,13 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 
 		switch lang {
 		case "dotnet":
-			files, err = recoverableProgramGen(program, dotnet.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, dotnet.GenerateProgram)
 		case "go":
-			files, err = recoverableProgramGen(program, gogen.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, gogen.GenerateProgram)
 		case "nodejs":
-			files, err = recoverableProgramGen(program, nodejs.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, nodejs.GenerateProgram)
 		case "python":
-			files, err = recoverableProgramGen(program, python.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, python.GenerateProgram)
 		default:
 			continue
 		}
@@ -262,7 +263,24 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	return languageExample, nil
 }
 
-func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {
+// Panic after 3 minutes, unless cancel is called.
+func makeTimeout(timer string) (cancel func()) {
+	timeout := make(chan struct{})
+	go func() {
+		for {
+			select {
+			case <-timeout:
+				return
+			case <-time.After(3 * time.Minute):
+				log.Printf("%s timed out", timer)
+				panic("timeout")
+			}
+		}
+	}()
+	return func() { timeout <- struct{}{} }
+}
+
+func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during generation: %v", r)
@@ -270,6 +288,8 @@ func recoverableProgramGen(program *hcl2.Program, fn programGenFn) (files map[st
 	}()
 
 	var d hcl.Diagnostics
+	cancel := makeTimeout(name)
+	defer cancel()
 	files, d, err = fn(program)
 
 	if err != nil {
