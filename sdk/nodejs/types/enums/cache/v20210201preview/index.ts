@@ -3,7 +3,7 @@
 
 
 export const AofFrequency = {
-    AofFrequency_1s: "1s",
+    _1s: "1s",
     Always: "always",
 } as const;
 
@@ -60,9 +60,9 @@ export const Protocol = {
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 export const RdbFrequency = {
-    RdbFrequency_1h: "1h",
-    RdbFrequency_6h: "6h",
-    RdbFrequency_12h: "12h",
+    _1h: "1h",
+    _6h: "6h",
+    _12h: "12h",
 } as const;
 
 /**
@@ -86,9 +86,9 @@ export const SkuName = {
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TlsVersion = {
-    TlsVersion_1_0: "1.0",
-    TlsVersion_1_1: "1.1",
-    TlsVersion_1_2: "1.2",
+    _1_0: "1.0",
+    _1_1: "1.1",
+    _1_2: "1.2",
 } as const;
 
 /**

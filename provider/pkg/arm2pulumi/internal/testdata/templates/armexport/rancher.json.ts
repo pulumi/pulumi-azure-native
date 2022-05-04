@@ -258,7 +258,7 @@ const virtualMachineResource = new azure_native.compute.v20190701.VirtualMachine
             version: "latest",
         },
         osDisk: {
-            caching: "ReadWrite",
+            caching: azure_native.compute.v20190701.CachingTypes.ReadWrite,
             createOption: "FromImage",
             diskSizeGB: 30,
             managedDisk: {
@@ -266,7 +266,7 @@ const virtualMachineResource = new azure_native.compute.v20190701.VirtualMachine
                 storageAccountType: "Standard_LRS",
             },
             name: `${virtualMachinesPulumirancherNameParam}_Os_Disk_1`,
-            osType: "Linux",
+            osType: azure_native.compute.v20190701.OperatingSystemTypes.Linux,
         },
     },
     vmName: virtualMachinesPulumirancherNameParam,

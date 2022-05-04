@@ -55,7 +55,7 @@ export const QosType = {
 export type QosType = (typeof QosType)[keyof typeof QosType];
 
 export const ReplicationSchedule = {
-    ReplicationSchedule_10minutely: "_10minutely",
+    _10minutely: "_10minutely",
     Hourly: "hourly",
     Daily: "daily",
 } as const;

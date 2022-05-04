@@ -48,7 +48,7 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     },
                 }],
                 name: "PathRewriteBasedOnDeviceMatchCondition",
-                order: "1",
+                order: 1,
             },
             {
                 actions: [{
@@ -68,7 +68,7 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     },
                 }],
                 name: "HttpVersionBasedRedirect",
-                order: "2",
+                order: 2,
             },
         ],
     },
@@ -83,6 +83,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
         name: "origin1",
     }],
     profileName: profileResource.name,
-    queryStringCachingBehavior: "IgnoreQueryString",
+    queryStringCachingBehavior: azure_native.cdn.v20190415.QueryStringCachingBehavior.IgnoreQueryString,
     resourceGroupName: resourceGroupNameParam,
 });

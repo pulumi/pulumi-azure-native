@@ -52,7 +52,7 @@ export const ServerKeyType = {
 export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
 
 export const ServerVersion = {
-    ServerVersion_5_7: "5.7",
+    _5_7: "5.7",
 } as const;
 
 /**

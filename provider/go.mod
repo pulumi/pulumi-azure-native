@@ -17,14 +17,15 @@ require (
 	github.com/hashicorp/hcl/v2 v2.6.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi/pkg/v3 v3.29.1
-	github.com/pulumi/pulumi/sdk/v3 v3.29.1
+	github.com/pulumi/pulumi/pkg/v3 v3.30.1-0.20220429165602-860ddc0865aa
+	github.com/pulumi/pulumi/sdk/v3 v3.30.1-0.20220429165602-860ddc0865aa
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.7.1
 	github.com/tombuildsstuff/giovanni v0.15.1
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
+	google.golang.org/protobuf v1.26.0
 	modernc.org/sqlite v1.10.0
 )
 
@@ -58,7 +59,7 @@ require (
 	github.com/form3tech-oss/jwt-go v3.2.2+incompatible // indirect
 	github.com/go-openapi/jsonpointer v0.19.3 // indirect
 	github.com/gofrs/uuid v3.3.0+incompatible // indirect
-	github.com/gogo/protobuf v1.3.1 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/snappy v0.0.3 // indirect
@@ -146,7 +147,6 @@ require (
 	google.golang.org/api v0.46.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20210506142907-4a47615972c2 // indirect
-	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/AlecAivazis/survey.v1 v1.8.9-0.20200217094205-6773bdf39b7f // indirect
 	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
 	gopkg.in/src-d/go-billy.v4 v4.3.2 // indirect
