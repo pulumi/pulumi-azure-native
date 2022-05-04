@@ -29,7 +29,7 @@ export const ClusterSkuName = {
 export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName];
 
 export const CompatibilityLevel = {
-    _1_0: "1.0",
+    CompatibilityLevel_1_0: "1.0",
 } as const;
 
 /**

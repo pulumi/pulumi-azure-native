@@ -324,7 +324,7 @@ export const NetworkAccessPolicy = {
 export type NetworkAccessPolicy = (typeof NetworkAccessPolicy)[keyof typeof NetworkAccessPolicy];
 
 export const NetworkApiVersion = {
-    _2020_11_01: "2020-11-01",
+    NetworkApiVersion_2020_11_01: "2020-11-01",
 } as const;
 
 /**

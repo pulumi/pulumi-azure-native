@@ -11,7 +11,7 @@ export {
 };
 
 export const CoreNetworkType = {
-    _5GC: "5GC",
+    CoreNetworkType_5GC: "5GC",
     EPC: "EPC",
 } as const;
 

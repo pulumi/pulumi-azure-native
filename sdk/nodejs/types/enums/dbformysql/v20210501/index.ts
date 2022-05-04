@@ -66,8 +66,8 @@ export const ReplicationRole = {
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const ServerVersion = {
-    _5_7: "5.7",
-    _8_0_21: "8.0.21",
+    ServerVersion_5_7: "5.7",
+    ServerVersion_8_0_21: "8.0.21",
 } as const;
 
 /**

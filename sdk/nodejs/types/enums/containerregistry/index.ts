@@ -56,7 +56,7 @@ export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequi
 export const Architecture = {
     Amd64: "amd64",
     X86: "x86",
-    _386: "386",
+    Architecture_386: "386",
     Arm: "arm",
     Arm64: "arm64",
 } as const;

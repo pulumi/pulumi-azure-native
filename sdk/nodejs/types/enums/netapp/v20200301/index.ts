@@ -13,7 +13,7 @@ export const EndpointType = {
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 export const ReplicationSchedule = {
-    _10minutely: "_10minutely",
+    ReplicationSchedule_10minutely: "_10minutely",
     Hourly: "hourly",
     Daily: "daily",
     Weekly: "weekly",

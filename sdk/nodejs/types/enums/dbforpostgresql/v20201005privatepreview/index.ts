@@ -3,13 +3,13 @@
 
 
 export const CitusVersion = {
-    _8_3: "8.3",
-    _9_0: "9.0",
-    _9_1: "9.1",
-    _9_2: "9.2",
-    _9_3: "9.3",
-    _9_4: "9.4",
-    _9_5: "9.5",
+    CitusVersion_8_3: "8.3",
+    CitusVersion_9_0: "9.0",
+    CitusVersion_9_1: "9.1",
+    CitusVersion_9_2: "9.2",
+    CitusVersion_9_3: "9.3",
+    CitusVersion_9_4: "9.4",
+    CitusVersion_9_5: "9.5",
 } as const;
 
 /**
@@ -29,8 +29,8 @@ export const CreateMode = {
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const PostgreSQLVersion = {
-    _11: "11",
-    _12: "12",
+    PostgreSQLVersion_11: "11",
+    PostgreSQLVersion_12: "12",
 } as const;
 
 /**
