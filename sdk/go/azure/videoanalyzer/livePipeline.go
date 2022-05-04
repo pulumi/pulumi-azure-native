@@ -162,6 +162,46 @@ func (o LivePipelineOutput) ToLivePipelineOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Maximum bitrate capacity in Kbps reserved for the live pipeline. The allowed range is from 500 to 3000 Kbps in increments of 100 Kbps. If the RTSP camera exceeds this capacity, then the service will disconnect temporarily from the camera. It will retry to re-establish connection (with exponential backoff), checking to see if the camera bitrate is now below the reserved capacity. Doing so will ensure that one 'noisy neighbor' does not affect other live pipelines in your account.
+func (o LivePipelineOutput) BitrateKbps() pulumi.IntOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.IntOutput { return v.BitrateKbps }).(pulumi.IntOutput)
+}
+
+// An optional description for the pipeline.
+func (o LivePipelineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LivePipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
+func (o LivePipelineOutput) Parameters() ParameterDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *LivePipeline) ParameterDefinitionResponseArrayOutput { return v.Parameters }).(ParameterDefinitionResponseArrayOutput)
+}
+
+// Current state of the pipeline (read-only).
+func (o LivePipelineOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LivePipelineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LivePipeline) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The reference to an existing pipeline topology defined for real-time content processing. When activated, this live pipeline will process content according to the pipeline topology definition.
+func (o LivePipelineOutput) TopologyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.StringOutput { return v.TopologyName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LivePipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LivePipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LivePipelineOutput{})
 }

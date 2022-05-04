@@ -163,6 +163,56 @@ func (o BlueprintOutput) ToBlueprintOutputWithContext(ctx context.Context) Bluep
 	return o
 }
 
+// Multi-line explain this resource.
+func (o BlueprintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o BlueprintOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Layout view of the blueprint, for UI reference.
+func (o BlueprintOutput) Layout() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.AnyOutput { return v.Layout }).(pulumi.AnyOutput)
+}
+
+// Name of this resource.
+func (o BlueprintOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters required by this Blueprint definition.
+func (o BlueprintOutput) Parameters() ParameterDefinitionResponseMapOutput {
+	return o.ApplyT(func(v *Blueprint) ParameterDefinitionResponseMapOutput { return v.Parameters }).(ParameterDefinitionResponseMapOutput)
+}
+
+// Resource group placeholders defined by this Blueprint definition.
+func (o BlueprintOutput) ResourceGroups() ResourceGroupDefinitionResponseMapOutput {
+	return o.ApplyT(func(v *Blueprint) ResourceGroupDefinitionResponseMapOutput { return v.ResourceGroups }).(ResourceGroupDefinitionResponseMapOutput)
+}
+
+// Status of the Blueprint. This field is readonly.
+func (o BlueprintOutput) Status() BlueprintStatusResponseOutput {
+	return o.ApplyT(func(v *Blueprint) BlueprintStatusResponseOutput { return v.Status }).(BlueprintStatusResponseOutput)
+}
+
+// The scope where this Blueprint can be applied.
+func (o BlueprintOutput) TargetScope() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.StringOutput { return v.TargetScope }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o BlueprintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Published versions of this blueprint.
+func (o BlueprintOutput) Versions() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Blueprint) pulumi.AnyOutput { return v.Versions }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlueprintOutput{})
 }

@@ -154,6 +154,51 @@ func (o InboundEndpointOutput) ToInboundEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// ETag of the inbound endpoint.
+func (o InboundEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// IP configurations for the inbound endpoint.
+func (o InboundEndpointOutput) IpConfigurations() InboundEndpointIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *InboundEndpoint) InboundEndpointIPConfigurationResponseArrayOutput { return v.IpConfigurations }).(InboundEndpointIPConfigurationResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o InboundEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o InboundEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the inbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+func (o InboundEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resourceGuid property of the inbound endpoint resource.
+func (o InboundEndpointOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o InboundEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *InboundEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o InboundEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o InboundEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InboundEndpointOutput{})
 }

@@ -199,6 +199,31 @@ func (o ApiIssueCommentOutput) ToApiIssueCommentOutputWithContext(ctx context.Co
 	return o
 }
 
+// Date and time when the comment was created.
+func (o ApiIssueCommentOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ApiIssueCommentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Comment text.
+func (o ApiIssueCommentOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Text }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiIssueCommentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A resource identifier for the user who left the comment.
+func (o ApiIssueCommentOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueComment) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiIssueCommentOutput{})
 }

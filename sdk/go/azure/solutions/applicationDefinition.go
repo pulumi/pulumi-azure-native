@@ -247,6 +247,110 @@ func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutputWithContext(ct
 	return o
 }
 
+// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+func (o ApplicationDefinitionOutput) Artifacts() ApplicationDefinitionArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationDefinitionArtifactResponseArrayOutput { return v.Artifacts }).(ApplicationDefinitionArtifactResponseArrayOutput)
+}
+
+// The managed application provider authorizations.
+func (o ApplicationDefinitionOutput) Authorizations() ApplicationAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationAuthorizationResponseArrayOutput { return v.Authorizations }).(ApplicationAuthorizationResponseArrayOutput)
+}
+
+// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+func (o ApplicationDefinitionOutput) CreateUiDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.AnyOutput { return v.CreateUiDefinition }).(pulumi.AnyOutput)
+}
+
+// The managed application deployment policy.
+func (o ApplicationDefinitionOutput) DeploymentPolicy() ApplicationDeploymentPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationDeploymentPolicyResponsePtrOutput { return v.DeploymentPolicy }).(ApplicationDeploymentPolicyResponsePtrOutput)
+}
+
+// The managed application definition description.
+func (o ApplicationDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The managed application definition display name.
+func (o ApplicationDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A value indicating whether the package is enabled or not.
+func (o ApplicationDefinitionOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o ApplicationDefinitionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The managed application lock level.
+func (o ApplicationDefinitionOutput) LockLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringOutput { return v.LockLevel }).(pulumi.StringOutput)
+}
+
+// The managed application locking policy.
+func (o ApplicationDefinitionOutput) LockingPolicy() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
+		return v.LockingPolicy
+	}).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
+}
+
+// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+func (o ApplicationDefinitionOutput) MainTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.AnyOutput { return v.MainTemplate }).(pulumi.AnyOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o ApplicationDefinitionOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The managed application management policy that determines publisher's access to the managed resource group.
+func (o ApplicationDefinitionOutput) ManagementPolicy() ApplicationManagementPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationManagementPolicyResponsePtrOutput { return v.ManagementPolicy }).(ApplicationManagementPolicyResponsePtrOutput)
+}
+
+// Resource name
+func (o ApplicationDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The managed application notification policy.
+func (o ApplicationDefinitionOutput) NotificationPolicy() ApplicationNotificationPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationNotificationPolicyResponsePtrOutput {
+		return v.NotificationPolicy
+	}).(ApplicationNotificationPolicyResponsePtrOutput)
+}
+
+// The managed application definition package file Uri. Use this element
+func (o ApplicationDefinitionOutput) PackageFileUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringPtrOutput { return v.PackageFileUri }).(pulumi.StringPtrOutput)
+}
+
+// The managed application provider policies.
+func (o ApplicationDefinitionOutput) Policies() ApplicationPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) ApplicationPolicyResponseArrayOutput { return v.Policies }).(ApplicationPolicyResponseArrayOutput)
+}
+
+// The SKU of the resource.
+func (o ApplicationDefinitionOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ApplicationDefinitionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplicationDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationDefinitionOutput{})
 }

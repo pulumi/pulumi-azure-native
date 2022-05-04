@@ -140,6 +140,21 @@ func (o PlacementPolicyOutput) ToPlacementPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
+// Resource name.
+func (o PlacementPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// placement policy properties
+func (o PlacementPolicyOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PlacementPolicy) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o PlacementPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PlacementPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PlacementPolicyOutput{})
 }

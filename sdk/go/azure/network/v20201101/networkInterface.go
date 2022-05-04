@@ -327,6 +327,125 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.
 	return o
 }
 
+// The DNS settings in network interface.
+func (o NetworkInterfaceOutput) DnsSettings() NetworkInterfaceDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceDnsSettingsResponsePtrOutput { return v.DnsSettings }).(NetworkInterfaceDnsSettingsResponsePtrOutput)
+}
+
+// A reference to the dscp configuration to which the network interface is linked.
+func (o NetworkInterfaceOutput) DscpConfiguration() SubResourceResponseOutput {
+	return o.ApplyT(func(v *NetworkInterface) SubResourceResponseOutput { return v.DscpConfiguration }).(SubResourceResponseOutput)
+}
+
+// If the network interface is accelerated networking enabled.
+func (o NetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether IP forwarding is enabled on this network interface.
+func (o NetworkInterfaceOutput) EnableIPForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.EnableIPForwarding }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkInterfaceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The extended location of the network interface.
+func (o NetworkInterfaceOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// A list of references to linked BareMetal resources.
+func (o NetworkInterfaceOutput) HostedWorkloads() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringArrayOutput { return v.HostedWorkloads }).(pulumi.StringArrayOutput)
+}
+
+// A list of IPConfigurations of the network interface.
+func (o NetworkInterfaceOutput) IpConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceIPConfigurationResponseArrayOutput {
+		return v.IpConfigurations
+	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
+}
+
+// Resource location.
+func (o NetworkInterfaceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The MAC address of the network interface.
+func (o NetworkInterfaceOutput) MacAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.MacAddress }).(pulumi.StringOutput)
+}
+
+// Migration phase of Network Interface resource.
+func (o NetworkInterfaceOutput) MigrationPhase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.MigrationPhase }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference to the NetworkSecurityGroup resource.
+func (o NetworkInterfaceOutput) NetworkSecurityGroup() NetworkSecurityGroupResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkSecurityGroupResponsePtrOutput { return v.NetworkSecurityGroup }).(NetworkSecurityGroupResponsePtrOutput)
+}
+
+// Type of Network Interface resource.
+func (o NetworkInterfaceOutput) NicType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.NicType }).(pulumi.StringPtrOutput)
+}
+
+// Whether this is a primary network interface on a virtual machine.
+func (o NetworkInterfaceOutput) Primary() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolOutput { return v.Primary }).(pulumi.BoolOutput)
+}
+
+// A reference to the private endpoint to which the network interface is linked.
+func (o NetworkInterfaceOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *NetworkInterface) PrivateEndpointResponseOutput { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
+}
+
+// Privatelinkservice of the network interface resource.
+func (o NetworkInterfaceOutput) PrivateLinkService() PrivateLinkServiceResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) PrivateLinkServiceResponsePtrOutput { return v.PrivateLinkService }).(PrivateLinkServiceResponsePtrOutput)
+}
+
+// The provisioning state of the network interface resource.
+func (o NetworkInterfaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the network interface resource.
+func (o NetworkInterfaceOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkInterfaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A list of TapConfigurations of the network interface.
+func (o NetworkInterfaceOutput) TapConfigurations() NetworkInterfaceTapConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceTapConfigurationResponseArrayOutput {
+		return v.TapConfigurations
+	}).(NetworkInterfaceTapConfigurationResponseArrayOutput)
+}
+
+// Resource type.
+func (o NetworkInterfaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference to a virtual machine.
+func (o NetworkInterfaceOutput) VirtualMachine() SubResourceResponseOutput {
+	return o.ApplyT(func(v *NetworkInterface) SubResourceResponseOutput { return v.VirtualMachine }).(SubResourceResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceOutput{})
 }

@@ -223,6 +223,80 @@ func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) ToMicrosoftSecurityInc
 	return o
 }
 
+// The Name of the alert rule template used to create this rule.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) AlertRuleTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringPtrOutput {
+		return v.AlertRuleTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the alert rule.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// the alerts' displayNames on which the cases will not be generated
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) DisplayNamesExcludeFilter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringArrayOutput {
+		return v.DisplayNamesExcludeFilter
+	}).(pulumi.StringArrayOutput)
+}
+
+// the alerts' displayNames on which the cases will be generated
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) DisplayNamesFilter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringArrayOutput {
+		return v.DisplayNamesFilter
+	}).(pulumi.StringArrayOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'MicrosoftSecurityIncidentCreation'.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert has been modified.
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The alerts' productName on which the cases will be generated
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) ProductFilter() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.ProductFilter }).(pulumi.StringOutput)
+}
+
+// the alerts' severities on which the cases will be generated
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) SeveritiesFilter() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringArrayOutput {
+		return v.SeveritiesFilter
+	}).(pulumi.StringArrayOutput)
+}
+
+// Azure resource type
+func (o MicrosoftSecurityIncidentCreationAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MicrosoftSecurityIncidentCreationAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MicrosoftSecurityIncidentCreationAlertRuleOutput{})
 }

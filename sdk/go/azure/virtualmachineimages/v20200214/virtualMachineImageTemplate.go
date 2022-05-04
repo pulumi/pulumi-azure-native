@@ -201,6 +201,71 @@ func (o VirtualMachineImageTemplateOutput) ToVirtualMachineImageTemplateOutputWi
 	return o
 }
 
+// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+func (o VirtualMachineImageTemplateOutput) BuildTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.IntPtrOutput { return v.BuildTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the properties used to describe the customization steps of the image, like Image source etc
+func (o VirtualMachineImageTemplateOutput) Customize() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.ArrayOutput { return v.Customize }).(pulumi.ArrayOutput)
+}
+
+// The distribution targets where the image output needs to go to.
+func (o VirtualMachineImageTemplateOutput) Distribute() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.ArrayOutput { return v.Distribute }).(pulumi.ArrayOutput)
+}
+
+// The identity of the image template, if configured.
+func (o VirtualMachineImageTemplateOutput) Identity() ImageTemplateIdentityResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) ImageTemplateIdentityResponseOutput { return v.Identity }).(ImageTemplateIdentityResponseOutput)
+}
+
+// State of 'run' that is currently executing or was last executed.
+func (o VirtualMachineImageTemplateOutput) LastRunStatus() ImageTemplateLastRunStatusResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) ImageTemplateLastRunStatusResponseOutput { return v.LastRunStatus }).(ImageTemplateLastRunStatusResponseOutput)
+}
+
+// Resource location
+func (o VirtualMachineImageTemplateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineImageTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning error, if any
+func (o VirtualMachineImageTemplateOutput) ProvisioningError() ProvisioningErrorResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) ProvisioningErrorResponseOutput { return v.ProvisioningError }).(ProvisioningErrorResponseOutput)
+}
+
+// Provisioning state of the resource
+func (o VirtualMachineImageTemplateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies the properties used to describe the source image.
+func (o VirtualMachineImageTemplateOutput) Source() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.AnyOutput { return v.Source }).(pulumi.AnyOutput)
+}
+
+// Resource tags
+func (o VirtualMachineImageTemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineImageTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes how virtual machine is set up to build images
+func (o VirtualMachineImageTemplateOutput) VmProfile() ImageTemplateVmProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineImageTemplate) ImageTemplateVmProfileResponsePtrOutput { return v.VmProfile }).(ImageTemplateVmProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineImageTemplateOutput{})
 }

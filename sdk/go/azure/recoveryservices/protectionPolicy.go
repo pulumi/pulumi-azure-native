@@ -197,6 +197,36 @@ func (o ProtectionPolicyOutput) ToProtectionPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// Optional ETag.
+func (o ProtectionPolicyOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ProtectionPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ProtectionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ProtectionPolicyResource properties
+func (o ProtectionPolicyOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o ProtectionPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ProtectionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectionPolicyOutput{})
 }

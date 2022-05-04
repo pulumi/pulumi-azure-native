@@ -230,6 +230,56 @@ func (o ApiOperationOutput) ToApiOperationOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Description of the operation. May include HTML formatting tags.
+func (o ApiOperationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Operation Name.
+func (o ApiOperationOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+func (o ApiOperationOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApiOperationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operation Policies
+func (o ApiOperationOutput) Policies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringPtrOutput { return v.Policies }).(pulumi.StringPtrOutput)
+}
+
+// An entity containing request details.
+func (o ApiOperationOutput) Request() RequestContractResponsePtrOutput {
+	return o.ApplyT(func(v *ApiOperation) RequestContractResponsePtrOutput { return v.Request }).(RequestContractResponsePtrOutput)
+}
+
+// Array of Operation responses.
+func (o ApiOperationOutput) Responses() ResponseContractResponseArrayOutput {
+	return o.ApplyT(func(v *ApiOperation) ResponseContractResponseArrayOutput { return v.Responses }).(ResponseContractResponseArrayOutput)
+}
+
+// Collection of URL template parameters.
+func (o ApiOperationOutput) TemplateParameters() ParameterContractResponseArrayOutput {
+	return o.ApplyT(func(v *ApiOperation) ParameterContractResponseArrayOutput { return v.TemplateParameters }).(ParameterContractResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiOperationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+func (o ApiOperationOutput) UrlTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiOperation) pulumi.StringOutput { return v.UrlTemplate }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiOperationOutput{})
 }

@@ -140,6 +140,36 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The geo-location where the resource lives
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Account resource properties.
+func (o AccountOutput) Properties() AccountResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *Account) AccountResourceResponsePropertiesOutput { return v.Properties }).(AccountResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Account) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

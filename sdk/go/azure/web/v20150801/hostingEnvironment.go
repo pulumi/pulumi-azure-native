@@ -367,6 +367,184 @@ func (o HostingEnvironmentOutput) ToHostingEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
+// List of comma separated strings describing which VM sizes are allowed for front-ends
+func (o HostingEnvironmentOutput) AllowedMultiSizes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.AllowedMultiSizes }).(pulumi.StringPtrOutput)
+}
+
+// List of comma separated strings describing which VM sizes are allowed for workers
+func (o HostingEnvironmentOutput) AllowedWorkerSizes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.AllowedWorkerSizes }).(pulumi.StringPtrOutput)
+}
+
+// Api Management Account associated with this Hosting Environment
+func (o HostingEnvironmentOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.ApiManagementAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Custom settings for changing the behavior of the hosting environment
+func (o HostingEnvironmentOutput) ClusterSettings() NameValuePairResponseArrayOutput {
+	return o.ApplyT(func(v *HostingEnvironment) NameValuePairResponseArrayOutput { return v.ClusterSettings }).(NameValuePairResponseArrayOutput)
+}
+
+// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+func (o HostingEnvironmentOutput) DatabaseEdition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.DatabaseEdition }).(pulumi.StringPtrOutput)
+}
+
+// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+func (o HostingEnvironmentOutput) DatabaseServiceObjective() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.DatabaseServiceObjective }).(pulumi.StringPtrOutput)
+}
+
+// DNS suffix of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.DnsSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Current total, used, and available worker capacities
+func (o HostingEnvironmentOutput) EnvironmentCapacities() StampCapacityResponseArrayOutput {
+	return o.ApplyT(func(v *HostingEnvironment) StampCapacityResponseArrayOutput { return v.EnvironmentCapacities }).(StampCapacityResponseArrayOutput)
+}
+
+// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+func (o HostingEnvironmentOutput) EnvironmentIsHealthy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.BoolPtrOutput { return v.EnvironmentIsHealthy }).(pulumi.BoolPtrOutput)
+}
+
+// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) EnvironmentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.EnvironmentStatus }).(pulumi.StringPtrOutput)
+}
+
+// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+func (o HostingEnvironmentOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
+}
+
+// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) IpsslAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.IntPtrOutput { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// Kind of resource
+func (o HostingEnvironmentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Last deployment action on this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) LastAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.LastAction }).(pulumi.StringPtrOutput)
+}
+
+// Result of the last deployment action on this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) LastActionResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.LastActionResult }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o HostingEnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of VMs in this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) MaximumNumberOfMachines() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.IntPtrOutput { return v.MaximumNumberOfMachines }).(pulumi.IntPtrOutput)
+}
+
+// Number of front-end instances
+func (o HostingEnvironmentOutput) MultiRoleCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.IntPtrOutput { return v.MultiRoleCount }).(pulumi.IntPtrOutput)
+}
+
+// Front-end VM size, e.g. "Medium", "Large"
+func (o HostingEnvironmentOutput) MultiSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.MultiSize }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o HostingEnvironmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) NetworkAccessControlList() NetworkAccessControlEntryResponseArrayOutput {
+	return o.ApplyT(func(v *HostingEnvironment) NetworkAccessControlEntryResponseArrayOutput {
+		return v.NetworkAccessControlList
+	}).(NetworkAccessControlEntryResponseArrayOutput)
+}
+
+// Provisioning state of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Resource group of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Current status of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Subscription of the hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+//             (most likely because NSG blocked the incoming traffic)
+func (o HostingEnvironmentOutput) Suspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.BoolPtrOutput { return v.Suspended }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o HostingEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o HostingEnvironmentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Number of upgrade domains of this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) UpgradeDomains() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.IntPtrOutput { return v.UpgradeDomains }).(pulumi.IntPtrOutput)
+}
+
+// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+func (o HostingEnvironmentOutput) VipMappings() VirtualIPMappingResponseArrayOutput {
+	return o.ApplyT(func(v *HostingEnvironment) VirtualIPMappingResponseArrayOutput { return v.VipMappings }).(VirtualIPMappingResponseArrayOutput)
+}
+
+// Description of the hostingEnvironment's (App Service Environment) virtual network
+func (o HostingEnvironmentOutput) VirtualNetwork() VirtualNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) VirtualNetworkProfileResponsePtrOutput { return v.VirtualNetwork }).(VirtualNetworkProfileResponsePtrOutput)
+}
+
+// Name of the hostingEnvironment's (App Service Environment) virtual network
+func (o HostingEnvironmentOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// Resource group of the hostingEnvironment's (App Service Environment) virtual network
+func (o HostingEnvironmentOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.VnetResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Subnet of the hostingEnvironment's (App Service Environment) virtual network
+func (o HostingEnvironmentOutput) VnetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostingEnvironment) pulumi.StringPtrOutput { return v.VnetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+func (o HostingEnvironmentOutput) WorkerPools() WorkerPoolResponseArrayOutput {
+	return o.ApplyT(func(v *HostingEnvironment) WorkerPoolResponseArrayOutput { return v.WorkerPools }).(WorkerPoolResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostingEnvironmentOutput{})
 }

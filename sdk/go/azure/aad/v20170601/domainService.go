@@ -230,6 +230,131 @@ func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Deployment Id
+func (o DomainServiceOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// Domain Configuration Type
+func (o DomainServiceOutput) DomainConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.DomainConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// List of Domain Controller IP Address
+func (o DomainServiceOutput) DomainControllerIpAddress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringArrayOutput { return v.DomainControllerIpAddress }).(pulumi.StringArrayOutput)
+}
+
+// The name of the Azure domain that the user would like to deploy Domain Services to.
+func (o DomainServiceOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// DomainSecurity Settings
+func (o DomainServiceOutput) DomainSecuritySettings() DomainSecuritySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) DomainSecuritySettingsResponsePtrOutput { return v.DomainSecuritySettings }).(DomainSecuritySettingsResponsePtrOutput)
+}
+
+// Resource etag
+func (o DomainServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Enabled or Disabled flag to turn on Group-based filtered sync
+func (o DomainServiceOutput) FilteredSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.FilteredSync }).(pulumi.StringPtrOutput)
+}
+
+// List of Domain Health Alerts
+func (o DomainServiceOutput) HealthAlerts() HealthAlertResponseArrayOutput {
+	return o.ApplyT(func(v *DomainService) HealthAlertResponseArrayOutput { return v.HealthAlerts }).(HealthAlertResponseArrayOutput)
+}
+
+// Last domain evaluation run DateTime
+func (o DomainServiceOutput) HealthLastEvaluated() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.HealthLastEvaluated }).(pulumi.StringOutput)
+}
+
+// List of Domain Health Monitors
+func (o DomainServiceOutput) HealthMonitors() HealthMonitorResponseArrayOutput {
+	return o.ApplyT(func(v *DomainService) HealthMonitorResponseArrayOutput { return v.HealthMonitors }).(HealthMonitorResponseArrayOutput)
+}
+
+// Secure LDAP Settings
+func (o DomainServiceOutput) LdapsSettings() LdapsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) LdapsSettingsResponsePtrOutput { return v.LdapsSettings }).(LdapsSettingsResponsePtrOutput)
+}
+
+// Resource location
+func (o DomainServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Migration Properties
+func (o DomainServiceOutput) MigrationProperties() MigrationPropertiesResponseOutput {
+	return o.ApplyT(func(v *DomainService) MigrationPropertiesResponseOutput { return v.MigrationProperties }).(MigrationPropertiesResponseOutput)
+}
+
+// Resource name
+func (o DomainServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification Settings
+func (o DomainServiceOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) NotificationSettingsResponsePtrOutput { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// the current deployment or provisioning state, which only appears in the response.
+func (o DomainServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource Forest Settings
+func (o DomainServiceOutput) ResourceForestSettings() ResourceForestSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) ResourceForestSettingsResponsePtrOutput { return v.ResourceForestSettings }).(ResourceForestSettingsResponsePtrOutput)
+}
+
+// Status of Domain Service instance
+func (o DomainServiceOutput) ServiceStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.ServiceStatus }).(pulumi.StringOutput)
+}
+
+// Sku Type
+func (o DomainServiceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+func (o DomainServiceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o DomainServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Active Directory Tenant Id
+func (o DomainServiceOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o DomainServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Data Model Version
+func (o DomainServiceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+}
+
+// Virtual network site id
+func (o DomainServiceOutput) VnetSiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.VnetSiteId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainServiceOutput{})
 }

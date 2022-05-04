@@ -173,6 +173,26 @@ func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutputWithCo
 	return o
 }
 
+// Resource location
+func (o EventHubAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o EventHubAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o EventHubAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventHubAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o EventHubAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubAuthorizationRuleOutput{})
 }

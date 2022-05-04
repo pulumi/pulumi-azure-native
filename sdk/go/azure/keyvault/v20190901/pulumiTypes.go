@@ -2232,6 +2232,23 @@ type VaultPropertiesArgs struct {
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
+// Defaults sets the appropriate defaults for VaultPropertiesArgs
+func (val *VaultPropertiesArgs) Defaults() *VaultPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableRbacAuthorization) {
+		tmp.EnableRbacAuthorization = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
+	}
+	return &tmp
+}
 func (VaultPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultProperties)(nil)).Elem()
 }

@@ -125,6 +125,23 @@ func (o PrivateLinkAssociationOutput) ToPrivateLinkAssociationOutputWithContext(
 	return o
 }
 
+// The pla name.
+func (o PrivateLinkAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The private link association properties.
+func (o PrivateLinkAssociationOutput) Properties() PrivateLinkAssociationPropertiesExpandedResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociation) PrivateLinkAssociationPropertiesExpandedResponseOutput {
+		return v.Properties
+	}).(PrivateLinkAssociationPropertiesExpandedResponseOutput)
+}
+
+// The operation type.
+func (o PrivateLinkAssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkAssociation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkAssociationOutput{})
 }

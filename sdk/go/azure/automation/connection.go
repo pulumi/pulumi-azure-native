@@ -166,6 +166,41 @@ func (o ConnectionOutput) ToConnectionOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// Gets or sets the connectionType of the connection.
+func (o ConnectionOutput) ConnectionType() ConnectionTypeAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionTypeAssociationPropertyResponsePtrOutput { return v.ConnectionType }).(ConnectionTypeAssociationPropertyResponsePtrOutput)
+}
+
+// Gets the creation time.
+func (o ConnectionOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets the field definition values of the connection.
+func (o ConnectionOutput) FieldDefinitionValues() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringMapOutput { return v.FieldDefinitionValues }).(pulumi.StringMapOutput)
+}
+
+// Gets the last modified time.
+func (o ConnectionOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o ConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionOutput{})
 }

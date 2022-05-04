@@ -139,6 +139,26 @@ func (o TagRuleOutput) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOu
 	return o
 }
 
+// Name of the rule set.
+func (o TagRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+func (o TagRuleOutput) Properties() MonitoringTagRulesPropertiesResponseOutput {
+	return o.ApplyT(func(v *TagRule) MonitoringTagRulesPropertiesResponseOutput { return v.Properties }).(MonitoringTagRulesPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o TagRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TagRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the rule set.
+func (o TagRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TagRuleOutput{})
 }

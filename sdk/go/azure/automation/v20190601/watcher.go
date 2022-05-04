@@ -185,6 +185,76 @@ func (o WatcherOutput) ToWatcherOutputWithContext(ctx context.Context) WatcherOu
 	return o
 }
 
+// Gets or sets the creation time.
+func (o WatcherOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o WatcherOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o WatcherOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the frequency at which the watcher is invoked.
+func (o WatcherOutput) ExecutionFrequencyInSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.Float64PtrOutput { return v.ExecutionFrequencyInSeconds }).(pulumi.Float64PtrOutput)
+}
+
+// Details of the user who last modified the watcher.
+func (o WatcherOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// Gets or sets the last modified time.
+func (o WatcherOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o WatcherOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o WatcherOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+func (o WatcherOutput) ScriptName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringPtrOutput { return v.ScriptName }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the parameters of the script.
+func (o WatcherOutput) ScriptParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringMapOutput { return v.ScriptParameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the hybrid worker group the watcher will run on.
+func (o WatcherOutput) ScriptRunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringPtrOutput { return v.ScriptRunOn }).(pulumi.StringPtrOutput)
+}
+
+// Gets the current status of the watcher.
+func (o WatcherOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o WatcherOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o WatcherOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watcher) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WatcherOutput{})
 }

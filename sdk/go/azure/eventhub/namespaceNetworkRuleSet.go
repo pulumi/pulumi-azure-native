@@ -154,6 +154,33 @@ func (o NamespaceNetworkRuleSetOutput) ToNamespaceNetworkRuleSetOutputWithContex
 	return o
 }
 
+// Default Action for Network Rule Set
+func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) pulumi.StringPtrOutput { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// List of IpRules
+func (o NamespaceNetworkRuleSetOutput) IpRules() NWRuleSetIpRulesResponseArrayOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) NWRuleSetIpRulesResponseArrayOutput { return v.IpRules }).(NWRuleSetIpRulesResponseArrayOutput)
+}
+
+// The name of the resource
+func (o NamespaceNetworkRuleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NamespaceNetworkRuleSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List VirtualNetwork Rules
+func (o NamespaceNetworkRuleSetOutput) VirtualNetworkRules() NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+	return o.ApplyT(func(v *NamespaceNetworkRuleSet) NWRuleSetVirtualNetworkRulesResponseArrayOutput {
+		return v.VirtualNetworkRules
+	}).(NWRuleSetVirtualNetworkRulesResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetOutput{})
 }

@@ -165,6 +165,26 @@ func (o MonitoringConfigOutput) ToMonitoringConfigOutputWithContext(ctx context.
 	return o
 }
 
+// The metrics configuration details
+func (o MonitoringConfigOutput) MetricConfigurations() MetricConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *MonitoringConfig) MetricConfigurationResponseArrayOutput { return v.MetricConfigurations }).(MetricConfigurationResponseArrayOutput)
+}
+
+// The object name.
+func (o MonitoringConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// MonitoringConfiguration on ASE device
+func (o MonitoringConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MonitoringConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o MonitoringConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MonitoringConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MonitoringConfigOutput{})
 }

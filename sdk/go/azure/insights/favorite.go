@@ -178,6 +178,61 @@ func (o FavoriteOutput) ToFavoriteOutputWithContext(ctx context.Context) Favorit
 	return o
 }
 
+// Favorite category, as defined by the user at creation time.
+func (o FavoriteOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
+func (o FavoriteOutput) Config() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.Config }).(pulumi.StringPtrOutput)
+}
+
+// Internally assigned unique id of the favorite definition.
+func (o FavoriteOutput) FavoriteId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringOutput { return v.FavoriteId }).(pulumi.StringOutput)
+}
+
+// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o FavoriteOutput) FavoriteType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.FavoriteType }).(pulumi.StringPtrOutput)
+}
+
+// Flag denoting wether or not this favorite was generated from a template.
+func (o FavoriteOutput) IsGeneratedFromTemplate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.BoolPtrOutput { return v.IsGeneratedFromTemplate }).(pulumi.BoolPtrOutput)
+}
+
+// The user-defined name of the favorite.
+func (o FavoriteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The source of the favorite definition.
+func (o FavoriteOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+// A list of 0 or more tags that are associated with this favorite definition
+func (o FavoriteOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this favorite definition.
+func (o FavoriteOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Unique user id of the specific user that owns this favorite.
+func (o FavoriteOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
+func (o FavoriteOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Favorite) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FavoriteOutput{})
 }

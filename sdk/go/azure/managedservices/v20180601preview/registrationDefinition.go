@@ -149,6 +149,26 @@ func (o RegistrationDefinitionOutput) ToRegistrationDefinitionOutputWithContext(
 	return o
 }
 
+// Name of the registration definition.
+func (o RegistrationDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Plan details for the managed services.
+func (o RegistrationDefinitionOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *RegistrationDefinition) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Properties of a registration definition.
+func (o RegistrationDefinitionOutput) Properties() RegistrationDefinitionPropertiesResponseOutput {
+	return o.ApplyT(func(v *RegistrationDefinition) RegistrationDefinitionPropertiesResponseOutput { return v.Properties }).(RegistrationDefinitionPropertiesResponseOutput)
+}
+
+// Type of the resource.
+func (o RegistrationDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistrationDefinitionOutput{})
 }

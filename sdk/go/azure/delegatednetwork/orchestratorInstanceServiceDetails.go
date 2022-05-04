@@ -194,6 +194,78 @@ func (o OrchestratorInstanceServiceDetailsOutput) ToOrchestratorInstanceServiceD
 	return o
 }
 
+// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+func (o OrchestratorInstanceServiceDetailsOutput) ApiServerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.ApiServerEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// RootCA certificate of kubernetes cluster base64 encoded
+func (o OrchestratorInstanceServiceDetailsOutput) ClusterRootCA() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.ClusterRootCA }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the controller.
+func (o OrchestratorInstanceServiceDetailsOutput) ControllerDetails() ControllerDetailsResponseOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) ControllerDetailsResponseOutput {
+		return v.ControllerDetails
+	}).(ControllerDetailsResponseOutput)
+}
+
+// The identity of the orchestrator
+func (o OrchestratorInstanceServiceDetailsOutput) Identity() OrchestratorIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) OrchestratorIdentityResponsePtrOutput { return v.Identity }).(OrchestratorIdentityResponsePtrOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o OrchestratorInstanceServiceDetailsOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o OrchestratorInstanceServiceDetailsOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o OrchestratorInstanceServiceDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// AAD ID used with apiserver
+func (o OrchestratorInstanceServiceDetailsOutput) OrchestratorAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.OrchestratorAppId }).(pulumi.StringPtrOutput)
+}
+
+// TenantID of server App ID
+func (o OrchestratorInstanceServiceDetailsOutput) OrchestratorTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.OrchestratorTenantId }).(pulumi.StringPtrOutput)
+}
+
+// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+func (o OrchestratorInstanceServiceDetailsOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringPtrOutput { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The current state of orchestratorInstance resource.
+func (o OrchestratorInstanceServiceDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource guid.
+func (o OrchestratorInstanceServiceDetailsOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o OrchestratorInstanceServiceDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of resource.
+func (o OrchestratorInstanceServiceDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrchestratorInstanceServiceDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrchestratorInstanceServiceDetailsOutput{})
 }

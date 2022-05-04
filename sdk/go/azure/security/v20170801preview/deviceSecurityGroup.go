@@ -147,6 +147,36 @@ func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutputWithContext(ctx co
 	return o
 }
 
+// The allow-list custom alert rules.
+func (o DeviceSecurityGroupOutput) AllowlistRules() AllowlistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) AllowlistCustomAlertRuleResponseArrayOutput { return v.AllowlistRules }).(AllowlistCustomAlertRuleResponseArrayOutput)
+}
+
+// The deny-list custom alert rules.
+func (o DeviceSecurityGroupOutput) DenylistRules() DenylistCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) DenylistCustomAlertRuleResponseArrayOutput { return v.DenylistRules }).(DenylistCustomAlertRuleResponseArrayOutput)
+}
+
+// Resource name
+func (o DeviceSecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of custom alert threshold rules.
+func (o DeviceSecurityGroupOutput) ThresholdRules() ThresholdCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) ThresholdCustomAlertRuleResponseArrayOutput { return v.ThresholdRules }).(ThresholdCustomAlertRuleResponseArrayOutput)
+}
+
+// The list of custom alert time-window rules.
+func (o DeviceSecurityGroupOutput) TimeWindowRules() TimeWindowCustomAlertRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) TimeWindowCustomAlertRuleResponseArrayOutput { return v.TimeWindowRules }).(TimeWindowCustomAlertRuleResponseArrayOutput)
+}
+
+// Resource type
+func (o DeviceSecurityGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceSecurityGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeviceSecurityGroupOutput{})
 }

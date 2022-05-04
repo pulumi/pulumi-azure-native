@@ -205,6 +205,16 @@ func (o IotHubResourceEventHubConsumerGroupOutput) ToIotHubResourceEventHubConsu
 	return o
 }
 
+// The Event Hub-compatible consumer group name.
+func (o IotHubResourceEventHubConsumerGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubResourceEventHubConsumerGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The tags.
+func (o IotHubResourceEventHubConsumerGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotHubResourceEventHubConsumerGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotHubResourceEventHubConsumerGroupOutput{})
 }

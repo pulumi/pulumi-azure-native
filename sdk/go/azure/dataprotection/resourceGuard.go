@@ -163,6 +163,46 @@ func (o ResourceGuardOutput) ToResourceGuardOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Optional ETag.
+func (o ResourceGuardOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuard) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Input Managed Identity Details
+func (o ResourceGuardOutput) Identity() DppIdentityDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ResourceGuard) DppIdentityDetailsResponsePtrOutput { return v.Identity }).(DppIdentityDetailsResponsePtrOutput)
+}
+
+// Resource location.
+func (o ResourceGuardOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuard) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ResourceGuardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGuard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ResourceGuardResource properties
+func (o ResourceGuardOutput) Properties() ResourceGuardResponseOutput {
+	return o.ApplyT(func(v *ResourceGuard) ResourceGuardResponseOutput { return v.Properties }).(ResourceGuardResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ResourceGuardOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ResourceGuard) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ResourceGuardOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceGuard) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ResourceGuardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGuard) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceGuardOutput{})
 }

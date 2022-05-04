@@ -164,6 +164,56 @@ func (o ControllerOutput) ToControllerOutputWithContext(ctx context.Context) Con
 	return o
 }
 
+// DNS name for accessing DataPlane services
+func (o ControllerOutput) DataPlaneFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.DataPlaneFqdn }).(pulumi.StringOutput)
+}
+
+// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+func (o ControllerOutput) HostSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.HostSuffix }).(pulumi.StringOutput)
+}
+
+// Region where the Azure resource is located.
+func (o ControllerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ControllerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Azure Dev Spaces Controller.
+func (o ControllerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Model representing SKU for Azure Dev Spaces Controller.
+func (o ControllerOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Controller) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Tags for the Azure resource.
+func (o ControllerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// DNS of the target container host's API server
+func (o ControllerOutput) TargetContainerHostApiServerFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.TargetContainerHostApiServerFqdn }).(pulumi.StringOutput)
+}
+
+// Resource ID of the target container host
+func (o ControllerOutput) TargetContainerHostResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.TargetContainerHostResourceId }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o ControllerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Controller) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ControllerOutput{})
 }

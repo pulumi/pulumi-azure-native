@@ -238,6 +238,51 @@ func (o IotHubResourceOutput) ToIotHubResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o IotHubResourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o IotHubResourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o IotHubResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an IoT hub.
+func (o IotHubResourceOutput) Properties() IotHubPropertiesResponseOutput {
+	return o.ApplyT(func(v *IotHubResource) IotHubPropertiesResponseOutput { return v.Properties }).(IotHubPropertiesResponseOutput)
+}
+
+// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
+func (o IotHubResourceOutput) Resourcegroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Resourcegroup }).(pulumi.StringOutput)
+}
+
+// Information about the SKU of the IoT hub.
+func (o IotHubResourceOutput) Sku() IotHubSkuInfoResponseOutput {
+	return o.ApplyT(func(v *IotHubResource) IotHubSkuInfoResponseOutput { return v.Sku }).(IotHubSkuInfoResponseOutput)
+}
+
+// The subscription identifier.
+func (o IotHubResourceOutput) Subscriptionid() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Subscriptionid }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o IotHubResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IotHubResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotHubResourceOutput{})
 }

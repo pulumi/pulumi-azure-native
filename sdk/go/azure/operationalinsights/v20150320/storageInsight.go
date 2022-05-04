@@ -170,6 +170,46 @@ func (o StorageInsightOutput) ToStorageInsightOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The names of the blob containers that the workspace should read
+func (o StorageInsightOutput) Containers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringArrayOutput { return v.Containers }).(pulumi.StringArrayOutput)
+}
+
+// The ETag of the storage insight.
+func (o StorageInsightOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o StorageInsightOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the storage insight
+func (o StorageInsightOutput) Status() StorageInsightStatusResponseOutput {
+	return o.ApplyT(func(v *StorageInsight) StorageInsightStatusResponseOutput { return v.Status }).(StorageInsightStatusResponseOutput)
+}
+
+// The storage account connection details
+func (o StorageInsightOutput) StorageAccount() StorageAccountResponseOutput {
+	return o.ApplyT(func(v *StorageInsight) StorageAccountResponseOutput { return v.StorageAccount }).(StorageAccountResponseOutput)
+}
+
+// The names of the Azure tables that the workspace should read
+func (o StorageInsightOutput) Tables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringArrayOutput { return v.Tables }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags
+func (o StorageInsightOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o StorageInsightOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageInsight) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageInsightOutput{})
 }

@@ -168,6 +168,37 @@ func (o AnomaliesOutput) ToAnomaliesOutputWithContext(ctx context.Context) Anoma
 	return o
 }
 
+// Etag of the azure resource
+func (o AnomaliesOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Anomalies) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o AnomaliesOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Anomalies) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The kind of the setting
+// Expected value is 'Anomalies'.
+func (o AnomaliesOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Anomalies) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AnomaliesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Anomalies) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AnomaliesOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Anomalies) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o AnomaliesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Anomalies) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnomaliesOutput{})
 }

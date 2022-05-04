@@ -139,6 +139,26 @@ func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
+func (o PrivateEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties associated with a private endpoint.
+func (o PrivateEndpointOutput) Properties() PrivateEndpointPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpointPropertiesResponseOutput { return v.Properties }).(PrivateEndpointPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PrivateEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 }

@@ -162,6 +162,33 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
+// The name of the resource
+func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateLinkServiceConnectionStateResponseOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

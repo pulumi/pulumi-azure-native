@@ -157,6 +157,21 @@ func (o DataSetOutput) ToDataSetOutputWithContext(ctx context.Context) DataSetOu
 	return o
 }
 
+// Kind of data set.
+func (o DataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o DataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o DataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataSetOutput{})
 }

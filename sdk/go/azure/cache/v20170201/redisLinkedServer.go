@@ -176,6 +176,36 @@ func (o RedisLinkedServerOutput) ToRedisLinkedServerOutputWithContext(ctx contex
 	return o
 }
 
+// Fully qualified resourceId of the linked redis cache.
+func (o RedisLinkedServerOutput) LinkedRedisCacheId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.LinkedRedisCacheId }).(pulumi.StringOutput)
+}
+
+// Location of the linked redis cache.
+func (o RedisLinkedServerOutput) LinkedRedisCacheLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.LinkedRedisCacheLocation }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o RedisLinkedServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Terminal state of the link between primary and secondary redis cache.
+func (o RedisLinkedServerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Role of the linked server.
+func (o RedisLinkedServerOutput) ServerRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.ServerRole }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RedisLinkedServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisLinkedServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RedisLinkedServerOutput{})
 }

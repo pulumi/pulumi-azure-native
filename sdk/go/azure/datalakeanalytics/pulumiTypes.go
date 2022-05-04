@@ -163,6 +163,17 @@ type AddStorageAccountWithAccountParametersArgs struct {
 	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
+// Defaults sets the appropriate defaults for AddStorageAccountWithAccountParametersArgs
+func (val *AddStorageAccountWithAccountParametersArgs) Defaults() *AddStorageAccountWithAccountParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Suffix) {
+		tmp.Suffix = pulumi.StringPtr("azuredatalakestore.net")
+	}
+	return &tmp
+}
 func (AddStorageAccountWithAccountParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AddStorageAccountWithAccountParameters)(nil)).Elem()
 }

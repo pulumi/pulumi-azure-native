@@ -161,6 +161,31 @@ func (o BlobInventoryPolicyOutput) ToBlobInventoryPolicyOutputWithContext(ctx co
 	return o
 }
 
+// Returns the last modified date and time of the blob inventory policy.
+func (o BlobInventoryPolicyOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BlobInventoryPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account blob inventory policy object. It is composed of policy rules.
+func (o BlobInventoryPolicyOutput) Policy() BlobInventoryPolicySchemaResponseOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicy) BlobInventoryPolicySchemaResponseOutput { return v.Policy }).(BlobInventoryPolicySchemaResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BlobInventoryPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobInventoryPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobInventoryPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobInventoryPolicyOutput{})
 }

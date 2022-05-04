@@ -138,6 +138,29 @@ type DomainSecuritySettingsArgs struct {
 	TlsV1 pulumi.StringPtrInput `pulumi:"tlsV1"`
 }
 
+// Defaults sets the appropriate defaults for DomainSecuritySettingsArgs
+func (val *DomainSecuritySettingsArgs) Defaults() *DomainSecuritySettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NtlmV1) {
+		tmp.NtlmV1 = pulumi.StringPtr("Enabled")
+	}
+	if isZero(tmp.SyncKerberosPasswords) {
+		tmp.SyncKerberosPasswords = pulumi.StringPtr("Enabled")
+	}
+	if isZero(tmp.SyncNtlmPasswords) {
+		tmp.SyncNtlmPasswords = pulumi.StringPtr("Enabled")
+	}
+	if isZero(tmp.SyncOnPremPasswords) {
+		tmp.SyncOnPremPasswords = pulumi.StringPtr("Enabled")
+	}
+	if isZero(tmp.TlsV1) {
+		tmp.TlsV1 = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (DomainSecuritySettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainSecuritySettings)(nil)).Elem()
 }
@@ -882,6 +905,20 @@ type LdapsSettingsArgs struct {
 	PfxCertificatePassword pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
 }
 
+// Defaults sets the appropriate defaults for LdapsSettingsArgs
+func (val *LdapsSettingsArgs) Defaults() *LdapsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExternalAccess) {
+		tmp.ExternalAccess = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.Ldaps) {
+		tmp.Ldaps = pulumi.StringPtr("Disabled")
+	}
+	return &tmp
+}
 func (LdapsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LdapsSettings)(nil)).Elem()
 }

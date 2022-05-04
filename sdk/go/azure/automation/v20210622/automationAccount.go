@@ -193,6 +193,98 @@ func (o AutomationAccountOutput) ToAutomationAccountOutputWithContext(ctx contex
 	return o
 }
 
+// URL of automation hybrid service which is used for hybrid worker on-boarding.
+func (o AutomationAccountOutput) AutomationHybridServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.AutomationHybridServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// Gets the creation time.
+func (o AutomationAccountOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o AutomationAccountOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether requests using non-AAD authentication are blocked
+func (o AutomationAccountOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Encryption properties for the automation account
+func (o AutomationAccountOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) EncryptionPropertiesResponsePtrOutput { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o AutomationAccountOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+func (o AutomationAccountOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Gets or sets the last modified by.
+func (o AutomationAccountOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets the last modified time.
+func (o AutomationAccountOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the resource lives
+func (o AutomationAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o AutomationAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of Automation operations supported by the Automation resource provider.
+func (o AutomationAccountOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *AutomationAccount) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
+func (o AutomationAccountOutput) PublicNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.BoolPtrOutput { return v.PublicNetworkAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the SKU of account.
+func (o AutomationAccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Gets status of account.
+func (o AutomationAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource system metadata.
+func (o AutomationAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AutomationAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AutomationAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o AutomationAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutomationAccountOutput{})
 }

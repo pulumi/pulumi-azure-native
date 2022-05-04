@@ -165,6 +165,46 @@ func (o BookmarkRelationOutput) ToBookmarkRelationOutputWithContext(ctx context.
 	return o
 }
 
+// Etag of the azure resource
+func (o BookmarkRelationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o BookmarkRelationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the related resource
+func (o BookmarkRelationOutput) RelatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceId }).(pulumi.StringOutput)
+}
+
+// The resource kind of the related resource
+func (o BookmarkRelationOutput) RelatedResourceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceKind }).(pulumi.StringOutput)
+}
+
+// The name of the related resource
+func (o BookmarkRelationOutput) RelatedResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceName }).(pulumi.StringOutput)
+}
+
+// The resource type of the related resource
+func (o BookmarkRelationOutput) RelatedResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceType }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o BookmarkRelationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BookmarkRelation) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BookmarkRelationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BookmarkRelationOutput{})
 }

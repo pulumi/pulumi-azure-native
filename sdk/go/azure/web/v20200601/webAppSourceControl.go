@@ -201,6 +201,51 @@ func (o WebAppSourceControlOutput) ToWebAppSourceControlOutputWithContext(ctx co
 	return o
 }
 
+// Name of branch to use for deployment.
+func (o WebAppSourceControlOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+func (o WebAppSourceControlOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.BoolPtrOutput { return v.DeploymentRollbackEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// <code>true</code> if this is deployed via GitHub action.
+func (o WebAppSourceControlOutput) IsGitHubAction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.BoolPtrOutput { return v.IsGitHubAction }).(pulumi.BoolPtrOutput)
+}
+
+// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+func (o WebAppSourceControlOutput) IsManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.BoolPtrOutput { return v.IsManualIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+func (o WebAppSourceControlOutput) IsMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.BoolPtrOutput { return v.IsMercurial }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppSourceControlOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSourceControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Repository or source control URL.
+func (o WebAppSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.StringPtrOutput { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppSourceControlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSourceControl) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSourceControlOutput{})
 }

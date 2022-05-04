@@ -143,6 +143,26 @@ func (o WorkflowAccessKeyOutput) ToWorkflowAccessKeyOutputWithContext(ctx contex
 	return o
 }
 
+// Gets the workflow access key name.
+func (o WorkflowAccessKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkflowAccessKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the not-after time.
+func (o WorkflowAccessKeyOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessKey) pulumi.StringPtrOutput { return v.NotAfter }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the not-before time.
+func (o WorkflowAccessKeyOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowAccessKey) pulumi.StringPtrOutput { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+// Gets the workflow access key type.
+func (o WorkflowAccessKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkflowAccessKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkflowAccessKeyOutput{})
 }

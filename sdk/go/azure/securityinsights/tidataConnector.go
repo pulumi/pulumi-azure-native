@@ -182,6 +182,42 @@ func (o TIDataConnectorOutput) ToTIDataConnectorOutputWithContext(ctx context.Co
 	return o
 }
 
+// The available data types for the connector.
+func (o TIDataConnectorOutput) DataTypes() TIDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v *TIDataConnector) TIDataConnectorDataTypesResponsePtrOutput { return v.DataTypes }).(TIDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o TIDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'ThreatIntelligence'.
+func (o TIDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o TIDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o TIDataConnectorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The lookback period for the feed to be imported.
+func (o TIDataConnectorOutput) TipLookbackPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringPtrOutput { return v.TipLookbackPeriod }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o TIDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TIDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TIDataConnectorOutput{})
 }

@@ -58,6 +58,17 @@ type AdditionalRegionArgs struct {
 	Vpnconfiguration VirtualNetworkConfigurationPtrInput `pulumi:"vpnconfiguration"`
 }
 
+// Defaults sets the appropriate defaults for AdditionalRegionArgs
+func (val *AdditionalRegionArgs) Defaults() *AdditionalRegionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SkuUnitCount) {
+		tmp.SkuUnitCount = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (AdditionalRegionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdditionalRegion)(nil)).Elem()
 }
@@ -277,6 +288,17 @@ type ApiManagementServiceSkuPropertiesArgs struct {
 	Name SkuTypeInput `pulumi:"name"`
 }
 
+// Defaults sets the appropriate defaults for ApiManagementServiceSkuPropertiesArgs
+func (val *ApiManagementServiceSkuPropertiesArgs) Defaults() *ApiManagementServiceSkuPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		tmp.Capacity = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ApiManagementServiceSkuPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementServiceSkuProperties)(nil)).Elem()
 }

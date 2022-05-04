@@ -195,6 +195,36 @@ func (o ProtectionIntentOutput) ToProtectionIntentOutputWithContext(ctx context.
 	return o
 }
 
+// Optional ETag.
+func (o ProtectionIntentOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ProtectionIntentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ProtectionIntentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ProtectionIntentResource properties
+func (o ProtectionIntentOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o ProtectionIntentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ProtectionIntentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectionIntent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectionIntentOutput{})
 }

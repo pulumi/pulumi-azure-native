@@ -213,6 +213,81 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The fully qualified path of managed application definition Id.
+func (o ApplicationOutput) ApplicationDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the resource.
+func (o ApplicationOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Application) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
+func (o ApplicationOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ApplicationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o ApplicationOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The managed resource group Id.
+func (o ApplicationOutput) ManagedResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name and value pairs that define the managed application outputs.
+func (o ApplicationOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Outputs }).(pulumi.AnyOutput)
+}
+
+// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+func (o ApplicationOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The plan information.
+func (o ApplicationOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *Application) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The managed application provisioning state.
+func (o ApplicationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the resource.
+func (o ApplicationOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Application) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The blob URI where the UI definition file is located.
+func (o ApplicationOutput) UiDefinitionUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.UiDefinitionUri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

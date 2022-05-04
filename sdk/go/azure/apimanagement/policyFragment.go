@@ -152,6 +152,31 @@ func (o PolicyFragmentOutput) ToPolicyFragmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Policy fragment description.
+func (o PolicyFragmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyFragment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Format of the policy fragment content.
+func (o PolicyFragmentOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyFragment) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o PolicyFragmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyFragment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PolicyFragmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyFragment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contents of the policy fragment.
+func (o PolicyFragmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyFragment) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyFragmentOutput{})
 }

@@ -146,6 +146,21 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
+// Resource name
+func (o FunctionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with a function.
+func (o FunctionOutput) Properties() ScalarFunctionPropertiesResponseOutput {
+	return o.ApplyT(func(v *Function) ScalarFunctionPropertiesResponseOutput { return v.Properties }).(ScalarFunctionPropertiesResponseOutput)
+}
+
+// Resource type
+func (o FunctionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FunctionOutput{})
 }

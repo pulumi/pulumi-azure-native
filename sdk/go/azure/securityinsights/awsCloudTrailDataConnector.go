@@ -176,6 +176,39 @@ func (o AwsCloudTrailDataConnectorOutput) ToAwsCloudTrailDataConnectorOutputWith
 	return o
 }
 
+// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
+func (o AwsCloudTrailDataConnectorOutput) AwsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringPtrOutput { return v.AwsRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The available data types for the connector.
+func (o AwsCloudTrailDataConnectorOutput) DataTypes() AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) AwsCloudTrailDataConnectorDataTypesResponsePtrOutput {
+		return v.DataTypes
+	}).(AwsCloudTrailDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o AwsCloudTrailDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'AmazonWebServicesCloudTrail'.
+func (o AwsCloudTrailDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AwsCloudTrailDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o AwsCloudTrailDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsCloudTrailDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AwsCloudTrailDataConnectorOutput{})
 }

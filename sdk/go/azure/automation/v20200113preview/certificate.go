@@ -171,6 +171,46 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Gets the creation time.
+func (o CertificateOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o CertificateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets the expiry time of the certificate.
+func (o CertificateOutput) ExpiryTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ExpiryTime }).(pulumi.StringOutput)
+}
+
+// Gets the is exportable flag of the certificate.
+func (o CertificateOutput) IsExportable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolOutput { return v.IsExportable }).(pulumi.BoolOutput)
+}
+
+// Gets the last modified time.
+func (o CertificateOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the thumbprint of the certificate.
+func (o CertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

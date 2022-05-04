@@ -168,6 +168,66 @@ func (o SapMonitorOutput) ToSapMonitorOutputWithContext(ctx context.Context) Sap
 	return o
 }
 
+// The value indicating whether to send analytics to Microsoft
+func (o SapMonitorOutput) EnableCustomerAnalytics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.BoolPtrOutput { return v.EnableCustomerAnalytics }).(pulumi.BoolPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o SapMonitorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ARM ID of the Log Analytics Workspace that is used for monitoring
+func (o SapMonitorOutput) LogAnalyticsWorkspaceArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceArmId }).(pulumi.StringPtrOutput)
+}
+
+// The workspace ID of the log analytics workspace to be used for monitoring
+func (o SapMonitorOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// The shared key of the log analytics workspace that is used for monitoring
+func (o SapMonitorOutput) LogAnalyticsWorkspaceSharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringPtrOutput { return v.LogAnalyticsWorkspaceSharedKey }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group the SAP Monitor resources get deployed into.
+func (o SapMonitorOutput) ManagedResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.ManagedResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The subnet which the SAP monitor will be deployed in
+func (o SapMonitorOutput) MonitorSubnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringPtrOutput { return v.MonitorSubnet }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o SapMonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of provisioning of the HanaInstance
+func (o SapMonitorOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The version of the payload running in the Collector VM
+func (o SapMonitorOutput) SapMonitorCollectorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.SapMonitorCollectorVersion }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o SapMonitorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SapMonitorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SapMonitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SapMonitorOutput{})
 }

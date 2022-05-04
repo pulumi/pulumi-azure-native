@@ -237,6 +237,68 @@ func (o DatabaseAccountGremlinGraphOutput) ToDatabaseAccountGremlinGraphOutputWi
 	return o
 }
 
+// The conflict resolution policy for the graph.
+func (o DatabaseAccountGremlinGraphOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) ConflictResolutionPolicyResponsePtrOutput {
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o DatabaseAccountGremlinGraphOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.IntPtrOutput { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o DatabaseAccountGremlinGraphOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+func (o DatabaseAccountGremlinGraphOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) IndexingPolicyResponsePtrOutput { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o DatabaseAccountGremlinGraphOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o DatabaseAccountGremlinGraphOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o DatabaseAccountGremlinGraphOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) ContainerPartitionKeyResponsePtrOutput { return v.PartitionKey }).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o DatabaseAccountGremlinGraphOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringPtrOutput { return v.Rid }).(pulumi.StringPtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o DatabaseAccountGremlinGraphOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o DatabaseAccountGremlinGraphOutput) Ts() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.AnyOutput { return v.Ts }).(pulumi.AnyOutput)
+}
+
+// The type of Azure resource.
+func (o DatabaseAccountGremlinGraphOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o DatabaseAccountGremlinGraphOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountGremlinGraph) UniqueKeyPolicyResponsePtrOutput { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAccountGremlinGraphOutput{})
 }

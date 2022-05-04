@@ -172,6 +172,36 @@ func (o FirewallPolicyRuleGroupOutput) ToFirewallPolicyRuleGroupOutputWithContex
 	return o
 }
 
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o FirewallPolicyRuleGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o FirewallPolicyRuleGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the Firewall Policy Rule Group resource.
+func (o FirewallPolicyRuleGroupOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o FirewallPolicyRuleGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Group of Firewall Policy rules.
+func (o FirewallPolicyRuleGroupOutput) Rules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.ArrayOutput { return v.Rules }).(pulumi.ArrayOutput)
+}
+
+// Rule Group type.
+func (o FirewallPolicyRuleGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicyRuleGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallPolicyRuleGroupOutput{})
 }

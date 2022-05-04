@@ -172,6 +172,68 @@ func (o CapacityReservationOutput) ToCapacityReservationOutputWithContext(ctx co
 	return o
 }
 
+// The Capacity reservation instance view.
+func (o CapacityReservationOutput) InstanceView() CapacityReservationInstanceViewResponseOutput {
+	return o.ApplyT(func(v *CapacityReservation) CapacityReservationInstanceViewResponseOutput { return v.InstanceView }).(CapacityReservationInstanceViewResponseOutput)
+}
+
+// Resource location
+func (o CapacityReservationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o CapacityReservationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o CapacityReservationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The date time when the capacity reservation was last updated.
+func (o CapacityReservationOutput) ProvisioningTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ProvisioningTime }).(pulumi.StringOutput)
+}
+
+// A unique id generated and assigned to the capacity reservation by the platform which does not change throughout the lifetime of the resource.
+func (o CapacityReservationOutput) ReservationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.ReservationId }).(pulumi.StringOutput)
+}
+
+// SKU of the resource for which capacity needs be reserved. The SKU name and capacity is required to be set. Currently VM Skus with the capability called 'CapacityReservationSupported' set to true are supported. Refer to List Microsoft.Compute SKUs in a region (https://docs.microsoft.com/rest/api/compute/resourceskus/list) for supported values.
+func (o CapacityReservationOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *CapacityReservation) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o CapacityReservationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the time at which the Capacity Reservation resource was created.<br><br>Minimum api-version: 2021-11-01.
+func (o CapacityReservationOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o CapacityReservationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of all virtual machine resource ids that are associated with the capacity reservation.
+func (o CapacityReservationOutput) VirtualMachinesAssociated() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) SubResourceReadOnlyResponseArrayOutput {
+		return v.VirtualMachinesAssociated
+	}).(SubResourceReadOnlyResponseArrayOutput)
+}
+
+// Availability Zone to use for this capacity reservation. The zone has to be single value and also should be part for the list of zones specified during the capacity reservation group creation. The zone can be assigned only during creation. If not provided, the reservation supports only non-zonal deployments. If provided, enforces VM/VMSS using this capacity reservation to be in same zone.
+func (o CapacityReservationOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityReservation) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CapacityReservationOutput{})
 }

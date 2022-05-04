@@ -165,6 +165,41 @@ func (o BlobOutput) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 	return o
 }
 
+// The access tier of the storage blob.
+func (o BlobOutput) AccessTier() BlobAccessTierOutput {
+	return o.ApplyT(func(v *Blob) BlobAccessTierOutput { return v.AccessTier }).(BlobAccessTierOutput)
+}
+
+// The MD5 sum of the blob contents.
+func (o BlobOutput) ContentMd5() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.ContentMd5 }).(pulumi.StringPtrOutput)
+}
+
+// The content type of the storage blob.
+func (o BlobOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// A map of custom blob metadata.
+func (o BlobOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the storage blob.
+func (o BlobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the storage blob to be created.
+func (o BlobOutput) Type() BlobTypeOutput {
+	return o.ApplyT(func(v *Blob) BlobTypeOutput { return v.Type }).(BlobTypeOutput)
+}
+
+// The URL of the blob.
+func (o BlobOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobOutput{})
 }

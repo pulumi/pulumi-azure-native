@@ -215,6 +215,76 @@ func (o RecordSetOutput) ToRecordSetOutputWithContext(ctx context.Context) Recor
 	return o
 }
 
+// Gets or sets the list of AAAA records in the RecordSet.
+func (o RecordSetOutput) AAAARecords() AaaaRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) AaaaRecordResponseArrayOutput { return v.AAAARecords }).(AaaaRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of A records in the RecordSet.
+func (o RecordSetOutput) ARecords() ARecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) ARecordResponseArrayOutput { return v.ARecords }).(ARecordResponseArrayOutput)
+}
+
+// Gets or sets the CNAME record in the RecordSet.
+func (o RecordSetOutput) CNAMERecord() CnameRecordResponsePtrOutput {
+	return o.ApplyT(func(v *RecordSet) CnameRecordResponsePtrOutput { return v.CNAMERecord }).(CnameRecordResponsePtrOutput)
+}
+
+// The etag of the record set.
+func (o RecordSetOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified domain name of the record set.
+func (o RecordSetOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Gets or sets the list of MX records in the RecordSet.
+func (o RecordSetOutput) MXRecords() MxRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) MxRecordResponseArrayOutput { return v.MXRecords }).(MxRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of NS records in the RecordSet.
+func (o RecordSetOutput) NSRecords() NsRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) NsRecordResponseArrayOutput { return v.NSRecords }).(NsRecordResponseArrayOutput)
+}
+
+// The name of the record set.
+func (o RecordSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the list of PTR records in the RecordSet.
+func (o RecordSetOutput) PTRRecords() PtrRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) PtrRecordResponseArrayOutput { return v.PTRRecords }).(PtrRecordResponseArrayOutput)
+}
+
+// Gets or sets the SOA record in the RecordSet.
+func (o RecordSetOutput) SOARecord() SoaRecordResponsePtrOutput {
+	return o.ApplyT(func(v *RecordSet) SoaRecordResponsePtrOutput { return v.SOARecord }).(SoaRecordResponsePtrOutput)
+}
+
+// Gets or sets the list of SRV records in the RecordSet.
+func (o RecordSetOutput) SRVRecords() SrvRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) SrvRecordResponseArrayOutput { return v.SRVRecords }).(SrvRecordResponseArrayOutput)
+}
+
+// Gets or sets the list of TXT records in the RecordSet.
+func (o RecordSetOutput) TXTRecords() TxtRecordResponseArrayOutput {
+	return o.ApplyT(func(v *RecordSet) TxtRecordResponseArrayOutput { return v.TXTRecords }).(TxtRecordResponseArrayOutput)
+}
+
+// Gets or sets the TTL of the records in the RecordSet.
+func (o RecordSetOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.Float64PtrOutput { return v.Ttl }).(pulumi.Float64PtrOutput)
+}
+
+// The type of the record set.
+func (o RecordSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecordSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RecordSetOutput{})
 }

@@ -179,6 +179,91 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// Gets the name of the corresponding resource in Kubernetes.
+func (o ClusterOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the datastore ARM ids.
+func (o ClusterOutput) DatastoreIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.DatastoreIds }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the extended location.
+func (o ClusterOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the inventory Item ID for the cluster.
+func (o ClusterOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o ClusterOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the cluster.
+func (o ClusterOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the cluster.
+func (o ClusterOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the network ARM ids.
+func (o ClusterOutput) NetworkIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.NetworkIds }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o ClusterOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o ClusterOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this cluster resides.
+func (o ClusterOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

@@ -147,6 +147,43 @@ func (o DefenderSettingOutput) ToDefenderSettingOutputWithContext(ctx context.Co
 	return o
 }
 
+// Size of the device quota. Value is required to be in multiples of 100.
+func (o DefenderSettingOutput) DeviceQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.IntOutput { return v.DeviceQuota }).(pulumi.IntOutput)
+}
+
+// End time of the evaluation period, if such exist
+func (o DefenderSettingOutput) EvaluationEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.StringOutput { return v.EvaluationEndTime }).(pulumi.StringOutput)
+}
+
+// MDE integration configuration
+func (o DefenderSettingOutput) MdeIntegration() DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+	return o.ApplyT(func(v *DefenderSetting) DefenderSettingsPropertiesResponseMdeIntegrationOutput {
+		return v.MdeIntegration
+	}).(DefenderSettingsPropertiesResponseMdeIntegrationOutput)
+}
+
+// The name of the resource
+func (o DefenderSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The kind of onboarding for the subscription
+func (o DefenderSettingOutput) OnboardingKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.StringOutput { return v.OnboardingKind }).(pulumi.StringOutput)
+}
+
+// Sentinel Workspace Resource Ids
+func (o DefenderSettingOutput) SentinelWorkspaceResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.StringArrayOutput { return v.SentinelWorkspaceResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DefenderSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefenderSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefenderSettingOutput{})
 }

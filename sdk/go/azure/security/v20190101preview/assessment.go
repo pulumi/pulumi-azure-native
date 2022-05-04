@@ -154,6 +154,41 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// Additional data regarding the assessment
+func (o AssessmentOutput) AdditionalData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.AdditionalData }).(pulumi.StringMapOutput)
+}
+
+// User friendly display name of the assessment
+func (o AssessmentOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Links relevant to the assessment
+func (o AssessmentOutput) Links() AssessmentLinksResponseOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentLinksResponseOutput { return v.Links }).(AssessmentLinksResponseOutput)
+}
+
+// Resource name
+func (o AssessmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Details of the resource that was assessed
+func (o AssessmentOutput) ResourceDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.AnyOutput { return v.ResourceDetails }).(pulumi.AnyOutput)
+}
+
+// The result of the assessment
+func (o AssessmentOutput) Status() AssessmentStatusResponseOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentStatusResponseOutput { return v.Status }).(AssessmentStatusResponseOutput)
+}
+
+// Resource type
+func (o AssessmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentOutput{})
 }

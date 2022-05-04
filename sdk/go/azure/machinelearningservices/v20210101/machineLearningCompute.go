@@ -213,6 +213,46 @@ func (o MachineLearningComputeOutput) ToMachineLearningComputeOutputWithContext(
 	return o
 }
 
+// The identity of the resource.
+func (o MachineLearningComputeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o MachineLearningComputeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o MachineLearningComputeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Compute properties
+func (o MachineLearningComputeOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o MachineLearningComputeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o MachineLearningComputeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o MachineLearningComputeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o MachineLearningComputeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningCompute) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineLearningComputeOutput{})
 }

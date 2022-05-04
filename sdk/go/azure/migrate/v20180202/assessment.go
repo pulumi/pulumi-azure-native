@@ -266,6 +266,126 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// AHUB discount on windows virtual machines.
+func (o AssessmentOutput) AzureHybridUseBenefit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AzureHybridUseBenefit }).(pulumi.StringOutput)
+}
+
+// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+func (o AssessmentOutput) AzureLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AzureLocation }).(pulumi.StringOutput)
+}
+
+// Offer code according to which cost estimation is done.
+func (o AssessmentOutput) AzureOfferCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AzureOfferCode }).(pulumi.StringOutput)
+}
+
+// Pricing tier for Size evaluation.
+func (o AssessmentOutput) AzurePricingTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AzurePricingTier }).(pulumi.StringOutput)
+}
+
+// Storage Redundancy type offered by Azure.
+func (o AssessmentOutput) AzureStorageRedundancy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AzureStorageRedundancy }).(pulumi.StringOutput)
+}
+
+// Confidence rating percentage for assessment. Can be in the range [0, 100].
+func (o AssessmentOutput) ConfidenceRatingInPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.ConfidenceRatingInPercentage }).(pulumi.Float64Output)
+}
+
+// Time when this project was created. Date-Time represented in ISO-8601 format.
+func (o AssessmentOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// Currency to report prices in.
+func (o AssessmentOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Currency }).(pulumi.StringOutput)
+}
+
+// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+func (o AssessmentOutput) DiscountPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.DiscountPercentage }).(pulumi.Float64Output)
+}
+
+// For optimistic concurrency control.
+func (o AssessmentOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentOutput) MonthlyBandwidthCost() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.MonthlyBandwidthCost }).(pulumi.Float64Output)
+}
+
+// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentOutput) MonthlyComputeCost() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.MonthlyComputeCost }).(pulumi.Float64Output)
+}
+
+// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+func (o AssessmentOutput) MonthlyStorageCost() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.MonthlyStorageCost }).(pulumi.Float64Output)
+}
+
+// Unique name of an assessment.
+func (o AssessmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of assessed machines part of this assessment.
+func (o AssessmentOutput) NumberOfMachines() pulumi.IntOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.IntOutput { return v.NumberOfMachines }).(pulumi.IntOutput)
+}
+
+// Percentile of performance data used to recommend Azure size.
+func (o AssessmentOutput) Percentile() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Percentile }).(pulumi.StringOutput)
+}
+
+// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+func (o AssessmentOutput) PricesTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.PricesTimestamp }).(pulumi.StringOutput)
+}
+
+// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+func (o AssessmentOutput) ScalingFactor() pulumi.Float64Output {
+	return o.ApplyT(func(v *Assessment) pulumi.Float64Output { return v.ScalingFactor }).(pulumi.Float64Output)
+}
+
+// Assessment sizing criterion.
+func (o AssessmentOutput) SizingCriterion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.SizingCriterion }).(pulumi.StringOutput)
+}
+
+// User configurable setting that describes the status of the assessment.
+func (o AssessmentOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
+}
+
+// Whether the assessment has been created and is valid.
+func (o AssessmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Time range of performance data used to recommend a size.
+func (o AssessmentOutput) TimeRange() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.TimeRange }).(pulumi.StringOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
+func (o AssessmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+func (o AssessmentOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.UpdatedTimestamp }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentOutput{})
 }

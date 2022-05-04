@@ -168,6 +168,37 @@ func (o EntityAnalyticsOutput) ToEntityAnalyticsOutputWithContext(ctx context.Co
 	return o
 }
 
+// Etag of the azure resource
+func (o EntityAnalyticsOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o EntityAnalyticsOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The kind of the setting
+// Expected value is 'EntityAnalytics'.
+func (o EntityAnalyticsOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o EntityAnalyticsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EntityAnalyticsOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EntityAnalytics) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o EntityAnalyticsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EntityAnalyticsOutput{})
 }

@@ -211,6 +211,62 @@ func (o WebAppVnetConnectionSlotOutput) ToWebAppVnetConnectionSlotOutputWithCont
 	return o
 }
 
+// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+// Point-To-Site VPN connection.
+func (o WebAppVnetConnectionSlotOutput) CertBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringPtrOutput { return v.CertBlob }).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint.
+func (o WebAppVnetConnectionSlotOutput) CertThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringOutput { return v.CertThumbprint }).(pulumi.StringOutput)
+}
+
+// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+func (o WebAppVnetConnectionSlotOutput) DnsServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringPtrOutput { return v.DnsServers }).(pulumi.StringPtrOutput)
+}
+
+// Flag that is used to denote if this is VNET injection
+func (o WebAppVnetConnectionSlotOutput) IsSwift() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.BoolPtrOutput { return v.IsSwift }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppVnetConnectionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppVnetConnectionSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if a resync is required; otherwise, <code>false</code>.
+func (o WebAppVnetConnectionSlotOutput) ResyncRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.BoolOutput { return v.ResyncRequired }).(pulumi.BoolOutput)
+}
+
+// The routes that this Virtual Network connection uses.
+func (o WebAppVnetConnectionSlotOutput) Routes() VnetRouteResponseArrayOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) VnetRouteResponseArrayOutput { return v.Routes }).(VnetRouteResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppVnetConnectionSlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppVnetConnectionSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Virtual Network's resource ID.
+func (o WebAppVnetConnectionSlotOutput) VnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppVnetConnectionSlot) pulumi.StringPtrOutput { return v.VnetResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppVnetConnectionSlotOutput{})
 }

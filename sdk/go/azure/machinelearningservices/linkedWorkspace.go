@@ -138,6 +138,21 @@ func (o LinkedWorkspaceOutput) ToLinkedWorkspaceOutputWithContext(ctx context.Co
 	return o
 }
 
+// Friendly name of the linked workspace.
+func (o LinkedWorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedWorkspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// LinkedWorkspace specific properties.
+func (o LinkedWorkspaceOutput) Properties() LinkedWorkspacePropsResponseOutput {
+	return o.ApplyT(func(v *LinkedWorkspace) LinkedWorkspacePropsResponseOutput { return v.Properties }).(LinkedWorkspacePropsResponseOutput)
+}
+
+// Resource type of linked workspace.
+func (o LinkedWorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedWorkspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedWorkspaceOutput{})
 }

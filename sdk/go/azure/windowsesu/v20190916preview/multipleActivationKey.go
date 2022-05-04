@@ -170,6 +170,65 @@ func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutputWithContext(ct
 	return o
 }
 
+// Agreement number under which the key is requested.
+func (o MultipleActivationKeyOutput) AgreementNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringPtrOutput { return v.AgreementNumber }).(pulumi.StringPtrOutput)
+}
+
+// End of support of security updates activated by the MAK key.
+func (o MultipleActivationKeyOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// Number of activations/servers using the MAK key.
+func (o MultipleActivationKeyOutput) InstalledServerNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.IntPtrOutput { return v.InstalledServerNumber }).(pulumi.IntPtrOutput)
+}
+
+// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
+func (o MultipleActivationKeyOutput) IsEligible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.BoolPtrOutput { return v.IsEligible }).(pulumi.BoolPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o MultipleActivationKeyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// MAK 5x5 key.
+func (o MultipleActivationKeyOutput) MultipleActivationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.MultipleActivationKey }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MultipleActivationKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of OS for which the key is requested.
+func (o MultipleActivationKeyOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+func (o MultipleActivationKeyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of support
+func (o MultipleActivationKeyOutput) SupportType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringPtrOutput { return v.SupportType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o MultipleActivationKeyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MultipleActivationKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultipleActivationKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MultipleActivationKeyOutput{})
 }

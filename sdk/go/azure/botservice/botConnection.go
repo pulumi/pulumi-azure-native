@@ -174,6 +174,51 @@ func (o BotConnectionOutput) ToBotConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Entity Tag
+func (o BotConnectionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Required. Gets or sets the Kind of the resource.
+func (o BotConnectionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o BotConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o BotConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to bot channel resource
+func (o BotConnectionOutput) Properties() ConnectionSettingPropertiesResponseOutput {
+	return o.ApplyT(func(v *BotConnection) ConnectionSettingPropertiesResponseOutput { return v.Properties }).(ConnectionSettingPropertiesResponseOutput)
+}
+
+// Gets or sets the SKU of the resource.
+func (o BotConnectionOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *BotConnection) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o BotConnectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o BotConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Entity zones
+func (o BotConnectionOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BotConnection) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BotConnectionOutput{})
 }

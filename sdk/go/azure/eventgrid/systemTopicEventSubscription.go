@@ -221,6 +221,86 @@ func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput
 	return o
 }
 
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o SystemTopicEventSubscriptionOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) StorageBlobDeadLetterDestinationResponsePtrOutput {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o SystemTopicEventSubscriptionOutput) DeadLetterWithResourceIdentity() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) DeadLetterWithResourceIdentityResponsePtrOutput {
+		return v.DeadLetterWithResourceIdentity
+	}).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o SystemTopicEventSubscriptionOutput) DeliveryWithResourceIdentity() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) DeliveryWithResourceIdentityResponsePtrOutput {
+		return v.DeliveryWithResourceIdentity
+	}).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o SystemTopicEventSubscriptionOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.AnyOutput { return v.Destination }).(pulumi.AnyOutput)
+}
+
+// The event delivery schema for the event subscription.
+func (o SystemTopicEventSubscriptionOutput) EventDeliverySchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.EventDeliverySchema }).(pulumi.StringPtrOutput)
+}
+
+// Expiration time of the event subscription.
+func (o SystemTopicEventSubscriptionOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringPtrOutput { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Information about the filter for the event subscription.
+func (o SystemTopicEventSubscriptionOutput) Filter() EventSubscriptionFilterResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) EventSubscriptionFilterResponsePtrOutput { return v.Filter }).(EventSubscriptionFilterResponsePtrOutput)
+}
+
+// List of user defined labels.
+func (o SystemTopicEventSubscriptionOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Name of the resource.
+func (o SystemTopicEventSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the event subscription.
+func (o SystemTopicEventSubscriptionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+func (o SystemTopicEventSubscriptionOutput) RetryPolicy() RetryPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) RetryPolicyResponsePtrOutput { return v.RetryPolicy }).(RetryPolicyResponsePtrOutput)
+}
+
+// The system metadata relating to Event Subscription resource.
+func (o SystemTopicEventSubscriptionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Name of the topic of the event subscription.
+func (o SystemTopicEventSubscriptionOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.Topic }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o SystemTopicEventSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopicEventSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SystemTopicEventSubscriptionOutput{})
 }

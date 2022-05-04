@@ -237,6 +237,107 @@ func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutputWithContext(ct
 	return o
 }
 
+// Custom settings for changing the behavior of the App Service Environment.
+func (o AppServiceEnvironmentOutput) ClusterSettings() NameValuePairResponseArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) NameValuePairResponseArrayOutput { return v.ClusterSettings }).(NameValuePairResponseArrayOutput)
+}
+
+// Dedicated Host Count
+func (o AppServiceEnvironmentOutput) DedicatedHostCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntOutput { return v.DedicatedHostCount }).(pulumi.IntOutput)
+}
+
+// DNS suffix of the App Service Environment.
+func (o AppServiceEnvironmentOutput) DnsSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringPtrOutput { return v.DnsSuffix }).(pulumi.StringPtrOutput)
+}
+
+// Scale factor for front-ends.
+func (o AppServiceEnvironmentOutput) FrontEndScaleFactor() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntPtrOutput { return v.FrontEndScaleFactor }).(pulumi.IntPtrOutput)
+}
+
+// Flag that displays whether an ASE has linux workers or not
+func (o AppServiceEnvironmentOutput) HasLinuxWorkers() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.BoolOutput { return v.HasLinuxWorkers }).(pulumi.BoolOutput)
+}
+
+// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+func (o AppServiceEnvironmentOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringPtrOutput { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
+}
+
+// Number of IP SSL addresses reserved for the App Service Environment.
+func (o AppServiceEnvironmentOutput) IpsslAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntPtrOutput { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// Kind of resource.
+func (o AppServiceEnvironmentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o AppServiceEnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of VMs in the App Service Environment.
+func (o AppServiceEnvironmentOutput) MaximumNumberOfMachines() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntOutput { return v.MaximumNumberOfMachines }).(pulumi.IntOutput)
+}
+
+// Number of front-end instances.
+func (o AppServiceEnvironmentOutput) MultiRoleCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.IntOutput { return v.MultiRoleCount }).(pulumi.IntOutput)
+}
+
+// Front-end VM size, e.g. "Medium", "Large".
+func (o AppServiceEnvironmentOutput) MultiSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringPtrOutput { return v.MultiSize }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AppServiceEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the App Service Environment.
+func (o AppServiceEnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Current status of the App Service Environment.
+func (o AppServiceEnvironmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+//  (most likely because NSG blocked the incoming traffic).
+func (o AppServiceEnvironmentOutput) Suspended() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.BoolOutput { return v.Suspended }).(pulumi.BoolOutput)
+}
+
+// Resource tags.
+func (o AppServiceEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AppServiceEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// User added ip ranges to whitelist on ASE db
+func (o AppServiceEnvironmentOutput) UserWhitelistedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) pulumi.StringArrayOutput { return v.UserWhitelistedIpRanges }).(pulumi.StringArrayOutput)
+}
+
+// Description of the Virtual Network.
+func (o AppServiceEnvironmentOutput) VirtualNetwork() VirtualNetworkProfileResponseOutput {
+	return o.ApplyT(func(v *AppServiceEnvironment) VirtualNetworkProfileResponseOutput { return v.VirtualNetwork }).(VirtualNetworkProfileResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceEnvironmentOutput{})
 }

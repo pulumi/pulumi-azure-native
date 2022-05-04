@@ -74,6 +74,23 @@ type AutoShutdownProfileArgs struct {
 	ShutdownWhenNotConnected EnableStatePtrInput `pulumi:"shutdownWhenNotConnected"`
 }
 
+// Defaults sets the appropriate defaults for AutoShutdownProfileArgs
+func (val *AutoShutdownProfileArgs) Defaults() *AutoShutdownProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShutdownOnDisconnect) {
+		tmp.ShutdownOnDisconnect = EnableState("Disabled")
+	}
+	if isZero(tmp.ShutdownOnIdle) {
+		tmp.ShutdownOnIdle = ShutdownOnIdleMode("None")
+	}
+	if isZero(tmp.ShutdownWhenNotConnected) {
+		tmp.ShutdownWhenNotConnected = EnableState("Disabled")
+	}
+	return &tmp
+}
 func (AutoShutdownProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoShutdownProfile)(nil)).Elem()
 }
@@ -492,6 +509,26 @@ type ConnectionProfileArgs struct {
 	WebSshAccess ConnectionTypePtrInput `pulumi:"webSshAccess"`
 }
 
+// Defaults sets the appropriate defaults for ConnectionProfileArgs
+func (val *ConnectionProfileArgs) Defaults() *ConnectionProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientRdpAccess) {
+		tmp.ClientRdpAccess = ConnectionType("None")
+	}
+	if isZero(tmp.ClientSshAccess) {
+		tmp.ClientSshAccess = ConnectionType("None")
+	}
+	if isZero(tmp.WebRdpAccess) {
+		tmp.WebRdpAccess = ConnectionType("None")
+	}
+	if isZero(tmp.WebSshAccess) {
+		tmp.WebSshAccess = ConnectionType("None")
+	}
+	return &tmp
+}
 func (ConnectionProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionProfile)(nil)).Elem()
 }
@@ -2923,6 +2960,17 @@ type VirtualMachineAdditionalCapabilitiesArgs struct {
 	InstallGpuDrivers EnableStatePtrInput `pulumi:"installGpuDrivers"`
 }
 
+// Defaults sets the appropriate defaults for VirtualMachineAdditionalCapabilitiesArgs
+func (val *VirtualMachineAdditionalCapabilitiesArgs) Defaults() *VirtualMachineAdditionalCapabilitiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InstallGpuDrivers) {
+		tmp.InstallGpuDrivers = EnableState("Disabled")
+	}
+	return &tmp
+}
 func (VirtualMachineAdditionalCapabilitiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineAdditionalCapabilities)(nil)).Elem()
 }
@@ -3179,6 +3227,18 @@ type VirtualMachineProfileArgs struct {
 	UseSharedPassword EnableStatePtrInput `pulumi:"useSharedPassword"`
 }
 
+// Defaults sets the appropriate defaults for VirtualMachineProfileArgs
+func (val *VirtualMachineProfileArgs) Defaults() *VirtualMachineProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.UseSharedPassword) {
+		tmp.UseSharedPassword = EnableState("Disabled")
+	}
+	return &tmp
+}
 func (VirtualMachineProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineProfile)(nil)).Elem()
 }

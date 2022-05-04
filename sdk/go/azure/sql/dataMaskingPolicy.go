@@ -158,6 +158,46 @@ func (o DataMaskingPolicyOutput) ToDataMaskingPolicyOutputWithContext(ctx contex
 	return o
 }
 
+// The list of the application principals. This is a legacy parameter and is no longer used.
+func (o DataMaskingPolicyOutput) ApplicationPrincipals() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.ApplicationPrincipals }).(pulumi.StringOutput)
+}
+
+// The state of the data masking policy.
+func (o DataMaskingPolicyOutput) DataMaskingState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.DataMaskingState }).(pulumi.StringOutput)
+}
+
+// The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
+func (o DataMaskingPolicyOutput) ExemptPrincipals() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringPtrOutput { return v.ExemptPrincipals }).(pulumi.StringPtrOutput)
+}
+
+// The kind of data masking policy. Metadata, used for Azure portal.
+func (o DataMaskingPolicyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The location of the data masking policy.
+func (o DataMaskingPolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The masking level. This is a legacy parameter and is no longer used.
+func (o DataMaskingPolicyOutput) MaskingLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.MaskingLevel }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DataMaskingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o DataMaskingPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataMaskingPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataMaskingPolicyOutput{})
 }

@@ -168,6 +168,56 @@ func (o PublishedBlueprintOutput) ToPublishedBlueprintOutputWithContext(ctx cont
 	return o
 }
 
+// Name of the published blueprint definition.
+func (o PublishedBlueprintOutput) BlueprintName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringPtrOutput { return v.BlueprintName }).(pulumi.StringPtrOutput)
+}
+
+// Version-specific change notes.
+func (o PublishedBlueprintOutput) ChangeNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringPtrOutput { return v.ChangeNotes }).(pulumi.StringPtrOutput)
+}
+
+// Multi-line explain this resource.
+func (o PublishedBlueprintOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o PublishedBlueprintOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Name of this resource.
+func (o PublishedBlueprintOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameters required by this blueprint definition.
+func (o PublishedBlueprintOutput) Parameters() ParameterDefinitionResponseMapOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) ParameterDefinitionResponseMapOutput { return v.Parameters }).(ParameterDefinitionResponseMapOutput)
+}
+
+// Resource group placeholders defined by this blueprint definition.
+func (o PublishedBlueprintOutput) ResourceGroups() ResourceGroupDefinitionResponseMapOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) ResourceGroupDefinitionResponseMapOutput { return v.ResourceGroups }).(ResourceGroupDefinitionResponseMapOutput)
+}
+
+// Status of the blueprint. This field is readonly.
+func (o PublishedBlueprintOutput) Status() BlueprintStatusResponseOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) BlueprintStatusResponseOutput { return v.Status }).(BlueprintStatusResponseOutput)
+}
+
+// The scope where this blueprint definition can be assigned.
+func (o PublishedBlueprintOutput) TargetScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringPtrOutput { return v.TargetScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of this resource.
+func (o PublishedBlueprintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublishedBlueprint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublishedBlueprintOutput{})
 }

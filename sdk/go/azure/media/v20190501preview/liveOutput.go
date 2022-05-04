@@ -202,6 +202,66 @@ func (o LiveOutputOutput) ToLiveOutputOutputWithContext(ctx context.Context) Liv
 	return o
 }
 
+// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+func (o LiveOutputOutput) ArchiveWindowLength() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ArchiveWindowLength }).(pulumi.StringOutput)
+}
+
+// The asset name.
+func (o LiveOutputOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The exact time the Live Output was created.
+func (o LiveOutputOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// The description of the Live Output.
+func (o LiveOutputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The HLS configuration.
+func (o LiveOutputOutput) Hls() HlsResponsePtrOutput {
+	return o.ApplyT(func(v *LiveOutput) HlsResponsePtrOutput { return v.Hls }).(HlsResponsePtrOutput)
+}
+
+// The exact time the Live Output was last modified.
+func (o LiveOutputOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The manifest file name.  If not provided, the service will generate one automatically.
+func (o LiveOutputOutput) ManifestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringPtrOutput { return v.ManifestName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LiveOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The output snapshot time.
+func (o LiveOutputOutput) OutputSnapTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.Float64PtrOutput { return v.OutputSnapTime }).(pulumi.Float64PtrOutput)
+}
+
+// The provisioning state of the Live Output.
+func (o LiveOutputOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the Live Output.
+func (o LiveOutputOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o LiveOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LiveOutputOutput{})
 }

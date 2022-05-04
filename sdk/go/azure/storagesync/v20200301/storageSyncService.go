@@ -177,6 +177,63 @@ func (o StorageSyncServiceOutput) ToStorageSyncServiceOutputWithContext(ctx cont
 	return o
 }
 
+// Incoming Traffic Policy
+func (o StorageSyncServiceOutput) IncomingTrafficPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringPtrOutput { return v.IncomingTrafficPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Resource Last Operation Name
+func (o StorageSyncServiceOutput) LastOperationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.LastOperationName }).(pulumi.StringOutput)
+}
+
+// StorageSyncService lastWorkflowId
+func (o StorageSyncServiceOutput) LastWorkflowId() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.LastWorkflowId }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o StorageSyncServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o StorageSyncServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connection associated with the specified storage sync service
+func (o StorageSyncServiceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *StorageSyncService) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// StorageSyncService Provisioning State
+func (o StorageSyncServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Storage Sync service status.
+func (o StorageSyncServiceOutput) StorageSyncServiceStatus() pulumi.IntOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.IntOutput { return v.StorageSyncServiceStatus }).(pulumi.IntOutput)
+}
+
+// Storage Sync service Uid
+func (o StorageSyncServiceOutput) StorageSyncServiceUid() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.StorageSyncServiceUid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o StorageSyncServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o StorageSyncServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageSyncServiceOutput{})
 }

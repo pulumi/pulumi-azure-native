@@ -191,6 +191,83 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The list of Log Analytics workspaces associated with the cluster
+func (o ClusterOutput) AssociatedWorkspaces() AssociatedWorkspaceResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) AssociatedWorkspaceResponseArrayOutput { return v.AssociatedWorkspaces }).(AssociatedWorkspaceResponseArrayOutput)
+}
+
+// The cluster's billing type.
+func (o ClusterOutput) BillingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.BillingType }).(pulumi.StringPtrOutput)
+}
+
+// Additional properties for capacity reservation
+func (o ClusterOutput) CapacityReservationProperties() CapacityReservationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) CapacityReservationPropertiesResponsePtrOutput {
+		return v.CapacityReservationProperties
+	}).(CapacityReservationPropertiesResponsePtrOutput)
+}
+
+// The ID associated with the cluster.
+func (o ClusterOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The cluster creation time
+func (o ClusterOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The identity of the resource.
+func (o ClusterOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
+func (o ClusterOutput) IsAvailabilityZonesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.IsAvailabilityZonesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The associated key properties.
+func (o ClusterOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) KeyVaultPropertiesResponsePtrOutput { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The last time the cluster was updated.
+func (o ClusterOutput) LastModifiedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the cluster.
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku properties.
+func (o ClusterOutput) Sku() ClusterSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSkuResponsePtrOutput { return v.Sku }).(ClusterSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

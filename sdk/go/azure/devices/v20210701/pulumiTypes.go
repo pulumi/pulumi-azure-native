@@ -2005,6 +2005,15 @@ type IotHubPropertiesArgs struct {
 	StorageEndpoints StorageEndpointPropertiesMapInput `pulumi:"storageEndpoints"`
 }
 
+// Defaults sets the appropriate defaults for IotHubPropertiesArgs
+func (val *IotHubPropertiesArgs) Defaults() *IotHubPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (IotHubPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubProperties)(nil)).Elem()
 }
@@ -3295,6 +3304,17 @@ type NetworkRuleSetIpRuleArgs struct {
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetIpRuleArgs
+func (val *NetworkRuleSetIpRuleArgs) Defaults() *NetworkRuleSetIpRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (NetworkRuleSetIpRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSetIpRule)(nil)).Elem()
 }
@@ -3499,6 +3519,17 @@ type NetworkRuleSetPropertiesArgs struct {
 	IpRules NetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetPropertiesArgs
+func (val *NetworkRuleSetPropertiesArgs) Defaults() *NetworkRuleSetPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.StringPtr("Deny")
+	}
+	return &tmp
+}
 func (NetworkRuleSetPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSetProperties)(nil)).Elem()
 }

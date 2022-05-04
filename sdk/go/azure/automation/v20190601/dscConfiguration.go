@@ -191,6 +191,81 @@ func (o DscConfigurationOutput) ToDscConfigurationOutputWithContext(ctx context.
 	return o
 }
 
+// Gets or sets the creation time.
+func (o DscConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o DscConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o DscConfigurationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the job count of the configuration.
+func (o DscConfigurationOutput) JobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.IntPtrOutput { return v.JobCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o DscConfigurationOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o DscConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets verbose log option.
+func (o DscConfigurationOutput) LogVerbose() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.BoolPtrOutput { return v.LogVerbose }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource
+func (o DscConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the number of compiled node configurations.
+func (o DscConfigurationOutput) NodeConfigurationCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.IntPtrOutput { return v.NodeConfigurationCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the configuration parameters.
+func (o DscConfigurationOutput) Parameters() DscConfigurationParameterResponseMapOutput {
+	return o.ApplyT(func(v *DscConfiguration) DscConfigurationParameterResponseMapOutput { return v.Parameters }).(DscConfigurationParameterResponseMapOutput)
+}
+
+// Gets or sets the provisioning state of the configuration.
+func (o DscConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the source.
+func (o DscConfigurationOutput) Source() ContentSourceResponsePtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) ContentSourceResponsePtrOutput { return v.Source }).(ContentSourceResponsePtrOutput)
+}
+
+// Gets or sets the state of the configuration.
+func (o DscConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o DscConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o DscConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DscConfigurationOutput{})
 }

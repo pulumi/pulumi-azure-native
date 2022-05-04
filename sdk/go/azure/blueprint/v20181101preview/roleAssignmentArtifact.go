@@ -182,6 +182,52 @@ func (o RoleAssignmentArtifactOutput) ToRoleAssignmentArtifactOutputWithContext(
 	return o
 }
 
+// Artifacts which need to be deployed before the specified artifact.
+func (o RoleAssignmentArtifactOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringArrayOutput { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Multi-line explain this resource.
+func (o RoleAssignmentArtifactOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o RoleAssignmentArtifactOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the kind of blueprint artifact.
+// Expected value is 'roleAssignment'.
+func (o RoleAssignmentArtifactOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o RoleAssignmentArtifactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Array of user or group identities in Azure Active Directory. The roleDefinition will apply to each identity.
+func (o RoleAssignmentArtifactOutput) PrincipalIds() pulumi.AnyOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.AnyOutput { return v.PrincipalIds }).(pulumi.AnyOutput)
+}
+
+// RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
+func (o RoleAssignmentArtifactOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource ID of the RoleDefinition.
+func (o RoleAssignmentArtifactOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o RoleAssignmentArtifactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignmentArtifact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssignmentArtifactOutput{})
 }

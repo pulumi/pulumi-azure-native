@@ -165,6 +165,51 @@ func (o LogProfileOutput) ToLogProfileOutputWithContext(ctx context.Context) Log
 	return o
 }
 
+// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+func (o LogProfileOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringArrayOutput { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// Resource location
+func (o LogProfileOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+func (o LogProfileOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringArrayOutput { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource name
+func (o LogProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the retention policy for the events in the log.
+func (o LogProfileOutput) RetentionPolicy() RetentionPolicyResponseOutput {
+	return o.ApplyT(func(v *LogProfile) RetentionPolicyResponseOutput { return v.RetentionPolicy }).(RetentionPolicyResponseOutput)
+}
+
+// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+func (o LogProfileOutput) ServiceBusRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringPtrOutput { return v.ServiceBusRuleId }).(pulumi.StringPtrOutput)
+}
+
+// the resource id of the storage account to which you would like to send the Activity Log.
+func (o LogProfileOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LogProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o LogProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LogProfileOutput{})
 }

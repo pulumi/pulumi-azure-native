@@ -174,6 +174,76 @@ func (o PrivateStoreCollectionOfferOutput) ToPrivateStoreCollectionOfferOutputWi
 	return o
 }
 
+// Private store offer creation date
+func (o PrivateStoreCollectionOfferOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Identifier for purposes of race condition
+func (o PrivateStoreCollectionOfferOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Icon File Uris
+func (o PrivateStoreCollectionOfferOutput) IconFileUris() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringMapOutput { return v.IconFileUris }).(pulumi.StringMapOutput)
+}
+
+// Private store offer modification date
+func (o PrivateStoreCollectionOfferOutput) ModifiedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PrivateStoreCollectionOfferOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// It will be displayed prominently in the marketplace
+func (o PrivateStoreCollectionOfferOutput) OfferDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.OfferDisplayName }).(pulumi.StringOutput)
+}
+
+// Offer plans
+func (o PrivateStoreCollectionOfferOutput) Plans() PlanResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) PlanResponseArrayOutput { return v.Plans }).(PlanResponseArrayOutput)
+}
+
+// Private store unique id
+func (o PrivateStoreCollectionOfferOutput) PrivateStoreId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.PrivateStoreId }).(pulumi.StringOutput)
+}
+
+// Publisher name that will be displayed prominently in the marketplace
+func (o PrivateStoreCollectionOfferOutput) PublisherDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.PublisherDisplayName }).(pulumi.StringOutput)
+}
+
+// Plan ids limitation for this offer
+func (o PrivateStoreCollectionOfferOutput) SpecificPlanIdsLimitation() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringArrayOutput { return v.SpecificPlanIdsLimitation }).(pulumi.StringArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o PrivateStoreCollectionOfferOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o PrivateStoreCollectionOfferOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Offers unique id
+func (o PrivateStoreCollectionOfferOutput) UniqueOfferId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.StringOutput { return v.UniqueOfferId }).(pulumi.StringOutput)
+}
+
+// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
+func (o PrivateStoreCollectionOfferOutput) UpdateSuppressedDueIdempotence() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollectionOffer) pulumi.BoolPtrOutput { return v.UpdateSuppressedDueIdempotence }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateStoreCollectionOfferOutput{})
 }

@@ -215,6 +215,66 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
+// the storage account type of the disk.
+func (o DiskOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.AccountType }).(pulumi.StringPtrOutput)
+}
+
+// Disk source information. CreationData information cannot be changed after the disk has been created.
+func (o DiskOutput) CreationData() CreationDataResponseOutput {
+	return o.ApplyT(func(v *Disk) CreationDataResponseOutput { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+func (o DiskOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntPtrOutput { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Encryption settings for disk or snapshot
+func (o DiskOutput) EncryptionSettings() EncryptionSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) EncryptionSettingsResponsePtrOutput { return v.EncryptionSettings }).(EncryptionSettingsResponsePtrOutput)
+}
+
+// Resource location
+func (o DiskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DiskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Operating System type.
+func (o DiskOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// A relative URI containing the VM id that has the disk attached.
+func (o DiskOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The disk provisioning state.
+func (o DiskOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o DiskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the disk was created.
+func (o DiskOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o DiskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskOutput{})
 }

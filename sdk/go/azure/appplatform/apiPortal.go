@@ -148,6 +148,31 @@ func (o ApiPortalOutput) ToApiPortalOutputWithContext(ctx context.Context) ApiPo
 	return o
 }
 
+// The name of the resource.
+func (o ApiPortalOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPortal) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// API portal properties payload
+func (o ApiPortalOutput) Properties() ApiPortalPropertiesResponseOutput {
+	return o.ApplyT(func(v *ApiPortal) ApiPortalPropertiesResponseOutput { return v.Properties }).(ApiPortalPropertiesResponseOutput)
+}
+
+// Sku of the API portal resource
+func (o ApiPortalOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ApiPortal) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ApiPortalOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ApiPortal) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ApiPortalOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPortal) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPortalOutput{})
 }

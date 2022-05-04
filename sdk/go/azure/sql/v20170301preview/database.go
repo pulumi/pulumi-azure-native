@@ -287,6 +287,91 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// Collation of the metadata catalog.
+func (o DatabaseOutput) CatalogCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CatalogCollation }).(pulumi.StringPtrOutput)
+}
+
+// The collation of the database.
+func (o DatabaseOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the database (ISO8601 format).
+func (o DatabaseOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The current service level objective name of the database.
+func (o DatabaseOutput) CurrentServiceObjectiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CurrentServiceObjectiveName }).(pulumi.StringOutput)
+}
+
+// The ID of the database.
+func (o DatabaseOutput) DatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
+}
+
+// The default secondary region for this database.
+func (o DatabaseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// The resource identifier of the elastic pool containing this database.
+func (o DatabaseOutput) ElasticPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ElasticPoolId }).(pulumi.StringPtrOutput)
+}
+
+// Failover Group resource identifier that this database belongs to.
+func (o DatabaseOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// Kind of database. This is metadata used for the Azure portal experience.
+func (o DatabaseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max size of the database expressed in bytes.
+func (o DatabaseOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.Float64PtrOutput { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Resource name.
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name and tier of the SKU.
+func (o DatabaseOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Database) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The status of the database.
+func (o DatabaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+func (o DatabaseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

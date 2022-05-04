@@ -702,6 +702,17 @@ type ResourceSkuArgs struct {
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for ResourceSkuArgs
+func (val *ResourceSkuArgs) Defaults() *ResourceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		tmp.Capacity = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ResourceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceSku)(nil)).Elem()
 }

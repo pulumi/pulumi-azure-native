@@ -173,6 +173,26 @@ func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutputWithContext(ctx co
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o PrivateDnsZoneGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o PrivateDnsZoneGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A collection of private dns zone configurations of the private dns zone group.
+func (o PrivateDnsZoneGroupOutput) PrivateDnsZoneConfigs() PrivateDnsZoneConfigResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneGroup) PrivateDnsZoneConfigResponseArrayOutput { return v.PrivateDnsZoneConfigs }).(PrivateDnsZoneConfigResponseArrayOutput)
+}
+
+// The provisioning state of the private dns zone group resource.
+func (o PrivateDnsZoneGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateDnsZoneGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateDnsZoneGroupOutput{})
 }

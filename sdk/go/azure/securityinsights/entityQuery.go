@@ -162,6 +162,31 @@ func (o EntityQueryOutput) ToEntityQueryOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// Etag of the azure resource
+func (o EntityQueryOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityQuery) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// the entity query kind
+func (o EntityQueryOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityQuery) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o EntityQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityQuery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EntityQueryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EntityQuery) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o EntityQueryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityQuery) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EntityQueryOutput{})
 }

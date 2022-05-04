@@ -142,6 +142,35 @@ func (o ConnectionGatewayOutput) ToConnectionGatewayOutputWithContext(ctx contex
 	return o
 }
 
+// Resource ETag
+func (o ConnectionGatewayOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGateway) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ConnectionGatewayOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionGateway) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ConnectionGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ConnectionGatewayOutput) Properties() ConnectionGatewayDefinitionResponsePropertiesOutput {
+	return o.ApplyT(func(v *ConnectionGateway) ConnectionGatewayDefinitionResponsePropertiesOutput { return v.Properties }).(ConnectionGatewayDefinitionResponsePropertiesOutput)
+}
+
+// Resource tags
+func (o ConnectionGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ConnectionGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionGatewayOutput{})
 }

@@ -180,6 +180,42 @@ func (o OfficeIRMDataConnectorOutput) ToOfficeIRMDataConnectorOutputWithContext(
 	return o
 }
 
+// The available data types for the connector.
+func (o OfficeIRMDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o OfficeIRMDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'OfficeIRM'.
+func (o OfficeIRMDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o OfficeIRMDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o OfficeIRMDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o OfficeIRMDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OfficeIRMDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeIRMDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OfficeIRMDataConnectorOutput{})
 }

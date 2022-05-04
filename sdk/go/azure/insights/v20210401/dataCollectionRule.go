@@ -179,6 +179,72 @@ func (o DataCollectionRuleOutput) ToDataCollectionRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The specification of data flows.
+func (o DataCollectionRuleOutput) DataFlows() DataFlowResponseArrayOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataFlowResponseArrayOutput { return v.DataFlows }).(DataFlowResponseArrayOutput)
+}
+
+// The specification of data sources.
+// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+func (o DataCollectionRuleOutput) DataSources() DataCollectionRuleResponseDataSourcesPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleResponseDataSourcesPtrOutput { return v.DataSources }).(DataCollectionRuleResponseDataSourcesPtrOutput)
+}
+
+// Description of the data collection rule.
+func (o DataCollectionRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The specification of destinations.
+func (o DataCollectionRuleOutput) Destinations() DataCollectionRuleResponseDestinationsPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleResponseDestinationsPtrOutput { return v.Destinations }).(DataCollectionRuleResponseDestinationsPtrOutput)
+}
+
+// Resource entity tag (ETag).
+func (o DataCollectionRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The immutable ID of this data collection rule. This property is READ-ONLY.
+func (o DataCollectionRuleOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ImmutableId }).(pulumi.StringOutput)
+}
+
+// The kind of the resource.
+func (o DataCollectionRuleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives.
+func (o DataCollectionRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o DataCollectionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource provisioning state.
+func (o DataCollectionRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DataCollectionRuleOutput) SystemData() DataCollectionRuleResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *DataCollectionRule) DataCollectionRuleResourceResponseSystemDataOutput { return v.SystemData }).(DataCollectionRuleResourceResponseSystemDataOutput)
+}
+
+// Resource tags.
+func (o DataCollectionRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o DataCollectionRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataCollectionRuleOutput{})
 }

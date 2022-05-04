@@ -146,6 +146,41 @@ func (o ReportOutput) ToReportOutputWithContext(ctx context.Context) ReportOutpu
 	return o
 }
 
+// Has definition for the report.
+func (o ReportOutput) Definition() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v *Report) ReportDefinitionResponseOutput { return v.Definition }).(ReportDefinitionResponseOutput)
+}
+
+// Has delivery information for the report.
+func (o ReportOutput) DeliveryInfo() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *Report) ReportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Report) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Report) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report.
+func (o ReportOutput) Schedule() ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *Report) ReportScheduleResponsePtrOutput { return v.Schedule }).(ReportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Report) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Report) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportOutput{})
 }

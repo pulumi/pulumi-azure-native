@@ -195,6 +195,71 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The time delay before the service is auto-stopped when idle.
+func (o ServiceOutput) AutoStopDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AutoStopDelay }).(pulumi.StringPtrOutput)
+}
+
+// Whether service resources should be deleted when stopped. (Turned on by default)
+func (o ServiceOutput) DeleteResourcesOnStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.BoolPtrOutput { return v.DeleteResourcesOnStop }).(pulumi.BoolPtrOutput)
+}
+
+// HTTP strong entity tag value. Ignored if submitted
+func (o ServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The resource kind. Only 'vm' (the default) is supported.
+func (o ServiceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource's provisioning state
+func (o ServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The public key of the service, used to encrypt secrets sent to the service
+func (o ServiceOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Service SKU
+func (o ServiceOutput) Sku() ServiceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Service) ServiceSkuResponsePtrOutput { return v.Sku }).(ServiceSkuResponsePtrOutput)
+}
+
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the Microsoft.Network/networkInterfaces resource which the service have
+func (o ServiceOutput) VirtualNicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VirtualNicId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
+func (o ServiceOutput) VirtualSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.VirtualSubnetId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

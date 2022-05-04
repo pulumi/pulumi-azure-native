@@ -166,6 +166,36 @@ func (o CredentialOutput) ToCredentialOutputWithContext(ctx context.Context) Cre
 	return o
 }
 
+// Gets the creation time.
+func (o CredentialOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o CredentialOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets the last modified time.
+func (o CredentialOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o CredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets the user name of the credential.
+func (o CredentialOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Credential) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CredentialOutput{})
 }

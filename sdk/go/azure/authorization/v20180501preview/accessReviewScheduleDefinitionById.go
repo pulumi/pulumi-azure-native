@@ -243,6 +243,149 @@ func (o AccessReviewScheduleDefinitionByIdOutput) ToAccessReviewScheduleDefiniti
 	return o
 }
 
+// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
+func (o AccessReviewScheduleDefinitionByIdOutput) AutoApplyDecisionsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput { return v.AutoApplyDecisionsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// This specifies the behavior for the autoReview feature when an access review completes.
+func (o AccessReviewScheduleDefinitionByIdOutput) DefaultDecision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.DefaultDecision }).(pulumi.StringPtrOutput)
+}
+
+// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
+func (o AccessReviewScheduleDefinitionByIdOutput) DefaultDecisionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput { return v.DefaultDecisionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The description provided by the access review creator and visible to admins.
+func (o AccessReviewScheduleDefinitionByIdOutput) DescriptionForAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.DescriptionForAdmins }).(pulumi.StringPtrOutput)
+}
+
+// The description provided by the access review creator to be shown to reviewers.
+func (o AccessReviewScheduleDefinitionByIdOutput) DescriptionForReviewers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.DescriptionForReviewers }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the schedule definition.
+func (o AccessReviewScheduleDefinitionByIdOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The DateTime when the review is scheduled to end. Required if type is endDate
+func (o AccessReviewScheduleDefinitionByIdOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// The duration in days for an instance.
+func (o AccessReviewScheduleDefinitionByIdOutput) InstanceDurationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.IntPtrOutput { return v.InstanceDurationInDays }).(pulumi.IntPtrOutput)
+}
+
+// This is the collection of instances returned when one does an expand on it.
+func (o AccessReviewScheduleDefinitionByIdOutput) Instances() AccessReviewInstanceResponseArrayOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) AccessReviewInstanceResponseArrayOutput {
+		return v.Instances
+	}).(AccessReviewInstanceResponseArrayOutput)
+}
+
+// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
+func (o AccessReviewScheduleDefinitionByIdOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.IntPtrOutput { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
+func (o AccessReviewScheduleDefinitionByIdOutput) JustificationRequiredOnApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput {
+		return v.JustificationRequiredOnApproval
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
+func (o AccessReviewScheduleDefinitionByIdOutput) MailNotificationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput { return v.MailNotificationsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The access review schedule definition unique id.
+func (o AccessReviewScheduleDefinitionByIdOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of times to repeat the access review. Required and must be positive if type is numbered.
+func (o AccessReviewScheduleDefinitionByIdOutput) NumberOfOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.IntPtrOutput { return v.NumberOfOccurrences }).(pulumi.IntPtrOutput)
+}
+
+// The identity id
+func (o AccessReviewScheduleDefinitionByIdOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The identity display name
+func (o AccessReviewScheduleDefinitionByIdOutput) PrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.PrincipalName }).(pulumi.StringOutput)
+}
+
+// The identity type user/servicePrincipal to review
+func (o AccessReviewScheduleDefinitionByIdOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// Flag to indicate whether showing recommendations to reviewers is enabled.
+func (o AccessReviewScheduleDefinitionByIdOutput) RecommendationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput { return v.RecommendationsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether sending reminder emails to reviewers are enabled.
+func (o AccessReviewScheduleDefinitionByIdOutput) ReminderNotificationsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.BoolPtrOutput {
+		return v.ReminderNotificationsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// ResourceId in which this review is getting created
+func (o AccessReviewScheduleDefinitionByIdOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// This is the collection of reviewers.
+func (o AccessReviewScheduleDefinitionByIdOutput) Reviewers() AccessReviewReviewerResponseArrayOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) AccessReviewReviewerResponseArrayOutput {
+		return v.Reviewers
+	}).(AccessReviewReviewerResponseArrayOutput)
+}
+
+// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
+func (o AccessReviewScheduleDefinitionByIdOutput) ReviewersType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.ReviewersType }).(pulumi.StringOutput)
+}
+
+// This is used to indicate the role being reviewed
+func (o AccessReviewScheduleDefinitionByIdOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+func (o AccessReviewScheduleDefinitionByIdOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// This read-only field specifies the status of an accessReview.
+func (o AccessReviewScheduleDefinitionByIdOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o AccessReviewScheduleDefinitionByIdOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user principal name(if valid)
+func (o AccessReviewScheduleDefinitionByIdOutput) UserPrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewScheduleDefinitionById) pulumi.StringOutput { return v.UserPrincipalName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessReviewScheduleDefinitionByIdOutput{})
 }

@@ -307,6 +307,161 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
+// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+func (o DiskOutput) BurstingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.BoolPtrOutput { return v.BurstingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Disk source information. CreationData information cannot be changed after the disk has been created.
+func (o DiskOutput) CreationData() CreationDataResponseOutput {
+	return o.ApplyT(func(v *Disk) CreationDataResponseOutput { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// ARM id of the DiskAccess resource for using private endpoints on disks.
+func (o DiskOutput) DiskAccessId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.DiskAccessId }).(pulumi.StringPtrOutput)
+}
+
+// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+func (o DiskOutput) DiskIOPSReadOnly() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.Float64PtrOutput { return v.DiskIOPSReadOnly }).(pulumi.Float64PtrOutput)
+}
+
+// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+func (o DiskOutput) DiskIOPSReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.Float64PtrOutput { return v.DiskIOPSReadWrite }).(pulumi.Float64PtrOutput)
+}
+
+// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+func (o DiskOutput) DiskMBpsReadOnly() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.Float64PtrOutput { return v.DiskMBpsReadOnly }).(pulumi.Float64PtrOutput)
+}
+
+// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+func (o DiskOutput) DiskMBpsReadWrite() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.Float64PtrOutput { return v.DiskMBpsReadWrite }).(pulumi.Float64PtrOutput)
+}
+
+// The size of the disk in bytes. This field is read only.
+func (o DiskOutput) DiskSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Disk) pulumi.Float64Output { return v.DiskSizeBytes }).(pulumi.Float64Output)
+}
+
+// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+func (o DiskOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntPtrOutput { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The state of the disk.
+func (o DiskOutput) DiskState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.DiskState }).(pulumi.StringOutput)
+}
+
+// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+func (o DiskOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) EncryptionResponsePtrOutput { return v.Encryption }).(EncryptionResponsePtrOutput)
+}
+
+// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+func (o DiskOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) EncryptionSettingsCollectionResponsePtrOutput { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionResponsePtrOutput)
+}
+
+// The extended location where the disk will be created. Extended location cannot be changed.
+func (o DiskOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+func (o DiskOutput) HyperVGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o DiskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// A relative URI containing the ID of the VM that has the disk attached.
+func (o DiskOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
+func (o DiskOutput) ManagedByExtended() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringArrayOutput { return v.ManagedByExtended }).(pulumi.StringArrayOutput)
+}
+
+// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+func (o DiskOutput) MaxShares() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntPtrOutput { return v.MaxShares }).(pulumi.IntPtrOutput)
+}
+
+// Resource name
+func (o DiskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network.
+func (o DiskOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The Operating System type.
+func (o DiskOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The disk provisioning state.
+func (o DiskOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+func (o DiskOutput) PurchasePlan() PurchasePlanResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) PurchasePlanResponsePtrOutput { return v.PurchasePlan }).(PurchasePlanResponsePtrOutput)
+}
+
+// Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
+func (o DiskOutput) ShareInfo() ShareInfoElementResponseArrayOutput {
+	return o.ApplyT(func(v *Disk) ShareInfoElementResponseArrayOutput { return v.ShareInfo }).(ShareInfoElementResponseArrayOutput)
+}
+
+// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
+func (o DiskOutput) Sku() DiskSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Disk) DiskSkuResponsePtrOutput { return v.Sku }).(DiskSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o DiskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
+func (o DiskOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The time when the disk was created.
+func (o DiskOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o DiskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Guid identifying the resource.
+func (o DiskOutput) UniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+}
+
+// The Logical zone list for Disk.
+func (o DiskOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskOutput{})
 }

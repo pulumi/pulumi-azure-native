@@ -147,6 +147,36 @@ func (o WorkloadNetworkPublicIPOutput) ToWorkloadNetworkPublicIPOutputWithContex
 	return o
 }
 
+// Display name of the Public IP Block.
+func (o WorkloadNetworkPublicIPOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkPublicIPOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of Public IPs requested.
+func (o WorkloadNetworkPublicIPOutput) NumberOfPublicIPs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.Float64PtrOutput { return v.NumberOfPublicIPs }).(pulumi.Float64PtrOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkPublicIPOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// CIDR Block of the Public IP Block.
+func (o WorkloadNetworkPublicIPOutput) PublicIPBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.StringOutput { return v.PublicIPBlock }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkPublicIPOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPublicIP) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkPublicIPOutput{})
 }

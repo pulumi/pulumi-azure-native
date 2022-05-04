@@ -143,6 +143,41 @@ func (o PartnerConfigurationOutput) ToPartnerConfigurationOutputWithContext(ctx 
 	return o
 }
 
+// Location of the resource.
+func (o PartnerConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource.
+func (o PartnerConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The details of authorized partners.
+func (o PartnerConfigurationOutput) PartnerAuthorization() PartnerAuthorizationResponsePtrOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) PartnerAuthorizationResponsePtrOutput { return v.PartnerAuthorization }).(PartnerAuthorizationResponsePtrOutput)
+}
+
+// Provisioning state of the partner configuration.
+func (o PartnerConfigurationOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to partner configuration resource.
+func (o PartnerConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o PartnerConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o PartnerConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerConfigurationOutput{})
 }

@@ -153,6 +153,31 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The end IP address of the server firewall rule. Must be IPv4 format.
+func (o FirewallRuleOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o FirewallRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start IP address of the server firewall rule. Must be IPv4 format.
+func (o FirewallRuleOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.StartIpAddress }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o FirewallRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FirewallRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FirewallRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
 }

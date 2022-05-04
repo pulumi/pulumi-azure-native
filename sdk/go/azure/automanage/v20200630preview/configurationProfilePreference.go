@@ -138,6 +138,33 @@ func (o ConfigurationProfilePreferenceOutput) ToConfigurationProfilePreferenceOu
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ConfigurationProfilePreferenceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreference) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ConfigurationProfilePreferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreference) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile preference.
+func (o ConfigurationProfilePreferenceOutput) Properties() ConfigurationProfilePreferencePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreference) ConfigurationProfilePreferencePropertiesResponseOutput {
+		return v.Properties
+	}).(ConfigurationProfilePreferencePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ConfigurationProfilePreferenceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreference) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConfigurationProfilePreferenceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilePreference) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceOutput{})
 }

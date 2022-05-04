@@ -168,6 +168,36 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The kind of the environment.
+func (o EnvironmentOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o EnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+func (o EnvironmentOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Environment) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentOutput{})
 }

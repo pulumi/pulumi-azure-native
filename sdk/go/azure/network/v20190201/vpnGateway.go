@@ -239,6 +239,56 @@ func (o VpnGatewayOutput) ToVpnGatewayOutputWithContext(ctx context.Context) Vpn
 	return o
 }
 
+// Local network gateway's BGP speaker settings.
+func (o VpnGatewayOutput) BgpSettings() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *VpnGateway) BgpSettingsResponsePtrOutput { return v.BgpSettings }).(BgpSettingsResponsePtrOutput)
+}
+
+// List of all vpn connections to the gateway.
+func (o VpnGatewayOutput) Connections() VpnConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *VpnGateway) VpnConnectionResponseArrayOutput { return v.Connections }).(VpnConnectionResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o VpnGatewayOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o VpnGatewayOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VpnGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o VpnGatewayOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VpnGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VpnGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualHub to which the gateway belongs
+func (o VpnGatewayOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VpnGateway) SubResourceResponsePtrOutput { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+// The scale unit for this vpn gateway.
+func (o VpnGatewayOutput) VpnGatewayScaleUnit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnGateway) pulumi.IntPtrOutput { return v.VpnGatewayScaleUnit }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnGatewayOutput{})
 }

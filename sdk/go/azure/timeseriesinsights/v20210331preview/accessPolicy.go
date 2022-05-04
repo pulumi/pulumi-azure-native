@@ -160,6 +160,31 @@ func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// An description of the access policy.
+func (o AccessPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o AccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The objectId of the principal in Azure Active Directory.
+func (o AccessPolicyOutput) PrincipalObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.PrincipalObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The list of roles the principal is assigned on the environment.
+func (o AccessPolicyOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringArrayOutput { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AccessPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessPolicyOutput{})
 }

@@ -147,6 +147,26 @@ func (o ManagementLockAtResourceGroupLevelOutput) ToManagementLockAtResourceGrou
 	return o
 }
 
+// The lock level of the management lock.
+func (o ManagementLockAtResourceGroupLevelOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLockAtResourceGroupLevel) pulumi.StringPtrOutput { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The name of the lock.
+func (o ManagementLockAtResourceGroupLevelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLockAtResourceGroupLevel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The notes of the management lock.
+func (o ManagementLockAtResourceGroupLevelOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLockAtResourceGroupLevel) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The type of the lock.
+func (o ManagementLockAtResourceGroupLevelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockAtResourceGroupLevel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementLockAtResourceGroupLevelOutput{})
 }

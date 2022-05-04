@@ -169,6 +169,31 @@ func (o EventSourceOutput) ToEventSourceOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The kind of the event source.
+func (o EventSourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSource) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o EventSourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o EventSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o EventSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EventSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventSourceOutput{})
 }

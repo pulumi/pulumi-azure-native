@@ -139,6 +139,26 @@ func (o EnvironmentContainerOutput) ToEnvironmentContainerOutputWithContext(ctx 
 	return o
 }
 
+// The name of the resource
+func (o EnvironmentContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o EnvironmentContainerOutput) Properties() EnvironmentContainerResponseOutput {
+	return o.ApplyT(func(v *EnvironmentContainer) EnvironmentContainerResponseOutput { return v.Properties }).(EnvironmentContainerResponseOutput)
+}
+
+// System data associated with resource provider
+func (o EnvironmentContainerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EnvironmentContainer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EnvironmentContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentContainer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentContainerOutput{})
 }

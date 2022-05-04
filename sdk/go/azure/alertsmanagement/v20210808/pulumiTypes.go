@@ -84,6 +84,17 @@ type AlertProcessingRulePropertiesArgs struct {
 	Scopes pulumi.StringArrayInput `pulumi:"scopes"`
 }
 
+// Defaults sets the appropriate defaults for AlertProcessingRulePropertiesArgs
+func (val *AlertProcessingRulePropertiesArgs) Defaults() *AlertProcessingRulePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (AlertProcessingRulePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AlertProcessingRuleProperties)(nil)).Elem()
 }

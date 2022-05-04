@@ -167,6 +167,41 @@ func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutputWithCont
 	return o
 }
 
+// Gets or sets extensionProperties of the maintenanceConfiguration
+func (o MaintenanceConfigurationOutput) ExtensionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringMapOutput { return v.ExtensionProperties }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets location of the resource
+func (o MaintenanceConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets maintenanceScope of the configuration
+func (o MaintenanceConfigurationOutput) MaintenanceScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.MaintenanceScope }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource
+func (o MaintenanceConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets namespace of the resource
+func (o MaintenanceConfigurationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets tags of the resource
+func (o MaintenanceConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource
+func (o MaintenanceConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MaintenanceConfigurationOutput{})
 }

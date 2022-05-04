@@ -151,6 +151,46 @@ func (o DigitalTwinOutput) ToDigitalTwinOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Time when DigitalTwinsInstance was created.
+func (o DigitalTwinOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Api endpoint to work with DigitalTwinsInstance.
+func (o DigitalTwinOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Time when DigitalTwinsInstance was updated.
+func (o DigitalTwinOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o DigitalTwinOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DigitalTwinOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o DigitalTwinOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o DigitalTwinOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o DigitalTwinOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DigitalTwinOutput{})
 }

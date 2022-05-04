@@ -137,6 +137,23 @@ func (o ConfigurationProfileAssignmentOutput) ToConfigurationProfileAssignmentOu
 	return o
 }
 
+// The name of the resource
+func (o ConfigurationProfileAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile assignment.
+func (o ConfigurationProfileAssignmentOutput) Properties() ConfigurationProfileAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignment) ConfigurationProfileAssignmentPropertiesResponseOutput {
+		return v.Properties
+	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConfigurationProfileAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentOutput{})
 }

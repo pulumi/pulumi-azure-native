@@ -163,6 +163,56 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+// This type describes a volume provided by an Azure Files file share.
+func (o VolumeOutput) AzureFileParameters() VolumeProviderParametersAzureFileResponsePtrOutput {
+	return o.ApplyT(func(v *Volume) VolumeProviderParametersAzureFileResponsePtrOutput { return v.AzureFileParameters }).(VolumeProviderParametersAzureFileResponsePtrOutput)
+}
+
+// User readable description of the volume.
+func (o VolumeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o VolumeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provider of the volume.
+func (o VolumeOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Provider }).(pulumi.StringOutput)
+}
+
+// State of the resource.
+func (o VolumeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Status of the volume.
+func (o VolumeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Gives additional information about the current status of the volume.
+func (o VolumeOutput) StatusDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.StatusDetails }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

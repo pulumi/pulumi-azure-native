@@ -167,6 +167,33 @@ func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutputWithContext(ctx 
 	return o
 }
 
+// Gets or sets the configuration of the node.
+func (o DscNodeConfigurationOutput) Configuration() DscConfigurationAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) DscConfigurationAssociationPropertyResponsePtrOutput {
+		return v.Configuration
+	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
+}
+
+// Gets or sets creation time.
+func (o DscNodeConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o DscNodeConfigurationOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DscNodeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o DscNodeConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DscNodeConfigurationOutput{})
 }

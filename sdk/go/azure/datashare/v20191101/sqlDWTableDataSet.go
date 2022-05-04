@@ -197,6 +197,47 @@ func (o SqlDWTableDataSetOutput) ToSqlDWTableDataSetOutputWithContext(ctx contex
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o SqlDWTableDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// DataWarehouse name of the source data set
+func (o SqlDWTableDataSetOutput) DataWarehouseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.DataWarehouseName }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'SqlDWTable'.
+func (o SqlDWTableDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SqlDWTableDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Schema of the table. Default value is dbo.
+func (o SqlDWTableDataSetOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// Resource id of SQL server
+func (o SqlDWTableDataSetOutput) SqlServerResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.SqlServerResourceId }).(pulumi.StringOutput)
+}
+
+// SQL DW table name.
+func (o SqlDWTableDataSetOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o SqlDWTableDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDWTableDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlDWTableDataSetOutput{})
 }

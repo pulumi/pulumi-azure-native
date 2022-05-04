@@ -209,6 +209,66 @@ func (o IpAllocationOutput) ToIpAllocationOutputWithContext(ctx context.Context)
 	return o
 }
 
+// IpAllocation tags.
+func (o IpAllocationOutput) AllocationTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringMapOutput { return v.AllocationTags }).(pulumi.StringMapOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o IpAllocationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The IPAM allocation ID.
+func (o IpAllocationOutput) IpamAllocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringPtrOutput { return v.IpamAllocationId }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o IpAllocationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o IpAllocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The address prefix for the IpAllocation.
+func (o IpAllocationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The address prefix length for the IpAllocation.
+func (o IpAllocationOutput) PrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.IntPtrOutput { return v.PrefixLength }).(pulumi.IntPtrOutput)
+}
+
+// The address prefix Type for the IpAllocation.
+func (o IpAllocationOutput) PrefixType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringPtrOutput { return v.PrefixType }).(pulumi.StringPtrOutput)
+}
+
+// The Subnet that using the prefix of this IpAllocation resource.
+func (o IpAllocationOutput) Subnet() SubResourceResponseOutput {
+	return o.ApplyT(func(v *IpAllocation) SubResourceResponseOutput { return v.Subnet }).(SubResourceResponseOutput)
+}
+
+// Resource tags.
+func (o IpAllocationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o IpAllocationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpAllocation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualNetwork that using the prefix of this IpAllocation resource.
+func (o IpAllocationOutput) VirtualNetwork() SubResourceResponseOutput {
+	return o.ApplyT(func(v *IpAllocation) SubResourceResponseOutput { return v.VirtualNetwork }).(SubResourceResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IpAllocationOutput{})
 }

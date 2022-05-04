@@ -135,6 +135,41 @@ func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) ToPr
 	return o
 }
 
+// Gets the tag for optimistic concurrency control.
+func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionControllerPrivateEndpointConnection) pulumi.StringOutput {
+		return v.ETag
+	}).(pulumi.StringOutput)
+}
+
+// Gets the name of the resource.
+func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionControllerPrivateEndpointConnection) pulumi.StringOutput {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// Gets the properties of the object.
+func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionControllerPrivateEndpointConnection) PrivateEndpointConnectionPropertiesResponseOutput {
+		return v.Properties
+	}).(PrivateEndpointConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionControllerPrivateEndpointConnection) SystemDataResponseOutput {
+		return v.SystemData
+	}).(SystemDataResponseOutput)
+}
+
+// Gets the resource type.
+func (o PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionControllerPrivateEndpointConnection) pulumi.StringOutput {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionControllerPrivateEndpointConnectionOutput{})
 }

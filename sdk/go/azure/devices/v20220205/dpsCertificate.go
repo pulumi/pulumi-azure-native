@@ -158,6 +158,31 @@ func (o DpsCertificateOutput) ToDpsCertificateOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The entity tag.
+func (o DpsCertificateOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the certificate.
+func (o DpsCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// properties of a certificate
+func (o DpsCertificateOutput) Properties() CertificatePropertiesResponseOutput {
+	return o.ApplyT(func(v *DpsCertificate) CertificatePropertiesResponseOutput { return v.Properties }).(CertificatePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DpsCertificateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DpsCertificate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource type.
+func (o DpsCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DpsCertificateOutput{})
 }

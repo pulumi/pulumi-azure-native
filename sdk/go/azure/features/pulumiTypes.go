@@ -184,6 +184,17 @@ type SubscriptionFeatureRegistrationPropertiesArgs struct {
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
+// Defaults sets the appropriate defaults for SubscriptionFeatureRegistrationPropertiesArgs
+func (val *SubscriptionFeatureRegistrationPropertiesArgs) Defaults() *SubscriptionFeatureRegistrationPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShouldFeatureDisplayInPortal) {
+		tmp.ShouldFeatureDisplayInPortal = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (SubscriptionFeatureRegistrationPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionFeatureRegistrationProperties)(nil)).Elem()
 }

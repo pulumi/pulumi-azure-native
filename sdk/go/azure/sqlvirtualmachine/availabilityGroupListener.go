@@ -157,6 +157,45 @@ func (o AvailabilityGroupListenerOutput) ToAvailabilityGroupListenerOutputWithCo
 	return o
 }
 
+// Name of the availability group.
+func (o AvailabilityGroupListenerOutput) AvailabilityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringPtrOutput { return v.AvailabilityGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Create a default availability group if it does not exist.
+func (o AvailabilityGroupListenerOutput) CreateDefaultAvailabilityGroupIfNotExist() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.BoolPtrOutput {
+		return v.CreateDefaultAvailabilityGroupIfNotExist
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of load balancer configurations for an availability group listener.
+func (o AvailabilityGroupListenerOutput) LoadBalancerConfigurations() LoadBalancerConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) LoadBalancerConfigurationResponseArrayOutput {
+		return v.LoadBalancerConfigurations
+	}).(LoadBalancerConfigurationResponseArrayOutput)
+}
+
+// Resource name.
+func (o AvailabilityGroupListenerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Listener port.
+func (o AvailabilityGroupListenerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Provisioning state to track the async operation status.
+func (o AvailabilityGroupListenerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AvailabilityGroupListenerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilityGroupListener) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AvailabilityGroupListenerOutput{})
 }

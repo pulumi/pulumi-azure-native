@@ -160,6 +160,26 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
+// Gateway description
+func (o GatewayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gateway location.
+func (o GatewayOutput) LocationData() ResourceLocationDataContractResponsePtrOutput {
+	return o.ApplyT(func(v *Gateway) ResourceLocationDataContractResponsePtrOutput { return v.LocationData }).(ResourceLocationDataContractResponsePtrOutput)
+}
+
+// The name of the resource
+func (o GatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayOutput{})
 }

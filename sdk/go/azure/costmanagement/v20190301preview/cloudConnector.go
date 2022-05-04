@@ -177,6 +177,91 @@ func (o CloudConnectorOutput) ToCloudConnectorOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Connector billing model
+func (o CloudConnectorOutput) BillingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.BillingModel }).(pulumi.StringPtrOutput)
+}
+
+// Collection information
+func (o CloudConnectorOutput) CollectionInfo() ConnectorCollectionInfoResponseOutput {
+	return o.ApplyT(func(v *CloudConnector) ConnectorCollectionInfoResponseOutput { return v.CollectionInfo }).(ConnectorCollectionInfoResponseOutput)
+}
+
+// Connector definition creation datetime
+func (o CloudConnectorOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Credentials authentication key (eg AWS ARN)
+func (o CloudConnectorOutput) CredentialsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.CredentialsKey }).(pulumi.StringPtrOutput)
+}
+
+// Number of days remaining of trial
+func (o CloudConnectorOutput) DaysTrialRemaining() pulumi.IntOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.IntOutput { return v.DaysTrialRemaining }).(pulumi.IntOutput)
+}
+
+// Default ManagementGroupId
+func (o CloudConnectorOutput) DefaultManagementGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.DefaultManagementGroupId }).(pulumi.StringPtrOutput)
+}
+
+// Connector DisplayName
+func (o CloudConnectorOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Associated ExternalBillingAccountId
+func (o CloudConnectorOutput) ExternalBillingAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.ExternalBillingAccountId }).(pulumi.StringOutput)
+}
+
+// Connector kind (eg aws)
+func (o CloudConnectorOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Connector last modified datetime
+func (o CloudConnectorOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Connector name
+func (o CloudConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The display name of the providerBillingAccountId as defined on the external provider
+func (o CloudConnectorOutput) ProviderBillingAccountDisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.ProviderBillingAccountDisplayName }).(pulumi.StringOutput)
+}
+
+// Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
+func (o CloudConnectorOutput) ProviderBillingAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.ProviderBillingAccountId }).(pulumi.StringOutput)
+}
+
+// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+func (o CloudConnectorOutput) ReportId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.ReportId }).(pulumi.StringPtrOutput)
+}
+
+// Connector status
+func (o CloudConnectorOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Billing SubscriptionId
+func (o CloudConnectorOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Connector type
+func (o CloudConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudConnectorOutput{})
 }

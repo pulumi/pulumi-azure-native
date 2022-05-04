@@ -301,6 +301,98 @@ func (o ConnectionMonitorOutput) ToConnectionMonitorOutputWithContext(ctx contex
 	return o
 }
 
+// Determines if the connection monitor will start automatically once created.
+func (o ConnectionMonitorOutput) AutoStart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.BoolPtrOutput { return v.AutoStart }).(pulumi.BoolPtrOutput)
+}
+
+// Type of connection monitor.
+func (o ConnectionMonitorOutput) ConnectionMonitorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.ConnectionMonitorType }).(pulumi.StringOutput)
+}
+
+// Describes the destination of connection monitor.
+func (o ConnectionMonitorOutput) Destination() ConnectionMonitorDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorDestinationResponsePtrOutput { return v.Destination }).(ConnectionMonitorDestinationResponsePtrOutput)
+}
+
+// List of connection monitor endpoints.
+func (o ConnectionMonitorOutput) Endpoints() ConnectionMonitorEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorEndpointResponseArrayOutput { return v.Endpoints }).(ConnectionMonitorEndpointResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ConnectionMonitorOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Connection monitor location.
+func (o ConnectionMonitorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Monitoring interval in seconds.
+func (o ConnectionMonitorOutput) MonitoringIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.IntPtrOutput { return v.MonitoringIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The monitoring status of the connection monitor.
+func (o ConnectionMonitorOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// Name of the connection monitor.
+func (o ConnectionMonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional notes to be associated with the connection monitor.
+func (o ConnectionMonitorOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// List of connection monitor outputs.
+func (o ConnectionMonitorOutput) Outputs() ConnectionMonitorOutputResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorOutputResponseArrayOutput { return v.Outputs }).(ConnectionMonitorOutputResponseArrayOutput)
+}
+
+// The provisioning state of the connection monitor.
+func (o ConnectionMonitorOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes the source of connection monitor.
+func (o ConnectionMonitorOutput) Source() ConnectionMonitorSourceResponsePtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorSourceResponsePtrOutput { return v.Source }).(ConnectionMonitorSourceResponsePtrOutput)
+}
+
+// The date and time when the connection monitor was started.
+func (o ConnectionMonitorOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Connection monitor tags.
+func (o ConnectionMonitorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// List of connection monitor test configurations.
+func (o ConnectionMonitorOutput) TestConfigurations() ConnectionMonitorTestConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorTestConfigurationResponseArrayOutput {
+		return v.TestConfigurations
+	}).(ConnectionMonitorTestConfigurationResponseArrayOutput)
+}
+
+// List of connection monitor test groups.
+func (o ConnectionMonitorOutput) TestGroups() ConnectionMonitorTestGroupResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) ConnectionMonitorTestGroupResponseArrayOutput { return v.TestGroups }).(ConnectionMonitorTestGroupResponseArrayOutput)
+}
+
+// Connection monitor type.
+func (o ConnectionMonitorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionMonitorOutput{})
 }

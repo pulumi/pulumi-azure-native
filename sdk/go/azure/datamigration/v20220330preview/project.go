@@ -204,6 +204,71 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// Field that defines the Azure active directory application info, used to connect to the target Azure resource
+func (o ProjectOutput) AzureAuthenticationInfo() AzureActiveDirectoryAppResponsePtrOutput {
+	return o.ApplyT(func(v *Project) AzureActiveDirectoryAppResponsePtrOutput { return v.AzureAuthenticationInfo }).(AzureActiveDirectoryAppResponsePtrOutput)
+}
+
+// UTC Date and time when project was created
+func (o ProjectOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// List of DatabaseInfo
+func (o ProjectOutput) DatabasesInfo() DatabaseInfoResponseArrayOutput {
+	return o.ApplyT(func(v *Project) DatabaseInfoResponseArrayOutput { return v.DatabasesInfo }).(DatabaseInfoResponseArrayOutput)
+}
+
+// HTTP strong entity tag value. This is ignored if submitted.
+func (o ProjectOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project's provisioning state
+func (o ProjectOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information for connecting to source
+func (o ProjectOutput) SourceConnectionInfo() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Project) pulumi.AnyOutput { return v.SourceConnectionInfo }).(pulumi.AnyOutput)
+}
+
+// Source platform for the project
+func (o ProjectOutput) SourcePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.SourcePlatform }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Project) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o ProjectOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Information for connecting to target
+func (o ProjectOutput) TargetConnectionInfo() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Project) pulumi.AnyOutput { return v.TargetConnectionInfo }).(pulumi.AnyOutput)
+}
+
+// Target platform for the project
+func (o ProjectOutput) TargetPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.TargetPlatform }).(pulumi.StringOutput)
+}
+
+func (o ProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

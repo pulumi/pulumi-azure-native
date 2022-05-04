@@ -170,6 +170,40 @@ func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) ToStaticSiteU
 	return o
 }
 
+// The date and time on which the function app was registered with the static site.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The region of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) FunctionAppRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringPtrOutput {
+		return v.FunctionAppRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) FunctionAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringPtrOutput {
+		return v.FunctionAppResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput{})
 }

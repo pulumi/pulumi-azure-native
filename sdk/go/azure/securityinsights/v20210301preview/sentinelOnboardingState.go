@@ -159,6 +159,31 @@ func (o SentinelOnboardingStateOutput) ToSentinelOnboardingStateOutputWithContex
 	return o
 }
 
+// Flag that indicates the status of the CMK setting
+func (o SentinelOnboardingStateOutput) CustomerManagedKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.BoolPtrOutput { return v.CustomerManagedKey }).(pulumi.BoolPtrOutput)
+}
+
+// Etag of the azure resource
+func (o SentinelOnboardingStateOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o SentinelOnboardingStateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SentinelOnboardingStateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SentinelOnboardingState) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o SentinelOnboardingStateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SentinelOnboardingState) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SentinelOnboardingStateOutput{})
 }

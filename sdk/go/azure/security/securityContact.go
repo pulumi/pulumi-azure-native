@@ -140,6 +140,40 @@ func (o SecurityContactOutput) ToSecurityContactOutputWithContext(ctx context.Co
 	return o
 }
 
+// Defines whether to send email notifications about new security alerts
+func (o SecurityContactOutput) AlertNotifications() SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+	return o.ApplyT(func(v *SecurityContact) SecurityContactPropertiesResponseAlertNotificationsPtrOutput {
+		return v.AlertNotifications
+	}).(SecurityContactPropertiesResponseAlertNotificationsPtrOutput)
+}
+
+// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
+func (o SecurityContactOutput) Emails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringPtrOutput { return v.Emails }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o SecurityContactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
+func (o SecurityContactOutput) NotificationsByRole() SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+	return o.ApplyT(func(v *SecurityContact) SecurityContactPropertiesResponseNotificationsByRolePtrOutput {
+		return v.NotificationsByRole
+	}).(SecurityContactPropertiesResponseNotificationsByRolePtrOutput)
+}
+
+// The security contact's phone number
+func (o SecurityContactOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringPtrOutput { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o SecurityContactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityContactOutput{})
 }

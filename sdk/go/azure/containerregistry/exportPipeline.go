@@ -171,6 +171,46 @@ func (o ExportPipelineOutput) ToExportPipelineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The identity of the export pipeline.
+func (o ExportPipelineOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ExportPipeline) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the export pipeline.
+func (o ExportPipelineOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportPipeline) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ExportPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportPipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of all options configured for the pipeline.
+func (o ExportPipelineOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExportPipeline) pulumi.StringArrayOutput { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state of the pipeline at the time the operation was called.
+func (o ExportPipelineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportPipeline) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ExportPipelineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ExportPipeline) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The target properties of the export pipeline.
+func (o ExportPipelineOutput) Target() ExportPipelineTargetPropertiesResponseOutput {
+	return o.ApplyT(func(v *ExportPipeline) ExportPipelineTargetPropertiesResponseOutput { return v.Target }).(ExportPipelineTargetPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o ExportPipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportPipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExportPipelineOutput{})
 }

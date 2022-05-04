@@ -222,6 +222,76 @@ func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncG
 	return o
 }
 
+// Conflict logging retention period.
+func (o SyncGroupOutput) ConflictLoggingRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.IntPtrOutput { return v.ConflictLoggingRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Conflict resolution policy of the sync group.
+func (o SyncGroupOutput) ConflictResolutionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringPtrOutput { return v.ConflictResolutionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// If conflict logging is enabled.
+func (o SyncGroupOutput) EnableConflictLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.BoolPtrOutput { return v.EnableConflictLogging }).(pulumi.BoolPtrOutput)
+}
+
+// User name for the sync group hub database credential.
+func (o SyncGroupOutput) HubDatabaseUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringPtrOutput { return v.HubDatabaseUserName }).(pulumi.StringPtrOutput)
+}
+
+// Sync interval of the sync group.
+func (o SyncGroupOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.IntPtrOutput { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// Last sync time of the sync group.
+func (o SyncGroupOutput) LastSyncTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.LastSyncTime }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SyncGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint name of the sync group if use private link connection is enabled.
+func (o SyncGroupOutput) PrivateEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.PrivateEndpointName }).(pulumi.StringOutput)
+}
+
+// Sync schema of the sync group.
+func (o SyncGroupOutput) Schema() SyncGroupSchemaResponsePtrOutput {
+	return o.ApplyT(func(v *SyncGroup) SyncGroupSchemaResponsePtrOutput { return v.Schema }).(SyncGroupSchemaResponsePtrOutput)
+}
+
+// The name and capacity of the SKU.
+func (o SyncGroupOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *SyncGroup) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// ARM resource id of the sync database in the sync group.
+func (o SyncGroupOutput) SyncDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringPtrOutput { return v.SyncDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// Sync state of the sync group.
+func (o SyncGroupOutput) SyncState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.SyncState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o SyncGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// If use private link connection is enabled.
+func (o SyncGroupOutput) UsePrivateLinkConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.BoolPtrOutput { return v.UsePrivateLinkConnection }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncGroupOutput{})
 }

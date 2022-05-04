@@ -169,6 +169,61 @@ func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) Exp
 	return o
 }
 
+// The description of the details or intents of the Experiment
+func (o ExperimentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The state of the Experiment
+func (o ExperimentOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint A of an experiment
+func (o ExperimentOutput) EndpointA() ExperimentEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentEndpointResponsePtrOutput { return v.EndpointA }).(ExperimentEndpointResponsePtrOutput)
+}
+
+// The endpoint B of an experiment
+func (o ExperimentOutput) EndpointB() ExperimentEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentEndpointResponsePtrOutput { return v.EndpointB }).(ExperimentEndpointResponsePtrOutput)
+}
+
+// Resource location.
+func (o ExperimentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExperimentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource status.
+func (o ExperimentOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The uri to the Script used in the Experiment
+func (o ExperimentOutput) ScriptFileUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.ScriptFileUri }).(pulumi.StringOutput)
+}
+
+// The description of Experiment status from the server side
+func (o ExperimentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ExperimentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExperimentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExperimentOutput{})
 }

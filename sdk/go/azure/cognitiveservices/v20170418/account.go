@@ -173,6 +173,51 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// Entity Tag
+func (o AccountOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The identity of Cognitive Services account.
+func (o AccountOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Account) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The Kind of the resource.
+func (o AccountOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource
+func (o AccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the created account
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of Cognitive Services account.
+func (o AccountOutput) Properties() CognitiveServicesAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v *Account) CognitiveServicesAccountPropertiesResponseOutput { return v.Properties }).(CognitiveServicesAccountPropertiesResponseOutput)
+}
+
+// The SKU of Cognitive Services account.
+func (o AccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Account) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

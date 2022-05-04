@@ -152,6 +152,21 @@ func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The role assignment name.
+func (o RoleAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role assignment properties.
+func (o RoleAssignmentOutput) Properties() RoleAssignmentPropertiesWithScopeResponseOutput {
+	return o.ApplyT(func(v *RoleAssignment) RoleAssignmentPropertiesWithScopeResponseOutput { return v.Properties }).(RoleAssignmentPropertiesWithScopeResponseOutput)
+}
+
+// The role assignment type.
+func (o RoleAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 }

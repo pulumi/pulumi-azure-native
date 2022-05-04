@@ -185,6 +185,33 @@ func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicy
 	return o
 }
 
+// Resource Etag.
+func (o BlobContainerImmutabilityPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o BlobContainerImmutabilityPolicyOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.IntOutput {
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntOutput)
+}
+
+// The name of the resource
+func (o BlobContainerImmutabilityPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+func (o BlobContainerImmutabilityPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobContainerImmutabilityPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyOutput{})
 }

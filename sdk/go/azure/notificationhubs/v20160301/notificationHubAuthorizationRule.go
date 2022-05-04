@@ -166,6 +166,36 @@ func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRu
 	return o
 }
 
+// Resource location
+func (o NotificationHubAuthorizationRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o NotificationHubAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o NotificationHubAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// The sku of the created namespace
+func (o NotificationHubAuthorizationRuleOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NotificationHubAuthorizationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NotificationHubAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationHubAuthorizationRuleOutput{})
 }

@@ -200,6 +200,46 @@ func (o WorkloadGroupOutput) ToWorkloadGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The workload group importance level.
+func (o WorkloadGroupOutput) Importance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.StringPtrOutput { return v.Importance }).(pulumi.StringPtrOutput)
+}
+
+// The workload group cap percentage resource.
+func (o WorkloadGroupOutput) MaxResourcePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.IntOutput { return v.MaxResourcePercent }).(pulumi.IntOutput)
+}
+
+// The workload group request maximum grant percentage.
+func (o WorkloadGroupOutput) MaxResourcePercentPerRequest() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.Float64PtrOutput { return v.MaxResourcePercentPerRequest }).(pulumi.Float64PtrOutput)
+}
+
+// The workload group minimum percentage resource.
+func (o WorkloadGroupOutput) MinResourcePercent() pulumi.IntOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.IntOutput { return v.MinResourcePercent }).(pulumi.IntOutput)
+}
+
+// The workload group request minimum grant percentage.
+func (o WorkloadGroupOutput) MinResourcePercentPerRequest() pulumi.Float64Output {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.Float64Output { return v.MinResourcePercentPerRequest }).(pulumi.Float64Output)
+}
+
+// Resource name.
+func (o WorkloadGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workload group query execution timeout.
+func (o WorkloadGroupOutput) QueryExecutionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.IntPtrOutput { return v.QueryExecutionTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o WorkloadGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadGroupOutput{})
 }

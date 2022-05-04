@@ -147,6 +147,43 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
+// Group id of the private endpoint.
+func (o PrivateEndpointConnectionOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint which the connection belongs to.
+func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointPropertyResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointPropertyResponseOutput { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponseOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateLinkServiceConnectionStatePropertyResponseOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
+}
+
+// Provisioning state of the private endpoint.
+func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

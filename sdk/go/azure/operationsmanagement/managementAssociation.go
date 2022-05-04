@@ -154,6 +154,26 @@ func (o ManagementAssociationOutput) ToManagementAssociationOutputWithContext(ct
 	return o
 }
 
+// Resource location
+func (o ManagementAssociationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementAssociation) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ManagementAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
+func (o ManagementAssociationOutput) Properties() ManagementAssociationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ManagementAssociation) ManagementAssociationPropertiesResponseOutput { return v.Properties }).(ManagementAssociationPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o ManagementAssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementAssociation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementAssociationOutput{})
 }

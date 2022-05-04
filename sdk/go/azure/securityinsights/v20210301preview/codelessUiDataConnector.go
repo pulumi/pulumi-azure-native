@@ -178,6 +178,39 @@ func (o CodelessUiDataConnectorOutput) ToCodelessUiDataConnectorOutputWithContex
 	return o
 }
 
+// Config to describe the instructions blade
+func (o CodelessUiDataConnectorOutput) ConnectorUiConfig() CodelessUiConnectorConfigPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) CodelessUiConnectorConfigPropertiesResponsePtrOutput {
+		return v.ConnectorUiConfig
+	}).(CodelessUiConnectorConfigPropertiesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o CodelessUiDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'GenericUI'.
+func (o CodelessUiDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o CodelessUiDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CodelessUiDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o CodelessUiDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessUiDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CodelessUiDataConnectorOutput{})
 }

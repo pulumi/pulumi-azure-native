@@ -191,6 +191,71 @@ func (o PacketCoreDataPlaneOutput) ToPacketCoreDataPlaneOutputWithContext(ctx co
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o PacketCoreDataPlaneOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o PacketCoreDataPlaneOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o PacketCoreDataPlaneOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o PacketCoreDataPlaneOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o PacketCoreDataPlaneOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o PacketCoreDataPlaneOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o PacketCoreDataPlaneOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PacketCoreDataPlaneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the packet core data plane resource.
+func (o PacketCoreDataPlaneOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PacketCoreDataPlaneOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o PacketCoreDataPlaneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PacketCoreDataPlaneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user plane interface on the access network. In 5G networks this is called as N3 interface whereas in 4G networks this is called the S1-U interface.
+func (o PacketCoreDataPlaneOutput) UserPlaneAccessInterface() InterfacePropertiesResponseOutput {
+	return o.ApplyT(func(v *PacketCoreDataPlane) InterfacePropertiesResponseOutput { return v.UserPlaneAccessInterface }).(InterfacePropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PacketCoreDataPlaneOutput{})
 }

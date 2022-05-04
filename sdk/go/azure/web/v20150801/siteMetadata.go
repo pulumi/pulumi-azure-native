@@ -193,6 +193,36 @@ func (o SiteMetadataOutput) ToSiteMetadataOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Kind of resource
+func (o SiteMetadataOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteMetadataOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteMetadataOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Settings
+func (o SiteMetadataOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource tags
+func (o SiteMetadataOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteMetadataOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteMetadata) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteMetadataOutput{})
 }

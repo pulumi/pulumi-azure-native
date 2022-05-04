@@ -159,6 +159,36 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
+// Resource location
+func (o NamespaceAuthorizationRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o NamespaceAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// The sku of the created namespace
+func (o NamespaceAuthorizationRuleOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NamespaceAuthorizationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NamespaceAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 }

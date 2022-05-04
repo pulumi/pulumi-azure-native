@@ -183,6 +183,61 @@ func (o SourceControlOutput) ToSourceControlOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The auto sync of the source control. Default is false.
+func (o SourceControlOutput) AutoSync() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.BoolPtrOutput { return v.AutoSync }).(pulumi.BoolPtrOutput)
+}
+
+// The repo branch of the source control. Include branch as empty string for VsoTfvc.
+func (o SourceControlOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// The creation time.
+func (o SourceControlOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The description.
+func (o SourceControlOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The folder path of the source control.
+func (o SourceControlOutput) FolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.FolderPath }).(pulumi.StringPtrOutput)
+}
+
+// The last modified time.
+func (o SourceControlOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o SourceControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The auto publish of the source control. Default is true.
+func (o SourceControlOutput) PublishRunbook() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.BoolPtrOutput { return v.PublishRunbook }).(pulumi.BoolPtrOutput)
+}
+
+// The repo url of the source control.
+func (o SourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+// The source type. Must be one of VsoGit, VsoTfvc, GitHub.
+func (o SourceControlOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o SourceControlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SourceControlOutput{})
 }

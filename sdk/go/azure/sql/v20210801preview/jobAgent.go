@@ -177,6 +177,41 @@ func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgen
 	return o
 }
 
+// Resource ID of the database to store job metadata in.
+func (o JobAgentOutput) DatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o JobAgentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o JobAgentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name and tier of the SKU.
+func (o JobAgentOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *JobAgent) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The state of the job agent.
+func (o JobAgentOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o JobAgentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o JobAgentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobAgentOutput{})
 }

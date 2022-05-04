@@ -181,6 +181,81 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
+// Object id of the user that created the lab.
+func (o LabOutput) CreatedByObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedByObjectId }).(pulumi.StringOutput)
+}
+
+// Lab creator name
+func (o LabOutput) CreatedByUserPrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedByUserPrincipalName }).(pulumi.StringOutput)
+}
+
+// Creation date for the lab
+func (o LabOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Invitation code that users can use to join a lab.
+func (o LabOutput) InvitationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.InvitationCode }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o LabOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *Lab) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o LabOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Maximum number of users allowed in the lab.
+func (o LabOutput) MaxUsersInLab() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.IntPtrOutput { return v.MaxUsersInLab }).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource.
+func (o LabOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LabOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LabOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Maximum duration a user can use an environment for in the lab.
+func (o LabOutput) UsageQuota() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UsageQuota }).(pulumi.StringPtrOutput)
+}
+
+// Lab user access mode (open to all vs. restricted to those listed on the lab).
+func (o LabOutput) UserAccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UserAccessMode }).(pulumi.StringPtrOutput)
+}
+
+// Maximum value MaxUsersInLab can be set to, as specified by the service
+func (o LabOutput) UserQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *Lab) pulumi.IntOutput { return v.UserQuota }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabOutput{})
 }

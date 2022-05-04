@@ -191,6 +191,78 @@ func (o PartnerTopicOutput) ToPartnerTopicOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Activation state of the partner topic.
+func (o PartnerTopicOutput) ActivationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.ActivationState }).(pulumi.StringPtrOutput)
+}
+
+// Event Type information from the corresponding event channel.
+func (o PartnerTopicOutput) EventTypeInfo() EventTypeInfoResponsePtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) EventTypeInfoResponsePtrOutput { return v.EventTypeInfo }).(EventTypeInfoResponsePtrOutput)
+}
+
+// Expiration time of the partner topic. If this timer expires while the partner topic is still never activated,
+// the partner topic and corresponding event channel are deleted.
+func (o PartnerTopicOutput) ExpirationTimeIfNotActivatedUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.ExpirationTimeIfNotActivatedUtc }).(pulumi.StringPtrOutput)
+}
+
+// Identity information for the Partner Topic resource.
+func (o PartnerTopicOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) IdentityInfoResponsePtrOutput { return v.Identity }).(IdentityInfoResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o PartnerTopicOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Context or helpful message that can be used during the approval process by the subscriber.
+func (o PartnerTopicOutput) MessageForActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.MessageForActivation }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource.
+func (o PartnerTopicOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The immutableId of the corresponding partner registration.
+func (o PartnerTopicOutput) PartnerRegistrationImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.PartnerRegistrationImmutableId }).(pulumi.StringPtrOutput)
+}
+
+// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
+// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+func (o PartnerTopicOutput) PartnerTopicFriendlyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.PartnerTopicFriendlyDescription }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the partner topic.
+func (o PartnerTopicOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Source associated with this partner topic. This represents a unique partner resource.
+func (o PartnerTopicOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to Partner Topic resource.
+func (o PartnerTopicOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PartnerTopic) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o PartnerTopicOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o PartnerTopicOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerTopic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerTopicOutput{})
 }

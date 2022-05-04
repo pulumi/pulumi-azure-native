@@ -169,6 +169,79 @@ func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutputWithContext(
 	return o
 }
 
+// The endpoint used by agents to access their configuration.
+func (o DataCollectionEndpointOutput) ConfigurationAccess() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
+		return v.ConfigurationAccess
+	}).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
+}
+
+// Description of the data collection endpoint.
+func (o DataCollectionEndpointOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource entity tag (ETag).
+func (o DataCollectionEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
+func (o DataCollectionEndpointOutput) ImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringPtrOutput { return v.ImmutableId }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the resource.
+func (o DataCollectionEndpointOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives.
+func (o DataCollectionEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The endpoint used by clients to ingest logs.
+func (o DataCollectionEndpointOutput) LogsIngestion() DataCollectionEndpointResponseLogsIngestionPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) DataCollectionEndpointResponseLogsIngestionPtrOutput {
+		return v.LogsIngestion
+	}).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
+}
+
+// The name of the resource.
+func (o DataCollectionEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network access control rules for the endpoints.
+func (o DataCollectionEndpointOutput) NetworkAcls() DataCollectionEndpointResponseNetworkAclsPtrOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) DataCollectionEndpointResponseNetworkAclsPtrOutput {
+		return v.NetworkAcls
+	}).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
+}
+
+// The resource provisioning state. This property is READ-ONLY.
+func (o DataCollectionEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DataCollectionEndpointOutput) SystemData() DataCollectionEndpointResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) DataCollectionEndpointResourceResponseSystemDataOutput {
+		return v.SystemData
+	}).(DataCollectionEndpointResourceResponseSystemDataOutput)
+}
+
+// Resource tags.
+func (o DataCollectionEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o DataCollectionEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataCollectionEndpointOutput{})
 }

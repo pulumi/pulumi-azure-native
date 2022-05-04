@@ -1356,6 +1356,20 @@ type PostgresInstanceSkuArgs struct {
 	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for PostgresInstanceSkuArgs
+func (val *PostgresInstanceSkuArgs) Defaults() *PostgresInstanceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		tmp.Dev = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = PostgresInstanceSkuTier("Hyperscale")
+	}
+	return &tmp
+}
 func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PostgresInstanceSku)(nil)).Elem()
 }
@@ -1954,6 +1968,20 @@ type SqlManagedInstanceSkuArgs struct {
 	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstanceSkuArgs
+func (val *SqlManagedInstanceSkuArgs) Defaults() *SqlManagedInstanceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		tmp.Dev = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = SqlManagedInstanceSkuTier("GeneralPurpose")
+	}
+	return &tmp
+}
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceSku)(nil)).Elem()
 }

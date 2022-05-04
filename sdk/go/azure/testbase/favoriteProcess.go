@@ -146,6 +146,26 @@ func (o FavoriteProcessOutput) ToFavoriteProcessOutputWithContext(ctx context.Co
 	return o
 }
 
+// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
+func (o FavoriteProcessOutput) ActualProcessName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FavoriteProcess) pulumi.StringOutput { return v.ActualProcessName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o FavoriteProcessOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FavoriteProcess) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o FavoriteProcessOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FavoriteProcess) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o FavoriteProcessOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FavoriteProcess) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FavoriteProcessOutput{})
 }

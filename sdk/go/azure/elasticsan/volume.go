@@ -165,6 +165,51 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+// State of the operation on the resource.
+func (o VolumeOutput) CreationData() SourceCreationDataResponsePtrOutput {
+	return o.ApplyT(func(v *Volume) SourceCreationDataResponsePtrOutput { return v.CreationData }).(SourceCreationDataResponsePtrOutput)
+}
+
+// The geo-location where the resource lives.
+func (o VolumeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Volume size.
+func (o VolumeOutput) SizeGiB() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.Float64PtrOutput { return v.SizeGiB }).(pulumi.Float64PtrOutput)
+}
+
+// Storage target information
+func (o VolumeOutput) StorageTarget() IscsiTargetInfoResponseOutput {
+	return o.ApplyT(func(v *Volume) IscsiTargetInfoResponseOutput { return v.StorageTarget }).(IscsiTargetInfoResponseOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o VolumeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Volume) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o VolumeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Id of the volume in GUID format
+func (o VolumeOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

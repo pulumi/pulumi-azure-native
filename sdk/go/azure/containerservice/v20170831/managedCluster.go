@@ -261,6 +261,65 @@ func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Properties of the agent pool.
+func (o ManagedClusterOutput) AgentPoolProfiles() ContainerServiceAgentPoolProfileResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) ContainerServiceAgentPoolProfileResponseArrayOutput {
+		return v.AgentPoolProfiles
+	}).(ContainerServiceAgentPoolProfileResponseArrayOutput)
+}
+
+// DNS prefix specified when creating the managed cluster.
+func (o ManagedClusterOutput) DnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.DnsPrefix }).(pulumi.StringPtrOutput)
+}
+
+// FQDN for the master pool.
+func (o ManagedClusterOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Version of Kubernetes specified when creating the managed cluster.
+func (o ManagedClusterOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
+func (o ManagedClusterOutput) LinuxProfile() ContainerServiceLinuxProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ContainerServiceLinuxProfileResponsePtrOutput { return v.LinuxProfile }).(ContainerServiceLinuxProfileResponsePtrOutput)
+}
+
+// Resource location
+func (o ManagedClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ManagedClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ManagedClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+func (o ManagedClusterOutput) ServicePrincipalProfile() ContainerServiceServicePrincipalProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ContainerServiceServicePrincipalProfileResponsePtrOutput {
+		return v.ServicePrincipalProfile
+	}).(ContainerServiceServicePrincipalProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o ManagedClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ManagedClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedClusterOutput{})
 }

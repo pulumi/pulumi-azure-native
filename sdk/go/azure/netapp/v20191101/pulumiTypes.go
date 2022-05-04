@@ -78,6 +78,17 @@ type ActiveDirectoryArgs struct {
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryArgs
+func (val *ActiveDirectoryArgs) Defaults() *ActiveDirectoryArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		tmp.ActiveDirectoryId = pulumi.StringPtr("guid id")
+	}
+	return &tmp
+}
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectory)(nil)).Elem()
 }

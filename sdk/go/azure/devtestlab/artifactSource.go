@@ -200,6 +200,81 @@ func (o ArtifactSourceOutput) ToArtifactSourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The folder containing Azure Resource Manager templates.
+func (o ArtifactSourceOutput) ArmTemplateFolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.ArmTemplateFolderPath }).(pulumi.StringPtrOutput)
+}
+
+// The artifact source's branch reference.
+func (o ArtifactSourceOutput) BranchRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.BranchRef }).(pulumi.StringPtrOutput)
+}
+
+// The artifact source's creation date.
+func (o ArtifactSourceOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The artifact source's display name.
+func (o ArtifactSourceOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The folder containing artifacts.
+func (o ArtifactSourceOutput) FolderPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.FolderPath }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o ArtifactSourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ArtifactSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o ArtifactSourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The security token to authenticate to the artifact source.
+func (o ArtifactSourceOutput) SecurityToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.SecurityToken }).(pulumi.StringPtrOutput)
+}
+
+// The artifact source's type.
+func (o ArtifactSourceOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.SourceType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+func (o ArtifactSourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o ArtifactSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ArtifactSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ArtifactSourceOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+// The artifact source's URI.
+func (o ArtifactSourceOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ArtifactSourceOutput{})
 }

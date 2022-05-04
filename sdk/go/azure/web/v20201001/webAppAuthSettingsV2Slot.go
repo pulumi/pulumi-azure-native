@@ -170,6 +170,46 @@ func (o WebAppAuthSettingsV2SlotOutput) ToWebAppAuthSettingsV2SlotOutputWithCont
 	return o
 }
 
+func (o WebAppAuthSettingsV2SlotOutput) GlobalValidation() GlobalValidationResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) GlobalValidationResponsePtrOutput { return v.GlobalValidation }).(GlobalValidationResponsePtrOutput)
+}
+
+func (o WebAppAuthSettingsV2SlotOutput) HttpSettings() HttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) HttpSettingsResponsePtrOutput { return v.HttpSettings }).(HttpSettingsResponsePtrOutput)
+}
+
+func (o WebAppAuthSettingsV2SlotOutput) IdentityProviders() IdentityProvidersResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) IdentityProvidersResponsePtrOutput { return v.IdentityProviders }).(IdentityProvidersResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppAuthSettingsV2SlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o WebAppAuthSettingsV2SlotOutput) Login() LoginResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) LoginResponsePtrOutput { return v.Login }).(LoginResponsePtrOutput)
+}
+
+// Resource Name.
+func (o WebAppAuthSettingsV2SlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebAppAuthSettingsV2SlotOutput) Platform() AuthPlatformResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) AuthPlatformResponsePtrOutput { return v.Platform }).(AuthPlatformResponsePtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppAuthSettingsV2SlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppAuthSettingsV2SlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppAuthSettingsV2SlotOutput{})
 }

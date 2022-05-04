@@ -189,6 +189,51 @@ func (o IpGroupOutput) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOu
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o IpGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of references to Firewall Policies resources that this IpGroups is associated with.
+func (o IpGroupOutput) FirewallPolicies() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *IpGroup) SubResourceResponseArrayOutput { return v.FirewallPolicies }).(SubResourceResponseArrayOutput)
+}
+
+// List of references to Firewall resources that this IpGroups is associated with.
+func (o IpGroupOutput) Firewalls() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *IpGroup) SubResourceResponseArrayOutput { return v.Firewalls }).(SubResourceResponseArrayOutput)
+}
+
+// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+func (o IpGroupOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Resource location.
+func (o IpGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o IpGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the IpGroups resource.
+func (o IpGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o IpGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o IpGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IpGroupOutput{})
 }

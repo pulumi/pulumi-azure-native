@@ -179,6 +179,46 @@ func (o IotDpsResourceOutput) ToIotDpsResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o IotDpsResourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotDpsResource) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The managed identities for the IotDps instance.
+func (o IotDpsResourceOutput) Identity() ArmIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *IotDpsResource) ArmIdentityResponsePtrOutput { return v.Identity }).(ArmIdentityResponsePtrOutput)
+}
+
+// The resource location.
+func (o IotDpsResourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotDpsResource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o IotDpsResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotDpsResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service specific properties for a provisioning service
+func (o IotDpsResourceOutput) Properties() IotDpsPropertiesDescriptionResponseOutput {
+	return o.ApplyT(func(v *IotDpsResource) IotDpsPropertiesDescriptionResponseOutput { return v.Properties }).(IotDpsPropertiesDescriptionResponseOutput)
+}
+
+// Sku info for a provisioning Service.
+func (o IotDpsResourceOutput) Sku() IotDpsSkuInfoResponseOutput {
+	return o.ApplyT(func(v *IotDpsResource) IotDpsSkuInfoResponseOutput { return v.Sku }).(IotDpsSkuInfoResponseOutput)
+}
+
+// The resource tags.
+func (o IotDpsResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotDpsResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IotDpsResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotDpsResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotDpsResourceOutput{})
 }

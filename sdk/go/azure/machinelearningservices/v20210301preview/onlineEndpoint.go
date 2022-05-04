@@ -161,6 +161,46 @@ func (o OnlineEndpointOutput) ToOnlineEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Service identity associated with a resource.
+func (o OnlineEndpointOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+func (o OnlineEndpointOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o OnlineEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o OnlineEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o OnlineEndpointOutput) Properties() OnlineEndpointResponseOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) OnlineEndpointResponseOutput { return v.Properties }).(OnlineEndpointResponseOutput)
+}
+
+// System data associated with resource provider
+func (o OnlineEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o OnlineEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OnlineEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OnlineEndpointOutput{})
 }

@@ -207,6 +207,71 @@ func (o StreamingLocatorOutput) ToStreamingLocatorOutputWithContext(ctx context.
 	return o
 }
 
+// Alternative Media ID of this Streaming Locator
+func (o StreamingLocatorOutput) AlternativeMediaId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringPtrOutput { return v.AlternativeMediaId }).(pulumi.StringPtrOutput)
+}
+
+// Asset Name
+func (o StreamingLocatorOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The ContentKeys used by this Streaming Locator.
+func (o StreamingLocatorOutput) ContentKeys() StreamingLocatorContentKeyResponseArrayOutput {
+	return o.ApplyT(func(v *StreamingLocator) StreamingLocatorContentKeyResponseArrayOutput { return v.ContentKeys }).(StreamingLocatorContentKeyResponseArrayOutput)
+}
+
+// The creation time of the Streaming Locator.
+func (o StreamingLocatorOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Name of the default ContentKeyPolicy used by this Streaming Locator.
+func (o StreamingLocatorOutput) DefaultContentKeyPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringPtrOutput { return v.DefaultContentKeyPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The end time of the Streaming Locator.
+func (o StreamingLocatorOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// A list of asset or account filters which apply to this streaming locator
+func (o StreamingLocatorOutput) Filters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringArrayOutput { return v.Filters }).(pulumi.StringArrayOutput)
+}
+
+// The name of the resource
+func (o StreamingLocatorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start time of the Streaming Locator.
+func (o StreamingLocatorOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The StreamingLocatorId of the Streaming Locator.
+func (o StreamingLocatorOutput) StreamingLocatorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringPtrOutput { return v.StreamingLocatorId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+func (o StreamingLocatorOutput) StreamingPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.StreamingPolicyName }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o StreamingLocatorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StreamingLocator) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o StreamingLocatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingLocator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamingLocatorOutput{})
 }

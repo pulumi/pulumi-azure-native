@@ -158,6 +158,41 @@ func (o ConfigurationStoreOutput) ToConfigurationStoreOutputWithContext(ctx cont
 	return o
 }
 
+// The creation date of configuration store.
+func (o ConfigurationStoreOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The DNS endpoint where the configuration store API will be available.
+func (o ConfigurationStoreOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o ConfigurationStoreOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ConfigurationStoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the configuration store.
+func (o ConfigurationStoreOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ConfigurationStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ConfigurationStoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreOutput{})
 }

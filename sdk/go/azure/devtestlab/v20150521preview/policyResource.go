@@ -204,6 +204,61 @@ func (o PolicyResourceOutput) ToPolicyResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The description of the policy.
+func (o PolicyResourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The evaluator type of the policy.
+func (o PolicyResourceOutput) EvaluatorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.EvaluatorType }).(pulumi.StringPtrOutput)
+}
+
+// The fact data of the policy.
+func (o PolicyResourceOutput) FactData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.FactData }).(pulumi.StringPtrOutput)
+}
+
+// The fact name of the policy.
+func (o PolicyResourceOutput) FactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.FactName }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o PolicyResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o PolicyResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o PolicyResourceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the policy.
+func (o PolicyResourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o PolicyResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The threshold of the policy.
+func (o PolicyResourceOutput) Threshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Threshold }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o PolicyResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyResource) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyResourceOutput{})
 }

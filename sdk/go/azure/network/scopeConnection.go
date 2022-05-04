@@ -153,6 +153,41 @@ func (o ScopeConnectionOutput) ToScopeConnectionOutputWithContext(ctx context.Co
 	return o
 }
 
+// A description of the scope connection.
+func (o ScopeConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ScopeConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ScopeConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID.
+func (o ScopeConnectionOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o ScopeConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScopeConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tenant ID.
+func (o ScopeConnectionOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ScopeConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScopeConnectionOutput{})
 }

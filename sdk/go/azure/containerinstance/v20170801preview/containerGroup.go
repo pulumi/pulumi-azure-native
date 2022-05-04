@@ -219,6 +219,66 @@ func (o ContainerGroupOutput) ToContainerGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The containers within the container group.
+func (o ContainerGroupOutput) Containers() ContainerResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerGroup) ContainerResponseArrayOutput { return v.Containers }).(ContainerResponseArrayOutput)
+}
+
+// The image registry credentials by which the container group is created from.
+func (o ContainerGroupOutput) ImageRegistryCredentials() ImageRegistryCredentialResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerGroup) ImageRegistryCredentialResponseArrayOutput { return v.ImageRegistryCredentials }).(ImageRegistryCredentialResponseArrayOutput)
+}
+
+// The IP address type of the container group.
+func (o ContainerGroupOutput) IpAddress() IpAddressResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerGroup) IpAddressResponsePtrOutput { return v.IpAddress }).(IpAddressResponsePtrOutput)
+}
+
+// The resource location.
+func (o ContainerGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o ContainerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operating system type required by the containers in the container group.
+func (o ContainerGroupOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the container group. This only appears in the response.
+func (o ContainerGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Restart policy for all containers within the container group. Currently the only available option is `always`.
+func (o ContainerGroupOutput) RestartPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringPtrOutput { return v.RestartPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The current state of the container group. This is only valid for the response.
+func (o ContainerGroupOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o ContainerGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o ContainerGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of volumes that can be mounted by containers in this container group.
+func (o ContainerGroupOutput) Volumes() VolumeResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerGroup) VolumeResponseArrayOutput { return v.Volumes }).(VolumeResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerGroupOutput{})
 }

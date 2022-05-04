@@ -190,6 +190,41 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
+// Resource location
+func (o ImageOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o ImageOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The source virtual machine from which Image is created.
+func (o ImageOutput) SourceVirtualMachine() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *Image) SubResourceResponsePtrOutput { return v.SourceVirtualMachine }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o ImageOutput) StorageProfile() ImageStorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Image) ImageStorageProfileResponsePtrOutput { return v.StorageProfile }).(ImageStorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o ImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ImageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ImageOutput{})
 }

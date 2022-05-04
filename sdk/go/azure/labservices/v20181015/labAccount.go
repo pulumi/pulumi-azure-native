@@ -154,6 +154,51 @@ func (o LabAccountOutput) ToLabAccountOutputWithContext(ctx context.Context) Lab
 	return o
 }
 
+// Represents if region selection is enabled
+func (o LabAccountOutput) EnabledRegionSelection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.BoolPtrOutput { return v.EnabledRegionSelection }).(pulumi.BoolPtrOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o LabAccountOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *LabAccount) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o LabAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabAccountOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Represents the size configuration under the lab account
+func (o LabAccountOutput) SizeConfiguration() SizeConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v *LabAccount) SizeConfigurationPropertiesResponseOutput { return v.SizeConfiguration }).(SizeConfigurationPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o LabAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LabAccountOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabAccount) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabAccountOutput{})
 }

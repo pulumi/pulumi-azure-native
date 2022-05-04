@@ -155,6 +155,41 @@ func (o IntegrationAccountSessionOutput) ToIntegrationAccountSessionOutputWithCo
 	return o
 }
 
+// The changed time.
+func (o IntegrationAccountSessionOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The session content.
+func (o IntegrationAccountSessionOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The created time.
+func (o IntegrationAccountSessionOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountSessionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationAccountSessionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountSessionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationAccountSessionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSession) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountSessionOutput{})
 }

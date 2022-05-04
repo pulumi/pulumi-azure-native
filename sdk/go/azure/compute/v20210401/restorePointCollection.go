@@ -153,6 +153,48 @@ func (o RestorePointCollectionOutput) ToRestorePointCollectionOutputWithContext(
 	return o
 }
 
+// Resource location
+func (o RestorePointCollectionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o RestorePointCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the restore point collection.
+func (o RestorePointCollectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The unique id of the restore point collection.
+func (o RestorePointCollectionOutput) RestorePointCollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.RestorePointCollectionId }).(pulumi.StringOutput)
+}
+
+// A list containing all restore points created under this restore point collection.
+func (o RestorePointCollectionOutput) RestorePoints() RestorePointResponseArrayOutput {
+	return o.ApplyT(func(v *RestorePointCollection) RestorePointResponseArrayOutput { return v.RestorePoints }).(RestorePointResponseArrayOutput)
+}
+
+// The properties of the source resource that this restore point collection is created from.
+func (o RestorePointCollectionOutput) Source() RestorePointCollectionSourcePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *RestorePointCollection) RestorePointCollectionSourcePropertiesResponsePtrOutput {
+		return v.Source
+	}).(RestorePointCollectionSourcePropertiesResponsePtrOutput)
+}
+
+// Resource tags
+func (o RestorePointCollectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o RestorePointCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RestorePointCollectionOutput{})
 }

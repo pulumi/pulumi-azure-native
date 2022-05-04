@@ -175,6 +175,43 @@ func (o GalleryApplicationVersionOutput) ToGalleryApplicationVersionOutputWithCo
 	return o
 }
 
+// Resource location
+func (o GalleryApplicationVersionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o GalleryApplicationVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o GalleryApplicationVersionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publishing profile of a gallery image version.
+func (o GalleryApplicationVersionOutput) PublishingProfile() GalleryApplicationVersionPublishingProfileResponseOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) GalleryApplicationVersionPublishingProfileResponseOutput {
+		return v.PublishingProfile
+	}).(GalleryApplicationVersionPublishingProfileResponseOutput)
+}
+
+// This is the replication status of the gallery image version.
+func (o GalleryApplicationVersionOutput) ReplicationStatus() ReplicationStatusResponseOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) ReplicationStatusResponseOutput { return v.ReplicationStatus }).(ReplicationStatusResponseOutput)
+}
+
+// Resource tags
+func (o GalleryApplicationVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o GalleryApplicationVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplicationVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryApplicationVersionOutput{})
 }

@@ -132,6 +132,24 @@ func (o DatabaseMigrationsSqlDbOutput) ToDatabaseMigrationsSqlDbOutputWithContex
 	return o
 }
 
+func (o DatabaseMigrationsSqlDbOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseMigrationsSqlDb) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Database Migration Resource properties for SQL database.
+func (o DatabaseMigrationsSqlDbOutput) Properties() DatabaseMigrationPropertiesSqlDbResponseOutput {
+	return o.ApplyT(func(v *DatabaseMigrationsSqlDb) DatabaseMigrationPropertiesSqlDbResponseOutput { return v.Properties }).(DatabaseMigrationPropertiesSqlDbResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DatabaseMigrationsSqlDbOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DatabaseMigrationsSqlDb) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o DatabaseMigrationsSqlDbOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseMigrationsSqlDb) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseMigrationsSqlDbOutput{})
 }

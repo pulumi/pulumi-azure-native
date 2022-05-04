@@ -196,6 +196,66 @@ func (o LabResourceOutput) ToLabResourceOutputWithContext(ctx context.Context) L
 	return o
 }
 
+// The artifact storage account of the lab.
+func (o LabResourceOutput) ArtifactsStorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.ArtifactsStorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the lab.
+func (o LabResourceOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// The lab's default storage account.
+func (o LabResourceOutput) DefaultStorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.DefaultStorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// The default virtual network identifier of the lab.
+func (o LabResourceOutput) DefaultVirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.DefaultVirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the lab storage.
+func (o LabResourceOutput) LabStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.LabStorageType }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LabResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabResourceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The storage accounts of the lab.
+func (o LabResourceOutput) StorageAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringArrayOutput { return v.StorageAccounts }).(pulumi.StringArrayOutput)
+}
+
+// The tags of the resource.
+func (o LabResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The name of the key vault of the lab.
+func (o LabResourceOutput) VaultName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabResource) pulumi.StringPtrOutput { return v.VaultName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabResourceOutput{})
 }

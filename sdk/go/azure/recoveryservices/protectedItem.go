@@ -217,6 +217,36 @@ func (o ProtectedItemOutput) ToProtectedItemOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Optional ETag.
+func (o ProtectedItemOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ProtectedItemOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ProtectedItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ProtectedItemResource properties
+func (o ProtectedItemOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o ProtectedItemOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ProtectedItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProtectedItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProtectedItemOutput{})
 }

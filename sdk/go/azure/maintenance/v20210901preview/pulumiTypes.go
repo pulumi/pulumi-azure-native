@@ -334,6 +334,17 @@ type InputPatchConfigurationArgs struct {
 	WindowsParameters InputWindowsParametersPtrInput `pulumi:"windowsParameters"`
 }
 
+// Defaults sets the appropriate defaults for InputPatchConfigurationArgs
+func (val *InputPatchConfigurationArgs) Defaults() *InputPatchConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RebootSetting) {
+		tmp.RebootSetting = pulumi.StringPtr("IfRequired")
+	}
+	return &tmp
+}
 func (InputPatchConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*InputPatchConfiguration)(nil)).Elem()
 }
@@ -1065,6 +1076,17 @@ type TaskPropertiesArgs struct {
 	TaskScope pulumi.StringPtrInput `pulumi:"taskScope"`
 }
 
+// Defaults sets the appropriate defaults for TaskPropertiesArgs
+func (val *TaskPropertiesArgs) Defaults() *TaskPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		tmp.TaskScope = pulumi.StringPtr("Global")
+	}
+	return &tmp
+}
 func (TaskPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TaskProperties)(nil)).Elem()
 }

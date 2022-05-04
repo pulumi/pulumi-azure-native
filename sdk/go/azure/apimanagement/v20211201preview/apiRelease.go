@@ -179,6 +179,36 @@ func (o ApiReleaseOutput) ToApiReleaseOutputWithContext(ctx context.Context) Api
 	return o
 }
 
+// Identifier of the API the release belongs to.
+func (o ApiReleaseOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringPtrOutput { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+func (o ApiReleaseOutput) CreatedDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApiReleaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Release Notes
+func (o ApiReleaseOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiReleaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the API release was updated.
+func (o ApiReleaseOutput) UpdatedDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiRelease) pulumi.StringOutput { return v.UpdatedDateTime }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiReleaseOutput{})
 }

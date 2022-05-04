@@ -184,6 +184,69 @@ func (o AssessmentsMetadataSubscriptionOutput) ToAssessmentsMetadataSubscription
 	return o
 }
 
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o AssessmentsMetadataSubscriptionOutput) AssessmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.AssessmentType }).(pulumi.StringOutput)
+}
+
+func (o AssessmentsMetadataSubscriptionOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringArrayOutput { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o AssessmentsMetadataSubscriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o AssessmentsMetadataSubscriptionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o AssessmentsMetadataSubscriptionOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringPtrOutput { return v.ImplementationEffort }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o AssessmentsMetadataSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource ID of the policy definition that turns this assessment calculation on
+func (o AssessmentsMetadataSubscriptionOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// True if this assessment is in preview release status
+func (o AssessmentsMetadataSubscriptionOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.BoolPtrOutput { return v.Preview }).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o AssessmentsMetadataSubscriptionOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringPtrOutput { return v.RemediationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o AssessmentsMetadataSubscriptionOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+func (o AssessmentsMetadataSubscriptionOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringArrayOutput { return v.Threats }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o AssessmentsMetadataSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user impact of the assessment
+func (o AssessmentsMetadataSubscriptionOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentsMetadataSubscription) pulumi.StringPtrOutput { return v.UserImpact }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentsMetadataSubscriptionOutput{})
 }

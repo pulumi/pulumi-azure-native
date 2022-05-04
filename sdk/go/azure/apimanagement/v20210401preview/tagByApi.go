@@ -169,6 +169,21 @@ func (o TagByApiOutput) ToTagByApiOutputWithContext(ctx context.Context) TagByAp
 	return o
 }
 
+// Tag name.
+func (o TagByApiOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o TagByApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TagByApiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TagByApiOutput{})
 }

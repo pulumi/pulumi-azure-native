@@ -234,6 +234,15 @@ type ConditionArgs struct {
 	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
 }
 
+// Defaults sets the appropriate defaults for ConditionArgs
+func (val *ConditionArgs) Defaults() *ConditionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ConditionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Condition)(nil)).Elem()
 }
@@ -390,6 +399,20 @@ type ConditionFailingPeriodsArgs struct {
 	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
 }
 
+// Defaults sets the appropriate defaults for ConditionFailingPeriodsArgs
+func (val *ConditionFailingPeriodsArgs) Defaults() *ConditionFailingPeriodsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinFailingPeriodsToAlert) {
+		tmp.MinFailingPeriodsToAlert = pulumi.Float64Ptr(1.0)
+	}
+	if isZero(tmp.NumberOfEvaluationPeriods) {
+		tmp.NumberOfEvaluationPeriods = pulumi.Float64Ptr(1.0)
+	}
+	return &tmp
+}
 func (ConditionFailingPeriodsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConditionFailingPeriods)(nil)).Elem()
 }

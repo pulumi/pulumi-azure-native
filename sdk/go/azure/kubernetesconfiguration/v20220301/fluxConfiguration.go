@@ -228,6 +228,101 @@ func (o FluxConfigurationOutput) ToFluxConfigurationOutputWithContext(ctx contex
 	return o
 }
 
+// Parameters to reconcile to the Bucket source kind type.
+func (o FluxConfigurationOutput) Bucket() BucketDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) BucketDefinitionResponsePtrOutput { return v.Bucket }).(BucketDefinitionResponsePtrOutput)
+}
+
+// Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
+func (o FluxConfigurationOutput) ComplianceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.ComplianceState }).(pulumi.StringOutput)
+}
+
+// Key-value pairs of protected configuration settings for the configuration
+func (o FluxConfigurationOutput) ConfigurationProtectedSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringMapOutput { return v.ConfigurationProtectedSettings }).(pulumi.StringMapOutput)
+}
+
+// Error message returned to the user in the case of provisioning failure.
+func (o FluxConfigurationOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// Parameters to reconcile to the GitRepository source kind type.
+func (o FluxConfigurationOutput) GitRepository() GitRepositoryDefinitionResponsePtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) GitRepositoryDefinitionResponsePtrOutput { return v.GitRepository }).(GitRepositoryDefinitionResponsePtrOutput)
+}
+
+// Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
+func (o FluxConfigurationOutput) Kustomizations() KustomizationDefinitionResponseMapOutput {
+	return o.ApplyT(func(v *FluxConfiguration) KustomizationDefinitionResponseMapOutput { return v.Kustomizations }).(KustomizationDefinitionResponseMapOutput)
+}
+
+// The name of the resource
+func (o FluxConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+func (o FluxConfigurationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Status of the creation of the fluxConfiguration.
+func (o FluxConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
+func (o FluxConfigurationOutput) RepositoryPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.RepositoryPublicKey }).(pulumi.StringOutput)
+}
+
+// Scope at which the operator will be installed.
+func (o FluxConfigurationOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Source Kind to pull the configuration data from.
+func (o FluxConfigurationOutput) SourceKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringPtrOutput { return v.SourceKind }).(pulumi.StringPtrOutput)
+}
+
+// Branch and/or SHA of the source commit synced with the cluster.
+func (o FluxConfigurationOutput) SourceSyncedCommitId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.SourceSyncedCommitId }).(pulumi.StringOutput)
+}
+
+// Datetime the fluxConfiguration synced its source on the cluster.
+func (o FluxConfigurationOutput) SourceUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.SourceUpdatedAt }).(pulumi.StringOutput)
+}
+
+// Datetime the fluxConfiguration synced its status on the cluster with Azure.
+func (o FluxConfigurationOutput) StatusUpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.StatusUpdatedAt }).(pulumi.StringOutput)
+}
+
+// Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
+func (o FluxConfigurationOutput) Statuses() ObjectStatusDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *FluxConfiguration) ObjectStatusDefinitionResponseArrayOutput { return v.Statuses }).(ObjectStatusDefinitionResponseArrayOutput)
+}
+
+// Whether this configuration should suspend its reconciliation of its kustomizations and sources.
+func (o FluxConfigurationOutput) Suspend() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.BoolPtrOutput { return v.Suspend }).(pulumi.BoolPtrOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+func (o FluxConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FluxConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FluxConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluxConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FluxConfigurationOutput{})
 }

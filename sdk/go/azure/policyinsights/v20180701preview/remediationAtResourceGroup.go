@@ -158,6 +158,53 @@ func (o RemediationAtResourceGroupOutput) ToRemediationAtResourceGroupOutputWith
 	return o
 }
 
+// The time at which the remediation was created.
+func (o RemediationAtResourceGroupOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The deployment status summary for all deployments created by the remediation.
+func (o RemediationAtResourceGroupOutput) DeploymentStatus() RemediationDeploymentSummaryResponsePtrOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) RemediationDeploymentSummaryResponsePtrOutput {
+		return v.DeploymentStatus
+	}).(RemediationDeploymentSummaryResponsePtrOutput)
+}
+
+// The filters that will be applied to determine which resources to remediate.
+func (o RemediationAtResourceGroupOutput) Filters() RemediationFiltersResponsePtrOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) RemediationFiltersResponsePtrOutput { return v.Filters }).(RemediationFiltersResponsePtrOutput)
+}
+
+// The time at which the remediation was last updated.
+func (o RemediationAtResourceGroupOutput) LastUpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringOutput { return v.LastUpdatedOn }).(pulumi.StringOutput)
+}
+
+// The name of the remediation.
+func (o RemediationAtResourceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the policy assignment that should be remediated.
+func (o RemediationAtResourceGroupOutput) PolicyAssignmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringPtrOutput { return v.PolicyAssignmentId }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+func (o RemediationAtResourceGroupOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the remediation.
+func (o RemediationAtResourceGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the remediation.
+func (o RemediationAtResourceGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtResourceGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RemediationAtResourceGroupOutput{})
 }

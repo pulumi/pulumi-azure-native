@@ -174,6 +174,66 @@ func (o DistributedAvailabilityGroupOutput) ToDistributedAvailabilityGroupOutput
 	return o
 }
 
+// The distributed availability group id
+func (o DistributedAvailabilityGroupOutput) DistributedAvailabilityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.DistributedAvailabilityGroupId }).(pulumi.StringOutput)
+}
+
+// The last hardened lsn
+func (o DistributedAvailabilityGroupOutput) LastHardenedLsn() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.LastHardenedLsn }).(pulumi.StringOutput)
+}
+
+// The link state
+func (o DistributedAvailabilityGroupOutput) LinkState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.LinkState }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DistributedAvailabilityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The primary availability group name
+func (o DistributedAvailabilityGroupOutput) PrimaryAvailabilityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringPtrOutput { return v.PrimaryAvailabilityGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The replication mode of a distributed availability group. Parameter will be ignored during link creation.
+func (o DistributedAvailabilityGroupOutput) ReplicationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringPtrOutput { return v.ReplicationMode }).(pulumi.StringPtrOutput)
+}
+
+// The secondary availability group name
+func (o DistributedAvailabilityGroupOutput) SecondaryAvailabilityGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringPtrOutput { return v.SecondaryAvailabilityGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The source endpoint
+func (o DistributedAvailabilityGroupOutput) SourceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringPtrOutput { return v.SourceEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The source replica id
+func (o DistributedAvailabilityGroupOutput) SourceReplicaId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.SourceReplicaId }).(pulumi.StringOutput)
+}
+
+// The name of the target database
+func (o DistributedAvailabilityGroupOutput) TargetDatabase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringPtrOutput { return v.TargetDatabase }).(pulumi.StringPtrOutput)
+}
+
+// The target replica id
+func (o DistributedAvailabilityGroupOutput) TargetReplicaId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.TargetReplicaId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o DistributedAvailabilityGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DistributedAvailabilityGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DistributedAvailabilityGroupOutput{})
 }

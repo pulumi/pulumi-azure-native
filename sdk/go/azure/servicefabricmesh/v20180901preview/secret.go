@@ -141,6 +141,31 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
+// The geo-location where the resource lives
+func (o SecretOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the properties of a secret resource.
+func (o SecretOutput) Properties() SecretResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *Secret) SecretResourcePropertiesResponseOutput { return v.Properties }).(SecretResourcePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o SecretOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o SecretOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecretOutput{})
 }

@@ -163,6 +163,51 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The ETag for the resource
+func (o ClusterOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the cluster, if configured.
+func (o ClusterOutput) Identity() ClusterIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterIdentityResponsePtrOutput { return v.Identity }).(ClusterIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the cluster.
+func (o ClusterOutput) Properties() ClusterGetPropertiesResponseOutput {
+	return o.ApplyT(func(v *Cluster) ClusterGetPropertiesResponseOutput { return v.Properties }).(ClusterGetPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The availability zones.
+func (o ClusterOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

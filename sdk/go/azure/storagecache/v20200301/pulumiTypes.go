@@ -513,6 +513,17 @@ type CacheNetworkSettingsArgs struct {
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 }
 
+// Defaults sets the appropriate defaults for CacheNetworkSettingsArgs
+func (val *CacheNetworkSettingsArgs) Defaults() *CacheNetworkSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		tmp.Mtu = pulumi.IntPtr(1500)
+	}
+	return &tmp
+}
 func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheNetworkSettings)(nil)).Elem()
 }

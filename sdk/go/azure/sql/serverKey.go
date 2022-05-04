@@ -172,6 +172,46 @@ func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) Serve
 	return o
 }
 
+// Key auto rotation opt-in flag. Either true or false.
+func (o ServerKeyOutput) AutoRotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.BoolOutput { return v.AutoRotationEnabled }).(pulumi.BoolOutput)
+}
+
+// The server key creation date.
+func (o ServerKeyOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o ServerKeyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ServerKeyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Subregion of the server key.
+func (o ServerKeyOutput) Subregion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Subregion }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the server key.
+func (o ServerKeyOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

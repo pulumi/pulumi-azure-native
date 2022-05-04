@@ -161,6 +161,36 @@ func (o SubvolumeOutput) ToSubvolumeOutputWithContext(ctx context.Context) Subvo
 	return o
 }
 
+// The name of the resource
+func (o SubvolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subvolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// parent path to the subvolume
+func (o SubvolumeOutput) ParentPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subvolume) pulumi.StringPtrOutput { return v.ParentPath }).(pulumi.StringPtrOutput)
+}
+
+// Path to the subvolume
+func (o SubvolumeOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subvolume) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Azure lifecycle management
+func (o SubvolumeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subvolume) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o SubvolumeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Subvolume) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SubvolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subvolume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubvolumeOutput{})
 }

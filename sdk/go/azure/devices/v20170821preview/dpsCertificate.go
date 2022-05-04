@@ -158,6 +158,26 @@ func (o DpsCertificateOutput) ToDpsCertificateOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The entity tag.
+func (o DpsCertificateOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the certificate.
+func (o DpsCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The description of an X509 CA Certificate.
+func (o DpsCertificateOutput) Properties() CertificatePropertiesResponseOutput {
+	return o.ApplyT(func(v *DpsCertificate) CertificatePropertiesResponseOutput { return v.Properties }).(CertificatePropertiesResponseOutput)
+}
+
+// The resource type.
+func (o DpsCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DpsCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DpsCertificateOutput{})
 }

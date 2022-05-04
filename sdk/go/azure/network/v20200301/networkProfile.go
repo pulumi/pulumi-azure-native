@@ -216,6 +216,55 @@ func (o NetworkProfileOutput) ToNetworkProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// List of chid container network interface configurations.
+func (o NetworkProfileOutput) ContainerNetworkInterfaceConfigurations() ContainerNetworkInterfaceConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkProfile) ContainerNetworkInterfaceConfigurationResponseArrayOutput {
+		return v.ContainerNetworkInterfaceConfigurations
+	}).(ContainerNetworkInterfaceConfigurationResponseArrayOutput)
+}
+
+// List of child container network interfaces.
+func (o NetworkProfileOutput) ContainerNetworkInterfaces() ContainerNetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkProfile) ContainerNetworkInterfaceResponseArrayOutput {
+		return v.ContainerNetworkInterfaces
+	}).(ContainerNetworkInterfaceResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkProfileOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o NetworkProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the network profile resource.
+func (o NetworkProfileOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the network profile resource.
+func (o NetworkProfileOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
 }

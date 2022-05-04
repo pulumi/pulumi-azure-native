@@ -181,6 +181,102 @@ func (o AccessReviewHistoryDefinitionByIdOutput) ToAccessReviewHistoryDefinition
 	return o
 }
 
+// Date time when history definition was created
+func (o AccessReviewHistoryDefinitionByIdOutput) CreatedDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
+}
+
+// Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
+func (o AccessReviewHistoryDefinitionByIdOutput) Decisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringArrayOutput { return v.Decisions }).(pulumi.StringArrayOutput)
+}
+
+// The display name for the history definition.
+func (o AccessReviewHistoryDefinitionByIdOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The DateTime when the review is scheduled to end. Required if type is endDate
+func (o AccessReviewHistoryDefinitionByIdOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
+}
+
+// Set of access review history instances for this history definition.
+func (o AccessReviewHistoryDefinitionByIdOutput) Instances() AccessReviewHistoryInstanceResponseArrayOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) AccessReviewHistoryInstanceResponseArrayOutput {
+		return v.Instances
+	}).(AccessReviewHistoryInstanceResponseArrayOutput)
+}
+
+// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
+func (o AccessReviewHistoryDefinitionByIdOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.IntPtrOutput { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The access review history definition unique id.
+func (o AccessReviewHistoryDefinitionByIdOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of times to repeat the access review. Required and must be positive if type is numbered.
+func (o AccessReviewHistoryDefinitionByIdOutput) NumberOfOccurrences() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.IntPtrOutput { return v.NumberOfOccurrences }).(pulumi.IntPtrOutput)
+}
+
+// The identity id
+func (o AccessReviewHistoryDefinitionByIdOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The identity display name
+func (o AccessReviewHistoryDefinitionByIdOutput) PrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.PrincipalName }).(pulumi.StringOutput)
+}
+
+// The identity type : user/servicePrincipal
+func (o AccessReviewHistoryDefinitionByIdOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryDefinitionByIdOutput) ReviewHistoryPeriodEndDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput {
+		return v.ReviewHistoryPeriodEndDateTime
+	}).(pulumi.StringOutput)
+}
+
+// Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
+func (o AccessReviewHistoryDefinitionByIdOutput) ReviewHistoryPeriodStartDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput {
+		return v.ReviewHistoryPeriodStartDateTime
+	}).(pulumi.StringOutput)
+}
+
+// A collection of scopes used when selecting review history data
+func (o AccessReviewHistoryDefinitionByIdOutput) Scopes() AccessReviewScopeResponseArrayOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) AccessReviewScopeResponseArrayOutput { return v.Scopes }).(AccessReviewScopeResponseArrayOutput)
+}
+
+// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+func (o AccessReviewHistoryDefinitionByIdOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringPtrOutput { return v.StartDate }).(pulumi.StringPtrOutput)
+}
+
+// This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
+func (o AccessReviewHistoryDefinitionByIdOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o AccessReviewHistoryDefinitionByIdOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user principal name(if valid)
+func (o AccessReviewHistoryDefinitionByIdOutput) UserPrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessReviewHistoryDefinitionById) pulumi.StringOutput { return v.UserPrincipalName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessReviewHistoryDefinitionByIdOutput{})
 }

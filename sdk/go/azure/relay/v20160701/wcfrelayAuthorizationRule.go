@@ -151,6 +151,21 @@ func (o WCFRelayAuthorizationRuleOutput) ToWCFRelayAuthorizationRuleOutputWithCo
 	return o
 }
 
+// Resource name
+func (o WCFRelayAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelayAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o WCFRelayAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WCFRelayAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o WCFRelayAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelayAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WCFRelayAuthorizationRuleOutput{})
 }

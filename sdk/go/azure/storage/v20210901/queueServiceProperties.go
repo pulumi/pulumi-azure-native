@@ -154,6 +154,21 @@ func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutputWithContext(
 	return o
 }
 
+// Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
+func (o QueueServicePropertiesOutput) Cors() CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v *QueueServiceProperties) CorsRulesResponsePtrOutput { return v.Cors }).(CorsRulesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o QueueServicePropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueServiceProperties) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o QueueServicePropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueServiceProperties) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueServicePropertiesOutput{})
 }

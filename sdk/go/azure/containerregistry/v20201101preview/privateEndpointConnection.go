@@ -158,6 +158,38 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
+// The name of the resource.
+func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private endpoint.
+func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// The provisioning state of private endpoint connection resource.
+func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o PrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

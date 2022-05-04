@@ -153,6 +153,33 @@ func (o DiskAccessAPrivateEndpointConnectionOutput) ToDiskAccessAPrivateEndpoint
 	return o
 }
 
+// private endpoint connection name
+func (o DiskAccessAPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccessAPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o DiskAccessAPrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *DiskAccessAPrivateEndpointConnection) PrivateEndpointResponseOutput { return v.PrivateEndpoint }).(PrivateEndpointResponseOutput)
+}
+
+// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+func (o DiskAccessAPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *DiskAccessAPrivateEndpointConnection) PrivateLinkServiceConnectionStateResponseOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o DiskAccessAPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccessAPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// private endpoint connection type
+func (o DiskAccessAPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccessAPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskAccessAPrivateEndpointConnectionOutput{})
 }

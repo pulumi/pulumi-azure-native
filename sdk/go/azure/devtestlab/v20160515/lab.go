@@ -182,6 +182,78 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
+// The lab's artifact storage account.
+func (o LabOutput) ArtifactsStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ArtifactsStorageAccount }).(pulumi.StringOutput)
+}
+
+// The creation date of the lab.
+func (o LabOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The lab's default premium storage account.
+func (o LabOutput) DefaultPremiumStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.DefaultPremiumStorageAccount }).(pulumi.StringOutput)
+}
+
+// The lab's default storage account.
+func (o LabOutput) DefaultStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.DefaultStorageAccount }).(pulumi.StringOutput)
+}
+
+// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+func (o LabOutput) LabStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.LabStorageType }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o LabOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LabOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The lab's premium data disk storage account.
+func (o LabOutput) PremiumDataDiskStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.PremiumDataDiskStorageAccount }).(pulumi.StringOutput)
+}
+
+// The setting to enable usage of premium data disks.
+// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+// When its value is 'Disabled', only creation of standard data disks is allowed.
+func (o LabOutput) PremiumDataDisks() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.PremiumDataDisks }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o LabOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LabOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The lab's Key vault.
+func (o LabOutput) VaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.VaultName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabOutput{})
 }

@@ -165,6 +165,46 @@ func (o MigrationConfigOutput) ToMigrationConfigOutputWithContext(ctx context.Co
 	return o
 }
 
+// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+func (o MigrationConfigOutput) MigrationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.MigrationState }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o MigrationConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of entities pending to be replicated.
+func (o MigrationConfigOutput) PendingReplicationOperationsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.Float64Output { return v.PendingReplicationOperationsCount }).(pulumi.Float64Output)
+}
+
+// Name to access Standard Namespace after migration
+func (o MigrationConfigOutput) PostMigrationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.PostMigrationName }).(pulumi.StringOutput)
+}
+
+// Provisioning state of Migration Configuration
+func (o MigrationConfigOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o MigrationConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MigrationConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+func (o MigrationConfigOutput) TargetNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.TargetNamespace }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o MigrationConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrationConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MigrationConfigOutput{})
 }

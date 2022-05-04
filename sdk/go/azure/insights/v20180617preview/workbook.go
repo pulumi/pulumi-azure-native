@@ -196,6 +196,66 @@ func (o WorkbookOutput) ToWorkbookOutputWithContext(ctx context.Context) Workboo
 	return o
 }
 
+// Workbook category, as defined by the user at creation time.
+func (o WorkbookOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The user-defined name (display name) of the workbook.
+func (o WorkbookOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o WorkbookOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o WorkbookOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+func (o WorkbookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+func (o WorkbookOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// ResourceId for a source resource.
+func (o WorkbookOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o WorkbookOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this workbook definition.
+func (o WorkbookOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o WorkbookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique user id of the specific user that owns this workbook.
+func (o WorkbookOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// Workbook version
+func (o WorkbookOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkbookOutput{})
 }

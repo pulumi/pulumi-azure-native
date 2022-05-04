@@ -189,6 +189,51 @@ func (o SourceControlOutput) ToSourceControlOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Array of source control content types.
+func (o SourceControlOutput) ContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringArrayOutput { return v.ContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// A description of the source control
+func (o SourceControlOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the source control
+func (o SourceControlOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o SourceControlOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o SourceControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The repository type of the source control
+func (o SourceControlOutput) RepoType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.RepoType }).(pulumi.StringOutput)
+}
+
+// Repository metadata.
+func (o SourceControlOutput) Repository() RepositoryResponseOutput {
+	return o.ApplyT(func(v *SourceControl) RepositoryResponseOutput { return v.Repository }).(RepositoryResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SourceControlOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SourceControl) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SourceControlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SourceControlOutput{})
 }

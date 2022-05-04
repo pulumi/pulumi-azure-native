@@ -194,6 +194,72 @@ func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOu
 	return o
 }
 
+// An array of references to IP addresses defined in network interfaces.
+func (o LoadBalancerBackendAddressPoolOutput) BackendIPConfigurations() NetworkInterfaceIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) NetworkInterfaceIPConfigurationResponseArrayOutput {
+		return v.BackendIPConfigurations
+	}).(NetworkInterfaceIPConfigurationResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LoadBalancerBackendAddressPoolOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// An array of references to inbound NAT rules that use this backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) InboundNatRules() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseArrayOutput { return v.InboundNatRules }).(SubResourceResponseArrayOutput)
+}
+
+// An array of backend addresses.
+func (o LoadBalancerBackendAddressPoolOutput) LoadBalancerBackendAddresses() LoadBalancerBackendAddressResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) LoadBalancerBackendAddressResponseArrayOutput {
+		return v.LoadBalancerBackendAddresses
+	}).(LoadBalancerBackendAddressResponseArrayOutput)
+}
+
+// An array of references to load balancing rules that use this backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseArrayOutput { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
+}
+
+// The location of the backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+func (o LoadBalancerBackendAddressPoolOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A reference to an outbound rule that uses this backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) OutboundRule() SubResourceResponseOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseOutput { return v.OutboundRule }).(SubResourceResponseOutput)
+}
+
+// An array of references to outbound rules that use this backend address pool.
+func (o LoadBalancerBackendAddressPoolOutput) OutboundRules() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) SubResourceResponseArrayOutput { return v.OutboundRules }).(SubResourceResponseArrayOutput)
+}
+
+// The provisioning state of the backend address pool resource.
+func (o LoadBalancerBackendAddressPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// An array of gateway load balancer tunnel interfaces.
+func (o LoadBalancerBackendAddressPoolOutput) TunnelInterfaces() GatewayLoadBalancerTunnelInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) GatewayLoadBalancerTunnelInterfaceResponseArrayOutput {
+		return v.TunnelInterfaces
+	}).(GatewayLoadBalancerTunnelInterfaceResponseArrayOutput)
+}
+
+// Type of the resource.
+func (o LoadBalancerBackendAddressPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendAddressPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerBackendAddressPoolOutput{})
 }

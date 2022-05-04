@@ -159,6 +159,26 @@ func (o BackupInstanceOutput) ToBackupInstanceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Resource name associated with the resource.
+func (o BackupInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// BackupInstanceResource properties
+func (o BackupInstanceOutput) Properties() BackupInstanceResponseOutput {
+	return o.ApplyT(func(v *BackupInstance) BackupInstanceResponseOutput { return v.Properties }).(BackupInstanceResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BackupInstanceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BackupInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o BackupInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupInstanceOutput{})
 }

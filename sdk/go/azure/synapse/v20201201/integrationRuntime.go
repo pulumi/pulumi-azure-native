@@ -158,6 +158,26 @@ func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutputWithContext(ctx cont
 	return o
 }
 
+// Resource Etag.
+func (o IntegrationRuntimeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o IntegrationRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Integration runtime properties.
+func (o IntegrationRuntimeOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o IntegrationRuntimeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeOutput{})
 }

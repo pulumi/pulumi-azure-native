@@ -155,6 +155,46 @@ func (o AddressByNameOutput) ToAddressByNameOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Status of address validation
+func (o AddressByNameOutput) AddressValidationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AddressByName) pulumi.StringOutput { return v.AddressValidationStatus }).(pulumi.StringOutput)
+}
+
+// Contact details for the address
+func (o AddressByNameOutput) ContactDetails() ContactDetailsResponseOutput {
+	return o.ApplyT(func(v *AddressByName) ContactDetailsResponseOutput { return v.ContactDetails }).(ContactDetailsResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o AddressByNameOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AddressByName) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AddressByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AddressByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Shipping details for the address
+func (o AddressByNameOutput) ShippingAddress() ShippingAddressResponsePtrOutput {
+	return o.ApplyT(func(v *AddressByName) ShippingAddressResponsePtrOutput { return v.ShippingAddress }).(ShippingAddressResponsePtrOutput)
+}
+
+// Represents resource creation and update time
+func (o AddressByNameOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AddressByName) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AddressByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AddressByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AddressByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AddressByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddressByNameOutput{})
 }

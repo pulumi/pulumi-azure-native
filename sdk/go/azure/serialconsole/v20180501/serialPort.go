@@ -147,6 +147,21 @@ func (o SerialPortOutput) ToSerialPortOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
+// Resource name
+func (o SerialPortOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SerialPort) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the port is enabled for a serial console connection.
+func (o SerialPortOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SerialPort) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o SerialPortOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SerialPort) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SerialPortOutput{})
 }

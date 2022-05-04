@@ -287,6 +287,97 @@ func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionP
 	return o
 }
 
+// The Azure ASN.
+func (o ExpressRouteCrossConnectionPeeringOutput) AzureASN() pulumi.IntOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.IntOutput { return v.AzureASN }).(pulumi.IntOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRouteCrossConnectionPeeringOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The GatewayManager Etag.
+func (o ExpressRouteCrossConnectionPeeringOutput) GatewayManagerEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.GatewayManagerEtag }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 peering configuration.
+func (o ExpressRouteCrossConnectionPeeringOutput) Ipv6PeeringConfig() Ipv6ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) Ipv6ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+		return v.Ipv6PeeringConfig
+	}).(Ipv6ExpressRouteCircuitPeeringConfigResponsePtrOutput)
+}
+
+// Gets whether the provider or the customer last modified the peering.
+func (o ExpressRouteCrossConnectionPeeringOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft peering configuration.
+func (o ExpressRouteCrossConnectionPeeringOutput) MicrosoftPeeringConfig() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+		return v.MicrosoftPeeringConfig
+	}).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ExpressRouteCrossConnectionPeeringOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The peer ASN.
+func (o ExpressRouteCrossConnectionPeeringOutput) PeerASN() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.Float64PtrOutput { return v.PeerASN }).(pulumi.Float64PtrOutput)
+}
+
+// The peering type.
+func (o ExpressRouteCrossConnectionPeeringOutput) PeeringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.PeeringType }).(pulumi.StringPtrOutput)
+}
+
+// The primary port.
+func (o ExpressRouteCrossConnectionPeeringOutput) PrimaryAzurePort() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringOutput { return v.PrimaryAzurePort }).(pulumi.StringOutput)
+}
+
+// The primary address prefix.
+func (o ExpressRouteCrossConnectionPeeringOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.PrimaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ExpressRouteCrossConnectionPeeringOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The secondary port.
+func (o ExpressRouteCrossConnectionPeeringOutput) SecondaryAzurePort() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringOutput { return v.SecondaryAzurePort }).(pulumi.StringOutput)
+}
+
+// The secondary address prefix.
+func (o ExpressRouteCrossConnectionPeeringOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput {
+		return v.SecondaryPeerAddressPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The shared key.
+func (o ExpressRouteCrossConnectionPeeringOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// The peering state.
+func (o ExpressRouteCrossConnectionPeeringOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The VLAN ID.
+func (o ExpressRouteCrossConnectionPeeringOutput) VlanId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCrossConnectionPeering) pulumi.IntPtrOutput { return v.VlanId }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCrossConnectionPeeringOutput{})
 }

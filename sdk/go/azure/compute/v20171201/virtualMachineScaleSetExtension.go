@@ -214,6 +214,51 @@ func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtension
 	return o
 }
 
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.BoolPtrOutput { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VirtualMachineScaleSetExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the extension.
+func (o VirtualMachineScaleSetExtensionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VirtualMachineScaleSetExtensionOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.AnyOutput { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineScaleSetExtensionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VirtualMachineScaleSetExtensionOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VirtualMachineScaleSetExtensionOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.AnyOutput { return v.Settings }).(pulumi.AnyOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o VirtualMachineScaleSetExtensionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringPtrOutput { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionOutput{})
 }

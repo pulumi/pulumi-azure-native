@@ -161,6 +161,56 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+func (o BackupPolicyOutput) BackupPolicyCreationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.BackupPolicyCreationType }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o BackupPolicyOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The time of the last backup for the backup policy.
+func (o BackupPolicyOutput) LastBackupTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.LastBackupTime }).(pulumi.StringOutput)
+}
+
+// The name of the object.
+func (o BackupPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The time of the next backup for the backup policy.
+func (o BackupPolicyOutput) NextBackupTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.NextBackupTime }).(pulumi.StringOutput)
+}
+
+// Indicates whether at least one of the schedules in the backup policy is active or not.
+func (o BackupPolicyOutput) ScheduledBackupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.ScheduledBackupStatus }).(pulumi.StringOutput)
+}
+
+// The count of schedules the backup policy contains.
+func (o BackupPolicyOutput) SchedulesCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.Float64Output { return v.SchedulesCount }).(pulumi.Float64Output)
+}
+
+// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+func (o BackupPolicyOutput) SsmHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.SsmHostName }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o BackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The path IDs of the volumes which are part of the backup policy.
+func (o BackupPolicyOutput) VolumeIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringArrayOutput { return v.VolumeIds }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupPolicyOutput{})
 }

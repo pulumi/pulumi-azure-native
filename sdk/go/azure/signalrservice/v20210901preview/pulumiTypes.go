@@ -2577,6 +2577,17 @@ type SignalRNetworkACLsArgs struct {
 	PublicNetwork NetworkACLPtrInput `pulumi:"publicNetwork"`
 }
 
+// Defaults sets the appropriate defaults for SignalRNetworkACLsArgs
+func (val *SignalRNetworkACLsArgs) Defaults() *SignalRNetworkACLsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.StringPtr("Deny")
+	}
+	return &tmp
+}
 func (SignalRNetworkACLsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRNetworkACLs)(nil)).Elem()
 }
@@ -2867,6 +2878,17 @@ type SignalRTlsSettingsArgs struct {
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
 }
 
+// Defaults sets the appropriate defaults for SignalRTlsSettingsArgs
+func (val *SignalRTlsSettingsArgs) Defaults() *SignalRTlsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		tmp.ClientCertEnabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (SignalRTlsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRTlsSettings)(nil)).Elem()
 }

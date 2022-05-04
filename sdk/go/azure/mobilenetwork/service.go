@@ -208,6 +208,76 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o ServiceOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o ServiceOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o ServiceOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o ServiceOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o ServiceOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ServiceOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of PCC Rules that make up this service.
+func (o ServiceOutput) PccRules() PccRuleConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *Service) PccRuleConfigurationResponseArrayOutput { return v.PccRules }).(PccRuleConfigurationResponseArrayOutput)
+}
+
+// The provisioning state of the service resource.
+func (o ServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A precedence value that is used to decide between services when identifying the QoS values to use for a particular Sim. A lower value means a higher priority. This value should be unique among all services configured in the Mobile Network.
+func (o ServiceOutput) ServicePrecedence() pulumi.IntOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.ServicePrecedence }).(pulumi.IntOutput)
+}
+
+// The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's simPolicy will define the QoS settings.
+func (o ServiceOutput) ServiceQosPolicy() QosPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Service) QosPolicyResponsePtrOutput { return v.ServiceQosPolicy }).(QosPolicyResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

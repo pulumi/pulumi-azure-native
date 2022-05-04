@@ -158,6 +158,36 @@ func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Azure Region of the resource.
+func (o MediaServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The Media Services account ID.
+func (o MediaServiceOutput) MediaServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.MediaServiceId }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o MediaServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage accounts for this resource.
+func (o MediaServiceOutput) StorageAccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *MediaService) StorageAccountResponseArrayOutput { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
+}
+
+// Resource tags.
+func (o MediaServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o MediaServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

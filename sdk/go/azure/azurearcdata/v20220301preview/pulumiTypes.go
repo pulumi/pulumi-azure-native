@@ -62,6 +62,20 @@ type ActiveDirectoryConnectorDNSDetailsArgs struct {
 	Replicas pulumi.Float64PtrInput `pulumi:"replicas"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDNSDetailsArgs
+func (val *ActiveDirectoryConnectorDNSDetailsArgs) Defaults() *ActiveDirectoryConnectorDNSDetailsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PreferK8sDnsForPtrLookups) {
+		tmp.PreferK8sDnsForPtrLookups = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Replicas) {
+		tmp.Replicas = pulumi.Float64Ptr(1.0)
+	}
+	return &tmp
+}
 func (ActiveDirectoryConnectorDNSDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectoryConnectorDNSDetails)(nil)).Elem()
 }
@@ -225,6 +239,17 @@ type ActiveDirectoryConnectorDomainDetailsArgs struct {
 	ServiceAccountProvisioning pulumi.StringPtrInput `pulumi:"serviceAccountProvisioning"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorDomainDetailsArgs
+func (val *ActiveDirectoryConnectorDomainDetailsArgs) Defaults() *ActiveDirectoryConnectorDomainDetailsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceAccountProvisioning) {
+		tmp.ServiceAccountProvisioning = pulumi.StringPtr("manual")
+	}
+	return &tmp
+}
 func (ActiveDirectoryConnectorDomainDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectoryConnectorDomainDetails)(nil)).Elem()
 }
@@ -390,6 +415,15 @@ type ActiveDirectoryConnectorPropertiesArgs struct {
 	Status ActiveDirectoryConnectorStatusPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorPropertiesArgs
+func (val *ActiveDirectoryConnectorPropertiesArgs) Defaults() *ActiveDirectoryConnectorPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ActiveDirectoryConnectorPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectoryConnectorProperties)(nil)).Elem()
 }
@@ -536,6 +570,15 @@ type ActiveDirectoryConnectorSpecArgs struct {
 	Dns ActiveDirectoryConnectorDNSDetailsInput `pulumi:"dns"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryConnectorSpecArgs
+func (val *ActiveDirectoryConnectorSpecArgs) Defaults() *ActiveDirectoryConnectorSpecArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ActiveDirectoryConnectorSpecArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectoryConnectorSpec)(nil)).Elem()
 }
@@ -1702,6 +1745,17 @@ type DataControllerPropertiesArgs struct {
 	UploadWatermark UploadWatermarkPtrInput `pulumi:"uploadWatermark"`
 }
 
+// Defaults sets the appropriate defaults for DataControllerPropertiesArgs
+func (val *DataControllerPropertiesArgs) Defaults() *DataControllerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		tmp.Infrastructure = Infrastructure("other")
+	}
+	return &tmp
+}
 func (DataControllerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataControllerProperties)(nil)).Elem()
 }
@@ -3639,6 +3693,20 @@ type PostgresInstanceSkuArgs struct {
 	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for PostgresInstanceSkuArgs
+func (val *PostgresInstanceSkuArgs) Defaults() *PostgresInstanceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		tmp.Dev = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = PostgresInstanceSkuTier("Hyperscale")
+	}
+	return &tmp
+}
 func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PostgresInstanceSku)(nil)).Elem()
 }
@@ -4505,6 +4573,17 @@ type SqlManagedInstancePropertiesArgs struct {
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstancePropertiesArgs
+func (val *SqlManagedInstancePropertiesArgs) Defaults() *SqlManagedInstancePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		tmp.LicenseType = pulumi.StringPtr("BasePrice")
+	}
+	return &tmp
+}
 func (SqlManagedInstancePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceProperties)(nil)).Elem()
 }
@@ -4758,6 +4837,20 @@ type SqlManagedInstanceSkuArgs struct {
 	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstanceSkuArgs
+func (val *SqlManagedInstanceSkuArgs) Defaults() *SqlManagedInstanceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		tmp.Dev = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = SqlManagedInstanceSkuTier("GeneralPurpose")
+	}
+	return &tmp
+}
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceSku)(nil)).Elem()
 }

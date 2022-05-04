@@ -153,6 +153,41 @@ func (o HybridConnectionOutput) ToHybridConnectionOutputWithContext(ctx context.
 	return o
 }
 
+// The time the HybridConnection was created.
+func (o HybridConnectionOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The number of listeners for this HybridConnection. min : 1 and max:25 supported
+func (o HybridConnectionOutput) ListenerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.IntOutput { return v.ListenerCount }).(pulumi.IntOutput)
+}
+
+// Resource name
+func (o HybridConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// true if client authorization is needed for this HybridConnection; otherwise, false.
+func (o HybridConnectionOutput) RequiresClientAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.BoolPtrOutput { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type
+func (o HybridConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the namespace was updated.
+func (o HybridConnectionOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+func (o HybridConnectionOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringPtrOutput { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridConnectionOutput{})
 }

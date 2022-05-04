@@ -159,6 +159,38 @@ func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The geo-location where the resource lives
+func (o PrivateLinkHubOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateLinkHubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections
+func (o PrivateLinkHubOutput) PrivateEndpointConnections() PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionForPrivateLinkHubBasicResponseArrayOutput)
+}
+
+// PrivateLinkHub provisioning state
+func (o PrivateLinkHubOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o PrivateLinkHubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateLinkHubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkHubOutput{})
 }

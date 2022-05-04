@@ -162,6 +162,26 @@ func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncrypti
 	return o
 }
 
+// Resource location.
+func (o SqlPoolTransparentDataEncryptionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolTransparentDataEncryption) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlPoolTransparentDataEncryptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolTransparentDataEncryption) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the database transparent data encryption.
+func (o SqlPoolTransparentDataEncryptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolTransparentDataEncryption) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlPoolTransparentDataEncryptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolTransparentDataEncryption) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolTransparentDataEncryptionOutput{})
 }

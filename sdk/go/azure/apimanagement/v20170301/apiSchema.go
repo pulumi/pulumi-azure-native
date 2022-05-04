@@ -182,6 +182,26 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 	return o
 }
 
+// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+func (o ApiSchemaOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiSchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Json escaped string defining the document representing the Schema.
+func (o ApiSchemaOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiSchemaOutput{})
 }

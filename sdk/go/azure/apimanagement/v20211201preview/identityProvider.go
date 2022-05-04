@@ -236,6 +236,66 @@ func (o IdentityProviderOutput) ToIdentityProviderOutputWithContext(ctx context.
 	return o
 }
 
+// List of Allowed Tenants when configuring Azure Active Directory login.
+func (o IdentityProviderOutput) AllowedTenants() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringArrayOutput { return v.AllowedTenants }).(pulumi.StringArrayOutput)
+}
+
+// OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+func (o IdentityProviderOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+func (o IdentityProviderOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
+func (o IdentityProviderOutput) ClientLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.ClientLibrary }).(pulumi.StringPtrOutput)
+}
+
+// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+func (o IdentityProviderOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o IdentityProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+func (o IdentityProviderOutput) PasswordResetPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.PasswordResetPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+func (o IdentityProviderOutput) ProfileEditingPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.ProfileEditingPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+func (o IdentityProviderOutput) SigninPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.SigninPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The TenantId to use instead of Common when logging into Active Directory
+func (o IdentityProviderOutput) SigninTenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.SigninTenant }).(pulumi.StringPtrOutput)
+}
+
+// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+func (o IdentityProviderOutput) SignupPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringPtrOutput { return v.SignupPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o IdentityProviderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IdentityProviderOutput{})
 }

@@ -165,6 +165,37 @@ func (o EntityAnalyticsOutput) ToEntityAnalyticsOutputWithContext(ctx context.Co
 	return o
 }
 
+// The relevant entity providers that are synced
+func (o EntityAnalyticsOutput) EntityProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringArrayOutput { return v.EntityProviders }).(pulumi.StringArrayOutput)
+}
+
+// Etag of the azure resource
+func (o EntityAnalyticsOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the setting
+// Expected value is 'EntityAnalytics'.
+func (o EntityAnalyticsOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o EntityAnalyticsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EntityAnalyticsOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EntityAnalytics) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EntityAnalyticsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EntityAnalytics) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EntityAnalyticsOutput{})
 }

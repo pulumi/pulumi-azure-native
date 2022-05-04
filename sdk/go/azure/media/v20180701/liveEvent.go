@@ -214,6 +214,81 @@ func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveE
 	return o
 }
 
+// The exact time the Live Event was created.
+func (o LiveEventOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// The Live Event access policies.
+func (o LiveEventOutput) CrossSiteAccessPolicies() CrossSiteAccessPoliciesResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) CrossSiteAccessPoliciesResponsePtrOutput { return v.CrossSiteAccessPolicies }).(CrossSiteAccessPoliciesResponsePtrOutput)
+}
+
+// The Live Event description.
+func (o LiveEventOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Live Event encoding.
+func (o LiveEventOutput) Encoding() LiveEventEncodingResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventEncodingResponsePtrOutput { return v.Encoding }).(LiveEventEncodingResponsePtrOutput)
+}
+
+// The Live Event input.
+func (o LiveEventOutput) Input() LiveEventInputResponseOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventInputResponseOutput { return v.Input }).(LiveEventInputResponseOutput)
+}
+
+// The exact time the Live Event was last modified.
+func (o LiveEventOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The Azure Region of the resource.
+func (o LiveEventOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o LiveEventOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Live Event preview.
+func (o LiveEventOutput) Preview() LiveEventPreviewResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventPreviewResponsePtrOutput { return v.Preview }).(LiveEventPreviewResponsePtrOutput)
+}
+
+// The provisioning state of the Live Event.
+func (o LiveEventOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the Live Event.
+func (o LiveEventOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+func (o LiveEventOutput) StreamOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringArrayOutput { return v.StreamOptions }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags.
+func (o LiveEventOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LiveEventOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+func (o LiveEventOutput) VanityUrl() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.BoolPtrOutput { return v.VanityUrl }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LiveEventOutput{})
 }

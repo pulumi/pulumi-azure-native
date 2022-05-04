@@ -1206,6 +1206,17 @@ type EventChannelFilterArgs struct {
 	EnableAdvancedFilteringOnArrays pulumi.BoolPtrInput `pulumi:"enableAdvancedFilteringOnArrays"`
 }
 
+// Defaults sets the appropriate defaults for EventChannelFilterArgs
+func (val *EventChannelFilterArgs) Defaults() *EventChannelFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableAdvancedFilteringOnArrays) {
+		tmp.EnableAdvancedFilteringOnArrays = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventChannelFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventChannelFilter)(nil)).Elem()
 }
@@ -1721,6 +1732,17 @@ type EventSubscriptionFilterArgs struct {
 	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
 }
 
+// Defaults sets the appropriate defaults for EventSubscriptionFilterArgs
+func (val *EventSubscriptionFilterArgs) Defaults() *EventSubscriptionFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		tmp.IsSubjectCaseSensitive = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionFilter)(nil)).Elem()
 }
@@ -4476,6 +4498,17 @@ type ResourceSkuArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
+// Defaults sets the appropriate defaults for ResourceSkuArgs
+func (val *ResourceSkuArgs) Defaults() *ResourceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		tmp.Name = pulumi.StringPtr("Basic")
+	}
+	return &tmp
+}
 func (ResourceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceSku)(nil)).Elem()
 }
@@ -4710,6 +4743,20 @@ type RetryPolicyArgs struct {
 	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
+// Defaults sets the appropriate defaults for RetryPolicyArgs
+func (val *RetryPolicyArgs) Defaults() *RetryPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventTimeToLiveInMinutes) {
+		tmp.EventTimeToLiveInMinutes = pulumi.IntPtr(1440)
+	}
+	if isZero(tmp.MaxDeliveryAttempts) {
+		tmp.MaxDeliveryAttempts = pulumi.IntPtr(30)
+	}
+	return &tmp
+}
 func (RetryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetryPolicy)(nil)).Elem()
 }

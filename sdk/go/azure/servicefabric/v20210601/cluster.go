@@ -373,6 +373,219 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The list of add-on features to enable in the cluster.
+func (o ClusterOutput) AddOnFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.AddOnFeatures }).(pulumi.StringArrayOutput)
+}
+
+// The policy used to clean up unused versions.
+func (o ClusterOutput) ApplicationTypeVersionsCleanupPolicy() ApplicationTypeVersionsCleanupPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ApplicationTypeVersionsCleanupPolicyResponsePtrOutput {
+		return v.ApplicationTypeVersionsCleanupPolicy
+	}).(ApplicationTypeVersionsCleanupPolicyResponsePtrOutput)
+}
+
+// The Service Fabric runtime versions available for this cluster.
+func (o ClusterOutput) AvailableClusterVersions() ClusterVersionDetailsResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterVersionDetailsResponseArrayOutput { return v.AvailableClusterVersions }).(ClusterVersionDetailsResponseArrayOutput)
+}
+
+// The AAD authentication settings of the cluster.
+func (o ClusterOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) AzureActiveDirectoryResponsePtrOutput { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
+}
+
+// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+func (o ClusterOutput) Certificate() CertificateDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) CertificateDescriptionResponsePtrOutput { return v.Certificate }).(CertificateDescriptionResponsePtrOutput)
+}
+
+// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+func (o ClusterOutput) CertificateCommonNames() ServerCertificateCommonNamesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ServerCertificateCommonNamesResponsePtrOutput { return v.CertificateCommonNames }).(ServerCertificateCommonNamesResponsePtrOutput)
+}
+
+// The list of client certificates referenced by common name that are allowed to manage the cluster.
+func (o ClusterOutput) ClientCertificateCommonNames() ClientCertificateCommonNameResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClientCertificateCommonNameResponseArrayOutput { return v.ClientCertificateCommonNames }).(ClientCertificateCommonNameResponseArrayOutput)
+}
+
+// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+func (o ClusterOutput) ClientCertificateThumbprints() ClientCertificateThumbprintResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClientCertificateThumbprintResponseArrayOutput { return v.ClientCertificateThumbprints }).(ClientCertificateThumbprintResponseArrayOutput)
+}
+
+// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+func (o ClusterOutput) ClusterCodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterCodeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
+func (o ClusterOutput) ClusterEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
+}
+
+// A service generated unique identifier for the cluster resource.
+func (o ClusterOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The current state of the cluster.
+//
+//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+//   - Ready - Indicates that the cluster is in a stable state.
+func (o ClusterOutput) ClusterState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
+}
+
+// The storage account information for storing Service Fabric diagnostic logs.
+func (o ClusterOutput) DiagnosticsStorageAccountConfig() DiagnosticsStorageAccountConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) DiagnosticsStorageAccountConfigResponsePtrOutput {
+		return v.DiagnosticsStorageAccountConfig
+	}).(DiagnosticsStorageAccountConfigResponsePtrOutput)
+}
+
+// Azure resource etag.
+func (o ClusterOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Indicates if the event store service is enabled.
+func (o ClusterOutput) EventStoreServiceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EventStoreServiceEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The list of custom fabric settings to configure the cluster.
+func (o ClusterOutput) FabricSettings() SettingsSectionDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) SettingsSectionDescriptionResponseArrayOutput { return v.FabricSettings }).(SettingsSectionDescriptionResponseArrayOutput)
+}
+
+// Indicates if infrastructure service manager is enabled.
+func (o ClusterOutput) InfrastructureServiceManager() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.InfrastructureServiceManager }).(pulumi.BoolPtrOutput)
+}
+
+// Azure resource location.
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The http management endpoint of the cluster.
+func (o ClusterOutput) ManagementEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ManagementEndpoint }).(pulumi.StringOutput)
+}
+
+// Azure resource name.
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of node types in the cluster.
+func (o ClusterOutput) NodeTypes() NodeTypeDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) NodeTypeDescriptionResponseArrayOutput { return v.NodeTypes }).(NodeTypeDescriptionResponseArrayOutput)
+}
+
+// Indicates a list of notification channels for cluster events.
+func (o ClusterOutput) Notifications() NotificationResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) NotificationResponseArrayOutput { return v.Notifications }).(NotificationResponseArrayOutput)
+}
+
+// The provisioning state of the cluster resource.
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+//
+//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+//   - Silver - Run the System services with a target replica set count of 5.
+//   - Gold - Run the System services with a target replica set count of 7.
+//   - Platinum - Run the System services with a target replica set count of 9.
+func (o ClusterOutput) ReliabilityLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReliabilityLevel }).(pulumi.StringPtrOutput)
+}
+
+// The server certificate used by reverse proxy.
+func (o ClusterOutput) ReverseProxyCertificate() CertificateDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) CertificateDescriptionResponsePtrOutput { return v.ReverseProxyCertificate }).(CertificateDescriptionResponsePtrOutput)
+}
+
+// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+func (o ClusterOutput) ReverseProxyCertificateCommonNames() ServerCertificateCommonNamesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ServerCertificateCommonNamesResponsePtrOutput {
+		return v.ReverseProxyCertificateCommonNames
+	}).(ServerCertificateCommonNamesResponsePtrOutput)
+}
+
+// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
+func (o ClusterOutput) SfZonalUpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SfZonalUpgradeMode }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The policy to use when upgrading the cluster.
+func (o ClusterOutput) UpgradeDescription() ClusterUpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterUpgradePolicyResponsePtrOutput { return v.UpgradeDescription }).(ClusterUpgradePolicyResponsePtrOutput)
+}
+
+// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+func (o ClusterOutput) UpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
+func (o ClusterOutput) UpgradePauseEndTimestampUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.UpgradePauseEndTimestampUtc }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
+func (o ClusterOutput) UpgradePauseStartTimestampUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.UpgradePauseStartTimestampUtc }).(pulumi.StringPtrOutput)
+}
+
+// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
+func (o ClusterOutput) UpgradeWave() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.UpgradeWave }).(pulumi.StringPtrOutput)
+}
+
+// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+func (o ClusterOutput) VmImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.VmImage }).(pulumi.StringPtrOutput)
+}
+
+// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
+func (o ClusterOutput) VmssZonalUpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.VmssZonalUpgradeMode }).(pulumi.StringPtrOutput)
+}
+
+// Boolean to pause automatic runtime version upgrades to the cluster.
+func (o ClusterOutput) WaveUpgradePaused() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.WaveUpgradePaused }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

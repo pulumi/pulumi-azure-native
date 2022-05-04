@@ -162,6 +162,41 @@ func (o VariableOutput) ToVariableOutputWithContext(ctx context.Context) Variabl
 	return o
 }
 
+// Gets or sets the creation time.
+func (o VariableOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o VariableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the encrypted flag of the variable.
+func (o VariableOutput) IsEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.BoolPtrOutput { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o VariableOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o VariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o VariableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the value of the variable.
+func (o VariableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Variable) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VariableOutput{})
 }

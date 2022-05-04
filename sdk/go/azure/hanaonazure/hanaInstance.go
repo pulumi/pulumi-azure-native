@@ -169,6 +169,76 @@ func (o HanaInstanceOutput) ToHanaInstanceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Specifies the HANA instance unique ID.
+func (o HanaInstanceOutput) HanaInstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.HanaInstanceId }).(pulumi.StringOutput)
+}
+
+// Specifies the hardware settings for the HANA instance.
+func (o HanaInstanceOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *HanaInstance) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// Hardware revision of a HANA instance
+func (o HanaInstanceOutput) HwRevision() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.HwRevision }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o HanaInstanceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o HanaInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network settings for the HANA instance.
+func (o HanaInstanceOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *HanaInstance) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Specifies the operating system settings for the HANA instance.
+func (o HanaInstanceOutput) OsProfile() OSProfileResponsePtrOutput {
+	return o.ApplyT(func(v *HanaInstance) OSProfileResponsePtrOutput { return v.OsProfile }).(OSProfileResponsePtrOutput)
+}
+
+// ARM ID of another HanaInstance that will share a network with this HanaInstance
+func (o HanaInstanceOutput) PartnerNodeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringPtrOutput { return v.PartnerNodeId }).(pulumi.StringPtrOutput)
+}
+
+// Resource power state
+func (o HanaInstanceOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.PowerState }).(pulumi.StringOutput)
+}
+
+// State of provisioning of the HanaInstance
+func (o HanaInstanceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource proximity placement group
+func (o HanaInstanceOutput) ProximityPlacementGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.ProximityPlacementGroup }).(pulumi.StringOutput)
+}
+
+// Specifies the storage settings for the HANA instance disks.
+func (o HanaInstanceOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *HanaInstance) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o HanaInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o HanaInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HanaInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HanaInstanceOutput{})
 }

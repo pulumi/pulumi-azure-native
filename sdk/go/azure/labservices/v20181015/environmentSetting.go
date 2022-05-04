@@ -193,6 +193,76 @@ func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx cont
 	return o
 }
 
+// Describes the user's progress in configuring their environment setting
+func (o EnvironmentSettingOutput) ConfigurationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.ConfigurationState }).(pulumi.StringPtrOutput)
+}
+
+// Describes the environment and its resource settings
+func (o EnvironmentSettingOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Time when the template VM was last changed.
+func (o EnvironmentSettingOutput) LastChanged() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringOutput { return v.LastChanged }).(pulumi.StringOutput)
+}
+
+// Time when the template VM was last sent for publishing.
+func (o EnvironmentSettingOutput) LastPublished() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringOutput { return v.LastPublished }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o EnvironmentSettingOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o EnvironmentSettingOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o EnvironmentSettingOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Describes the readiness of this environment setting
+func (o EnvironmentSettingOutput) PublishingState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringOutput { return v.PublishingState }).(pulumi.StringOutput)
+}
+
+// The resource specific settings
+func (o EnvironmentSettingOutput) ResourceSettings() ResourceSettingsResponseOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) ResourceSettingsResponseOutput { return v.ResourceSettings }).(ResourceSettingsResponseOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentSettingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Brief title describing the environment and its resource settings
+func (o EnvironmentSettingOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o EnvironmentSettingOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnvironmentSetting) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentSettingOutput{})
 }

@@ -175,6 +175,81 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Gets the name of the corresponding resource in Kubernetes.
+func (o VirtualNetworkOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o VirtualNetworkOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the inventory Item ID for the virtual network.
+func (o VirtualNetworkOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o VirtualNetworkOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o VirtualNetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the virtual network.
+func (o VirtualNetworkOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
+func (o VirtualNetworkOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VirtualNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o VirtualNetworkOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o VirtualNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o VirtualNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o VirtualNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o VirtualNetworkOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this template resides.
+func (o VirtualNetworkOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

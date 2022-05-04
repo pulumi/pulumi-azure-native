@@ -186,6 +186,52 @@ func (o InstanceFailoverGroupOutput) ToInstanceFailoverGroupOutputWithContext(ct
 	return o
 }
 
+// List of managed instance pairs in the failover group.
+func (o InstanceFailoverGroupOutput) ManagedInstancePairs() ManagedInstancePairInfoResponseArrayOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) ManagedInstancePairInfoResponseArrayOutput {
+		return v.ManagedInstancePairs
+	}).(ManagedInstancePairInfoResponseArrayOutput)
+}
+
+// Resource name.
+func (o InstanceFailoverGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partner region information for the failover group.
+func (o InstanceFailoverGroupOutput) PartnerRegions() PartnerRegionInfoResponseArrayOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) PartnerRegionInfoResponseArrayOutput { return v.PartnerRegions }).(PartnerRegionInfoResponseArrayOutput)
+}
+
+// Read-only endpoint of the failover group instance.
+func (o InstanceFailoverGroupOutput) ReadOnlyEndpoint() InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput {
+		return v.ReadOnlyEndpoint
+	}).(InstanceFailoverGroupReadOnlyEndpointResponsePtrOutput)
+}
+
+// Read-write endpoint of the failover group instance.
+func (o InstanceFailoverGroupOutput) ReadWriteEndpoint() InstanceFailoverGroupReadWriteEndpointResponseOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) InstanceFailoverGroupReadWriteEndpointResponseOutput {
+		return v.ReadWriteEndpoint
+	}).(InstanceFailoverGroupReadWriteEndpointResponseOutput)
+}
+
+// Local replication role of the failover group instance.
+func (o InstanceFailoverGroupOutput) ReplicationRole() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) pulumi.StringOutput { return v.ReplicationRole }).(pulumi.StringOutput)
+}
+
+// Replication state of the failover group instance.
+func (o InstanceFailoverGroupOutput) ReplicationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) pulumi.StringOutput { return v.ReplicationState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o InstanceFailoverGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFailoverGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceFailoverGroupOutput{})
 }

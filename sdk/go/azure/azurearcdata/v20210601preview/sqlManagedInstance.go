@@ -170,6 +170,46 @@ func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutputWithContext(ctx cont
 	return o
 }
 
+// The extendedLocation of the resource.
+func (o SqlManagedInstanceOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o SqlManagedInstanceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlManagedInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o SqlManagedInstanceOutput) Properties() SqlManagedInstancePropertiesResponseOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) SqlManagedInstancePropertiesResponseOutput { return v.Properties }).(SqlManagedInstancePropertiesResponseOutput)
+}
+
+// Resource sku.
+func (o SqlManagedInstanceOutput) Sku() SqlManagedInstanceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) SqlManagedInstanceSkuResponsePtrOutput { return v.Sku }).(SqlManagedInstanceSkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o SqlManagedInstanceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlManagedInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o SqlManagedInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlManagedInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlManagedInstanceOutput{})
 }

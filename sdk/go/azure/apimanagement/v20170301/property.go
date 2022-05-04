@@ -172,6 +172,36 @@ func (o PropertyOutput) ToPropertyOutputWithContext(ctx context.Context) Propert
 	return o
 }
 
+// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+func (o PropertyOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Property) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o PropertyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Property) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+func (o PropertyOutput) Secret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Property) pulumi.BoolPtrOutput { return v.Secret }).(pulumi.BoolPtrOutput)
+}
+
+// Optional tags that when provided can be used to filter the property list.
+func (o PropertyOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Property) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Resource type for API Management resource.
+func (o PropertyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Property) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+func (o PropertyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *Property) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PropertyOutput{})
 }

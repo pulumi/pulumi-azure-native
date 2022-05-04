@@ -169,6 +169,36 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Resource location depends on the parent resource.
+func (o ServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The service resource properties.
+func (o ServiceOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Service) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

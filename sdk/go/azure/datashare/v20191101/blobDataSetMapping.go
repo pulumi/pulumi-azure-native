@@ -223,6 +223,67 @@ func (o BlobDataSetMappingOutput) ToBlobDataSetMappingOutputWithContext(ctx cont
 	return o
 }
 
+// Container that has the file path.
+func (o BlobDataSetMappingOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The id of the source data set.
+func (o BlobDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o BlobDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// File path within the source data set
+func (o BlobDataSetMappingOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'Blob'.
+func (o BlobDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o BlobDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// File output type
+func (o BlobDataSetMappingOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringPtrOutput { return v.OutputType }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o BlobDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account.
+func (o BlobDataSetMappingOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set.
+func (o BlobDataSetMappingOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account.
+func (o BlobDataSetMappingOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o BlobDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobDataSetMappingOutput{})
 }

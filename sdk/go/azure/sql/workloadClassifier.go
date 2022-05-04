@@ -202,6 +202,46 @@ func (o WorkloadClassifierOutput) ToWorkloadClassifierOutputWithContext(ctx cont
 	return o
 }
 
+// The workload classifier context.
+func (o WorkloadClassifierOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier end time for classification.
+func (o WorkloadClassifierOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier importance.
+func (o WorkloadClassifierOutput) Importance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringPtrOutput { return v.Importance }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier label.
+func (o WorkloadClassifierOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier member name.
+func (o WorkloadClassifierOutput) MemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o WorkloadClassifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workload classifier start time for classification.
+func (o WorkloadClassifierOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WorkloadClassifierOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadClassifier) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadClassifierOutput{})
 }

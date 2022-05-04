@@ -236,6 +236,41 @@ func (o ACIServiceOutput) ToACIServiceOutputWithContext(ctx context.Context) ACI
 	return o
 }
 
+// The identity of the resource.
+func (o ACIServiceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ACIService) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o ACIServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ACIService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o ACIServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACIService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service properties
+func (o ACIServiceOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ACIService) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o ACIServiceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ACIService) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o ACIServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ACIService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o ACIServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ACIService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ACIServiceOutput{})
 }

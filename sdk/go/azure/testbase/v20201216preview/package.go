@@ -209,6 +209,96 @@ func (o PackageOutput) ToPackageOutputWithContext(ctx context.Context) PackageOu
 	return o
 }
 
+// Application name
+func (o PackageOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The file path of the package.
+func (o PackageOutput) BlobPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.BlobPath }).(pulumi.StringOutput)
+}
+
+// Resource Etag.
+func (o PackageOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The flighting ring for feature update.
+func (o PackageOutput) FlightingRing() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.FlightingRing }).(pulumi.StringOutput)
+}
+
+// Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
+func (o PackageOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Package) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The UTC timestamp when the package was last modified.
+func (o PackageOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o PackageOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o PackageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the package.
+func (o PackageOutput) PackageStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageStatus }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o PackageOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o PackageOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Package) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o PackageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the target OSs of specific OS Update types.
+func (o PackageOutput) TargetOSList() TargetOSInfoResponseArrayOutput {
+	return o.ApplyT(func(v *Package) TargetOSInfoResponseArrayOutput { return v.TargetOSList }).(TargetOSInfoResponseArrayOutput)
+}
+
+// OOB, functional or both. Mapped to the data in 'tests' property.
+func (o PackageOutput) TestTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringArrayOutput { return v.TestTypes }).(pulumi.StringArrayOutput)
+}
+
+// The detailed test information.
+func (o PackageOutput) Tests() TestResponseArrayOutput {
+	return o.ApplyT(func(v *Package) TestResponseArrayOutput { return v.Tests }).(TestResponseArrayOutput)
+}
+
+// Resource type.
+func (o PackageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The validation results. There's validation on package when it's created or updated.
+func (o PackageOutput) ValidationResults() PackageValidationResultResponseArrayOutput {
+	return o.ApplyT(func(v *Package) PackageValidationResultResponseArrayOutput { return v.ValidationResults }).(PackageValidationResultResponseArrayOutput)
+}
+
+// Application version
+func (o PackageOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PackageOutput{})
 }

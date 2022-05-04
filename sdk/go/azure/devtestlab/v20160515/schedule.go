@@ -209,6 +209,81 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
+// The creation date of the schedule.
+func (o ScheduleOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o ScheduleOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) DayDetailsResponsePtrOutput { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o ScheduleOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) HourDetailsResponsePtrOutput { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ScheduleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification settings.
+func (o ScheduleOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) NotificationSettingsResponsePtrOutput { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o ScheduleOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o ScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o ScheduleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource ID to which the schedule belongs
+func (o ScheduleOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o ScheduleOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o ScheduleOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o ScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ScheduleOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o ScheduleOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) WeekDetailsResponsePtrOutput { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduleOutput{})
 }

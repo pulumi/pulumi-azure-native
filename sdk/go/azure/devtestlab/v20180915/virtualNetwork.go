@@ -177,6 +177,66 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The allowed subnets of the virtual network.
+func (o VirtualNetworkOutput) AllowedSubnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubnetResponseArrayOutput { return v.AllowedSubnets }).(SubnetResponseArrayOutput)
+}
+
+// The creation date of the virtual network.
+func (o VirtualNetworkOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The description of the virtual network.
+func (o VirtualNetworkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft.Network resource identifier of the virtual network.
+func (o VirtualNetworkOutput) ExternalProviderResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.ExternalProviderResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The external subnet properties.
+func (o VirtualNetworkOutput) ExternalSubnets() ExternalSubnetResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) ExternalSubnetResponseArrayOutput { return v.ExternalSubnets }).(ExternalSubnetResponseArrayOutput)
+}
+
+// The location of the resource.
+func (o VirtualNetworkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o VirtualNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The subnet overrides of the virtual network.
+func (o VirtualNetworkOutput) SubnetOverrides() SubnetOverrideResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubnetOverrideResponseArrayOutput { return v.SubnetOverrides }).(SubnetOverrideResponseArrayOutput)
+}
+
+// The tags of the resource.
+func (o VirtualNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o VirtualNetworkOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

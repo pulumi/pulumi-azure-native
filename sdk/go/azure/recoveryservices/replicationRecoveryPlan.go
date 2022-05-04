@@ -178,6 +178,26 @@ func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutputWithContex
 	return o
 }
 
+// Resource Location
+func (o ReplicationRecoveryPlanOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationRecoveryPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom details.
+func (o ReplicationRecoveryPlanOutput) Properties() RecoveryPlanPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlan) RecoveryPlanPropertiesResponseOutput { return v.Properties }).(RecoveryPlanPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationRecoveryPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanOutput{})
 }

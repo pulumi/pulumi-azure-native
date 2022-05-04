@@ -169,6 +169,58 @@ func (o IotConnectorOutput) ToIotConnectorOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Device Mappings.
+func (o IotConnectorOutput) DeviceMapping() IotMappingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *IotConnector) IotMappingPropertiesResponsePtrOutput { return v.DeviceMapping }).(IotMappingPropertiesResponsePtrOutput)
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o IotConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o IotConnectorOutput) Identity() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *IotConnector) ServiceManagedIdentityResponseIdentityPtrOutput { return v.Identity }).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// Source configuration.
+func (o IotConnectorOutput) IngestionEndpointConfiguration() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *IotConnector) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+		return v.IngestionEndpointConfiguration
+	}).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
+}
+
+// The resource location.
+func (o IotConnectorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o IotConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o IotConnectorOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o IotConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IotConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o IotConnectorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IotConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotConnectorOutput{})
 }

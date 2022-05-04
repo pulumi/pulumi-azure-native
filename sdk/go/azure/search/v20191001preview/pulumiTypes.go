@@ -430,6 +430,17 @@ type NetworkRuleSetArgs struct {
 	IpRules IpRuleArrayInput `pulumi:"ipRules"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetArgs
+func (val *NetworkRuleSetArgs) Defaults() *NetworkRuleSetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EndpointAccess) {
+		tmp.EndpointAccess = EndpointAccess("Public")
+	}
+	return &tmp
+}
 func (NetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSet)(nil)).Elem()
 }
@@ -690,6 +701,15 @@ type PrivateEndpointConnectionPropertiesArgs struct {
 	PrivateLinkServiceConnectionState PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
+// Defaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesArgs
+func (val *PrivateEndpointConnectionPropertiesArgs) Defaults() *PrivateEndpointConnectionPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
 }
@@ -1010,6 +1030,17 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs st
 	Status PrivateLinkServiceConnectionStatusPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+func (val *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) Defaults() *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActionsRequired) {
+		tmp.ActionsRequired = pulumi.StringPtr("None")
+	}
+	return &tmp
+}
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState)(nil)).Elem()
 }

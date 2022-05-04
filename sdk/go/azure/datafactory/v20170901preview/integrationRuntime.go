@@ -143,6 +143,26 @@ func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutputWithContext(ctx cont
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o IntegrationRuntimeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o IntegrationRuntimeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Integration runtime properties.
+func (o IntegrationRuntimeOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o IntegrationRuntimeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationRuntime) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeOutput{})
 }

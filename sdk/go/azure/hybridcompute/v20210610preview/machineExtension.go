@@ -183,6 +183,36 @@ func (o MachineExtensionOutput) ToMachineExtensionOutputWithContext(ctx context.
 	return o
 }
 
+// The geo-location where the resource lives
+func (o MachineExtensionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineExtension) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MachineExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineExtension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes Machine Extension Properties.
+func (o MachineExtensionOutput) Properties() MachineExtensionPropertiesResponseOutput {
+	return o.ApplyT(func(v *MachineExtension) MachineExtensionPropertiesResponseOutput { return v.Properties }).(MachineExtensionPropertiesResponseOutput)
+}
+
+// The system meta data relating to this resource.
+func (o MachineExtensionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MachineExtension) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o MachineExtensionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MachineExtension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MachineExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineExtension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineExtensionOutput{})
 }

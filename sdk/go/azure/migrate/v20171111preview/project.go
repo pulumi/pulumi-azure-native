@@ -164,6 +164,71 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// Time when this project was created. Date-Time represented in ISO-8601 format.
+func (o ProjectOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// ARM ID of the Service Map workspace created by user.
+func (o ProjectOutput) CustomerWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.CustomerWorkspaceId }).(pulumi.StringPtrOutput)
+}
+
+// Reports whether project is under discovery.
+func (o ProjectOutput) DiscoveryStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.DiscoveryStatus }).(pulumi.StringOutput)
+}
+
+// For optimistic concurrency control.
+func (o ProjectOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which project is created.
+func (o ProjectOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the project.
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of assessments created in the project.
+func (o ProjectOutput) NumberOfAssessments() pulumi.IntOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.NumberOfAssessments }).(pulumi.IntOutput)
+}
+
+// Number of groups created in the project.
+func (o ProjectOutput) NumberOfGroups() pulumi.IntOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.NumberOfGroups }).(pulumi.IntOutput)
+}
+
+// Number of machines in the project.
+func (o ProjectOutput) NumberOfMachines() pulumi.IntOutput {
+	return o.ApplyT(func(v *Project) pulumi.IntOutput { return v.NumberOfMachines }).(pulumi.IntOutput)
+}
+
+// Provisioning state of the project.
+func (o ProjectOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Tags provided by Azure Tagging service.
+func (o ProjectOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Project) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/projects].
+func (o ProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+func (o ProjectOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.UpdatedTimestamp }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

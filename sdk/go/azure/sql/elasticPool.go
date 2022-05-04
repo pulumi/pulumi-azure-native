@@ -212,6 +212,73 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The creation date of the elastic pool (ISO8601 format).
+func (o ElasticPoolOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Kind of elastic pool. This is metadata used for the Azure portal experience.
+func (o ElasticPoolOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The license type to apply for this elastic pool.
+func (o ElasticPoolOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ElasticPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
+func (o ElasticPoolOutput) MaintenanceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.MaintenanceConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The storage limit for the database elastic pool in bytes.
+func (o ElasticPoolOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.Float64PtrOutput { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Resource name.
+func (o ElasticPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The per database settings for the elastic pool.
+func (o ElasticPoolOutput) PerDatabaseSettings() ElasticPoolPerDatabaseSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ElasticPool) ElasticPoolPerDatabaseSettingsResponsePtrOutput { return v.PerDatabaseSettings }).(ElasticPoolPerDatabaseSettingsResponsePtrOutput)
+}
+
+// The elastic pool SKU.
+//
+// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or the following command:
+func (o ElasticPoolOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ElasticPool) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The state of the elastic pool.
+func (o ElasticPoolOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ElasticPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ElasticPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
+func (o ElasticPoolOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ElasticPoolOutput{})
 }

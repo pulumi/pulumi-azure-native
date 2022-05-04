@@ -172,6 +172,65 @@ func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationBy
 	return o
 }
 
+// CreatedBy property, which only appears in the response.
+func (o SoftwareUpdateConfigurationByNameOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Creation time of the resource, which only appears in the response.
+func (o SoftwareUpdateConfigurationByNameOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Details of provisioning error
+func (o SoftwareUpdateConfigurationByNameOutput) Error() ErrorResponseResponsePtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) ErrorResponseResponsePtrOutput { return v.Error }).(ErrorResponseResponsePtrOutput)
+}
+
+// LastModifiedBy property, which only appears in the response.
+func (o SoftwareUpdateConfigurationByNameOutput) LastModifiedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
+}
+
+// Last time resource was modified, which only appears in the response.
+func (o SoftwareUpdateConfigurationByNameOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SoftwareUpdateConfigurationByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state for the software update configuration, which only appears in the response.
+func (o SoftwareUpdateConfigurationByNameOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Schedule information for the Software update configuration
+func (o SoftwareUpdateConfigurationByNameOutput) ScheduleInfo() SUCSchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) SUCSchedulePropertiesResponseOutput { return v.ScheduleInfo }).(SUCSchedulePropertiesResponseOutput)
+}
+
+// Tasks information for the Software update configuration.
+func (o SoftwareUpdateConfigurationByNameOutput) Tasks() SoftwareUpdateConfigurationTasksResponsePtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) SoftwareUpdateConfigurationTasksResponsePtrOutput {
+		return v.Tasks
+	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
+}
+
+// Resource type
+func (o SoftwareUpdateConfigurationByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// update specific properties for the Software update configuration
+func (o SoftwareUpdateConfigurationByNameOutput) UpdateConfiguration() UpdateConfigurationResponseOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationByName) UpdateConfigurationResponseOutput {
+		return v.UpdateConfiguration
+	}).(UpdateConfigurationResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationByNameOutput{})
 }

@@ -147,6 +147,31 @@ func (o ManagementLockByScopeOutput) ToManagementLockByScopeOutputWithContext(ct
 	return o
 }
 
+// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+func (o ManagementLockByScopeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockByScope) pulumi.StringOutput { return v.Level }).(pulumi.StringOutput)
+}
+
+// The name of the lock.
+func (o ManagementLockByScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockByScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notes about the lock. Maximum of 512 characters.
+func (o ManagementLockByScopeOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLockByScope) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The owners of the lock.
+func (o ManagementLockByScopeOutput) Owners() ManagementLockOwnerResponseArrayOutput {
+	return o.ApplyT(func(v *ManagementLockByScope) ManagementLockOwnerResponseArrayOutput { return v.Owners }).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o ManagementLockByScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockByScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementLockByScopeOutput{})
 }

@@ -180,6 +180,51 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.
 	return o
 }
 
+// The actions that will activate when the condition is met.
+func (o ActivityLogAlertOutput) Actions() ActionListResponseOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) ActionListResponseOutput { return v.Actions }).(ActionListResponseOutput)
+}
+
+// The condition that will cause this alert to activate.
+func (o ActivityLogAlertOutput) Condition() AlertRuleAllOfConditionResponseOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) AlertRuleAllOfConditionResponseOutput { return v.Condition }).(AlertRuleAllOfConditionResponseOutput)
+}
+
+// A description of this Activity Log Alert rule.
+func (o ActivityLogAlertOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
+func (o ActivityLogAlertOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
+func (o ActivityLogAlertOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ActivityLogAlertOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
+func (o ActivityLogAlertOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// The tags of the resource.
+func (o ActivityLogAlertOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ActivityLogAlertOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
 }

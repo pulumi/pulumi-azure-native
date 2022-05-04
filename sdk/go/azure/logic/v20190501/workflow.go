@@ -201,6 +201,96 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// The access control configuration.
+func (o WorkflowOutput) AccessControl() FlowAccessControlConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) FlowAccessControlConfigurationResponsePtrOutput { return v.AccessControl }).(FlowAccessControlConfigurationResponsePtrOutput)
+}
+
+// Gets the access endpoint.
+func (o WorkflowOutput) AccessEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AccessEndpoint }).(pulumi.StringOutput)
+}
+
+// Gets the changed time.
+func (o WorkflowOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// Gets the created time.
+func (o WorkflowOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The definition.
+func (o WorkflowOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
+}
+
+// The endpoints configuration.
+func (o WorkflowOutput) EndpointsConfiguration() FlowEndpointsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) FlowEndpointsConfigurationResponsePtrOutput { return v.EndpointsConfiguration }).(FlowEndpointsConfigurationResponsePtrOutput)
+}
+
+// Managed service identity properties.
+func (o WorkflowOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The integration account.
+func (o WorkflowOutput) IntegrationAccount() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) ResourceReferenceResponsePtrOutput { return v.IntegrationAccount }).(ResourceReferenceResponsePtrOutput)
+}
+
+// The integration service environment.
+func (o WorkflowOutput) IntegrationServiceEnvironment() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) ResourceReferenceResponsePtrOutput { return v.IntegrationServiceEnvironment }).(ResourceReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o WorkflowOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o WorkflowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters.
+func (o WorkflowOutput) Parameters() WorkflowParameterResponseMapOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowParameterResponseMapOutput { return v.Parameters }).(WorkflowParameterResponseMapOutput)
+}
+
+// Gets the provisioning state.
+func (o WorkflowOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku.
+func (o WorkflowOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Workflow) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// The state.
+func (o WorkflowOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o WorkflowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets the version.
+func (o WorkflowOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkflowOutput{})
 }

@@ -184,6 +184,51 @@ func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+// The policy definition description.
+func (o PolicyDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o PolicyDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition metadata.
+func (o PolicyDefinitionOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+func (o PolicyDefinitionOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition.
+func (o PolicyDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o PolicyDefinitionOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The policy rule.
+func (o PolicyDefinitionOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.AnyOutput { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o PolicyDefinitionOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policyDefinitions).
+func (o PolicyDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
 }

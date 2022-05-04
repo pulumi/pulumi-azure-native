@@ -285,6 +285,137 @@ func (o AppServicePlanOutput) ToAppServicePlanOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The time when the server farm free offer expires.
+func (o AppServicePlanOutput) FreeOfferExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringPtrOutput { return v.FreeOfferExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// Geographical location for the App Service plan.
+func (o AppServicePlanOutput) GeoRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.GeoRegion }).(pulumi.StringOutput)
+}
+
+// Specification for the App Service Environment to use for the App Service plan.
+func (o AppServicePlanOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) HostingEnvironmentProfileResponsePtrOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponsePtrOutput)
+}
+
+// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+func (o AppServicePlanOutput) HyperV() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.BoolPtrOutput { return v.HyperV }).(pulumi.BoolPtrOutput)
+}
+
+// If <code>true</code>, this App Service Plan owns spot instances.
+func (o AppServicePlanOutput) IsSpot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.BoolPtrOutput { return v.IsSpot }).(pulumi.BoolPtrOutput)
+}
+
+// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+func (o AppServicePlanOutput) IsXenon() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.BoolPtrOutput { return v.IsXenon }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o AppServicePlanOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Specification for the Kubernetes Environment to use for the App Service plan.
+func (o AppServicePlanOutput) KubeEnvironmentProfile() KubeEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) KubeEnvironmentProfileResponsePtrOutput { return v.KubeEnvironmentProfile }).(KubeEnvironmentProfileResponsePtrOutput)
+}
+
+// Resource Location.
+func (o AppServicePlanOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+func (o AppServicePlanOutput) MaximumElasticWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.IntPtrOutput { return v.MaximumElasticWorkerCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of instances that can be assigned to this App Service plan.
+func (o AppServicePlanOutput) MaximumNumberOfWorkers() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.IntOutput { return v.MaximumNumberOfWorkers }).(pulumi.IntOutput)
+}
+
+// Resource Name.
+func (o AppServicePlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of apps assigned to this App Service plan.
+func (o AppServicePlanOutput) NumberOfSites() pulumi.IntOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.IntOutput { return v.NumberOfSites }).(pulumi.IntOutput)
+}
+
+// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+func (o AppServicePlanOutput) PerSiteScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.BoolPtrOutput { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Provisioning state of the App Service Plan.
+func (o AppServicePlanOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+func (o AppServicePlanOutput) Reserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.BoolPtrOutput { return v.Reserved }).(pulumi.BoolPtrOutput)
+}
+
+// Resource group of the App Service plan.
+func (o AppServicePlanOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Description of a SKU for a scalable resource.
+func (o AppServicePlanOutput) Sku() SkuDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) SkuDescriptionResponsePtrOutput { return v.Sku }).(SkuDescriptionResponsePtrOutput)
+}
+
+// The time when the server farm expires. Valid only if it is a spot server farm.
+func (o AppServicePlanOutput) SpotExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringPtrOutput { return v.SpotExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// App Service plan status.
+func (o AppServicePlanOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// App Service plan subscription.
+func (o AppServicePlanOutput) Subscription() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.Subscription }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o AppServicePlanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Scaling worker count.
+func (o AppServicePlanOutput) TargetWorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.IntPtrOutput { return v.TargetWorkerCount }).(pulumi.IntPtrOutput)
+}
+
+// Scaling worker size ID.
+func (o AppServicePlanOutput) TargetWorkerSizeId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.IntPtrOutput { return v.TargetWorkerSizeId }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o AppServicePlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Target worker tier assigned to the App Service plan.
+func (o AppServicePlanOutput) WorkerTierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlan) pulumi.StringPtrOutput { return v.WorkerTierName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServicePlanOutput{})
 }

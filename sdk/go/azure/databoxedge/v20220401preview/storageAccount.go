@@ -190,6 +190,51 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// BlobEndpoint of Storage Account
+func (o StorageAccountOutput) BlobEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.BlobEndpoint }).(pulumi.StringOutput)
+}
+
+// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+func (o StorageAccountOutput) ContainerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.IntOutput { return v.ContainerCount }).(pulumi.IntOutput)
+}
+
+// Data policy of the storage Account.
+func (o StorageAccountOutput) DataPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.DataPolicy }).(pulumi.StringOutput)
+}
+
+// Description for the storage Account.
+func (o StorageAccountOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The object name.
+func (o StorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Storage Account Credential Id
+func (o StorageAccountOutput) StorageAccountCredentialId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.StorageAccountCredentialId }).(pulumi.StringPtrOutput)
+}
+
+// Current status of the storage account
+func (o StorageAccountOutput) StorageAccountStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.StorageAccountStatus }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of StorageAccount
+func (o StorageAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 }

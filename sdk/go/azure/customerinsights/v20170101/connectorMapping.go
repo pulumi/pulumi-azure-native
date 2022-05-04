@@ -202,6 +202,91 @@ func (o ConnectorMappingOutput) ToConnectorMappingOutputWithContext(ctx context.
 	return o
 }
 
+// The connector mapping name
+func (o ConnectorMappingOutput) ConnectorMappingName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.ConnectorMappingName }).(pulumi.StringOutput)
+}
+
+// The connector name.
+func (o ConnectorMappingOutput) ConnectorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.ConnectorName }).(pulumi.StringOutput)
+}
+
+// Type of connector.
+func (o ConnectorMappingOutput) ConnectorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringPtrOutput { return v.ConnectorType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o ConnectorMappingOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// The DataFormat ID.
+func (o ConnectorMappingOutput) DataFormatId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.DataFormatId }).(pulumi.StringOutput)
+}
+
+// The description of the connector mapping.
+func (o ConnectorMappingOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Display name for the connector mapping.
+func (o ConnectorMappingOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Defines which entity type the file should map to.
+func (o ConnectorMappingOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// The mapping entity name.
+func (o ConnectorMappingOutput) EntityTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.EntityTypeName }).(pulumi.StringOutput)
+}
+
+// The last modified time.
+func (o ConnectorMappingOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The properties of the mapping.
+func (o ConnectorMappingOutput) MappingProperties() ConnectorMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *ConnectorMapping) ConnectorMappingPropertiesResponseOutput { return v.MappingProperties }).(ConnectorMappingPropertiesResponseOutput)
+}
+
+// Resource name.
+func (o ConnectorMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The next run time based on customer's settings.
+func (o ConnectorMappingOutput) NextRunTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.NextRunTime }).(pulumi.StringOutput)
+}
+
+// The RunId.
+func (o ConnectorMappingOutput) RunId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.RunId }).(pulumi.StringOutput)
+}
+
+// State of connector mapping.
+func (o ConnectorMappingOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o ConnectorMappingOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ConnectorMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectorMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectorMappingOutput{})
 }

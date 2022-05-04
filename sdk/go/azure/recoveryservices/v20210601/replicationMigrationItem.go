@@ -188,6 +188,26 @@ func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutputWithCont
 	return o
 }
 
+// Resource Location
+func (o ReplicationMigrationItemOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationMigrationItem) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationMigrationItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationMigrationItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The migration item properties.
+func (o ReplicationMigrationItemOutput) Properties() MigrationItemPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationMigrationItem) MigrationItemPropertiesResponseOutput { return v.Properties }).(MigrationItemPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationMigrationItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationMigrationItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationMigrationItemOutput{})
 }

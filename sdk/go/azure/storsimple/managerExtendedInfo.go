@@ -177,6 +177,56 @@ func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutputWithContext(ctx co
 	return o
 }
 
+// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+func (o ManagerExtendedInfoOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Represents the CEK of the resource.
+func (o ManagerExtendedInfoOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// Represents the Cert thumbprint that was used to encrypt the CEK.
+func (o ManagerExtendedInfoOutput) EncryptionKeyThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.EncryptionKeyThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The etag of the resource.
+func (o ManagerExtendedInfoOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Represents the CIK of the resource.
+func (o ManagerExtendedInfoOutput) IntegrityKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.IntegrityKey }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o ManagerExtendedInfoOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o ManagerExtendedInfoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+func (o ManagerExtendedInfoOutput) PortalCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.PortalCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The hierarchical type of the object.
+func (o ManagerExtendedInfoOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of the extended info being persisted.
+func (o ManagerExtendedInfoOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagerExtendedInfoOutput{})
 }

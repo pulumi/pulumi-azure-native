@@ -247,6 +247,121 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+// Last time a message was sent, or the last time there was a receive request to this queue.
+func (o QueueOutput) AccessedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.AccessedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+func (o QueueOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
+}
+
+// Message Count Details.
+func (o QueueOutput) CountDetails() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v *Queue) MessageCountDetailsResponseOutput { return v.CountDetails }).(MessageCountDetailsResponseOutput)
+}
+
+// The exact time the message was created.
+func (o QueueOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// A value that indicates whether this queue has dead letter support when a message expires.
+func (o QueueOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+func (o QueueOutput) DefaultMessageTimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.DefaultMessageTimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+func (o QueueOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether server-side batched operations are enabled.
+func (o QueueOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+}
+
+// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+func (o QueueOutput) EnableExpress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
+}
+
+// A value that indicates whether the queue is to be partitioned across multiple message brokers.
+func (o QueueOutput) EnablePartitioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+}
+
+// Queue/Topic name to forward the Dead Letter message
+func (o QueueOutput) ForwardDeadLetteredMessagesTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.ForwardDeadLetteredMessagesTo }).(pulumi.StringPtrOutput)
+}
+
+// Queue/Topic name to forward the messages
+func (o QueueOutput) ForwardTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.ForwardTo }).(pulumi.StringPtrOutput)
+}
+
+// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+func (o QueueOutput) LockDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.LockDuration }).(pulumi.StringPtrOutput)
+}
+
+// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
+func (o QueueOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
+func (o QueueOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntPtrOutput { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
+}
+
+// The number of messages in the queue.
+func (o QueueOutput) MessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *Queue) pulumi.Float64Output { return v.MessageCount }).(pulumi.Float64Output)
+}
+
+// Resource name
+func (o QueueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A value indicating if this queue requires duplicate detection.
+func (o QueueOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.RequiresDuplicateDetection }).(pulumi.BoolPtrOutput)
+}
+
+// A value that indicates whether the queue supports the concept of sessions.
+func (o QueueOutput) RequiresSession() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.RequiresSession }).(pulumi.BoolPtrOutput)
+}
+
+// The size of the queue, in bytes.
+func (o QueueOutput) SizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Queue) pulumi.Float64Output { return v.SizeInBytes }).(pulumi.Float64Output)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+func (o QueueOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o QueueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o QueueOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueOutput{})
 }

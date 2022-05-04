@@ -181,6 +181,41 @@ func (o NamedValueOutput) ToNamedValueOutputWithContext(ctx context.Context) Nam
 	return o
 }
 
+// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+func (o NamedValueOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// KeyVault location details of the namedValue.
+func (o NamedValueOutput) KeyVault() KeyVaultContractPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *NamedValue) KeyVaultContractPropertiesResponsePtrOutput { return v.KeyVault }).(KeyVaultContractPropertiesResponsePtrOutput)
+}
+
+// Resource name.
+func (o NamedValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+func (o NamedValueOutput) Secret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.BoolPtrOutput { return v.Secret }).(pulumi.BoolPtrOutput)
+}
+
+// Optional tags that when provided can be used to filter the NamedValue list.
+func (o NamedValueOutput) Tags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.StringArrayOutput { return v.Tags }).(pulumi.StringArrayOutput)
+}
+
+// Resource type for API Management resource.
+func (o NamedValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+func (o NamedValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamedValue) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamedValueOutput{})
 }

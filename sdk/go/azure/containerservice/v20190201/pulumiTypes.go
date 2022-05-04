@@ -318,6 +318,29 @@ type ContainerServiceNetworkProfileArgs struct {
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
+// Defaults sets the appropriate defaults for ContainerServiceNetworkProfileArgs
+func (val *ContainerServiceNetworkProfileArgs) Defaults() *ContainerServiceNetworkProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		tmp.DnsServiceIP = pulumi.StringPtr("10.0.0.10")
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		tmp.DockerBridgeCidr = pulumi.StringPtr("172.17.0.1/16")
+	}
+	if isZero(tmp.NetworkPlugin) {
+		tmp.NetworkPlugin = pulumi.StringPtr("kubenet")
+	}
+	if isZero(tmp.PodCidr) {
+		tmp.PodCidr = pulumi.StringPtr("10.244.0.0/16")
+	}
+	if isZero(tmp.ServiceCidr) {
+		tmp.ServiceCidr = pulumi.StringPtr("10.0.0.0/16")
+	}
+	return &tmp
+}
 func (ContainerServiceNetworkProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerServiceNetworkProfile)(nil)).Elem()
 }
@@ -1638,6 +1661,17 @@ type ManagedClusterAgentPoolProfileArgs struct {
 	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
+// Defaults sets the appropriate defaults for ManagedClusterAgentPoolProfileArgs
+func (val *ManagedClusterAgentPoolProfileArgs) Defaults() *ManagedClusterAgentPoolProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		tmp.Count = pulumi.Int(1)
+	}
+	return &tmp
+}
 func (ManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedClusterAgentPoolProfile)(nil)).Elem()
 }

@@ -155,6 +155,42 @@ func (o ApiDiagnosticLoggerOutput) ToApiDiagnosticLoggerOutputWithContext(ctx co
 	return o
 }
 
+// The name and SendRule connection string of the event hub for azureEventHub logger.
+// Instrumentation key for applicationInsights logger.
+func (o ApiDiagnosticLoggerOutput) Credentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.StringMapOutput { return v.Credentials }).(pulumi.StringMapOutput)
+}
+
+// Logger description.
+func (o ApiDiagnosticLoggerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+func (o ApiDiagnosticLoggerOutput) IsBuffered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.BoolPtrOutput { return v.IsBuffered }).(pulumi.BoolPtrOutput)
+}
+
+// Logger type.
+func (o ApiDiagnosticLoggerOutput) LoggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.StringOutput { return v.LoggerType }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiDiagnosticLoggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sampling settings for an ApplicationInsights logger.
+func (o ApiDiagnosticLoggerOutput) Sampling() LoggerSamplingContractResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) LoggerSamplingContractResponsePtrOutput { return v.Sampling }).(LoggerSamplingContractResponsePtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiDiagnosticLoggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnosticLogger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiDiagnosticLoggerOutput{})
 }

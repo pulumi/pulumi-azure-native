@@ -323,6 +323,163 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
+// List of applicationGroup links.
+func (o HostPoolOutput) ApplicationGroupReferences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringArrayOutput { return v.ApplicationGroupReferences }).(pulumi.StringArrayOutput)
+}
+
+// Is cloud pc resource.
+func (o HostPoolOutput) CloudPcResource() pulumi.BoolOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.BoolOutput { return v.CloudPcResource }).(pulumi.BoolOutput)
+}
+
+// Custom rdp property of HostPool.
+func (o HostPoolOutput) CustomRdpProperty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.CustomRdpProperty }).(pulumi.StringPtrOutput)
+}
+
+// Description of HostPool.
+func (o HostPoolOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o HostPoolOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Friendly name of HostPool.
+func (o HostPoolOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool type for desktop.
+func (o HostPoolOutput) HostPoolType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.HostPoolType }).(pulumi.StringOutput)
+}
+
+func (o HostPoolOutput) Identity() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *HostPool) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput { return v.Identity }).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o HostPoolOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The type of the load balancer.
+func (o HostPoolOutput) LoadBalancerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.LoadBalancerType }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o HostPoolOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+func (o HostPoolOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The max session limit of HostPool.
+func (o HostPoolOutput) MaxSessionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.IntPtrOutput { return v.MaxSessionLimit }).(pulumi.IntPtrOutput)
+}
+
+// The registration info of HostPool.
+func (o HostPoolOutput) MigrationRequest() MigrationRequestPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *HostPool) MigrationRequestPropertiesResponsePtrOutput { return v.MigrationRequest }).(MigrationRequestPropertiesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o HostPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ObjectId of HostPool. (internal use)
+func (o HostPoolOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// PersonalDesktopAssignment type for HostPool.
+func (o HostPoolOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PersonalDesktopAssignmentType }).(pulumi.StringPtrOutput)
+}
+
+func (o HostPoolOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ApplyT(func(v *HostPool) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+// The type of preferred application group type, default to Desktop Application Group
+func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.PreferredAppGroupType }).(pulumi.StringOutput)
+}
+
+// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+func (o HostPoolOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The registration info of HostPool.
+func (o HostPoolOutput) RegistrationInfo() RegistrationInfoResponsePtrOutput {
+	return o.ApplyT(func(v *HostPool) RegistrationInfoResponsePtrOutput { return v.RegistrationInfo }).(RegistrationInfoResponsePtrOutput)
+}
+
+// The ring number of HostPool.
+func (o HostPoolOutput) Ring() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.IntPtrOutput { return v.Ring }).(pulumi.IntPtrOutput)
+}
+
+func (o HostPoolOutput) Sku() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ApplyT(func(v *HostPool) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput { return v.Sku }).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+// ClientId for the registered Relying Party used to issue WVD SSO certificates.
+func (o HostPoolOutput) SsoClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.SsoClientId }).(pulumi.StringPtrOutput)
+}
+
+// Path to Azure KeyVault storing the secret used for communication to ADFS.
+func (o HostPoolOutput) SsoClientSecretKeyVaultPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.SsoClientSecretKeyVaultPath }).(pulumi.StringPtrOutput)
+}
+
+// The type of single sign on Secret Type.
+func (o HostPoolOutput) SsoSecretType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.SsoSecretType }).(pulumi.StringPtrOutput)
+}
+
+// URL to customer ADFS server for signing WVD SSO certificates.
+func (o HostPoolOutput) SsoadfsAuthority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.SsoadfsAuthority }).(pulumi.StringPtrOutput)
+}
+
+// The flag to turn on/off StartVMOnConnect feature.
+func (o HostPoolOutput) StartVMOnConnect() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.BoolPtrOutput { return v.StartVMOnConnect }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags.
+func (o HostPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o HostPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Is validation environment.
+func (o HostPoolOutput) ValidationEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.BoolPtrOutput { return v.ValidationEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+// VM template for sessionhosts configuration within hostpool.
+func (o HostPoolOutput) VmTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.VmTemplate }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostPoolOutput{})
 }

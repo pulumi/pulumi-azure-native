@@ -55,6 +55,17 @@ type AzureADPartnerClientAuthenticationArgs struct {
 	ClientAuthenticationType pulumi.StringInput `pulumi:"clientAuthenticationType"`
 }
 
+// Defaults sets the appropriate defaults for AzureADPartnerClientAuthenticationArgs
+func (val *AzureADPartnerClientAuthenticationArgs) Defaults() *AzureADPartnerClientAuthenticationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientAuthenticationType) {
+		tmp.ClientAuthenticationType = pulumi.String("AzureAD")
+	}
+	return &tmp
+}
 func (AzureADPartnerClientAuthenticationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureADPartnerClientAuthentication)(nil)).Elem()
 }
@@ -1511,6 +1522,17 @@ type EventChannelFilterArgs struct {
 	EnableAdvancedFilteringOnArrays pulumi.BoolPtrInput `pulumi:"enableAdvancedFilteringOnArrays"`
 }
 
+// Defaults sets the appropriate defaults for EventChannelFilterArgs
+func (val *EventChannelFilterArgs) Defaults() *EventChannelFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableAdvancedFilteringOnArrays) {
+		tmp.EnableAdvancedFilteringOnArrays = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventChannelFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventChannelFilter)(nil)).Elem()
 }
@@ -2026,6 +2048,17 @@ type EventSubscriptionFilterArgs struct {
 	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
 }
 
+// Defaults sets the appropriate defaults for EventSubscriptionFilterArgs
+func (val *EventSubscriptionFilterArgs) Defaults() *EventSubscriptionFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		tmp.IsSubjectCaseSensitive = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionFilter)(nil)).Elem()
 }
@@ -5985,6 +6018,20 @@ type RetryPolicyArgs struct {
 	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
+// Defaults sets the appropriate defaults for RetryPolicyArgs
+func (val *RetryPolicyArgs) Defaults() *RetryPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventTimeToLiveInMinutes) {
+		tmp.EventTimeToLiveInMinutes = pulumi.IntPtr(1440)
+	}
+	if isZero(tmp.MaxDeliveryAttempts) {
+		tmp.MaxDeliveryAttempts = pulumi.IntPtr(30)
+	}
+	return &tmp
+}
 func (RetryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetryPolicy)(nil)).Elem()
 }
@@ -7160,6 +7207,18 @@ type WebhookPartnerDestinationInfoArgs struct {
 	ResourceMoveChangeHistory ResourceMoveChangeHistoryArrayInput `pulumi:"resourceMoveChangeHistory"`
 }
 
+// Defaults sets the appropriate defaults for WebhookPartnerDestinationInfoArgs
+func (val *WebhookPartnerDestinationInfoArgs) Defaults() *WebhookPartnerDestinationInfoArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.EndpointType) {
+		tmp.EndpointType = pulumi.String("WebHook")
+	}
+	return &tmp
+}
 func (WebhookPartnerDestinationInfoArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookPartnerDestinationInfo)(nil)).Elem()
 }

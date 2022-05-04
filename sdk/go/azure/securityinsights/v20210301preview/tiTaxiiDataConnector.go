@@ -241,6 +241,82 @@ func (o TiTaxiiDataConnectorOutput) ToTiTaxiiDataConnectorOutputWithContext(ctx 
 	return o
 }
 
+// The collection id of the TAXII server.
+func (o TiTaxiiDataConnectorOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.CollectionId }).(pulumi.StringPtrOutput)
+}
+
+// The available data types for Threat Intelligence TAXII data connector.
+func (o TiTaxiiDataConnectorOutput) DataTypes() TiTaxiiDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) TiTaxiiDataConnectorDataTypesResponseOutput { return v.DataTypes }).(TiTaxiiDataConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o TiTaxiiDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'ThreatIntelligenceTaxii'.
+func (o TiTaxiiDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o TiTaxiiDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The password for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The polling frequency for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) PollingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringOutput { return v.PollingFrequency }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o TiTaxiiDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The lookback period for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) TaxiiLookbackPeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.TaxiiLookbackPeriod }).(pulumi.StringPtrOutput)
+}
+
+// The API root for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) TaxiiServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.TaxiiServer }).(pulumi.StringPtrOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o TiTaxiiDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o TiTaxiiDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The userName for the TAXII server.
+func (o TiTaxiiDataConnectorOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+// The workspace id.
+func (o TiTaxiiDataConnectorOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TiTaxiiDataConnector) pulumi.StringPtrOutput { return v.WorkspaceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorOutput{})
 }

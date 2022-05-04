@@ -161,6 +161,31 @@ func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The first quality.
+func (o AssetFilterOutput) FirstQuality() FirstQualityResponsePtrOutput {
+	return o.ApplyT(func(v *AssetFilter) FirstQualityResponsePtrOutput { return v.FirstQuality }).(FirstQualityResponsePtrOutput)
+}
+
+// The name of the resource.
+func (o AssetFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The presentation time range.
+func (o AssetFilterOutput) PresentationTimeRange() PresentationTimeRangeResponsePtrOutput {
+	return o.ApplyT(func(v *AssetFilter) PresentationTimeRangeResponsePtrOutput { return v.PresentationTimeRange }).(PresentationTimeRangeResponsePtrOutput)
+}
+
+// The tracks selection conditions.
+func (o AssetFilterOutput) Tracks() FilterTrackSelectionResponseArrayOutput {
+	return o.ApplyT(func(v *AssetFilter) FilterTrackSelectionResponseArrayOutput { return v.Tracks }).(FilterTrackSelectionResponseArrayOutput)
+}
+
+// The type of the resource.
+func (o AssetFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssetFilter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssetFilterOutput{})
 }

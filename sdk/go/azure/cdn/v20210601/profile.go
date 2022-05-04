@@ -193,6 +193,61 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// The Id of the frontdoor.
+func (o ProfileOutput) FrontDoorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.FrontDoorId }).(pulumi.StringOutput)
+}
+
+// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+func (o ProfileOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ProfileOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+func (o ProfileOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.IntPtrOutput { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Provisioning status of the profile.
+func (o ProfileOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the profile.
+func (o ProfileOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
+func (o ProfileOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Profile) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Read only system data
+func (o ProfileOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Profile) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileOutput{})
 }

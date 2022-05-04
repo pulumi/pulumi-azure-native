@@ -153,6 +153,26 @@ func (o CapabilityOutput) ToCapabilityOutputWithContext(ctx context.Context) Cap
 	return o
 }
 
+// The name of the resource
+func (o CapabilityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a capability resource.
+func (o CapabilityOutput) Properties() CapabilityPropertiesResponseOutput {
+	return o.ApplyT(func(v *Capability) CapabilityPropertiesResponseOutput { return v.Properties }).(CapabilityPropertiesResponseOutput)
+}
+
+// The standard system metadata of a resource type.
+func (o CapabilityOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Capability) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CapabilityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CapabilityOutput{})
 }

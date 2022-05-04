@@ -293,6 +293,61 @@ func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
+// Gets or sets Default security rules of network security group
+func (o NetworkSecurityGroupOutput) DefaultSecurityRules() SecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SecurityRuleResponseArrayOutput { return v.DefaultSecurityRules }).(SecurityRuleResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o NetworkSecurityGroupOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o NetworkSecurityGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o NetworkSecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets collection of references to Network Interfaces
+func (o NetworkSecurityGroupOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o NetworkSecurityGroupOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource GUID property of the network security group resource
+func (o NetworkSecurityGroupOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets Security rules of network security group
+func (o NetworkSecurityGroupOutput) SecurityRules() SecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SecurityRuleResponseArrayOutput { return v.SecurityRules }).(SecurityRuleResponseArrayOutput)
+}
+
+// Gets collection of references to subnets
+func (o NetworkSecurityGroupOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags
+func (o NetworkSecurityGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NetworkSecurityGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
 }

@@ -180,6 +180,51 @@ func (o ImportPipelineOutput) ToImportPipelineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The identity of the import pipeline.
+func (o ImportPipelineOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ImportPipeline) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the import pipeline.
+func (o ImportPipelineOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportPipeline) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ImportPipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImportPipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of all options configured for the pipeline.
+func (o ImportPipelineOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImportPipeline) pulumi.StringArrayOutput { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state of the pipeline at the time the operation was called.
+func (o ImportPipelineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImportPipeline) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The source properties of the import pipeline.
+func (o ImportPipelineOutput) Source() ImportPipelineSourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *ImportPipeline) ImportPipelineSourcePropertiesResponseOutput { return v.Source }).(ImportPipelineSourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ImportPipelineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ImportPipeline) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The properties that describe the trigger of the import pipeline.
+func (o ImportPipelineOutput) Trigger() PipelineTriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ImportPipeline) PipelineTriggerPropertiesResponsePtrOutput { return v.Trigger }).(PipelineTriggerPropertiesResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o ImportPipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImportPipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ImportPipelineOutput{})
 }

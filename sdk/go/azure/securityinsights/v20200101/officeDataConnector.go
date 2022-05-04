@@ -175,6 +175,37 @@ func (o OfficeDataConnectorOutput) ToOfficeDataConnectorOutputWithContext(ctx co
 	return o
 }
 
+// The available data types for the connector.
+func (o OfficeDataConnectorOutput) DataTypes() OfficeDataConnectorDataTypesResponsePtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) OfficeDataConnectorDataTypesResponsePtrOutput { return v.DataTypes }).(OfficeDataConnectorDataTypesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o OfficeDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'Office365'.
+func (o OfficeDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o OfficeDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o OfficeDataConnectorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o OfficeDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OfficeDataConnectorOutput{})
 }

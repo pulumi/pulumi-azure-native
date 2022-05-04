@@ -221,6 +221,51 @@ func (o SiteBackupConfigurationSlotOutput) ToSiteBackupConfigurationSlotOutputWi
 	return o
 }
 
+// Schedule for the backup if it is executed periodically
+func (o SiteBackupConfigurationSlotOutput) BackupSchedule() BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) BackupScheduleResponsePtrOutput { return v.BackupSchedule }).(BackupScheduleResponsePtrOutput)
+}
+
+// Databases included in the backup
+func (o SiteBackupConfigurationSlotOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) DatabaseBackupSettingResponseArrayOutput { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+func (o SiteBackupConfigurationSlotOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource
+func (o SiteBackupConfigurationSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteBackupConfigurationSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteBackupConfigurationSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to the container
+func (o SiteBackupConfigurationSlotOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringPtrOutput { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteBackupConfigurationSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteBackupConfigurationSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteBackupConfigurationSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteBackupConfigurationSlotOutput{})
 }

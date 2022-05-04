@@ -224,6 +224,131 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
+// Type of compute roles configured.
+func (o DeviceOutput) ConfiguredRoleTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringArrayOutput { return v.ConfiguredRoleTypes }).(pulumi.StringArrayOutput)
+}
+
+// The Data Box Edge/Gateway device culture.
+func (o DeviceOutput) Culture() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Culture }).(pulumi.StringOutput)
+}
+
+// The status of the Data Box Edge/Gateway device.
+func (o DeviceOutput) DataBoxEdgeDeviceStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.DataBoxEdgeDeviceStatus }).(pulumi.StringPtrOutput)
+}
+
+// The Description of the Data Box Edge/Gateway device.
+func (o DeviceOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The device software version number of the device (eg: 1.2.18105.6).
+func (o DeviceOutput) DeviceHcsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceHcsVersion }).(pulumi.StringOutput)
+}
+
+// The Data Box Edge/Gateway device local capacity in MB.
+func (o DeviceOutput) DeviceLocalCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v *Device) pulumi.Float64Output { return v.DeviceLocalCapacity }).(pulumi.Float64Output)
+}
+
+// The Data Box Edge/Gateway device model.
+func (o DeviceOutput) DeviceModel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceModel }).(pulumi.StringOutput)
+}
+
+// The Data Box Edge/Gateway device software version.
+func (o DeviceOutput) DeviceSoftwareVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceSoftwareVersion }).(pulumi.StringOutput)
+}
+
+// The type of the Data Box Edge/Gateway device.
+func (o DeviceOutput) DeviceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceType }).(pulumi.StringOutput)
+}
+
+// The details of Edge Profile for this resource
+func (o DeviceOutput) EdgeProfile() EdgeProfileResponseOutput {
+	return o.ApplyT(func(v *Device) EdgeProfileResponseOutput { return v.EdgeProfile }).(EdgeProfileResponseOutput)
+}
+
+// The etag for the devices.
+func (o DeviceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Data Box Edge/Gateway device name.
+func (o DeviceOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// Msi identity of the resource
+func (o DeviceOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Device) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The etag for the devices.
+func (o DeviceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+func (o DeviceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The description of the Data Box Edge/Gateway device model.
+func (o DeviceOutput) ModelDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.ModelDescription }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o DeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of nodes in the cluster.
+func (o DeviceOutput) NodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Device) pulumi.IntOutput { return v.NodeCount }).(pulumi.IntOutput)
+}
+
+// The details of the move operation on this resource.
+func (o DeviceOutput) ResourceMoveDetails() ResourceMoveDetailsResponseOutput {
+	return o.ApplyT(func(v *Device) ResourceMoveDetailsResponseOutput { return v.ResourceMoveDetails }).(ResourceMoveDetailsResponseOutput)
+}
+
+// The Serial Number of Data Box Edge/Gateway device.
+func (o DeviceOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// The SKU type.
+func (o DeviceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Device) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// DataBoxEdge Resource
+func (o DeviceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Device) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+func (o DeviceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Data Box Edge/Gateway device timezone.
+func (o DeviceOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o DeviceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeviceOutput{})
 }

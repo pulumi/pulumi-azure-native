@@ -219,6 +219,111 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// App id of cluster AAD identity.
+func (o ClusterOutput) AadClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AadClientId }).(pulumi.StringOutput)
+}
+
+// Tenant id of cluster AAD identity.
+func (o ClusterOutput) AadTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AadTenantId }).(pulumi.StringOutput)
+}
+
+// Type of billing applied to the resource.
+func (o ClusterOutput) BillingModel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.BillingModel }).(pulumi.StringOutput)
+}
+
+// Unique, immutable resource id.
+func (o ClusterOutput) CloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CloudId }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o ClusterOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o ClusterOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o ClusterOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// Most recent billing meter timestamp.
+func (o ClusterOutput) LastBillingTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.LastBillingTimestamp }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o ClusterOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o ClusterOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ClusterOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// Most recent cluster sync timestamp.
+func (o ClusterOutput) LastSyncTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.LastSyncTimestamp }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// First cluster sync timestamp.
+func (o ClusterOutput) RegistrationTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RegistrationTimestamp }).(pulumi.StringOutput)
+}
+
+// Properties reported by cluster agent.
+func (o ClusterOutput) ReportedProperties() ClusterReportedPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterReportedPropertiesResponsePtrOutput { return v.ReportedProperties }).(ClusterReportedPropertiesResponsePtrOutput)
+}
+
+// Status of the cluster agent.
+func (o ClusterOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Number of days remaining in the trial period.
+func (o ClusterOutput) TrialDaysRemaining() pulumi.Float64Output {
+	return o.ApplyT(func(v *Cluster) pulumi.Float64Output { return v.TrialDaysRemaining }).(pulumi.Float64Output)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

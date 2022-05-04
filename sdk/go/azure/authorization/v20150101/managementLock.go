@@ -139,6 +139,26 @@ func (o ManagementLockOutput) ToManagementLockOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The lock level of the management lock.
+func (o ManagementLockOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLock) pulumi.StringPtrOutput { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// The name of the lock.
+func (o ManagementLockOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLock) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The notes of the management lock.
+func (o ManagementLockOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLock) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The type of the lock.
+func (o ManagementLockOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLock) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementLockOutput{})
 }

@@ -156,6 +156,41 @@ func (o RegisteredPrefixOutput) ToRegisteredPrefixOutputWithContext(ctx context.
 	return o
 }
 
+// The error message associated with the validation state, if any.
+func (o RegisteredPrefixOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o RegisteredPrefixOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The peering service prefix key that is to be shared with the customer.
+func (o RegisteredPrefixOutput) PeeringServicePrefixKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.PeeringServicePrefixKey }).(pulumi.StringOutput)
+}
+
+// The customer's prefix from which traffic originates.
+func (o RegisteredPrefixOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The prefix validation state.
+func (o RegisteredPrefixOutput) PrefixValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.PrefixValidationState }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o RegisteredPrefixOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o RegisteredPrefixOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredPrefix) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegisteredPrefixOutput{})
 }

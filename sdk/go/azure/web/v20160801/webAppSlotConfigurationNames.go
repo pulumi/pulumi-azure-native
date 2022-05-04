@@ -177,6 +177,31 @@ func (o WebAppSlotConfigurationNamesOutput) ToWebAppSlotConfigurationNamesOutput
 	return o
 }
 
+// List of application settings names.
+func (o WebAppSlotConfigurationNamesOutput) AppSettingNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppSlotConfigurationNames) pulumi.StringArrayOutput { return v.AppSettingNames }).(pulumi.StringArrayOutput)
+}
+
+// List of connection string names.
+func (o WebAppSlotConfigurationNamesOutput) ConnectionStringNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppSlotConfigurationNames) pulumi.StringArrayOutput { return v.ConnectionStringNames }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o WebAppSlotConfigurationNamesOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSlotConfigurationNames) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSlotConfigurationNamesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSlotConfigurationNames) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppSlotConfigurationNamesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSlotConfigurationNames) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSlotConfigurationNamesOutput{})
 }

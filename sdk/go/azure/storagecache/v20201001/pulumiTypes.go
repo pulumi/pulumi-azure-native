@@ -683,6 +683,15 @@ type CacheDirectorySettingsArgs struct {
 	UsernameDownload CacheUsernameDownloadSettingsPtrInput `pulumi:"usernameDownload"`
 }
 
+// Defaults sets the appropriate defaults for CacheDirectorySettingsArgs
+func (val *CacheDirectorySettingsArgs) Defaults() *CacheDirectorySettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (CacheDirectorySettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheDirectorySettings)(nil)).Elem()
 }
@@ -1408,6 +1417,17 @@ type CacheNetworkSettingsArgs struct {
 	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
 }
 
+// Defaults sets the appropriate defaults for CacheNetworkSettingsArgs
+func (val *CacheNetworkSettingsArgs) Defaults() *CacheNetworkSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		tmp.Mtu = pulumi.IntPtr(1500)
+	}
+	return &tmp
+}
 func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheNetworkSettings)(nil)).Elem()
 }
@@ -2219,6 +2239,17 @@ type CacheUsernameDownloadSettingsArgs struct {
 	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
 }
 
+// Defaults sets the appropriate defaults for CacheUsernameDownloadSettingsArgs
+func (val *CacheUsernameDownloadSettingsArgs) Defaults() *CacheUsernameDownloadSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		tmp.UsernameSource = pulumi.StringPtr("None")
+	}
+	return &tmp
+}
 func (CacheUsernameDownloadSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheUsernameDownloadSettings)(nil)).Elem()
 }
@@ -4280,6 +4311,20 @@ type NfsAccessRuleArgs struct {
 	Suid pulumi.BoolPtrInput `pulumi:"suid"`
 }
 
+// Defaults sets the appropriate defaults for NfsAccessRuleArgs
+func (val *NfsAccessRuleArgs) Defaults() *NfsAccessRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousGID) {
+		tmp.AnonymousGID = pulumi.StringPtr("-2")
+	}
+	if isZero(tmp.AnonymousUID) {
+		tmp.AnonymousUID = pulumi.StringPtr("-2")
+	}
+	return &tmp
+}
 func (NfsAccessRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NfsAccessRule)(nil)).Elem()
 }

@@ -145,6 +145,41 @@ func (o HybridIdentityMetadatumOutput) ToHybridIdentityMetadatumOutputWithContex
 	return o
 }
 
+// The identity of the resource.
+func (o HybridIdentityMetadatumOutput) Identity() IdentityResponseOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) IdentityResponseOutput { return v.Identity }).(IdentityResponseOutput)
+}
+
+// The name of the resource
+func (o HybridIdentityMetadatumOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o HybridIdentityMetadatumOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the Public Key.
+func (o HybridIdentityMetadatumOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// The system data.
+func (o HybridIdentityMetadatumOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o HybridIdentityMetadatumOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the Vm Id.
+func (o HybridIdentityMetadatumOutput) VmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridIdentityMetadatum) pulumi.StringPtrOutput { return v.VmId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridIdentityMetadatumOutput{})
 }

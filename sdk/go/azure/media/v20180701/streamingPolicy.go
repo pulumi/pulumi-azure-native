@@ -174,6 +174,46 @@ func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
+// Configuration of CommonEncryptionCbcs
+func (o StreamingPolicyOutput) CommonEncryptionCbcs() CommonEncryptionCbcsResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingPolicy) CommonEncryptionCbcsResponsePtrOutput { return v.CommonEncryptionCbcs }).(CommonEncryptionCbcsResponsePtrOutput)
+}
+
+// Configuration of CommonEncryptionCenc
+func (o StreamingPolicyOutput) CommonEncryptionCenc() CommonEncryptionCencResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingPolicy) CommonEncryptionCencResponsePtrOutput { return v.CommonEncryptionCenc }).(CommonEncryptionCencResponsePtrOutput)
+}
+
+// Creation time of Streaming Policy
+func (o StreamingPolicyOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingPolicy) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Default ContentKey used by current Streaming Policy
+func (o StreamingPolicyOutput) DefaultContentKeyPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingPolicy) pulumi.StringPtrOutput { return v.DefaultContentKeyPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of EnvelopeEncryption
+func (o StreamingPolicyOutput) EnvelopeEncryption() EnvelopeEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingPolicy) EnvelopeEncryptionResponsePtrOutput { return v.EnvelopeEncryption }).(EnvelopeEncryptionResponsePtrOutput)
+}
+
+// The name of the resource.
+func (o StreamingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configurations of NoEncryption
+func (o StreamingPolicyOutput) NoEncryption() NoEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *StreamingPolicy) NoEncryptionResponsePtrOutput { return v.NoEncryption }).(NoEncryptionResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o StreamingPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamingPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamingPolicyOutput{})
 }

@@ -157,6 +157,61 @@ func (o CommunicationServiceOutput) ToCommunicationServiceOutputWithContext(ctx 
 	return o
 }
 
+// The location where the communication service stores its data at rest.
+func (o CommunicationServiceOutput) DataLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.DataLocation }).(pulumi.StringOutput)
+}
+
+// FQDN of the CommunicationService instance.
+func (o CommunicationServiceOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The immutable resource Id of the communication service.
+func (o CommunicationServiceOutput) ImmutableResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.ImmutableResourceId }).(pulumi.StringOutput)
+}
+
+// The Azure location where the CommunicationService is running.
+func (o CommunicationServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o CommunicationServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource ID of an Azure Notification Hub linked to this resource.
+func (o CommunicationServiceOutput) NotificationHubId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.NotificationHubId }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o CommunicationServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o CommunicationServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CommunicationService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o CommunicationServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CommunicationServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
+func (o CommunicationServiceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommunicationService) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommunicationServiceOutput{})
 }

@@ -134,6 +134,26 @@ func (o EdgeModuleOutput) ToEdgeModuleOutputWithContext(ctx context.Context) Edg
 	return o
 }
 
+// Internal ID generated for the instance of the Video Analyzer edge module.
+func (o EdgeModuleOutput) EdgeModuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EdgeModule) pulumi.StringOutput { return v.EdgeModuleId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o EdgeModuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EdgeModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EdgeModuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EdgeModule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EdgeModuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EdgeModule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EdgeModuleOutput{})
 }

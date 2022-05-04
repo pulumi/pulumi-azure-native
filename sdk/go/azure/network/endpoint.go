@@ -243,6 +243,81 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// List of custom headers.
+func (o EndpointOutput) CustomHeaders() EndpointPropertiesResponseCustomHeadersArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPropertiesResponseCustomHeadersArrayOutput { return v.CustomHeaders }).(EndpointPropertiesResponseCustomHeadersArrayOutput)
+}
+
+// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+func (o EndpointOutput) EndpointLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointLocation }).(pulumi.StringPtrOutput)
+}
+
+// The monitoring status of the endpoint.
+func (o EndpointOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+func (o EndpointOutput) EndpointStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointStatus }).(pulumi.StringPtrOutput)
+}
+
+// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+func (o EndpointOutput) GeoMapping() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.GeoMapping }).(pulumi.StringArrayOutput)
+}
+
+// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointOutput) MinChildEndpointsIPv4() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.MinChildEndpointsIPv4 }).(pulumi.Float64PtrOutput)
+}
+
+// The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointOutput) MinChildEndpointsIPv6() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.MinChildEndpointsIPv6 }).(pulumi.Float64PtrOutput)
+}
+
+// The name of the resource
+func (o EndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+func (o EndpointOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+func (o EndpointOutput) Subnets() EndpointPropertiesResponseSubnetsArrayOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPropertiesResponseSubnetsArrayOutput { return v.Subnets }).(EndpointPropertiesResponseSubnetsArrayOutput)
+}
+
+// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+func (o EndpointOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+func (o EndpointOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+func (o EndpointOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+func (o EndpointOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointOutput{})
 }

@@ -128,6 +128,26 @@ func (o AssociationOutput) ToAssociationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The association name.
+func (o AssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the association.
+func (o AssociationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The REST resource instance of the target resource for this association.
+func (o AssociationOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The association type.
+func (o AssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssociationOutput{})
 }

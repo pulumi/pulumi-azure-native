@@ -151,6 +151,21 @@ func (o CassandraDataCenterOutput) ToCassandraDataCenterOutputWithContext(ctx co
 	return o
 }
 
+// The name of the database account.
+func (o CassandraDataCenterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CassandraDataCenter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a managed Cassandra data center.
+func (o CassandraDataCenterOutput) Properties() DataCenterResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *CassandraDataCenter) DataCenterResourceResponsePropertiesOutput { return v.Properties }).(DataCenterResourceResponsePropertiesOutput)
+}
+
+// The type of Azure resource.
+func (o CassandraDataCenterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CassandraDataCenter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CassandraDataCenterOutput{})
 }

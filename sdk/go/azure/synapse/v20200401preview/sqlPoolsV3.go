@@ -198,6 +198,76 @@ func (o SqlPoolsV3Output) ToSqlPoolsV3OutputWithContext(ctx context.Context) Sql
 	return o
 }
 
+// The period of inactivity in minutes before automatically pausing the sql pool.
+func (o SqlPoolsV3Output) AutoPauseTimer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.IntPtrOutput { return v.AutoPauseTimer }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the sql pool can automatically resume when connection attempts are made.
+func (o SqlPoolsV3Output) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.BoolPtrOutput { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+// The current service level objective name of the sql pool.
+func (o SqlPoolsV3Output) CurrentServiceObjectiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.CurrentServiceObjectiveName }).(pulumi.StringOutput)
+}
+
+// Kind of SqlPool.
+func (o SqlPoolsV3Output) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o SqlPoolsV3Output) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max service level objective name of the sql pool.
+func (o SqlPoolsV3Output) MaxServiceObjectiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringPtrOutput { return v.MaxServiceObjectiveName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o SqlPoolsV3Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The requested service level objective name of the sql pool.
+func (o SqlPoolsV3Output) RequestedServiceObjectiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.RequestedServiceObjectiveName }).(pulumi.StringOutput)
+}
+
+// The sql pool SKU. The list of SKUs may vary by region and support offer.
+func (o SqlPoolsV3Output) Sku() SkuV3ResponsePtrOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) SkuV3ResponsePtrOutput { return v.Sku }).(SkuV3ResponsePtrOutput)
+}
+
+// The Guid of the sql pool.
+func (o SqlPoolsV3Output) SqlPoolGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.SqlPoolGuid }).(pulumi.StringOutput)
+}
+
+// The status of the sql pool.
+func (o SqlPoolsV3Output) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// SystemData of SqlPool.
+func (o SqlPoolsV3Output) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlPoolsV3Output) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlPoolsV3Output) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolsV3) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolsV3Output{})
 }

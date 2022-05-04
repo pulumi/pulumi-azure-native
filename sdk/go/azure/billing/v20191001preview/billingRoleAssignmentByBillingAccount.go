@@ -160,6 +160,68 @@ func (o BillingRoleAssignmentByBillingAccountOutput) ToBillingRoleAssignmentByBi
 	return o
 }
 
+// The principal Id of the user who created the role assignment.
+func (o BillingRoleAssignmentByBillingAccountOutput) CreatedByPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.CreatedByPrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant Id of the user who created the role assignment.
+func (o BillingRoleAssignmentByBillingAccountOutput) CreatedByPrincipalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput {
+		return v.CreatedByPrincipalTenantId
+	}).(pulumi.StringOutput)
+}
+
+// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByBillingAccountOutput) CreatedByUserEmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.CreatedByUserEmailAddress }).(pulumi.StringOutput)
+}
+
+// The date the role assignment was created.
+func (o BillingRoleAssignmentByBillingAccountOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o BillingRoleAssignmentByBillingAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal id of the user to whom the role was assigned.
+func (o BillingRoleAssignmentByBillingAccountOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringPtrOutput { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The principal tenant id of the user to whom the role was assigned.
+func (o BillingRoleAssignmentByBillingAccountOutput) PrincipalTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringPtrOutput { return v.PrincipalTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the role definition.
+func (o BillingRoleAssignmentByBillingAccountOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringPtrOutput { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope at which the role was assigned.
+func (o BillingRoleAssignmentByBillingAccountOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o BillingRoleAssignmentByBillingAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByBillingAccountOutput) UserAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringPtrOutput { return v.UserAuthenticationType }).(pulumi.StringPtrOutput)
+}
+
+// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByBillingAccountOutput) UserEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByBillingAccount) pulumi.StringPtrOutput { return v.UserEmailAddress }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BillingRoleAssignmentByBillingAccountOutput{})
 }

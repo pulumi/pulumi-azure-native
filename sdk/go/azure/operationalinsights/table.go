@@ -174,6 +174,71 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+// The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
+func (o TableOutput) ArchiveRetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntOutput { return v.ArchiveRetentionInDays }).(pulumi.IntOutput)
+}
+
+// The timestamp that table plan was last modified (UTC).
+func (o TableOutput) LastPlanModifiedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.LastPlanModifiedDate }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o TableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Instruct the system how to handle and charge the logs ingested to this table.
+func (o TableOutput) Plan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Plan }).(pulumi.StringPtrOutput)
+}
+
+// Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
+func (o TableOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Parameters of the restore operation that initiated this table.
+func (o TableOutput) RestoredLogs() RestoredLogsResponsePtrOutput {
+	return o.ApplyT(func(v *Table) RestoredLogsResponsePtrOutput { return v.RestoredLogs }).(RestoredLogsResponsePtrOutput)
+}
+
+// Search job execution statistics.
+func (o TableOutput) ResultStatistics() ResultStatisticsResponsePtrOutput {
+	return o.ApplyT(func(v *Table) ResultStatisticsResponsePtrOutput { return v.ResultStatistics }).(ResultStatisticsResponsePtrOutput)
+}
+
+// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
+func (o TableOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Table schema.
+func (o TableOutput) Schema() SchemaResponsePtrOutput {
+	return o.ApplyT(func(v *Table) SchemaResponsePtrOutput { return v.Schema }).(SchemaResponsePtrOutput)
+}
+
+// Parameters of the search job that initiated this table.
+func (o TableOutput) SearchResults() SearchResultsResponsePtrOutput {
+	return o.ApplyT(func(v *Table) SearchResultsResponsePtrOutput { return v.SearchResults }).(SearchResultsResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o TableOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Table) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
+func (o TableOutput) TotalRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.TotalRetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TableOutput{})
 }

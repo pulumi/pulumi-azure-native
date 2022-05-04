@@ -187,6 +187,68 @@ func (o MapOutput) ToMapOutputWithContext(ctx context.Context) MapOutput {
 	return o
 }
 
+// The changed time.
+func (o MapOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o MapOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The content link.
+func (o MapOutput) ContentLink() ContentLinkResponseOutput {
+	return o.ApplyT(func(v *Map) ContentLinkResponseOutput { return v.ContentLink }).(ContentLinkResponseOutput)
+}
+
+// The content type.
+func (o MapOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o MapOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o MapOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The map type.
+func (o MapOutput) MapType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.MapType }).(pulumi.StringOutput)
+}
+
+// The metadata.
+func (o MapOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Map) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o MapOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameters schema of integration account map.
+func (o MapOutput) ParametersSchema() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ApplyT(func(v *Map) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+		return v.ParametersSchema
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
+}
+
+// The resource tags.
+func (o MapOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o MapOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MapOutput{})
 }

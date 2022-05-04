@@ -208,6 +208,61 @@ func (o DatabaseSecurityAlertPolicyOutput) ToDatabaseSecurityAlertPolicyOutputWi
 	return o
 }
 
+// Specifies the UTC creation time of the policy.
+func (o DatabaseSecurityAlertPolicyOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
+func (o DatabaseSecurityAlertPolicyOutput) DisabledAlerts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringArrayOutput { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
+}
+
+// Specifies that the alert is sent to the account administrators.
+func (o DatabaseSecurityAlertPolicyOutput) EmailAccountAdmins() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.EmailAccountAdmins }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an array of e-mail addresses to which the alert is sent.
+func (o DatabaseSecurityAlertPolicyOutput) EmailAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o DatabaseSecurityAlertPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o DatabaseSecurityAlertPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database.
+func (o DatabaseSecurityAlertPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier key of the Threat Detection audit storage account.
+func (o DatabaseSecurityAlertPolicyOutput) StorageAccountAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageAccountAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
+func (o DatabaseSecurityAlertPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// SystemData of SecurityAlertPolicyResource.
+func (o DatabaseSecurityAlertPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o DatabaseSecurityAlertPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseSecurityAlertPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseSecurityAlertPolicyOutput{})
 }

@@ -156,6 +156,41 @@ func (o DiskAccessOutput) ToDiskAccessOutputWithContext(ctx context.Context) Dis
 	return o
 }
 
+// Resource location
+func (o DiskAccessOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DiskAccessOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+func (o DiskAccessOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *DiskAccess) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The disk access resource provisioning state.
+func (o DiskAccessOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o DiskAccessOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the disk access was created.
+func (o DiskAccessOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o DiskAccessOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskAccess) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskAccessOutput{})
 }

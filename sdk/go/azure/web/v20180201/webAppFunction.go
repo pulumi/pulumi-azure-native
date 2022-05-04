@@ -244,6 +244,86 @@ func (o WebAppFunctionOutput) ToWebAppFunctionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Config information.
+func (o WebAppFunctionOutput) Config() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.AnyOutput { return v.Config }).(pulumi.AnyOutput)
+}
+
+// Config URI.
+func (o WebAppFunctionOutput) ConfigHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ConfigHref }).(pulumi.StringPtrOutput)
+}
+
+// File list.
+func (o WebAppFunctionOutput) Files() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringMapOutput { return v.Files }).(pulumi.StringMapOutput)
+}
+
+// Function App ID.
+func (o WebAppFunctionOutput) FunctionAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.FunctionAppId }).(pulumi.StringPtrOutput)
+}
+
+// Function URI.
+func (o WebAppFunctionOutput) Href() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.Href }).(pulumi.StringPtrOutput)
+}
+
+// The invocation URL
+func (o WebAppFunctionOutput) InvokeUrlTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.InvokeUrlTemplate }).(pulumi.StringPtrOutput)
+}
+
+// Value indicating whether the function is disabled
+func (o WebAppFunctionOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.BoolPtrOutput { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppFunctionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The function language
+func (o WebAppFunctionOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Script URI.
+func (o WebAppFunctionOutput) ScriptHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ScriptHref }).(pulumi.StringPtrOutput)
+}
+
+// Script root path URI.
+func (o WebAppFunctionOutput) ScriptRootPathHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ScriptRootPathHref }).(pulumi.StringPtrOutput)
+}
+
+// Secrets file URI.
+func (o WebAppFunctionOutput) SecretsFileHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.SecretsFileHref }).(pulumi.StringPtrOutput)
+}
+
+// Test data used when testing via the Azure Portal.
+func (o WebAppFunctionOutput) TestData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.TestData }).(pulumi.StringPtrOutput)
+}
+
+// Test data URI.
+func (o WebAppFunctionOutput) TestDataHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.TestDataHref }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppFunctionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppFunctionOutput{})
 }

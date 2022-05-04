@@ -141,6 +141,26 @@ func (o MoveResourceOutput) ToMoveResourceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The name of the resource
+func (o MoveResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MoveResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the move resource properties.
+func (o MoveResourceOutput) Properties() MoveResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *MoveResource) MoveResourcePropertiesResponseOutput { return v.Properties }).(MoveResourcePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MoveResourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MoveResource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o MoveResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MoveResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MoveResourceOutput{})
 }

@@ -177,6 +177,66 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// The immutable id of the team account which contains this project.
+func (o ProjectOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The creation date of the project in ISO8601 format.
+func (o ProjectOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of this project.
+func (o ProjectOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for this project.
+func (o ProjectOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// The reference to git repo for this project.
+func (o ProjectOutput) Gitrepo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Gitrepo }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o ProjectOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The immutable id of this project.
+func (o ProjectOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
+func (o ProjectOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ProjectOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The immutable id of the workspace which contains this project.
+func (o ProjectOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

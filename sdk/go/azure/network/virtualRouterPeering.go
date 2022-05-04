@@ -197,6 +197,36 @@ func (o VirtualRouterPeeringOutput) ToVirtualRouterPeeringOutputWithContext(ctx 
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualRouterPeeringOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the virtual router peering that is unique within a virtual router.
+func (o VirtualRouterPeeringOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Peer ASN.
+func (o VirtualRouterPeeringOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.Float64PtrOutput { return v.PeerAsn }).(pulumi.Float64PtrOutput)
+}
+
+// Peer IP.
+func (o VirtualRouterPeeringOutput) PeerIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.StringPtrOutput { return v.PeerIp }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualRouterPeeringOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Peering type.
+func (o VirtualRouterPeeringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouterPeering) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualRouterPeeringOutput{})
 }

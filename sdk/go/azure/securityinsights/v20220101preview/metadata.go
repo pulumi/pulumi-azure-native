@@ -263,6 +263,121 @@ func (o MetadataOutput) ToMetadataOutputWithContext(ctx context.Context) Metadat
 	return o
 }
 
+// The creator of the content item.
+func (o MetadataOutput) Author() MetadataAuthorResponsePtrOutput {
+	return o.ApplyT(func(v *Metadata) MetadataAuthorResponsePtrOutput { return v.Author }).(MetadataAuthorResponsePtrOutput)
+}
+
+// Categories for the solution content item
+func (o MetadataOutput) Categories() MetadataCategoriesResponsePtrOutput {
+	return o.ApplyT(func(v *Metadata) MetadataCategoriesResponsePtrOutput { return v.Categories }).(MetadataCategoriesResponsePtrOutput)
+}
+
+// Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
+func (o MetadataOutput) ContentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.ContentId }).(pulumi.StringPtrOutput)
+}
+
+// Schema version of the content. Can be used to distinguish between different flow based on the schema version
+func (o MetadataOutput) ContentSchemaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.ContentSchemaVersion }).(pulumi.StringPtrOutput)
+}
+
+// The custom version of the content. A optional free text
+func (o MetadataOutput) CustomVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.CustomVersion }).(pulumi.StringPtrOutput)
+}
+
+// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
+func (o MetadataOutput) Dependencies() MetadataDependenciesResponsePtrOutput {
+	return o.ApplyT(func(v *Metadata) MetadataDependenciesResponsePtrOutput { return v.Dependencies }).(MetadataDependenciesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o MetadataOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// first publish date solution content item
+func (o MetadataOutput) FirstPublishDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.FirstPublishDate }).(pulumi.StringPtrOutput)
+}
+
+// the icon identifier. this id can later be fetched from the solution template
+func (o MetadataOutput) Icon() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.Icon }).(pulumi.StringPtrOutput)
+}
+
+// The kind of content the metadata is for.
+func (o MetadataOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// last publish date for the solution content item
+func (o MetadataOutput) LastPublishDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.LastPublishDate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o MetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
+func (o MetadataOutput) ParentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringOutput { return v.ParentId }).(pulumi.StringOutput)
+}
+
+// preview image file names. These will be taken from the solution artifacts
+func (o MetadataOutput) PreviewImages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.PreviewImages }).(pulumi.StringArrayOutput)
+}
+
+// preview image file names. These will be taken from the solution artifacts. used for dark theme support
+func (o MetadataOutput) PreviewImagesDark() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.PreviewImagesDark }).(pulumi.StringArrayOutput)
+}
+
+// Providers for the solution content item
+func (o MetadataOutput) Providers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.Providers }).(pulumi.StringArrayOutput)
+}
+
+// Source of the content.  This is where/how it was created.
+func (o MetadataOutput) Source() MetadataSourceResponsePtrOutput {
+	return o.ApplyT(func(v *Metadata) MetadataSourceResponsePtrOutput { return v.Source }).(MetadataSourceResponsePtrOutput)
+}
+
+// Support information for the metadata - type, name, contact information
+func (o MetadataOutput) Support() MetadataSupportResponsePtrOutput {
+	return o.ApplyT(func(v *Metadata) MetadataSupportResponsePtrOutput { return v.Support }).(MetadataSupportResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o MetadataOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Metadata) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// the tactics the resource covers
+func (o MetadataOutput) ThreatAnalysisTactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.ThreatAnalysisTactics }).(pulumi.StringArrayOutput)
+}
+
+// the techniques the resource covers, these have to be aligned with the tactics being used
+func (o MetadataOutput) ThreatAnalysisTechniques() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringArrayOutput { return v.ThreatAnalysisTechniques }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MetadataOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
+func (o MetadataOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Metadata) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetadataOutput{})
 }

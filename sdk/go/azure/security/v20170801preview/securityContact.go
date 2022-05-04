@@ -149,6 +149,36 @@ func (o SecurityContactOutput) ToSecurityContactOutputWithContext(ctx context.Co
 	return o
 }
 
+// Whether to send security alerts notifications to the security contact
+func (o SecurityContactOutput) AlertNotifications() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.AlertNotifications }).(pulumi.StringOutput)
+}
+
+// Whether to send security alerts notifications to subscription admins
+func (o SecurityContactOutput) AlertsToAdmins() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.AlertsToAdmins }).(pulumi.StringOutput)
+}
+
+// The email of this security contact
+func (o SecurityContactOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SecurityContactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The phone number of this security contact
+func (o SecurityContactOutput) Phone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringPtrOutput { return v.Phone }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o SecurityContactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityContact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityContactOutput{})
 }

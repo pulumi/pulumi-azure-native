@@ -143,6 +143,41 @@ func (o InstanceDetailsOutput) ToInstanceDetailsOutputWithContext(ctx context.Co
 	return o
 }
 
+// A collection of DFP instance administrators
+func (o InstanceDetailsOutput) Administration() DFPInstanceAdministratorsResponsePtrOutput {
+	return o.ApplyT(func(v *InstanceDetails) DFPInstanceAdministratorsResponsePtrOutput { return v.Administration }).(DFPInstanceAdministratorsResponsePtrOutput)
+}
+
+// Location of the DFP resource.
+func (o InstanceDetailsOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceDetails) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o InstanceDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of DFP resource. The provisioningState is to indicate states for resource provisioning.
+func (o InstanceDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o InstanceDetailsOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *InstanceDetails) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o InstanceDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstanceDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o InstanceDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceDetailsOutput{})
 }

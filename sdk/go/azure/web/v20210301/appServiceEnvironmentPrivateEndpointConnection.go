@@ -154,6 +154,46 @@ func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) ToAppServiceEnviro
 	return o
 }
 
+// Private IPAddresses mapped to the remote private endpoint
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) ArmIdWrapperResponsePtrOutput {
+		return v.PrivateEndpoint
+	}).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) PrivateLinkConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) pulumi.StringOutput {
+		return v.ProvisioningState
+	}).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceEnvironmentPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceEnvironmentPrivateEndpointConnectionOutput{})
 }

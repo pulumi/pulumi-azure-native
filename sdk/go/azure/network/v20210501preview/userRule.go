@@ -162,6 +162,31 @@ func (o UserRuleOutput) ToUserRuleOutputWithContext(ctx context.Context) UserRul
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o UserRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Whether the rule is custom or default.
+func (o UserRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o UserRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o UserRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *UserRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o UserRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserRuleOutput{})
 }

@@ -235,6 +235,65 @@ func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// An array of custom dns configurations.
+func (o PrivateEndpointOutput) CustomDnsConfigs() CustomDnsConfigPropertiesFormatResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) CustomDnsConfigPropertiesFormatResponseArrayOutput { return v.CustomDnsConfigs }).(CustomDnsConfigPropertiesFormatResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PrivateEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o PrivateEndpointOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+func (o PrivateEndpointOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateLinkServiceConnectionResponseArrayOutput {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+// Resource name.
+func (o PrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of references to the network interfaces created for this private endpoint.
+func (o PrivateEndpointOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// A grouping of information about the connection to the remote resource.
+func (o PrivateEndpointOutput) PrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateLinkServiceConnectionResponseArrayOutput {
+		return v.PrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+// The provisioning state of the private endpoint resource.
+func (o PrivateEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet from which the private IP will be allocated.
+func (o PrivateEndpointOutput) Subnet() SubnetResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) SubnetResponsePtrOutput { return v.Subnet }).(SubnetResponsePtrOutput)
+}
+
+// Resource tags.
+func (o PrivateEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PrivateEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 }

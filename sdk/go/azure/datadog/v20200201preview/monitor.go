@@ -141,6 +141,37 @@ func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOu
 	return o
 }
 
+func (o MonitorOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Monitor) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+func (o MonitorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the monitor resource.
+func (o MonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties specific to the monitor resource.
+func (o MonitorOutput) Properties() MonitorPropertiesResponseOutput {
+	return o.ApplyT(func(v *Monitor) MonitorPropertiesResponseOutput { return v.Properties }).(MonitorPropertiesResponseOutput)
+}
+
+func (o MonitorOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Monitor) ResourceSkuResponsePtrOutput { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+func (o MonitorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the monitor resource.
+func (o MonitorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MonitorOutput{})
 }

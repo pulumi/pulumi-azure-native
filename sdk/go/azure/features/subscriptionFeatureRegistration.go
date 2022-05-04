@@ -129,6 +129,22 @@ func (o SubscriptionFeatureRegistrationOutput) ToSubscriptionFeatureRegistration
 	return o
 }
 
+// Azure resource name.
+func (o SubscriptionFeatureRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionFeatureRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SubscriptionFeatureRegistrationOutput) Properties() SubscriptionFeatureRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v *SubscriptionFeatureRegistration) SubscriptionFeatureRegistrationResponsePropertiesOutput {
+		return v.Properties
+	}).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
+}
+
+// Azure resource type.
+func (o SubscriptionFeatureRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionFeatureRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationOutput{})
 }

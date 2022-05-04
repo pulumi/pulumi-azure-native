@@ -187,6 +187,65 @@ func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The account encryption properties.
+func (o MediaServiceOutput) Encryption() AccountEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *MediaService) AccountEncryptionResponsePtrOutput { return v.Encryption }).(AccountEncryptionResponsePtrOutput)
+}
+
+// The Managed Identity for the Media Services account.
+func (o MediaServiceOutput) Identity() MediaServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MediaService) MediaServiceIdentityResponsePtrOutput { return v.Identity }).(MediaServiceIdentityResponsePtrOutput)
+}
+
+// The Key Delivery properties for Media Services account.
+func (o MediaServiceOutput) KeyDelivery() KeyDeliveryResponsePtrOutput {
+	return o.ApplyT(func(v *MediaService) KeyDeliveryResponsePtrOutput { return v.KeyDelivery }).(KeyDeliveryResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o MediaServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Media Services account ID.
+func (o MediaServiceOutput) MediaServiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.MediaServiceId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MediaServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for resources under the Media Services account.
+func (o MediaServiceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The storage accounts for this resource.
+func (o MediaServiceOutput) StorageAccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *MediaService) StorageAccountResponseArrayOutput { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
+}
+
+func (o MediaServiceOutput) StorageAuthentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringPtrOutput { return v.StorageAuthentication }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o MediaServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MediaService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o MediaServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MediaServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

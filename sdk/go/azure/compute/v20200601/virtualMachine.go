@@ -310,6 +310,146 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Specifies additional capabilities enabled or disabled on the virtual machine.
+func (o VirtualMachineOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) AdditionalCapabilitiesResponsePtrOutput { return v.AdditionalCapabilities }).(AdditionalCapabilitiesResponsePtrOutput)
+}
+
+// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+func (o VirtualMachineOutput) AvailabilitySet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
+func (o VirtualMachineOutput) BillingProfile() BillingProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) BillingProfileResponsePtrOutput { return v.BillingProfile }).(BillingProfileResponsePtrOutput)
+}
+
+// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+func (o VirtualMachineOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) DiagnosticsProfileResponsePtrOutput { return v.DiagnosticsProfile }).(DiagnosticsProfileResponsePtrOutput)
+}
+
+// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+func (o VirtualMachineOutput) EvictionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
+func (o VirtualMachineOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hardware settings for the virtual machine.
+func (o VirtualMachineOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
+func (o VirtualMachineOutput) Host() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.Host }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies information about the dedicated host group that the virtual machine resides in. <br><br>Minimum api-version: 2020-06-01. <br><br>NOTE: User cannot specify both host and hostGroup properties.
+func (o VirtualMachineOutput) HostGroup() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.HostGroup }).(SubResourceResponsePtrOutput)
+}
+
+// The identity of the virtual machine, if configured.
+func (o VirtualMachineOutput) Identity() VirtualMachineIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineIdentityResponsePtrOutput { return v.Identity }).(VirtualMachineIdentityResponsePtrOutput)
+}
+
+// The virtual machine instance view.
+func (o VirtualMachineOutput) InstanceView() VirtualMachineInstanceViewResponseOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineInstanceViewResponseOutput { return v.InstanceView }).(VirtualMachineInstanceViewResponseOutput)
+}
+
+// Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
+func (o VirtualMachineOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o VirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network interfaces of the virtual machine.
+func (o VirtualMachineOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+func (o VirtualMachineOutput) OsProfile() OSProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) OSProfileResponsePtrOutput { return v.OsProfile }).(OSProfileResponsePtrOutput)
+}
+
+// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+func (o VirtualMachineOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
+func (o VirtualMachineOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+func (o VirtualMachineOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.ProximityPlacementGroup }).(SubResourceResponsePtrOutput)
+}
+
+// The virtual machine child extension resources.
+func (o VirtualMachineOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineExtensionResponseArrayOutput { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
+}
+
+// Specifies the Security related profile settings for the virtual machine.
+func (o VirtualMachineOutput) SecurityProfile() SecurityProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SecurityProfileResponsePtrOutput { return v.SecurityProfile }).(SecurityProfileResponsePtrOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o VirtualMachineOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
+func (o VirtualMachineOutput) VirtualMachineScaleSet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.VirtualMachineScaleSet }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
+func (o VirtualMachineOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.VmId }).(pulumi.StringOutput)
+}
+
+// The virtual machine zones.
+func (o VirtualMachineOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

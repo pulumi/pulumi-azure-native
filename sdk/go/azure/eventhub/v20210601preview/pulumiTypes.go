@@ -1214,6 +1214,17 @@ type EncryptionArgs struct {
 	RequireInfrastructureEncryption pulumi.BoolPtrInput `pulumi:"requireInfrastructureEncryption"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = KeySource("Microsoft.KeyVault")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }

@@ -157,6 +157,46 @@ func (o FluidRelayServerOutput) ToFluidRelayServerOutputWithContext(ctx context.
 	return o
 }
 
+// The Fluid Relay Service endpoints for this server.
+func (o FluidRelayServerOutput) FluidRelayEndpoints() FluidRelayEndpointsResponseOutput {
+	return o.ApplyT(func(v *FluidRelayServer) FluidRelayEndpointsResponseOutput { return v.FluidRelayEndpoints }).(FluidRelayEndpointsResponseOutput)
+}
+
+// The Fluid tenantId for this server
+func (o FluidRelayServerOutput) FrsTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringOutput { return v.FrsTenantId }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o FluidRelayServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o FluidRelayServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provision states for FluidRelay RP
+func (o FluidRelayServerOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// System meta data for this resource, including creation and modification information.
+func (o FluidRelayServerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FluidRelayServer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o FluidRelayServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FluidRelayServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FluidRelayServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FluidRelayServerOutput{})
 }

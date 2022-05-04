@@ -191,6 +191,46 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Provisioning status of Custom Https of the custom domain.
+func (o CustomDomainOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
+}
+
+// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+func (o CustomDomainOutput) CustomHttpsProvisioningSubstate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.CustomHttpsProvisioningSubstate }).(pulumi.StringOutput)
+}
+
+// The host name of the custom domain. Must be a domain name.
+func (o CustomDomainOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o CustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status of the custom domain.
+func (o CustomDomainOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the custom domain.
+func (o CustomDomainOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o CustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+func (o CustomDomainOutput) ValidationData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringPtrOutput { return v.ValidationData }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 }

@@ -54,6 +54,20 @@ type BackupArgs struct {
 	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 }
 
+// Defaults sets the appropriate defaults for BackupArgs
+func (val *BackupArgs) Defaults() *BackupArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupRetentionDays) {
+		tmp.BackupRetentionDays = pulumi.IntPtr(7)
+	}
+	if isZero(tmp.GeoRedundantBackup) {
+		tmp.GeoRedundantBackup = pulumi.StringPtr("Disabled")
+	}
+	return &tmp
+}
 func (BackupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Backup)(nil)).Elem()
 }
@@ -341,6 +355,20 @@ type HighAvailabilityArgs struct {
 	StandbyAvailabilityZone pulumi.StringPtrInput `pulumi:"standbyAvailabilityZone"`
 }
 
+// Defaults sets the appropriate defaults for HighAvailabilityArgs
+func (val *HighAvailabilityArgs) Defaults() *HighAvailabilityArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		tmp.Mode = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.StandbyAvailabilityZone) {
+		tmp.StandbyAvailabilityZone = pulumi.StringPtr("")
+	}
+	return &tmp
+}
 func (HighAvailabilityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*HighAvailability)(nil)).Elem()
 }
@@ -644,6 +672,26 @@ type MaintenanceWindowArgs struct {
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
 }
 
+// Defaults sets the appropriate defaults for MaintenanceWindowArgs
+func (val *MaintenanceWindowArgs) Defaults() *MaintenanceWindowArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomWindow) {
+		tmp.CustomWindow = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.DayOfWeek) {
+		tmp.DayOfWeek = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.StartHour) {
+		tmp.StartHour = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.StartMinute) {
+		tmp.StartMinute = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (MaintenanceWindowArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceWindow)(nil)).Elem()
 }
@@ -986,6 +1034,20 @@ type NetworkArgs struct {
 	PrivateDnsZoneArmResourceId pulumi.StringPtrInput `pulumi:"privateDnsZoneArmResourceId"`
 }
 
+// Defaults sets the appropriate defaults for NetworkArgs
+func (val *NetworkArgs) Defaults() *NetworkArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DelegatedSubnetResourceId) {
+		tmp.DelegatedSubnetResourceId = pulumi.StringPtr("")
+	}
+	if isZero(tmp.PrivateDnsZoneArmResourceId) {
+		tmp.PrivateDnsZoneArmResourceId = pulumi.StringPtr("")
+	}
+	return &tmp
+}
 func (NetworkArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Network)(nil)).Elem()
 }

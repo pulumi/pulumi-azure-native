@@ -212,6 +212,96 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
+// Show costs accumulated over time.
+func (o ViewOutput) Accumulated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Accumulated }).(pulumi.StringPtrOutput)
+}
+
+// Chart type of the main view in Cost Analysis. Required.
+func (o ViewOutput) Chart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Chart }).(pulumi.StringPtrOutput)
+}
+
+// Date the user created this view.
+func (o ViewOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Currency of the current view.
+func (o ViewOutput) Currency() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Currency }).(pulumi.StringOutput)
+}
+
+// Has definition for data in this report config.
+func (o ViewOutput) DataSet() ReportConfigDatasetResponsePtrOutput {
+	return o.ApplyT(func(v *View) ReportConfigDatasetResponsePtrOutput { return v.DataSet }).(ReportConfigDatasetResponsePtrOutput)
+}
+
+// Date range of the current view.
+func (o ViewOutput) DateRange() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.DateRange }).(pulumi.StringOutput)
+}
+
+// User input name of the view. Required.
+func (o ViewOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o ViewOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// If true, report includes monetary commitment.
+func (o ViewOutput) IncludeMonetaryCommitment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.IncludeMonetaryCommitment }).(pulumi.BoolPtrOutput)
+}
+
+// List of KPIs to show in Cost Analysis UI.
+func (o ViewOutput) Kpis() KpiPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *View) KpiPropertiesResponseArrayOutput { return v.Kpis }).(KpiPropertiesResponseArrayOutput)
+}
+
+// Metric to use when displaying costs.
+func (o ViewOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Date when the user last modified this view.
+func (o ViewOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of 3 sub-views in the Cost Analysis UI.
+func (o ViewOutput) Pivots() PivotPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *View) PivotPropertiesResponseArrayOutput { return v.Pivots }).(PivotPropertiesResponseArrayOutput)
+}
+
+// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+func (o ViewOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ViewOutput) TimePeriod() ReportConfigTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v *View) ReportConfigTimePeriodResponsePtrOutput { return v.TimePeriod }).(ReportConfigTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ViewOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ViewOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ViewOutput{})
 }

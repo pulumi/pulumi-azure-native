@@ -183,6 +183,28 @@ func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServices
 	return o
 }
 
+// Resource Location
+func (o ReplicationRecoveryServicesProviderOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryServicesProvider) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationRecoveryServicesProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryServicesProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provider properties.
+func (o ReplicationRecoveryServicesProviderOutput) Properties() RecoveryServicesProviderPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryServicesProvider) RecoveryServicesProviderPropertiesResponseOutput {
+		return v.Properties
+	}).(RecoveryServicesProviderPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationRecoveryServicesProviderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationRecoveryServicesProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationRecoveryServicesProviderOutput{})
 }

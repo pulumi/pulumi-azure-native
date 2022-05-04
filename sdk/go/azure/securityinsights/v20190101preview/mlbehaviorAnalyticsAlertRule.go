@@ -195,6 +195,61 @@ func (o MLBehaviorAnalyticsAlertRuleOutput) ToMLBehaviorAnalyticsAlertRuleOutput
 	return o
 }
 
+// The Name of the alert rule template used to create this rule.
+func (o MLBehaviorAnalyticsAlertRuleOutput) AlertRuleTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.AlertRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// The description of the alert rule.
+func (o MLBehaviorAnalyticsAlertRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o MLBehaviorAnalyticsAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o MLBehaviorAnalyticsAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o MLBehaviorAnalyticsAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'MLBehaviorAnalytics'.
+func (o MLBehaviorAnalyticsAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert rule has been modified.
+func (o MLBehaviorAnalyticsAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o MLBehaviorAnalyticsAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o MLBehaviorAnalyticsAlertRuleOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The tactics of the alert rule
+func (o MLBehaviorAnalyticsAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource type
+func (o MLBehaviorAnalyticsAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MLBehaviorAnalyticsAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MLBehaviorAnalyticsAlertRuleOutput{})
 }

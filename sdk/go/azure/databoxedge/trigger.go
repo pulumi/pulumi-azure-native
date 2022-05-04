@@ -177,6 +177,26 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+// Trigger Kind.
+func (o TriggerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o TriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Trigger in DataBoxEdge Resource
+func (o TriggerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Trigger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o TriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerOutput{})
 }

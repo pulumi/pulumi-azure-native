@@ -293,6 +293,147 @@ func (o SignalROutput) ToSignalROutputWithContext(ctx context.Context) SignalROu
 	return o
 }
 
+// Cross-Origin Resource Sharing (CORS) settings.
+func (o SignalROutput) Cors() SignalRCorsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) SignalRCorsSettingsResponsePtrOutput { return v.Cors }).(SignalRCorsSettingsResponsePtrOutput)
+}
+
+// DisableLocalAuth
+// Enable or disable aad auth
+// When set as true, connection with AuthType=aad won't work.
+func (o SignalROutput) DisableAadAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.BoolPtrOutput { return v.DisableAadAuth }).(pulumi.BoolPtrOutput)
+}
+
+// DisableLocalAuth
+// Enable or disable local auth with AccessKey
+// When set as true, connection with AccessKey=xxx won't work.
+func (o SignalROutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The publicly accessible IP of the resource.
+func (o SignalROutput) ExternalIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.ExternalIP }).(pulumi.StringOutput)
+}
+
+// List of the featureFlags.
+//
+// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+// And the response will only include featureFlags that are explicitly set.
+// When a featureFlag is not explicitly set, its globally default value will be used
+// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+func (o SignalROutput) Features() SignalRFeatureResponseArrayOutput {
+	return o.ApplyT(func(v *SignalR) SignalRFeatureResponseArrayOutput { return v.Features }).(SignalRFeatureResponseArrayOutput)
+}
+
+// FQDN of the service instance.
+func (o SignalROutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Deprecated.
+func (o SignalROutput) HostNamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.HostNamePrefix }).(pulumi.StringOutput)
+}
+
+// A class represent managed identities used for request and response
+func (o SignalROutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ManagedIdentityResponsePtrOutput { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// The kind of the service, it can be SignalR or RawWebSockets
+func (o SignalROutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+func (o SignalROutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o SignalROutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network ACLs for the resource
+func (o SignalROutput) NetworkACLs() SignalRNetworkACLsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) SignalRNetworkACLsResponsePtrOutput { return v.NetworkACLs }).(SignalRNetworkACLsResponsePtrOutput)
+}
+
+// Private endpoint connections to the resource.
+func (o SignalROutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *SignalR) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o SignalROutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Enable or disable public network access. Default to "Enabled".
+// When it's Enabled, network ACLs still apply.
+// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+func (o SignalROutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The publicly accessible port of the resource which is designed for browser/client side usage.
+func (o SignalROutput) PublicPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.IntOutput { return v.PublicPort }).(pulumi.IntOutput)
+}
+
+// Resource log configuration of a Microsoft.SignalRService resource.
+func (o SignalROutput) ResourceLogConfiguration() ResourceLogConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ResourceLogConfigurationResponsePtrOutput { return v.ResourceLogConfiguration }).(ResourceLogConfigurationResponsePtrOutput)
+}
+
+// The publicly accessible port of the resource which is designed for customer server side usage.
+func (o SignalROutput) ServerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.IntOutput { return v.ServerPort }).(pulumi.IntOutput)
+}
+
+// The list of shared private link resources.
+func (o SignalROutput) SharedPrivateLinkResources() SharedPrivateLinkResourceResponseArrayOutput {
+	return o.ApplyT(func(v *SignalR) SharedPrivateLinkResourceResponseArrayOutput { return v.SharedPrivateLinkResources }).(SharedPrivateLinkResourceResponseArrayOutput)
+}
+
+// The billing information of the resource.
+func (o SignalROutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ResourceSkuResponsePtrOutput { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SignalROutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SignalR) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o SignalROutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// TLS settings for the resource
+func (o SignalROutput) Tls() SignalRTlsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) SignalRTlsSettingsResponsePtrOutput { return v.Tls }).(SignalRTlsSettingsResponsePtrOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalROutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The settings for the Upstream when the service is in server-less mode.
+func (o SignalROutput) Upstream() ServerlessUpstreamSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ServerlessUpstreamSettingsResponsePtrOutput { return v.Upstream }).(ServerlessUpstreamSettingsResponsePtrOutput)
+}
+
+// Version of the resource. Probably you need the same or higher version of client SDKs.
+func (o SignalROutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalROutput{})
 }

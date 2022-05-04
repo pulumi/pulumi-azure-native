@@ -224,6 +224,66 @@ func (o WebAppDeploymentOutput) ToWebAppDeploymentOutputWithContext(ctx context.
 	return o
 }
 
+// True if deployment is currently active, false if completed and null if not started.
+func (o WebAppDeploymentOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// Who authored the deployment.
+func (o WebAppDeploymentOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// Author email.
+func (o WebAppDeploymentOutput) AuthorEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.AuthorEmail }).(pulumi.StringPtrOutput)
+}
+
+// Who performed the deployment.
+func (o WebAppDeploymentOutput) Deployer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.Deployer }).(pulumi.StringPtrOutput)
+}
+
+// Details on deployment.
+func (o WebAppDeploymentOutput) Details() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.Details }).(pulumi.StringPtrOutput)
+}
+
+// End time.
+func (o WebAppDeploymentOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppDeploymentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Details about deployment status.
+func (o WebAppDeploymentOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Start time.
+func (o WebAppDeploymentOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Deployment status.
+func (o WebAppDeploymentOutput) Status() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.IntPtrOutput { return v.Status }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o WebAppDeploymentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDeployment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppDeploymentOutput{})
 }

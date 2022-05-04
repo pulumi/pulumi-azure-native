@@ -196,6 +196,75 @@ func (o PartnerNamespaceOutput) ToPartnerNamespaceOutputWithContext(ctx context.
 	return o
 }
 
+// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+func (o PartnerNamespaceOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// Endpoint for the partner namespace.
+func (o PartnerNamespaceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+func (o PartnerNamespaceOutput) InboundIpRules() InboundIpRuleResponseArrayOutput {
+	return o.ApplyT(func(v *PartnerNamespace) InboundIpRuleResponseArrayOutput { return v.InboundIpRules }).(InboundIpRuleResponseArrayOutput)
+}
+
+// Location of the resource.
+func (o PartnerNamespaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o PartnerNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
+// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+func (o PartnerNamespaceOutput) PartnerRegistrationFullyQualifiedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringPtrOutput { return v.PartnerRegistrationFullyQualifiedId }).(pulumi.StringPtrOutput)
+}
+
+// This determines if events published to this partner namespace should use the source attribute in the event payload
+// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+func (o PartnerNamespaceOutput) PartnerTopicRoutingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringPtrOutput { return v.PartnerTopicRoutingMode }).(pulumi.StringPtrOutput)
+}
+
+func (o PartnerNamespaceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PartnerNamespace) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the partner namespace.
+func (o PartnerNamespaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// This determines if traffic is allowed over public network. By default it is enabled.
+// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+func (o PartnerNamespaceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to Partner Namespace resource.
+func (o PartnerNamespaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PartnerNamespace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o PartnerNamespaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o PartnerNamespaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerNamespaceOutput{})
 }

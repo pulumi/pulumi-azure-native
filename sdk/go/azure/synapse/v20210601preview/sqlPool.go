@@ -236,6 +236,76 @@ func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOu
 	return o
 }
 
+// Collation mode
+func (o SqlPoolOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Date the SQL pool was created
+func (o SqlPoolOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o SqlPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum size in bytes
+func (o SqlPoolOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.Float64PtrOutput { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// The name of the resource
+func (o SqlPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource state
+func (o SqlPoolOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Backup database to restore from
+func (o SqlPoolOutput) RecoverableDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.RecoverableDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// Snapshot time to restore
+func (o SqlPoolOutput) RestorePointInTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.RestorePointInTime }).(pulumi.StringPtrOutput)
+}
+
+// SQL pool SKU
+func (o SqlPoolOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *SqlPool) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Specifies the time that the sql pool was deleted
+func (o SqlPoolOutput) SourceDatabaseDeletionDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.SourceDatabaseDeletionDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource status
+func (o SqlPoolOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The storage account type used to store backups for this sql pool.
+func (o SqlPoolOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o SqlPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolOutput{})
 }

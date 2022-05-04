@@ -198,6 +198,46 @@ func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutputWithCo
 	return o
 }
 
+// The workload classifier context.
+func (o SqlPoolWorkloadClassifierOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier end time for classification.
+func (o SqlPoolWorkloadClassifierOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier importance.
+func (o SqlPoolWorkloadClassifierOutput) Importance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringPtrOutput { return v.Importance }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier label.
+func (o SqlPoolWorkloadClassifierOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The workload classifier member name.
+func (o SqlPoolWorkloadClassifierOutput) MemberName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringOutput { return v.MemberName }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlPoolWorkloadClassifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workload classifier start time for classification.
+func (o SqlPoolWorkloadClassifierOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlPoolWorkloadClassifierOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolWorkloadClassifier) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolWorkloadClassifierOutput{})
 }

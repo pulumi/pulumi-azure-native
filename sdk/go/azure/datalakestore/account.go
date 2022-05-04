@@ -215,6 +215,121 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The unique identifier associated with this Data Lake Store account.
+func (o AccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The account creation time.
+func (o AccountOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The commitment tier in use for the current month.
+func (o AccountOutput) CurrentTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CurrentTier }).(pulumi.StringOutput)
+}
+
+// The default owner group for all new folders and files created in the Data Lake Store account.
+func (o AccountOutput) DefaultGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DefaultGroup }).(pulumi.StringOutput)
+}
+
+// The Key Vault encryption configuration.
+func (o AccountOutput) EncryptionConfig() EncryptionConfigResponseOutput {
+	return o.ApplyT(func(v *Account) EncryptionConfigResponseOutput { return v.EncryptionConfig }).(EncryptionConfigResponseOutput)
+}
+
+// The current state of encryption provisioning for this Data Lake Store account.
+func (o AccountOutput) EncryptionProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.EncryptionProvisioningState }).(pulumi.StringOutput)
+}
+
+// The current state of encryption for this Data Lake Store account.
+func (o AccountOutput) EncryptionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.EncryptionState }).(pulumi.StringOutput)
+}
+
+// The full CName endpoint for this account.
+func (o AccountOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+func (o AccountOutput) FirewallAllowAzureIps() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FirewallAllowAzureIps }).(pulumi.StringOutput)
+}
+
+// The list of firewall rules associated with this Data Lake Store account.
+func (o AccountOutput) FirewallRules() FirewallRuleResponseArrayOutput {
+	return o.ApplyT(func(v *Account) FirewallRuleResponseArrayOutput { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
+}
+
+// The current state of the IP address firewall for this Data Lake Store account.
+func (o AccountOutput) FirewallState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FirewallState }).(pulumi.StringOutput)
+}
+
+// The Key Vault encryption identity, if any.
+func (o AccountOutput) Identity() EncryptionIdentityResponseOutput {
+	return o.ApplyT(func(v *Account) EncryptionIdentityResponseOutput { return v.Identity }).(EncryptionIdentityResponseOutput)
+}
+
+// The account last modified time.
+func (o AccountOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The commitment tier to use for next month.
+func (o AccountOutput) NewTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.NewTier }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the Data Lake Store account.
+func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The state of the Data Lake Store account.
+func (o AccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The current state of the trusted identity provider feature for this Data Lake Store account.
+func (o AccountOutput) TrustedIdProviderState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.TrustedIdProviderState }).(pulumi.StringOutput)
+}
+
+// The list of trusted identity providers associated with this Data Lake Store account.
+func (o AccountOutput) TrustedIdProviders() TrustedIdProviderResponseArrayOutput {
+	return o.ApplyT(func(v *Account) TrustedIdProviderResponseArrayOutput { return v.TrustedIdProviders }).(TrustedIdProviderResponseArrayOutput)
+}
+
+// The resource type.
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of virtual network rules associated with this Data Lake Store account.
+func (o AccountOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v *Account) VirtualNetworkRuleResponseArrayOutput { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

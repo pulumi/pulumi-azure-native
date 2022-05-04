@@ -242,6 +242,91 @@ func (o GalleryImageOutput) ToGalleryImageOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The description of this gallery Image Definition resource. This property is updatable.
+func (o GalleryImageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Describes the disallowed disk types.
+func (o GalleryImageOutput) Disallowed() DisallowedResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryImage) DisallowedResponsePtrOutput { return v.Disallowed }).(DisallowedResponsePtrOutput)
+}
+
+// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+func (o GalleryImageOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
+// The Eula agreement for the gallery Image Definition.
+func (o GalleryImageOutput) Eula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.Eula }).(pulumi.StringPtrOutput)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+func (o GalleryImageOutput) HyperVGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
+}
+
+// This is the gallery Image Definition identifier.
+func (o GalleryImageOutput) Identifier() GalleryImageIdentifierResponseOutput {
+	return o.ApplyT(func(v *GalleryImage) GalleryImageIdentifierResponseOutput { return v.Identifier }).(GalleryImageIdentifierResponseOutput)
+}
+
+// Resource location
+func (o GalleryImageOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o GalleryImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+func (o GalleryImageOutput) OsState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.OsState }).(pulumi.StringOutput)
+}
+
+// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+func (o GalleryImageOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
+}
+
+// The privacy statement uri.
+func (o GalleryImageOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.PrivacyStatementUri }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o GalleryImageOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+func (o GalleryImageOutput) PurchasePlan() ImagePurchasePlanResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryImage) ImagePurchasePlanResponsePtrOutput { return v.PurchasePlan }).(ImagePurchasePlanResponsePtrOutput)
+}
+
+// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+func (o GalleryImageOutput) Recommended() RecommendedMachineConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryImage) RecommendedMachineConfigurationResponsePtrOutput { return v.Recommended }).(RecommendedMachineConfigurationResponsePtrOutput)
+}
+
+// The release note uri.
+func (o GalleryImageOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.ReleaseNoteUri }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o GalleryImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o GalleryImageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryImageOutput{})
 }

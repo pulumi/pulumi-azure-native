@@ -166,6 +166,36 @@ func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// Azure resource etag.
+func (o ApplicationTypeOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ApplicationTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ApplicationTypeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 }

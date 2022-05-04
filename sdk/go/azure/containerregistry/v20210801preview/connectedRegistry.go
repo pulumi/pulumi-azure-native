@@ -191,6 +191,81 @@ func (o ConnectedRegistryOutput) ToConnectedRegistryOutputWithContext(ctx contex
 	return o
 }
 
+// The activation properties of the connected registry.
+func (o ConnectedRegistryOutput) Activation() ActivationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) ActivationPropertiesResponseOutput { return v.Activation }).(ActivationPropertiesResponseOutput)
+}
+
+// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+func (o ConnectedRegistryOutput) ClientTokenIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringArrayOutput { return v.ClientTokenIds }).(pulumi.StringArrayOutput)
+}
+
+// The current connection state of the connected registry.
+func (o ConnectedRegistryOutput) ConnectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.ConnectionState }).(pulumi.StringOutput)
+}
+
+// The last activity time of the connected registry.
+func (o ConnectedRegistryOutput) LastActivityTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.LastActivityTime }).(pulumi.StringOutput)
+}
+
+// The logging properties of the connected registry.
+func (o ConnectedRegistryOutput) Logging() LoggingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) LoggingPropertiesResponsePtrOutput { return v.Logging }).(LoggingPropertiesResponsePtrOutput)
+}
+
+// The login server properties of the connected registry.
+func (o ConnectedRegistryOutput) LoginServer() LoginServerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) LoginServerPropertiesResponsePtrOutput { return v.LoginServer }).(LoginServerPropertiesResponsePtrOutput)
+}
+
+// The mode of the connected registry resource that indicates the permissions of the registry.
+func (o ConnectedRegistryOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ConnectedRegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of notifications subscription information for the connected registry.
+func (o ConnectedRegistryOutput) NotificationsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringArrayOutput { return v.NotificationsList }).(pulumi.StringArrayOutput)
+}
+
+// The parent of the connected registry.
+func (o ConnectedRegistryOutput) Parent() ParentPropertiesResponseOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) ParentPropertiesResponseOutput { return v.Parent }).(ParentPropertiesResponseOutput)
+}
+
+// Provisioning state of the resource.
+func (o ConnectedRegistryOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of current statuses of the connected registry.
+func (o ConnectedRegistryOutput) StatusDetails() StatusDetailPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) StatusDetailPropertiesResponseArrayOutput { return v.StatusDetails }).(StatusDetailPropertiesResponseArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ConnectedRegistryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ConnectedRegistryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The current version of ACR runtime on the connected registry.
+func (o ConnectedRegistryOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedRegistry) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectedRegistryOutput{})
 }

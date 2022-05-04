@@ -163,6 +163,31 @@ func (o AdminRuleOutput) ToAdminRuleOutputWithContext(ctx context.Context) Admin
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o AdminRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Whether the rule is custom or default.
+func (o AdminRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o AdminRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o AdminRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AdminRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o AdminRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdminRuleOutput{})
 }

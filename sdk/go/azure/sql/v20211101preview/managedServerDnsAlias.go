@@ -134,6 +134,21 @@ func (o ManagedServerDnsAliasOutput) ToManagedServerDnsAliasOutputWithContext(ct
 	return o
 }
 
+// The fully qualified DNS record for managed server alias
+func (o ManagedServerDnsAliasOutput) AzureDnsRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedServerDnsAlias) pulumi.StringOutput { return v.AzureDnsRecord }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagedServerDnsAliasOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedServerDnsAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ManagedServerDnsAliasOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedServerDnsAlias) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedServerDnsAliasOutput{})
 }

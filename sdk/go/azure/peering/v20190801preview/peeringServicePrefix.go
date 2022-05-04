@@ -170,6 +170,36 @@ func (o PeeringServicePrefixOutput) ToPeeringServicePrefixOutputWithContext(ctx 
 	return o
 }
 
+// The prefix learned type
+func (o PeeringServicePrefixOutput) LearnedType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringPtrOutput { return v.LearnedType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o PeeringServicePrefixOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Valid route prefix
+func (o PeeringServicePrefixOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The prefix validation state
+func (o PeeringServicePrefixOutput) PrefixValidationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringPtrOutput { return v.PrefixValidationState }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o PeeringServicePrefixOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o PeeringServicePrefixOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringServicePrefix) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PeeringServicePrefixOutput{})
 }

@@ -193,6 +193,117 @@ func (o ResourcePoolOutput) ToResourcePoolOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
+// Utilization will not exceed this limit even if there are available resources.
+func (o ResourcePoolOutput) CpuLimitMHz() pulumi.Float64Output {
+	return o.ApplyT(func(v *ResourcePool) pulumi.Float64Output { return v.CpuLimitMHz }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
+// to be available.
+func (o ResourcePoolOutput) CpuReservationMHz() pulumi.Float64Output {
+	return o.ApplyT(func(v *ResourcePool) pulumi.Float64Output { return v.CpuReservationMHz }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUSharesLevel which specifies the CPU allocation level for this pool.
+// This property is used in relative allocation between resource consumers.
+func (o ResourcePoolOutput) CpuSharesLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.CpuSharesLevel }).(pulumi.StringOutput)
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o ResourcePoolOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o ResourcePoolOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *ResourcePool) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the inventory Item ID for the resource pool.
+func (o ResourcePoolOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o ResourcePoolOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o ResourcePoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
+// Utilization will not exceed the specified limit even if there are available resources.
+func (o ResourcePoolOutput) MemLimitMB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ResourcePool) pulumi.Float64Output { return v.MemLimitMB }).(pulumi.Float64Output)
+}
+
+// Gets or sets MemReservationMB which specifies the guaranteed available memory in
+// megabytes.
+func (o ResourcePoolOutput) MemReservationMB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ResourcePool) pulumi.Float64Output { return v.MemReservationMB }).(pulumi.Float64Output)
+}
+
+// Gets or sets CPUSharesLevel which specifies the memory allocation level for this pool.
+// This property is used in relative allocation between resource consumers.
+func (o ResourcePoolOutput) MemSharesLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.MemSharesLevel }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the resource pool.
+func (o ResourcePoolOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+func (o ResourcePoolOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringPtrOutput { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o ResourcePoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o ResourcePoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o ResourcePoolOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *ResourcePool) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o ResourcePoolOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ResourcePool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o ResourcePoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o ResourcePoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o ResourcePoolOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+func (o ResourcePoolOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourcePool) pulumi.StringPtrOutput { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourcePoolOutput{})
 }

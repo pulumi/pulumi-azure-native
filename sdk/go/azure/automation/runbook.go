@@ -213,6 +213,106 @@ func (o RunbookOutput) ToRunbookOutputWithContext(ctx context.Context) RunbookOu
 	return o
 }
 
+// Gets or sets the creation time.
+func (o RunbookOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o RunbookOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the draft runbook properties.
+func (o RunbookOutput) Draft() RunbookDraftResponsePtrOutput {
+	return o.ApplyT(func(v *Runbook) RunbookDraftResponsePtrOutput { return v.Draft }).(RunbookDraftResponsePtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o RunbookOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the job count of the runbook.
+func (o RunbookOutput) JobCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.IntPtrOutput { return v.JobCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the last modified by.
+func (o RunbookOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o RunbookOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o RunbookOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the option to log activity trace of the runbook.
+func (o RunbookOutput) LogActivityTrace() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.IntPtrOutput { return v.LogActivityTrace }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets progress log option.
+func (o RunbookOutput) LogProgress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.BoolPtrOutput { return v.LogProgress }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets verbose log option.
+func (o RunbookOutput) LogVerbose() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.BoolPtrOutput { return v.LogVerbose }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource
+func (o RunbookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the runbook output types.
+func (o RunbookOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringArrayOutput { return v.OutputTypes }).(pulumi.StringArrayOutput)
+}
+
+// Gets or sets the runbook parameters.
+func (o RunbookOutput) Parameters() RunbookParameterResponseMapOutput {
+	return o.ApplyT(func(v *Runbook) RunbookParameterResponseMapOutput { return v.Parameters }).(RunbookParameterResponseMapOutput)
+}
+
+// Gets or sets the provisioning state of the runbook.
+func (o RunbookOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the published runbook content link.
+func (o RunbookOutput) PublishContentLink() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v *Runbook) ContentLinkResponsePtrOutput { return v.PublishContentLink }).(ContentLinkResponsePtrOutput)
+}
+
+// Gets or sets the type of the runbook.
+func (o RunbookOutput) RunbookType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.RunbookType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the state of the runbook.
+func (o RunbookOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o RunbookOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o RunbookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Runbook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RunbookOutput{})
 }

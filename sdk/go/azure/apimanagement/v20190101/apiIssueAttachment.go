@@ -201,6 +201,31 @@ func (o ApiIssueAttachmentOutput) ToApiIssueAttachmentOutputWithContext(ctx cont
 	return o
 }
 
+// An HTTP link or Base64-encoded binary data.
+func (o ApiIssueAttachmentOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueAttachment) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+func (o ApiIssueAttachmentOutput) ContentFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueAttachment) pulumi.StringOutput { return v.ContentFormat }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiIssueAttachmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueAttachment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Filename by which the binary data will be saved.
+func (o ApiIssueAttachmentOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueAttachment) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiIssueAttachmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssueAttachment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiIssueAttachmentOutput{})
 }

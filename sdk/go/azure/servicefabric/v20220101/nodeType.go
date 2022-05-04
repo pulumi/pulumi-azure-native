@@ -341,6 +341,171 @@ func (o NodeTypeOutput) ToNodeTypeOutputWithContext(ctx context.Context) NodeTyp
 	return o
 }
 
+// Additional managed data disks.
+func (o NodeTypeOutput) AdditionalDataDisks() VmssDataDiskResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) VmssDataDiskResponseArrayOutput { return v.AdditionalDataDisks }).(VmssDataDiskResponseArrayOutput)
+}
+
+// The range of ports from which cluster assigned port to Service Fabric applications.
+func (o NodeTypeOutput) ApplicationPorts() EndpointRangeDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) EndpointRangeDescriptionResponsePtrOutput { return v.ApplicationPorts }).(EndpointRangeDescriptionResponsePtrOutput)
+}
+
+// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+func (o NodeTypeOutput) Capacities() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringMapOutput { return v.Capacities }).(pulumi.StringMapOutput)
+}
+
+// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+func (o NodeTypeOutput) DataDiskLetter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.DataDiskLetter }).(pulumi.StringPtrOutput)
+}
+
+// Disk size for the managed disk attached to the vms on the node type in GBs.
+func (o NodeTypeOutput) DataDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.IntPtrOutput { return v.DataDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Managed data disk type. Specifies the storage account type for the managed disk
+func (o NodeTypeOutput) DataDiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.DataDiskType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the network interface is accelerated networking-enabled.
+func (o NodeTypeOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
+func (o NodeTypeOutput) EnableEncryptionAtHost() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableEncryptionAtHost }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
+func (o NodeTypeOutput) EnableOverProvisioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.EnableOverProvisioning }).(pulumi.BoolPtrOutput)
+}
+
+// The range of ephemeral ports that nodes in this node type should be configured with.
+func (o NodeTypeOutput) EphemeralPorts() EndpointRangeDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) EndpointRangeDescriptionResponsePtrOutput { return v.EphemeralPorts }).(EndpointRangeDescriptionResponsePtrOutput)
+}
+
+// Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
+func (o NodeTypeOutput) FrontendConfigurations() FrontendConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) FrontendConfigurationResponseArrayOutput { return v.FrontendConfigurations }).(FrontendConfigurationResponseArrayOutput)
+}
+
+// Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
+func (o NodeTypeOutput) IsPrimary() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
+}
+
+// Indicates if the node type can only host Stateless workloads.
+func (o NodeTypeOutput) IsStateless() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.IsStateless }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if scale set associated with the node type can be composed of multiple placement groups.
+func (o NodeTypeOutput) MultiplePlacementGroups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.MultiplePlacementGroups }).(pulumi.BoolPtrOutput)
+}
+
+// Azure resource name.
+func (o NodeTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
+func (o NodeTypeOutput) NetworkSecurityRules() NetworkSecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) NetworkSecurityRuleResponseArrayOutput { return v.NetworkSecurityRules }).(NetworkSecurityRuleResponseArrayOutput)
+}
+
+// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+func (o NodeTypeOutput) PlacementProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringMapOutput { return v.PlacementProperties }).(pulumi.StringMapOutput)
+}
+
+// The provisioning state of the node type resource.
+func (o NodeTypeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The node type sku.
+func (o NodeTypeOutput) Sku() NodeTypeSkuResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) NodeTypeSkuResponsePtrOutput { return v.Sku }).(NodeTypeSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o NodeTypeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NodeType) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o NodeTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o NodeTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+func (o NodeTypeOutput) UseDefaultPublicLoadBalancer() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.UseDefaultPublicLoadBalancer }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+func (o NodeTypeOutput) UseTempDataDisk() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.BoolPtrOutput { return v.UseTempDataDisk }).(pulumi.BoolPtrOutput)
+}
+
+// Set of extensions that should be installed onto the virtual machines.
+func (o NodeTypeOutput) VmExtensions() VMSSExtensionResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) VMSSExtensionResponseArrayOutput { return v.VmExtensions }).(VMSSExtensionResponseArrayOutput)
+}
+
+// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+func (o NodeTypeOutput) VmImageOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmImageOffer }).(pulumi.StringPtrOutput)
+}
+
+// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+func (o NodeTypeOutput) VmImagePublisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmImagePublisher }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+func (o NodeTypeOutput) VmImageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmImageSku }).(pulumi.StringPtrOutput)
+}
+
+// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+func (o NodeTypeOutput) VmImageVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmImageVersion }).(pulumi.StringPtrOutput)
+}
+
+// The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
+func (o NodeTypeOutput) VmInstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.IntOutput { return v.VmInstanceCount }).(pulumi.IntOutput)
+}
+
+// Identities to assign to the virtual machine scale set under the node type.
+func (o NodeTypeOutput) VmManagedIdentity() VmManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *NodeType) VmManagedIdentityResponsePtrOutput { return v.VmManagedIdentity }).(VmManagedIdentityResponsePtrOutput)
+}
+
+// The secrets to install in the virtual machines.
+func (o NodeTypeOutput) VmSecrets() VaultSecretGroupResponseArrayOutput {
+	return o.ApplyT(func(v *NodeType) VaultSecretGroupResponseArrayOutput { return v.VmSecrets }).(VaultSecretGroupResponseArrayOutput)
+}
+
+// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+func (o NodeTypeOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodeType) pulumi.StringPtrOutput { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NodeTypeOutput{})
 }

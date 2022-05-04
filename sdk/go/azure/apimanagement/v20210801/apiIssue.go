@@ -208,6 +208,46 @@ func (o ApiIssueOutput) ToApiIssueOutputWithContext(ctx context.Context) ApiIssu
 	return o
 }
 
+// A resource identifier for the API the issue was created for.
+func (o ApiIssueOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringPtrOutput { return v.ApiId }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the issue was created.
+func (o ApiIssueOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// Text describing the issue.
+func (o ApiIssueOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApiIssueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the issue.
+func (o ApiIssueOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The issue title.
+func (o ApiIssueOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiIssueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A resource identifier for the user created the issue.
+func (o ApiIssueOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiIssue) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiIssueOutput{})
 }

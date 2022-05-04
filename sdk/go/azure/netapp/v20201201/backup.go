@@ -203,6 +203,61 @@ func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutpu
 	return o
 }
 
+// UUID v4 used to identify the Backup
+func (o BackupOutput) BackupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.BackupId }).(pulumi.StringOutput)
+}
+
+// Type of backup Manual or Scheduled
+func (o BackupOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.BackupType }).(pulumi.StringOutput)
+}
+
+// The creation date of the backup
+func (o BackupOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Failure reason
+func (o BackupOutput) FailureReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.FailureReason }).(pulumi.StringOutput)
+}
+
+// Label for backup
+func (o BackupOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o BackupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o BackupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o BackupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Size of backup
+func (o BackupOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v *Backup) pulumi.Float64Output { return v.Size }).(pulumi.Float64Output)
+}
+
+// Resource type
+func (o BackupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Volume name
+func (o BackupOutput) VolumeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.VolumeName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupOutput{})
 }

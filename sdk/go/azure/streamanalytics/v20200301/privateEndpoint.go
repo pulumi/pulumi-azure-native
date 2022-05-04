@@ -140,6 +140,33 @@ func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// The date when this private endpoint was created.
+func (o PrivateEndpointOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
+func (o PrivateEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A list of connections to the remote resource. Immutable after it is set.
+func (o PrivateEndpointOutput) ManualPrivateLinkServiceConnections() PrivateLinkServiceConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateLinkServiceConnectionResponseArrayOutput {
+		return v.ManualPrivateLinkServiceConnections
+	}).(PrivateLinkServiceConnectionResponseArrayOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PrivateEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 }

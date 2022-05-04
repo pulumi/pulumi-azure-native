@@ -179,6 +179,81 @@ func (o ElasticSanOutput) ToElasticSanOutputWithContext(ctx context.Context) Ela
 	return o
 }
 
+// Logical zone for Elastic San resource; example: ["1"].
+func (o ElasticSanOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Base size of the Elastic San appliance in TiB.
+func (o ElasticSanOutput) BaseSizeTiB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.BaseSizeTiB }).(pulumi.Float64Output)
+}
+
+// Extended size of the Elastic San appliance in TiB.
+func (o ElasticSanOutput) ExtendedCapacitySizeTiB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.ExtendedCapacitySizeTiB }).(pulumi.Float64Output)
+}
+
+// The geo-location where the resource lives.
+func (o ElasticSanOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ElasticSanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioned MBps Elastic San appliance.
+func (o ElasticSanOutput) ProvisionedMBps() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.ProvisionedMBps }).(pulumi.Float64Output)
+}
+
+// State of the operation on the resource.
+func (o ElasticSanOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// resource sku
+func (o ElasticSanOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ElasticSan) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o ElasticSanOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ElasticSan) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o ElasticSanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Total Provisioned IOPS of the Elastic San appliance.
+func (o ElasticSanOutput) TotalIops() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.TotalIops }).(pulumi.Float64Output)
+}
+
+// Total Provisioned MBps Elastic San appliance.
+func (o ElasticSanOutput) TotalMBps() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.TotalMBps }).(pulumi.Float64Output)
+}
+
+// Total size of the provisioned Volumes in GiB.
+func (o ElasticSanOutput) TotalVolumeSizeGiB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.TotalVolumeSizeGiB }).(pulumi.Float64Output)
+}
+
+// Azure resource type.
+func (o ElasticSanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticSan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Total number of volume groups in this Elastic San appliance.
+func (o ElasticSanOutput) VolumeGroupCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.VolumeGroupCount }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ElasticSanOutput{})
 }

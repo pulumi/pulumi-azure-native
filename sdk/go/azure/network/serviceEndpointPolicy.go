@@ -222,6 +222,58 @@ func (o ServiceEndpointPolicyOutput) ToServiceEndpointPolicyOutputWithContext(ct
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o ServiceEndpointPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+func (o ServiceEndpointPolicyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ServiceEndpointPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ServiceEndpointPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the service endpoint policy resource.
+func (o ServiceEndpointPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the service endpoint policy resource.
+func (o ServiceEndpointPolicyOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// A collection of service endpoint policy definitions of the service endpoint policy.
+func (o ServiceEndpointPolicyOutput) ServiceEndpointPolicyDefinitions() ServiceEndpointPolicyDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) ServiceEndpointPolicyDefinitionResponseArrayOutput {
+		return v.ServiceEndpointPolicyDefinitions
+	}).(ServiceEndpointPolicyDefinitionResponseArrayOutput)
+}
+
+// A collection of references to subnets.
+func (o ServiceEndpointPolicyOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags.
+func (o ServiceEndpointPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ServiceEndpointPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointPolicyOutput{})
 }

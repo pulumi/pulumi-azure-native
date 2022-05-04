@@ -300,6 +300,15 @@ type ApplicationUpgradePolicyArgs struct {
 	UpgradeReplicaSetCheckTimeout pulumi.StringPtrInput `pulumi:"upgradeReplicaSetCheckTimeout"`
 }
 
+// Defaults sets the appropriate defaults for ApplicationUpgradePolicyArgs
+func (val *ApplicationUpgradePolicyArgs) Defaults() *ApplicationUpgradePolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ApplicationUpgradePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationUpgradePolicy)(nil)).Elem()
 }
@@ -650,6 +659,21 @@ type ArmApplicationHealthPolicyArgs struct {
 	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
+// Defaults sets the appropriate defaults for ArmApplicationHealthPolicyArgs
+func (val *ArmApplicationHealthPolicyArgs) Defaults() *ArmApplicationHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConsiderWarningAsError) {
+		tmp.ConsiderWarningAsError = pulumi.BoolPtr(false)
+	}
+
+	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
+		tmp.MaxPercentUnhealthyDeployedApplications = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (ArmApplicationHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArmApplicationHealthPolicy)(nil)).Elem()
 }
@@ -1397,6 +1421,23 @@ type ArmServiceTypeHealthPolicyArgs struct {
 	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
 }
 
+// Defaults sets the appropriate defaults for ArmServiceTypeHealthPolicyArgs
+func (val *ArmServiceTypeHealthPolicyArgs) Defaults() *ArmServiceTypeHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
+		tmp.MaxPercentUnhealthyPartitionsPerService = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
+		tmp.MaxPercentUnhealthyReplicasPerPartition = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		tmp.MaxPercentUnhealthyServices = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (ArmServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArmServiceTypeHealthPolicy)(nil)).Elem()
 }

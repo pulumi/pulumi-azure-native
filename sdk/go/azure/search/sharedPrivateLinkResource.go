@@ -140,6 +140,23 @@ func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithCo
 	return o
 }
 
+// The name of the resource
+func (o SharedPrivateLinkResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
+func (o SharedPrivateLinkResourceOutput) Properties() SharedPrivateLinkResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResource) SharedPrivateLinkResourcePropertiesResponseOutput {
+		return v.Properties
+	}).(SharedPrivateLinkResourcePropertiesResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SharedPrivateLinkResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 }

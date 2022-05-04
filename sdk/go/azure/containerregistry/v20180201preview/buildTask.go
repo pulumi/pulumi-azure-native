@@ -195,6 +195,61 @@ func (o BuildTaskOutput) ToBuildTaskOutputWithContext(ctx context.Context) Build
 	return o
 }
 
+// The alternative updatable name for a build task.
+func (o BuildTaskOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The creation date of build task.
+func (o BuildTaskOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o BuildTaskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o BuildTaskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform properties against which the build has to happen.
+func (o BuildTaskOutput) Platform() PlatformPropertiesResponseOutput {
+	return o.ApplyT(func(v *BuildTask) PlatformPropertiesResponseOutput { return v.Platform }).(PlatformPropertiesResponseOutput)
+}
+
+// The provisioning state of the build task.
+func (o BuildTaskOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The properties that describes the source(code) for the build task.
+func (o BuildTaskOutput) SourceRepository() SourceRepositoryPropertiesResponseOutput {
+	return o.ApplyT(func(v *BuildTask) SourceRepositoryPropertiesResponseOutput { return v.SourceRepository }).(SourceRepositoryPropertiesResponseOutput)
+}
+
+// The current status of build task.
+func (o BuildTaskOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o BuildTaskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Build timeout in seconds.
+func (o BuildTaskOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource.
+func (o BuildTaskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildTask) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildTaskOutput{})
 }

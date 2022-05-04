@@ -137,6 +137,26 @@ func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutputWithContext(ctx context.
 	return o
 }
 
+// The preview subscription ID.
+func (o VendorSkuPreviewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the PreviewSubscription resource.
+func (o VendorSkuPreviewOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o VendorSkuPreviewOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o VendorSkuPreviewOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VendorSkuPreviewOutput{})
 }

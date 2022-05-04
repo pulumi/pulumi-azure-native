@@ -287,6 +287,46 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// The destination CIDR to which the route applies.
+func (o RouteOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o RouteOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+func (o RouteOutput) HasBgpOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.BoolPtrOutput { return v.HasBgpOverride }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o RouteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+func (o RouteOutput) NextHopIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.NextHopIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The type of Azure hop the packet should be sent to.
+func (o RouteOutput) NextHopType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.NextHopType }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the route resource.
+func (o RouteOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o RouteOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteOutput{})
 }

@@ -142,6 +142,26 @@ func (o StorageOutput) ToStorageOutputWithContext(ctx context.Context) StorageOu
 	return o
 }
 
+// The name of the resource.
+func (o StorageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Storage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the storage resource payload.
+func (o StorageOutput) Properties() StorageAccountResponseOutput {
+	return o.ApplyT(func(v *Storage) StorageAccountResponseOutput { return v.Properties }).(StorageAccountResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o StorageOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Storage) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o StorageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Storage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageOutput{})
 }

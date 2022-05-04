@@ -155,6 +155,41 @@ func (o DeploymentScriptOutput) ToDeploymentScriptOutputWithContext(ctx context.
 	return o
 }
 
+// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
+func (o DeploymentScriptOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DeploymentScript) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Type of the script.
+func (o DeploymentScriptOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentScript) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The location of the ACI and the storage account for the deployment script.
+func (o DeploymentScriptOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentScript) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o DeploymentScriptOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentScript) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o DeploymentScriptOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DeploymentScript) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DeploymentScriptOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentScript) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of this resource.
+func (o DeploymentScriptOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentScript) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentScriptOutput{})
 }

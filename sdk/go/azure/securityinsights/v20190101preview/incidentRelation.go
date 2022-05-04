@@ -179,6 +179,41 @@ func (o IncidentRelationOutput) ToIncidentRelationOutputWithContext(ctx context.
 	return o
 }
 
+// Etag of the azure resource
+func (o IncidentRelationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o IncidentRelationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the related resource
+func (o IncidentRelationOutput) RelatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.RelatedResourceId }).(pulumi.StringOutput)
+}
+
+// The resource kind of the related resource
+func (o IncidentRelationOutput) RelatedResourceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.RelatedResourceKind }).(pulumi.StringOutput)
+}
+
+// The name of the related resource
+func (o IncidentRelationOutput) RelatedResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.RelatedResourceName }).(pulumi.StringOutput)
+}
+
+// The resource type of the related resource
+func (o IncidentRelationOutput) RelatedResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.RelatedResourceType }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o IncidentRelationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentRelation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IncidentRelationOutput{})
 }

@@ -205,6 +205,36 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// Active Directories
+func (o AccountOutput) ActiveDirectories() ActiveDirectoryResponseArrayOutput {
+	return o.ApplyT(func(v *Account) ActiveDirectoryResponseArrayOutput { return v.ActiveDirectories }).(ActiveDirectoryResponseArrayOutput)
+}
+
+// Resource location
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

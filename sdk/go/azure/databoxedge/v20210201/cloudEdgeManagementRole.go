@@ -193,6 +193,42 @@ func (o CloudEdgeManagementRoleOutput) ToCloudEdgeManagementRoleOutputWithContex
 	return o
 }
 
+// Edge Profile of the resource
+func (o CloudEdgeManagementRoleOutput) EdgeProfile() EdgeProfileResponseOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) EdgeProfileResponseOutput { return v.EdgeProfile }).(EdgeProfileResponseOutput)
+}
+
+// Role type.
+// Expected value is 'CloudEdgeManagement'.
+func (o CloudEdgeManagementRoleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Local Edge Management Status
+func (o CloudEdgeManagementRoleOutput) LocalManagementStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) pulumi.StringOutput { return v.LocalManagementStatus }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o CloudEdgeManagementRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role status.
+func (o CloudEdgeManagementRoleOutput) RoleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) pulumi.StringOutput { return v.RoleStatus }).(pulumi.StringOutput)
+}
+
+// Role configured on ASE resource
+func (o CloudEdgeManagementRoleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o CloudEdgeManagementRoleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEdgeManagementRole) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudEdgeManagementRoleOutput{})
 }

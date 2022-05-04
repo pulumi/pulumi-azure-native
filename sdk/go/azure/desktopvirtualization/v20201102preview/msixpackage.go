@@ -225,6 +225,71 @@ func (o MSIXPackageOutput) ToMSIXPackageOutputWithContext(ctx context.Context) M
 	return o
 }
 
+// User friendly Name to be displayed in the portal.
+func (o MSIXPackageOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// VHD/CIM image path on Network Share.
+func (o MSIXPackageOutput) ImagePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.ImagePath }).(pulumi.StringPtrOutput)
+}
+
+// Make this version of the package the active one across the hostpool.
+func (o MSIXPackageOutput) IsActive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.BoolPtrOutput { return v.IsActive }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how to register Package in feed.
+func (o MSIXPackageOutput) IsRegularRegistration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.BoolPtrOutput { return v.IsRegularRegistration }).(pulumi.BoolPtrOutput)
+}
+
+// Date Package was last updated, found in the appxmanifest.xml.
+func (o MSIXPackageOutput) LastUpdated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.LastUpdated }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o MSIXPackageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of package applications.
+func (o MSIXPackageOutput) PackageApplications() MsixPackageApplicationsResponseArrayOutput {
+	return o.ApplyT(func(v *MSIXPackage) MsixPackageApplicationsResponseArrayOutput { return v.PackageApplications }).(MsixPackageApplicationsResponseArrayOutput)
+}
+
+// List of package dependencies.
+func (o MSIXPackageOutput) PackageDependencies() MsixPackageDependenciesResponseArrayOutput {
+	return o.ApplyT(func(v *MSIXPackage) MsixPackageDependenciesResponseArrayOutput { return v.PackageDependencies }).(MsixPackageDependenciesResponseArrayOutput)
+}
+
+// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
+func (o MSIXPackageOutput) PackageFamilyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.PackageFamilyName }).(pulumi.StringPtrOutput)
+}
+
+// Package Name from appxmanifest.xml.
+func (o MSIXPackageOutput) PackageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.PackageName }).(pulumi.StringPtrOutput)
+}
+
+// Relative Path to the package inside the image.
+func (o MSIXPackageOutput) PackageRelativePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.PackageRelativePath }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MSIXPackageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Package Version found in the appxmanifest.xml.
+func (o MSIXPackageOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSIXPackage) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MSIXPackageOutput{})
 }

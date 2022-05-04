@@ -212,6 +212,61 @@ func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualRouterOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The Gateway on which VirtualRouter is hosted.
+func (o VirtualRouterOutput) HostedGateway() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) SubResourceResponsePtrOutput { return v.HostedGateway }).(SubResourceResponsePtrOutput)
+}
+
+// The Subnet on which VirtualRouter is hosted.
+func (o VirtualRouterOutput) HostedSubnet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) SubResourceResponsePtrOutput { return v.HostedSubnet }).(SubResourceResponsePtrOutput)
+}
+
+// Resource location.
+func (o VirtualRouterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o VirtualRouterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of references to VirtualRouterPeerings.
+func (o VirtualRouterOutput) Peerings() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualRouter) SubResourceResponseArrayOutput { return v.Peerings }).(SubResourceResponseArrayOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualRouterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VirtualRouterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualRouterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// VirtualRouter ASN.
+func (o VirtualRouterOutput) VirtualRouterAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.Float64PtrOutput { return v.VirtualRouterAsn }).(pulumi.Float64PtrOutput)
+}
+
+// VirtualRouter IPs.
+func (o VirtualRouterOutput) VirtualRouterIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualRouter) pulumi.StringArrayOutput { return v.VirtualRouterIps }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualRouterOutput{})
 }

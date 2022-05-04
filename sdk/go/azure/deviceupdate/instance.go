@@ -164,6 +164,56 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
+// Parent Device Update Account name which Instance belongs to.
+func (o InstanceOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Customer-initiated diagnostic log collection storage properties
+func (o InstanceOutput) DiagnosticStorageProperties() DiagnosticStoragePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Instance) DiagnosticStoragePropertiesResponsePtrOutput { return v.DiagnosticStorageProperties }).(DiagnosticStoragePropertiesResponsePtrOutput)
+}
+
+// Enables or Disables the diagnostic logs collection
+func (o InstanceOutput) EnableDiagnostics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.EnableDiagnostics }).(pulumi.BoolPtrOutput)
+}
+
+// List of IoT Hubs associated with the account.
+func (o InstanceOutput) IotHubs() IotHubSettingsResponseArrayOutput {
+	return o.ApplyT(func(v *Instance) IotHubSettingsResponseArrayOutput { return v.IotHubs }).(IotHubSettingsResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o InstanceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o InstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o InstanceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o InstanceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Instance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o InstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o InstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceOutput{})
 }

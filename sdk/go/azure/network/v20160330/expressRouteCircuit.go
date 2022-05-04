@@ -317,6 +317,85 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 	return o
 }
 
+// allow classic operations
+func (o ExpressRouteCircuitOutput) AllowClassicOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.AllowClassicOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets list of authorizations
+func (o ExpressRouteCircuitOutput) Authorizations() ExpressRouteCircuitAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitAuthorizationResponseArrayOutput {
+		return v.Authorizations
+	}).(ExpressRouteCircuitAuthorizationResponseArrayOutput)
+}
+
+// Gets or sets CircuitProvisioningState state of the resource
+func (o ExpressRouteCircuitOutput) CircuitProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.CircuitProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o ExpressRouteCircuitOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ExpressRouteCircuitOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ExpressRouteCircuitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets list of peerings
+func (o ExpressRouteCircuitOutput) Peerings() ExpressRouteCircuitPeeringResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitPeeringResponseArrayOutput { return v.Peerings }).(ExpressRouteCircuitPeeringResponseArrayOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o ExpressRouteCircuitOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets ServiceKey
+func (o ExpressRouteCircuitOutput) ServiceKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets ServiceProviderNotes
+func (o ExpressRouteCircuitOutput) ServiceProviderNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceProviderNotes }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets ServiceProviderProperties
+func (o ExpressRouteCircuitOutput) ServiceProviderProperties() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
+		return v.ServiceProviderProperties
+	}).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
+}
+
+// Gets or sets ServiceProviderProvisioningState state of the resource
+func (o ExpressRouteCircuitOutput) ServiceProviderProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceProviderProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets sku
+func (o ExpressRouteCircuitOutput) Sku() ExpressRouteCircuitSkuResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitSkuResponsePtrOutput { return v.Sku }).(ExpressRouteCircuitSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ExpressRouteCircuitOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ExpressRouteCircuitOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 }

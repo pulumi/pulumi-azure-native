@@ -204,6 +204,71 @@ func (o LiveOutputOutput) ToLiveOutputOutputWithContext(ctx context.Context) Liv
 	return o
 }
 
+// ISO 8601 time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use PT1H30M to indicate 1 hour and 30 minutes of archive window.
+func (o LiveOutputOutput) ArchiveWindowLength() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ArchiveWindowLength }).(pulumi.StringOutput)
+}
+
+// The asset that the live output will write to.
+func (o LiveOutputOutput) AssetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.AssetName }).(pulumi.StringOutput)
+}
+
+// The creation time the live output.
+func (o LiveOutputOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// The description of the live output.
+func (o LiveOutputOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// HTTP Live Streaming (HLS) packing setting for the live output.
+func (o LiveOutputOutput) Hls() HlsResponsePtrOutput {
+	return o.ApplyT(func(v *LiveOutput) HlsResponsePtrOutput { return v.Hls }).(HlsResponsePtrOutput)
+}
+
+// The time the live output was last modified.
+func (o LiveOutputOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The manifest file name. If not provided, the service will generate one automatically.
+func (o LiveOutputOutput) ManifestName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringPtrOutput { return v.ManifestName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LiveOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The initial timestamp that the live output will start at, any content before this value will not be archived.
+func (o LiveOutputOutput) OutputSnapTime() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.Float64PtrOutput { return v.OutputSnapTime }).(pulumi.Float64PtrOutput)
+}
+
+// The provisioning state of the live output.
+func (o LiveOutputOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the live output.
+func (o LiveOutputOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LiveOutputOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LiveOutput) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LiveOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveOutput) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LiveOutputOutput{})
 }

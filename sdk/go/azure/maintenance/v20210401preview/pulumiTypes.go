@@ -1039,6 +1039,17 @@ type TaskPropertiesArgs struct {
 	TaskScope pulumi.StringPtrInput `pulumi:"taskScope"`
 }
 
+// Defaults sets the appropriate defaults for TaskPropertiesArgs
+func (val *TaskPropertiesArgs) Defaults() *TaskPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		tmp.TaskScope = pulumi.StringPtr("Global")
+	}
+	return &tmp
+}
 func (TaskPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TaskProperties)(nil)).Elem()
 }

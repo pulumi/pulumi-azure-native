@@ -175,6 +175,31 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// Runtime connection string to cache
+func (o CacheOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Cache description
+func (o CacheOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o CacheOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Original uri of entity in external system cache points to
+func (o CacheOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o CacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheOutput{})
 }

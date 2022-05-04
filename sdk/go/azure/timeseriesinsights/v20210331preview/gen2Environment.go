@@ -214,6 +214,91 @@ func (o Gen2EnvironmentOutput) ToGen2EnvironmentOutputWithContext(ctx context.Co
 	return o
 }
 
+// The time the resource was created.
+func (o Gen2EnvironmentOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o Gen2EnvironmentOutput) DataAccessFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.DataAccessFqdn }).(pulumi.StringOutput)
+}
+
+// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o Gen2EnvironmentOutput) DataAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.DataAccessId }).(pulumi.StringOutput)
+}
+
+// The kind of the environment.
+// Expected value is 'Gen2'.
+func (o Gen2EnvironmentOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o Gen2EnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o Gen2EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of private endpoint connections to the environment.
+func (o Gen2EnvironmentOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Gen2Environment) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o Gen2EnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// If 'enabled', public network access is allowed. If 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+func (o Gen2EnvironmentOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+func (o Gen2EnvironmentOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Gen2Environment) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+func (o Gen2EnvironmentOutput) Status() EnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *Gen2Environment) EnvironmentStatusResponseOutput { return v.Status }).(EnvironmentStatusResponseOutput)
+}
+
+// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+func (o Gen2EnvironmentOutput) StorageConfiguration() Gen2StorageConfigurationOutputResponseOutput {
+	return o.ApplyT(func(v *Gen2Environment) Gen2StorageConfigurationOutputResponseOutput { return v.StorageConfiguration }).(Gen2StorageConfigurationOutputResponseOutput)
+}
+
+// Resource tags
+func (o Gen2EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The list of event properties which will be used to define the environment's time series id.
+func (o Gen2EnvironmentOutput) TimeSeriesIdProperties() TimeSeriesIdPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *Gen2Environment) TimeSeriesIdPropertyResponseArrayOutput { return v.TimeSeriesIdProperties }).(TimeSeriesIdPropertyResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o Gen2EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen2Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+func (o Gen2EnvironmentOutput) WarmStoreConfiguration() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Gen2Environment) WarmStoreConfigurationPropertiesResponsePtrOutput {
+		return v.WarmStoreConfiguration
+	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(Gen2EnvironmentOutput{})
 }

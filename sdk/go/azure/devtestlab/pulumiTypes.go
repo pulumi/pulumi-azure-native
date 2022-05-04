@@ -5201,6 +5201,26 @@ type LabVirtualMachineCreationParameterArgs struct {
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
+// Defaults sets the appropriate defaults for LabVirtualMachineCreationParameterArgs
+func (val *LabVirtualMachineCreationParameterArgs) Defaults() *LabVirtualMachineCreationParameterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllowClaim) {
+		tmp.AllowClaim = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.DisallowPublicIpAddress) {
+		tmp.DisallowPublicIpAddress = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.OwnerObjectId) {
+		tmp.OwnerObjectId = pulumi.StringPtr("dynamicValue")
+	}
+	if isZero(tmp.StorageType) {
+		tmp.StorageType = pulumi.StringPtr("labStorageType")
+	}
+	return &tmp
+}
 func (LabVirtualMachineCreationParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabVirtualMachineCreationParameter)(nil)).Elem()
 }
@@ -6991,6 +7011,17 @@ type NotificationSettingsArgs struct {
 	WebhookUrl pulumi.StringPtrInput `pulumi:"webhookUrl"`
 }
 
+// Defaults sets the appropriate defaults for NotificationSettingsArgs
+func (val *NotificationSettingsArgs) Defaults() *NotificationSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Disabled")
+	}
+	return &tmp
+}
 func (NotificationSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationSettings)(nil)).Elem()
 }
@@ -7545,6 +7576,18 @@ type ScheduleCreationParameterArgs struct {
 	WeeklyRecurrence WeekDetailsPtrInput `pulumi:"weeklyRecurrence"`
 }
 
+// Defaults sets the appropriate defaults for ScheduleCreationParameterArgs
+func (val *ScheduleCreationParameterArgs) Defaults() *ScheduleCreationParameterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Disabled")
+	}
+	return &tmp
+}
 func (ScheduleCreationParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleCreationParameter)(nil)).Elem()
 }

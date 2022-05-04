@@ -270,6 +270,135 @@ func (o ApiManagementServiceOutput) ToApiManagementServiceOutputWithContext(ctx 
 	return o
 }
 
+// Additional datacenter locations of the API Management service.
+func (o ApiManagementServiceOutput) AdditionalLocations() AdditionalLocationResponseArrayOutput {
+	return o.ApplyT(func(v *ApiManagementService) AdditionalLocationResponseArrayOutput { return v.AdditionalLocations }).(AdditionalLocationResponseArrayOutput)
+}
+
+// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+func (o ApiManagementServiceOutput) Certificates() CertificateConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApiManagementService) CertificateConfigurationResponseArrayOutput { return v.Certificates }).(CertificateConfigurationResponseArrayOutput)
+}
+
+// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+func (o ApiManagementServiceOutput) CreatedAtUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.CreatedAtUtc }).(pulumi.StringOutput)
+}
+
+// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+func (o ApiManagementServiceOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringMapOutput { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+// ETag of the resource.
+func (o ApiManagementServiceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Gateway URL of the API Management service in the Default Region.
+func (o ApiManagementServiceOutput) GatewayRegionalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.GatewayRegionalUrl }).(pulumi.StringOutput)
+}
+
+// Gateway URL of the API Management service.
+func (o ApiManagementServiceOutput) GatewayUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.GatewayUrl }).(pulumi.StringOutput)
+}
+
+// Custom hostname configuration of the API Management service.
+func (o ApiManagementServiceOutput) HostnameConfigurations() HostnameConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApiManagementService) HostnameConfigurationResponseArrayOutput {
+		return v.HostnameConfigurations
+	}).(HostnameConfigurationResponseArrayOutput)
+}
+
+// Managed service identity of the Api Management service.
+func (o ApiManagementServiceOutput) Identity() ApiManagementServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ApiManagementService) ApiManagementServiceIdentityResponsePtrOutput { return v.Identity }).(ApiManagementServiceIdentityResponsePtrOutput)
+}
+
+// Resource location.
+func (o ApiManagementServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Management API endpoint URL of the API Management service.
+func (o ApiManagementServiceOutput) ManagementApiUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.ManagementApiUrl }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiManagementServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Email address from which the notification will be sent.
+func (o ApiManagementServiceOutput) NotificationSenderEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringPtrOutput { return v.NotificationSenderEmail }).(pulumi.StringPtrOutput)
+}
+
+// Publisher portal endpoint Url of the API Management service.
+func (o ApiManagementServiceOutput) PortalUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+func (o ApiManagementServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Publisher email.
+func (o ApiManagementServiceOutput) PublisherEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.PublisherEmail }).(pulumi.StringOutput)
+}
+
+// Publisher name.
+func (o ApiManagementServiceOutput) PublisherName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.PublisherName }).(pulumi.StringOutput)
+}
+
+// SCM endpoint URL of the API Management service.
+func (o ApiManagementServiceOutput) ScmUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.ScmUrl }).(pulumi.StringOutput)
+}
+
+// SKU properties of the API Management service.
+func (o ApiManagementServiceOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
+	return o.ApplyT(func(v *ApiManagementService) ApiManagementServiceSkuPropertiesResponseOutput { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
+}
+
+// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
+func (o ApiManagementServiceOutput) StaticIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringArrayOutput { return v.StaticIps }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags.
+func (o ApiManagementServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+func (o ApiManagementServiceOutput) TargetProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.TargetProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource is set to Microsoft.ApiManagement.
+func (o ApiManagementServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual network configuration of the API Management service.
+func (o ApiManagementServiceOutput) VirtualNetworkConfiguration() VirtualNetworkConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ApiManagementService) VirtualNetworkConfigurationResponsePtrOutput {
+		return v.VirtualNetworkConfiguration
+	}).(VirtualNetworkConfigurationResponsePtrOutput)
+}
+
+// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+func (o ApiManagementServiceOutput) VirtualNetworkType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiManagementService) pulumi.StringPtrOutput { return v.VirtualNetworkType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiManagementServiceOutput{})
 }

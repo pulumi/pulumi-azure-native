@@ -169,6 +169,47 @@ func (o MachineGroupOutput) ToMachineGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+func (o MachineGroupOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// User defined name for the group
+func (o MachineGroupOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource ETAG.
+func (o MachineGroupOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Type of the machine group
+func (o MachineGroupOutput) GroupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringPtrOutput { return v.GroupType }).(pulumi.StringPtrOutput)
+}
+
+// Additional resource type qualifier.
+// Expected value is 'machineGroup'.
+func (o MachineGroupOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+func (o MachineGroupOutput) Machines() MachineReferenceWithHintsResponseArrayOutput {
+	return o.ApplyT(func(v *MachineGroup) MachineReferenceWithHintsResponseArrayOutput { return v.Machines }).(MachineReferenceWithHintsResponseArrayOutput)
+}
+
+// Resource name.
+func (o MachineGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o MachineGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineGroupOutput{})
 }

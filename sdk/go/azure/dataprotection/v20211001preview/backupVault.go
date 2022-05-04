@@ -179,6 +179,46 @@ func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Optional ETag.
+func (o BackupVaultOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Input Managed Identity Details
+func (o BackupVaultOutput) Identity() DppIdentityDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *BackupVault) DppIdentityDetailsResponsePtrOutput { return v.Identity }).(DppIdentityDetailsResponsePtrOutput)
+}
+
+// Resource location.
+func (o BackupVaultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name associated with the resource.
+func (o BackupVaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// BackupVaultResource properties
+func (o BackupVaultOutput) Properties() BackupVaultResponseOutput {
+	return o.ApplyT(func(v *BackupVault) BackupVaultResponseOutput { return v.Properties }).(BackupVaultResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BackupVaultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BackupVault) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o BackupVaultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o BackupVaultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupVault) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupVaultOutput{})
 }

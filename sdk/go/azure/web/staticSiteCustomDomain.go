@@ -162,6 +162,45 @@ func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutputWithContext(
 	return o
 }
 
+// The date and time on which the custom domain was created for the static site.
+func (o StaticSiteCustomDomainOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The domain name for the static site custom domain.
+func (o StaticSiteCustomDomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o StaticSiteCustomDomainOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteCustomDomainOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the custom domain
+func (o StaticSiteCustomDomainOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o StaticSiteCustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The TXT record validation token
+func (o StaticSiteCustomDomainOutput) ValidationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteCustomDomain) pulumi.StringOutput { return v.ValidationToken }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticSiteCustomDomainOutput{})
 }

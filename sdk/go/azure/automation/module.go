@@ -181,6 +181,86 @@ func (o ModuleOutput) ToModuleOutputWithContext(ctx context.Context) ModuleOutpu
 	return o
 }
 
+// Gets or sets the activity count of the module.
+func (o ModuleOutput) ActivityCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.IntPtrOutput { return v.ActivityCount }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the contentLink of the module.
+func (o ModuleOutput) ContentLink() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v *Module) ContentLinkResponsePtrOutput { return v.ContentLink }).(ContentLinkResponsePtrOutput)
+}
+
+// Gets or sets the creation time.
+func (o ModuleOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o ModuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the error info of the module.
+func (o ModuleOutput) Error() ModuleErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Module) ModuleErrorInfoResponsePtrOutput { return v.Error }).(ModuleErrorInfoResponsePtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o ModuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets type of module, if its composite or not.
+func (o ModuleOutput) IsComposite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.BoolPtrOutput { return v.IsComposite }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the isGlobal flag of the module.
+func (o ModuleOutput) IsGlobal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.BoolPtrOutput { return v.IsGlobal }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o ModuleOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o ModuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ModuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state of the module.
+func (o ModuleOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the size in bytes of the module.
+func (o ModuleOutput) SizeInBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.Float64PtrOutput { return v.SizeInBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Resource tags.
+func (o ModuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ModuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the version of the module.
+func (o ModuleOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Module) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ModuleOutput{})
 }

@@ -227,6 +227,61 @@ func (o SiteHostNameBindingOutput) ToSiteHostNameBindingOutputWithContext(ctx co
 	return o
 }
 
+// Azure resource name
+func (o SiteHostNameBindingOutput) AzureResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.AzureResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o SiteHostNameBindingOutput) AzureResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.AzureResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Custom DNS record type
+func (o SiteHostNameBindingOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM domain resource URI
+func (o SiteHostNameBindingOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// Host name type
+func (o SiteHostNameBindingOutput) HostNameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.HostNameType }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o SiteHostNameBindingOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteHostNameBindingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteHostNameBindingOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Web app name
+func (o SiteHostNameBindingOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.SiteName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteHostNameBindingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteHostNameBindingOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteHostNameBinding) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteHostNameBindingOutput{})
 }

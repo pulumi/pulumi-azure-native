@@ -174,6 +174,26 @@ func (o ReplicationPolicyOutput) ToReplicationPolicyOutputWithContext(ctx contex
 	return o
 }
 
+// Resource Location
+func (o ReplicationPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationPolicyOutput) Properties() PolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationPolicy) PolicyPropertiesResponseOutput { return v.Properties }).(PolicyPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationPolicyOutput{})
 }

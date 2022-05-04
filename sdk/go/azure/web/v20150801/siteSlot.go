@@ -327,6 +327,175 @@ func (o SiteSlotOutput) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlo
 	return o
 }
 
+// Management information availability state for the web app. Possible values are Normal or Limited.
+//             Normal means that the site is running correctly and that management information for the site is available.
+//             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+func (o SiteSlotOutput) AvailabilityState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.AvailabilityState }).(pulumi.StringOutput)
+}
+
+// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+func (o SiteSlotOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolPtrOutput { return v.ClientAffinityEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies if the client certificate is enabled for the web app
+func (o SiteSlotOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolPtrOutput { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// This is only valid for web app creation. If specified, web app is cloned from
+//             a source web app
+func (o SiteSlotOutput) CloningInfo() CloningInfoResponsePtrOutput {
+	return o.ApplyT(func(v *SiteSlot) CloningInfoResponsePtrOutput { return v.CloningInfo }).(CloningInfoResponsePtrOutput)
+}
+
+// Size of a function container
+func (o SiteSlotOutput) ContainerSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.IntPtrOutput { return v.ContainerSize }).(pulumi.IntPtrOutput)
+}
+
+// Default hostname of the web app
+func (o SiteSlotOutput) DefaultHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.DefaultHostName }).(pulumi.StringOutput)
+}
+
+// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+func (o SiteSlotOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+//             the app is not served on those hostnames
+func (o SiteSlotOutput) EnabledHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringArrayOutput { return v.EnabledHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Name of gateway app associated with web app
+func (o SiteSlotOutput) GatewaySiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.GatewaySiteName }).(pulumi.StringPtrOutput)
+}
+
+// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+func (o SiteSlotOutput) HostNameSslStates() HostNameSslStateResponseArrayOutput {
+	return o.ApplyT(func(v *SiteSlot) HostNameSslStateResponseArrayOutput { return v.HostNameSslStates }).(HostNameSslStateResponseArrayOutput)
+}
+
+// Hostnames associated with web app
+func (o SiteSlotOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringArrayOutput { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// Specifies if the public hostnames are disabled the web app.
+//             If set to true the app is only accessible via API Management process
+func (o SiteSlotOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolPtrOutput { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specification for the hosting environment (App Service Environment) to use for the web app
+func (o SiteSlotOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *SiteSlot) HostingEnvironmentProfileResponsePtrOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponsePtrOutput)
+}
+
+// Site is a default container
+func (o SiteSlotOutput) IsDefaultContainer() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolOutput { return v.IsDefaultContainer }).(pulumi.BoolOutput)
+}
+
+// Kind of resource
+func (o SiteSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Last time web app was modified in UTC
+func (o SiteSlotOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o SiteSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of workers
+//             This only applies to function container
+func (o SiteSlotOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.IntPtrOutput { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+func (o SiteSlotOutput) MicroService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.MicroService }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o SiteSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+func (o SiteSlotOutput) OutboundIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.OutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// If set indicates whether web app is deployed as a premium app
+func (o SiteSlotOutput) PremiumAppDeployed() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolOutput { return v.PremiumAppDeployed }).(pulumi.BoolOutput)
+}
+
+// Name of repository site
+func (o SiteSlotOutput) RepositorySiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.RepositorySiteName }).(pulumi.StringOutput)
+}
+
+// Resource group web app belongs to
+func (o SiteSlotOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+func (o SiteSlotOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.BoolPtrOutput { return v.ScmSiteAlsoStopped }).(pulumi.BoolPtrOutput)
+}
+
+func (o SiteSlotOutput) ServerFarmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.ServerFarmId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of web app
+func (o SiteSlotOutput) SiteConfig() SiteConfigResponsePtrOutput {
+	return o.ApplyT(func(v *SiteSlot) SiteConfigResponsePtrOutput { return v.SiteConfig }).(SiteConfigResponsePtrOutput)
+}
+
+// State of the web app
+func (o SiteSlotOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o SiteSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Read-only property that specifies which slot this app will swap into
+func (o SiteSlotOutput) TargetSwapSlot() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.TargetSwapSlot }).(pulumi.StringOutput)
+}
+
+// Read-only list of Azure Traffic manager hostnames associated with web app
+func (o SiteSlotOutput) TrafficManagerHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringArrayOutput { return v.TrafficManagerHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o SiteSlotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// State indicating whether web app has exceeded its quota usage
+func (o SiteSlotOutput) UsageState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSlot) pulumi.StringOutput { return v.UsageState }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteSlotOutput{})
 }

@@ -229,6 +229,61 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Co
 	return o
 }
 
+// Collation of the metadata catalog.
+func (o ManagedDatabaseOutput) CatalogCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringPtrOutput { return v.CatalogCollation }).(pulumi.StringPtrOutput)
+}
+
+// Collation of the managed database.
+func (o ManagedDatabaseOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Creation date of the database.
+func (o ManagedDatabaseOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Geo paired region.
+func (o ManagedDatabaseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// Earliest restore point in time for point in time restore.
+func (o ManagedDatabaseOutput) EarliestRestorePoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.EarliestRestorePoint }).(pulumi.StringOutput)
+}
+
+// Instance Failover Group resource identifier that this managed database belongs to.
+func (o ManagedDatabaseOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ManagedDatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagedDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the database.
+func (o ManagedDatabaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ManagedDatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ManagedDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedDatabaseOutput{})
 }

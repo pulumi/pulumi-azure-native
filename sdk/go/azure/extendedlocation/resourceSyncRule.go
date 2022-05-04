@@ -162,6 +162,51 @@ func (o ResourceSyncRuleOutput) ToResourceSyncRuleOutputWithContext(ctx context.
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ResourceSyncRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ResourceSyncRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority represents a priority of the Resource Sync Rule
+func (o ResourceSyncRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Provisioning State for the Resource Sync Rule.
+func (o ResourceSyncRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
+func (o ResourceSyncRuleOutput) Selector() ResourceSyncRulePropertiesResponseSelectorPtrOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) ResourceSyncRulePropertiesResponseSelectorPtrOutput { return v.Selector }).(ResourceSyncRulePropertiesResponseSelectorPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o ResourceSyncRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ResourceSyncRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// For an unmapped custom resource, its labels will be used to find matching resource sync rules. If this resource sync rule is one of the matching rules with highest priority, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule. The user creating this resource sync rule should have write permissions on the target resource group and this write permission will be validated when creating the resource sync rule.
+func (o ResourceSyncRuleOutput) TargetResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringPtrOutput { return v.TargetResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ResourceSyncRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSyncRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceSyncRuleOutput{})
 }

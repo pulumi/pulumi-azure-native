@@ -151,6 +151,31 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
+// The type of private cloud addon
+func (o AddonOutput) AddonType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.AddonType }).(pulumi.StringPtrOutput)
+}
+
+// The SRM license
+func (o AddonOutput) LicenseKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringPtrOutput { return v.LicenseKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o AddonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the addon provisioning
+func (o AddonOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AddonOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddonOutput{})
 }

@@ -134,6 +134,17 @@ type MapsAccountPropertiesArgs struct {
 	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
 }
 
+// Defaults sets the appropriate defaults for MapsAccountPropertiesArgs
+func (val *MapsAccountPropertiesArgs) Defaults() *MapsAccountPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableLocalAuth) {
+		tmp.DisableLocalAuth = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (MapsAccountPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*MapsAccountProperties)(nil)).Elem()
 }

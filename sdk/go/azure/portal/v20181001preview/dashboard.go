@@ -153,6 +153,36 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
+// The dashboard lenses.
+func (o DashboardOutput) Lenses() DashboardLensResponseMapOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardLensResponseMapOutput { return v.Lenses }).(DashboardLensResponseMapOutput)
+}
+
+// Resource location
+func (o DashboardOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The dashboard metadata.
+func (o DashboardOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.MapOutput { return v.Metadata }).(pulumi.MapOutput)
+}
+
+// Resource name
+func (o DashboardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o DashboardOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DashboardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DashboardOutput{})
 }

@@ -203,6 +203,81 @@ func (o LongTermEnvironmentOutput) ToLongTermEnvironmentOutputWithContext(ctx co
 	return o
 }
 
+// The time the resource was created.
+func (o LongTermEnvironmentOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o LongTermEnvironmentOutput) DataAccessFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.DataAccessFqdn }).(pulumi.StringOutput)
+}
+
+// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o LongTermEnvironmentOutput) DataAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.DataAccessId }).(pulumi.StringOutput)
+}
+
+// The kind of the environment.
+// Expected value is 'LongTerm'.
+func (o LongTermEnvironmentOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o LongTermEnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o LongTermEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o LongTermEnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+func (o LongTermEnvironmentOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+func (o LongTermEnvironmentOutput) Status() EnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) EnvironmentStatusResponseOutput { return v.Status }).(EnvironmentStatusResponseOutput)
+}
+
+// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+func (o LongTermEnvironmentOutput) StorageConfiguration() LongTermStorageConfigurationOutputResponseOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) LongTermStorageConfigurationOutputResponseOutput {
+		return v.StorageConfiguration
+	}).(LongTermStorageConfigurationOutputResponseOutput)
+}
+
+// Resource tags
+func (o LongTermEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The list of event properties which will be used to define the environment's time series id.
+func (o LongTermEnvironmentOutput) TimeSeriesIdProperties() TimeSeriesIdPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) TimeSeriesIdPropertyResponseArrayOutput { return v.TimeSeriesIdProperties }).(TimeSeriesIdPropertyResponseArrayOutput)
+}
+
+// Resource type
+func (o LongTermEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+func (o LongTermEnvironmentOutput) WarmStoreConfiguration() WarmStoreConfigurationPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LongTermEnvironment) WarmStoreConfigurationPropertiesResponsePtrOutput {
+		return v.WarmStoreConfiguration
+	}).(WarmStoreConfigurationPropertiesResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LongTermEnvironmentOutput{})
 }

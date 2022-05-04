@@ -189,6 +189,28 @@ func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutputWithCont
 	return o
 }
 
+// Resource Location
+func (o ReplicationProtectedItemOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationProtectedItem) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationProtectedItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationProtectedItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationProtectedItemOutput) Properties() ReplicationProtectedItemPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationProtectedItem) ReplicationProtectedItemPropertiesResponseOutput {
+		return v.Properties
+	}).(ReplicationProtectedItemPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationProtectedItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationProtectedItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationProtectedItemOutput{})
 }

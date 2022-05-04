@@ -178,6 +178,41 @@ func (o ObjectReplicationPolicyOutput) ToObjectReplicationPolicyOutputWithContex
 	return o
 }
 
+// Required. Destination account name.
+func (o ObjectReplicationPolicyOutput) DestinationAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.DestinationAccount }).(pulumi.StringOutput)
+}
+
+// Indicates when the policy is enabled on the source account.
+func (o ObjectReplicationPolicyOutput) EnabledTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.EnabledTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ObjectReplicationPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A unique id for object replication policy.
+func (o ObjectReplicationPolicyOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The storage account object replication rules.
+func (o ObjectReplicationPolicyOutput) Rules() ObjectReplicationPolicyRuleResponseArrayOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) ObjectReplicationPolicyRuleResponseArrayOutput { return v.Rules }).(ObjectReplicationPolicyRuleResponseArrayOutput)
+}
+
+// Required. Source account name.
+func (o ObjectReplicationPolicyOutput) SourceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.SourceAccount }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ObjectReplicationPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectReplicationPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ObjectReplicationPolicyOutput{})
 }

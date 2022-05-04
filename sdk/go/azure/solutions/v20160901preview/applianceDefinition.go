@@ -212,6 +212,73 @@ func (o ApplianceDefinitionOutput) ToApplianceDefinitionOutputWithContext(ctx co
 	return o
 }
 
+// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+func (o ApplianceDefinitionOutput) Artifacts() ApplianceArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) ApplianceArtifactResponseArrayOutput { return v.Artifacts }).(ApplianceArtifactResponseArrayOutput)
+}
+
+// The appliance provider authorizations.
+func (o ApplianceDefinitionOutput) Authorizations() ApplianceProviderAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) ApplianceProviderAuthorizationResponseArrayOutput {
+		return v.Authorizations
+	}).(ApplianceProviderAuthorizationResponseArrayOutput)
+}
+
+// The appliance definition description.
+func (o ApplianceDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The appliance definition display name.
+func (o ApplianceDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the resource.
+func (o ApplianceDefinitionOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Resource location
+func (o ApplianceDefinitionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The appliance lock level.
+func (o ApplianceDefinitionOutput) LockLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringOutput { return v.LockLevel }).(pulumi.StringOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o ApplianceDefinitionOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ApplianceDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The appliance definition package file Uri.
+func (o ApplianceDefinitionOutput) PackageFileUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringOutput { return v.PackageFileUri }).(pulumi.StringOutput)
+}
+
+// The SKU of the resource.
+func (o ApplianceDefinitionOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ApplianceDefinitionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplianceDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplianceDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplianceDefinitionOutput{})
 }

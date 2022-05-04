@@ -186,6 +186,26 @@ func (o ApiPolicyOutput) ToApiPolicyOutputWithContext(ctx context.Context) ApiPo
 	return o
 }
 
+// Format of the policyContent.
+func (o ApiPolicyOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ApiPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contents of the Policy as defined by the format.
+func (o ApiPolicyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPolicyOutput{})
 }

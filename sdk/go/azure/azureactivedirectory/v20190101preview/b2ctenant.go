@@ -152,6 +152,41 @@ func (o B2CTenantOutput) ToB2CTenantOutputWithContext(ctx context.Context) B2CTe
 	return o
 }
 
+// The billing configuration for the tenant.
+func (o B2CTenantOutput) BillingConfig() B2CTenantResourcePropertiesResponseBillingConfigPtrOutput {
+	return o.ApplyT(func(v *B2CTenant) B2CTenantResourcePropertiesResponseBillingConfigPtrOutput { return v.BillingConfig }).(B2CTenantResourcePropertiesResponseBillingConfigPtrOutput)
+}
+
+// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+func (o B2CTenantOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *B2CTenant) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the B2C tenant resource.
+func (o B2CTenantOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *B2CTenant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+func (o B2CTenantOutput) Sku() B2CResourceSKUResponseOutput {
+	return o.ApplyT(func(v *B2CTenant) B2CResourceSKUResponseOutput { return v.Sku }).(B2CResourceSKUResponseOutput)
+}
+
+// Resource Tags
+func (o B2CTenantOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *B2CTenant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// An identifier of the B2C tenant.
+func (o B2CTenantOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *B2CTenant) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the B2C tenant resource.
+func (o B2CTenantOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *B2CTenant) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(B2CTenantOutput{})
 }

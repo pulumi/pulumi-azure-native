@@ -166,6 +166,48 @@ func (o ProactiveDetectionConfigurationOutput) ToProactiveDetectionConfiguration
 	return o
 }
 
+// Custom email addresses for this rule notifications
+func (o ProactiveDetectionConfigurationOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringArrayOutput { return v.CustomEmails }).(pulumi.StringArrayOutput)
+}
+
+// A flag that indicates whether this rule is enabled by the user
+func (o ProactiveDetectionConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The last time this rule was updated
+func (o ProactiveDetectionConfigurationOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ProactiveDetectionConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The rule name
+func (o ProactiveDetectionConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+func (o ProactiveDetectionConfigurationOutput) RuleDefinitions() ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitionsPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitionsPtrOutput {
+		return v.RuleDefinitions
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitionsPtrOutput)
+}
+
+// A flag that indicated whether notifications on this rule should be sent to subscription owners
+func (o ProactiveDetectionConfigurationOutput) SendEmailsToSubscriptionOwners() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.BoolPtrOutput { return v.SendEmailsToSubscriptionOwners }).(pulumi.BoolPtrOutput)
+}
+
+// Azure resource type
+func (o ProactiveDetectionConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProactiveDetectionConfigurationOutput{})
 }

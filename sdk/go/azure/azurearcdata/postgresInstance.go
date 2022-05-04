@@ -165,6 +165,46 @@ func (o PostgresInstanceOutput) ToPostgresInstanceOutputWithContext(ctx context.
 	return o
 }
 
+// The extendedLocation of the resource.
+func (o PostgresInstanceOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *PostgresInstance) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o PostgresInstanceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PostgresInstance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PostgresInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PostgresInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o PostgresInstanceOutput) Properties() PostgresInstancePropertiesResponseOutput {
+	return o.ApplyT(func(v *PostgresInstance) PostgresInstancePropertiesResponseOutput { return v.Properties }).(PostgresInstancePropertiesResponseOutput)
+}
+
+// Resource sku.
+func (o PostgresInstanceOutput) Sku() PostgresInstanceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *PostgresInstance) PostgresInstanceSkuResponsePtrOutput { return v.Sku }).(PostgresInstanceSkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o PostgresInstanceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PostgresInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o PostgresInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PostgresInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o PostgresInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PostgresInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PostgresInstanceOutput{})
 }

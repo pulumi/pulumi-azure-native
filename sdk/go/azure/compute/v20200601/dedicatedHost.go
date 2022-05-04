@@ -202,6 +202,71 @@ func (o DedicatedHostOutput) ToDedicatedHostOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+func (o DedicatedHostOutput) AutoReplaceOnFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.BoolPtrOutput { return v.AutoReplaceOnFailure }).(pulumi.BoolPtrOutput)
+}
+
+// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+func (o DedicatedHostOutput) HostId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.HostId }).(pulumi.StringOutput)
+}
+
+// The dedicated host instance view.
+func (o DedicatedHostOutput) InstanceView() DedicatedHostInstanceViewResponseOutput {
+	return o.ApplyT(func(v *DedicatedHost) DedicatedHostInstanceViewResponseOutput { return v.InstanceView }).(DedicatedHostInstanceViewResponseOutput)
+}
+
+// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+func (o DedicatedHostOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o DedicatedHostOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DedicatedHostOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fault domain of the dedicated host within a dedicated host group.
+func (o DedicatedHostOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.IntPtrOutput { return v.PlatformFaultDomain }).(pulumi.IntPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o DedicatedHostOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The date when the host was first provisioned.
+func (o DedicatedHostOutput) ProvisioningTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.ProvisioningTime }).(pulumi.StringOutput)
+}
+
+// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
+func (o DedicatedHostOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *DedicatedHost) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o DedicatedHostOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DedicatedHostOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of references to all virtual machines in the Dedicated Host.
+func (o DedicatedHostOutput) VirtualMachines() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *DedicatedHost) SubResourceReadOnlyResponseArrayOutput { return v.VirtualMachines }).(SubResourceReadOnlyResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedHostOutput{})
 }

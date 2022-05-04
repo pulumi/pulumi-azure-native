@@ -185,6 +185,51 @@ func (o EventHubOutput) ToEventHubOutputWithContext(ctx context.Context) EventHu
 	return o
 }
 
+// Exact time the Event Hub was created.
+func (o EventHubOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o EventHubOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Number of days to retain the events for this Event Hub.
+func (o EventHubOutput) MessageRetentionInDays() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.Float64PtrOutput { return v.MessageRetentionInDays }).(pulumi.Float64PtrOutput)
+}
+
+// Resource name
+func (o EventHubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of partitions created for the Event Hub.
+func (o EventHubOutput) PartitionCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.Float64PtrOutput { return v.PartitionCount }).(pulumi.Float64PtrOutput)
+}
+
+// Current number of shards on the Event Hub.
+func (o EventHubOutput) PartitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringArrayOutput { return v.PartitionIds }).(pulumi.StringArrayOutput)
+}
+
+// Enumerates the possible values for the status of the Event Hub.
+func (o EventHubOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o EventHubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o EventHubOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHub) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubOutput{})
 }

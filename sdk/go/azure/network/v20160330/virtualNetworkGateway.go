@@ -314,6 +314,85 @@ func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutputWithContext(ct
 	return o
 }
 
+// Virtual network gateway's BGP speaker settings
+func (o VirtualNetworkGatewayOutput) BgpSettings() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) BgpSettingsResponsePtrOutput { return v.BgpSettings }).(BgpSettingsResponsePtrOutput)
+}
+
+// EnableBgp Flag
+func (o VirtualNetworkGatewayOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o VirtualNetworkGatewayOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
+func (o VirtualNetworkGatewayOutput) GatewayDefaultSite() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) SubResourceResponsePtrOutput { return v.GatewayDefaultSite }).(SubResourceResponsePtrOutput)
+}
+
+// The type of this virtual network gateway.
+func (o VirtualNetworkGatewayOutput) GatewayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.GatewayType }).(pulumi.StringPtrOutput)
+}
+
+// IpConfigurations for Virtual network gateway.
+func (o VirtualNetworkGatewayOutput) IpConfigurations() VirtualNetworkGatewayIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewayIPConfigurationResponseArrayOutput {
+		return v.IpConfigurations
+	}).(VirtualNetworkGatewayIPConfigurationResponseArrayOutput)
+}
+
+// Resource location
+func (o VirtualNetworkGatewayOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o VirtualNetworkGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets Provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
+func (o VirtualNetworkGatewayOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource GUID property of the VirtualNetworkGateway resource
+func (o VirtualNetworkGatewayOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
+func (o VirtualNetworkGatewayOutput) Sku() VirtualNetworkGatewaySkuResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) VirtualNetworkGatewaySkuResponsePtrOutput { return v.Sku }).(VirtualNetworkGatewaySkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualNetworkGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualNetworkGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+func (o VirtualNetworkGatewayOutput) VpnClientConfiguration() VpnClientConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) VpnClientConfigurationResponsePtrOutput {
+		return v.VpnClientConfiguration
+	}).(VpnClientConfigurationResponsePtrOutput)
+}
+
+// The type of this virtual network gateway.
+func (o VirtualNetworkGatewayOutput) VpnType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.VpnType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayOutput{})
 }

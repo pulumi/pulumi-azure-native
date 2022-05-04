@@ -168,6 +168,36 @@ func (o ReplicationOutput) ToReplicationOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// The location of the resource. This cannot be changed after the resource is created.
+func (o ReplicationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replication) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ReplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the replication at the time the operation was called.
+func (o ReplicationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replication) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The status of the replication at the time the operation was called.
+func (o ReplicationOutput) Status() StatusResponseOutput {
+	return o.ApplyT(func(v *Replication) StatusResponseOutput { return v.Status }).(StatusResponseOutput)
+}
+
+// The tags of the resource.
+func (o ReplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Replication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ReplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replication) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationOutput{})
 }

@@ -170,6 +170,21 @@ func (o TagByApiOutput) ToTagByApiOutputWithContext(ctx context.Context) TagByAp
 	return o
 }
 
+// Tag name.
+func (o TagByApiOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o TagByApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagByApiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagByApi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TagByApiOutput{})
 }

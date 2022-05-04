@@ -177,6 +177,26 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// A value indicating whether packages within the application may be overwritten using the same version string.
+func (o ApplicationOutput) AllowUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AllowUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// The package to use if a client requests the application but does not specify a version.
+func (o ApplicationOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DefaultVersion }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the application.
+func (o ApplicationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The list of packages under this application.
+func (o ApplicationOutput) Packages() ApplicationPackageResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationPackageResponseArrayOutput { return v.Packages }).(ApplicationPackageResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

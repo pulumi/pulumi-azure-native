@@ -211,6 +211,65 @@ func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutputWithContex
 	return o
 }
 
+// The column name.
+func (o SqlPoolSensitivityLabelOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The information type.
+func (o SqlPoolSensitivityLabelOutput) InformationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringPtrOutput { return v.InformationType }).(pulumi.StringPtrOutput)
+}
+
+// The information type ID.
+func (o SqlPoolSensitivityLabelOutput) InformationTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringPtrOutput { return v.InformationTypeId }).(pulumi.StringPtrOutput)
+}
+
+// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
+func (o SqlPoolSensitivityLabelOutput) IsDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.BoolOutput { return v.IsDisabled }).(pulumi.BoolOutput)
+}
+
+// The label ID.
+func (o SqlPoolSensitivityLabelOutput) LabelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringPtrOutput { return v.LabelId }).(pulumi.StringPtrOutput)
+}
+
+// The label name.
+func (o SqlPoolSensitivityLabelOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringPtrOutput { return v.LabelName }).(pulumi.StringPtrOutput)
+}
+
+// managed by
+func (o SqlPoolSensitivityLabelOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlPoolSensitivityLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SqlPoolSensitivityLabelOutput) Rank() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringPtrOutput { return v.Rank }).(pulumi.StringPtrOutput)
+}
+
+// The schema name.
+func (o SqlPoolSensitivityLabelOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The table name.
+func (o SqlPoolSensitivityLabelOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlPoolSensitivityLabelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlPoolSensitivityLabel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlPoolSensitivityLabelOutput{})
 }

@@ -236,6 +236,81 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+func (o VirtualMachineOutput) AvailabilitySet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) SubResourceResponsePtrOutput { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+func (o VirtualMachineOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) DiagnosticsProfileResponsePtrOutput { return v.DiagnosticsProfile }).(DiagnosticsProfileResponsePtrOutput)
+}
+
+// Specifies the hardware settings for the virtual machine.
+func (o VirtualMachineOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// The virtual machine instance view.
+func (o VirtualMachineOutput) InstanceView() VirtualMachineInstanceViewResponseOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineInstanceViewResponseOutput { return v.InstanceView }).(VirtualMachineInstanceViewResponseOutput)
+}
+
+// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+func (o VirtualMachineOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o VirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network interfaces of the virtual machine.
+func (o VirtualMachineOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Specifies the operating system settings for the virtual machine.
+func (o VirtualMachineOutput) OsProfile() OSProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) OSProfileResponsePtrOutput { return v.OsProfile }).(OSProfileResponsePtrOutput)
+}
+
+// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+func (o VirtualMachineOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The virtual machine child extension resources.
+func (o VirtualMachineOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachineExtensionResponseArrayOutput { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o VirtualMachineOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

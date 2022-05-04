@@ -164,6 +164,36 @@ func (o ConfigurationAssignmentOutput) ToConfigurationAssignmentOutputWithContex
 	return o
 }
 
+// Location of the resource
+func (o ConfigurationAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The maintenance configuration Id
+func (o ConfigurationAssignmentOutput) MaintenanceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) pulumi.StringPtrOutput { return v.MaintenanceConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource
+func (o ConfigurationAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unique resourceId
+func (o ConfigurationAssignmentOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ConfigurationAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the resource
+func (o ConfigurationAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationAssignmentOutput{})
 }

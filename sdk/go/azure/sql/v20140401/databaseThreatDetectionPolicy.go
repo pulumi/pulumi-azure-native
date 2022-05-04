@@ -215,6 +215,61 @@ func (o DatabaseThreatDetectionPolicyOutput) ToDatabaseThreatDetectionPolicyOutp
 	return o
 }
 
+// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
+func (o DatabaseThreatDetectionPolicyOutput) DisabledAlerts() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.DisabledAlerts }).(pulumi.StringPtrOutput)
+}
+
+// Specifies that the alert is sent to the account administrators.
+func (o DatabaseThreatDetectionPolicyOutput) EmailAccountAdmins() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.EmailAccountAdmins }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
+func (o DatabaseThreatDetectionPolicyOutput) EmailAddresses() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.EmailAddresses }).(pulumi.StringPtrOutput)
+}
+
+// Resource kind.
+func (o DatabaseThreatDetectionPolicyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o DatabaseThreatDetectionPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o DatabaseThreatDetectionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days to keep in the Threat Detection audit logs.
+func (o DatabaseThreatDetectionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+func (o DatabaseThreatDetectionPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
+func (o DatabaseThreatDetectionPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o DatabaseThreatDetectionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether to use the default server policy.
+func (o DatabaseThreatDetectionPolicyOutput) UseServerDefault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseThreatDetectionPolicy) pulumi.StringPtrOutput { return v.UseServerDefault }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseThreatDetectionPolicyOutput{})
 }

@@ -161,6 +161,43 @@ func (o AdminRuleCollectionOutput) ToAdminRuleCollectionOutputWithContext(ctx co
 	return o
 }
 
+// Groups for configuration
+func (o AdminRuleCollectionOutput) AppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) NetworkManagerSecurityGroupItemResponseArrayOutput {
+		return v.AppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the admin rule collection.
+func (o AdminRuleCollectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o AdminRuleCollectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o AdminRuleCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o AdminRuleCollectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o AdminRuleCollectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o AdminRuleCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdminRuleCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdminRuleCollectionOutput{})
 }

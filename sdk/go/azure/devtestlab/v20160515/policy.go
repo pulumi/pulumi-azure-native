@@ -204,6 +204,71 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// The creation date of the policy.
+func (o PolicyOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The description of the policy.
+func (o PolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+func (o PolicyOutput) EvaluatorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.EvaluatorType }).(pulumi.StringPtrOutput)
+}
+
+// The fact data of the policy.
+func (o PolicyOutput) FactData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.FactData }).(pulumi.StringPtrOutput)
+}
+
+// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+func (o PolicyOutput) FactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.FactName }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o PolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o PolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o PolicyOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the policy.
+func (o PolicyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o PolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+func (o PolicyOutput) Threshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Threshold }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o PolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o PolicyOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyOutput{})
 }

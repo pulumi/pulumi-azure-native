@@ -218,6 +218,46 @@ func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutputWithContext(ctx cont
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o DdosProtectionPlanOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DdosProtectionPlanOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o DdosProtectionPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the DDoS protection plan resource.
+func (o DdosProtectionPlanOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+func (o DdosProtectionPlanOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o DdosProtectionPlanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o DdosProtectionPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+func (o DdosProtectionPlanOutput) VirtualNetworks() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *DdosProtectionPlan) SubResourceResponseArrayOutput { return v.VirtualNetworks }).(SubResourceResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DdosProtectionPlanOutput{})
 }

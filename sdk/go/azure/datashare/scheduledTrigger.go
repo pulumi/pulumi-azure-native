@@ -194,6 +194,62 @@ func (o ScheduledTriggerOutput) ToScheduledTriggerOutputWithContext(ctx context.
 	return o
 }
 
+// Time at which the trigger was created.
+func (o ScheduledTriggerOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Kind of synchronization on trigger.
+// Expected value is 'ScheduleBased'.
+func (o ScheduledTriggerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ScheduledTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the provisioning state
+func (o ScheduledTriggerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Recurrence Interval
+func (o ScheduledTriggerOutput) RecurrenceInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.RecurrenceInterval }).(pulumi.StringOutput)
+}
+
+// Synchronization mode
+func (o ScheduledTriggerOutput) SynchronizationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringPtrOutput { return v.SynchronizationMode }).(pulumi.StringPtrOutput)
+}
+
+// Synchronization time
+func (o ScheduledTriggerOutput) SynchronizationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.SynchronizationTime }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ScheduledTriggerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets the trigger state
+func (o ScheduledTriggerOutput) TriggerStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.TriggerStatus }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o ScheduledTriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the trigger.
+func (o ScheduledTriggerOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledTrigger) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledTriggerOutput{})
 }

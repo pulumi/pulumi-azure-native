@@ -272,6 +272,41 @@ func (o RouteFilterRuleOutput) ToRouteFilterRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// The access type of the rule.
+func (o RouteFilterRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringOutput { return v.Access }).(pulumi.StringOutput)
+}
+
+// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+func (o RouteFilterRuleOutput) Communities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringArrayOutput { return v.Communities }).(pulumi.StringArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o RouteFilterRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o RouteFilterRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o RouteFilterRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+func (o RouteFilterRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The rule type of the rule.
+func (o RouteFilterRuleOutput) RouteFilterRuleType() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilterRule) pulumi.StringOutput { return v.RouteFilterRuleType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteFilterRuleOutput{})
 }

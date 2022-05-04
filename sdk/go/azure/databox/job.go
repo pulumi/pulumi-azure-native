@@ -222,6 +222,106 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+// Reason for cancellation.
+func (o JobOutput) CancellationReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.CancellationReason }).(pulumi.StringOutput)
+}
+
+// Delivery Info of Job.
+func (o JobOutput) DeliveryInfo() JobDeliveryInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Job) JobDeliveryInfoResponsePtrOutput { return v.DeliveryInfo }).(JobDeliveryInfoResponsePtrOutput)
+}
+
+// Delivery type of Job.
+func (o JobOutput) DeliveryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.DeliveryType }).(pulumi.StringPtrOutput)
+}
+
+// Details of a job run. This field will only be sent for expand details filter.
+func (o JobOutput) Details() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.Details }).(pulumi.AnyOutput)
+}
+
+// Top level error for the job.
+func (o JobOutput) Error() CloudErrorResponseOutput {
+	return o.ApplyT(func(v *Job) CloudErrorResponseOutput { return v.Error }).(CloudErrorResponseOutput)
+}
+
+// Msi identity of the resource
+func (o JobOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Job) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Describes whether the job is cancellable or not.
+func (o JobOutput) IsCancellable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.IsCancellable }).(pulumi.BoolOutput)
+}
+
+// Flag to indicate cancellation of scheduled job.
+func (o JobOutput) IsCancellableWithoutFee() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.IsCancellableWithoutFee }).(pulumi.BoolOutput)
+}
+
+// Describes whether the job is deletable or not.
+func (o JobOutput) IsDeletable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.IsDeletable }).(pulumi.BoolOutput)
+}
+
+// Is Prepare To Ship Enabled on this job
+func (o JobOutput) IsPrepareToShipEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.IsPrepareToShipEnabled }).(pulumi.BoolOutput)
+}
+
+// Describes whether the shipping address is editable or not.
+func (o JobOutput) IsShippingAddressEditable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Job) pulumi.BoolOutput { return v.IsShippingAddressEditable }).(pulumi.BoolOutput)
+}
+
+// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
+func (o JobOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the object.
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku type.
+func (o JobOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Job) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Time at which the job was started in UTC ISO 8601 format.
+func (o JobOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Name of the stage which is in progress.
+func (o JobOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o JobOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Job) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
+func (o JobOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the data transfer.
+func (o JobOutput) TransferType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.TransferType }).(pulumi.StringOutput)
+}
+
+// Type of the object.
+func (o JobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobOutput{})
 }

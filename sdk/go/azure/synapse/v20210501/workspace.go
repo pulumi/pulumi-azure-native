@@ -248,6 +248,125 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The ADLA resource ID.
+func (o WorkspaceOutput) AdlaResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AdlaResourceId }).(pulumi.StringOutput)
+}
+
+// Connectivity endpoints
+func (o WorkspaceOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
+}
+
+// Initial workspace AAD admin properties for a CSP subscription
+func (o WorkspaceOutput) CspWorkspaceAdminProperties() CspWorkspaceAdminPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) CspWorkspaceAdminPropertiesResponsePtrOutput { return v.CspWorkspaceAdminProperties }).(CspWorkspaceAdminPropertiesResponsePtrOutput)
+}
+
+// Workspace default data lake storage account details
+func (o WorkspaceOutput) DefaultDataLakeStorage() DataLakeStorageAccountDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) DataLakeStorageAccountDetailsResponsePtrOutput { return v.DefaultDataLakeStorage }).(DataLakeStorageAccountDetailsResponsePtrOutput)
+}
+
+// The encryption details of the workspace
+func (o WorkspaceOutput) Encryption() EncryptionDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) EncryptionDetailsResponsePtrOutput { return v.Encryption }).(EncryptionDetailsResponsePtrOutput)
+}
+
+// Workspace level configs and feature flags
+func (o WorkspaceOutput) ExtraProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.MapOutput { return v.ExtraProperties }).(pulumi.MapOutput)
+}
+
+// Identity of the workspace
+func (o WorkspaceOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) ManagedIdentityResponsePtrOutput { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o WorkspaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
+func (o WorkspaceOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+func (o WorkspaceOutput) ManagedVirtualNetwork() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ManagedVirtualNetwork }).(pulumi.StringPtrOutput)
+}
+
+// Managed Virtual Network Settings
+func (o WorkspaceOutput) ManagedVirtualNetworkSettings() ManagedVirtualNetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) ManagedVirtualNetworkSettingsResponsePtrOutput {
+		return v.ManagedVirtualNetworkSettings
+	}).(ManagedVirtualNetworkSettingsResponsePtrOutput)
+}
+
+// The name of the resource
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint connections to the workspace
+func (o WorkspaceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Workspace) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Resource provisioning state
+func (o WorkspaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Enable or Disable public network access to workspace
+func (o WorkspaceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Purview Configuration
+func (o WorkspaceOutput) PurviewConfiguration() PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) PurviewConfigurationResponsePtrOutput { return v.PurviewConfiguration }).(PurviewConfigurationResponsePtrOutput)
+}
+
+// Login for workspace SQL active directory administrator
+func (o WorkspaceOutput) SqlAdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// SQL administrator login password
+func (o WorkspaceOutput) SqlAdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SqlAdministratorLoginPassword }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual Network profile
+func (o WorkspaceOutput) VirtualNetworkProfile() VirtualNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) VirtualNetworkProfileResponsePtrOutput { return v.VirtualNetworkProfile }).(VirtualNetworkProfileResponsePtrOutput)
+}
+
+// Git integration settings
+func (o WorkspaceOutput) WorkspaceRepositoryConfiguration() WorkspaceRepositoryConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceRepositoryConfigurationResponsePtrOutput {
+		return v.WorkspaceRepositoryConfiguration
+	}).(WorkspaceRepositoryConfigurationResponsePtrOutput)
+}
+
+// The workspace unique identifier
+func (o WorkspaceOutput) WorkspaceUID() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceUID }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

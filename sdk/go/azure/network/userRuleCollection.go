@@ -165,6 +165,48 @@ func (o UserRuleCollectionOutput) ToUserRuleCollectionOutputWithContext(ctx cont
 	return o
 }
 
+// Groups for configuration
+func (o UserRuleCollectionOutput) AppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v *UserRuleCollection) NetworkManagerSecurityGroupItemResponseArrayOutput {
+		return v.AppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o UserRuleCollectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o UserRuleCollectionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o UserRuleCollectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o UserRuleCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o UserRuleCollectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o UserRuleCollectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *UserRuleCollection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o UserRuleCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserRuleCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserRuleCollectionOutput{})
 }

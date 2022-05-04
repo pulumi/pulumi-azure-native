@@ -149,6 +149,31 @@ func (o ServiceRunnerOutput) ToServiceRunnerOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The identity of the resource.
+func (o ServiceRunnerOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceRunner) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ServiceRunnerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceRunner) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceRunnerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceRunner) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ServiceRunnerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceRunner) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceRunnerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceRunner) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceRunnerOutput{})
 }

@@ -205,6 +205,44 @@ func (o WebAppSitePushSettingsSlotOutput) ToWebAppSitePushSettingsSlotOutputWith
 	return o
 }
 
+// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+func (o WebAppSitePushSettingsSlotOutput) DynamicTagsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringPtrOutput { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a flag indicating whether the Push endpoint is enabled.
+func (o WebAppSitePushSettingsSlotOutput) IsPushEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.BoolOutput { return v.IsPushEnabled }).(pulumi.BoolOutput)
+}
+
+// Kind of resource.
+func (o WebAppSitePushSettingsSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSitePushSettingsSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+func (o WebAppSitePushSettingsSlotOutput) TagWhitelistJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringPtrOutput { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+// Tags can consist of alphanumeric characters and the following:
+// '_', '@', '#', '.', ':', '-'.
+// Validation should be performed at the PushRequestHandler.
+func (o WebAppSitePushSettingsSlotOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringPtrOutput { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppSitePushSettingsSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettingsSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSitePushSettingsSlotOutput{})
 }

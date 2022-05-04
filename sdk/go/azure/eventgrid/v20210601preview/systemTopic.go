@@ -168,6 +168,56 @@ func (o SystemTopicOutput) ToSystemTopicOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// Identity information for the resource.
+func (o SystemTopicOutput) Identity() IdentityInfoResponsePtrOutput {
+	return o.ApplyT(func(v *SystemTopic) IdentityInfoResponsePtrOutput { return v.Identity }).(IdentityInfoResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o SystemTopicOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metric resource id for the system topic.
+func (o SystemTopicOutput) MetricResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.MetricResourceId }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o SystemTopicOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the system topic.
+func (o SystemTopicOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Source for the system topic.
+func (o SystemTopicOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to System Topic resource.
+func (o SystemTopicOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemTopic) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o SystemTopicOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// TopicType for the system topic.
+func (o SystemTopicOutput) TopicType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringPtrOutput { return v.TopicType }).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource.
+func (o SystemTopicOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SystemTopic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SystemTopicOutput{})
 }

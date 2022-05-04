@@ -219,6 +219,66 @@ func (o WebAppHostNameBindingOutput) ToWebAppHostNameBindingOutputWithContext(ct
 	return o
 }
 
+// Azure resource name.
+func (o WebAppHostNameBindingOutput) AzureResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.AzureResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type.
+func (o WebAppHostNameBindingOutput) AzureResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.AzureResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Custom DNS record type.
+func (o WebAppHostNameBindingOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified ARM domain resource URI.
+func (o WebAppHostNameBindingOutput) DomainId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// Hostname type.
+func (o WebAppHostNameBindingOutput) HostNameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.HostNameType }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppHostNameBindingOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppHostNameBindingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// App Service app name.
+func (o WebAppHostNameBindingOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.SiteName }).(pulumi.StringPtrOutput)
+}
+
+// SSL type
+func (o WebAppHostNameBindingOutput) SslState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.SslState }).(pulumi.StringPtrOutput)
+}
+
+// SSL certificate thumbprint
+func (o WebAppHostNameBindingOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringPtrOutput { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppHostNameBindingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+func (o WebAppHostNameBindingOutput) VirtualIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppHostNameBinding) pulumi.StringOutput { return v.VirtualIP }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppHostNameBindingOutput{})
 }

@@ -180,6 +180,46 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+// Endpoint for the domain.
+func (o DomainOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// This determines the format that Event Grid should expect for incoming events published to the domain.
+func (o DomainOutput) InputSchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.InputSchema }).(pulumi.StringPtrOutput)
+}
+
+// Information about the InputSchemaMapping which specified the info about mapping event payload.
+func (o DomainOutput) InputSchemaMapping() JsonInputSchemaMappingResponsePtrOutput {
+	return o.ApplyT(func(v *Domain) JsonInputSchemaMappingResponsePtrOutput { return v.InputSchemaMapping }).(JsonInputSchemaMappingResponsePtrOutput)
+}
+
+// Location of the resource
+func (o DomainOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource
+func (o DomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the domain.
+func (o DomainOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Tags of the resource
+func (o DomainOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource
+func (o DomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainOutput{})
 }

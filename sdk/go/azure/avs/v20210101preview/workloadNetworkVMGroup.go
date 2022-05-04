@@ -158,6 +158,41 @@ func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutputWithContext(
 	return o
 }
 
+// Display name of the VM group.
+func (o WorkloadNetworkVMGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Virtual machine members of this group.
+func (o WorkloadNetworkVMGroupOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkVMGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkVMGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkVMGroupOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// VM Group status.
+func (o WorkloadNetworkVMGroupOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkVMGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkVMGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkVMGroupOutput{})
 }

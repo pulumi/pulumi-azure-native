@@ -353,6 +353,100 @@ func (o SecurityRuleOutput) ToSecurityRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The network traffic is allowed or denied.
+func (o SecurityRuleOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringOutput { return v.Access }).(pulumi.StringOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o SecurityRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+func (o SecurityRuleOutput) DestinationAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.DestinationAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o SecurityRuleOutput) DestinationAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringArrayOutput { return v.DestinationAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The application security group specified as destination.
+func (o SecurityRuleOutput) DestinationApplicationSecurityGroups() ApplicationSecurityGroupResponseArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) ApplicationSecurityGroupResponseArrayOutput {
+		return v.DestinationApplicationSecurityGroups
+	}).(ApplicationSecurityGroupResponseArrayOutput)
+}
+
+// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o SecurityRuleOutput) DestinationPortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.DestinationPortRange }).(pulumi.StringPtrOutput)
+}
+
+// The destination port ranges.
+func (o SecurityRuleOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringArrayOutput { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+func (o SecurityRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SecurityRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o SecurityRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o SecurityRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Network protocol this rule applies to.
+func (o SecurityRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the security rule resource.
+func (o SecurityRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+func (o SecurityRuleOutput) SourceAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.SourceAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o SecurityRuleOutput) SourceAddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringArrayOutput { return v.SourceAddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// The application security group specified as source.
+func (o SecurityRuleOutput) SourceApplicationSecurityGroups() ApplicationSecurityGroupResponseArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) ApplicationSecurityGroupResponseArrayOutput {
+		return v.SourceApplicationSecurityGroups
+	}).(ApplicationSecurityGroupResponseArrayOutput)
+}
+
+// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+func (o SecurityRuleOutput) SourcePortRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringPtrOutput { return v.SourcePortRange }).(pulumi.StringPtrOutput)
+}
+
+// The source port ranges.
+func (o SecurityRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityRule) pulumi.StringArrayOutput { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityRuleOutput{})
 }

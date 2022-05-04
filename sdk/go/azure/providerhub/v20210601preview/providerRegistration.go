@@ -125,6 +125,25 @@ func (o ProviderRegistrationOutput) ToProviderRegistrationOutputWithContext(ctx 
 	return o
 }
 
+// The name of the resource
+func (o ProviderRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ProviderRegistrationOutput) Properties() ProviderRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v *ProviderRegistration) ProviderRegistrationResponsePropertiesOutput { return v.Properties }).(ProviderRegistrationResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ProviderRegistrationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ProviderRegistration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ProviderRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProviderRegistrationOutput{})
 }

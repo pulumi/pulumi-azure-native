@@ -154,6 +154,56 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The UTC time when the Event Hubs Cluster was created.
+func (o ClusterOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ClusterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
+func (o ClusterOutput) MetricId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MetricId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the cluster SKU.
+func (o ClusterOutput) Sku() ClusterSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterSkuResponsePtrOutput { return v.Sku }).(ClusterSkuResponsePtrOutput)
+}
+
+// Status of the Cluster resource
+func (o ClusterOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o ClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The UTC time when the Event Hubs Cluster was last updated.
+func (o ClusterOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

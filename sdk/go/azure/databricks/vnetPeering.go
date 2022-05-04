@@ -186,6 +186,70 @@ func (o VNetPeeringOutput) ToVNetPeeringOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+func (o VNetPeeringOutput) AllowForwardedTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.BoolPtrOutput { return v.AllowForwardedTraffic }).(pulumi.BoolPtrOutput)
+}
+
+// If gateway links can be used in remote virtual networking to link to this virtual network.
+func (o VNetPeeringOutput) AllowGatewayTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.BoolPtrOutput { return v.AllowGatewayTransit }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+func (o VNetPeeringOutput) AllowVirtualNetworkAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.BoolPtrOutput { return v.AllowVirtualNetworkAccess }).(pulumi.BoolPtrOutput)
+}
+
+// The reference to the databricks virtual network address space.
+func (o VNetPeeringOutput) DatabricksAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VNetPeering) AddressSpaceResponsePtrOutput { return v.DatabricksAddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+func (o VNetPeeringOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v *VNetPeering) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+		return v.DatabricksVirtualNetwork
+	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
+}
+
+// Name of the virtual network peering resource
+func (o VNetPeeringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the virtual network peering.
+func (o VNetPeeringOutput) PeeringState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.StringOutput { return v.PeeringState }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the virtual network peering resource.
+func (o VNetPeeringOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The reference to the remote virtual network address space.
+func (o VNetPeeringOutput) RemoteAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VNetPeering) AddressSpaceResponsePtrOutput { return v.RemoteAddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+func (o VNetPeeringOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+	return o.ApplyT(func(v *VNetPeering) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+		return v.RemoteVirtualNetwork
+	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
+}
+
+// type of the virtual network peering resource
+func (o VNetPeeringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+func (o VNetPeeringOutput) UseRemoteGateways() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VNetPeering) pulumi.BoolPtrOutput { return v.UseRemoteGateways }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VNetPeeringOutput{})
 }

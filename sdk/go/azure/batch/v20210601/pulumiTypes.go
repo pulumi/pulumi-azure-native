@@ -573,6 +573,17 @@ type AutoStorageBasePropertiesArgs struct {
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
+// Defaults sets the appropriate defaults for AutoStorageBasePropertiesArgs
+func (val *AutoStorageBasePropertiesArgs) Defaults() *AutoStorageBasePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuthenticationMode) {
+		tmp.AuthenticationMode = AutoStorageAuthenticationMode("StorageKeys")
+	}
+	return &tmp
+}
 func (AutoStorageBasePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoStorageBaseProperties)(nil)).Elem()
 }

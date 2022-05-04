@@ -166,6 +166,56 @@ func (o LinkerOutput) ToLinkerOutputWithContext(ctx context.Context) LinkerOutpu
 	return o
 }
 
+// The authentication type.
+func (o LinkerOutput) AuthInfo() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Linker) pulumi.AnyOutput { return v.AuthInfo }).(pulumi.AnyOutput)
+}
+
+// The application client type
+func (o LinkerOutput) ClientType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringPtrOutput { return v.ClientType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o LinkerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o LinkerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// connection scope in source service.
+func (o LinkerOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// An option to store secret value in secure place
+func (o LinkerOutput) SecretStore() SecretStoreResponsePtrOutput {
+	return o.ApplyT(func(v *Linker) SecretStoreResponsePtrOutput { return v.SecretStore }).(SecretStoreResponsePtrOutput)
+}
+
+// The system data.
+func (o LinkerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Linker) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The target service properties
+func (o LinkerOutput) TargetService() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Linker) pulumi.AnyOutput { return v.TargetService }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LinkerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Linker) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VNet solution.
+func (o LinkerOutput) VNetSolution() VNetSolutionResponsePtrOutput {
+	return o.ApplyT(func(v *Linker) VNetSolutionResponsePtrOutput { return v.VNetSolution }).(VNetSolutionResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkerOutput{})
 }

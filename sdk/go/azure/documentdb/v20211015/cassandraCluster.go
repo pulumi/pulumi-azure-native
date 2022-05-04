@@ -162,6 +162,36 @@ func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.
 	return o
 }
 
+// Identity for the resource.
+func (o CassandraClusterOutput) Identity() ManagedCassandraManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) ManagedCassandraManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedCassandraManagedServiceIdentityResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o CassandraClusterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o CassandraClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a managed Cassandra cluster.
+func (o CassandraClusterOutput) Properties() ClusterResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *CassandraCluster) ClusterResourceResponsePropertiesOutput { return v.Properties }).(ClusterResourceResponsePropertiesOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o CassandraClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o CassandraClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CassandraClusterOutput{})
 }

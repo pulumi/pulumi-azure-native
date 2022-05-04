@@ -209,6 +209,86 @@ func (o DomainEventSubscriptionOutput) ToDomainEventSubscriptionOutputWithContex
 	return o
 }
 
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DomainEventSubscriptionOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) StorageBlobDeadLetterDestinationResponsePtrOutput {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DomainEventSubscriptionOutput) DeadLetterWithResourceIdentity() DeadLetterWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) DeadLetterWithResourceIdentityResponsePtrOutput {
+		return v.DeadLetterWithResourceIdentity
+	}).(DeadLetterWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DomainEventSubscriptionOutput) DeliveryWithResourceIdentity() DeliveryWithResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) DeliveryWithResourceIdentityResponsePtrOutput {
+		return v.DeliveryWithResourceIdentity
+	}).(DeliveryWithResourceIdentityResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+func (o DomainEventSubscriptionOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.AnyOutput { return v.Destination }).(pulumi.AnyOutput)
+}
+
+// The event delivery schema for the event subscription.
+func (o DomainEventSubscriptionOutput) EventDeliverySchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringPtrOutput { return v.EventDeliverySchema }).(pulumi.StringPtrOutput)
+}
+
+// Expiration time of the event subscription.
+func (o DomainEventSubscriptionOutput) ExpirationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringPtrOutput { return v.ExpirationTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// Information about the filter for the event subscription.
+func (o DomainEventSubscriptionOutput) Filter() EventSubscriptionFilterResponsePtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) EventSubscriptionFilterResponsePtrOutput { return v.Filter }).(EventSubscriptionFilterResponsePtrOutput)
+}
+
+// List of user defined labels.
+func (o DomainEventSubscriptionOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Name of the resource.
+func (o DomainEventSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the event subscription.
+func (o DomainEventSubscriptionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+func (o DomainEventSubscriptionOutput) RetryPolicy() RetryPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) RetryPolicyResponsePtrOutput { return v.RetryPolicy }).(RetryPolicyResponsePtrOutput)
+}
+
+// The system metadata relating to Event Subscription resource.
+func (o DomainEventSubscriptionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Name of the topic of the event subscription.
+func (o DomainEventSubscriptionOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringOutput { return v.Topic }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o DomainEventSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEventSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainEventSubscriptionOutput{})
 }

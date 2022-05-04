@@ -148,6 +148,31 @@ func (o ActionRuleByNameOutput) ToActionRuleByNameOutputWithContext(ctx context.
 	return o
 }
 
+// Resource location
+func (o ActionRuleByNameOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionRuleByName) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ActionRuleByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionRuleByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// action rule properties
+func (o ActionRuleByNameOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ActionRuleByName) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags
+func (o ActionRuleByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ActionRuleByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o ActionRuleByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActionRuleByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionRuleByNameOutput{})
 }

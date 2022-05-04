@@ -184,6 +184,66 @@ func (o ConnectivityConfigurationOutput) ToConnectivityConfigurationOutputWithCo
 	return o
 }
 
+// Groups for configuration
+func (o ConnectivityConfigurationOutput) AppliesToGroups() ConnectivityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) ConnectivityGroupItemResponseArrayOutput { return v.AppliesToGroups }).(ConnectivityGroupItemResponseArrayOutput)
+}
+
+// Connectivity topology type.
+func (o ConnectivityConfigurationOutput) ConnectivityTopology() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringOutput { return v.ConnectivityTopology }).(pulumi.StringOutput)
+}
+
+// Flag if need to remove current existing peerings.
+func (o ConnectivityConfigurationOutput) DeleteExistingPeering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringPtrOutput { return v.DeleteExistingPeering }).(pulumi.StringPtrOutput)
+}
+
+// A description of the connectivity configuration.
+func (o ConnectivityConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the resource.
+func (o ConnectivityConfigurationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ConnectivityConfigurationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of hubItems
+func (o ConnectivityConfigurationOutput) Hubs() HubResponseArrayOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) HubResponseArrayOutput { return v.Hubs }).(HubResponseArrayOutput)
+}
+
+// Flag if global mesh is supported.
+func (o ConnectivityConfigurationOutput) IsGlobal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringPtrOutput { return v.IsGlobal }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ConnectivityConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the connectivity configuration resource.
+func (o ConnectivityConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o ConnectivityConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o ConnectivityConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectivityConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectivityConfigurationOutput{})
 }

@@ -159,6 +159,48 @@ func (o ConfigurationPolicyGroupOutput) ToConfigurationPolicyGroupOutputWithCont
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o ConfigurationPolicyGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
+func (o ConfigurationPolicyGroupOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.BoolPtrOutput { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ConfigurationPolicyGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of references to P2SConnectionConfigurations.
+func (o ConfigurationPolicyGroupOutput) P2SConnectionConfigurations() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) SubResourceResponseArrayOutput { return v.P2SConnectionConfigurations }).(SubResourceResponseArrayOutput)
+}
+
+// Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
+func (o ConfigurationPolicyGroupOutput) PolicyMembers() VpnServerConfigurationPolicyGroupMemberResponseArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) VpnServerConfigurationPolicyGroupMemberResponseArrayOutput {
+		return v.PolicyMembers
+	}).(VpnServerConfigurationPolicyGroupMemberResponseArrayOutput)
+}
+
+// Priority for VpnServerConfigurationPolicyGroup.
+func (o ConfigurationPolicyGroupOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The provisioning state of the VpnServerConfigurationPolicyGroup resource.
+func (o ConfigurationPolicyGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ConfigurationPolicyGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationPolicyGroupOutput{})
 }

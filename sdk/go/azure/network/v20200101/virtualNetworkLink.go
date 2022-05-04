@@ -163,6 +163,51 @@ func (o VirtualNetworkLinkOutput) ToVirtualNetworkLinkOutputWithContext(ctx cont
 	return o
 }
 
+// The ETag of the virtual network link.
+func (o VirtualNetworkLinkOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o VirtualNetworkLinkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o VirtualNetworkLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+func (o VirtualNetworkLinkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+func (o VirtualNetworkLinkOutput) RegistrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.BoolPtrOutput { return v.RegistrationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags.
+func (o VirtualNetworkLinkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+func (o VirtualNetworkLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference of the virtual network.
+func (o VirtualNetworkLinkOutput) VirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) SubResourceResponsePtrOutput { return v.VirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
+// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+func (o VirtualNetworkLinkOutput) VirtualNetworkLinkState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.VirtualNetworkLinkState }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkLinkOutput{})
 }

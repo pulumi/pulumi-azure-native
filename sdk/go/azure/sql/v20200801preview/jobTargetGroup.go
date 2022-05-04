@@ -164,6 +164,21 @@ func (o JobTargetGroupOutput) ToJobTargetGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Members of the target group.
+func (o JobTargetGroupOutput) Members() JobTargetResponseArrayOutput {
+	return o.ApplyT(func(v *JobTargetGroup) JobTargetResponseArrayOutput { return v.Members }).(JobTargetResponseArrayOutput)
+}
+
+// Resource name.
+func (o JobTargetGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTargetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o JobTargetGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobTargetGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobTargetGroupOutput{})
 }

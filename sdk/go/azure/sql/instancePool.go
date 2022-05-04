@@ -187,6 +187,46 @@ func (o InstancePoolOutput) ToInstancePoolOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
+func (o InstancePoolOutput) LicenseType() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o InstancePoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o InstancePoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name and tier of the SKU.
+func (o InstancePoolOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *InstancePool) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource ID of the subnet to place this instance pool in.
+func (o InstancePoolOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o InstancePoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o InstancePoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Count of vCores belonging to this instance pool.
+func (o InstancePoolOutput) VCores() pulumi.IntOutput {
+	return o.ApplyT(func(v *InstancePool) pulumi.IntOutput { return v.VCores }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstancePoolOutput{})
 }

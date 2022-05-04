@@ -183,6 +183,36 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// A value indicating whether packages within the application may be overwritten using the same version string.
+func (o ApplicationOutput) AllowUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.AllowUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+func (o ApplicationOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DefaultVersion }).(pulumi.StringPtrOutput)
+}
+
+// The display name for the application.
+func (o ApplicationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o ApplicationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

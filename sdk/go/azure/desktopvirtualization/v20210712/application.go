@@ -241,6 +241,86 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Resource Type of Application.
+func (o ApplicationOutput) ApplicationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationType }).(pulumi.StringPtrOutput)
+}
+
+// Command Line Arguments for Application.
+func (o ApplicationOutput) CommandLineArguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.CommandLineArguments }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+func (o ApplicationOutput) CommandLineSetting() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.CommandLineSetting }).(pulumi.StringOutput)
+}
+
+// Description of Application.
+func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a path for the executable file for the application.
+func (o ApplicationOutput) FilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.FilePath }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of Application.
+func (o ApplicationOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// the icon a 64 bit string as a byte array.
+func (o ApplicationOutput) IconContent() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IconContent }).(pulumi.StringOutput)
+}
+
+// Hash of the icon.
+func (o ApplicationOutput) IconHash() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IconHash }).(pulumi.StringOutput)
+}
+
+// Index of the icon.
+func (o ApplicationOutput) IconIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.IntPtrOutput { return v.IconIndex }).(pulumi.IntPtrOutput)
+}
+
+// Path to icon.
+func (o ApplicationOutput) IconPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.IconPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the package application Id for MSIX applications
+func (o ApplicationOutput) MsixPackageApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.MsixPackageApplicationId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the package family name for MSIX applications
+func (o ApplicationOutput) MsixPackageFamilyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.MsixPackageFamilyName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ObjectId of Application. (internal use)
+func (o ApplicationOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// Specifies whether to show the RemoteApp program in the RD Web Access server.
+func (o ApplicationOutput) ShowInPortal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.ShowInPortal }).(pulumi.BoolPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

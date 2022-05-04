@@ -149,6 +149,31 @@ func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Identity for the resource.
+func (o LinkedServiceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *LinkedService) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// location of the linked service.
+func (o LinkedServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the linked service.
+func (o LinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// LinkedService specific properties.
+func (o LinkedServiceOutput) Properties() LinkedServicePropsResponseOutput {
+	return o.ApplyT(func(v *LinkedService) LinkedServicePropsResponseOutput { return v.Properties }).(LinkedServicePropsResponseOutput)
+}
+
+// Resource type of linked service.
+func (o LinkedServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

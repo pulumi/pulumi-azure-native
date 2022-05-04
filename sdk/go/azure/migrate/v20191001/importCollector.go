@@ -130,6 +130,22 @@ func (o ImportCollectorOutput) ToImportCollectorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ImportCollectorOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImportCollector) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o ImportCollectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImportCollector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ImportCollectorOutput) Properties() ImportCollectorPropertiesResponseOutput {
+	return o.ApplyT(func(v *ImportCollector) ImportCollectorPropertiesResponseOutput { return v.Properties }).(ImportCollectorPropertiesResponseOutput)
+}
+
+func (o ImportCollectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImportCollector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ImportCollectorOutput{})
 }

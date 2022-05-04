@@ -172,6 +172,58 @@ func (o NetworkManagerOutput) ToNetworkManagerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A description of the network manager.
+func (o NetworkManagerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkManagerOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o NetworkManagerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkManagerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Scope Access.
+func (o NetworkManagerOutput) NetworkManagerScopeAccesses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringArrayOutput { return v.NetworkManagerScopeAccesses }).(pulumi.StringArrayOutput)
+}
+
+// Scope of Network Manager.
+func (o NetworkManagerOutput) NetworkManagerScopes() NetworkManagerPropertiesResponseNetworkManagerScopesOutput {
+	return o.ApplyT(func(v *NetworkManager) NetworkManagerPropertiesResponseNetworkManagerScopesOutput {
+		return v.NetworkManagerScopes
+	}).(NetworkManagerPropertiesResponseNetworkManagerScopesOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o NetworkManagerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o NetworkManagerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NetworkManager) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o NetworkManagerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkManagerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkManagerOutput{})
 }

@@ -285,6 +285,20 @@ type ApiPortalPropertiesArgs struct {
 	SsoProperties SsoPropertiesPtrInput `pulumi:"ssoProperties"`
 }
 
+// Defaults sets the appropriate defaults for ApiPortalPropertiesArgs
+func (val *ApiPortalPropertiesArgs) Defaults() *ApiPortalPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		tmp.HttpsOnly = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Public) {
+		tmp.Public = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ApiPortalPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiPortalProperties)(nil)).Elem()
 }
@@ -668,6 +682,21 @@ type AppResourcePropertiesArgs struct {
 	TemporaryDisk TemporaryDiskPtrInput `pulumi:"temporaryDisk"`
 }
 
+// Defaults sets the appropriate defaults for AppResourcePropertiesArgs
+func (val *AppResourcePropertiesArgs) Defaults() *AppResourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		tmp.EnableEndToEndTLS = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.HttpsOnly) {
+		tmp.HttpsOnly = pulumi.BoolPtr(false)
+	}
+
+	return &tmp
+}
 func (AppResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppResourceProperties)(nil)).Elem()
 }
@@ -2630,6 +2659,17 @@ type ClusterResourcePropertiesArgs struct {
 	ZoneRedundant  pulumi.BoolPtrInput    `pulumi:"zoneRedundant"`
 }
 
+// Defaults sets the appropriate defaults for ClusterResourcePropertiesArgs
+func (val *ClusterResourcePropertiesArgs) Defaults() *ClusterResourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ZoneRedundant) {
+		tmp.ZoneRedundant = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ClusterResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterResourceProperties)(nil)).Elem()
 }
@@ -6458,6 +6498,20 @@ type GatewayPropertiesArgs struct {
 	SsoProperties SsoPropertiesPtrInput `pulumi:"ssoProperties"`
 }
 
+// Defaults sets the appropriate defaults for GatewayPropertiesArgs
+func (val *GatewayPropertiesArgs) Defaults() *GatewayPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		tmp.HttpsOnly = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Public) {
+		tmp.Public = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (GatewayPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayProperties)(nil)).Elem()
 }
@@ -7349,6 +7403,17 @@ type LoadedCertificateArgs struct {
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
 
+// Defaults sets the appropriate defaults for LoadedCertificateArgs
+func (val *LoadedCertificateArgs) Defaults() *LoadedCertificateArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		tmp.LoadTrustStore = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (LoadedCertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadedCertificate)(nil)).Elem()
 }
@@ -8983,6 +9048,20 @@ type SkuArgs struct {
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for SkuArgs
+func (val *SkuArgs) Defaults() *SkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		tmp.Name = pulumi.StringPtr("S0")
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = pulumi.StringPtr("Standard")
+	}
+	return &tmp
+}
 func (SkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Sku)(nil)).Elem()
 }
@@ -10135,6 +10214,17 @@ type TemporaryDiskArgs struct {
 	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
 }
 
+// Defaults sets the appropriate defaults for TemporaryDiskArgs
+func (val *TemporaryDiskArgs) Defaults() *TemporaryDiskArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		tmp.MountPath = pulumi.StringPtr("/tmp")
+	}
+	return &tmp
+}
 func (TemporaryDiskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemporaryDisk)(nil)).Elem()
 }

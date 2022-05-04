@@ -157,6 +157,31 @@ func (o SshPublicKeyOutput) ToSshPublicKeyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Resource location
+func (o SshPublicKeyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SshPublicKey) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SshPublicKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SshPublicKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+func (o SshPublicKeyOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SshPublicKey) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SshPublicKeyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SshPublicKey) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SshPublicKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SshPublicKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SshPublicKeyOutput{})
 }

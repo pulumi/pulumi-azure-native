@@ -203,6 +203,42 @@ func (o LoggerOutput) ToLoggerOutputWithContext(ctx context.Context) LoggerOutpu
 	return o
 }
 
+// The name and SendRule connection string of the event hub for azureEventHub logger.
+// Instrumentation key for applicationInsights logger.
+func (o LoggerOutput) Credentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringMapOutput { return v.Credentials }).(pulumi.StringMapOutput)
+}
+
+// Logger description.
+func (o LoggerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+func (o LoggerOutput) IsBuffered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Logger) pulumi.BoolPtrOutput { return v.IsBuffered }).(pulumi.BoolPtrOutput)
+}
+
+// Logger type.
+func (o LoggerOutput) LoggerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringOutput { return v.LoggerType }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LoggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
+func (o LoggerOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o LoggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Logger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoggerOutput{})
 }

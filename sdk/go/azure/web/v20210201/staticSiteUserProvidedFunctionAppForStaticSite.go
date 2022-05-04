@@ -163,6 +163,40 @@ func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) ToStaticSiteUserPr
 	return o
 }
 
+// The date and time on which the function app was registered with the static site.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The region of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) FunctionAppRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringPtrOutput {
+		return v.FunctionAppRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the function app registered with the static site
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) FunctionAppResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringPtrOutput {
+		return v.FunctionAppResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o StaticSiteUserProvidedFunctionAppForStaticSiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSiteUserProvidedFunctionAppForStaticSite) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticSiteUserProvidedFunctionAppForStaticSiteOutput{})
 }

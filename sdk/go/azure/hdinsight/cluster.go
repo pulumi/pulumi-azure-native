@@ -156,6 +156,41 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The ETag for the resource
+func (o ClusterOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the cluster, if configured.
+func (o ClusterOutput) Identity() ClusterIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterIdentityResponsePtrOutput { return v.Identity }).(ClusterIdentityResponsePtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o ClusterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the cluster.
+func (o ClusterOutput) Properties() ClusterGetPropertiesResponseOutput {
+	return o.ApplyT(func(v *Cluster) ClusterGetPropertiesResponseOutput { return v.Properties }).(ClusterGetPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

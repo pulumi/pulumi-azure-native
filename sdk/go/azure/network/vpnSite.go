@@ -270,6 +270,81 @@ func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOu
 	return o
 }
 
+// The AddressSpace that contains an array of IP address ranges.
+func (o VpnSiteOutput) AddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VpnSite) AddressSpaceResponsePtrOutput { return v.AddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// The set of bgp properties.
+func (o VpnSiteOutput) BgpProperties() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *VpnSite) BgpSettingsResponsePtrOutput { return v.BgpProperties }).(BgpSettingsResponsePtrOutput)
+}
+
+// The device properties.
+func (o VpnSiteOutput) DeviceProperties() DevicePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VpnSite) DevicePropertiesResponsePtrOutput { return v.DeviceProperties }).(DevicePropertiesResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VpnSiteOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The ip-address for the vpn-site.
+func (o VpnSiteOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// IsSecuritySite flag.
+func (o VpnSiteOutput) IsSecuritySite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.BoolPtrOutput { return v.IsSecuritySite }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o VpnSiteOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VpnSiteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Office365 Policy.
+func (o VpnSiteOutput) O365Policy() O365PolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VpnSite) O365PolicyPropertiesResponsePtrOutput { return v.O365Policy }).(O365PolicyPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the VPN site resource.
+func (o VpnSiteOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The key for vpn-site that can be used for connections.
+func (o VpnSiteOutput) SiteKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringPtrOutput { return v.SiteKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o VpnSiteOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VpnSiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnSite) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualWAN to which the vpnSite belongs.
+func (o VpnSiteOutput) VirtualWan() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VpnSite) SubResourceResponsePtrOutput { return v.VirtualWan }).(SubResourceResponsePtrOutput)
+}
+
+// List of all vpn site links.
+func (o VpnSiteOutput) VpnSiteLinks() VpnSiteLinkResponseArrayOutput {
+	return o.ApplyT(func(v *VpnSite) VpnSiteLinkResponseArrayOutput { return v.VpnSiteLinks }).(VpnSiteLinkResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnSiteOutput{})
 }

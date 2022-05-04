@@ -171,6 +171,48 @@ func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The content of this item
+func (o AnalyticsItemOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The user-defined name of the item.
+func (o AnalyticsItemOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+func (o AnalyticsItemOutput) Properties() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
+	return o.ApplyT(func(v *AnalyticsItem) ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
+		return v.Properties
+	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
+}
+
+// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o AnalyticsItemOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Date and time in UTC when this item was created.
+func (o AnalyticsItemOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this item.
+func (o AnalyticsItemOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Enum indicating the type of the Analytics item.
+func (o AnalyticsItemOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added.
+func (o AnalyticsItemOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnalyticsItem) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyticsItemOutput{})
 }

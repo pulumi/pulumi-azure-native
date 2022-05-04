@@ -156,6 +156,41 @@ func (o SignalRCustomCertificateOutput) ToSignalRCustomCertificateOutputWithCont
 	return o
 }
 
+// Base uri of the KeyVault that stores certificate.
+func (o SignalRCustomCertificateOutput) KeyVaultBaseUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringOutput { return v.KeyVaultBaseUri }).(pulumi.StringOutput)
+}
+
+// Certificate secret name.
+func (o SignalRCustomCertificateOutput) KeyVaultSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringOutput { return v.KeyVaultSecretName }).(pulumi.StringOutput)
+}
+
+// Certificate secret version.
+func (o SignalRCustomCertificateOutput) KeyVaultSecretVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringPtrOutput { return v.KeyVaultSecretVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o SignalRCustomCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o SignalRCustomCertificateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SignalRCustomCertificateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalRCustomCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalRCustomCertificateOutput{})
 }

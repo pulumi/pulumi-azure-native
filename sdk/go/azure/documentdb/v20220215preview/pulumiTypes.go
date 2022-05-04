@@ -2995,6 +2995,17 @@ type ClientEncryptionPolicyArgs struct {
 	PolicyFormatVersion pulumi.IntPtrInput `pulumi:"policyFormatVersion"`
 }
 
+// Defaults sets the appropriate defaults for ClientEncryptionPolicyArgs
+func (val *ClientEncryptionPolicyArgs) Defaults() *ClientEncryptionPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PolicyFormatVersion) {
+		tmp.PolicyFormatVersion = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ClientEncryptionPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClientEncryptionPolicy)(nil)).Elem()
 }
@@ -4272,6 +4283,17 @@ type ConflictResolutionPolicyArgs struct {
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
+// Defaults sets the appropriate defaults for ConflictResolutionPolicyArgs
+func (val *ConflictResolutionPolicyArgs) Defaults() *ConflictResolutionPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		tmp.Mode = pulumi.StringPtr("LastWriterWins")
+	}
+	return &tmp
+}
 func (ConflictResolutionPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConflictResolutionPolicy)(nil)).Elem()
 }
@@ -4842,6 +4864,17 @@ type ContainerPartitionKeyArgs struct {
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
+// Defaults sets the appropriate defaults for ContainerPartitionKeyArgs
+func (val *ContainerPartitionKeyArgs) Defaults() *ContainerPartitionKeyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Kind) {
+		tmp.Kind = pulumi.StringPtr("Hash")
+	}
+	return &tmp
+}
 func (ContainerPartitionKeyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerPartitionKey)(nil)).Elem()
 }
@@ -7594,6 +7627,15 @@ type GremlinGraphResourceArgs struct {
 	UniqueKeyPolicy UniqueKeyPolicyPtrInput `pulumi:"uniqueKeyPolicy"`
 }
 
+// Defaults sets the appropriate defaults for GremlinGraphResourceArgs
+func (val *GremlinGraphResourceArgs) Defaults() *GremlinGraphResourceArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (GremlinGraphResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinGraphResource)(nil)).Elem()
 }
@@ -7861,6 +7903,20 @@ type IndexesArgs struct {
 	Precision pulumi.IntPtrInput `pulumi:"precision"`
 }
 
+// Defaults sets the appropriate defaults for IndexesArgs
+func (val *IndexesArgs) Defaults() *IndexesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataType) {
+		tmp.DataType = pulumi.StringPtr("String")
+	}
+	if isZero(tmp.Kind) {
+		tmp.Kind = pulumi.StringPtr("Hash")
+	}
+	return &tmp
+}
 func (IndexesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Indexes)(nil)).Elem()
 }
@@ -8081,6 +8137,17 @@ type IndexingPolicyArgs struct {
 	SpatialIndexes SpatialSpecArrayInput `pulumi:"spatialIndexes"`
 }
 
+// Defaults sets the appropriate defaults for IndexingPolicyArgs
+func (val *IndexingPolicyArgs) Defaults() *IndexingPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IndexingMode) {
+		tmp.IndexingMode = pulumi.StringPtr("consistent")
+	}
+	return &tmp
+}
 func (IndexingPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IndexingPolicy)(nil)).Elem()
 }
@@ -13020,6 +13087,15 @@ type SqlContainerResourceArgs struct {
 	UniqueKeyPolicy UniqueKeyPolicyPtrInput `pulumi:"uniqueKeyPolicy"`
 }
 
+// Defaults sets the appropriate defaults for SqlContainerResourceArgs
+func (val *SqlContainerResourceArgs) Defaults() *SqlContainerResourceArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (SqlContainerResourceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlContainerResource)(nil)).Elem()
 }

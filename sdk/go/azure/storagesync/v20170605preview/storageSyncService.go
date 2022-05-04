@@ -165,6 +165,36 @@ func (o StorageSyncServiceOutput) ToStorageSyncServiceOutputWithContext(ctx cont
 	return o
 }
 
+// The location of the resource.
+func (o StorageSyncServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o StorageSyncServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Storage Sync service status.
+func (o StorageSyncServiceOutput) StorageSyncServiceStatus() pulumi.IntOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.IntOutput { return v.StorageSyncServiceStatus }).(pulumi.IntOutput)
+}
+
+// Storage Sync service Uid
+func (o StorageSyncServiceOutput) StorageSyncServiceUid() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.StorageSyncServiceUid }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o StorageSyncServiceOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// The type of the resource
+func (o StorageSyncServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageSyncService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageSyncServiceOutput{})
 }

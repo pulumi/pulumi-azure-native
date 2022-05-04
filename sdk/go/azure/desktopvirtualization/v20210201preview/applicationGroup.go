@@ -236,6 +236,95 @@ func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.
 	return o
 }
 
+// Resource Type of ApplicationGroup.
+func (o ApplicationGroupOutput) ApplicationGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.ApplicationGroupType }).(pulumi.StringOutput)
+}
+
+// Is cloud pc resource.
+func (o ApplicationGroupOutput) CloudPcResource() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.BoolOutput { return v.CloudPcResource }).(pulumi.BoolOutput)
+}
+
+// Description of ApplicationGroup.
+func (o ApplicationGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o ApplicationGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Friendly name of ApplicationGroup.
+func (o ApplicationGroupOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool arm path of ApplicationGroup.
+func (o ApplicationGroupOutput) HostPoolArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.HostPoolArmPath }).(pulumi.StringOutput)
+}
+
+func (o ApplicationGroupOutput) Identity() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+		return v.Identity
+	}).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o ApplicationGroupOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ApplicationGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+func (o ApplicationGroupOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The registration info of HostPool.
+func (o ApplicationGroupOutput) MigrationRequest() MigrationRequestPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) MigrationRequestPropertiesResponsePtrOutput { return v.MigrationRequest }).(MigrationRequestPropertiesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ApplicationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ObjectId of ApplicationGroup. (internal use)
+func (o ApplicationGroupOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+func (o ApplicationGroupOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+func (o ApplicationGroupOutput) Sku() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput { return v.Sku }).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+// Resource tags.
+func (o ApplicationGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApplicationGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Workspace arm path of ApplicationGroup.
+func (o ApplicationGroupOutput) WorkspaceArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.WorkspaceArmPath }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGroupOutput{})
 }

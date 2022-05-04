@@ -191,6 +191,51 @@ func (o DatabasePrincipalAssignmentOutput) ToDatabasePrincipalAssignmentOutputWi
 	return o
 }
 
+// The name of the resource
+func (o DatabasePrincipalAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+func (o DatabasePrincipalAssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The principal name
+func (o DatabasePrincipalAssignmentOutput) PrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.PrincipalName }).(pulumi.StringOutput)
+}
+
+// Principal type.
+func (o DatabasePrincipalAssignmentOutput) PrincipalType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o DatabasePrincipalAssignmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Database principal role.
+func (o DatabasePrincipalAssignmentOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The tenant id of the principal
+func (o DatabasePrincipalAssignmentOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The tenant name of the principal
+func (o DatabasePrincipalAssignmentOutput) TenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.TenantName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DatabasePrincipalAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabasePrincipalAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabasePrincipalAssignmentOutput{})
 }

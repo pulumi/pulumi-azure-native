@@ -144,6 +144,46 @@ func (o ManagedNetworkOutput) ToManagedNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The collection of groups and policies concerned with connectivity
+func (o ManagedNetworkOutput) Connectivity() ConnectivityCollectionResponseOutput {
+	return o.ApplyT(func(v *ManagedNetwork) ConnectivityCollectionResponseOutput { return v.Connectivity }).(ConnectivityCollectionResponseOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ManagedNetworkOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ManagedNetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ManagedNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the ManagedNetwork resource.
+func (o ManagedNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
+func (o ManagedNetworkOutput) Scope() ScopeResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedNetwork) ScopeResponsePtrOutput { return v.Scope }).(ScopeResponsePtrOutput)
+}
+
+// Resource tags
+func (o ManagedNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ManagedNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedNetworkOutput{})
 }

@@ -141,6 +141,21 @@ func (o AccessControlRecordOutput) ToAccessControlRecordOutputWithContext(ctx co
 	return o
 }
 
+// The Iscsi initiator name (IQN)
+func (o AccessControlRecordOutput) InitiatorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.InitiatorName }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o AccessControlRecordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o AccessControlRecordOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessControlRecordOutput{})
 }

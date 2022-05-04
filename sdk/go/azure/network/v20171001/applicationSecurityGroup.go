@@ -234,6 +234,41 @@ func (o ApplicationSecurityGroupOutput) ToApplicationSecurityGroupOutputWithCont
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationSecurityGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ApplicationSecurityGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ApplicationSecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the application security group resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+func (o ApplicationSecurityGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+func (o ApplicationSecurityGroupOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ApplicationSecurityGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ApplicationSecurityGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationSecurityGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationSecurityGroupOutput{})
 }

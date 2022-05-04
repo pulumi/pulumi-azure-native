@@ -205,6 +205,111 @@ func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutputWithContex
 	return o
 }
 
+// List of authors.
+func (o WebAppSiteExtensionSlotOutput) Authors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringArrayOutput { return v.Authors }).(pulumi.StringArrayOutput)
+}
+
+// Site Extension comment.
+func (o WebAppSiteExtensionSlotOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Detailed description.
+func (o WebAppSiteExtensionSlotOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Count of downloads.
+func (o WebAppSiteExtensionSlotOutput) DownloadCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.IntPtrOutput { return v.DownloadCount }).(pulumi.IntPtrOutput)
+}
+
+// Extension URL.
+func (o WebAppSiteExtensionSlotOutput) ExtensionUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.ExtensionUrl }).(pulumi.StringPtrOutput)
+}
+
+// Feed URL.
+func (o WebAppSiteExtensionSlotOutput) FeedUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.FeedUrl }).(pulumi.StringPtrOutput)
+}
+
+// Icon URL.
+func (o WebAppSiteExtensionSlotOutput) IconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.IconUrl }).(pulumi.StringPtrOutput)
+}
+
+// Installer command line parameters.
+func (o WebAppSiteExtensionSlotOutput) InstallationArgs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.InstallationArgs }).(pulumi.StringPtrOutput)
+}
+
+// Installed timestamp.
+func (o WebAppSiteExtensionSlotOutput) InstalledDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.InstalledDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppSiteExtensionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// License URL.
+func (o WebAppSiteExtensionSlotOutput) LicenseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.LicenseUrl }).(pulumi.StringPtrOutput)
+}
+
+// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
+func (o WebAppSiteExtensionSlotOutput) LocalIsLatestVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.BoolPtrOutput { return v.LocalIsLatestVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Local path.
+func (o WebAppSiteExtensionSlotOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.LocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSiteExtensionSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Project URL.
+func (o WebAppSiteExtensionSlotOutput) ProjectUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.ProjectUrl }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state.
+func (o WebAppSiteExtensionSlotOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Published timestamp.
+func (o WebAppSiteExtensionSlotOutput) PublishedDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.PublishedDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Summary description.
+func (o WebAppSiteExtensionSlotOutput) Summary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Summary }).(pulumi.StringPtrOutput)
+}
+
+// Site extension title.
+func (o WebAppSiteExtensionSlotOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppSiteExtensionSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version information.
+func (o WebAppSiteExtensionSlotOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSiteExtensionSlot) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSiteExtensionSlotOutput{})
 }

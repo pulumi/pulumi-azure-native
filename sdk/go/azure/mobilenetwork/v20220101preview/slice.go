@@ -195,6 +195,71 @@ func (o SliceOutput) ToSliceOutputWithContext(ctx context.Context) SliceOutput {
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o SliceOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SliceOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SliceOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// An optional description for this network slice.
+func (o SliceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SliceOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SliceOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SliceOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o SliceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SliceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the network slice resource.
+func (o SliceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The S-NSSAI (single network slice selection assistance information). Unique at the scope of a MobileNetwork.
+func (o SliceOutput) Snssai() SnssaiResponseOutput {
+	return o.ApplyT(func(v *Slice) SnssaiResponseOutput { return v.Snssai }).(SnssaiResponseOutput)
+}
+
+// Resource tags.
+func (o SliceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SliceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Slice) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SliceOutput{})
 }

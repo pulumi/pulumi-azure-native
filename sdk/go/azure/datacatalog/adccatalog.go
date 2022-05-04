@@ -171,6 +171,61 @@ func (o ADCCatalogOutput) ToADCCatalogOutputWithContext(ctx context.Context) ADC
 	return o
 }
 
+// Azure data catalog admin list.
+func (o ADCCatalogOutput) Admins() PrincipalsResponseArrayOutput {
+	return o.ApplyT(func(v *ADCCatalog) PrincipalsResponseArrayOutput { return v.Admins }).(PrincipalsResponseArrayOutput)
+}
+
+// Automatic unit adjustment enabled or not.
+func (o ADCCatalogOutput) EnableAutomaticUnitAdjustment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.BoolPtrOutput { return v.EnableAutomaticUnitAdjustment }).(pulumi.BoolPtrOutput)
+}
+
+// Resource etag
+func (o ADCCatalogOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ADCCatalogOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ADCCatalogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure data catalog SKU.
+func (o ADCCatalogOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Azure data catalog provision status.
+func (o ADCCatalogOutput) SuccessfullyProvisioned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.BoolPtrOutput { return v.SuccessfullyProvisioned }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o ADCCatalogOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ADCCatalogOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure data catalog units.
+func (o ADCCatalogOutput) Units() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ADCCatalog) pulumi.IntPtrOutput { return v.Units }).(pulumi.IntPtrOutput)
+}
+
+// Azure data catalog user list.
+func (o ADCCatalogOutput) Users() PrincipalsResponseArrayOutput {
+	return o.ApplyT(func(v *ADCCatalog) PrincipalsResponseArrayOutput { return v.Users }).(PrincipalsResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADCCatalogOutput{})
 }

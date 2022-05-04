@@ -187,6 +187,71 @@ func (o LabPlanOutput) ToLabPlanOutputWithContext(ctx context.Context) LabPlanOu
 	return o
 }
 
+// The allowed regions for the lab creator to use when creating labs using this lab plan.
+func (o LabPlanOutput) AllowedRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringArrayOutput { return v.AllowedRegions }).(pulumi.StringArrayOutput)
+}
+
+// The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
+func (o LabPlanOutput) DefaultAutoShutdownProfile() AutoShutdownProfileResponsePtrOutput {
+	return o.ApplyT(func(v *LabPlan) AutoShutdownProfileResponsePtrOutput { return v.DefaultAutoShutdownProfile }).(AutoShutdownProfileResponsePtrOutput)
+}
+
+// The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
+func (o LabPlanOutput) DefaultConnectionProfile() ConnectionProfileResponsePtrOutput {
+	return o.ApplyT(func(v *LabPlan) ConnectionProfileResponsePtrOutput { return v.DefaultConnectionProfile }).(ConnectionProfileResponsePtrOutput)
+}
+
+// The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+func (o LabPlanOutput) DefaultNetworkProfile() LabPlanNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *LabPlan) LabPlanNetworkProfileResponsePtrOutput { return v.DefaultNetworkProfile }).(LabPlanNetworkProfileResponsePtrOutput)
+}
+
+// Base Url of the lms instance this lab plan can link lab rosters against.
+func (o LabPlanOutput) LinkedLmsInstance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringPtrOutput { return v.LinkedLmsInstance }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LabPlanOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LabPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current provisioning state of the lab plan.
+func (o LabPlanOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
+func (o LabPlanOutput) SharedGalleryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringPtrOutput { return v.SharedGalleryId }).(pulumi.StringPtrOutput)
+}
+
+// Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
+func (o LabPlanOutput) SupportInfo() SupportInfoResponsePtrOutput {
+	return o.ApplyT(func(v *LabPlan) SupportInfoResponsePtrOutput { return v.SupportInfo }).(SupportInfoResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the lab plan.
+func (o LabPlanOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LabPlan) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LabPlanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LabPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabPlanOutput{})
 }

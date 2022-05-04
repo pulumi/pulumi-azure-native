@@ -165,6 +165,31 @@ func (o ProductSettingOutput) ToProductSettingOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Etag of the azure resource
+func (o ProductSettingOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductSetting) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the setting
+func (o ProductSettingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductSetting) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ProductSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ProductSettingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ProductSetting) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o ProductSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductSettingOutput{})
 }

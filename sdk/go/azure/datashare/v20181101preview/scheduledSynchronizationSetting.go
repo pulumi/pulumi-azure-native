@@ -183,6 +183,47 @@ func (o ScheduledSynchronizationSettingOutput) ToScheduledSynchronizationSetting
 	return o
 }
 
+// Time at which the synchronization setting was created.
+func (o ScheduledSynchronizationSettingOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Kind of synchronization setting.
+// Expected value is 'ScheduleBased'.
+func (o ScheduledSynchronizationSettingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ScheduledSynchronizationSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state
+func (o ScheduledSynchronizationSettingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Recurrence Interval
+func (o ScheduledSynchronizationSettingOutput) RecurrenceInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.RecurrenceInterval }).(pulumi.StringOutput)
+}
+
+// Synchronization time
+func (o ScheduledSynchronizationSettingOutput) SynchronizationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.SynchronizationTime }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o ScheduledSynchronizationSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the synchronization setting.
+func (o ScheduledSynchronizationSettingOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledSynchronizationSetting) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledSynchronizationSettingOutput{})
 }

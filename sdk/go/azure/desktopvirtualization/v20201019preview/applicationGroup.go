@@ -205,6 +205,51 @@ func (o ApplicationGroupOutput) ToApplicationGroupOutputWithContext(ctx context.
 	return o
 }
 
+// Resource Type of ApplicationGroup.
+func (o ApplicationGroupOutput) ApplicationGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.ApplicationGroupType }).(pulumi.StringOutput)
+}
+
+// Description of ApplicationGroup.
+func (o ApplicationGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of ApplicationGroup.
+func (o ApplicationGroupOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool arm path of ApplicationGroup.
+func (o ApplicationGroupOutput) HostPoolArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.HostPoolArmPath }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ApplicationGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApplicationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ApplicationGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApplicationGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Workspace arm path of ApplicationGroup.
+func (o ApplicationGroupOutput) WorkspaceArmPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGroup) pulumi.StringOutput { return v.WorkspaceArmPath }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGroupOutput{})
 }

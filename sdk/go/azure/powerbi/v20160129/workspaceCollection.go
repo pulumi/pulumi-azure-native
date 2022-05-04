@@ -133,6 +133,34 @@ func (o WorkspaceCollectionOutput) ToWorkspaceCollectionOutputWithContext(ctx co
 	return o
 }
 
+// Azure location
+func (o WorkspaceCollectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Workspace collection name
+func (o WorkspaceCollectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties
+func (o WorkspaceCollectionOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+func (o WorkspaceCollectionOutput) Sku() AzureSkuResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) AzureSkuResponsePtrOutput { return v.Sku }).(AzureSkuResponsePtrOutput)
+}
+
+func (o WorkspaceCollectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o WorkspaceCollectionOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceCollection) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceCollectionOutput{})
 }

@@ -118,6 +118,11 @@ func (o ConsoleWithLocationOutput) ToConsoleWithLocationOutputWithContext(ctx co
 	return o
 }
 
+// Cloud shell console properties.
+func (o ConsoleWithLocationOutput) Properties() ConsolePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConsoleWithLocation) ConsolePropertiesResponseOutput { return v.Properties }).(ConsolePropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConsoleWithLocationOutput{})
 }

@@ -182,6 +182,78 @@ func (o VideoAnalyzerOutput) ToVideoAnalyzerOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The account encryption properties.
+func (o VideoAnalyzerOutput) Encryption() AccountEncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) AccountEncryptionResponsePtrOutput { return v.Encryption }).(AccountEncryptionResponsePtrOutput)
+}
+
+// The endpoints associated with this resource.
+func (o VideoAnalyzerOutput) Endpoints() EndpointResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) EndpointResponseArrayOutput { return v.Endpoints }).(EndpointResponseArrayOutput)
+}
+
+// The identities associated to the Video Analyzer resource.
+func (o VideoAnalyzerOutput) Identity() VideoAnalyzerIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) VideoAnalyzerIdentityResponsePtrOutput { return v.Identity }).(VideoAnalyzerIdentityResponsePtrOutput)
+}
+
+// The IoT Hubs for this resource.
+func (o VideoAnalyzerOutput) IotHubs() IotHubResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) IotHubResponseArrayOutput { return v.IotHubs }).(IotHubResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o VideoAnalyzerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o VideoAnalyzerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network access control for Video Analyzer.
+func (o VideoAnalyzerOutput) NetworkAccessControl() NetworkAccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) NetworkAccessControlResponsePtrOutput { return v.NetworkAccessControl }).(NetworkAccessControlResponsePtrOutput)
+}
+
+// Private Endpoint Connections created under Video Analyzer account.
+func (o VideoAnalyzerOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the Video Analyzer account.
+func (o VideoAnalyzerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public network access is allowed for resources under the Video Analyzer account.
+func (o VideoAnalyzerOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The storage accounts for this resource.
+func (o VideoAnalyzerOutput) StorageAccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) StorageAccountResponseArrayOutput { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o VideoAnalyzerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o VideoAnalyzerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VideoAnalyzerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VideoAnalyzerOutput{})
 }

@@ -162,6 +162,38 @@ func (o ProactiveDetectionConfigurationOutput) ToProactiveDetectionConfiguration
 	return o
 }
 
+// Custom email addresses for this rule notifications
+func (o ProactiveDetectionConfigurationOutput) CustomEmails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringArrayOutput { return v.CustomEmails }).(pulumi.StringArrayOutput)
+}
+
+// A flag that indicates whether this rule is enabled by the user
+func (o ProactiveDetectionConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The last time this rule was updated
+func (o ProactiveDetectionConfigurationOutput) LastUpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringPtrOutput { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// The rule name
+func (o ProactiveDetectionConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+func (o ProactiveDetectionConfigurationOutput) RuleDefinitions() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
+		return v.RuleDefinitions
+	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
+}
+
+// A flag that indicated whether notifications on this rule should be sent to subscription owners
+func (o ProactiveDetectionConfigurationOutput) SendEmailsToSubscriptionOwners() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProactiveDetectionConfiguration) pulumi.BoolPtrOutput { return v.SendEmailsToSubscriptionOwners }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProactiveDetectionConfigurationOutput{})
 }

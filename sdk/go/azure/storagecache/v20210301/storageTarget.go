@@ -197,6 +197,61 @@ func (o StorageTargetOutput) ToStorageTargetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Properties when targetType is blobNfs.
+func (o StorageTargetOutput) BlobNfs() BlobNfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) BlobNfsTargetResponsePtrOutput { return v.BlobNfs }).(BlobNfsTargetResponsePtrOutput)
+}
+
+// Properties when targetType is clfs.
+func (o StorageTargetOutput) Clfs() ClfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) ClfsTargetResponsePtrOutput { return v.Clfs }).(ClfsTargetResponsePtrOutput)
+}
+
+// List of Cache namespace junctions to target for namespace associations.
+func (o StorageTargetOutput) Junctions() NamespaceJunctionResponseArrayOutput {
+	return o.ApplyT(func(v *StorageTarget) NamespaceJunctionResponseArrayOutput { return v.Junctions }).(NamespaceJunctionResponseArrayOutput)
+}
+
+// Region name string.
+func (o StorageTargetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the Storage Target.
+func (o StorageTargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties when targetType is nfs3.
+func (o StorageTargetOutput) Nfs3() Nfs3TargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) Nfs3TargetResponsePtrOutput { return v.Nfs3 }).(Nfs3TargetResponsePtrOutput)
+}
+
+// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+func (o StorageTargetOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o StorageTargetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StorageTarget) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the Storage Target.
+func (o StorageTargetOutput) TargetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.TargetType }).(pulumi.StringOutput)
+}
+
+// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+func (o StorageTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties when targetType is unknown.
+func (o StorageTargetOutput) Unknown() UnknownTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) UnknownTargetResponsePtrOutput { return v.Unknown }).(UnknownTargetResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageTargetOutput{})
 }

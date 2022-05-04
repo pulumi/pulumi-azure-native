@@ -169,6 +169,21 @@ func (o DiagnosticOutput) ToDiagnosticOutputWithContext(ctx context.Context) Dia
 	return o
 }
 
+// Indicates whether a diagnostic should receive data or not.
+func (o DiagnosticOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Resource name.
+func (o DiagnosticOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o DiagnosticOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiagnosticOutput{})
 }

@@ -307,6 +307,96 @@ func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) Agent
 	return o
 }
 
+// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+func (o AgentPoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+func (o AgentPoolOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// Whether to enable auto-scaler
+func (o AgentPoolOutput) EnableAutoScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableAutoScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Enable public IP for nodes
+func (o AgentPoolOutput) EnableNodePublicIP() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.BoolPtrOutput { return v.EnableNodePublicIP }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum number of nodes for auto-scaling
+func (o AgentPoolOutput) MaxCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MaxCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of pods that can run on a node.
+func (o AgentPoolOutput) MaxPods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MaxPods }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of nodes for auto-scaling
+func (o AgentPoolOutput) MinCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.MinCount }).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o AgentPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+func (o AgentPoolOutput) NodeTaints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringArrayOutput { return v.NodeTaints }).(pulumi.StringArrayOutput)
+}
+
+// Version of orchestrator specified when creating the managed cluster.
+func (o AgentPoolOutput) OrchestratorVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OrchestratorVersion }).(pulumi.StringPtrOutput)
+}
+
+// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+func (o AgentPoolOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+func (o AgentPoolOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o AgentPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+func (o AgentPoolOutput) ScaleSetEvictionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ScaleSetEvictionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+func (o AgentPoolOutput) ScaleSetPriority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.ScaleSetPriority }).(pulumi.StringPtrOutput)
+}
+
+// AgentPoolType represents types of an agent pool
+func (o AgentPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Size of agent VMs.
+func (o AgentPoolOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
+// VNet SubnetID specifies the VNet's subnet identifier.
+func (o AgentPoolOutput) VnetSubnetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.VnetSubnetID }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AgentPoolOutput{})
 }

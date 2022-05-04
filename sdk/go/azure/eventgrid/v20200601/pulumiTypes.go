@@ -442,6 +442,17 @@ type EventSubscriptionFilterArgs struct {
 	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
 }
 
+// Defaults sets the appropriate defaults for EventSubscriptionFilterArgs
+func (val *EventSubscriptionFilterArgs) Defaults() *EventSubscriptionFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		tmp.IsSubjectCaseSensitive = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionFilter)(nil)).Elem()
 }
@@ -2293,6 +2304,20 @@ type RetryPolicyArgs struct {
 	MaxDeliveryAttempts pulumi.IntPtrInput `pulumi:"maxDeliveryAttempts"`
 }
 
+// Defaults sets the appropriate defaults for RetryPolicyArgs
+func (val *RetryPolicyArgs) Defaults() *RetryPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventTimeToLiveInMinutes) {
+		tmp.EventTimeToLiveInMinutes = pulumi.IntPtr(1440)
+	}
+	if isZero(tmp.MaxDeliveryAttempts) {
+		tmp.MaxDeliveryAttempts = pulumi.IntPtr(30)
+	}
+	return &tmp
+}
 func (RetryPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetryPolicy)(nil)).Elem()
 }

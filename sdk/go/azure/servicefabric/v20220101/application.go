@@ -191,6 +191,62 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Describes the managed identities for an Azure resource.
+func (o ApplicationOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Application) ManagedIdentityResponsePtrOutput { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// Resource location depends on the parent resource.
+func (o ApplicationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// List of user assigned identities for the application, each mapped to a friendly name.
+func (o ApplicationOutput) ManagedIdentities() ApplicationUserAssignedIdentityResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationUserAssignedIdentityResponseArrayOutput { return v.ManagedIdentities }).(ApplicationUserAssignedIdentityResponseArrayOutput)
+}
+
+// Azure resource name.
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of application parameters with overridden values from their default values specified in the application manifest.
+func (o ApplicationOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response
+func (o ApplicationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ApplicationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Application) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Describes the policy for a monitored application upgrade.
+func (o ApplicationOutput) UpgradePolicy() ApplicationUpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationUpgradePolicyResponsePtrOutput { return v.UpgradePolicy }).(ApplicationUpgradePolicyResponsePtrOutput)
+}
+
+// The version of the application type as defined in the application manifest.
+// This name must be the full Arm Resource ID for the referenced application type version.
+func (o ApplicationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

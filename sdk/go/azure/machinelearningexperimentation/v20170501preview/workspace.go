@@ -162,6 +162,56 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The immutable id of the team account which contains this workspace.
+func (o WorkspaceOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The creation date of the machine learning workspace in ISO8601 format.
+func (o WorkspaceOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of this workspace.
+func (o WorkspaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+func (o WorkspaceOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o WorkspaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of team account workspace resource. The provisioningState is to indicate states for resource provisioning.
+func (o WorkspaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The immutable id of this workspace.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

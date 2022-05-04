@@ -132,6 +132,36 @@ func (o SubscriptionNetworkManagerConnectionOutput) ToSubscriptionNetworkManager
 	return o
 }
 
+// A description of the scope connection.
+func (o SubscriptionNetworkManagerConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SubscriptionNetworkManagerConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SubscriptionNetworkManagerConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network Manager Id.
+func (o SubscriptionNetworkManagerConnectionOutput) NetworkManagerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) pulumi.StringPtrOutput { return v.NetworkManagerId }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o SubscriptionNetworkManagerConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o SubscriptionNetworkManagerConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionNetworkManagerConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubscriptionNetworkManagerConnectionOutput{})
 }

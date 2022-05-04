@@ -181,6 +181,66 @@ func (o QueryOutput) ToQueryOutputWithContext(ctx context.Context) QueryOutput {
 	return o
 }
 
+// Object Id of user creating the query.
+func (o QueryOutput) Author() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.Author }).(pulumi.StringOutput)
+}
+
+// Body of the query.
+func (o QueryOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
+}
+
+// Description of the query.
+func (o QueryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Unique display name for your query within the Query Pack.
+func (o QueryOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o QueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional properties that can be set for the query.
+func (o QueryOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Query) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The related metadata items for the function.
+func (o QueryOutput) Related() LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput {
+	return o.ApplyT(func(v *Query) LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput { return v.Related }).(LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrOutput)
+}
+
+// Read only system data
+func (o QueryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Query) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags associated with the query.
+func (o QueryOutput) Tags() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringArrayMapOutput { return v.Tags }).(pulumi.StringArrayMapOutput)
+}
+
+// Creation Date for the Log Analytics Query, in ISO 8601 format.
+func (o QueryOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Last modified date of the Log Analytics Query, in ISO 8601 format.
+func (o QueryOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o QueryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Query) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueryOutput{})
 }

@@ -144,6 +144,31 @@ func (o BandwidthSettingOutput) ToBandwidthSettingOutputWithContext(ctx context.
 	return o
 }
 
+// The Kind of the object. Currently only Series8000 is supported
+func (o BandwidthSettingOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BandwidthSetting) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o BandwidthSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schedules.
+func (o BandwidthSettingOutput) Schedules() BandwidthScheduleResponseArrayOutput {
+	return o.ApplyT(func(v *BandwidthSetting) BandwidthScheduleResponseArrayOutput { return v.Schedules }).(BandwidthScheduleResponseArrayOutput)
+}
+
+// The hierarchical type of the object.
+func (o BandwidthSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of volumes that uses the bandwidth setting.
+func (o BandwidthSettingOutput) VolumeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *BandwidthSetting) pulumi.IntOutput { return v.VolumeCount }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BandwidthSettingOutput{})
 }

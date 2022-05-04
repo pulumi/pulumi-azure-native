@@ -145,6 +145,31 @@ func (o NamespaceIpFilterRuleOutput) ToNamespaceIpFilterRuleOutputWithContext(ct
 	return o
 }
 
+// The IP Filter Action
+func (o NamespaceIpFilterRuleOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIpFilterRule) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
+}
+
+// IP Filter name
+func (o NamespaceIpFilterRuleOutput) FilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIpFilterRule) pulumi.StringPtrOutput { return v.FilterName }).(pulumi.StringPtrOutput)
+}
+
+// IP Mask
+func (o NamespaceIpFilterRuleOutput) IpMask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceIpFilterRule) pulumi.StringPtrOutput { return v.IpMask }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o NamespaceIpFilterRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceIpFilterRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NamespaceIpFilterRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceIpFilterRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceIpFilterRuleOutput{})
 }

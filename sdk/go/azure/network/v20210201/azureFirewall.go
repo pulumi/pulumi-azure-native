@@ -289,6 +289,107 @@ func (o AzureFirewallOutput) ToAzureFirewallOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The additional properties used to further config this azure firewall.
+func (o AzureFirewallOutput) AdditionalProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringMapOutput { return v.AdditionalProperties }).(pulumi.StringMapOutput)
+}
+
+// Collection of application rule collections used by Azure Firewall.
+func (o AzureFirewallOutput) ApplicationRuleCollections() AzureFirewallApplicationRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallApplicationRuleCollectionResponseArrayOutput {
+		return v.ApplicationRuleCollections
+	}).(AzureFirewallApplicationRuleCollectionResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o AzureFirewallOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The firewallPolicy associated with this azure firewall.
+func (o AzureFirewallOutput) FirewallPolicy() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) SubResourceResponsePtrOutput { return v.FirewallPolicy }).(SubResourceResponsePtrOutput)
+}
+
+// IP addresses associated with AzureFirewall.
+func (o AzureFirewallOutput) HubIPAddresses() HubIPAddressesResponsePtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) HubIPAddressesResponsePtrOutput { return v.HubIPAddresses }).(HubIPAddressesResponsePtrOutput)
+}
+
+// IP configuration of the Azure Firewall resource.
+func (o AzureFirewallOutput) IpConfigurations() AzureFirewallIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallIPConfigurationResponseArrayOutput { return v.IpConfigurations }).(AzureFirewallIPConfigurationResponseArrayOutput)
+}
+
+// IpGroups associated with AzureFirewall.
+func (o AzureFirewallOutput) IpGroups() AzureFirewallIpGroupsResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallIpGroupsResponseArrayOutput { return v.IpGroups }).(AzureFirewallIpGroupsResponseArrayOutput)
+}
+
+// Resource location.
+func (o AzureFirewallOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// IP configuration of the Azure Firewall used for management traffic.
+func (o AzureFirewallOutput) ManagementIpConfiguration() AzureFirewallIPConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallIPConfigurationResponsePtrOutput {
+		return v.ManagementIpConfiguration
+	}).(AzureFirewallIPConfigurationResponsePtrOutput)
+}
+
+// Resource name.
+func (o AzureFirewallOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Collection of NAT rule collections used by Azure Firewall.
+func (o AzureFirewallOutput) NatRuleCollections() AzureFirewallNatRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallNatRuleCollectionResponseArrayOutput { return v.NatRuleCollections }).(AzureFirewallNatRuleCollectionResponseArrayOutput)
+}
+
+// Collection of network rule collections used by Azure Firewall.
+func (o AzureFirewallOutput) NetworkRuleCollections() AzureFirewallNetworkRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallNetworkRuleCollectionResponseArrayOutput {
+		return v.NetworkRuleCollections
+	}).(AzureFirewallNetworkRuleCollectionResponseArrayOutput)
+}
+
+// The provisioning state of the Azure firewall resource.
+func (o AzureFirewallOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The Azure Firewall Resource SKU.
+func (o AzureFirewallOutput) Sku() AzureFirewallSkuResponsePtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallSkuResponsePtrOutput { return v.Sku }).(AzureFirewallSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o AzureFirewallOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The operation mode for Threat Intelligence.
+func (o AzureFirewallOutput) ThreatIntelMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringPtrOutput { return v.ThreatIntelMode }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o AzureFirewallOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The virtualHub to which the firewall belongs.
+func (o AzureFirewallOutput) VirtualHub() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) SubResourceResponsePtrOutput { return v.VirtualHub }).(SubResourceResponsePtrOutput)
+}
+
+// A list of availability zones denoting where the resource needs to come from.
+func (o AzureFirewallOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureFirewallOutput{})
 }

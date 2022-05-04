@@ -256,6 +256,131 @@ func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutputWithContext(ctx cont
 	return o
 }
 
+// Actions to invoke when the alert fires.
+func (o ScheduledQueryRuleOutput) Actions() ActionsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) ActionsResponsePtrOutput { return v.Actions }).(ActionsResponsePtrOutput)
+}
+
+// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) AutoMitigate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolPtrOutput { return v.AutoMitigate }).(pulumi.BoolPtrOutput)
+}
+
+// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) CheckWorkspaceAlertsStorageConfigured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolPtrOutput { return v.CheckWorkspaceAlertsStorageConfigured }).(pulumi.BoolPtrOutput)
+}
+
+// The api-version used when creating this alert rule
+func (o ScheduledQueryRuleOutput) CreatedWithApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.CreatedWithApiVersion }).(pulumi.StringOutput)
+}
+
+// The rule criteria that defines the conditions of the scheduled query rule.
+func (o ScheduledQueryRuleOutput) Criteria() ScheduledQueryRuleCriteriaResponseOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) ScheduledQueryRuleCriteriaResponseOutput { return v.Criteria }).(ScheduledQueryRuleCriteriaResponseOutput)
+}
+
+// The description of the scheduled query rule.
+func (o ScheduledQueryRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the alert rule
+func (o ScheduledQueryRuleOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+func (o ScheduledQueryRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o ScheduledQueryRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) EvaluationFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.EvaluationFrequency }).(pulumi.StringPtrOutput)
+}
+
+// True if alert rule is legacy Log Analytic rule
+func (o ScheduledQueryRuleOutput) IsLegacyLogAnalyticsRule() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolOutput { return v.IsLegacyLogAnalyticsRule }).(pulumi.BoolOutput)
+}
+
+// The flag which indicates whether this scheduled query rule has been configured to be stored in the customer's storage. The default is false.
+func (o ScheduledQueryRuleOutput) IsWorkspaceAlertsStorageConfigured() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolOutput { return v.IsWorkspaceAlertsStorageConfigured }).(pulumi.BoolOutput)
+}
+
+// Indicates the type of scheduled query rule. The default is LogAlert.
+func (o ScheduledQueryRuleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ScheduledQueryRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) MuteActionsDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.MuteActionsDuration }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ScheduledQueryRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) OverrideQueryTimeRange() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.OverrideQueryTimeRange }).(pulumi.StringPtrOutput)
+}
+
+// The list of resource id's that this scheduled query rule is scoped to.
+func (o ScheduledQueryRuleOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) Severity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.Float64PtrOutput { return v.Severity }).(pulumi.Float64PtrOutput)
+}
+
+// The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) SkipQueryValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolPtrOutput { return v.SkipQueryValidation }).(pulumi.BoolPtrOutput)
+}
+
+// SystemData of ScheduledQueryRule.
+func (o ScheduledQueryRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ScheduledQueryRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
+func (o ScheduledQueryRuleOutput) TargetResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringArrayOutput { return v.TargetResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ScheduledQueryRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
+func (o ScheduledQueryRuleOutput) WindowSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.WindowSize }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRuleOutput{})
 }

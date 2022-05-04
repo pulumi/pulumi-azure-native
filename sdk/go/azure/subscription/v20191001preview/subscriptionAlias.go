@@ -126,6 +126,21 @@ func (o SubscriptionAliasOutput) ToSubscriptionAliasOutputWithContext(ctx contex
 	return o
 }
 
+// Alias ID.
+func (o SubscriptionAliasOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Put Alias response properties.
+func (o SubscriptionAliasOutput) Properties() PutAliasResponsePropertiesResponseOutput {
+	return o.ApplyT(func(v *SubscriptionAlias) PutAliasResponsePropertiesResponseOutput { return v.Properties }).(PutAliasResponsePropertiesResponseOutput)
+}
+
+// Resource type, Microsoft.Subscription/aliases.
+func (o SubscriptionAliasOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriptionAlias) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubscriptionAliasOutput{})
 }

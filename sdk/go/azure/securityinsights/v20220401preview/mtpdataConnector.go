@@ -183,6 +183,42 @@ func (o MTPDataConnectorOutput) ToMTPDataConnectorOutputWithContext(ctx context.
 	return o
 }
 
+// The available data types for the connector.
+func (o MTPDataConnectorOutput) DataTypes() MTPDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *MTPDataConnector) MTPDataConnectorDataTypesResponseOutput { return v.DataTypes }).(MTPDataConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o MTPDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MTPDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'MicrosoftThreatProtection'.
+func (o MTPDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MTPDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MTPDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MTPDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o MTPDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MTPDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o MTPDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MTPDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MTPDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MTPDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MTPDataConnectorOutput{})
 }

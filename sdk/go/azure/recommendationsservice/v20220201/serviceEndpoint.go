@@ -147,6 +147,36 @@ func (o ServiceEndpointOutput) ToServiceEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ServiceEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServiceEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ServiceEndpoint resource properties.
+func (o ServiceEndpointOutput) Properties() ServiceEndpointResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) ServiceEndpointResourceResponsePropertiesOutput { return v.Properties }).(ServiceEndpointResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ServiceEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServiceEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointOutput{})
 }

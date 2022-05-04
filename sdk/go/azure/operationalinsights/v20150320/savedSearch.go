@@ -180,6 +180,46 @@ func (o SavedSearchOutput) ToSavedSearchOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The category of the saved search. This helps the user to find a saved search faster.
+func (o SavedSearchOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// Saved search display name.
+func (o SavedSearchOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The ETag of the saved search.
+func (o SavedSearchOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the saved search.
+func (o SavedSearchOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+func (o SavedSearchOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The tags attached to the saved search.
+func (o SavedSearchOutput) Tags() TagResponseArrayOutput {
+	return o.ApplyT(func(v *SavedSearch) TagResponseArrayOutput { return v.Tags }).(TagResponseArrayOutput)
+}
+
+// The type of the saved search.
+func (o SavedSearchOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version number of the query language. The current version is 2 and is the default.
+func (o SavedSearchOutput) Version() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SavedSearch) pulumi.Float64PtrOutput { return v.Version }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SavedSearchOutput{})
 }

@@ -173,6 +173,51 @@ func (o EncryptionProtectorOutput) ToEncryptionProtectorOutputWithContext(ctx co
 	return o
 }
 
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o EncryptionProtectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o EncryptionProtectorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o EncryptionProtectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the server key.
+func (o EncryptionProtectorOutput) ServerKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringPtrOutput { return v.ServerKeyName }).(pulumi.StringPtrOutput)
+}
+
+// The encryption protector type like 'ServiceManaged', 'AzureKeyVault'.
+func (o EncryptionProtectorOutput) ServerKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.ServerKeyType }).(pulumi.StringOutput)
+}
+
+// Subregion of the encryption protector.
+func (o EncryptionProtectorOutput) Subregion() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Subregion }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the server key.
+func (o EncryptionProtectorOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o EncryptionProtectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI of the server key.
+func (o EncryptionProtectorOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionProtector) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EncryptionProtectorOutput{})
 }

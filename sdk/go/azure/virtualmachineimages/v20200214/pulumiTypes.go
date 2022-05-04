@@ -674,6 +674,20 @@ type ImageTemplateVmProfileArgs struct {
 	VnetConfig VirtualNetworkConfigPtrInput `pulumi:"vnetConfig"`
 }
 
+// Defaults sets the appropriate defaults for ImageTemplateVmProfileArgs
+func (val *ImageTemplateVmProfileArgs) Defaults() *ImageTemplateVmProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OsDiskSizeGB) {
+		tmp.OsDiskSizeGB = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.VmSize) {
+		tmp.VmSize = pulumi.StringPtr("")
+	}
+	return &tmp
+}
 func (ImageTemplateVmProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageTemplateVmProfile)(nil)).Elem()
 }

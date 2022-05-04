@@ -224,6 +224,20 @@ type BotPropertiesArgs struct {
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
 }
 
+// Defaults sets the appropriate defaults for BotPropertiesArgs
+func (val *BotPropertiesArgs) Defaults() *BotPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsStreamingSupported) {
+		tmp.IsStreamingSupported = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.PublicNetworkAccess) {
+		tmp.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (BotPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BotProperties)(nil)).Elem()
 }

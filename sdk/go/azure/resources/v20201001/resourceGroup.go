@@ -183,6 +183,36 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
+func (o ResourceGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The ID of the resource that manages this resource group.
+func (o ResourceGroupOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource group.
+func (o ResourceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource group properties.
+func (o ResourceGroupOutput) Properties() ResourceGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v *ResourceGroup) ResourceGroupPropertiesResponseOutput { return v.Properties }).(ResourceGroupPropertiesResponseOutput)
+}
+
+// The tags attached to the resource group.
+func (o ResourceGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource group.
+func (o ResourceGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceGroupOutput{})
 }

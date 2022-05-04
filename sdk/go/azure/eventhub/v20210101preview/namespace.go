@@ -221,6 +221,106 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
+// Cluster ARM ID of the Namespace.
+func (o NamespaceOutput) ClusterArmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.ClusterArmId }).(pulumi.StringPtrOutput)
+}
+
+// The time the Namespace was created.
+func (o NamespaceOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Properties of BYOK Encryption description
+func (o NamespaceOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *Namespace) EncryptionResponsePtrOutput { return v.Encryption }).(EncryptionResponsePtrOutput)
+}
+
+// Properties of BYOK Identity description
+func (o NamespaceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Namespace) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+func (o NamespaceOutput) IsAutoInflateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.IsAutoInflateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether Kafka is enabled for eventhub namespace.
+func (o NamespaceOutput) KafkaEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.KafkaEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o NamespaceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+func (o NamespaceOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.IntPtrOutput { return v.MaximumThroughputUnits }).(pulumi.IntPtrOutput)
+}
+
+// Identifier for Azure Insights metrics.
+func (o NamespaceOutput) MetricId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.MetricId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o NamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections.
+func (o NamespaceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Namespace) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the Namespace.
+func (o NamespaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Endpoint you can use to perform Service Bus operations.
+func (o NamespaceOutput) ServiceBusEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.ServiceBusEndpoint }).(pulumi.StringOutput)
+}
+
+// Properties of sku resource
+func (o NamespaceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Namespace) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Status of the Namespace.
+func (o NamespaceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o NamespaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Namespace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NamespaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the Namespace was updated.
+func (o NamespaceOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+func (o NamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceOutput{})
 }

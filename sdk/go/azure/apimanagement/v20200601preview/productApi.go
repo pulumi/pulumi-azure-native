@@ -203,6 +203,108 @@ func (o ProductApiOutput) ToProductApiOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+func (o ProductApiOutput) ApiRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiRevision }).(pulumi.StringPtrOutput)
+}
+
+// Description of the Api Revision.
+func (o ProductApiOutput) ApiRevisionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
+}
+
+// Type of API.
+func (o ProductApiOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the Version identifier of the API if the API is versioned
+func (o ProductApiOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiVersion }).(pulumi.StringPtrOutput)
+}
+
+// Description of the Api Version.
+func (o ProductApiOutput) ApiVersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiVersionDescription }).(pulumi.StringPtrOutput)
+}
+
+// Version set details
+func (o ProductApiOutput) ApiVersionSet() ApiVersionSetContractDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ProductApi) ApiVersionSetContractDetailsResponsePtrOutput { return v.ApiVersionSet }).(ApiVersionSetContractDetailsResponsePtrOutput)
+}
+
+// A resource identifier for the related ApiVersionSet.
+func (o ProductApiOutput) ApiVersionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ApiVersionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Collection of authentication settings included into this API.
+func (o ProductApiOutput) AuthenticationSettings() AuthenticationSettingsContractResponsePtrOutput {
+	return o.ApplyT(func(v *ProductApi) AuthenticationSettingsContractResponsePtrOutput { return v.AuthenticationSettings }).(AuthenticationSettingsContractResponsePtrOutput)
+}
+
+// Description of the API. May include HTML formatting tags.
+func (o ProductApiOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// API name. Must be 1 to 300 characters long.
+func (o ProductApiOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if API revision is current api revision.
+func (o ProductApiOutput) IsCurrent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.BoolPtrOutput { return v.IsCurrent }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if API revision is accessible via the gateway.
+func (o ProductApiOutput) IsOnline() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.BoolOutput { return v.IsOnline }).(pulumi.BoolOutput)
+}
+
+// Resource name.
+func (o ProductApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+func (o ProductApiOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+}
+
+// Describes on which protocols the operations in this API can be invoked.
+func (o ProductApiOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+func (o ProductApiOutput) ServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.ServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// API identifier of the source API.
+func (o ProductApiOutput) SourceApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringPtrOutput { return v.SourceApiId }).(pulumi.StringPtrOutput)
+}
+
+// Protocols over which API is made available.
+func (o ProductApiOutput) SubscriptionKeyParameterNames() SubscriptionKeyParameterNamesContractResponsePtrOutput {
+	return o.ApplyT(func(v *ProductApi) SubscriptionKeyParameterNamesContractResponsePtrOutput {
+		return v.SubscriptionKeyParameterNames
+	}).(SubscriptionKeyParameterNamesContractResponsePtrOutput)
+}
+
+// Specifies whether an API or Product subscription is required for accessing the API.
+func (o ProductApiOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o ProductApiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductApi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductApiOutput{})
 }

@@ -157,6 +157,36 @@ func (o OutputOutput) ToOutputOutputWithContext(ctx context.Context) OutputOutpu
 	return o
 }
 
+// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+func (o OutputOutput) Datasource() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Output) pulumi.AnyOutput { return v.Datasource }).(pulumi.AnyOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+func (o OutputOutput) Diagnostics() DiagnosticsResponseOutput {
+	return o.ApplyT(func(v *Output) DiagnosticsResponseOutput { return v.Diagnostics }).(DiagnosticsResponseOutput)
+}
+
+// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o OutputOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Output) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o OutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Output) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+func (o OutputOutput) Serialization() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Output) pulumi.AnyOutput { return v.Serialization }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o OutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Output) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutputOutput{})
 }

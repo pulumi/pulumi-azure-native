@@ -147,6 +147,31 @@ func (o JobCollectionOutput) ToJobCollectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Gets or sets the storage account location.
+func (o JobCollectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCollection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the job collection resource name.
+func (o JobCollectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobCollection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the job collection properties.
+func (o JobCollectionOutput) Properties() JobCollectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *JobCollection) JobCollectionPropertiesResponseOutput { return v.Properties }).(JobCollectionPropertiesResponseOutput)
+}
+
+// Gets or sets the tags.
+func (o JobCollectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the job collection resource type.
+func (o JobCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobCollectionOutput{})
 }

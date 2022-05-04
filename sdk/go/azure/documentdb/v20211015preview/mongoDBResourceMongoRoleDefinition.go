@@ -161,6 +161,36 @@ func (o MongoDBResourceMongoRoleDefinitionOutput) ToMongoDBResourceMongoRoleDefi
 	return o
 }
 
+// The database name for which access is being granted for this Role Definition.
+func (o MongoDBResourceMongoRoleDefinitionOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o MongoDBResourceMongoRoleDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
+func (o MongoDBResourceMongoRoleDefinitionOutput) Privileges() PrivilegeResponseArrayOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) PrivilegeResponseArrayOutput { return v.Privileges }).(PrivilegeResponseArrayOutput)
+}
+
+// A user-friendly name for the Role Definition. Must be unique for the database account.
+func (o MongoDBResourceMongoRoleDefinitionOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The set of roles inherited by this Role Definition.
+func (o MongoDBResourceMongoRoleDefinitionOutput) Roles() RoleResponseArrayOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) RoleResponseArrayOutput { return v.Roles }).(RoleResponseArrayOutput)
+}
+
+// The type of Azure resource.
+func (o MongoDBResourceMongoRoleDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoRoleDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MongoDBResourceMongoRoleDefinitionOutput{})
 }

@@ -262,6 +262,96 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
+// List of applicationGroup links.
+func (o HostPoolOutput) ApplicationGroupReferences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringArrayOutput { return v.ApplicationGroupReferences }).(pulumi.StringArrayOutput)
+}
+
+// Custom rdp property of HostPool.
+func (o HostPoolOutput) CustomRdpProperty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.CustomRdpProperty }).(pulumi.StringPtrOutput)
+}
+
+// Description of HostPool.
+func (o HostPoolOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of HostPool.
+func (o HostPoolOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// HostPool type for desktop.
+func (o HostPoolOutput) HostPoolType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.HostPoolType }).(pulumi.StringOutput)
+}
+
+// The type of the load balancer.
+func (o HostPoolOutput) LoadBalancerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.LoadBalancerType }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o HostPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max session limit of HostPool.
+func (o HostPoolOutput) MaxSessionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.IntPtrOutput { return v.MaxSessionLimit }).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource
+func (o HostPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// PersonalDesktopAssignment type for HostPool.
+func (o HostPoolOutput) PersonalDesktopAssignmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.PersonalDesktopAssignmentType }).(pulumi.StringPtrOutput)
+}
+
+// The type of preferred application group type, default to Desktop Application Group
+func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.PreferredAppGroupType }).(pulumi.StringOutput)
+}
+
+// The registration info of HostPool.
+func (o HostPoolOutput) RegistrationInfo() RegistrationInfoResponsePtrOutput {
+	return o.ApplyT(func(v *HostPool) RegistrationInfoResponsePtrOutput { return v.RegistrationInfo }).(RegistrationInfoResponsePtrOutput)
+}
+
+// The ring number of HostPool.
+func (o HostPoolOutput) Ring() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.IntPtrOutput { return v.Ring }).(pulumi.IntPtrOutput)
+}
+
+// Path to keyvault containing ssoContext secret.
+func (o HostPoolOutput) SsoContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.SsoContext }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o HostPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o HostPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Is validation environment.
+func (o HostPoolOutput) ValidationEnvironment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.BoolPtrOutput { return v.ValidationEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+// VM template for sessionhosts configuration within hostpool.
+func (o HostPoolOutput) VmTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.VmTemplate }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HostPoolOutput{})
 }

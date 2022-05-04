@@ -160,6 +160,51 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The creation date of the user profile.
+func (o UserOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The identity of the user.
+func (o UserOutput) Identity() UserIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *User) UserIdentityResponsePtrOutput { return v.Identity }).(UserIdentityResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o UserOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o UserOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The secret store of the user.
+func (o UserOutput) SecretStore() UserSecretStoreResponsePtrOutput {
+	return o.ApplyT(func(v *User) UserSecretStoreResponsePtrOutput { return v.SecretStore }).(UserSecretStoreResponsePtrOutput)
+}
+
+// The tags of the resource.
+func (o UserOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o UserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o UserOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserOutput{})
 }

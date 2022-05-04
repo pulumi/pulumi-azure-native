@@ -182,6 +182,78 @@ func (o ManagedEnvironmentOutput) ToManagedEnvironmentOutputWithContext(ctx cont
 	return o
 }
 
+// Cluster configuration which enables the log daemon to export
+// app logs to a destination. Currently only "log-analytics" is
+// supported
+func (o ManagedEnvironmentOutput) AppLogsConfiguration() AppLogsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) AppLogsConfigurationResponsePtrOutput { return v.AppLogsConfiguration }).(AppLogsConfigurationResponsePtrOutput)
+}
+
+// Application Insights connection string used by Dapr to export Service to Service communication telemetry
+func (o ManagedEnvironmentOutput) DaprAIConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringPtrOutput { return v.DaprAIConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+func (o ManagedEnvironmentOutput) DaprAIInstrumentationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringPtrOutput { return v.DaprAIInstrumentationKey }).(pulumi.StringPtrOutput)
+}
+
+// Default Domain Name for the cluster
+func (o ManagedEnvironmentOutput) DefaultDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.DefaultDomain }).(pulumi.StringOutput)
+}
+
+// Any errors that occurred during deployment or deployment validation
+func (o ManagedEnvironmentOutput) DeploymentErrors() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.DeploymentErrors }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ManagedEnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ManagedEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Environment.
+func (o ManagedEnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Static IP of the Environment
+func (o ManagedEnvironmentOutput) StaticIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.StaticIp }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ManagedEnvironmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ManagedEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ManagedEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Vnet configuration for the environment
+func (o ManagedEnvironmentOutput) VnetConfiguration() VnetConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) VnetConfigurationResponsePtrOutput { return v.VnetConfiguration }).(VnetConfigurationResponsePtrOutput)
+}
+
+// Whether or not this Managed Environment is zone-redundant.
+func (o ManagedEnvironmentOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedEnvironment) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedEnvironmentOutput{})
 }

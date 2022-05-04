@@ -157,6 +157,21 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+// Kind of synchronization on trigger.
+func (o TriggerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o TriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o TriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerOutput{})
 }

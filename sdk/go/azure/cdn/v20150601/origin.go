@@ -179,6 +179,41 @@ func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutpu
 	return o
 }
 
+// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+func (o OriginOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535.
+func (o OriginOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the https port. Must be between 1 and 65535.
+func (o OriginOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Resource name
+func (o OriginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status of the origin.
+func (o OriginOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the origin.
+func (o OriginOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o OriginOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OriginOutput{})
 }

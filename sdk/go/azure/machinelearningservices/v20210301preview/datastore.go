@@ -145,6 +145,26 @@ func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) Datas
 	return o
 }
 
+// The name of the resource
+func (o DatastoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o DatastoreOutput) Properties() DatastorePropertiesResponseOutput {
+	return o.ApplyT(func(v *Datastore) DatastorePropertiesResponseOutput { return v.Properties }).(DatastorePropertiesResponseOutput)
+}
+
+// System data associated with resource provider
+func (o DatastoreOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Datastore) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DatastoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatastoreOutput{})
 }

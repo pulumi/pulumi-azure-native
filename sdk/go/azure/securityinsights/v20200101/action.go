@@ -175,6 +175,31 @@ func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutpu
 	return o
 }
 
+// Etag of the action.
+func (o ActionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+func (o ActionOutput) LogicAppResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.LogicAppResourceId }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o ActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The name of the logic app's workflow.
+func (o ActionOutput) WorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringPtrOutput { return v.WorkflowId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 }

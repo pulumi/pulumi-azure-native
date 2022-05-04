@@ -187,6 +187,36 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+func (o RuleOutput) Action() ActionResponsePtrOutput {
+	return o.ApplyT(func(v *Rule) ActionResponsePtrOutput { return v.Action }).(ActionResponsePtrOutput)
+}
+
+// Properties of correlationFilter
+func (o RuleOutput) CorrelationFilter() CorrelationFilterResponsePtrOutput {
+	return o.ApplyT(func(v *Rule) CorrelationFilterResponsePtrOutput { return v.CorrelationFilter }).(CorrelationFilterResponsePtrOutput)
+}
+
+// Filter type that is evaluated against a BrokeredMessage.
+func (o RuleOutput) FilterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.FilterType }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o RuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of sqlFilter
+func (o RuleOutput) SqlFilter() SqlFilterResponsePtrOutput {
+	return o.ApplyT(func(v *Rule) SqlFilterResponsePtrOutput { return v.SqlFilter }).(SqlFilterResponsePtrOutput)
+}
+
+// Resource type
+func (o RuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleOutput{})
 }

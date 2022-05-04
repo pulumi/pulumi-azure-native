@@ -170,6 +170,31 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
+// Azure location of the key vault resource.
+func (o SecretOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the key vault resource.
+func (o SecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the secret
+func (o SecretOutput) Properties() SecretPropertiesResponseOutput {
+	return o.ApplyT(func(v *Secret) SecretPropertiesResponseOutput { return v.Properties }).(SecretPropertiesResponseOutput)
+}
+
+// Tags assigned to the key vault resource.
+func (o SecretOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type of the key vault resource.
+func (o SecretOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecretOutput{})
 }

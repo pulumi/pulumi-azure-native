@@ -137,6 +137,36 @@ func (o ScopeAssignmentOutput) ToScopeAssignmentOutputWithContext(ctx context.Co
 	return o
 }
 
+// The managed network ID with scope will be assigned to.
+func (o ScopeAssignmentOutput) AssignedManagedNetwork() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringPtrOutput { return v.AssignedManagedNetwork }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ScopeAssignmentOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ScopeAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ScopeAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the ManagedNetwork resource.
+func (o ScopeAssignmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ScopeAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScopeAssignmentOutput{})
 }

@@ -224,6 +224,36 @@ func (o ServiceEndpointPolicyDefinitionOutput) ToServiceEndpointPolicyDefinition
 	return o
 }
 
+// A description for this rule. Restricted to 140 chars.
+func (o ServiceEndpointPolicyDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ServiceEndpointPolicyDefinitionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ServiceEndpointPolicyDefinitionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ServiceEndpointPolicyDefinitionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// service endpoint name.
+func (o ServiceEndpointPolicyDefinitionOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringPtrOutput { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+// A list of service resources.
+func (o ServiceEndpointPolicyDefinitionOutput) ServiceResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicyDefinition) pulumi.StringArrayOutput { return v.ServiceResources }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointPolicyDefinitionOutput{})
 }

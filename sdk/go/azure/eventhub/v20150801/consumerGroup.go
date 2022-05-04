@@ -180,6 +180,41 @@ func (o ConsumerGroupOutput) ToConsumerGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Exact time the message was created.
+func (o ConsumerGroupOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The path of the Event Hub.
+func (o ConsumerGroupOutput) EventHubPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.EventHubPath }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ConsumerGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ConsumerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o ConsumerGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o ConsumerGroupOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// The user metadata.
+func (o ConsumerGroupOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringPtrOutput { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 }

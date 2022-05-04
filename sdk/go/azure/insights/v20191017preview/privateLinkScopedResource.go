@@ -138,6 +138,26 @@ func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutputWithCo
 	return o
 }
 
+// The resource id of the scoped Azure monitor resource.
+func (o PrivateLinkScopedResourceOutput) LinkedResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkScopedResource) pulumi.StringPtrOutput { return v.LinkedResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o PrivateLinkScopedResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScopedResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the private endpoint connection.
+func (o PrivateLinkScopedResourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScopedResource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o PrivateLinkScopedResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScopedResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceOutput{})
 }

@@ -161,6 +161,55 @@ func (o AFDCustomDomainOutput) ToAFDCustomDomainOutputWithContext(ctx context.Co
 	return o
 }
 
+// Resource reference to the Azure DNS zone
+func (o AFDCustomDomainOutput) AzureDnsZone() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) ResourceReferenceResponsePtrOutput { return v.AzureDnsZone }).(ResourceReferenceResponsePtrOutput)
+}
+
+func (o AFDCustomDomainOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
+func (o AFDCustomDomainOutput) DomainValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.DomainValidationState }).(pulumi.StringOutput)
+}
+
+// The host name of the domain. Must be a domain name.
+func (o AFDCustomDomainOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o AFDCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o AFDCustomDomainOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o AFDCustomDomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+func (o AFDCustomDomainOutput) TlsSettings() AFDDomainHttpsParametersResponsePtrOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) AFDDomainHttpsParametersResponsePtrOutput { return v.TlsSettings }).(AFDDomainHttpsParametersResponsePtrOutput)
+}
+
+// Resource type.
+func (o AFDCustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Values the customer needs to validate domain ownership
+func (o AFDCustomDomainOutput) ValidationProperties() DomainValidationPropertiesResponseOutput {
+	return o.ApplyT(func(v *AFDCustomDomain) DomainValidationPropertiesResponseOutput { return v.ValidationProperties }).(DomainValidationPropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AFDCustomDomainOutput{})
 }

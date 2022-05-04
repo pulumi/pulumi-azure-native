@@ -213,6 +213,70 @@ func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutputWithContext(ct
 	return o
 }
 
+// Deprecated in favor of isVersioningEnabled property.
+func (o BlobServicePropertiesOutput) AutomaticSnapshotPolicyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.BoolPtrOutput { return v.AutomaticSnapshotPolicyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The blob service properties for change feed events.
+func (o BlobServicePropertiesOutput) ChangeFeed() ChangeFeedResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) ChangeFeedResponsePtrOutput { return v.ChangeFeed }).(ChangeFeedResponsePtrOutput)
+}
+
+// The blob service properties for container soft delete.
+func (o BlobServicePropertiesOutput) ContainerDeleteRetentionPolicy() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) DeleteRetentionPolicyResponsePtrOutput {
+		return v.ContainerDeleteRetentionPolicy
+	}).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+func (o BlobServicePropertiesOutput) Cors() CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) CorsRulesResponsePtrOutput { return v.Cors }).(CorsRulesResponsePtrOutput)
+}
+
+// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+func (o BlobServicePropertiesOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringPtrOutput { return v.DefaultServiceVersion }).(pulumi.StringPtrOutput)
+}
+
+// The blob service properties for blob soft delete.
+func (o BlobServicePropertiesOutput) DeleteRetentionPolicy() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) DeleteRetentionPolicyResponsePtrOutput { return v.DeleteRetentionPolicy }).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// Versioning is enabled if set to true.
+func (o BlobServicePropertiesOutput) IsVersioningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.BoolPtrOutput { return v.IsVersioningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The blob service property to configure last access time based tracking policy.
+func (o BlobServicePropertiesOutput) LastAccessTimeTrackingPolicy() LastAccessTimeTrackingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) LastAccessTimeTrackingPolicyResponsePtrOutput {
+		return v.LastAccessTimeTrackingPolicy
+	}).(LastAccessTimeTrackingPolicyResponsePtrOutput)
+}
+
+// The name of the resource
+func (o BlobServicePropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The blob service properties for blob restore policy.
+func (o BlobServicePropertiesOutput) RestorePolicy() RestorePolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) RestorePolicyPropertiesResponsePtrOutput { return v.RestorePolicy }).(RestorePolicyPropertiesResponsePtrOutput)
+}
+
+// Sku name and tier.
+func (o BlobServicePropertiesOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobServicePropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobServicePropertiesOutput{})
 }

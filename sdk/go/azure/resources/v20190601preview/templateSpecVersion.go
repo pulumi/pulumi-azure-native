@@ -168,6 +168,46 @@ func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutputWithContext(ctx co
 	return o
 }
 
+// An array of Template Spec artifacts.
+func (o TemplateSpecVersionOutput) Artifacts() TemplateSpecTemplateArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) TemplateSpecTemplateArtifactResponseArrayOutput { return v.Artifacts }).(TemplateSpecTemplateArtifactResponseArrayOutput)
+}
+
+// Template Spec version description.
+func (o TemplateSpecVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The location of the Template Spec Version. It must match the location of the parent Template Spec.
+func (o TemplateSpecVersionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o TemplateSpecVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o TemplateSpecVersionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o TemplateSpecVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Azure Resource Manager template content.
+func (o TemplateSpecVersionOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.AnyOutput { return v.Template }).(pulumi.AnyOutput)
+}
+
+// Type of this resource.
+func (o TemplateSpecVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TemplateSpecVersionOutput{})
 }

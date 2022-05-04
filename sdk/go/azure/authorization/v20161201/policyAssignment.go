@@ -189,6 +189,41 @@ func (o PolicyAssignmentOutput) ToPolicyAssignmentOutputWithContext(ctx context.
 	return o
 }
 
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy assignment.
+func (o PolicyAssignmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o PolicyAssignmentOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The ID of the policy definition.
+func (o PolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The type of the policy assignment.
+func (o PolicyAssignmentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyAssignmentOutput{})
 }

@@ -150,6 +150,36 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The geo-location where the resource lives
+func (o CertificateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Certificate resource specific properties
+func (o CertificateOutput) Properties() CertificateResponsePropertiesOutput {
+	return o.ApplyT(func(v *Certificate) CertificateResponsePropertiesOutput { return v.Properties }).(CertificateResponsePropertiesOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CertificateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Certificate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o CertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

@@ -164,6 +164,41 @@ func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutputWithContext(
 	return o
 }
 
+// The identity of the resource.
+func (o MachineLearningDatasetOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o MachineLearningDatasetOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o MachineLearningDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dataset properties
+func (o MachineLearningDatasetOutput) Properties() DatasetResponseOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) DatasetResponseOutput { return v.Properties }).(DatasetResponseOutput)
+}
+
+// The sku of the workspace.
+func (o MachineLearningDatasetOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o MachineLearningDatasetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o MachineLearningDatasetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningDataset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineLearningDatasetOutput{})
 }

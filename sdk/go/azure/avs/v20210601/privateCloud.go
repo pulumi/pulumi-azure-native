@@ -216,6 +216,106 @@ func (o PrivateCloudOutput) ToPrivateCloudOutputWithContext(ctx context.Context)
 	return o
 }
 
+// An ExpressRoute Circuit
+func (o PrivateCloudOutput) Circuit() CircuitResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateCloud) CircuitResponsePtrOutput { return v.Circuit }).(CircuitResponsePtrOutput)
+}
+
+// The endpoints
+func (o PrivateCloudOutput) Endpoints() EndpointsResponseOutput {
+	return o.ApplyT(func(v *PrivateCloud) EndpointsResponseOutput { return v.Endpoints }).(EndpointsResponseOutput)
+}
+
+// Array of cloud link IDs from other clouds that connect to this one
+func (o PrivateCloudOutput) ExternalCloudLinks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringArrayOutput { return v.ExternalCloudLinks }).(pulumi.StringArrayOutput)
+}
+
+// vCenter Single Sign On Identity Sources
+func (o PrivateCloudOutput) IdentitySources() IdentitySourceResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateCloud) IdentitySourceResponseArrayOutput { return v.IdentitySources }).(IdentitySourceResponseArrayOutput)
+}
+
+// Connectivity to internet is enabled or disabled
+func (o PrivateCloudOutput) Internet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringPtrOutput { return v.Internet }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o PrivateCloudOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The default cluster used for management
+func (o PrivateCloudOutput) ManagementCluster() ManagementClusterResponseOutput {
+	return o.ApplyT(func(v *PrivateCloud) ManagementClusterResponseOutput { return v.ManagementCluster }).(ManagementClusterResponseOutput)
+}
+
+// Network used to access vCenter Server and NSX-T Manager
+func (o PrivateCloudOutput) ManagementNetwork() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ManagementNetwork }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o PrivateCloudOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+func (o PrivateCloudOutput) NetworkBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.NetworkBlock }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the NSX-T Manager SSL certificate
+func (o PrivateCloudOutput) NsxtCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.NsxtCertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// Optionally, set the NSX-T Manager password when the private cloud is created
+func (o PrivateCloudOutput) NsxtPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringPtrOutput { return v.NsxtPassword }).(pulumi.StringPtrOutput)
+}
+
+// Used for virtual machine cold migration, cloning, and snapshot migration
+func (o PrivateCloudOutput) ProvisioningNetwork() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ProvisioningNetwork }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o PrivateCloudOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The private cloud SKU
+func (o PrivateCloudOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *PrivateCloud) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource tags
+func (o PrivateCloudOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PrivateCloudOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the vCenter Server SSL certificate
+func (o PrivateCloudOutput) VcenterCertificateThumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.VcenterCertificateThumbprint }).(pulumi.StringOutput)
+}
+
+// Optionally, set the vCenter admin password when the private cloud is created
+func (o PrivateCloudOutput) VcenterPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringPtrOutput { return v.VcenterPassword }).(pulumi.StringPtrOutput)
+}
+
+// Used for live migration of virtual machines
+func (o PrivateCloudOutput) VmotionNetwork() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.VmotionNetwork }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateCloudOutput{})
 }

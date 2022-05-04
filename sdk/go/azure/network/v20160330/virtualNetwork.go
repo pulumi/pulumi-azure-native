@@ -287,6 +287,56 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+func (o VirtualNetworkOutput) AddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) AddressSpaceResponsePtrOutput { return v.AddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+func (o VirtualNetworkOutput) DhcpOptions() DhcpOptionsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) DhcpOptionsResponsePtrOutput { return v.DhcpOptions }).(DhcpOptionsResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o VirtualNetworkOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o VirtualNetworkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o VirtualNetworkOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource GUID property of the VirtualNetwork resource
+func (o VirtualNetworkOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets List of subnets in a VirtualNetwork
+func (o VirtualNetworkOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags
+func (o VirtualNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

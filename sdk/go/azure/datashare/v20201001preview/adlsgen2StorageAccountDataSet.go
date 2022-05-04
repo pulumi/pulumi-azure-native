@@ -183,6 +183,47 @@ func (o ADLSGen2StorageAccountDataSetOutput) ToADLSGen2StorageAccountDataSetOutp
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o ADLSGen2StorageAccountDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'AdlsGen2StorageAccount'.
+func (o ADLSGen2StorageAccountDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the ADLSGen2 storage account.
+func (o ADLSGen2StorageAccountDataSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2StorageAccountDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of ADLSGen2 storage account paths.
+func (o ADLSGen2StorageAccountDataSetOutput) Paths() ADLSGen2StorageAccountPathResponseArrayOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) ADLSGen2StorageAccountPathResponseArrayOutput { return v.Paths }).(ADLSGen2StorageAccountPathResponseArrayOutput)
+}
+
+// Resource id of the ADLSGen2 storage account.
+func (o ADLSGen2StorageAccountDataSetOutput) StorageAccountResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.StorageAccountResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ADLSGen2StorageAccountDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2StorageAccountDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2StorageAccountDataSetOutput{})
 }

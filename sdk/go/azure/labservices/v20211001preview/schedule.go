@@ -170,6 +170,51 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
+// The name of the resource
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notes for this schedule.
+func (o ScheduleOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// Current provisioning state of the schedule.
+func (o ScheduleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The recurrence pattern of the scheduled actions.
+func (o ScheduleOutput) RecurrencePattern() RecurrencePatternResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) RecurrencePatternResponsePtrOutput { return v.RecurrencePattern }).(RecurrencePatternResponsePtrOutput)
+}
+
+// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
+func (o ScheduleOutput) StartAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.StartAt }).(pulumi.StringPtrOutput)
+}
+
+// When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
+func (o ScheduleOutput) StopAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.StopAt }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the schedule.
+func (o ScheduleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Schedule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The IANA timezone id for the schedule.
+func (o ScheduleOutput) TimeZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.TimeZoneId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduleOutput{})
 }

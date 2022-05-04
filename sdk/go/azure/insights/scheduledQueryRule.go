@@ -205,6 +205,91 @@ func (o ScheduledQueryRuleOutput) ToScheduledQueryRuleOutputWithContext(ctx cont
 	return o
 }
 
+// Action needs to be taken on rule execution.
+func (o ScheduledQueryRuleOutput) Action() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.AnyOutput { return v.Action }).(pulumi.AnyOutput)
+}
+
+// The flag that indicates whether the alert should be automatically resolved or not. The default is false.
+func (o ScheduledQueryRuleOutput) AutoMitigate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolPtrOutput { return v.AutoMitigate }).(pulumi.BoolPtrOutput)
+}
+
+// The api-version used when creating this alert rule
+func (o ScheduledQueryRuleOutput) CreatedWithApiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.CreatedWithApiVersion }).(pulumi.StringOutput)
+}
+
+// The description of the Log Search rule.
+func (o ScheduledQueryRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the alert rule
+func (o ScheduledQueryRuleOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+func (o ScheduledQueryRuleOutput) Enabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringPtrOutput { return v.Enabled }).(pulumi.StringPtrOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o ScheduledQueryRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// True if alert rule is legacy Log Analytic rule
+func (o ScheduledQueryRuleOutput) IsLegacyLogAnalyticsRule() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.BoolOutput { return v.IsLegacyLogAnalyticsRule }).(pulumi.BoolOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o ScheduledQueryRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Last time the rule was updated in IS08601 format.
+func (o ScheduledQueryRuleOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ScheduledQueryRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ScheduledQueryRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the scheduled query rule
+func (o ScheduledQueryRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+func (o ScheduledQueryRuleOutput) Schedule() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) ScheduleResponsePtrOutput { return v.Schedule }).(ScheduleResponsePtrOutput)
+}
+
+// Data Source against which rule will Query Data
+func (o ScheduledQueryRuleOutput) Source() SourceResponseOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) SourceResponseOutput { return v.Source }).(SourceResponseOutput)
+}
+
+// Resource tags
+func (o ScheduledQueryRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o ScheduledQueryRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQueryRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRuleOutput{})
 }

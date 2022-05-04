@@ -150,6 +150,26 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// For optimistic concurrency control.
+func (o AssessmentOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Unique name of an assessment.
+func (o AssessmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the assessment.
+func (o AssessmentOutput) Properties() AssessmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *Assessment) AssessmentPropertiesResponseOutput { return v.Properties }).(AssessmentPropertiesResponseOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
+func (o AssessmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentOutput{})
 }

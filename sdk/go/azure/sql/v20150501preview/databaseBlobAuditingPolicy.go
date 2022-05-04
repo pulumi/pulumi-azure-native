@@ -203,6 +203,51 @@ func (o DatabaseBlobAuditingPolicyOutput) ToDatabaseBlobAuditingPolicyOutputWith
 	return o
 }
 
+// Specifies the Actions and Actions-Groups to audit.
+func (o DatabaseBlobAuditingPolicyOutput) AuditActionsAndGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringArrayOutput { return v.AuditActionsAndGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
+func (o DatabaseBlobAuditingPolicyOutput) IsStorageSecondaryKeyInUse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.BoolPtrOutput { return v.IsStorageSecondaryKeyInUse }).(pulumi.BoolPtrOutput)
+}
+
+// Resource kind.
+func (o DatabaseBlobAuditingPolicyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DatabaseBlobAuditingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days to keep in the audit logs.
+func (o DatabaseBlobAuditingPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+func (o DatabaseBlobAuditingPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the blob storage subscription Id.
+func (o DatabaseBlobAuditingPolicyOutput) StorageAccountSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringPtrOutput { return v.StorageAccountSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
+func (o DatabaseBlobAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o DatabaseBlobAuditingPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseBlobAuditingPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseBlobAuditingPolicyOutput{})
 }

@@ -156,6 +156,42 @@ func (o StaticSitePrivateEndpointConnectionOutput) ToStaticSitePrivateEndpointCo
 	return o
 }
 
+// Private IPAddresses mapped to the remote private endpoint
+func (o StaticSitePrivateEndpointConnectionOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) pulumi.StringArrayOutput { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Kind of resource.
+func (o StaticSitePrivateEndpointConnectionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o StaticSitePrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o StaticSitePrivateEndpointConnectionOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) ArmIdWrapperResponsePtrOutput { return v.PrivateEndpoint }).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o StaticSitePrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) PrivateLinkConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o StaticSitePrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o StaticSitePrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticSitePrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticSitePrivateEndpointConnectionOutput{})
 }

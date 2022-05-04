@@ -162,6 +162,28 @@ func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupSco
 	return o
 }
 
+// the location of the deployment.
+func (o DeploymentAtManagementGroupScopeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAtManagementGroupScope) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o DeploymentAtManagementGroupScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtManagementGroupScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o DeploymentAtManagementGroupScopeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v *DeploymentAtManagementGroupScope) DeploymentPropertiesExtendedResponseOutput {
+		return v.Properties
+	}).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// The type of the deployment.
+func (o DeploymentAtManagementGroupScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtManagementGroupScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentAtManagementGroupScopeOutput{})
 }

@@ -147,6 +147,31 @@ func (o StorageDomainOutput) ToStorageDomainOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The encryption key used to encrypt the data. This is a user secret.
+func (o StorageDomainOutput) EncryptionKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *StorageDomain) AsymmetricEncryptedSecretResponsePtrOutput { return v.EncryptionKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The encryption status "Enabled | Disabled".
+func (o StorageDomainOutput) EncryptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageDomain) pulumi.StringOutput { return v.EncryptionStatus }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o StorageDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage account credentials.
+func (o StorageDomainOutput) StorageAccountCredentialIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageDomain) pulumi.StringArrayOutput { return v.StorageAccountCredentialIds }).(pulumi.StringArrayOutput)
+}
+
+// The type.
+func (o StorageDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageDomainOutput{})
 }

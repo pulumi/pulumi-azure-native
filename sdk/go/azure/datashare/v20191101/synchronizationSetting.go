@@ -157,6 +157,21 @@ func (o SynchronizationSettingOutput) ToSynchronizationSettingOutputWithContext(
 	return o
 }
 
+// Kind of synchronization setting.
+func (o SynchronizationSettingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynchronizationSetting) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SynchronizationSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynchronizationSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o SynchronizationSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynchronizationSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SynchronizationSettingOutput{})
 }

@@ -297,6 +297,146 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
+// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+func (o SnapshotOutput) CompletionPercent() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.Float64PtrOutput { return v.CompletionPercent }).(pulumi.Float64PtrOutput)
+}
+
+// Disk source information. CreationData information cannot be changed after the disk has been created.
+func (o SnapshotOutput) CreationData() CreationDataResponseOutput {
+	return o.ApplyT(func(v *Snapshot) CreationDataResponseOutput { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+func (o SnapshotOutput) DataAccessAuthMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.DataAccessAuthMode }).(pulumi.StringPtrOutput)
+}
+
+// ARM id of the DiskAccess resource for using private endpoints on disks.
+func (o SnapshotOutput) DiskAccessId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.DiskAccessId }).(pulumi.StringPtrOutput)
+}
+
+// The size of the disk in bytes. This field is read only.
+func (o SnapshotOutput) DiskSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Snapshot) pulumi.Float64Output { return v.DiskSizeBytes }).(pulumi.Float64Output)
+}
+
+// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+func (o SnapshotOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.IntPtrOutput { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// The state of the snapshot.
+func (o SnapshotOutput) DiskState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.DiskState }).(pulumi.StringOutput)
+}
+
+// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+func (o SnapshotOutput) Encryption() EncryptionResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) EncryptionResponsePtrOutput { return v.Encryption }).(EncryptionResponsePtrOutput)
+}
+
+// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+func (o SnapshotOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) EncryptionSettingsCollectionResponsePtrOutput { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionResponsePtrOutput)
+}
+
+// The extended location where the snapshot will be created. Extended location cannot be changed.
+func (o SnapshotOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+func (o SnapshotOutput) HyperVGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
+}
+
+// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+func (o SnapshotOutput) Incremental() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.Incremental }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o SnapshotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Unused. Always Null.
+func (o SnapshotOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Policy for accessing the disk via network.
+func (o SnapshotOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
+}
+
+// The Operating System type.
+func (o SnapshotOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The disk provisioning state.
+func (o SnapshotOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Policy for controlling export on the disk.
+func (o SnapshotOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Purchase plan information for the image from which the source disk for the snapshot was originally created.
+func (o SnapshotOutput) PurchasePlan() PurchasePlanResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) PurchasePlanResponsePtrOutput { return v.PurchasePlan }).(PurchasePlanResponsePtrOutput)
+}
+
+// Contains the security related information for the resource.
+func (o SnapshotOutput) SecurityProfile() DiskSecurityProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) DiskSecurityProfileResponsePtrOutput { return v.SecurityProfile }).(DiskSecurityProfileResponsePtrOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+func (o SnapshotOutput) Sku() SnapshotSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) SnapshotSkuResponsePtrOutput { return v.Sku }).(SnapshotSkuResponsePtrOutput)
+}
+
+// List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+func (o SnapshotOutput) SupportedCapabilities() SupportedCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) SupportedCapabilitiesResponsePtrOutput { return v.SupportedCapabilities }).(SupportedCapabilitiesResponsePtrOutput)
+}
+
+// Indicates the OS on a snapshot supports hibernation.
+func (o SnapshotOutput) SupportsHibernation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.SupportsHibernation }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the snapshot was created.
+func (o SnapshotOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o SnapshotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Guid identifying the resource.
+func (o SnapshotOutput) UniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotOutput{})
 }

@@ -141,6 +141,26 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx 
 	return o
 }
 
+// Linked storage accounts type.
+func (o LinkedStorageAccountOutput) DataSourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.DataSourceType }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o LinkedStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Linked storage accounts resources ids.
+func (o LinkedStorageAccountOutput) StorageAccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringArrayOutput { return v.StorageAccountIds }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o LinkedStorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedStorageAccountOutput{})
 }

@@ -1020,6 +1020,17 @@ type ExportPolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for ExportPolicyArgs
+func (val *ExportPolicyArgs) Defaults() *ExportPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("enabled")
+	}
+	return &tmp
+}
 func (ExportPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportPolicy)(nil)).Elem()
 }
@@ -1250,6 +1261,17 @@ type IPRuleArgs struct {
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
+// Defaults sets the appropriate defaults for IPRuleArgs
+func (val *IPRuleArgs) Defaults() *IPRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (IPRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPRule)(nil)).Elem()
 }
@@ -1777,6 +1799,17 @@ type ImportPipelineSourcePropertiesArgs struct {
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
 
+// Defaults sets the appropriate defaults for ImportPipelineSourcePropertiesArgs
+func (val *ImportPipelineSourcePropertiesArgs) Defaults() *ImportPipelineSourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("AzureStorageBlobContainer")
+	}
+	return &tmp
+}
 func (ImportPipelineSourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImportPipelineSourceProperties)(nil)).Elem()
 }
@@ -2260,6 +2293,20 @@ type LoggingPropertiesArgs struct {
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
+// Defaults sets the appropriate defaults for LoggingPropertiesArgs
+func (val *LoggingPropertiesArgs) Defaults() *LoggingPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AuditLogStatus) {
+		tmp.AuditLogStatus = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.LogLevel) {
+		tmp.LogLevel = pulumi.StringPtr("Information")
+	}
+	return &tmp
+}
 func (LoggingPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoggingProperties)(nil)).Elem()
 }
@@ -2606,6 +2653,17 @@ type NetworkRuleSetArgs struct {
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetArgs
+func (val *NetworkRuleSetArgs) Defaults() *NetworkRuleSetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.String("Allow")
+	}
+	return &tmp
+}
 func (NetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSet)(nil)).Elem()
 }
@@ -3014,6 +3072,15 @@ type PipelineRunRequestArgs struct {
 	Target PipelineRunTargetPropertiesPtrInput `pulumi:"target"`
 }
 
+// Defaults sets the appropriate defaults for PipelineRunRequestArgs
+func (val *PipelineRunRequestArgs) Defaults() *PipelineRunRequestArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PipelineRunRequestArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineRunRequest)(nil)).Elem()
 }
@@ -3485,6 +3552,17 @@ type PipelineRunSourcePropertiesArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for PipelineRunSourcePropertiesArgs
+func (val *PipelineRunSourcePropertiesArgs) Defaults() *PipelineRunSourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("AzureStorageBlob")
+	}
+	return &tmp
+}
 func (PipelineRunSourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineRunSourceProperties)(nil)).Elem()
 }
@@ -3742,6 +3820,17 @@ type PipelineRunTargetPropertiesArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for PipelineRunTargetPropertiesArgs
+func (val *PipelineRunTargetPropertiesArgs) Defaults() *PipelineRunTargetPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("AzureStorageBlob")
+	}
+	return &tmp
+}
 func (PipelineRunTargetPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineRunTargetProperties)(nil)).Elem()
 }
@@ -4052,6 +4141,17 @@ type PipelineSourceTriggerPropertiesArgs struct {
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for PipelineSourceTriggerPropertiesArgs
+func (val *PipelineSourceTriggerPropertiesArgs) Defaults() *PipelineSourceTriggerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.String("Enabled")
+	}
+	return &tmp
+}
 func (PipelineSourceTriggerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineSourceTriggerProperties)(nil)).Elem()
 }
@@ -4330,6 +4430,15 @@ type PipelineTriggerPropertiesArgs struct {
 	SourceTrigger PipelineSourceTriggerPropertiesPtrInput `pulumi:"sourceTrigger"`
 }
 
+// Defaults sets the appropriate defaults for PipelineTriggerPropertiesArgs
+func (val *PipelineTriggerPropertiesArgs) Defaults() *PipelineTriggerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PipelineTriggerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PipelineTriggerProperties)(nil)).Elem()
 }
@@ -4569,6 +4678,15 @@ type PoliciesArgs struct {
 	TrustPolicy TrustPolicyPtrInput `pulumi:"trustPolicy"`
 }
 
+// Defaults sets the appropriate defaults for PoliciesArgs
+func (val *PoliciesArgs) Defaults() *PoliciesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PoliciesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Policies)(nil)).Elem()
 }
@@ -5515,6 +5633,17 @@ type QuarantinePolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for QuarantinePolicyArgs
+func (val *QuarantinePolicyArgs) Defaults() *QuarantinePolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	return &tmp
+}
 func (QuarantinePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*QuarantinePolicy)(nil)).Elem()
 }
@@ -5930,6 +6059,20 @@ type RetentionPolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for RetentionPolicyArgs
+func (val *RetentionPolicyArgs) Defaults() *RetentionPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		tmp.Days = pulumi.IntPtr(7)
+	}
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	return &tmp
+}
 func (RetentionPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetentionPolicy)(nil)).Elem()
 }
@@ -7646,6 +7789,20 @@ type TrustPolicyArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for TrustPolicyArgs
+func (val *TrustPolicyArgs) Defaults() *TrustPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("Notary")
+	}
+	return &tmp
+}
 func (TrustPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrustPolicy)(nil)).Elem()
 }
@@ -8069,6 +8226,17 @@ type VirtualNetworkRuleArgs struct {
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
+// Defaults sets the appropriate defaults for VirtualNetworkRuleArgs
+func (val *VirtualNetworkRuleArgs) Defaults() *VirtualNetworkRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
 }

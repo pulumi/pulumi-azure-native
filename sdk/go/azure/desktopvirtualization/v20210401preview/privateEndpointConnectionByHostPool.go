@@ -148,6 +148,40 @@ func (o PrivateEndpointConnectionByHostPoolOutput) ToPrivateEndpointConnectionBy
 	return o
 }
 
+// The name of the resource
+func (o PrivateEndpointConnectionByHostPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionByHostPoolOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) PrivateEndpointResponsePtrOutput {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionByHostPoolOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) PrivateLinkServiceConnectionStateResponseOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionByHostPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PrivateEndpointConnectionByHostPoolOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionByHostPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionByHostPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionByHostPoolOutput{})
 }

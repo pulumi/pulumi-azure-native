@@ -220,6 +220,71 @@ func (o SyncMemberOutput) ToSyncMemberOutputWithContext(ctx context.Context) Syn
 	return o
 }
 
+// Database name of the member database in the sync member.
+func (o SyncMemberOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Database type of the sync member.
+func (o SyncMemberOutput) DatabaseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.DatabaseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o SyncMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
+func (o SyncMemberOutput) PrivateEndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringOutput { return v.PrivateEndpointName }).(pulumi.StringOutput)
+}
+
+// Server name of the member database in the sync member
+func (o SyncMemberOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.ServerName }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server database id of the sync member.
+func (o SyncMemberOutput) SqlServerDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.SqlServerDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource id of the sync agent in the sync member.
+func (o SyncMemberOutput) SyncAgentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.SyncAgentId }).(pulumi.StringPtrOutput)
+}
+
+// Sync direction of the sync member.
+func (o SyncMemberOutput) SyncDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.SyncDirection }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource id of the sync member logical database, for sync members in Azure.
+func (o SyncMemberOutput) SyncMemberAzureDatabaseResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.SyncMemberAzureDatabaseResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Sync state of the sync member.
+func (o SyncMemberOutput) SyncState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringOutput { return v.SyncState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o SyncMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether to use private link connection.
+func (o SyncMemberOutput) UsePrivateLinkConnection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.BoolPtrOutput { return v.UsePrivateLinkConnection }).(pulumi.BoolPtrOutput)
+}
+
+// User name of the member database in the sync member.
+func (o SyncMemberOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncMember) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncMemberOutput{})
 }

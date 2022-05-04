@@ -146,6 +146,21 @@ func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return o
 }
 
+// Resource name
+func (o InputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
+func (o InputOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Input) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o InputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InputOutput{})
 }

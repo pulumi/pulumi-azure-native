@@ -459,6 +459,17 @@ type LiveTraceConfigurationArgs struct {
 	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
 }
 
+// Defaults sets the appropriate defaults for LiveTraceConfigurationArgs
+func (val *LiveTraceConfigurationArgs) Defaults() *LiveTraceConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.StringPtr("false")
+	}
+	return &tmp
+}
 func (LiveTraceConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveTraceConfiguration)(nil)).Elem()
 }
@@ -3405,6 +3416,17 @@ type WebPubSubHubPropertiesArgs struct {
 	EventHandlers EventHandlerArrayInput `pulumi:"eventHandlers"`
 }
 
+// Defaults sets the appropriate defaults for WebPubSubHubPropertiesArgs
+func (val *WebPubSubHubPropertiesArgs) Defaults() *WebPubSubHubPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousConnectPolicy) {
+		tmp.AnonymousConnectPolicy = pulumi.StringPtr("deny")
+	}
+	return &tmp
+}
 func (WebPubSubHubPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubHubProperties)(nil)).Elem()
 }
@@ -3796,6 +3818,17 @@ type WebPubSubTlsSettingsArgs struct {
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
 }
 
+// Defaults sets the appropriate defaults for WebPubSubTlsSettingsArgs
+func (val *WebPubSubTlsSettingsArgs) Defaults() *WebPubSubTlsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		tmp.ClientCertEnabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (WebPubSubTlsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubTlsSettings)(nil)).Elem()
 }

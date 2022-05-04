@@ -164,6 +164,61 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The account's data-plane ID
+func (o AccountOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+// The account's name
+func (o AccountOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Managed service identity (system assigned and/or user assigned identities)
+func (o AccountOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Account) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The media services details
+func (o AccountOutput) MediaServices() MediaServicesForPutRequestResponsePtrOutput {
+	return o.ApplyT(func(v *Account) MediaServicesForPutRequestResponsePtrOutput { return v.MediaServices }).(MediaServicesForPutRequestResponsePtrOutput)
+}
+
+// The name of the resource
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the status of the account at the time the operation was called.
+func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o AccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Account) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The account's tenant id
+func (o AccountOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

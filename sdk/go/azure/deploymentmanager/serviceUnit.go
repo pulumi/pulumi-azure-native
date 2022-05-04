@@ -174,6 +174,41 @@ func (o ServiceUnitOutput) ToServiceUnitOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The artifacts for the service unit.
+func (o ServiceUnitOutput) Artifacts() ServiceUnitArtifactsResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceUnit) ServiceUnitArtifactsResponsePtrOutput { return v.Artifacts }).(ServiceUnitArtifactsResponsePtrOutput)
+}
+
+// Describes the type of ARM deployment to be performed on the resource.
+func (o ServiceUnitOutput) DeploymentMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringOutput { return v.DeploymentMode }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServiceUnitOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServiceUnitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ServiceUnitOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Azure Resource Group to which the resources in the service unit belong to or should be deployed to.
+func (o ServiceUnitOutput) TargetResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringOutput { return v.TargetResourceGroup }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServiceUnitOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceUnit) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceUnitOutput{})
 }

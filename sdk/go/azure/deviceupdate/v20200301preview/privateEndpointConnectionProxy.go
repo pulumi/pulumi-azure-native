@@ -145,6 +145,43 @@ func (o PrivateEndpointConnectionProxyOutput) ToPrivateEndpointConnectionProxyOu
 	return o
 }
 
+// ETag from NRP.
+func (o PrivateEndpointConnectionProxyOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionProxyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the private endpoint connection proxy resource.
+func (o PrivateEndpointConnectionProxyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Remote private endpoint details.
+func (o PrivateEndpointConnectionProxyOutput) RemotePrivateEndpoint() RemotePrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) RemotePrivateEndpointResponsePtrOutput {
+		return v.RemotePrivateEndpoint
+	}).(RemotePrivateEndpointResponsePtrOutput)
+}
+
+// Operation status.
+func (o PrivateEndpointConnectionProxyOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PrivateEndpointConnectionProxyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionProxyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionProxy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionProxyOutput{})
 }

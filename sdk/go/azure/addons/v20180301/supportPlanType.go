@@ -125,6 +125,21 @@ func (o SupportPlanTypeOutput) ToSupportPlanTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
+func (o SupportPlanTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SupportPlanType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o SupportPlanTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SupportPlanType) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft.Addons/supportProvider
+func (o SupportPlanTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SupportPlanType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SupportPlanTypeOutput{})
 }

@@ -172,6 +172,26 @@ func (o ReplicationFabricOutput) ToReplicationFabricOutputWithContext(ctx contex
 	return o
 }
 
+// Resource Location
+func (o ReplicationFabricOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationFabric) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationFabricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationFabric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fabric related data.
+func (o ReplicationFabricOutput) Properties() FabricPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationFabric) FabricPropertiesResponseOutput { return v.Properties }).(FabricPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationFabricOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationFabric) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationFabricOutput{})
 }

@@ -277,6 +277,81 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+// Unique Baremetal Tenant Identifier.
+func (o VolumeOutput) BaremetalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.BaremetalTenantId }).(pulumi.StringOutput)
+}
+
+// A unique file path for the volume. Used when creating mount targets
+func (o VolumeOutput) CreationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreationToken }).(pulumi.StringOutput)
+}
+
+// Set of export policy rules
+func (o VolumeOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumePropertiesResponseExportPolicyPtrOutput { return v.ExportPolicy }).(VolumePropertiesResponseExportPolicyPtrOutput)
+}
+
+// Unique FileSystem Identifier.
+func (o VolumeOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o VolumeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// List of mount targets
+func (o VolumeOutput) MountTargets() MountTargetPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *Volume) MountTargetPropertiesResponseArrayOutput { return v.MountTargets }).(MountTargetPropertiesResponseArrayOutput)
+}
+
+// Resource name
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of protocol types
+func (o VolumeOutput) ProtocolTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringArrayOutput { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
+}
+
+// Azure lifecycle management
+func (o VolumeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The service level of the file system
+func (o VolumeOutput) ServiceLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.ServiceLevel }).(pulumi.StringPtrOutput)
+}
+
+// UUID v4 used to identify the Snapshot
+func (o VolumeOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+func (o VolumeOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o VolumeOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Volume) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+func (o VolumeOutput) UsageThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v *Volume) pulumi.Float64Output { return v.UsageThreshold }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

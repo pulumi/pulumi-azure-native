@@ -233,6 +233,71 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 	return o
 }
 
+// Flag to enable/disable flow logging.
+func (o FlowLogOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o FlowLogOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Parameters that define the configuration of traffic analytics.
+func (o FlowLogOutput) FlowAnalyticsConfiguration() TrafficAnalyticsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *FlowLog) TrafficAnalyticsPropertiesResponsePtrOutput { return v.FlowAnalyticsConfiguration }).(TrafficAnalyticsPropertiesResponsePtrOutput)
+}
+
+// Parameters that define the flow log format.
+func (o FlowLogOutput) Format() FlowLogFormatParametersResponsePtrOutput {
+	return o.ApplyT(func(v *FlowLog) FlowLogFormatParametersResponsePtrOutput { return v.Format }).(FlowLogFormatParametersResponsePtrOutput)
+}
+
+// Resource location.
+func (o FlowLogOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o FlowLogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the flow log.
+func (o FlowLogOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Parameters that define the retention policy for flow log.
+func (o FlowLogOutput) RetentionPolicy() RetentionPolicyParametersResponsePtrOutput {
+	return o.ApplyT(func(v *FlowLog) RetentionPolicyParametersResponsePtrOutput { return v.RetentionPolicy }).(RetentionPolicyParametersResponsePtrOutput)
+}
+
+// ID of the storage account which is used to store the flow log.
+func (o FlowLogOutput) StorageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.StorageId }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o FlowLogOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Guid of network security group to which flow log will be applied.
+func (o FlowLogOutput) TargetResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.TargetResourceGuid }).(pulumi.StringOutput)
+}
+
+// ID of network security group to which flow log will be applied.
+func (o FlowLogOutput) TargetResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o FlowLogOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowLog) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FlowLogOutput{})
 }

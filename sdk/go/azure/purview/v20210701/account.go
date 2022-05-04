@@ -179,6 +179,97 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// Cloud connectors.
+// External cloud identifier used as part of scanning configuration.
+func (o AccountOutput) CloudConnectors() CloudConnectorsResponsePtrOutput {
+	return o.ApplyT(func(v *Account) CloudConnectorsResponsePtrOutput { return v.CloudConnectors }).(CloudConnectorsResponsePtrOutput)
+}
+
+// Gets the time at which the entity was created.
+func (o AccountOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Gets the creator of the entity.
+func (o AccountOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Gets the creators of the entity's object id.
+func (o AccountOutput) CreatedByObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreatedByObjectId }).(pulumi.StringOutput)
+}
+
+// The URIs that are the public endpoints of the account.
+func (o AccountOutput) Endpoints() AccountPropertiesResponseEndpointsOutput {
+	return o.ApplyT(func(v *Account) AccountPropertiesResponseEndpointsOutput { return v.Endpoints }).(AccountPropertiesResponseEndpointsOutput)
+}
+
+// Gets or sets the friendly name.
+func (o AccountOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// Identity Info on the tracked resource
+func (o AccountOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Account) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Gets or sets the location.
+func (o AccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the managed resource group name
+func (o AccountOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource identifiers of the managed resources.
+func (o AccountOutput) ManagedResources() AccountPropertiesResponseManagedResourcesOutput {
+	return o.ApplyT(func(v *Account) AccountPropertiesResponseManagedResourcesOutput { return v.ManagedResources }).(AccountPropertiesResponseManagedResourcesOutput)
+}
+
+// Gets or sets the name.
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the private endpoint connections information.
+func (o AccountOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Account) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Gets or sets the state of the provisioning.
+func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the public network access.
+func (o AccountOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Sku.
+func (o AccountOutput) Sku() AccountResponseSkuOutput {
+	return o.ApplyT(func(v *Account) AccountResponseSkuOutput { return v.Sku }).(AccountResponseSkuOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AccountOutput) SystemData() TrackedResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *Account) TrackedResourceResponseSystemDataOutput { return v.SystemData }).(TrackedResourceResponseSystemDataOutput)
+}
+
+// Tags on the azure resource.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type.
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

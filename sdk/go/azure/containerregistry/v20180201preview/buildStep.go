@@ -130,6 +130,21 @@ func (o BuildStepOutput) ToBuildStepOutputWithContext(ctx context.Context) Build
 	return o
 }
 
+// The name of the resource.
+func (o BuildStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildStep) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a build step.
+func (o BuildStepOutput) Properties() DockerBuildStepResponseOutput {
+	return o.ApplyT(func(v *BuildStep) DockerBuildStepResponseOutput { return v.Properties }).(DockerBuildStepResponseOutput)
+}
+
+// The type of the resource.
+func (o BuildStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildStep) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildStepOutput{})
 }

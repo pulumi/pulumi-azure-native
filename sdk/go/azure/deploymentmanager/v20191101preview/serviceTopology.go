@@ -141,6 +141,31 @@ func (o ServiceTopologyOutput) ToServiceTopologyOutputWithContext(ctx context.Co
 	return o
 }
 
+// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
+func (o ServiceTopologyOutput) ArtifactSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceTopology) pulumi.StringPtrOutput { return v.ArtifactSourceId }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServiceTopologyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceTopology) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServiceTopologyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceTopology) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ServiceTopologyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceTopology) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServiceTopologyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceTopology) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceTopologyOutput{})
 }

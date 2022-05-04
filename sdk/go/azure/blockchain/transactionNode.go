@@ -154,6 +154,51 @@ func (o TransactionNodeOutput) ToTransactionNodeOutputWithContext(ctx context.Co
 	return o
 }
 
+// Gets or sets the transaction node dns endpoint.
+func (o TransactionNodeOutput) Dns() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.Dns }).(pulumi.StringOutput)
+}
+
+// Gets or sets the firewall rules.
+func (o TransactionNodeOutput) FirewallRules() FirewallRuleResponseArrayOutput {
+	return o.ApplyT(func(v *TransactionNode) FirewallRuleResponseArrayOutput { return v.FirewallRules }).(FirewallRuleResponseArrayOutput)
+}
+
+// Gets or sets the transaction node location.
+func (o TransactionNodeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o TransactionNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sets the transaction node dns endpoint basic auth password.
+func (o TransactionNodeOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the blockchain member provision state.
+func (o TransactionNodeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the transaction node public key.
+func (o TransactionNodeOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// The type of the service - e.g. "Microsoft.Blockchain"
+func (o TransactionNodeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the transaction node dns endpoint basic auth user name.
+func (o TransactionNodeOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransactionNode) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TransactionNodeOutput{})
 }

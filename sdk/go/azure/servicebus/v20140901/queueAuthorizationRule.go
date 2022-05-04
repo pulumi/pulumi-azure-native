@@ -207,6 +207,61 @@ func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(
 	return o
 }
 
+// A string that describes Claim Type for authorization rule.
+func (o QueueAuthorizationRuleOutput) ClaimType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.ClaimType }).(pulumi.StringPtrOutput)
+}
+
+// A string that describes Claim Value of authorization rule.
+func (o QueueAuthorizationRuleOutput) ClaimValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.ClaimValue }).(pulumi.StringPtrOutput)
+}
+
+// The time the namespace was created.
+func (o QueueAuthorizationRuleOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A string that describes the Key Name of authorization rule.
+func (o QueueAuthorizationRuleOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o QueueAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The time the namespace was updated.
+func (o QueueAuthorizationRuleOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o QueueAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o QueueAuthorizationRuleOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The rights associated with the rule.
+func (o QueueAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o QueueAuthorizationRuleOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringPtrOutput { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o QueueAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueAuthorizationRuleOutput{})
 }

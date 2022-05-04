@@ -176,6 +176,36 @@ func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutputWithContext(ctx 
 	return o
 }
 
+// Address Prefix.
+func (o VirtualApplianceSiteOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualApplianceSiteOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the virtual appliance site.
+func (o VirtualApplianceSiteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Office 365 Policy.
+func (o VirtualApplianceSiteOutput) O365Policy() Office365PolicyPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) Office365PolicyPropertiesResponsePtrOutput { return v.O365Policy }).(Office365PolicyPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualApplianceSiteOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Site type.
+func (o VirtualApplianceSiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualApplianceSite) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualApplianceSiteOutput{})
 }

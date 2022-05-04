@@ -224,6 +224,46 @@ func (o IotHubResourceOutput) ToIotHubResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o IotHubResourceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The managed identities for the IotHub.
+func (o IotHubResourceOutput) Identity() ArmIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *IotHubResource) ArmIdentityResponsePtrOutput { return v.Identity }).(ArmIdentityResponsePtrOutput)
+}
+
+// The resource location.
+func (o IotHubResourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o IotHubResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// IotHub properties
+func (o IotHubResourceOutput) Properties() IotHubPropertiesResponseOutput {
+	return o.ApplyT(func(v *IotHubResource) IotHubPropertiesResponseOutput { return v.Properties }).(IotHubPropertiesResponseOutput)
+}
+
+// IotHub SKU info
+func (o IotHubResourceOutput) Sku() IotHubSkuInfoResponseOutput {
+	return o.ApplyT(func(v *IotHubResource) IotHubSkuInfoResponseOutput { return v.Sku }).(IotHubSkuInfoResponseOutput)
+}
+
+// The resource tags.
+func (o IotHubResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IotHubResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotHubResourceOutput{})
 }

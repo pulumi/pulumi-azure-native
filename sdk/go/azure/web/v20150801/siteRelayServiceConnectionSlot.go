@@ -215,6 +215,59 @@ func (o SiteRelayServiceConnectionSlotOutput) ToSiteRelayServiceConnectionSlotOu
 	return o
 }
 
+func (o SiteRelayServiceConnectionSlotOutput) BiztalkUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.BiztalkUri }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) EntityConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.EntityConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) EntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.EntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o SiteRelayServiceConnectionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteRelayServiceConnectionSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteRelayServiceConnectionSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) ResourceConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.ResourceConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteRelayServiceConnectionSlotOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteRelayServiceConnectionSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteRelayServiceConnectionSlotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionSlotOutput{})
 }

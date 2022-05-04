@@ -172,6 +172,66 @@ func (o AttestationAtResourceOutput) ToAttestationAtResourceOutputWithContext(ct
 	return o
 }
 
+// Comments describing why this attestation was created.
+func (o AttestationAtResourceOutput) Comments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringPtrOutput { return v.Comments }).(pulumi.StringPtrOutput)
+}
+
+// The compliance state that should be set on the resource.
+func (o AttestationAtResourceOutput) ComplianceState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringPtrOutput { return v.ComplianceState }).(pulumi.StringPtrOutput)
+}
+
+// The evidence supporting the compliance state set in this attestation.
+func (o AttestationAtResourceOutput) Evidence() AttestationEvidenceResponseArrayOutput {
+	return o.ApplyT(func(v *AttestationAtResource) AttestationEvidenceResponseArrayOutput { return v.Evidence }).(AttestationEvidenceResponseArrayOutput)
+}
+
+// The time the compliance state should expire.
+func (o AttestationAtResourceOutput) ExpiresOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringPtrOutput { return v.ExpiresOn }).(pulumi.StringPtrOutput)
+}
+
+// The time the compliance state was last changed in this attestation.
+func (o AttestationAtResourceOutput) LastComplianceStateChangeAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringOutput { return v.LastComplianceStateChangeAt }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AttestationAtResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
+func (o AttestationAtResourceOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the policy assignment that the attestation is setting the state for.
+func (o AttestationAtResourceOutput) PolicyAssignmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
+}
+
+// The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
+func (o AttestationAtResourceOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the attestation.
+func (o AttestationAtResourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AttestationAtResourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AttestationAtResource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AttestationAtResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttestationAtResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AttestationAtResourceOutput{})
 }

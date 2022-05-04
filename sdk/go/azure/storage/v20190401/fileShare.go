@@ -169,6 +169,36 @@ func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileS
 	return o
 }
 
+// Resource Etag.
+func (o FileShareOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Returns the date and time the share was last modified.
+func (o FileShareOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// A name-value pair to associate with the share as metadata.
+func (o FileShareOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o FileShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+func (o FileShareOutput) ShareQuota() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.IntPtrOutput { return v.ShareQuota }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FileShareOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileShareOutput{})
 }

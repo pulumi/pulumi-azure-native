@@ -264,6 +264,110 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// List of content types on which compression applies. The value should be a valid MIME type.
+func (o EndpointOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringArrayOutput { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
+}
+
+// A policy that specifies the delivery rules to be used for an endpoint.
+func (o EndpointOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+		return v.DeliveryPolicy
+	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
+}
+
+// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+func (o EndpointOutput) GeoFilters() GeoFilterResponseArrayOutput {
+	return o.ApplyT(func(v *Endpoint) GeoFilterResponseArrayOutput { return v.GeoFilters }).(GeoFilterResponseArrayOutput)
+}
+
+// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+func (o EndpointOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+func (o EndpointOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+func (o EndpointOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsHttpAllowed }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+func (o EndpointOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.IsHttpsAllowed }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o EndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o EndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
+func (o EndpointOutput) OptimizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.OptimizationType }).(pulumi.StringPtrOutput)
+}
+
+// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+func (o EndpointOutput) OriginHostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
+}
+
+// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+func (o EndpointOutput) OriginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.OriginPath }).(pulumi.StringPtrOutput)
+}
+
+// The source of the content being delivered via CDN.
+func (o EndpointOutput) Origins() DeepCreatedOriginResponseArrayOutput {
+	return o.ApplyT(func(v *Endpoint) DeepCreatedOriginResponseArrayOutput { return v.Origins }).(DeepCreatedOriginResponseArrayOutput)
+}
+
+// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
+func (o EndpointOutput) ProbePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.ProbePath }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning status of the endpoint.
+func (o EndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+func (o EndpointOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Resource status of the endpoint.
+func (o EndpointOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o EndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o EndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the Web Application Firewall policy for the endpoint (if applicable)
+func (o EndpointOutput) WebApplicationFirewallPolicyLink() EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+		return v.WebApplicationFirewallPolicyLink
+	}).(EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointOutput{})
 }

@@ -191,6 +191,66 @@ func (o FormulaOutput) ToFormulaOutputWithContext(ctx context.Context) FormulaOu
 	return o
 }
 
+// The author of the formula.
+func (o FormulaOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the formula.
+func (o FormulaOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of the formula.
+func (o FormulaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The content of the formula.
+func (o FormulaOutput) FormulaContent() LabVirtualMachineCreationParameterResponsePtrOutput {
+	return o.ApplyT(func(v *Formula) LabVirtualMachineCreationParameterResponsePtrOutput { return v.FormulaContent }).(LabVirtualMachineCreationParameterResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o FormulaOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o FormulaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The OS type of the formula.
+func (o FormulaOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o FormulaOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o FormulaOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o FormulaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o FormulaOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Formula) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Information about a VM from which a formula is to be created.
+func (o FormulaOutput) Vm() FormulaPropertiesFromVmResponsePtrOutput {
+	return o.ApplyT(func(v *Formula) FormulaPropertiesFromVmResponsePtrOutput { return v.Vm }).(FormulaPropertiesFromVmResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FormulaOutput{})
 }

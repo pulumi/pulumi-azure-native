@@ -177,6 +177,71 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// Collection information
+func (o ConnectorOutput) Collection() ConnectorCollectionInfoResponseOutput {
+	return o.ApplyT(func(v *Connector) ConnectorCollectionInfoResponseOutput { return v.Collection }).(ConnectorCollectionInfoResponseOutput)
+}
+
+// Connector definition creation datetime
+func (o ConnectorOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Credentials authentication key (eg AWS ARN)
+func (o ConnectorOutput) CredentialsKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.CredentialsKey }).(pulumi.StringPtrOutput)
+}
+
+// Connector DisplayName (defaults to Name)
+func (o ConnectorOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Connector kind (eg aws)
+func (o ConnectorOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Connector location
+func (o ConnectorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Connector last modified datetime
+func (o ConnectorOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Connector name
+func (o ConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Connector providerAccountId (determined from credentials)
+func (o ConnectorOutput) ProviderAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ProviderAccountId }).(pulumi.StringOutput)
+}
+
+// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+func (o ConnectorOutput) ReportId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.ReportId }).(pulumi.StringPtrOutput)
+}
+
+// Connector status
+func (o ConnectorOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Connector type
+func (o ConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectorOutput{})
 }

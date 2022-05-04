@@ -157,6 +157,53 @@ func (o PrivateLinkServicesForMIPPolicySyncOutput) ToPrivateLinkServicesForMIPPo
 	return o
 }
 
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) ServicesResourceResponseIdentityPtrOutput {
+		return v.Identity
+	}).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) ServicesPropertiesResponseOutput { return v.Properties }).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o PrivateLinkServicesForMIPPolicySyncOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o PrivateLinkServicesForMIPPolicySyncOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForMIPPolicySync) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkServicesForMIPPolicySyncOutput{})
 }

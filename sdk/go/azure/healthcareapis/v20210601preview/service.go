@@ -180,6 +180,51 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o ServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o ServiceOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *Service) ServicesResourceResponseIdentityPtrOutput { return v.Identity }).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o ServiceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o ServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o ServiceOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v *Service) ServicesPropertiesResponseOutput { return v.Properties }).(ServicesPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Service) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

@@ -234,6 +234,136 @@ func (o RegisteredServerOutput) ToRegisteredServerOutputWithContext(ctx context.
 	return o
 }
 
+// Registered Server Agent Version
+func (o RegisteredServerOutput) AgentVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.AgentVersion }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server Agent Version Expiration Date
+func (o RegisteredServerOutput) AgentVersionExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringOutput { return v.AgentVersionExpirationDate }).(pulumi.StringOutput)
+}
+
+// Registered Server Agent Version Status
+func (o RegisteredServerOutput) AgentVersionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringOutput { return v.AgentVersionStatus }).(pulumi.StringOutput)
+}
+
+// Registered Server clusterId
+func (o RegisteredServerOutput) ClusterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ClusterId }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server clusterName
+func (o RegisteredServerOutput) ClusterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ClusterName }).(pulumi.StringPtrOutput)
+}
+
+// Resource discoveryEndpointUri
+func (o RegisteredServerOutput) DiscoveryEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.DiscoveryEndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// Friendly Name
+func (o RegisteredServerOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server last heart beat
+func (o RegisteredServerOutput) LastHeartBeat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.LastHeartBeat }).(pulumi.StringPtrOutput)
+}
+
+// Resource Last Operation Name
+func (o RegisteredServerOutput) LastOperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.LastOperationName }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server lastWorkflowId
+func (o RegisteredServerOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// Management Endpoint Uri
+func (o RegisteredServerOutput) ManagementEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ManagementEndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// Monitoring Configuration
+func (o RegisteredServerOutput) MonitoringConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.MonitoringConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// Telemetry Endpoint Uri
+func (o RegisteredServerOutput) MonitoringEndpointUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.MonitoringEndpointUri }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o RegisteredServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Registered Server Provisioning State
+func (o RegisteredServerOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o RegisteredServerOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server Certificate
+func (o RegisteredServerOutput) ServerCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ServerCertificate }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server serverId
+func (o RegisteredServerOutput) ServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ServerId }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server Management Error Code
+func (o RegisteredServerOutput) ServerManagementErrorCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.IntPtrOutput { return v.ServerManagementErrorCode }).(pulumi.IntPtrOutput)
+}
+
+// Server name
+func (o RegisteredServerOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// Registered Server OS Version
+func (o RegisteredServerOutput) ServerOSVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ServerOSVersion }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server serverRole
+func (o RegisteredServerOutput) ServerRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ServerRole }).(pulumi.StringPtrOutput)
+}
+
+// Service Location
+func (o RegisteredServerOutput) ServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.ServiceLocation }).(pulumi.StringPtrOutput)
+}
+
+// Registered Server storageSyncServiceUid
+func (o RegisteredServerOutput) StorageSyncServiceUid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringPtrOutput { return v.StorageSyncServiceUid }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o RegisteredServerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RegisteredServer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o RegisteredServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegisteredServerOutput{})
 }

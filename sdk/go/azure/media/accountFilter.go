@@ -157,6 +157,36 @@ func (o AccountFilterOutput) ToAccountFilterOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The first quality.
+func (o AccountFilterOutput) FirstQuality() FirstQualityResponsePtrOutput {
+	return o.ApplyT(func(v *AccountFilter) FirstQualityResponsePtrOutput { return v.FirstQuality }).(FirstQualityResponsePtrOutput)
+}
+
+// The name of the resource
+func (o AccountFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The presentation time range.
+func (o AccountFilterOutput) PresentationTimeRange() PresentationTimeRangeResponsePtrOutput {
+	return o.ApplyT(func(v *AccountFilter) PresentationTimeRangeResponsePtrOutput { return v.PresentationTimeRange }).(PresentationTimeRangeResponsePtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AccountFilterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AccountFilter) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tracks selection conditions.
+func (o AccountFilterOutput) Tracks() FilterTrackSelectionResponseArrayOutput {
+	return o.ApplyT(func(v *AccountFilter) FilterTrackSelectionResponseArrayOutput { return v.Tracks }).(FilterTrackSelectionResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AccountFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountFilter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountFilterOutput{})
 }

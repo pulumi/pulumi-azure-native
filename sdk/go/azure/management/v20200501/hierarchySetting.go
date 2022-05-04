@@ -139,6 +139,31 @@ func (o HierarchySettingOutput) ToHierarchySettingOutputWithContext(ctx context.
 	return o
 }
 
+// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+func (o HierarchySettingOutput) DefaultManagementGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HierarchySetting) pulumi.StringPtrOutput { return v.DefaultManagementGroup }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object. In this case, default.
+func (o HierarchySettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HierarchySetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+func (o HierarchySettingOutput) RequireAuthorizationForGroupCreation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HierarchySetting) pulumi.BoolPtrOutput { return v.RequireAuthorizationForGroupCreation }).(pulumi.BoolPtrOutput)
+}
+
+// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
+func (o HierarchySettingOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HierarchySetting) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
+func (o HierarchySettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HierarchySetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HierarchySettingOutput{})
 }

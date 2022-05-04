@@ -186,6 +186,38 @@ func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicy
 	return o
 }
 
+// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+func (o BlobContainerImmutabilityPolicyOutput) AllowProtectedAppendWrites() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.BoolPtrOutput { return v.AllowProtectedAppendWrites }).(pulumi.BoolPtrOutput)
+}
+
+// Resource Etag.
+func (o BlobContainerImmutabilityPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o BlobContainerImmutabilityPolicyOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.IntPtrOutput {
+		return v.ImmutabilityPeriodSinceCreationInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource
+func (o BlobContainerImmutabilityPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+func (o BlobContainerImmutabilityPolicyOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobContainerImmutabilityPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerImmutabilityPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyOutput{})
 }

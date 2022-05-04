@@ -138,6 +138,41 @@ func (o FarmBeatsModelOutput) ToFarmBeatsModelOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Uri of the FarmBeats instance.
+func (o FarmBeatsModelOutput) InstanceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.InstanceUri }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o FarmBeatsModelOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o FarmBeatsModelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// FarmBeats instance provisioning state.
+func (o FarmBeatsModelOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o FarmBeatsModelOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o FarmBeatsModelOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FarmBeatsModelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FarmBeatsModel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FarmBeatsModelOutput{})
 }

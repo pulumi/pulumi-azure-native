@@ -155,6 +155,31 @@ func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutputWith
 	return o
 }
 
+// The resource location.
+func (o IntegrationAccountAssemblyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAssembly) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationAccountAssemblyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountAssembly) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The assembly properties.
+func (o IntegrationAccountAssemblyOutput) Properties() AssemblyPropertiesResponseOutput {
+	return o.ApplyT(func(v *IntegrationAccountAssembly) AssemblyPropertiesResponseOutput { return v.Properties }).(AssemblyPropertiesResponseOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountAssemblyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountAssembly) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationAccountAssemblyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountAssembly) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountAssemblyOutput{})
 }

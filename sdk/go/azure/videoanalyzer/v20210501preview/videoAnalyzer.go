@@ -163,6 +163,51 @@ func (o VideoAnalyzerOutput) ToVideoAnalyzerOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The account encryption properties.
+func (o VideoAnalyzerOutput) Encryption() AccountEncryptionResponseOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) AccountEncryptionResponseOutput { return v.Encryption }).(AccountEncryptionResponseOutput)
+}
+
+// The list of endpoints associated with this resource.
+func (o VideoAnalyzerOutput) Endpoints() EndpointResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) EndpointResponseArrayOutput { return v.Endpoints }).(EndpointResponseArrayOutput)
+}
+
+// The set of managed identities associated with the Video Analyzer resource.
+func (o VideoAnalyzerOutput) Identity() VideoAnalyzerIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) VideoAnalyzerIdentityResponsePtrOutput { return v.Identity }).(VideoAnalyzerIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o VideoAnalyzerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o VideoAnalyzerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage accounts for this resource.
+func (o VideoAnalyzerOutput) StorageAccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) StorageAccountResponseArrayOutput { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
+}
+
+// The system data of the Video Analyzer account.
+func (o VideoAnalyzerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o VideoAnalyzerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VideoAnalyzerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VideoAnalyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VideoAnalyzerOutput{})
 }

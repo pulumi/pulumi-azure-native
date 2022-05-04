@@ -169,6 +169,46 @@ func (o SignalRSharedPrivateLinkResourceOutput) ToSignalRSharedPrivateLinkResour
 	return o
 }
 
+// The group id from the provider of resource the shared private link resource is for
+func (o SignalRSharedPrivateLinkResourceOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o SignalRSharedPrivateLinkResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource id of the resource the shared private link resource is for
+func (o SignalRSharedPrivateLinkResourceOutput) PrivateLinkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o SignalRSharedPrivateLinkResourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request message for requesting approval of the shared private link resource
+func (o SignalRSharedPrivateLinkResourceOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringPtrOutput { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared private link resource
+func (o SignalRSharedPrivateLinkResourceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SignalRSharedPrivateLinkResourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalRSharedPrivateLinkResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRSharedPrivateLinkResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalRSharedPrivateLinkResourceOutput{})
 }

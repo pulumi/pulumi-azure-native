@@ -272,6 +272,31 @@ func (o ExpressRouteCircuitAuthorizationOutput) ToExpressRouteCircuitAuthorizati
 	return o
 }
 
+// Gets or sets the authorization key
+func (o ExpressRouteCircuitAuthorizationOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets AuthorizationUseStatus
+func (o ExpressRouteCircuitAuthorizationOutput) AuthorizationUseStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringPtrOutput { return v.AuthorizationUseStatus }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated
+func (o ExpressRouteCircuitAuthorizationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+func (o ExpressRouteCircuitAuthorizationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o ExpressRouteCircuitAuthorizationOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitAuthorization) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitAuthorizationOutput{})
 }

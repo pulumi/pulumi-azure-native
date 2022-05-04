@@ -183,6 +183,26 @@ func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the database account.
+func (o NotebookWorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookWorkspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint of Notebook server.
+func (o NotebookWorkspaceOutput) NotebookServerEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookWorkspace) pulumi.StringOutput { return v.NotebookServerEndpoint }).(pulumi.StringOutput)
+}
+
+// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+func (o NotebookWorkspaceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookWorkspace) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of Azure resource.
+func (o NotebookWorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookWorkspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotebookWorkspaceOutput{})
 }

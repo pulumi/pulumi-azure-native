@@ -181,6 +181,36 @@ func (o WebAppPublicCertificateOutput) ToWebAppPublicCertificateOutputWithContex
 	return o
 }
 
+// Public Certificate byte array
+func (o WebAppPublicCertificateOutput) Blob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringPtrOutput { return v.Blob }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppPublicCertificateOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPublicCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Public Certificate Location
+func (o WebAppPublicCertificateOutput) PublicCertificateLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringPtrOutput { return v.PublicCertificateLocation }).(pulumi.StringPtrOutput)
+}
+
+// Certificate Thumbprint
+func (o WebAppPublicCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppPublicCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppPublicCertificateOutput{})
 }

@@ -208,6 +208,57 @@ func (o ADLSGen2FolderDataSetOutput) ToADLSGen2FolderDataSetOutputWithContext(ct
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o ADLSGen2FolderDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// File system to which the folder belongs.
+func (o ADLSGen2FolderDataSetOutput) FileSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.FileSystem }).(pulumi.StringOutput)
+}
+
+// Folder path within the file system.
+func (o ADLSGen2FolderDataSetOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'AdlsGen2Folder'.
+func (o ADLSGen2FolderDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2FolderDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account
+func (o ADLSGen2FolderDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set
+func (o ADLSGen2FolderDataSetOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account
+func (o ADLSGen2FolderDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ADLSGen2FolderDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2FolderDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2FolderDataSetOutput{})
 }

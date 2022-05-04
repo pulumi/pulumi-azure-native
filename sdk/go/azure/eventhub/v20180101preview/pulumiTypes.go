@@ -1210,6 +1210,17 @@ type EncryptionArgs struct {
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = KeySource("Microsoft.KeyVault")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }
@@ -1476,6 +1487,17 @@ type IdentityArgs struct {
 	Type IdentityTypePtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for IdentityArgs
+func (val *IdentityArgs) Defaults() *IdentityArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = IdentityType("SystemAssigned")
+	}
+	return &tmp
+}
 func (IdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Identity)(nil)).Elem()
 }

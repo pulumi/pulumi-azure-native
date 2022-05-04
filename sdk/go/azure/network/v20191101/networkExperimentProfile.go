@@ -146,6 +146,41 @@ func (o NetworkExperimentProfileOutput) ToNetworkExperimentProfileOutputWithCont
 	return o
 }
 
+// The state of the Experiment
+func (o NetworkExperimentProfileOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringPtrOutput { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o NetworkExperimentProfileOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o NetworkExperimentProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkExperimentProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource status.
+func (o NetworkExperimentProfileOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkExperimentProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkExperimentProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkExperimentProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkExperimentProfileOutput{})
 }

@@ -275,6 +275,128 @@ func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutputWithContext(
 	return o
 }
 
+// The artifact deployment status for the virtual machine.
+func (o VirtualMachineResourceOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) ArtifactDeploymentStatusPropertiesResponsePtrOutput {
+		return v.ArtifactDeploymentStatus
+	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
+}
+
+// The artifacts to be installed on the virtual machine.
+func (o VirtualMachineResourceOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) ArtifactInstallPropertiesResponseArrayOutput { return v.Artifacts }).(ArtifactInstallPropertiesResponseArrayOutput)
+}
+
+// The resource identifier (Microsoft.Compute) of the virtual machine.
+func (o VirtualMachineResourceOutput) ComputeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.ComputeId }).(pulumi.StringPtrOutput)
+}
+
+// The email address of creator of the virtual machine.
+func (o VirtualMachineResourceOutput) CreatedByUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.CreatedByUser }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the creator of the virtual machine.
+func (o VirtualMachineResourceOutput) CreatedByUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
+}
+
+// The custom image identifier of the virtual machine.
+func (o VirtualMachineResourceOutput) CustomImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.CustomImageId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the virtual machine is to be created without a public IP address.
+func (o VirtualMachineResourceOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.BoolPtrOutput { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// The fully-qualified domain name of the virtual machine.
+func (o VirtualMachineResourceOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Azure Marketplace image reference of the virtual machine.
+func (o VirtualMachineResourceOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) GalleryImageReferenceResponsePtrOutput { return v.GalleryImageReference }).(GalleryImageReferenceResponsePtrOutput)
+}
+
+// A value indicating whether this virtual machine uses an SSH key for authentication.
+func (o VirtualMachineResourceOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.BoolPtrOutput { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
+}
+
+// The lab subnet name of the virtual machine.
+func (o VirtualMachineResourceOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.LabSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The lab virtual network identifier of the virtual machine.
+func (o VirtualMachineResourceOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o VirtualMachineResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualMachineResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The notes of the virtual machine.
+func (o VirtualMachineResourceOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the virtual machine.
+func (o VirtualMachineResourceOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the owner of the virtual machine.
+func (o VirtualMachineResourceOutput) OwnerObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The password of the virtual machine administrator.
+func (o VirtualMachineResourceOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o VirtualMachineResourceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The size of the virtual machine.
+func (o VirtualMachineResourceOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The SSH key of the virtual machine administrator.
+func (o VirtualMachineResourceOutput) SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.SshKey }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o VirtualMachineResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualMachineResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The user name of the virtual machine.
+func (o VirtualMachineResourceOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineResource) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineResourceOutput{})
 }

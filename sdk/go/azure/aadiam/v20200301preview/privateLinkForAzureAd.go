@@ -169,6 +169,51 @@ func (o PrivateLinkForAzureAdOutput) ToPrivateLinkForAzureAdOutputWithContext(ct
 	return o
 }
 
+// Flag indicating whether all tenants are allowed
+func (o PrivateLinkForAzureAdOutput) AllTenants() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.BoolPtrOutput { return v.AllTenants }).(pulumi.BoolPtrOutput)
+}
+
+// Name of this resource.
+func (o PrivateLinkForAzureAdOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Guid of the owner tenant
+func (o PrivateLinkForAzureAdOutput) OwnerTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringPtrOutput { return v.OwnerTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource group
+func (o PrivateLinkForAzureAdOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Name of the private link policy resource
+func (o PrivateLinkForAzureAdOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringPtrOutput { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Identifier
+func (o PrivateLinkForAzureAdOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o PrivateLinkForAzureAdOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The list of tenantIds.
+func (o PrivateLinkForAzureAdOutput) Tenants() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringArrayOutput { return v.Tenants }).(pulumi.StringArrayOutput)
+}
+
+// Type of this resource.
+func (o PrivateLinkForAzureAdOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkForAzureAd) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkForAzureAdOutput{})
 }

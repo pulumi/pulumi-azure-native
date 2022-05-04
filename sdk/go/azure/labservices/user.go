@@ -171,6 +171,66 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The user email address, as it was specified during registration.
+func (o UserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// The user family name, as it was specified during registration.
+func (o UserOutput) FamilyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.FamilyName }).(pulumi.StringOutput)
+}
+
+// The user given name, as it was specified during registration.
+func (o UserOutput) GivenName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.GivenName }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o UserOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *User) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o UserOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o UserOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o UserOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The user tenant ID, as it was specified during registration.
+func (o UserOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// How long the user has used his VMs in this lab
+func (o UserOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o UserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o UserOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserOutput{})
 }

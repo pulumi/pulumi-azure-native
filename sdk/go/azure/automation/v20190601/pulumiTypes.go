@@ -3538,6 +3538,17 @@ type SUCSchedulePropertiesArgs struct {
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
+// Defaults sets the appropriate defaults for SUCSchedulePropertiesArgs
+func (val *SUCSchedulePropertiesArgs) Defaults() *SUCSchedulePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		tmp.IsEnabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (SUCSchedulePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SUCScheduleProperties)(nil)).Elem()
 }

@@ -144,6 +144,31 @@ func (o StepOutput) ToStepOutputWithContext(ctx context.Context) StepOutput {
 	return o
 }
 
+// The geo-location where the resource lives
+func (o StepOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o StepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties that define the step.
+func (o StepOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Step) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags.
+func (o StepOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o StepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Step) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StepOutput{})
 }

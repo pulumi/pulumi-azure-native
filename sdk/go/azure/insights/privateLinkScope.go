@@ -140,6 +140,38 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 	return o
 }
 
+// Resource location
+func (o PrivateLinkScopeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o PrivateLinkScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections.
+func (o PrivateLinkScopeOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+func (o PrivateLinkScopeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o PrivateLinkScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o PrivateLinkScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 }

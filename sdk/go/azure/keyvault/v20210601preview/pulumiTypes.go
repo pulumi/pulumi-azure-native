@@ -960,6 +960,15 @@ type KeyPropertiesArgs struct {
 	RotationPolicy RotationPolicyPtrInput `pulumi:"rotationPolicy"`
 }
 
+// Defaults sets the appropriate defaults for KeyPropertiesArgs
+func (val *KeyPropertiesArgs) Defaults() *KeyPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (KeyPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyProperties)(nil)).Elem()
 }
@@ -1059,6 +1068,17 @@ type KeyReleasePolicyArgs struct {
 	Data pulumi.StringPtrInput `pulumi:"data"`
 }
 
+// Defaults sets the appropriate defaults for KeyReleasePolicyArgs
+func (val *KeyReleasePolicyArgs) Defaults() *KeyReleasePolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ContentType) {
+		tmp.ContentType = pulumi.StringPtr("application/json; charset=utf-8")
+	}
+	return &tmp
+}
 func (KeyReleasePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyReleasePolicy)(nil)).Elem()
 }
@@ -2732,6 +2752,23 @@ type ManagedHsmPropertiesArgs struct {
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
+// Defaults sets the appropriate defaults for ManagedHsmPropertiesArgs
+func (val *ManagedHsmPropertiesArgs) Defaults() *ManagedHsmPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnablePurgeProtection) {
+		tmp.EnablePurgeProtection = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
+	}
+	return &tmp
+}
 func (ManagedHsmPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHsmProperties)(nil)).Elem()
 }
@@ -5325,6 +5362,26 @@ type VaultPropertiesArgs struct {
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
+// Defaults sets the appropriate defaults for VaultPropertiesArgs
+func (val *VaultPropertiesArgs) Defaults() *VaultPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableRbacAuthorization) {
+		tmp.EnableRbacAuthorization = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.PublicNetworkAccess) {
+		tmp.PublicNetworkAccess = pulumi.StringPtr("enabled")
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
+	}
+	return &tmp
+}
 func (VaultPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultProperties)(nil)).Elem()
 }

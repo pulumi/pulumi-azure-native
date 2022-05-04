@@ -143,6 +143,38 @@ func (o PrivateEndpointConnectionsAdtAPIOutput) ToPrivateEndpointConnectionsAdtA
 	return o
 }
 
+// The name of the resource
+func (o PrivateEndpointConnectionsAdtAPIOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionsAdtAPIOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionsAdtAPIOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) PrivateLinkServiceConnectionStateResponseOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionsAdtAPIOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Required property for system data
+func (o PrivateEndpointConnectionsAdtAPIOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionsAdtAPIOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionsAdtAPI) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionsAdtAPIOutput{})
 }

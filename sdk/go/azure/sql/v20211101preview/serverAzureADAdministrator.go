@@ -189,6 +189,41 @@ func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutputWith
 	return o
 }
 
+// Type of the sever administrator.
+func (o ServerAzureADAdministratorOutput) AdministratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.AdministratorType }).(pulumi.StringOutput)
+}
+
+// Azure Active Directory only Authentication enabled.
+func (o ServerAzureADAdministratorOutput) AzureADOnlyAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.BoolOutput { return v.AzureADOnlyAuthentication }).(pulumi.BoolOutput)
+}
+
+// Login name of the server administrator.
+func (o ServerAzureADAdministratorOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerAzureADAdministratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SID (object ID) of the server administrator.
+func (o ServerAzureADAdministratorOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Sid }).(pulumi.StringOutput)
+}
+
+// Tenant ID of the administrator.
+func (o ServerAzureADAdministratorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ServerAzureADAdministratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerAzureADAdministratorOutput{})
 }

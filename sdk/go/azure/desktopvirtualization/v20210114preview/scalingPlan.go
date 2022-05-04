@@ -228,6 +228,98 @@ func (o ScalingPlanOutput) ToScalingPlanOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// Description of scaling plan.
+func (o ScalingPlanOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+func (o ScalingPlanOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Exclusion tag for scaling plan.
+func (o ScalingPlanOutput) ExclusionTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.ExclusionTag }).(pulumi.StringPtrOutput)
+}
+
+// User friendly name of scaling plan.
+func (o ScalingPlanOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// List of ScalingHostPoolReference definitions.
+func (o ScalingPlanOutput) HostPoolReferences() ScalingHostPoolReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *ScalingPlan) ScalingHostPoolReferenceResponseArrayOutput { return v.HostPoolReferences }).(ScalingHostPoolReferenceResponseArrayOutput)
+}
+
+// HostPool type for desktop.
+func (o ScalingPlanOutput) HostPoolType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.HostPoolType }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPlanOutput) Identity() ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput { return v.Identity }).(ResourceModelWithAllowedPropertySetResponseIdentityPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o ScalingPlanOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ScalingPlanOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+func (o ScalingPlanOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ScalingPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ObjectId of scaling plan. (internal use)
+func (o ScalingPlanOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+func (o ScalingPlanOutput) Plan() ResourceModelWithAllowedPropertySetResponsePlanPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) ResourceModelWithAllowedPropertySetResponsePlanPtrOutput { return v.Plan }).(ResourceModelWithAllowedPropertySetResponsePlanPtrOutput)
+}
+
+// The ring number of scaling plan.
+func (o ScalingPlanOutput) Ring() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.IntPtrOutput { return v.Ring }).(pulumi.IntPtrOutput)
+}
+
+// List of ScalingSchedule definitions.
+func (o ScalingPlanOutput) Schedules() ScalingScheduleResponseArrayOutput {
+	return o.ApplyT(func(v *ScalingPlan) ScalingScheduleResponseArrayOutput { return v.Schedules }).(ScalingScheduleResponseArrayOutput)
+}
+
+func (o ScalingPlanOutput) Sku() ResourceModelWithAllowedPropertySetResponseSkuPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) ResourceModelWithAllowedPropertySetResponseSkuPtrOutput { return v.Sku }).(ResourceModelWithAllowedPropertySetResponseSkuPtrOutput)
+}
+
+// Resource tags.
+func (o ScalingPlanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Timezone of the scaling plan.
+func (o ScalingPlanOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ScalingPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScalingPlanOutput{})
 }

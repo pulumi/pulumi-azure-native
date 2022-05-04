@@ -166,6 +166,51 @@ func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutputWithContext(
 	return o
 }
 
+// Gateway which to connect segment to.
+func (o WorkloadNetworkSegmentOutput) ConnectedGateway() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringPtrOutput { return v.ConnectedGateway }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the segment.
+func (o WorkloadNetworkSegmentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Port Vif which segment is associated with.
+func (o WorkloadNetworkSegmentOutput) PortVif() WorkloadNetworkSegmentPortVifResponseArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) WorkloadNetworkSegmentPortVifResponseArrayOutput { return v.PortVif }).(WorkloadNetworkSegmentPortVifResponseArrayOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkSegmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkSegmentOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// Segment status.
+func (o WorkloadNetworkSegmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Subnet which to connect segment to.
+func (o WorkloadNetworkSegmentOutput) Subnet() WorkloadNetworkSegmentSubnetResponsePtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) WorkloadNetworkSegmentSubnetResponsePtrOutput { return v.Subnet }).(WorkloadNetworkSegmentSubnetResponsePtrOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkSegmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkSegment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkSegmentOutput{})
 }

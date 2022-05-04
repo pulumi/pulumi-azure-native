@@ -176,6 +176,36 @@ func (o ProductGroupOutput) ToProductGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+func (o ProductGroupOutput) BuiltIn() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.BoolOutput { return v.BuiltIn }).(pulumi.BoolOutput)
+}
+
+// Group description. Can contain HTML formatting tags.
+func (o ProductGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Group name.
+func (o ProductGroupOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+func (o ProductGroupOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.StringPtrOutput { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ProductGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ProductGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductGroupOutput{})
 }

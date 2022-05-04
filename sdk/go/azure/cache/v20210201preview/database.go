@@ -185,6 +185,61 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+func (o DatabaseOutput) ClientProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ClientProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Clustering policy - default is OSSCluster. Specified at create time.
+func (o DatabaseOutput) ClusteringPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ClusteringPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Redis eviction policy - default is VolatileLRU
+func (o DatabaseOutput) EvictionPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Optional set of properties to configure geo replication for this database.
+func (o DatabaseOutput) GeoReplication() DatabasePropertiesResponseGeoReplicationPtrOutput {
+	return o.ApplyT(func(v *Database) DatabasePropertiesResponseGeoReplicationPtrOutput { return v.GeoReplication }).(DatabasePropertiesResponseGeoReplicationPtrOutput)
+}
+
+// Optional set of redis modules to enable in this database - modules can only be added at creation time.
+func (o DatabaseOutput) Modules() ModuleResponseArrayOutput {
+	return o.ApplyT(func(v *Database) ModuleResponseArrayOutput { return v.Modules }).(ModuleResponseArrayOutput)
+}
+
+// The name of the resource
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Persistence settings
+func (o DatabaseOutput) Persistence() PersistenceResponsePtrOutput {
+	return o.ApplyT(func(v *Database) PersistenceResponsePtrOutput { return v.Persistence }).(PersistenceResponsePtrOutput)
+}
+
+// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
+func (o DatabaseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Current provisioning status of the database
+func (o DatabaseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Current resource status of the database
+func (o DatabaseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

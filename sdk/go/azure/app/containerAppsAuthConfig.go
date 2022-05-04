@@ -163,6 +163,46 @@ func (o ContainerAppsAuthConfigOutput) ToContainerAppsAuthConfigOutputWithContex
 	return o
 }
 
+// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
+func (o ContainerAppsAuthConfigOutput) GlobalValidation() GlobalValidationResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) GlobalValidationResponsePtrOutput { return v.GlobalValidation }).(GlobalValidationResponsePtrOutput)
+}
+
+// The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
+func (o ContainerAppsAuthConfigOutput) HttpSettings() HttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) HttpSettingsResponsePtrOutput { return v.HttpSettings }).(HttpSettingsResponsePtrOutput)
+}
+
+// The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
+func (o ContainerAppsAuthConfigOutput) IdentityProviders() IdentityProvidersResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) IdentityProvidersResponsePtrOutput { return v.IdentityProviders }).(IdentityProvidersResponsePtrOutput)
+}
+
+// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
+func (o ContainerAppsAuthConfigOutput) Login() LoginResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) LoginResponsePtrOutput { return v.Login }).(LoginResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ContainerAppsAuthConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
+func (o ContainerAppsAuthConfigOutput) Platform() AuthPlatformResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) AuthPlatformResponsePtrOutput { return v.Platform }).(AuthPlatformResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ContainerAppsAuthConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContainerAppsAuthConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerAppsAuthConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAppsAuthConfigOutput{})
 }

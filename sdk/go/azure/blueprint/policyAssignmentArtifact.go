@@ -183,6 +183,52 @@ func (o PolicyAssignmentArtifactOutput) ToPolicyAssignmentArtifactOutputWithCont
 	return o
 }
 
+// Artifacts which need to be deployed before the specified artifact.
+func (o PolicyAssignmentArtifactOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringArrayOutput { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Multi-line explain this resource.
+func (o PolicyAssignmentArtifactOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o PolicyAssignmentArtifactOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the kind of blueprint artifact.
+// Expected value is 'policyAssignment'.
+func (o PolicyAssignmentArtifactOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o PolicyAssignmentArtifactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parameter values for the policy definition.
+func (o PolicyAssignmentArtifactOutput) Parameters() ParameterValueResponseMapOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) ParameterValueResponseMapOutput { return v.Parameters }).(ParameterValueResponseMapOutput)
+}
+
+// Azure resource ID of the policy definition.
+func (o PolicyAssignmentArtifactOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringOutput { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// Name of the resource group placeholder to which the policy will be assigned.
+func (o PolicyAssignmentArtifactOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Type of this resource.
+func (o PolicyAssignmentArtifactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignmentArtifact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyAssignmentArtifactOutput{})
 }

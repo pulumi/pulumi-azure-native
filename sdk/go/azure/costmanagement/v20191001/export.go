@@ -173,6 +173,41 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 	return o
 }
 
+// Has definition for the export.
+func (o ExportOutput) Definition() QueryDefinitionResponseOutput {
+	return o.ApplyT(func(v *Export) QueryDefinitionResponseOutput { return v.Definition }).(QueryDefinitionResponseOutput)
+}
+
+// Has delivery information for the export.
+func (o ExportOutput) DeliveryInfo() ExportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *Export) ExportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ExportDeliveryInfoResponseOutput)
+}
+
+// The format of the export being delivered.
+func (o ExportOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExportOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the export.
+func (o ExportOutput) Schedule() ExportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *Export) ExportScheduleResponsePtrOutput { return v.Schedule }).(ExportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ExportOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExportOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExportOutput{})
 }

@@ -24208,6 +24208,17 @@ type PacketCaptureFilterArgs struct {
 	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
 }
 
+// Defaults sets the appropriate defaults for PacketCaptureFilterArgs
+func (val *PacketCaptureFilterArgs) Defaults() *PacketCaptureFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		tmp.Protocol = pulumi.StringPtr("Any")
+	}
+	return &tmp
+}
 func (PacketCaptureFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
 }

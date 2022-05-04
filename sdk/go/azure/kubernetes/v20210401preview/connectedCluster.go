@@ -211,6 +211,106 @@ func (o ConnectedClusterOutput) ToConnectedClusterOutputWithContext(ctx context.
 	return o
 }
 
+// Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
+func (o ConnectedClusterOutput) AgentPublicKeyCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.AgentPublicKeyCertificate }).(pulumi.StringOutput)
+}
+
+// Version of the agent running on the connected cluster resource
+func (o ConnectedClusterOutput) AgentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+// Represents the connectivity status of the connected cluster.
+func (o ConnectedClusterOutput) ConnectivityStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.ConnectivityStatus }).(pulumi.StringOutput)
+}
+
+// The Kubernetes distribution running on this connected cluster.
+func (o ConnectedClusterOutput) Distribution() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringPtrOutput { return v.Distribution }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the connected cluster.
+func (o ConnectedClusterOutput) Identity() ConnectedClusterIdentityResponseOutput {
+	return o.ApplyT(func(v *ConnectedCluster) ConnectedClusterIdentityResponseOutput { return v.Identity }).(ConnectedClusterIdentityResponseOutput)
+}
+
+// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
+func (o ConnectedClusterOutput) Infrastructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringPtrOutput { return v.Infrastructure }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes version of the connected cluster resource
+func (o ConnectedClusterOutput) KubernetesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.KubernetesVersion }).(pulumi.StringOutput)
+}
+
+// Time representing the last instance when heart beat was received from the cluster
+func (o ConnectedClusterOutput) LastConnectivityTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.LastConnectivityTime }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ConnectedClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Expiration time of the managed identity certificate
+func (o ConnectedClusterOutput) ManagedIdentityCertificateExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.ManagedIdentityCertificateExpirationTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ConnectedClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Connected cluster offering
+func (o ConnectedClusterOutput) Offering() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.Offering }).(pulumi.StringOutput)
+}
+
+// The resource id of the private link scope this connected cluster is assigned to, if any.
+func (o ConnectedClusterOutput) PrivateLinkScopeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringPtrOutput { return v.PrivateLinkScopeResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Property which describes the state of private link on a connected cluster resource.
+func (o ConnectedClusterOutput) PrivateLinkState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringPtrOutput { return v.PrivateLinkState }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the connected cluster resource.
+func (o ConnectedClusterOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o ConnectedClusterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConnectedCluster) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ConnectedClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Number of CPU cores present in the connected cluster resource
+func (o ConnectedClusterOutput) TotalCoreCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.IntOutput { return v.TotalCoreCount }).(pulumi.IntOutput)
+}
+
+// Number of nodes present in the connected cluster resource
+func (o ConnectedClusterOutput) TotalNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.IntOutput { return v.TotalNodeCount }).(pulumi.IntOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConnectedClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectedCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectedClusterOutput{})
 }

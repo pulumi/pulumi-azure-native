@@ -173,6 +173,76 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// Internal use.
+func (o ApplicationOutput) DebugParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DebugParams }).(pulumi.StringPtrOutput)
+}
+
+// User readable description of the application.
+func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Describes the diagnostics definition and usage for an application resource.
+func (o ApplicationOutput) Diagnostics() DiagnosticsDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *Application) DiagnosticsDescriptionResponsePtrOutput { return v.Diagnostics }).(DiagnosticsDescriptionResponsePtrOutput)
+}
+
+// Describes the health state of an application resource.
+func (o ApplicationOutput) HealthState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.HealthState }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ApplicationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the resource.
+func (o ApplicationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Names of the services in the application.
+func (o ApplicationOutput) ServiceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.ServiceNames }).(pulumi.StringArrayOutput)
+}
+
+// describes the services in the application.
+func (o ApplicationOutput) Services() ServiceResourceDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ServiceResourceDescriptionResponseArrayOutput { return v.Services }).(ServiceResourceDescriptionResponseArrayOutput)
+}
+
+// Status of the application resource.
+func (o ApplicationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Gives additional information about the current status of the application deployment.
+func (o ApplicationOutput) StatusDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.StatusDetails }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
+func (o ApplicationOutput) UnhealthyEvaluation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.UnhealthyEvaluation }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

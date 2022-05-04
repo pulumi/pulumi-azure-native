@@ -180,6 +180,46 @@ func (o EventHubConnectionOutput) ToEventHubConnectionOutputWithContext(ctx cont
 	return o
 }
 
+// The event hub consumer group.
+func (o EventHubConnectionOutput) ConsumerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringOutput { return v.ConsumerGroup }).(pulumi.StringOutput)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+func (o EventHubConnectionOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the event hub to be used to create a data connection.
+func (o EventHubConnectionOutput) EventHubResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringOutput { return v.EventHubResourceId }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o EventHubConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+func (o EventHubConnectionOutput) MappingRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringPtrOutput { return v.MappingRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o EventHubConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The table where the data should be ingested. Optionally the table information can be added to each message.
+func (o EventHubConnectionOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EventHubConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubConnectionOutput{})
 }

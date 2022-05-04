@@ -201,6 +201,138 @@ func (o VirtualMachineTemplateOutput) ToVirtualMachineTemplateOutputWithContext(
 	return o
 }
 
+// Gets the name of the corresponding resource in Kubernetes.
+func (o VirtualMachineTemplateOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the disks the template.
+func (o VirtualMachineTemplateOutput) Disks() VirtualDiskResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) VirtualDiskResponseArrayOutput { return v.Disks }).(VirtualDiskResponseArrayOutput)
+}
+
+// Gets or sets the extended location.
+func (o VirtualMachineTemplateOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Firmware type
+func (o VirtualMachineTemplateOutput) FirmwareType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.FirmwareType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the folder path of the template.
+func (o VirtualMachineTemplateOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Gets or sets the inventory Item ID for the virtual machine template.
+func (o VirtualMachineTemplateOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o VirtualMachineTemplateOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o VirtualMachineTemplateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets memory size in MBs for the template.
+func (o VirtualMachineTemplateOutput) MemorySizeMB() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.MemorySizeMB }).(pulumi.IntOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the virtual machine template.
+func (o VirtualMachineTemplateOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine
+// template.
+func (o VirtualMachineTemplateOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o VirtualMachineTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the network interfaces of the template.
+func (o VirtualMachineTemplateOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// Gets or sets the number of vCPUs for the template.
+func (o VirtualMachineTemplateOutput) NumCPUs() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.NumCPUs }).(pulumi.IntOutput)
+}
+
+// Gets or sets the number of cores per socket for the template.
+// Defaults to 1 if unspecified.
+func (o VirtualMachineTemplateOutput) NumCoresPerSocket() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.NumCoresPerSocket }).(pulumi.IntOutput)
+}
+
+// Gets or sets os name.
+func (o VirtualMachineTemplateOutput) OsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.OsName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the type of the os.
+func (o VirtualMachineTemplateOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VirtualMachineTemplateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o VirtualMachineTemplateOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o VirtualMachineTemplateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o VirtualMachineTemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the current version of VMware Tools.
+func (o VirtualMachineTemplateOutput) ToolsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.ToolsVersion }).(pulumi.StringOutput)
+}
+
+// Gets or sets the current version status of VMware Tools installed in the guest operating system.
+func (o VirtualMachineTemplateOutput) ToolsVersionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.ToolsVersionStatus }).(pulumi.StringOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o VirtualMachineTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o VirtualMachineTemplateOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this template resides.
+func (o VirtualMachineTemplateOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineTemplateOutput{})
 }

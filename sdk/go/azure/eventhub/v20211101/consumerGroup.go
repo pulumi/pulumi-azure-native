@@ -166,6 +166,41 @@ func (o ConsumerGroupOutput) ToConsumerGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Exact time the message was created.
+func (o ConsumerGroupOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ConsumerGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ConsumerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o ConsumerGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConsumerGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o ConsumerGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o ConsumerGroupOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+func (o ConsumerGroupOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConsumerGroup) pulumi.StringPtrOutput { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConsumerGroupOutput{})
 }

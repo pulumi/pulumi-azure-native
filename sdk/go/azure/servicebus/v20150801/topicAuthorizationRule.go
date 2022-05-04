@@ -173,6 +173,26 @@ func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(
 	return o
 }
 
+// Resource location.
+func (o TopicAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o TopicAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o TopicAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o TopicAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TopicAuthorizationRuleOutput{})
 }

@@ -177,6 +177,42 @@ func (o AADDataConnectorOutput) ToAADDataConnectorOutputWithContext(ctx context.
 	return o
 }
 
+// The available data types for the connector.
+func (o AADDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *AADDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o AADDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'AzureActiveDirectory'.
+func (o AADDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AADDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AADDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AADDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o AADDataConnectorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AADDataConnector) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AADDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AADDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AADDataConnectorOutput{})
 }

@@ -175,6 +175,31 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+// User-defined description of the job.
+func (o JobOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Schedule properties of the job.
+func (o JobOutput) Schedule() JobScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *Job) JobScheduleResponsePtrOutput { return v.Schedule }).(JobScheduleResponsePtrOutput)
+}
+
+// Resource type.
+func (o JobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The job version number.
+func (o JobOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *Job) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobOutput{})
 }

@@ -185,6 +185,46 @@ func (o WebAppAuthSettingsV2SlotOutput) ToWebAppAuthSettingsV2SlotOutputWithCont
 	return o
 }
 
+// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
+func (o WebAppAuthSettingsV2SlotOutput) GlobalValidation() GlobalValidationResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) GlobalValidationResponsePtrOutput { return v.GlobalValidation }).(GlobalValidationResponsePtrOutput)
+}
+
+// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
+func (o WebAppAuthSettingsV2SlotOutput) HttpSettings() HttpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) HttpSettingsResponsePtrOutput { return v.HttpSettings }).(HttpSettingsResponsePtrOutput)
+}
+
+// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+func (o WebAppAuthSettingsV2SlotOutput) IdentityProviders() IdentityProvidersResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) IdentityProvidersResponsePtrOutput { return v.IdentityProviders }).(IdentityProvidersResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppAuthSettingsV2SlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The configuration settings of the login flow of users using App Service Authentication/Authorization.
+func (o WebAppAuthSettingsV2SlotOutput) Login() LoginResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) LoginResponsePtrOutput { return v.Login }).(LoginResponsePtrOutput)
+}
+
+// Resource Name.
+func (o WebAppAuthSettingsV2SlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration settings of the platform of App Service Authentication/Authorization.
+func (o WebAppAuthSettingsV2SlotOutput) Platform() AuthPlatformResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) AuthPlatformResponsePtrOutput { return v.Platform }).(AuthPlatformResponsePtrOutput)
+}
+
+// Resource type.
+func (o WebAppAuthSettingsV2SlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppAuthSettingsV2Slot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppAuthSettingsV2SlotOutput{})
 }

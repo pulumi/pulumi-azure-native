@@ -149,6 +149,31 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// The functions to be enabled for the channel
+func (o ChannelOutput) ChannelFunctions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.ChannelFunctions }).(pulumi.StringArrayOutput)
+}
+
+// The channel type
+func (o ChannelOutput) ChannelType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelType }).(pulumi.StringOutput)
+}
+
+// The channel credentials
+func (o ChannelOutput) Credentials() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringMapOutput { return v.Credentials }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o ChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified type of the resource
+func (o ChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelOutput{})
 }

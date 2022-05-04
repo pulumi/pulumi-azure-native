@@ -160,6 +160,33 @@ func (o SignalRPrivateEndpointConnectionOutput) ToSignalRPrivateEndpointConnecti
 	return o
 }
 
+// The name of the resource.
+func (o SignalRPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint associated with the private endpoint connection
+func (o SignalRPrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *SignalRPrivateEndpointConnection) PrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// Connection state
+func (o SignalRPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *SignalRPrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection
+func (o SignalRPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalRPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalRPrivateEndpointConnectionOutput{})
 }

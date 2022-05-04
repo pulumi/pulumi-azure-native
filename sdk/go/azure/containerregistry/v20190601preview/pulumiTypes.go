@@ -666,6 +666,17 @@ type BaseImageTriggerArgs struct {
 	UpdateTriggerPayloadType pulumi.StringPtrInput `pulumi:"updateTriggerPayloadType"`
 }
 
+// Defaults sets the appropriate defaults for BaseImageTriggerArgs
+func (val *BaseImageTriggerArgs) Defaults() *BaseImageTriggerArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (BaseImageTriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BaseImageTrigger)(nil)).Elem()
 }
@@ -3610,6 +3621,17 @@ type SourceTriggerArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for SourceTriggerArgs
+func (val *SourceTriggerArgs) Defaults() *SourceTriggerArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (SourceTriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceTrigger)(nil)).Elem()
 }
@@ -4109,6 +4131,17 @@ type TimerTriggerArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for TimerTriggerArgs
+func (val *TimerTriggerArgs) Defaults() *TimerTriggerArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (TimerTriggerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TimerTrigger)(nil)).Elem()
 }
@@ -4386,6 +4419,15 @@ type TriggerPropertiesArgs struct {
 	TimerTriggers TimerTriggerArrayInput `pulumi:"timerTriggers"`
 }
 
+// Defaults sets the appropriate defaults for TriggerPropertiesArgs
+func (val *TriggerPropertiesArgs) Defaults() *TriggerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (TriggerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TriggerProperties)(nil)).Elem()
 }

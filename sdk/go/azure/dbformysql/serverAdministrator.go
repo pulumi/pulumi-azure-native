@@ -163,6 +163,36 @@ func (o ServerAdministratorOutput) ToServerAdministratorOutputWithContext(ctx co
 	return o
 }
 
+// The type of administrator.
+func (o ServerAdministratorOutput) AdministratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.AdministratorType }).(pulumi.StringOutput)
+}
+
+// The server administrator login account name.
+func (o ServerAdministratorOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServerAdministratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The server administrator Sid (Secure ID).
+func (o ServerAdministratorOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.Sid }).(pulumi.StringOutput)
+}
+
+// The server Active Directory Administrator tenant id.
+func (o ServerAdministratorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerAdministratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAdministrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerAdministratorOutput{})
 }

@@ -107,6 +107,17 @@ type AdditionalWorkspacesPropertiesArgs struct {
 	Workspace pulumi.StringPtrInput `pulumi:"workspace"`
 }
 
+// Defaults sets the appropriate defaults for AdditionalWorkspacesPropertiesArgs
+func (val *AdditionalWorkspacesPropertiesArgs) Defaults() *AdditionalWorkspacesPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("Sentinel")
+	}
+	return &tmp
+}
 func (AdditionalWorkspacesPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdditionalWorkspacesProperties)(nil)).Elem()
 }
@@ -5073,6 +5084,17 @@ type RecommendationConfigurationPropertiesArgs struct {
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for RecommendationConfigurationPropertiesArgs
+func (val *RecommendationConfigurationPropertiesArgs) Defaults() *RecommendationConfigurationPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.String("Enabled")
+	}
+	return &tmp
+}
 func (RecommendationConfigurationPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RecommendationConfigurationProperties)(nil)).Elem()
 }

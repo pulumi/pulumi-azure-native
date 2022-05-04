@@ -215,6 +215,101 @@ func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOu
 	return o
 }
 
+// The hybrid machine agent full version.
+func (o MachineOutput) AgentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+// Public Key that the client provides to be used during initial resource onboarding
+func (o MachineOutput) ClientPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringPtrOutput { return v.ClientPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hybrid machine display name.
+func (o MachineOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Details about the error state.
+func (o MachineOutput) ErrorDetails() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v *Machine) ErrorDetailResponseArrayOutput { return v.ErrorDetails }).(ErrorDetailResponseArrayOutput)
+}
+
+// The time of the last status change.
+func (o MachineOutput) LastStatusChange() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.LastStatusChange }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o MachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the hybrid machine FQDN.
+func (o MachineOutput) MachineFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.MachineFqdn }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o MachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Operating System running on the hybrid machine.
+func (o MachineOutput) OsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.OsName }).(pulumi.StringOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+func (o MachineOutput) OsProfile() OSProfileResponseOutput {
+	return o.ApplyT(func(v *Machine) OSProfileResponseOutput { return v.OsProfile }).(OSProfileResponseOutput)
+}
+
+// The version of Operating System running on the hybrid machine.
+func (o MachineOutput) OsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.OsVersion }).(pulumi.StringOutput)
+}
+
+// Resource's Physical Location
+func (o MachineOutput) PhysicalLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringPtrOutput { return v.PhysicalLocation }).(pulumi.StringPtrOutput)
+}
+
+// The identity's principal id.
+func (o MachineOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o MachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The status of the hybrid machine agent.
+func (o MachineOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o MachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The identity's tenant id.
+func (o MachineOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o MachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the hybrid machine unique ID.
+func (o MachineOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.VmId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineOutput{})
 }

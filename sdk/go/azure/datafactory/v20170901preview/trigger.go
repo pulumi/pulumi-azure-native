@@ -143,6 +143,26 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o TriggerOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o TriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the trigger.
+func (o TriggerOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o TriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TriggerOutput{})
 }

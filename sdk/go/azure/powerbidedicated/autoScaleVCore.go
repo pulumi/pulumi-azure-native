@@ -162,6 +162,51 @@ func (o AutoScaleVCoreOutput) ToAutoScaleVCoreOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The maximum capacity of an auto scale v-core resource.
+func (o AutoScaleVCoreOutput) CapacityLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.IntPtrOutput { return v.CapacityLimit }).(pulumi.IntPtrOutput)
+}
+
+// The object ID of the capacity resource associated with the auto scale v-core resource.
+func (o AutoScaleVCoreOutput) CapacityObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringPtrOutput { return v.CapacityObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Location of the PowerBI Dedicated resource.
+func (o AutoScaleVCoreOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the PowerBI Dedicated resource.
+func (o AutoScaleVCoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
+func (o AutoScaleVCoreOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the auto scale v-core resource.
+func (o AutoScaleVCoreOutput) Sku() AutoScaleVCoreSkuResponseOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) AutoScaleVCoreSkuResponseOutput { return v.Sku }).(AutoScaleVCoreSkuResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AutoScaleVCoreOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) SystemDataResponsePtrOutput { return v.SystemData }).(SystemDataResponsePtrOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o AutoScaleVCoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the PowerBI Dedicated resource.
+func (o AutoScaleVCoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoScaleVCore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoScaleVCoreOutput{})
 }

@@ -52,6 +52,15 @@ type AutoscaleNotificationArgs struct {
 	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
 
+// Defaults sets the appropriate defaults for AutoscaleNotificationArgs
+func (val *AutoscaleNotificationArgs) Defaults() *AutoscaleNotificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (AutoscaleNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleNotification)(nil)).Elem()
 }
@@ -468,6 +477,20 @@ type EmailNotificationArgs struct {
 	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
+// Defaults sets the appropriate defaults for EmailNotificationArgs
+func (val *EmailNotificationArgs) Defaults() *EmailNotificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendToSubscriptionAdministrator) {
+		tmp.SendToSubscriptionAdministrator = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.SendToSubscriptionCoAdministrators) {
+		tmp.SendToSubscriptionCoAdministrators = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EmailNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailNotification)(nil)).Elem()
 }
@@ -1799,6 +1822,17 @@ type ScaleActionArgs struct {
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for ScaleActionArgs
+func (val *ScaleActionArgs) Defaults() *ScaleActionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Value) {
+		tmp.Value = pulumi.StringPtr("1")
+	}
+	return &tmp
+}
 func (ScaleActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleAction)(nil)).Elem()
 }
@@ -2057,6 +2091,15 @@ type ScaleRuleArgs struct {
 	ScaleAction ScaleActionInput `pulumi:"scaleAction"`
 }
 
+// Defaults sets the appropriate defaults for ScaleRuleArgs
+func (val *ScaleRuleArgs) Defaults() *ScaleRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ScaleRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleRule)(nil)).Elem()
 }

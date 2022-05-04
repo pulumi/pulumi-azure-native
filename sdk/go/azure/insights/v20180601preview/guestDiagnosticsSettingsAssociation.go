@@ -141,6 +141,31 @@ func (o GuestDiagnosticsSettingsAssociationOutput) ToGuestDiagnosticsSettingsAss
 	return o
 }
 
+// The guest diagnostic settings name.
+func (o GuestDiagnosticsSettingsAssociationOutput) GuestDiagnosticSettingsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSettingsAssociation) pulumi.StringOutput { return v.GuestDiagnosticSettingsName }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o GuestDiagnosticsSettingsAssociationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSettingsAssociation) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o GuestDiagnosticsSettingsAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSettingsAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o GuestDiagnosticsSettingsAssociationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSettingsAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o GuestDiagnosticsSettingsAssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSettingsAssociation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestDiagnosticsSettingsAssociationOutput{})
 }

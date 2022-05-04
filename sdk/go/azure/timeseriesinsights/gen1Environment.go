@@ -201,6 +201,77 @@ func (o Gen1EnvironmentOutput) ToGen1EnvironmentOutputWithContext(ctx context.Co
 	return o
 }
 
+// The time the resource was created.
+func (o Gen1EnvironmentOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o Gen1EnvironmentOutput) DataAccessFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.DataAccessFqdn }).(pulumi.StringOutput)
+}
+
+// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o Gen1EnvironmentOutput) DataAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.DataAccessId }).(pulumi.StringOutput)
+}
+
+// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+func (o Gen1EnvironmentOutput) DataRetentionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.DataRetentionTime }).(pulumi.StringOutput)
+}
+
+// The kind of the environment.
+// Expected value is 'Gen1'.
+func (o Gen1EnvironmentOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o Gen1EnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o Gen1EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
+func (o Gen1EnvironmentOutput) PartitionKeyProperties() TimeSeriesIdPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *Gen1Environment) TimeSeriesIdPropertyResponseArrayOutput { return v.PartitionKeyProperties }).(TimeSeriesIdPropertyResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o Gen1EnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+func (o Gen1EnvironmentOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Gen1Environment) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+func (o Gen1EnvironmentOutput) Status() EnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *Gen1Environment) EnvironmentStatusResponseOutput { return v.Status }).(EnvironmentStatusResponseOutput)
+}
+
+// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+func (o Gen1EnvironmentOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringPtrOutput { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o Gen1EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o Gen1EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gen1Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(Gen1EnvironmentOutput{})
 }

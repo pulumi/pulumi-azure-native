@@ -322,6 +322,17 @@ type ActiveDirectoryArgs struct {
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryArgs
+func (val *ActiveDirectoryArgs) Defaults() *ActiveDirectoryArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OrganizationalUnit) {
+		tmp.OrganizationalUnit = pulumi.StringPtr("CN=Computers")
+	}
+	return &tmp
+}
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectory)(nil)).Elem()
 }
@@ -1128,6 +1139,38 @@ type ExportPolicyRuleArgs struct {
 	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
 }
 
+// Defaults sets the appropriate defaults for ExportPolicyRuleArgs
+func (val *ExportPolicyRuleArgs) Defaults() *ExportPolicyRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ChownMode) {
+		tmp.ChownMode = pulumi.StringPtr("Restricted")
+	}
+	if isZero(tmp.HasRootAccess) {
+		tmp.HasRootAccess = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Kerberos5ReadOnly) {
+		tmp.Kerberos5ReadOnly = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Kerberos5ReadWrite) {
+		tmp.Kerberos5ReadWrite = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Kerberos5iReadOnly) {
+		tmp.Kerberos5iReadOnly = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Kerberos5iReadWrite) {
+		tmp.Kerberos5iReadWrite = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Kerberos5pReadOnly) {
+		tmp.Kerberos5pReadOnly = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Kerberos5pReadWrite) {
+		tmp.Kerberos5pReadWrite = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ExportPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportPolicyRule)(nil)).Elem()
 }
@@ -3936,6 +3979,62 @@ type VolumeGroupVolumePropertiesArgs struct {
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
+// Defaults sets the appropriate defaults for VolumeGroupVolumePropertiesArgs
+func (val *VolumeGroupVolumePropertiesArgs) Defaults() *VolumeGroupVolumePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AvsDataStore) {
+		tmp.AvsDataStore = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.CoolAccess) {
+		tmp.CoolAccess = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.DefaultGroupQuotaInKiBs) {
+		tmp.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(0.0)
+	}
+	if isZero(tmp.DefaultUserQuotaInKiBs) {
+		tmp.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(0.0)
+	}
+	if isZero(tmp.EnableSubvolumes) {
+		tmp.EnableSubvolumes = pulumi.StringPtr("Disabled")
+	}
+	if isZero(tmp.IsDefaultQuotaEnabled) {
+		tmp.IsDefaultQuotaEnabled = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.KerberosEnabled) {
+		tmp.KerberosEnabled = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.LdapEnabled) {
+		tmp.LdapEnabled = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.NetworkFeatures) {
+		tmp.NetworkFeatures = pulumi.StringPtr("Basic")
+	}
+	if isZero(tmp.SecurityStyle) {
+		tmp.SecurityStyle = pulumi.StringPtr("unix")
+	}
+	if isZero(tmp.SmbContinuouslyAvailable) {
+		tmp.SmbContinuouslyAvailable = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.SmbEncryption) {
+		tmp.SmbEncryption = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.SnapshotDirectoryVisible) {
+		tmp.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.ThroughputMibps) {
+		tmp.ThroughputMibps = pulumi.Float64Ptr(0.0)
+	}
+	if isZero(tmp.UnixPermissions) {
+		tmp.UnixPermissions = pulumi.StringPtr("0770")
+	}
+	if isZero(tmp.UsageThreshold) {
+		tmp.UsageThreshold = pulumi.Float64(107374182400.0)
+	}
+	return &tmp
+}
 func (VolumeGroupVolumePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VolumeGroupVolumeProperties)(nil)).Elem()
 }

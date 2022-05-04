@@ -173,6 +173,41 @@ func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The Delegation flag for the role assignment
+func (o RoleAssignmentOutput) CanDelegate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.BoolPtrOutput { return v.CanDelegate }).(pulumi.BoolPtrOutput)
+}
+
+// The role assignment name.
+func (o RoleAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o RoleAssignmentOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The principal type of the assigned principal ID.
+func (o RoleAssignmentOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o RoleAssignmentOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment scope.
+func (o RoleAssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment type.
+func (o RoleAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 }

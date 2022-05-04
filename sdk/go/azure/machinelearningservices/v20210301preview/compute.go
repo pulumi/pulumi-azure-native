@@ -213,6 +213,46 @@ func (o ComputeOutput) ToComputeOutputWithContext(ctx context.Context) ComputeOu
 	return o
 }
 
+// The identity of the resource.
+func (o ComputeOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Compute) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o ComputeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Compute) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ComputeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Compute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Compute properties
+func (o ComputeOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Compute) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o ComputeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Compute) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ComputeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Compute) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o ComputeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Compute) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ComputeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Compute) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComputeOutput{})
 }

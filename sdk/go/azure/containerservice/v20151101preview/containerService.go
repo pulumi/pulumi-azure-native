@@ -187,6 +187,67 @@ func (o ContainerServiceOutput) ToContainerServiceOutputWithContext(ctx context.
 	return o
 }
 
+// Properties of agent pools
+func (o ContainerServiceOutput) AgentPoolProfiles() ContainerServiceAgentPoolProfileResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceAgentPoolProfileResponseArrayOutput {
+		return v.AgentPoolProfiles
+	}).(ContainerServiceAgentPoolProfileResponseArrayOutput)
+}
+
+// Properties for Diagnostic Agent
+func (o ContainerServiceOutput) DiagnosticsProfile() ContainerServiceDiagnosticsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceDiagnosticsProfileResponsePtrOutput {
+		return v.DiagnosticsProfile
+	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
+}
+
+// Properties for Linux VMs
+func (o ContainerServiceOutput) LinuxProfile() ContainerServiceLinuxProfileResponseOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceLinuxProfileResponseOutput { return v.LinuxProfile }).(ContainerServiceLinuxProfileResponseOutput)
+}
+
+// Resource location
+func (o ContainerServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Properties of master agents
+func (o ContainerServiceOutput) MasterProfile() ContainerServiceMasterProfileResponseOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceMasterProfileResponseOutput { return v.MasterProfile }).(ContainerServiceMasterProfileResponseOutput)
+}
+
+// Resource name
+func (o ContainerServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of orchestrator
+func (o ContainerServiceOutput) OrchestratorProfile() ContainerServiceOrchestratorProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceOrchestratorProfileResponsePtrOutput {
+		return v.OrchestratorProfile
+	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
+}
+
+// Gets the provisioning state, which only appears in the response.
+func (o ContainerServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o ContainerServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ContainerServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties of Windows VMs
+func (o ContainerServiceOutput) WindowsProfile() ContainerServiceWindowsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerService) ContainerServiceWindowsProfileResponsePtrOutput { return v.WindowsProfile }).(ContainerServiceWindowsProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerServiceOutput{})
 }

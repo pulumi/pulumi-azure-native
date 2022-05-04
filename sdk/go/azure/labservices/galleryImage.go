@@ -184,6 +184,86 @@ func (o GalleryImageOutput) ToGalleryImageOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The author of the gallery image.
+func (o GalleryImageOutput) Author() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Author }).(pulumi.StringOutput)
+}
+
+// The creation date of the gallery image.
+func (o GalleryImageOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The description of the gallery image.
+func (o GalleryImageOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The icon of the gallery image.
+func (o GalleryImageOutput) Icon() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Icon }).(pulumi.StringOutput)
+}
+
+// The image reference of the gallery image.
+func (o GalleryImageOutput) ImageReference() GalleryImageReferenceResponseOutput {
+	return o.ApplyT(func(v *GalleryImage) GalleryImageReferenceResponseOutput { return v.ImageReference }).(GalleryImageReferenceResponseOutput)
+}
+
+// Indicates whether this gallery image is enabled.
+func (o GalleryImageOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether this gallery has been overridden for this lab account
+func (o GalleryImageOutput) IsOverride() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.BoolPtrOutput { return v.IsOverride }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if the plan has been authorized for programmatic deployment.
+func (o GalleryImageOutput) IsPlanAuthorized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.BoolPtrOutput { return v.IsPlanAuthorized }).(pulumi.BoolPtrOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o GalleryImageOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *GalleryImage) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o GalleryImageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o GalleryImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The third party plan that applies to this image
+func (o GalleryImageOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o GalleryImageOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o GalleryImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o GalleryImageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o GalleryImageOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryImage) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryImageOutput{})
 }

@@ -213,6 +213,90 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
+func (o RouteOutput) CacheConfiguration() AfdRouteCacheConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Route) AfdRouteCacheConfigurationResponsePtrOutput { return v.CacheConfiguration }).(AfdRouteCacheConfigurationResponsePtrOutput)
+}
+
+// Domains referenced by this endpoint.
+func (o RouteOutput) CustomDomains() ActivatedResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *Route) ActivatedResourceReferenceResponseArrayOutput { return v.CustomDomains }).(ActivatedResourceReferenceResponseArrayOutput)
+}
+
+func (o RouteOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+func (o RouteOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// The name of the endpoint which holds the route.
+func (o RouteOutput) EndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
+}
+
+// Protocol this rule will use when forwarding traffic to backends.
+func (o RouteOutput) ForwardingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
+func (o RouteOutput) HttpsRedirect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.HttpsRedirect }).(pulumi.StringPtrOutput)
+}
+
+// whether this route will be linked to the default endpoint domain.
+func (o RouteOutput) LinkToDefaultDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.LinkToDefaultDomain }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o RouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A reference to the origin group.
+func (o RouteOutput) OriginGroup() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v *Route) ResourceReferenceResponseOutput { return v.OriginGroup }).(ResourceReferenceResponseOutput)
+}
+
+// A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+func (o RouteOutput) OriginPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OriginPath }).(pulumi.StringPtrOutput)
+}
+
+// The route patterns of the rule.
+func (o RouteOutput) PatternsToMatch() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringArrayOutput { return v.PatternsToMatch }).(pulumi.StringArrayOutput)
+}
+
+// Provisioning status
+func (o RouteOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// rule sets referenced by this endpoint.
+func (o RouteOutput) RuleSets() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *Route) ResourceReferenceResponseArrayOutput { return v.RuleSets }).(ResourceReferenceResponseArrayOutput)
+}
+
+// List of supported protocols for this route.
+func (o RouteOutput) SupportedProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringArrayOutput { return v.SupportedProtocols }).(pulumi.StringArrayOutput)
+}
+
+// Read only system data
+func (o RouteOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Route) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o RouteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteOutput{})
 }

@@ -251,6 +251,76 @@ func (o VirtualWanOutput) ToVirtualWanOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+// True if branch to branch traffic is allowed.
+func (o VirtualWanOutput) AllowBranchToBranchTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.BoolPtrOutput { return v.AllowBranchToBranchTraffic }).(pulumi.BoolPtrOutput)
+}
+
+// True if Vnet to Vnet traffic is allowed.
+func (o VirtualWanOutput) AllowVnetToVnetTraffic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.BoolPtrOutput { return v.AllowVnetToVnetTraffic }).(pulumi.BoolPtrOutput)
+}
+
+// Vpn encryption to be disabled or not.
+func (o VirtualWanOutput) DisableVpnEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.BoolPtrOutput { return v.DisableVpnEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualWanOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o VirtualWanOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VirtualWanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The office local breakout category.
+func (o VirtualWanOutput) Office365LocalBreakoutCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.Office365LocalBreakoutCategory }).(pulumi.StringOutput)
+}
+
+// List of all P2SVpnServerConfigurations associated with the virtual wan.
+func (o VirtualWanOutput) P2SVpnServerConfigurations() P2SVpnServerConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualWan) P2SVpnServerConfigurationResponseArrayOutput { return v.P2SVpnServerConfigurations }).(P2SVpnServerConfigurationResponseArrayOutput)
+}
+
+// The provisioning state of the virtual WAN resource.
+func (o VirtualWanOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The Security Provider name.
+func (o VirtualWanOutput) SecurityProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringPtrOutput { return v.SecurityProviderName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o VirtualWanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualWanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of VirtualHubs in the VirtualWAN.
+func (o VirtualWanOutput) VirtualHubs() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualWan) SubResourceResponseArrayOutput { return v.VirtualHubs }).(SubResourceResponseArrayOutput)
+}
+
+// List of VpnSites in the VirtualWAN.
+func (o VirtualWanOutput) VpnSites() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualWan) SubResourceResponseArrayOutput { return v.VpnSites }).(SubResourceResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualWanOutput{})
 }

@@ -186,6 +186,46 @@ func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementG
 	return o
 }
 
+// The policy definition description.
+func (o PolicyDefinitionAtManagementGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o PolicyDefinitionAtManagementGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition metadata.
+func (o PolicyDefinitionAtManagementGroupOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+func (o PolicyDefinitionAtManagementGroupOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition.
+func (o PolicyDefinitionAtManagementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o PolicyDefinitionAtManagementGroupOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The policy rule.
+func (o PolicyDefinitionAtManagementGroupOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.AnyOutput { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o PolicyDefinitionAtManagementGroupOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupOutput{})
 }

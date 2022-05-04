@@ -1612,6 +1612,17 @@ type ResourceIdentityArgs struct {
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
+// Defaults sets the appropriate defaults for ResourceIdentityArgs
+func (val *ResourceIdentityArgs) Defaults() *ResourceIdentityArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("None")
+	}
+	return &tmp
+}
 func (ResourceIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }

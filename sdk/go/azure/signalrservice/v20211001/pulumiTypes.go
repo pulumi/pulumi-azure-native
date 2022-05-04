@@ -3230,6 +3230,17 @@ type SignalRTlsSettingsArgs struct {
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
 }
 
+// Defaults sets the appropriate defaults for SignalRTlsSettingsArgs
+func (val *SignalRTlsSettingsArgs) Defaults() *SignalRTlsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		tmp.ClientCertEnabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (SignalRTlsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRTlsSettings)(nil)).Elem()
 }

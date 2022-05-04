@@ -178,6 +178,76 @@ func (o KustoPoolOutput) ToKustoPoolOutputWithContext(ctx context.Context) Kusto
 	return o
 }
 
+// The Kusto Pool data ingestion URI.
+func (o KustoPoolOutput) DataIngestionUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.DataIngestionUri }).(pulumi.StringOutput)
+}
+
+// The engine type
+func (o KustoPoolOutput) EngineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringPtrOutput { return v.EngineType }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o KustoPoolOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o KustoPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o KustoPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o KustoPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the kusto pool.
+func (o KustoPoolOutput) Sku() AzureSkuResponseOutput {
+	return o.ApplyT(func(v *KustoPool) AzureSkuResponseOutput { return v.Sku }).(AzureSkuResponseOutput)
+}
+
+// The state of the resource.
+func (o KustoPoolOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The reason for the Kusto Pool's current state.
+func (o KustoPoolOutput) StateReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o KustoPoolOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KustoPool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o KustoPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o KustoPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Kusto Pool URI.
+func (o KustoPoolOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+}
+
+// The workspace unique identifier.
+func (o KustoPoolOutput) WorkspaceUid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KustoPool) pulumi.StringPtrOutput { return v.WorkspaceUid }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoPoolOutput{})
 }

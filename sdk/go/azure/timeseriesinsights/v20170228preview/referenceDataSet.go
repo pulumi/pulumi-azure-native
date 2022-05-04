@@ -169,6 +169,41 @@ func (o ReferenceDataSetOutput) ToReferenceDataSetOutputWithContext(ctx context.
 	return o
 }
 
+// The time the resource was created.
+func (o ReferenceDataSetOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The list of key properties for the reference data set.
+func (o ReferenceDataSetOutput) KeyProperties() ReferenceDataSetKeyPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) ReferenceDataSetKeyPropertyResponseArrayOutput { return v.KeyProperties }).(ReferenceDataSetKeyPropertyResponseArrayOutput)
+}
+
+// Resource location
+func (o ReferenceDataSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ReferenceDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o ReferenceDataSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o ReferenceDataSetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ReferenceDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReferenceDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReferenceDataSetOutput{})
 }

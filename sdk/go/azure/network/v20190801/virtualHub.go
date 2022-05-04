@@ -269,6 +269,81 @@ func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+// Address-prefix for this VirtualHub.
+func (o VirtualHubOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The azureFirewall associated with this VirtualHub.
+func (o VirtualHubOutput) AzureFirewall() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.AzureFirewall }).(SubResourceResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualHubOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The expressRouteGateway associated with this VirtualHub.
+func (o VirtualHubOutput) ExpressRouteGateway() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.ExpressRouteGateway }).(SubResourceResponsePtrOutput)
+}
+
+// Resource location.
+func (o VirtualHubOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VirtualHubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The P2SVpnGateway associated with this VirtualHub.
+func (o VirtualHubOutput) P2SVpnGateway() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.P2SVpnGateway }).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the virtual hub resource.
+func (o VirtualHubOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The routeTable associated with this virtual hub.
+func (o VirtualHubOutput) RouteTable() VirtualHubRouteTableResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) VirtualHubRouteTableResponsePtrOutput { return v.RouteTable }).(VirtualHubRouteTableResponsePtrOutput)
+}
+
+// The Security Provider name.
+func (o VirtualHubOutput) SecurityProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.SecurityProviderName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o VirtualHubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualHubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of all vnet connections with this VirtualHub.
+func (o VirtualHubOutput) VirtualNetworkConnections() HubVirtualNetworkConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualHub) HubVirtualNetworkConnectionResponseArrayOutput { return v.VirtualNetworkConnections }).(HubVirtualNetworkConnectionResponseArrayOutput)
+}
+
+// The VirtualWAN to which the VirtualHub belongs.
+func (o VirtualHubOutput) VirtualWan() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.VirtualWan }).(SubResourceResponsePtrOutput)
+}
+
+// The VpnGateway associated with this VirtualHub.
+func (o VirtualHubOutput) VpnGateway() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.VpnGateway }).(SubResourceResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubOutput{})
 }

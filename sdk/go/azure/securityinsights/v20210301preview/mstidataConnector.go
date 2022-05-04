@@ -190,6 +190,42 @@ func (o MSTIDataConnectorOutput) ToMSTIDataConnectorOutputWithContext(ctx contex
 	return o
 }
 
+// The available data types for the connector.
+func (o MSTIDataConnectorOutput) DataTypes() MSTIDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) MSTIDataConnectorDataTypesResponseOutput { return v.DataTypes }).(MSTIDataConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o MSTIDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'MicrosoftThreatIntelligence'.
+func (o MSTIDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o MSTIDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o MSTIDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o MSTIDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o MSTIDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MSTIDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MSTIDataConnectorOutput{})
 }

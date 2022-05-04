@@ -159,6 +159,36 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// The GEO location of the resource.
+func (o ServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Service resource
+func (o ServiceOutput) Properties() ClusterResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *Service) ClusterResourcePropertiesResponseOutput { return v.Properties }).(ClusterResourcePropertiesResponseOutput)
+}
+
+// Sku of the Service resource
+func (o ServiceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Service) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

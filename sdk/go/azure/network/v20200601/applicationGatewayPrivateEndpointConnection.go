@@ -173,6 +173,45 @@ func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayP
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The consumer link id.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) LinkIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) pulumi.StringOutput { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+// Name of the private endpoint connection on an application gateway.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource of private end point.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) PrivateEndpointResponseOutput {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponseOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// The provisioning state of the application gateway private endpoint connection resource.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o ApplicationGatewayPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGatewayPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayPrivateEndpointConnectionOutput{})
 }

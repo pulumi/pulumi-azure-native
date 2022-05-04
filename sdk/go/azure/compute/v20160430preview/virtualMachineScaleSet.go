@@ -226,6 +226,68 @@ func (o VirtualMachineScaleSetOutput) ToVirtualMachineScaleSetOutputWithContext(
 	return o
 }
 
+// The identity of the virtual machine scale set, if configured.
+func (o VirtualMachineScaleSetOutput) Identity() VirtualMachineScaleSetIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) VirtualMachineScaleSetIdentityResponsePtrOutput { return v.Identity }).(VirtualMachineScaleSetIdentityResponsePtrOutput)
+}
+
+// Resource location
+func (o VirtualMachineScaleSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineScaleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+func (o VirtualMachineScaleSetOutput) OverProvision() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.OverProvision }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+func (o VirtualMachineScaleSetOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineScaleSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+func (o VirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
+}
+
+// The virtual machine scale set sku.
+func (o VirtualMachineScaleSetOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineScaleSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The upgrade policy.
+func (o VirtualMachineScaleSetOutput) UpgradePolicy() UpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) UpgradePolicyResponsePtrOutput { return v.UpgradePolicy }).(UpgradePolicyResponsePtrOutput)
+}
+
+// The virtual machine profile.
+func (o VirtualMachineScaleSetOutput) VirtualMachineProfile() VirtualMachineScaleSetVMProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) VirtualMachineScaleSetVMProfileResponsePtrOutput {
+		return v.VirtualMachineProfile
+	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOutput{})
 }

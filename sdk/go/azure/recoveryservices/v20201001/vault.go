@@ -193,6 +193,51 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
 }
 
+// Optional ETag.
+func (o VaultOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+func (o VaultOutput) Identity() IdentityDataResponsePtrOutput {
+	return o.ApplyT(func(v *Vault) IdentityDataResponsePtrOutput { return v.Identity }).(IdentityDataResponsePtrOutput)
+}
+
+// Resource location.
+func (o VaultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name associated with the resource.
+func (o VaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the vault.
+func (o VaultOutput) Properties() VaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *Vault) VaultPropertiesResponseOutput { return v.Properties }).(VaultPropertiesResponseOutput)
+}
+
+// Identifies the unique system identifier for each Azure resource.
+func (o VaultOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Vault) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o VaultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Vault) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o VaultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o VaultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VaultOutput{})
 }

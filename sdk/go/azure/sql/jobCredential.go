@@ -172,6 +172,21 @@ func (o JobCredentialOutput) ToJobCredentialOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Resource name.
+func (o JobCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o JobCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobCredential) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The credential user name.
+func (o JobCredentialOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobCredential) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobCredentialOutput{})
 }

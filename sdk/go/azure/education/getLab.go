@@ -189,6 +189,71 @@ func (o GetLabOutput) ToGetLabOutputWithContext(ctx context.Context) GetLabOutpu
 	return o
 }
 
+// Default monetary cap for each student in this lab
+func (o GetLabOutput) BudgetPerStudent() AmountResponseOutput {
+	return o.ApplyT(func(v *GetLab) AmountResponseOutput { return v.BudgetPerStudent }).(AmountResponseOutput)
+}
+
+// The type of currency being used for the value.
+func (o GetLabOutput) Currency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringPtrOutput { return v.Currency }).(pulumi.StringPtrOutput)
+}
+
+// Detail description of this lab
+func (o GetLabOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Lab Display Name
+func (o GetLabOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Lab creation date
+func (o GetLabOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.EffectiveDate }).(pulumi.StringOutput)
+}
+
+// Default expiration date for each student in this lab
+func (o GetLabOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// invitation code for redeemable lab
+func (o GetLabOutput) InvitationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.InvitationCode }).(pulumi.StringOutput)
+}
+
+// the total number of students that can be accepted to the lab.
+func (o GetLabOutput) MaxStudentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *GetLab) pulumi.Float64Output { return v.MaxStudentCount }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o GetLabOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of this lab
+func (o GetLabOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o GetLabOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GetLab) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GetLabOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Amount value.
+func (o GetLabOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GetLab) pulumi.Float64PtrOutput { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GetLabOutput{})
 }

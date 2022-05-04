@@ -144,6 +144,31 @@ func (o AccessPolicyOutput) ToAccessPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Authentication method to be used when validating client API access.
+func (o AccessPolicyOutput) Authentication() JwtAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) JwtAuthenticationResponsePtrOutput { return v.Authentication }).(JwtAuthenticationResponsePtrOutput)
+}
+
+// The name of the resource
+func (o AccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the access level granted by this policy.
+func (o AccessPolicyOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringPtrOutput { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AccessPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AccessPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AccessPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessPolicyOutput{})
 }

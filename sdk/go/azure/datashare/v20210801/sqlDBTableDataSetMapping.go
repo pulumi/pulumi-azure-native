@@ -210,6 +210,62 @@ func (o SqlDBTableDataSetMappingOutput) ToSqlDBTableDataSetMappingOutputWithCont
 	return o
 }
 
+// The id of the source data set.
+func (o SqlDBTableDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o SqlDBTableDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// DatabaseName name of the sink data set
+func (o SqlDBTableDataSetMappingOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'SqlDBTable'.
+func (o SqlDBTableDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SqlDBTableDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o SqlDBTableDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Schema of the table. Default value is dbo.
+func (o SqlDBTableDataSetMappingOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// Resource id of SQL server
+func (o SqlDBTableDataSetMappingOutput) SqlServerResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.SqlServerResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o SqlDBTableDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// SQL DB table name.
+func (o SqlDBTableDataSetMappingOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o SqlDBTableDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlDBTableDataSetMappingOutput{})
 }

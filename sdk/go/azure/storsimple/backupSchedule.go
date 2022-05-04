@@ -195,6 +195,51 @@ func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The type of backup which needs to be taken.
+func (o BackupScheduleOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.BackupType }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o BackupScheduleOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The last successful backup run which was triggered for the schedule.
+func (o BackupScheduleOutput) LastSuccessfulRun() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.LastSuccessfulRun }).(pulumi.StringOutput)
+}
+
+// The name of the object.
+func (o BackupScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of backups to be retained.
+func (o BackupScheduleOutput) RetentionCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.Float64Output { return v.RetentionCount }).(pulumi.Float64Output)
+}
+
+// The schedule recurrence.
+func (o BackupScheduleOutput) ScheduleRecurrence() ScheduleRecurrenceResponseOutput {
+	return o.ApplyT(func(v *BackupSchedule) ScheduleRecurrenceResponseOutput { return v.ScheduleRecurrence }).(ScheduleRecurrenceResponseOutput)
+}
+
+// The schedule status.
+func (o BackupScheduleOutput) ScheduleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.ScheduleStatus }).(pulumi.StringOutput)
+}
+
+// The start time of the schedule.
+func (o BackupScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o BackupScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
 }

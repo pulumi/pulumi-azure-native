@@ -122,6 +122,21 @@ func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The name of the resource
+func (o DeviceGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DeviceGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DeviceGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DeviceGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeviceGroupOutput{})
 }

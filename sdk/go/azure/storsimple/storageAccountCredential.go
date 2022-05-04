@@ -163,6 +163,41 @@ func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutputWithCont
 	return o
 }
 
+// The details of the storage account password.
+func (o StorageAccountCredentialOutput) AccessKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) AsymmetricEncryptedSecretResponsePtrOutput { return v.AccessKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The storage endpoint
+func (o StorageAccountCredentialOutput) EndPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.EndPoint }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o StorageAccountCredentialOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o StorageAccountCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Signifies whether SSL needs to be enabled or not.
+func (o StorageAccountCredentialOutput) SslStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.SslStatus }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The count of volumes using this storage account credential.
+func (o StorageAccountCredentialOutput) VolumesCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.IntOutput { return v.VolumesCount }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountCredentialOutput{})
 }

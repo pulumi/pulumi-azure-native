@@ -156,6 +156,26 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
+// The name of the resource
+func (o TableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of stored access policies specified on the table.
+func (o TableOutput) SignedIdentifiers() TableSignedIdentifierResponseArrayOutput {
+	return o.ApplyT(func(v *Table) TableSignedIdentifierResponseArrayOutput { return v.SignedIdentifiers }).(TableSignedIdentifierResponseArrayOutput)
+}
+
+// Table name under the specified account
+func (o TableOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TableOutput{})
 }

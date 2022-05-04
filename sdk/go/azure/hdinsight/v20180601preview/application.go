@@ -147,6 +147,31 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The ETag for the application
+func (o ApplicationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the application.
+func (o ApplicationOutput) Properties() ApplicationPropertiesResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationPropertiesResponseOutput { return v.Properties }).(ApplicationPropertiesResponseOutput)
+}
+
+// The tags for the application.
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

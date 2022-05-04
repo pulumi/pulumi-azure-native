@@ -156,6 +156,31 @@ func (o NotificationHubOutput) ToNotificationHubOutputWithContext(ctx context.Co
 	return o
 }
 
+// Gets or sets datacenter location of the NotificationHub.
+func (o NotificationHubOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationHub) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets name of the NotificationHub.
+func (o NotificationHubOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationHub) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets properties of the NotificationHub.
+func (o NotificationHubOutput) Properties() NotificationHubPropertiesResponseOutput {
+	return o.ApplyT(func(v *NotificationHub) NotificationHubPropertiesResponseOutput { return v.Properties }).(NotificationHubPropertiesResponseOutput)
+}
+
+// Gets or sets tags of the NotificationHub.
+func (o NotificationHubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotificationHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets resource type of the NotificationHub.
+func (o NotificationHubOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationHub) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationHubOutput{})
 }

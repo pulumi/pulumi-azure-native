@@ -207,6 +207,96 @@ func (o DedicatedCloudNodeOutput) ToDedicatedCloudNodeOutputWithContext(ctx cont
 	return o
 }
 
+// Availability Zone id, e.g. "az1"
+func (o DedicatedCloudNodeOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+// Availability Zone name, e.g. "Availability Zone 1"
+func (o DedicatedCloudNodeOutput) AvailabilityZoneName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.AvailabilityZoneName }).(pulumi.StringOutput)
+}
+
+// VMWare Cloud Rack Name
+func (o DedicatedCloudNodeOutput) CloudRackName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.CloudRackName }).(pulumi.StringOutput)
+}
+
+// date time the resource was created
+func (o DedicatedCloudNodeOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Azure region
+func (o DedicatedCloudNodeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// SKU's name
+func (o DedicatedCloudNodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// count of nodes to create
+func (o DedicatedCloudNodeOutput) NodesCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.IntOutput { return v.NodesCount }).(pulumi.IntOutput)
+}
+
+// Placement Group id, e.g. "n1"
+func (o DedicatedCloudNodeOutput) PlacementGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
+}
+
+// Placement Name, e.g. "Placement Group 1"
+func (o DedicatedCloudNodeOutput) PlacementGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.PlacementGroupName }).(pulumi.StringOutput)
+}
+
+// Private Cloud Id
+func (o DedicatedCloudNodeOutput) PrivateCloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.PrivateCloudId }).(pulumi.StringOutput)
+}
+
+// Resource Pool Name
+func (o DedicatedCloudNodeOutput) PrivateCloudName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.PrivateCloudName }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource
+func (o DedicatedCloudNodeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// purchase id
+func (o DedicatedCloudNodeOutput) PurchaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.PurchaseId }).(pulumi.StringOutput)
+}
+
+// Dedicated Cloud Nodes SKU
+func (o DedicatedCloudNodeOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Node status, indicates is private cloud set up on this node or not
+func (o DedicatedCloudNodeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Dedicated Cloud Nodes tags
+func (o DedicatedCloudNodeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// {resourceProviderNamespace}/{resourceType}
+func (o DedicatedCloudNodeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// VMWare Cluster Name
+func (o DedicatedCloudNodeOutput) VmwareClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudNode) pulumi.StringOutput { return v.VmwareClusterName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedCloudNodeOutput{})
 }

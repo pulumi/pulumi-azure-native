@@ -230,6 +230,67 @@ func (o EventHubDataConnectionOutput) ToEventHubDataConnectionOutputWithContext(
 	return o
 }
 
+// The event hub messages compression type
+func (o EventHubDataConnectionOutput) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringPtrOutput { return v.Compression }).(pulumi.StringPtrOutput)
+}
+
+// The event hub consumer group.
+func (o EventHubDataConnectionOutput) ConsumerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.ConsumerGroup }).(pulumi.StringOutput)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+func (o EventHubDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the event hub to be used to create a data connection.
+func (o EventHubDataConnectionOutput) EventHubResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.EventHubResourceId }).(pulumi.StringOutput)
+}
+
+// System properties of the event hub
+func (o EventHubDataConnectionOutput) EventSystemProperties() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringArrayOutput { return v.EventSystemProperties }).(pulumi.StringArrayOutput)
+}
+
+// Kind of the endpoint for the data connection
+// Expected value is 'EventHub'.
+func (o EventHubDataConnectionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o EventHubDataConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+func (o EventHubDataConnectionOutput) MappingRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringPtrOutput { return v.MappingRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o EventHubDataConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o EventHubDataConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The table where the data should be ingested. Optionally the table information can be added to each message.
+func (o EventHubDataConnectionOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EventHubDataConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubDataConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubDataConnectionOutput{})
 }

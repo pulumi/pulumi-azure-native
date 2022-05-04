@@ -131,6 +131,26 @@ func (o WorkspaceSettingOutput) ToWorkspaceSettingOutputWithContext(ctx context.
 	return o
 }
 
+// Resource name
+func (o WorkspaceSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
+func (o WorkspaceSettingOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSetting) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o WorkspaceSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The full Azure ID of the workspace to save the data in
+func (o WorkspaceSettingOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSetting) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceSettingOutput{})
 }

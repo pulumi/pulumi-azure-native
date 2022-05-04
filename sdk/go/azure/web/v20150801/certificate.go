@@ -274,6 +274,106 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Raw bytes of .cer file
+func (o CertificateOutput) CerBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CerBlob }).(pulumi.StringPtrOutput)
+}
+
+// Certificate expiration date
+func (o CertificateOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the certificate
+func (o CertificateOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Host names the certificate applies to
+func (o CertificateOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// Specification for the hosting environment (App Service Environment) to use for the certificate
+func (o CertificateOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Certificate) HostingEnvironmentProfileResponsePtrOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponsePtrOutput)
+}
+
+// Certificate issue Date
+func (o CertificateOutput) IssueDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.IssueDate }).(pulumi.StringPtrOutput)
+}
+
+// Certificate issuer
+func (o CertificateOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o CertificateOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o CertificateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o CertificateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Certificate password
+func (o CertificateOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Pfx blob
+func (o CertificateOutput) PfxBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PfxBlob }).(pulumi.StringPtrOutput)
+}
+
+// Public key hash
+func (o CertificateOutput) PublicKeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PublicKeyHash }).(pulumi.StringPtrOutput)
+}
+
+// Self link
+func (o CertificateOutput) SelfLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.SelfLink }).(pulumi.StringPtrOutput)
+}
+
+// App name
+func (o CertificateOutput) SiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.SiteName }).(pulumi.StringPtrOutput)
+}
+
+// Subject name of the certificate
+func (o CertificateOutput) SubjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.SubjectName }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o CertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Certificate thumbprint
+func (o CertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o CertificateOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Is the certificate valid?
+func (o CertificateOutput) Valid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolPtrOutput { return v.Valid }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

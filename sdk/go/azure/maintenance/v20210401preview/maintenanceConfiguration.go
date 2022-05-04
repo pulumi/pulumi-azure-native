@@ -209,6 +209,81 @@ func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutputWithCont
 	return o
 }
 
+// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
+func (o MaintenanceConfigurationOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
+func (o MaintenanceConfigurationOutput) ExpirationDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.ExpirationDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets extensionProperties of the maintenanceConfiguration
+func (o MaintenanceConfigurationOutput) ExtensionProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringMapOutput { return v.ExtensionProperties }).(pulumi.StringMapOutput)
+}
+
+// The input parameters to be passed to the patch run operation.
+func (o MaintenanceConfigurationOutput) InstallPatches() InputPatchConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) InputPatchConfigurationResponsePtrOutput { return v.InstallPatches }).(InputPatchConfigurationResponsePtrOutput)
+}
+
+// Gets or sets location of the resource
+func (o MaintenanceConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets maintenanceScope of the configuration
+func (o MaintenanceConfigurationOutput) MaintenanceScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.MaintenanceScope }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource
+func (o MaintenanceConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets namespace of the resource
+func (o MaintenanceConfigurationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
+func (o MaintenanceConfigurationOutput) RecurEvery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.RecurEvery }).(pulumi.StringPtrOutput)
+}
+
+// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
+func (o MaintenanceConfigurationOutput) StartDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.StartDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o MaintenanceConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets tags of the resource
+func (o MaintenanceConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
+func (o MaintenanceConfigurationOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource
+func (o MaintenanceConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the visibility of the configuration. The default value is 'Custom'
+func (o MaintenanceConfigurationOutput) Visibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MaintenanceConfigurationOutput{})
 }

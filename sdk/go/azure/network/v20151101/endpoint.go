@@ -214,6 +214,56 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 	return o
 }
 
+// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+func (o EndpointOutput) EndpointLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointLocation }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the monitoring status of the endpoint.
+func (o EndpointOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+func (o EndpointOutput) EndpointStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointOutput) MinChildEndpoints() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.MinChildEndpoints }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the name of the Traffic Manager endpoint.
+func (o EndpointOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+func (o EndpointOutput) Priority() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.Priority }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+func (o EndpointOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+func (o EndpointOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the endpoint type of the Traffic Manager endpoint.
+func (o EndpointOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+func (o EndpointOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.Float64PtrOutput { return v.Weight }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointOutput{})
 }

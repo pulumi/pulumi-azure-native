@@ -209,6 +209,88 @@ func (o PacketCoreControlPlaneOutput) ToPacketCoreControlPlaneOutputWithContext(
 	return o
 }
 
+// The control plane interface on the access network. In 5G networks this is called as N2 interface whereas in 4G networks this is called as S1-MME interface.
+func (o PacketCoreControlPlaneOutput) ControlPlaneAccessInterface() InterfacePropertiesResponseOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) InterfacePropertiesResponseOutput {
+		return v.ControlPlaneAccessInterface
+	}).(InterfacePropertiesResponseOutput)
+}
+
+// The core network technology generation.
+func (o PacketCoreControlPlaneOutput) CoreNetworkTechnology() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.CoreNetworkTechnology }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o PacketCoreControlPlaneOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o PacketCoreControlPlaneOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o PacketCoreControlPlaneOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// Azure ARC custom location where the packet core is deployed.
+func (o PacketCoreControlPlaneOutput) CustomLocation() CustomLocationResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) CustomLocationResourceIdResponsePtrOutput { return v.CustomLocation }).(CustomLocationResourceIdResponsePtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o PacketCoreControlPlaneOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o PacketCoreControlPlaneOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o PacketCoreControlPlaneOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o PacketCoreControlPlaneOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Mobile network that this packet core control plane belongs to
+func (o PacketCoreControlPlaneOutput) MobileNetwork() MobileNetworkResourceIdResponseOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) MobileNetworkResourceIdResponseOutput { return v.MobileNetwork }).(MobileNetworkResourceIdResponseOutput)
+}
+
+// The name of the resource
+func (o PacketCoreControlPlaneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the packet core control plane resource.
+func (o PacketCoreControlPlaneOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o PacketCoreControlPlaneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PacketCoreControlPlaneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of the packet core software that is deployed.
+func (o PacketCoreControlPlaneOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCoreControlPlane) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PacketCoreControlPlaneOutput{})
 }

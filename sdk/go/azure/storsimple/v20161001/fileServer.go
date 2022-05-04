@@ -163,6 +163,36 @@ func (o FileServerOutput) ToFileServerOutputWithContext(ctx context.Context) Fil
 	return o
 }
 
+// The backup policy id.
+func (o FileServerOutput) BackupScheduleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringOutput { return v.BackupScheduleGroupId }).(pulumi.StringOutput)
+}
+
+// The description of the file server
+func (o FileServerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Domain of the file server
+func (o FileServerOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o FileServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage domain id.
+func (o FileServerOutput) StorageDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringOutput { return v.StorageDomainId }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o FileServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileServerOutput{})
 }

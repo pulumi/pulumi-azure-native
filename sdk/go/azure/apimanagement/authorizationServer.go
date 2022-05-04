@@ -278,6 +278,98 @@ func (o AuthorizationServerOutput) ToAuthorizationServerOutputWithContext(ctx co
 	return o
 }
 
+// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+func (o AuthorizationServerOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+}
+
+// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+func (o AuthorizationServerOutput) AuthorizationMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.AuthorizationMethods }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the mechanism by which access token is passed to the API.
+func (o AuthorizationServerOutput) BearerTokenSendingMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.BearerTokenSendingMethods }).(pulumi.StringArrayOutput)
+}
+
+// Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+func (o AuthorizationServerOutput) ClientAuthenticationMethod() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.ClientAuthenticationMethod }).(pulumi.StringArrayOutput)
+}
+
+// Client or app id registered with this authorization server.
+func (o AuthorizationServerOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+func (o AuthorizationServerOutput) ClientRegistrationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.ClientRegistrationEndpoint }).(pulumi.StringOutput)
+}
+
+// Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+func (o AuthorizationServerOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+func (o AuthorizationServerOutput) DefaultScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.DefaultScope }).(pulumi.StringPtrOutput)
+}
+
+// Description of the authorization server. Can contain HTML formatting tags.
+func (o AuthorizationServerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User-friendly authorization server name.
+func (o AuthorizationServerOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Form of an authorization grant, which the client uses to request the access token.
+func (o AuthorizationServerOutput) GrantTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringArrayOutput { return v.GrantTypes }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o AuthorizationServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+func (o AuthorizationServerOutput) ResourceOwnerPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.ResourceOwnerPassword }).(pulumi.StringPtrOutput)
+}
+
+// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+func (o AuthorizationServerOutput) ResourceOwnerUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.ResourceOwnerUsername }).(pulumi.StringPtrOutput)
+}
+
+// If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+func (o AuthorizationServerOutput) SupportState() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.BoolPtrOutput { return v.SupportState }).(pulumi.BoolPtrOutput)
+}
+
+// Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+func (o AuthorizationServerOutput) TokenBodyParameters() TokenBodyParameterContractResponseArrayOutput {
+	return o.ApplyT(func(v *AuthorizationServer) TokenBodyParameterContractResponseArrayOutput {
+		return v.TokenBodyParameters
+	}).(TokenBodyParameterContractResponseArrayOutput)
+}
+
+// OAuth token endpoint. Contains absolute URI to entity being referenced.
+func (o AuthorizationServerOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringPtrOutput { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o AuthorizationServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizationServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthorizationServerOutput{})
 }

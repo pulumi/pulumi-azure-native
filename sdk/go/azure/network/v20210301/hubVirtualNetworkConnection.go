@@ -191,6 +191,50 @@ func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutputWi
 	return o
 }
 
+// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+func (o HubVirtualNetworkConnectionOutput) AllowHubToRemoteVnetTransit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.BoolPtrOutput { return v.AllowHubToRemoteVnetTransit }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+func (o HubVirtualNetworkConnectionOutput) AllowRemoteVnetToUseHubVnetGateways() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.BoolPtrOutput {
+		return v.AllowRemoteVnetToUseHubVnetGateways
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enable internet security.
+func (o HubVirtualNetworkConnectionOutput) EnableInternetSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.BoolPtrOutput { return v.EnableInternetSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o HubVirtualNetworkConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o HubVirtualNetworkConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the hub virtual network connection resource.
+func (o HubVirtualNetworkConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Reference to the remote virtual network.
+func (o HubVirtualNetworkConnectionOutput) RemoteVirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) SubResourceResponsePtrOutput { return v.RemoteVirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
+// The Routing Configuration indicating the associated and propagated route tables on this connection.
+func (o HubVirtualNetworkConnectionOutput) RoutingConfiguration() RoutingConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *HubVirtualNetworkConnection) RoutingConfigurationResponsePtrOutput {
+		return v.RoutingConfiguration
+	}).(RoutingConfigurationResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HubVirtualNetworkConnectionOutput{})
 }

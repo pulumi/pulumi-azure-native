@@ -148,6 +148,31 @@ func (o StaticMemberOutput) ToStaticMemberOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o StaticMemberOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticMember) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o StaticMemberOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticMember) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource Id.
+func (o StaticMemberOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StaticMember) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o StaticMemberOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StaticMember) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o StaticMemberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StaticMember) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StaticMemberOutput{})
 }

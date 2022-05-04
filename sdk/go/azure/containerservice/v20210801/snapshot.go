@@ -173,6 +173,41 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
+// CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+func (o SnapshotOutput) CreationData() CreationDataResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) CreationDataResponsePtrOutput { return v.CreationData }).(CreationDataResponsePtrOutput)
+}
+
+// Resource location
+func (o SnapshotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of a snapshot. The default is NodePool.
+func (o SnapshotOutput) SnapshotType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.SnapshotType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this snapshot.
+func (o SnapshotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Snapshot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SnapshotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotOutput{})
 }

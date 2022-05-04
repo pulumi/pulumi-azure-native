@@ -185,6 +185,46 @@ func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutp
 	return o
 }
 
+// The list of databases from the clusterResourceId which are currently attached to the cluster.
+func (o AttachedDatabaseConfigurationOutput) AttachedDatabaseNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringArrayOutput { return v.AttachedDatabaseNames }).(pulumi.StringArrayOutput)
+}
+
+// The resource id of the cluster where the databases you would like to attach reside.
+func (o AttachedDatabaseConfigurationOutput) ClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ClusterResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+func (o AttachedDatabaseConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The default principals modification kind
+func (o AttachedDatabaseConfigurationOutput) DefaultPrincipalsModificationKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.DefaultPrincipalsModificationKind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o AttachedDatabaseConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o AttachedDatabaseConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o AttachedDatabaseConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AttachedDatabaseConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDatabaseConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationOutput{})
 }

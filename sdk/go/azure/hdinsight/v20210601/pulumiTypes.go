@@ -2271,6 +2271,18 @@ type ClusterCreatePropertiesArgs struct {
 	Tier pulumi.StringPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for ClusterCreatePropertiesArgs
+func (val *ClusterCreatePropertiesArgs) Defaults() *ClusterCreatePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.Tier) {
+		tmp.Tier = pulumi.StringPtr("Standard")
+	}
+	return &tmp
+}
 func (ClusterCreatePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterCreateProperties)(nil)).Elem()
 }
@@ -3351,6 +3363,17 @@ type ComputeIsolationPropertiesArgs struct {
 	HostSku pulumi.StringPtrInput `pulumi:"hostSku"`
 }
 
+// Defaults sets the appropriate defaults for ComputeIsolationPropertiesArgs
+func (val *ComputeIsolationPropertiesArgs) Defaults() *ComputeIsolationPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableComputeIsolation) {
+		tmp.EnableComputeIsolation = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ComputeIsolationPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComputeIsolationProperties)(nil)).Elem()
 }
@@ -4063,6 +4086,17 @@ type DiskEncryptionPropertiesArgs struct {
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
+// Defaults sets the appropriate defaults for DiskEncryptionPropertiesArgs
+func (val *DiskEncryptionPropertiesArgs) Defaults() *DiskEncryptionPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptionAtHost) {
+		tmp.EncryptionAtHost = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (DiskEncryptionPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionProperties)(nil)).Elem()
 }
@@ -4449,6 +4483,17 @@ type EncryptionInTransitPropertiesArgs struct {
 	IsEncryptionInTransitEnabled pulumi.BoolPtrInput `pulumi:"isEncryptionInTransitEnabled"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionInTransitPropertiesArgs
+func (val *EncryptionInTransitPropertiesArgs) Defaults() *EncryptionInTransitPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEncryptionInTransitEnabled) {
+		tmp.IsEncryptionInTransitEnabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EncryptionInTransitPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EncryptionInTransitProperties)(nil)).Elem()
 }
@@ -7024,6 +7069,17 @@ type RoleArgs struct {
 	VirtualNetworkProfile VirtualNetworkProfilePtrInput `pulumi:"virtualNetworkProfile"`
 }
 
+// Defaults sets the appropriate defaults for RoleArgs
+func (val *RoleArgs) Defaults() *RoleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptDataDisks) {
+		tmp.EncryptDataDisks = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (RoleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Role)(nil)).Elem()
 }

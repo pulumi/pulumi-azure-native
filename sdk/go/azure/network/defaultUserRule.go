@@ -189,6 +189,82 @@ func (o DefaultUserRuleOutput) ToDefaultUserRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// A description for this rule. Restricted to 140 chars.
+func (o DefaultUserRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The destination port ranges.
+func (o DefaultUserRuleOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringArrayOutput { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o DefaultUserRuleOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v *DefaultUserRule) AddressPrefixItemResponseArrayOutput { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o DefaultUserRuleOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o DefaultUserRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o DefaultUserRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Default rule flag.
+func (o DefaultUserRuleOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringPtrOutput { return v.Flag }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Default'.
+func (o DefaultUserRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DefaultUserRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network protocol this rule applies to.
+func (o DefaultUserRuleOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the security configuration user rule resource.
+func (o DefaultUserRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The source port ranges.
+func (o DefaultUserRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringArrayOutput { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o DefaultUserRuleOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v *DefaultUserRule) AddressPrefixItemResponseArrayOutput { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// The system metadata related to this resource.
+func (o DefaultUserRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DefaultUserRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o DefaultUserRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultUserRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DefaultUserRuleOutput{})
 }

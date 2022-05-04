@@ -196,6 +196,41 @@ func (o ApiVersionSetOutput) ToApiVersionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Description of API Version Set.
+func (o ApiVersionSetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of API Version Set
+func (o ApiVersionSetOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApiVersionSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiVersionSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+func (o ApiVersionSetOutput) VersionHeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringPtrOutput { return v.VersionHeaderName }).(pulumi.StringPtrOutput)
+}
+
+// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+func (o ApiVersionSetOutput) VersionQueryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringPtrOutput { return v.VersionQueryName }).(pulumi.StringPtrOutput)
+}
+
+// An value that determines where the API Version identifier will be located in a HTTP request.
+func (o ApiVersionSetOutput) VersioningScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiVersionSet) pulumi.StringOutput { return v.VersioningScheme }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiVersionSetOutput{})
 }

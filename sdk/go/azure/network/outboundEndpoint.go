@@ -154,6 +154,51 @@ func (o OutboundEndpointOutput) ToOutboundEndpointOutputWithContext(ctx context.
 	return o
 }
 
+// ETag of the outbound endpoint.
+func (o OutboundEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o OutboundEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o OutboundEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored.
+func (o OutboundEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resourceGuid property of the outbound endpoint resource.
+func (o OutboundEndpointOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The reference to the subnet used for the outbound endpoint.
+func (o OutboundEndpointOutput) Subnet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) SubResourceResponsePtrOutput { return v.Subnet }).(SubResourceResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o OutboundEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o OutboundEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OutboundEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutboundEndpointOutput{})
 }

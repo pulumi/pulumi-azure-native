@@ -166,6 +166,43 @@ func (o ScopeMapOutput) ToScopeMapOutputWithContext(ctx context.Context) ScopeMa
 	return o
 }
 
+// The list of scoped permissions for registry artifacts.
+// E.g. repositories/repository-name/content/read,
+// repositories/repository-name/metadata/write
+func (o ScopeMapOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The creation date of scope map.
+func (o ScopeMapOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The user friendly description of the scope map.
+func (o ScopeMapOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ScopeMapOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o ScopeMapOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ScopeMapOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScopeMap) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ScopeMapOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScopeMap) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScopeMapOutput{})
 }

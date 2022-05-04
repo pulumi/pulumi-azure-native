@@ -210,6 +210,81 @@ func (o ApplianceOutput) ToApplianceOutputWithContext(ctx context.Context) Appli
 	return o
 }
 
+// The fully qualified path of appliance definition Id.
+func (o ApplianceOutput) ApplianceDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.ApplianceDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The identity of the resource.
+func (o ApplianceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Appliance) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.
+func (o ApplianceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ApplianceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o ApplianceOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The managed resource group Id.
+func (o ApplianceOutput) ManagedResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ApplianceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name and value pairs that define the appliance outputs.
+func (o ApplianceOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.AnyOutput { return v.Outputs }).(pulumi.AnyOutput)
+}
+
+// Name and value pairs that define the appliance parameters. It can be a JObject or a well formed JSON string.
+func (o ApplianceOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The plan information.
+func (o ApplianceOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *Appliance) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The appliance provisioning state.
+func (o ApplianceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the resource.
+func (o ApplianceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Appliance) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ApplianceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplianceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The blob URI where the UI definition file is located.
+func (o ApplianceOutput) UiDefinitionUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.UiDefinitionUri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplianceOutput{})
 }

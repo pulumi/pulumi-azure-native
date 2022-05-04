@@ -237,6 +237,68 @@ func (o DatabaseAccountSqlContainerOutput) ToDatabaseAccountSqlContainerOutputWi
 	return o
 }
 
+// The conflict resolution policy for the container.
+func (o DatabaseAccountSqlContainerOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) ConflictResolutionPolicyResponsePtrOutput {
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o DatabaseAccountSqlContainerOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.IntPtrOutput { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o DatabaseAccountSqlContainerOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+func (o DatabaseAccountSqlContainerOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) IndexingPolicyResponsePtrOutput { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o DatabaseAccountSqlContainerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o DatabaseAccountSqlContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o DatabaseAccountSqlContainerOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) ContainerPartitionKeyResponsePtrOutput { return v.PartitionKey }).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o DatabaseAccountSqlContainerOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringPtrOutput { return v.Rid }).(pulumi.StringPtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o DatabaseAccountSqlContainerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o DatabaseAccountSqlContainerOutput) Ts() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.AnyOutput { return v.Ts }).(pulumi.AnyOutput)
+}
+
+// The type of Azure resource.
+func (o DatabaseAccountSqlContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o DatabaseAccountSqlContainerOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlContainer) UniqueKeyPolicyResponsePtrOutput { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAccountSqlContainerOutput{})
 }

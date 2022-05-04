@@ -140,6 +140,26 @@ func (o MetricsSourceTagRuleOutput) ToMetricsSourceTagRuleOutputWithContext(ctx 
 	return o
 }
 
+// Name of the rule set.
+func (o MetricsSourceTagRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsSourceTagRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+func (o MetricsSourceTagRuleOutput) Properties() MetricsTagRulesPropertiesResponseOutput {
+	return o.ApplyT(func(v *MetricsSourceTagRule) MetricsTagRulesPropertiesResponseOutput { return v.Properties }).(MetricsTagRulesPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o MetricsSourceTagRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MetricsSourceTagRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the rule set.
+func (o MetricsSourceTagRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsSourceTagRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricsSourceTagRuleOutput{})
 }

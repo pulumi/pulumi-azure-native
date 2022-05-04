@@ -338,6 +338,101 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
+// The address prefix for the subnet.
+func (o SubnetOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// List of address prefixes for the subnet.
+func (o SubnetOutput) AddressPrefixes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringArrayOutput { return v.AddressPrefixes }).(pulumi.StringArrayOutput)
+}
+
+// Gets an array of references to the delegations on the subnet.
+func (o SubnetOutput) Delegations() DelegationResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) DelegationResponseArrayOutput { return v.Delegations }).(DelegationResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SubnetOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Array of IP configuration profiles which reference this subnet.
+func (o SubnetOutput) IpConfigurationProfiles() IPConfigurationProfileResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) IPConfigurationProfileResponseArrayOutput { return v.IpConfigurationProfiles }).(IPConfigurationProfileResponseArrayOutput)
+}
+
+// Gets an array of references to the network interface IP configurations using subnet.
+func (o SubnetOutput) IpConfigurations() IPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) IPConfigurationResponseArrayOutput { return v.IpConfigurations }).(IPConfigurationResponseArrayOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o SubnetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Nat gateway associated with this subnet.
+func (o SubnetOutput) NatGateway() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *Subnet) SubResourceResponsePtrOutput { return v.NatGateway }).(SubResourceResponsePtrOutput)
+}
+
+// The reference of the NetworkSecurityGroup resource.
+func (o SubnetOutput) NetworkSecurityGroup() NetworkSecurityGroupResponsePtrOutput {
+	return o.ApplyT(func(v *Subnet) NetworkSecurityGroupResponsePtrOutput { return v.NetworkSecurityGroup }).(NetworkSecurityGroupResponsePtrOutput)
+}
+
+// Enable or Disable apply network policies on private end point in the subnet.
+func (o SubnetOutput) PrivateEndpointNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.PrivateEndpointNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+// An array of references to private endpoints.
+func (o SubnetOutput) PrivateEndpoints() PrivateEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) PrivateEndpointResponseArrayOutput { return v.PrivateEndpoints }).(PrivateEndpointResponseArrayOutput)
+}
+
+// Enable or Disable apply network policies on private link service in the subnet.
+func (o SubnetOutput) PrivateLinkServiceNetworkPolicies() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.PrivateLinkServiceNetworkPolicies }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o SubnetOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+func (o SubnetOutput) Purpose() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Purpose }).(pulumi.StringOutput)
+}
+
+// Gets an array of references to the external resources using subnet.
+func (o SubnetOutput) ResourceNavigationLinks() ResourceNavigationLinkResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) ResourceNavigationLinkResponseArrayOutput { return v.ResourceNavigationLinks }).(ResourceNavigationLinkResponseArrayOutput)
+}
+
+// The reference of the RouteTable resource.
+func (o SubnetOutput) RouteTable() RouteTableResponsePtrOutput {
+	return o.ApplyT(func(v *Subnet) RouteTableResponsePtrOutput { return v.RouteTable }).(RouteTableResponsePtrOutput)
+}
+
+// Gets an array of references to services injecting into this subnet.
+func (o SubnetOutput) ServiceAssociationLinks() ServiceAssociationLinkResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) ServiceAssociationLinkResponseArrayOutput { return v.ServiceAssociationLinks }).(ServiceAssociationLinkResponseArrayOutput)
+}
+
+// An array of service endpoint policies.
+func (o SubnetOutput) ServiceEndpointPolicies() ServiceEndpointPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) ServiceEndpointPolicyResponseArrayOutput { return v.ServiceEndpointPolicies }).(ServiceEndpointPolicyResponseArrayOutput)
+}
+
+// An array of service endpoints.
+func (o SubnetOutput) ServiceEndpoints() ServiceEndpointPropertiesFormatResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) ServiceEndpointPropertiesFormatResponseArrayOutput { return v.ServiceEndpoints }).(ServiceEndpointPropertiesFormatResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubnetOutput{})
 }

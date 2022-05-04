@@ -139,6 +139,38 @@ func (o RoleManagementPolicyAssignmentOutput) ToRoleManagementPolicyAssignmentOu
 	return o
 }
 
+// The role management policy name.
+func (o RoleManagementPolicyAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Additional properties of scope, role definition and policy
+func (o RoleManagementPolicyAssignmentOutput) PolicyAssignmentProperties() PolicyAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) PolicyAssignmentPropertiesResponseOutput {
+		return v.PolicyAssignmentProperties
+	}).(PolicyAssignmentPropertiesResponseOutput)
+}
+
+// The policy id role management policy assignment.
+func (o RoleManagementPolicyAssignmentOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) pulumi.StringPtrOutput { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+// The role definition of management policy assignment.
+func (o RoleManagementPolicyAssignmentOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) pulumi.StringPtrOutput { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The role management policy scope.
+func (o RoleManagementPolicyAssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The role management policy type.
+func (o RoleManagementPolicyAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleManagementPolicyAssignmentOutput{})
 }

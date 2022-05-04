@@ -193,6 +193,36 @@ func (o SiteAppSettingsOutput) ToSiteAppSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// Kind of resource
+func (o SiteAppSettingsOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteAppSettingsOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteAppSettingsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Settings
+func (o SiteAppSettingsOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource tags
+func (o SiteAppSettingsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteAppSettingsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteAppSettings) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteAppSettingsOutput{})
 }

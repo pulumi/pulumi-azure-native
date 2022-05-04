@@ -121,6 +121,21 @@ func (o TenantConfigurationOutput) ToTenantConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+func (o TenantConfigurationOutput) EnforcePrivateMarkdownStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TenantConfiguration) pulumi.BoolPtrOutput { return v.EnforcePrivateMarkdownStorage }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource
+func (o TenantConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TenantConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TenantConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TenantConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TenantConfigurationOutput{})
 }

@@ -211,6 +211,51 @@ func (o SiteLogsConfigOutput) ToSiteLogsConfigOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Application logs configuration
+func (o SiteLogsConfigOutput) ApplicationLogs() ApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) ApplicationLogsConfigResponsePtrOutput { return v.ApplicationLogs }).(ApplicationLogsConfigResponsePtrOutput)
+}
+
+// Detailed error messages configuration
+func (o SiteLogsConfigOutput) DetailedErrorMessages() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) EnabledConfigResponsePtrOutput { return v.DetailedErrorMessages }).(EnabledConfigResponsePtrOutput)
+}
+
+// Failed requests tracing configuration
+func (o SiteLogsConfigOutput) FailedRequestsTracing() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) EnabledConfigResponsePtrOutput { return v.FailedRequestsTracing }).(EnabledConfigResponsePtrOutput)
+}
+
+// Http logs configuration
+func (o SiteLogsConfigOutput) HttpLogs() HttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) HttpLogsConfigResponsePtrOutput { return v.HttpLogs }).(HttpLogsConfigResponsePtrOutput)
+}
+
+// Kind of resource
+func (o SiteLogsConfigOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteLogsConfigOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteLogsConfigOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteLogsConfigOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteLogsConfigOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteLogsConfig) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteLogsConfigOutput{})
 }

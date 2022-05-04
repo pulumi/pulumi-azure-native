@@ -451,6 +451,17 @@ type DriveStatusArgs struct {
 	VerboseLogUri pulumi.StringPtrInput `pulumi:"verboseLogUri"`
 }
 
+// Defaults sets the appropriate defaults for DriveStatusArgs
+func (val *DriveStatusArgs) Defaults() *DriveStatusArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.State) {
+		tmp.State = pulumi.StringPtr("Specified")
+	}
+	return &tmp
+}
 func (DriveStatusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DriveStatus)(nil)).Elem()
 }
@@ -763,6 +774,17 @@ type EncryptionKeyDetailsArgs struct {
 	KekVaultResourceID pulumi.StringPtrInput `pulumi:"kekVaultResourceID"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionKeyDetailsArgs
+func (val *EncryptionKeyDetailsArgs) Defaults() *EncryptionKeyDetailsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KekType) {
+		tmp.KekType = pulumi.StringPtr("MicrosoftManaged")
+	}
+	return &tmp
+}
 func (EncryptionKeyDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EncryptionKeyDetails)(nil)).Elem()
 }
@@ -1510,6 +1532,24 @@ type JobDetailsArgs struct {
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 }
 
+// Defaults sets the appropriate defaults for JobDetailsArgs
+func (val *JobDetailsArgs) Defaults() *JobDetailsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupDriveManifest) {
+		tmp.BackupDriveManifest = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.CancelRequested) {
+		tmp.CancelRequested = pulumi.BoolPtr(false)
+	}
+
+	if isZero(tmp.State) {
+		tmp.State = pulumi.StringPtr("Creating")
+	}
+	return &tmp
+}
 func (JobDetailsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobDetails)(nil)).Elem()
 }

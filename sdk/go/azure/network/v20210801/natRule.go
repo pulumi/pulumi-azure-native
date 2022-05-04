@@ -186,6 +186,56 @@ func (o NatRuleOutput) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOu
 	return o
 }
 
+// List of egress VpnSiteLinkConnections.
+func (o NatRuleOutput) EgressVpnSiteLinkConnections() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *NatRule) SubResourceResponseArrayOutput { return v.EgressVpnSiteLinkConnections }).(SubResourceResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NatRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The private IP address external mapping for NAT.
+func (o NatRuleOutput) ExternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v *NatRule) VpnNatRuleMappingResponseArrayOutput { return v.ExternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// List of ingress VpnSiteLinkConnections.
+func (o NatRuleOutput) IngressVpnSiteLinkConnections() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *NatRule) SubResourceResponseArrayOutput { return v.IngressVpnSiteLinkConnections }).(SubResourceResponseArrayOutput)
+}
+
+// The private IP address internal mapping for NAT.
+func (o NatRuleOutput) InternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v *NatRule) VpnNatRuleMappingResponseArrayOutput { return v.InternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// The IP Configuration ID this NAT rule applies to.
+func (o NatRuleOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringPtrOutput { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The Source NAT direction of a VPN NAT.
+func (o NatRuleOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o NatRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the NAT Rule resource.
+func (o NatRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o NatRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NatRuleOutput{})
 }

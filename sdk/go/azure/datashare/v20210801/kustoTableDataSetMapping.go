@@ -185,6 +185,52 @@ func (o KustoTableDataSetMappingOutput) ToKustoTableDataSetMappingOutputWithCont
 	return o
 }
 
+// The id of the source data set.
+func (o KustoTableDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o KustoTableDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'KustoTable'.
+func (o KustoTableDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the sink kusto cluster.
+func (o KustoTableDataSetMappingOutput) KustoClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.KustoClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the sink kusto cluster.
+func (o KustoTableDataSetMappingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o KustoTableDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o KustoTableDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o KustoTableDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o KustoTableDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoTableDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoTableDataSetMappingOutput{})
 }

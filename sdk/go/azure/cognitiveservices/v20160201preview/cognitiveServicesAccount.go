@@ -170,6 +170,51 @@ func (o CognitiveServicesAccountOutput) ToCognitiveServicesAccountOutputWithCont
 	return o
 }
 
+// Endpoint of the created account
+func (o CognitiveServicesAccountOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// Entity Tag
+func (o CognitiveServicesAccountOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Type of cognitive service account.
+func (o CognitiveServicesAccountOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource
+func (o CognitiveServicesAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the created account
+func (o CognitiveServicesAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets the status of the cognitive services account at the time the operation was called.
+func (o CognitiveServicesAccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the cognitive services account.
+func (o CognitiveServicesAccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+func (o CognitiveServicesAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CognitiveServicesAccountOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CognitiveServicesAccount) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CognitiveServicesAccountOutput{})
 }

@@ -161,6 +161,41 @@ func (o ArtifactSourceOutput) ToArtifactSourceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
+func (o ArtifactSourceOutput) ArtifactRoot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringPtrOutput { return v.ArtifactRoot }).(pulumi.StringPtrOutput)
+}
+
+// The authentication method to use to access the artifact source.
+func (o ArtifactSourceOutput) Authentication() SasAuthenticationResponseOutput {
+	return o.ApplyT(func(v *ArtifactSource) SasAuthenticationResponseOutput { return v.Authentication }).(SasAuthenticationResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o ArtifactSourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ArtifactSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of artifact source used.
+func (o ArtifactSourceOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.SourceType }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ArtifactSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ArtifactSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArtifactSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ArtifactSourceOutput{})
 }

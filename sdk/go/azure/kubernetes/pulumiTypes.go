@@ -45,6 +45,17 @@ type ConnectedClusterIdentityArgs struct {
 	Type ResourceIdentityTypeInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for ConnectedClusterIdentityArgs
+func (val *ConnectedClusterIdentityArgs) Defaults() *ConnectedClusterIdentityArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = ResourceIdentityType("SystemAssigned")
+	}
+	return &tmp
+}
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectedClusterIdentity)(nil)).Elem()
 }

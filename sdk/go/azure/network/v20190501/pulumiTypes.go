@@ -428,6 +428,17 @@ type BackendPoolsSettingsArgs struct {
 	SendRecvTimeoutSeconds pulumi.IntPtrInput `pulumi:"sendRecvTimeoutSeconds"`
 }
 
+// Defaults sets the appropriate defaults for BackendPoolsSettingsArgs
+func (val *BackendPoolsSettingsArgs) Defaults() *BackendPoolsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		tmp.EnforceCertificateNameCheck = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (BackendPoolsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendPoolsSettings)(nil)).Elem()
 }
@@ -1377,6 +1388,17 @@ type HealthProbeSettingsModelArgs struct {
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
+// Defaults sets the appropriate defaults for HealthProbeSettingsModelArgs
+func (val *HealthProbeSettingsModelArgs) Defaults() *HealthProbeSettingsModelArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		tmp.HealthProbeMethod = pulumi.StringPtr("HEAD")
+	}
+	return &tmp
+}
 func (HealthProbeSettingsModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*HealthProbeSettingsModel)(nil)).Elem()
 }

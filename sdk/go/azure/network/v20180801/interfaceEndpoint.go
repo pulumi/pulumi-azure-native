@@ -228,6 +228,61 @@ func (o InterfaceEndpointOutput) ToInterfaceEndpointOutputWithContext(ctx contex
 	return o
 }
 
+// A reference to the service being brought into the virtual network.
+func (o InterfaceEndpointOutput) EndpointService() EndpointServiceResponsePtrOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) EndpointServiceResponsePtrOutput { return v.EndpointService }).(EndpointServiceResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o InterfaceEndpointOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+func (o InterfaceEndpointOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringPtrOutput { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o InterfaceEndpointOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o InterfaceEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets an array of references to the network interfaces created for this interface endpoint.
+func (o InterfaceEndpointOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// A read-only property that identifies who created this interface endpoint.
+func (o InterfaceEndpointOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o InterfaceEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet from which the private IP will be allocated.
+func (o InterfaceEndpointOutput) Subnet() SubnetResponsePtrOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) SubnetResponsePtrOutput { return v.Subnet }).(SubnetResponsePtrOutput)
+}
+
+// Resource tags.
+func (o InterfaceEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o InterfaceEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InterfaceEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InterfaceEndpointOutput{})
 }

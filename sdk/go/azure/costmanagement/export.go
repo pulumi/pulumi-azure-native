@@ -182,6 +182,51 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 	return o
 }
 
+// Has the definition for the export.
+func (o ExportOutput) Definition() ExportDefinitionResponseOutput {
+	return o.ApplyT(func(v *Export) ExportDefinitionResponseOutput { return v.Definition }).(ExportDefinitionResponseOutput)
+}
+
+// Has delivery information for the export.
+func (o ExportOutput) DeliveryInfo() ExportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *Export) ExportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ExportDeliveryInfoResponseOutput)
+}
+
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o ExportOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The format of the export being delivered. Currently only 'Csv' is supported.
+func (o ExportOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExportOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// If the export has an active schedule, provides an estimate of the next execution time.
+func (o ExportOutput) NextRunTimeEstimate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.NextRunTimeEstimate }).(pulumi.StringOutput)
+}
+
+// If requested, has the most recent execution history for the export.
+func (o ExportOutput) RunHistory() ExportExecutionListResultResponsePtrOutput {
+	return o.ApplyT(func(v *Export) ExportExecutionListResultResponsePtrOutput { return v.RunHistory }).(ExportExecutionListResultResponsePtrOutput)
+}
+
+// Has schedule information for the export.
+func (o ExportOutput) Schedule() ExportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *Export) ExportScheduleResponsePtrOutput { return v.Schedule }).(ExportScheduleResponsePtrOutput)
+}
+
+// Resource type.
+func (o ExportOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExportOutput{})
 }

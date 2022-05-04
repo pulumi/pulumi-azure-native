@@ -174,6 +174,76 @@ func (o VmmServerOutput) ToVmmServerOutputWithContext(ctx context.Context) VmmSe
 	return o
 }
 
+// Gets or sets the connection status to the vmmServer.
+func (o VmmServerOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Credentials to connect to VMMServer.
+func (o VmmServerOutput) Credentials() VMMServerPropertiesResponseCredentialsPtrOutput {
+	return o.ApplyT(func(v *VmmServer) VMMServerPropertiesResponseCredentialsPtrOutput { return v.Credentials }).(VMMServerPropertiesResponseCredentialsPtrOutput)
+}
+
+// Gets or sets any error message if connection to vmmServer is having any issue.
+func (o VmmServerOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The extended location.
+func (o VmmServerOutput) ExtendedLocation() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *VmmServer) ExtendedLocationResponseOutput { return v.ExtendedLocation }).(ExtendedLocationResponseOutput)
+}
+
+// Fqdn is the hostname/ip of the vmmServer.
+func (o VmmServerOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Gets or sets the location.
+func (o VmmServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o VmmServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Port is the port on which the vmmServer is listening.
+func (o VmmServerOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VmmServerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system data.
+func (o VmmServerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VmmServer) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o VmmServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o VmmServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique ID of vmmServer.
+func (o VmmServerOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Version is the version of the vmmSever.
+func (o VmmServerOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *VmmServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VmmServerOutput{})
 }

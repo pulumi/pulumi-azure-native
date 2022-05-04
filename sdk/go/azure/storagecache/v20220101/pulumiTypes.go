@@ -919,6 +919,15 @@ type CacheDirectorySettingsArgs struct {
 	UsernameDownload CacheUsernameDownloadSettingsPtrInput `pulumi:"usernameDownload"`
 }
 
+// Defaults sets the appropriate defaults for CacheDirectorySettingsArgs
+func (val *CacheDirectorySettingsArgs) Defaults() *CacheDirectorySettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (CacheDirectorySettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheDirectorySettings)(nil)).Elem()
 }
@@ -1792,6 +1801,20 @@ type CacheNetworkSettingsArgs struct {
 	NtpServer pulumi.StringPtrInput `pulumi:"ntpServer"`
 }
 
+// Defaults sets the appropriate defaults for CacheNetworkSettingsArgs
+func (val *CacheNetworkSettingsArgs) Defaults() *CacheNetworkSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		tmp.Mtu = pulumi.IntPtr(1500)
+	}
+	if isZero(tmp.NtpServer) {
+		tmp.NtpServer = pulumi.StringPtr("time.windows.com")
+	}
+	return &tmp
+}
 func (CacheNetworkSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheNetworkSettings)(nil)).Elem()
 }
@@ -2629,6 +2652,17 @@ type CacheUsernameDownloadSettingsArgs struct {
 	UsernameSource pulumi.StringPtrInput `pulumi:"usernameSource"`
 }
 
+// Defaults sets the appropriate defaults for CacheUsernameDownloadSettingsArgs
+func (val *CacheUsernameDownloadSettingsArgs) Defaults() *CacheUsernameDownloadSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		tmp.UsernameSource = pulumi.StringPtr("None")
+	}
+	return &tmp
+}
 func (CacheUsernameDownloadSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CacheUsernameDownloadSettings)(nil)).Elem()
 }
@@ -4131,6 +4165,17 @@ type NamespaceJunctionArgs struct {
 	TargetPath pulumi.StringPtrInput `pulumi:"targetPath"`
 }
 
+// Defaults sets the appropriate defaults for NamespaceJunctionArgs
+func (val *NamespaceJunctionArgs) Defaults() *NamespaceJunctionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NfsAccessPolicy) {
+		tmp.NfsAccessPolicy = pulumi.StringPtr("default")
+	}
+	return &tmp
+}
 func (NamespaceJunctionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamespaceJunction)(nil)).Elem()
 }

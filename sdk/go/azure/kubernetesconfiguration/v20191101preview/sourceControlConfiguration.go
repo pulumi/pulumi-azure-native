@@ -224,6 +224,73 @@ func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutputWith
 	return o
 }
 
+// Compliance Status of the Configuration
+func (o SourceControlConfigurationOutput) ComplianceStatus() ComplianceStatusResponseOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) ComplianceStatusResponseOutput { return v.ComplianceStatus }).(ComplianceStatusResponseOutput)
+}
+
+// Option to enable Helm Operator for this git configuration.
+func (o SourceControlConfigurationOutput) EnableHelmOperator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.EnableHelmOperator }).(pulumi.StringPtrOutput)
+}
+
+// Properties for Helm operator.
+func (o SourceControlConfigurationOutput) HelmOperatorProperties() HelmOperatorPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) HelmOperatorPropertiesResponsePtrOutput {
+		return v.HelmOperatorProperties
+	}).(HelmOperatorPropertiesResponsePtrOutput)
+}
+
+// Resource name
+func (o SourceControlConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Instance name of the operator - identifying the specific configuration.
+func (o SourceControlConfigurationOutput) OperatorInstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorInstanceName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+func (o SourceControlConfigurationOutput) OperatorNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Any Parameters for the Operator instance in string format.
+func (o SourceControlConfigurationOutput) OperatorParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorParams }).(pulumi.StringPtrOutput)
+}
+
+// Scope at which the operator will be installed.
+func (o SourceControlConfigurationOutput) OperatorScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of the operator
+func (o SourceControlConfigurationOutput) OperatorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorType }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource provider.
+func (o SourceControlConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
+func (o SourceControlConfigurationOutput) RepositoryPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.RepositoryPublicKey }).(pulumi.StringOutput)
+}
+
+// Url of the SourceControl Repository.
+func (o SourceControlConfigurationOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o SourceControlConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SourceControlConfigurationOutput{})
 }

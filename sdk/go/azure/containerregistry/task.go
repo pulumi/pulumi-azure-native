@@ -231,6 +231,96 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
+// The machine configuration of the run agent.
+func (o TaskOutput) AgentConfiguration() AgentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Task) AgentPropertiesResponsePtrOutput { return v.AgentConfiguration }).(AgentPropertiesResponsePtrOutput)
+}
+
+// The dedicated agent pool for the task.
+func (o TaskOutput) AgentPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.AgentPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of task.
+func (o TaskOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The properties that describes a set of credentials that will be used when this run is invoked.
+func (o TaskOutput) Credentials() CredentialsResponsePtrOutput {
+	return o.ApplyT(func(v *Task) CredentialsResponsePtrOutput { return v.Credentials }).(CredentialsResponsePtrOutput)
+}
+
+// Identity for the resource.
+func (o TaskOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Task) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The value of this property indicates whether the task resource is system task or not.
+func (o TaskOutput) IsSystemTask() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.BoolPtrOutput { return v.IsSystemTask }).(pulumi.BoolPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o TaskOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The template that describes the repository and tag information for run log artifact.
+func (o TaskOutput) LogTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.LogTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o TaskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform properties against which the run has to happen.
+func (o TaskOutput) Platform() PlatformPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Task) PlatformPropertiesResponsePtrOutput { return v.Platform }).(PlatformPropertiesResponsePtrOutput)
+}
+
+// The provisioning state of the task.
+func (o TaskOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The current status of task.
+func (o TaskOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The properties of a task step.
+func (o TaskOutput) Step() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Task) pulumi.AnyOutput { return v.Step }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o TaskOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Task) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o TaskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Run timeout in seconds.
+func (o TaskOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+// The properties that describe all triggers for the task.
+func (o TaskOutput) Trigger() TriggerPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Task) TriggerPropertiesResponsePtrOutput { return v.Trigger }).(TriggerPropertiesResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o TaskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TaskOutput{})
 }

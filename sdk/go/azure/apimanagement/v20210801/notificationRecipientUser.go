@@ -169,6 +169,21 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithCo
 	return o
 }
 
+// The name of the resource
+func (o NotificationRecipientUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NotificationRecipientUserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// API Management UserId subscribed to notification.
+func (o NotificationRecipientUserOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationRecipientUserOutput{})
 }

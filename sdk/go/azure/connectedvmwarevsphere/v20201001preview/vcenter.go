@@ -181,6 +181,91 @@ func (o VCenterOutput) ToVCenterOutputWithContext(ctx context.Context) VCenterOu
 	return o
 }
 
+// Gets or sets the connection status to the vCenter.
+func (o VCenterOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Username / Password Credentials to connect to vcenter.
+func (o VCenterOutput) Credentials() VICredentialResponsePtrOutput {
+	return o.ApplyT(func(v *VCenter) VICredentialResponsePtrOutput { return v.Credentials }).(VICredentialResponsePtrOutput)
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o VCenterOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o VCenterOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *VCenter) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the FQDN/IPAddress of the vCenter.
+func (o VCenterOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Gets or sets the instance UUID of the vCenter.
+func (o VCenterOutput) InstanceUuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.InstanceUuid }).(pulumi.StringOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o VCenterOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o VCenterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the name.
+func (o VCenterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the port of the vCenter.
+func (o VCenterOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VCenterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o VCenterOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VCenter) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o VCenterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VCenter) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o VCenterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o VCenterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o VCenterOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the version of the vCenter.
+func (o VCenterOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *VCenter) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VCenterOutput{})
 }

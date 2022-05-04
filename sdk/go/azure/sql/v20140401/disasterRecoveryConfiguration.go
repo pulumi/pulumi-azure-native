@@ -143,6 +143,56 @@ func (o DisasterRecoveryConfigurationOutput) ToDisasterRecoveryConfigurationOutp
 	return o
 }
 
+// Whether or not failover can be done automatically.
+func (o DisasterRecoveryConfigurationOutput) AutoFailover() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.AutoFailover }).(pulumi.StringOutput)
+}
+
+// How aggressive the automatic failover should be.
+func (o DisasterRecoveryConfigurationOutput) FailoverPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.FailoverPolicy }).(pulumi.StringOutput)
+}
+
+// Location of the server that contains this disaster recovery configuration.
+func (o DisasterRecoveryConfigurationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Logical name of the server.
+func (o DisasterRecoveryConfigurationOutput) LogicalServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.LogicalServerName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DisasterRecoveryConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Logical name of the partner server.
+func (o DisasterRecoveryConfigurationOutput) PartnerLogicalServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.PartnerLogicalServerName }).(pulumi.StringOutput)
+}
+
+// Id of the partner server.
+func (o DisasterRecoveryConfigurationOutput) PartnerServerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.PartnerServerId }).(pulumi.StringOutput)
+}
+
+// The role of the current server in the disaster recovery configuration.
+func (o DisasterRecoveryConfigurationOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The status of the disaster recovery configuration.
+func (o DisasterRecoveryConfigurationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o DisasterRecoveryConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DisasterRecoveryConfigurationOutput{})
 }

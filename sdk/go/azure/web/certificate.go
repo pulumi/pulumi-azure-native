@@ -247,6 +247,131 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// CNAME of the certificate to be issued via free certificate
+func (o CertificateOutput) CanonicalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.CanonicalName }).(pulumi.StringPtrOutput)
+}
+
+// Raw bytes of .cer file
+func (o CertificateOutput) CerBlob() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CerBlob }).(pulumi.StringOutput)
+}
+
+// Method of domain validation for free cert
+func (o CertificateOutput) DomainValidationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.DomainValidationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Certificate expiration date.
+func (o CertificateOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// Friendly name of the certificate.
+func (o CertificateOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// Host names the certificate applies to.
+func (o CertificateOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringArrayOutput { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// Specification for the App Service Environment to use for the certificate.
+func (o CertificateOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponseOutput {
+	return o.ApplyT(func(v *Certificate) HostingEnvironmentProfileResponseOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponseOutput)
+}
+
+// Certificate issue Date.
+func (o CertificateOutput) IssueDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.IssueDate }).(pulumi.StringOutput)
+}
+
+// Certificate issuer.
+func (o CertificateOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// Key Vault Csm resource Id.
+func (o CertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Key Vault secret name.
+func (o CertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
+}
+
+// Status of the Key Vault secret.
+func (o CertificateOutput) KeyVaultSecretStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.KeyVaultSecretStatus }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o CertificateOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o CertificateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Pfx blob.
+func (o CertificateOutput) PfxBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PfxBlob }).(pulumi.StringPtrOutput)
+}
+
+// Public key hash.
+func (o CertificateOutput) PublicKeyHash() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PublicKeyHash }).(pulumi.StringOutput)
+}
+
+// Self link.
+func (o CertificateOutput) SelfLink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SelfLink }).(pulumi.StringOutput)
+}
+
+// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+func (o CertificateOutput) ServerFarmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ServerFarmId }).(pulumi.StringPtrOutput)
+}
+
+// App name.
+func (o CertificateOutput) SiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SiteName }).(pulumi.StringOutput)
+}
+
+// Subject name of the certificate.
+func (o CertificateOutput) SubjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.SubjectName }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o CertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Certificate thumbprint.
+func (o CertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Is the certificate valid?.
+func (o CertificateOutput) Valid() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.BoolOutput { return v.Valid }).(pulumi.BoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

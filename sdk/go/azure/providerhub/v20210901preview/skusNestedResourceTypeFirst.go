@@ -147,6 +147,25 @@ func (o SkusNestedResourceTypeFirstOutput) ToSkusNestedResourceTypeFirstOutputWi
 	return o
 }
 
+// The name of the resource
+func (o SkusNestedResourceTypeFirstOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SkusNestedResourceTypeFirst) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SkusNestedResourceTypeFirstOutput) Properties() SkuResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *SkusNestedResourceTypeFirst) SkuResourceResponsePropertiesOutput { return v.Properties }).(SkuResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SkusNestedResourceTypeFirstOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SkusNestedResourceTypeFirst) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SkusNestedResourceTypeFirstOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SkusNestedResourceTypeFirst) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SkusNestedResourceTypeFirstOutput{})
 }

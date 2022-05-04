@@ -189,6 +189,71 @@ func (o OpenShiftClusterOutput) ToOpenShiftClusterOutputWithContext(ctx context.
 	return o
 }
 
+// The cluster API server profile.
+func (o OpenShiftClusterOutput) ApiserverProfile() APIServerProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) APIServerProfileResponsePtrOutput { return v.ApiserverProfile }).(APIServerProfileResponsePtrOutput)
+}
+
+// The cluster profile.
+func (o OpenShiftClusterOutput) ClusterProfile() ClusterProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) ClusterProfileResponsePtrOutput { return v.ClusterProfile }).(ClusterProfileResponsePtrOutput)
+}
+
+// The console profile.
+func (o OpenShiftClusterOutput) ConsoleProfile() ConsoleProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) ConsoleProfileResponsePtrOutput { return v.ConsoleProfile }).(ConsoleProfileResponsePtrOutput)
+}
+
+// The cluster ingress profiles.
+func (o OpenShiftClusterOutput) IngressProfiles() IngressProfileResponseArrayOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) IngressProfileResponseArrayOutput { return v.IngressProfiles }).(IngressProfileResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o OpenShiftClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The cluster master profile.
+func (o OpenShiftClusterOutput) MasterProfile() MasterProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) MasterProfileResponsePtrOutput { return v.MasterProfile }).(MasterProfileResponsePtrOutput)
+}
+
+// The name of the resource
+func (o OpenShiftClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The cluster network profile.
+func (o OpenShiftClusterOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// The cluster provisioning state (immutable).
+func (o OpenShiftClusterOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The cluster service principal profile.
+func (o OpenShiftClusterOutput) ServicePrincipalProfile() ServicePrincipalProfileResponsePtrOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) ServicePrincipalProfileResponsePtrOutput { return v.ServicePrincipalProfile }).(ServicePrincipalProfileResponsePtrOutput)
+}
+
+// Resource tags.
+func (o OpenShiftClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OpenShiftClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The cluster worker profiles.
+func (o OpenShiftClusterOutput) WorkerProfiles() WorkerProfileResponseArrayOutput {
+	return o.ApplyT(func(v *OpenShiftCluster) WorkerProfileResponseArrayOutput { return v.WorkerProfiles }).(WorkerProfileResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OpenShiftClusterOutput{})
 }

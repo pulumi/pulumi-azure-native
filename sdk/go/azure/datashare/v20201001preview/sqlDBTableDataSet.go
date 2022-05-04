@@ -199,6 +199,52 @@ func (o SqlDBTableDataSetOutput) ToSqlDBTableDataSetOutputWithContext(ctx contex
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o SqlDBTableDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Database name of the source data set
+func (o SqlDBTableDataSetOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'SqlDBTable'.
+func (o SqlDBTableDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SqlDBTableDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Schema of the table. Default value is dbo.
+func (o SqlDBTableDataSetOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// Resource id of SQL server
+func (o SqlDBTableDataSetOutput) SqlServerResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.SqlServerResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o SqlDBTableDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// SQL DB table name.
+func (o SqlDBTableDataSetOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o SqlDBTableDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDBTableDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlDBTableDataSetOutput{})
 }

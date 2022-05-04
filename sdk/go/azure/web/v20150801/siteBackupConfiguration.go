@@ -214,6 +214,51 @@ func (o SiteBackupConfigurationOutput) ToSiteBackupConfigurationOutputWithContex
 	return o
 }
 
+// Schedule for the backup if it is executed periodically
+func (o SiteBackupConfigurationOutput) BackupSchedule() BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) BackupScheduleResponsePtrOutput { return v.BackupSchedule }).(BackupScheduleResponsePtrOutput)
+}
+
+// Databases included in the backup
+func (o SiteBackupConfigurationOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) DatabaseBackupSettingResponseArrayOutput { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+func (o SiteBackupConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource
+func (o SiteBackupConfigurationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteBackupConfigurationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteBackupConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to the container
+func (o SiteBackupConfigurationOutput) StorageAccountUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringPtrOutput { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteBackupConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteBackupConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteBackupConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteBackupConfigurationOutput{})
 }

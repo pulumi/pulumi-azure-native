@@ -168,6 +168,26 @@ func (o RedisFirewallRuleOutput) ToRedisFirewallRuleOutputWithContext(ctx contex
 	return o
 }
 
+// highest IP address included in the range
+func (o RedisFirewallRuleOutput) EndIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisFirewallRule) pulumi.StringOutput { return v.EndIP }).(pulumi.StringOutput)
+}
+
+// name of the firewall rule
+func (o RedisFirewallRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisFirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// lowest IP address included in the range
+func (o RedisFirewallRuleOutput) StartIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisFirewallRule) pulumi.StringOutput { return v.StartIP }).(pulumi.StringOutput)
+}
+
+// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
+func (o RedisFirewallRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisFirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RedisFirewallRuleOutput{})
 }

@@ -200,6 +200,57 @@ func (o IoTAddonOutput) ToIoTAddonOutputWithContext(ctx context.Context) IoTAddo
 	return o
 }
 
+// Host OS supported by the IoT addon.
+func (o IoTAddonOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// Platform where the runtime is hosted.
+func (o IoTAddonOutput) HostPlatformType() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.HostPlatformType }).(pulumi.StringOutput)
+}
+
+// IoT device metadata to which appliance needs to be connected.
+func (o IoTAddonOutput) IoTDeviceDetails() IoTDeviceInfoResponseOutput {
+	return o.ApplyT(func(v *IoTAddon) IoTDeviceInfoResponseOutput { return v.IoTDeviceDetails }).(IoTDeviceInfoResponseOutput)
+}
+
+// IoT edge device to which the IoT Addon needs to be configured.
+func (o IoTAddonOutput) IoTEdgeDeviceDetails() IoTDeviceInfoResponseOutput {
+	return o.ApplyT(func(v *IoTAddon) IoTDeviceInfoResponseOutput { return v.IoTEdgeDeviceDetails }).(IoTDeviceInfoResponseOutput)
+}
+
+// Addon type.
+// Expected value is 'IotEdge'.
+func (o IoTAddonOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o IoTAddonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Addon Provisioning State
+func (o IoTAddonOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Addon type
+func (o IoTAddonOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IoTAddon) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o IoTAddonOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of IoT running on the appliance.
+func (o IoTAddonOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTAddon) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTAddonOutput{})
 }

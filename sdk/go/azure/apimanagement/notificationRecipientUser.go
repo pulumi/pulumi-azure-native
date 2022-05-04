@@ -170,6 +170,21 @@ func (o NotificationRecipientUserOutput) ToNotificationRecipientUserOutputWithCo
 	return o
 }
 
+// Resource name.
+func (o NotificationRecipientUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o NotificationRecipientUserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// API Management UserId subscribed to notification.
+func (o NotificationRecipientUserOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRecipientUser) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationRecipientUserOutput{})
 }

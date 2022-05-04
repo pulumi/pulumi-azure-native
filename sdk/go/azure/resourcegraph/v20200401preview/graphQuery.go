@@ -154,6 +154,56 @@ func (o GraphQueryOutput) ToGraphQueryOutputWithContext(ctx context.Context) Gra
 	return o
 }
 
+// The description of a graph query.
+func (o GraphQueryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// This will be used to handle Optimistic Concurrency.
+func (o GraphQueryOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource
+func (o GraphQueryOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+func (o GraphQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// KQL query that will be graph.
+func (o GraphQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// Enum indicating a type of graph query.
+func (o GraphQueryOutput) ResultKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.ResultKind }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o GraphQueryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GraphQuery) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o GraphQueryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this graph query definition.
+func (o GraphQueryOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o GraphQueryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQuery) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GraphQueryOutput{})
 }

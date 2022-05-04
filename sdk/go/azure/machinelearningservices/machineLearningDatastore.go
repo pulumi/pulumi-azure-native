@@ -274,6 +274,41 @@ func (o MachineLearningDatastoreOutput) ToMachineLearningDatastoreOutputWithCont
 	return o
 }
 
+// The identity of the resource.
+func (o MachineLearningDatastoreOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o MachineLearningDatastoreOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o MachineLearningDatastoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Datastore properties
+func (o MachineLearningDatastoreOutput) Properties() DatastoreResponseOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) DatastoreResponseOutput { return v.Properties }).(DatastoreResponseOutput)
+}
+
+// The sku of the workspace.
+func (o MachineLearningDatastoreOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o MachineLearningDatastoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o MachineLearningDatastoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MachineLearningDatastore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineLearningDatastoreOutput{})
 }

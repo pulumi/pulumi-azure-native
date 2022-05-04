@@ -304,6 +304,137 @@ func (o ManagedInstanceOutput) ToManagedInstanceOutputWithContext(ctx context.Co
 	return o
 }
 
+// Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
+func (o ManagedInstanceOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// Collation of the managed instance.
+func (o ManagedInstanceOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// The Dns Zone that the managed instance is in.
+func (o ManagedInstanceOutput) DnsZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.DnsZone }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name of the managed instance.
+func (o ManagedInstanceOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory identity of the managed instance.
+func (o ManagedInstanceOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The Id of the instance pool this managed server belongs to.
+func (o ManagedInstanceOutput) InstancePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.InstancePoolId }).(pulumi.StringPtrOutput)
+}
+
+// The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
+func (o ManagedInstanceOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ManagedInstanceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies maintenance configuration id to apply to this managed instance.
+func (o ManagedInstanceOutput) MaintenanceConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.MaintenanceConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
+func (o ManagedInstanceOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ManagedInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections on a managed instance.
+func (o ManagedInstanceOutput) PrivateEndpointConnections() ManagedInstancePecPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedInstance) ManagedInstancePecPropertyResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(ManagedInstancePecPropertyResponseArrayOutput)
+}
+
+func (o ManagedInstanceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connection type used for connecting to the instance.
+func (o ManagedInstanceOutput) ProxyOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.ProxyOverride }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the public data endpoint is enabled.
+func (o ManagedInstanceOutput) PublicDataEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.BoolPtrOutput { return v.PublicDataEndpointEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+func (o ManagedInstanceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The state of the managed instance.
+func (o ManagedInstanceOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+func (o ManagedInstanceOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+func (o ManagedInstanceOutput) StorageSizeInGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.IntPtrOutput { return v.StorageSizeInGB }).(pulumi.IntPtrOutput)
+}
+
+// Subnet resource ID for the managed instance.
+func (o ManagedInstanceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o ManagedInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Id of the timezone. Allowed values are timezones supported by Windows.
+// Windows keeps details on supported timezones, including the id, in registry under
+// KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones.
+// You can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.
+// List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
+// An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
+func (o ManagedInstanceOutput) TimezoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.TimezoneId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ManagedInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
+func (o ManagedInstanceOutput) VCores() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.IntPtrOutput { return v.VCores }).(pulumi.IntPtrOutput)
+}
+
+// Whether or not the multi-az is enabled.
+func (o ManagedInstanceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedInstance) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedInstanceOutput{})
 }

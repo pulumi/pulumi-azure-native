@@ -275,6 +275,26 @@ func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutputWi
 	return o
 }
 
+// Etag of the azure resource
+func (o ThreatIntelligenceIndicatorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the entity.
+func (o ThreatIntelligenceIndicatorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ThreatIntelligenceIndicatorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o ThreatIntelligenceIndicatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ThreatIntelligenceIndicatorOutput{})
 }

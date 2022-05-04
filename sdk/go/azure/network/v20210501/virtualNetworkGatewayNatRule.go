@@ -176,6 +176,46 @@ func (o VirtualNetworkGatewayNatRuleOutput) ToVirtualNetworkGatewayNatRuleOutput
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualNetworkGatewayNatRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The private IP address external mapping for NAT.
+func (o VirtualNetworkGatewayNatRuleOutput) ExternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) VpnNatRuleMappingResponseArrayOutput { return v.ExternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// The private IP address internal mapping for NAT.
+func (o VirtualNetworkGatewayNatRuleOutput) InternalMappings() VpnNatRuleMappingResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) VpnNatRuleMappingResponseArrayOutput { return v.InternalMappings }).(VpnNatRuleMappingResponseArrayOutput)
+}
+
+// The IP Configuration ID this NAT rule applies to.
+func (o VirtualNetworkGatewayNatRuleOutput) IpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringPtrOutput { return v.IpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
+// The Source NAT direction of a VPN NAT.
+func (o VirtualNetworkGatewayNatRuleOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o VirtualNetworkGatewayNatRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the NAT Rule resource.
+func (o VirtualNetworkGatewayNatRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o VirtualNetworkGatewayNatRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayNatRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayNatRuleOutput{})
 }

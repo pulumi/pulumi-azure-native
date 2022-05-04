@@ -170,6 +170,41 @@ func (o BookmarkRelationOutput) ToBookmarkRelationOutputWithContext(ctx context.
 	return o
 }
 
+// Etag of the azure resource
+func (o BookmarkRelationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o BookmarkRelationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the related resource
+func (o BookmarkRelationOutput) RelatedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceId }).(pulumi.StringOutput)
+}
+
+// The resource kind of the related resource
+func (o BookmarkRelationOutput) RelatedResourceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceKind }).(pulumi.StringOutput)
+}
+
+// The name of the related resource
+func (o BookmarkRelationOutput) RelatedResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceName }).(pulumi.StringOutput)
+}
+
+// The resource type of the related resource
+func (o BookmarkRelationOutput) RelatedResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.RelatedResourceType }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o BookmarkRelationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BookmarkRelation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BookmarkRelationOutput{})
 }

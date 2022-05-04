@@ -184,6 +184,66 @@ func (o DiskPoolOutput) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoo
 	return o
 }
 
+// List of additional capabilities for Disk pool.
+func (o DiskPoolOutput) AdditionalCapabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringArrayOutput { return v.AdditionalCapabilities }).(pulumi.StringArrayOutput)
+}
+
+// Logical zone for Disk pool resource; example: ["1"].
+func (o DiskPoolOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+func (o DiskPoolOutput) Disks() DiskResponseArrayOutput {
+	return o.ApplyT(func(v *DiskPool) DiskResponseArrayOutput { return v.Disks }).(DiskResponseArrayOutput)
+}
+
+// The geo-location where the resource lives.
+func (o DiskPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DiskPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the operation on the resource.
+func (o DiskPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Operational status of the Disk pool.
+func (o DiskPoolOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Azure Resource ID of a Subnet for the Disk pool.
+func (o DiskPoolOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o DiskPoolOutput) SystemData() SystemMetadataResponseOutput {
+	return o.ApplyT(func(v *DiskPool) SystemMetadataResponseOutput { return v.SystemData }).(SystemMetadataResponseOutput)
+}
+
+// Resource tags.
+func (o DiskPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Determines the SKU of VM deployed for Disk pool
+func (o DiskPoolOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o DiskPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskPoolOutput{})
 }

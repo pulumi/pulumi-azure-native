@@ -160,6 +160,41 @@ func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlSe
 	return o
 }
 
+// Cores of the Sql Server.
+func (o SqlServerOutput) Cores() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.IntPtrOutput { return v.Cores }).(pulumi.IntPtrOutput)
+}
+
+// Sql Server Edition.
+func (o SqlServerOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o SqlServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sql Server Json Property Bag.
+func (o SqlServerOutput) PropertyBag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringPtrOutput { return v.PropertyBag }).(pulumi.StringPtrOutput)
+}
+
+// ID for Parent Sql Server Registration.
+func (o SqlServerOutput) RegistrationID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringPtrOutput { return v.RegistrationID }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o SqlServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the Sql Server.
+func (o SqlServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServer) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlServerOutput{})
 }

@@ -182,6 +182,36 @@ func (o AATPDataConnectorOutput) ToAATPDataConnectorOutputWithContext(ctx contex
 	return o
 }
 
+// The available data types for the connector.
+func (o AATPDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *AATPDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o AATPDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AATPDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'AzureAdvancedThreatProtection'.
+func (o AATPDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AATPDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AATPDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AATPDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o AATPDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AATPDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o AATPDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AATPDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AATPDataConnectorOutput{})
 }

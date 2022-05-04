@@ -154,6 +154,21 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
+// The name of the resource
+func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o NamespaceAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NamespaceAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 }

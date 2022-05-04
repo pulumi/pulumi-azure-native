@@ -131,6 +131,22 @@ func (o ServerCollectorOutput) ToServerCollectorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ServerCollectorOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerCollector) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerCollectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCollector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ServerCollectorOutput) Properties() CollectorPropertiesResponseOutput {
+	return o.ApplyT(func(v *ServerCollector) CollectorPropertiesResponseOutput { return v.Properties }).(CollectorPropertiesResponseOutput)
+}
+
+func (o ServerCollectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCollector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerCollectorOutput{})
 }

@@ -185,6 +185,36 @@ func (o Dynamics365DataConnectorOutput) ToDynamics365DataConnectorOutputWithCont
 	return o
 }
 
+// The available data types for the connector.
+func (o Dynamics365DataConnectorOutput) DataTypes() Dynamics365DataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) Dynamics365DataConnectorDataTypesResponseOutput { return v.DataTypes }).(Dynamics365DataConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o Dynamics365DataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'Dynamics365'.
+func (o Dynamics365DataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o Dynamics365DataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o Dynamics365DataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o Dynamics365DataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dynamics365DataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(Dynamics365DataConnectorOutput{})
 }

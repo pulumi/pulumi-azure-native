@@ -2419,6 +2419,23 @@ type ManagedHsmPropertiesArgs struct {
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 }
 
+// Defaults sets the appropriate defaults for ManagedHsmPropertiesArgs
+func (val *ManagedHsmPropertiesArgs) Defaults() *ManagedHsmPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnablePurgeProtection) {
+		tmp.EnablePurgeProtection = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
+	}
+	return &tmp
+}
 func (ManagedHsmPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedHsmProperties)(nil)).Elem()
 }
@@ -5004,6 +5021,23 @@ type VaultPropertiesArgs struct {
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
+// Defaults sets the appropriate defaults for VaultPropertiesArgs
+func (val *VaultPropertiesArgs) Defaults() *VaultPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableRbacAuthorization) {
+		tmp.EnableRbacAuthorization = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		tmp.EnableSoftDelete = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		tmp.SoftDeleteRetentionInDays = pulumi.IntPtr(90)
+	}
+	return &tmp
+}
 func (VaultPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultProperties)(nil)).Elem()
 }

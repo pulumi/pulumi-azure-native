@@ -204,6 +204,46 @@ func (o BastionHostOutput) ToBastionHostOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// FQDN for the endpoint on which bastion host is accessible.
+func (o BastionHostOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o BastionHostOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// IP configuration of the Bastion Host resource.
+func (o BastionHostOutput) IpConfigurations() BastionHostIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *BastionHost) BastionHostIPConfigurationResponseArrayOutput { return v.IpConfigurations }).(BastionHostIPConfigurationResponseArrayOutput)
+}
+
+// Resource location.
+func (o BastionHostOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o BastionHostOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the bastion host resource.
+func (o BastionHostOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o BastionHostOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o BastionHostOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BastionHost) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BastionHostOutput{})
 }

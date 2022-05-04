@@ -7545,6 +7545,17 @@ type DatasetCreateRequestParametersArgs struct {
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 }
 
+// Defaults sets the appropriate defaults for DatasetCreateRequestParametersArgs
+func (val *DatasetCreateRequestParametersArgs) Defaults() *DatasetCreateRequestParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IncludePath) {
+		tmp.IncludePath = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (DatasetCreateRequestParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatasetCreateRequestParameters)(nil)).Elem()
 }

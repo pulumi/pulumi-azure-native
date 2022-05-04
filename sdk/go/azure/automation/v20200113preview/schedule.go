@@ -202,6 +202,86 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
+// Gets or sets the advanced schedule.
+func (o ScheduleOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *Schedule) AdvancedScheduleResponsePtrOutput { return v.AdvancedSchedule }).(AdvancedScheduleResponsePtrOutput)
+}
+
+// Gets or sets the creation time.
+func (o ScheduleOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o ScheduleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the end time of the schedule.
+func (o ScheduleOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expiry time's offset in minutes.
+func (o ScheduleOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.Float64PtrOutput { return v.ExpiryTimeOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the frequency of the schedule.
+func (o ScheduleOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the interval of the schedule.
+func (o ScheduleOutput) Interval() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.AnyOutput { return v.Interval }).(pulumi.AnyOutput)
+}
+
+// Gets or sets a value indicating whether this schedule is enabled.
+func (o ScheduleOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o ScheduleOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the next run time of the schedule.
+func (o ScheduleOutput) NextRun() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.NextRun }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the next run time's offset in minutes.
+func (o ScheduleOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.Float64PtrOutput { return v.NextRunOffsetMinutes }).(pulumi.Float64PtrOutput)
+}
+
+// Gets or sets the start time of the schedule.
+func (o ScheduleOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets the start time's offset in minutes.
+func (o ScheduleOutput) StartTimeOffsetMinutes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Schedule) pulumi.Float64Output { return v.StartTimeOffsetMinutes }).(pulumi.Float64Output)
+}
+
+// Gets or sets the time zone of the schedule.
+func (o ScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringPtrOutput { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o ScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduleOutput{})
 }

@@ -142,6 +142,21 @@ func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutputWithContext(ctx co
 	return o
 }
 
+// Resource name.
+func (o WorkloadNetworkDhcpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// DHCP properties.
+func (o WorkloadNetworkDhcpOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkDhcpOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkDhcpOutput{})
 }

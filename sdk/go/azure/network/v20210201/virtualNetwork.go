@@ -331,6 +331,96 @@ func (o VirtualNetworkOutput) ToVirtualNetworkOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+func (o VirtualNetworkOutput) AddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) AddressSpaceResponsePtrOutput { return v.AddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+func (o VirtualNetworkOutput) BgpCommunities() VirtualNetworkBgpCommunitiesResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkBgpCommunitiesResponsePtrOutput { return v.BgpCommunities }).(VirtualNetworkBgpCommunitiesResponsePtrOutput)
+}
+
+// The DDoS protection plan associated with the virtual network.
+func (o VirtualNetworkOutput) DdosProtectionPlan() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubResourceResponsePtrOutput { return v.DdosProtectionPlan }).(SubResourceResponsePtrOutput)
+}
+
+// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+func (o VirtualNetworkOutput) DhcpOptions() DhcpOptionsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) DhcpOptionsResponsePtrOutput { return v.DhcpOptions }).(DhcpOptionsResponsePtrOutput)
+}
+
+// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+func (o VirtualNetworkOutput) EnableDdosProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.BoolPtrOutput { return v.EnableDdosProtection }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if VM protection is enabled for all the subnets in the virtual network.
+func (o VirtualNetworkOutput) EnableVmProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.BoolPtrOutput { return v.EnableVmProtection }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualNetworkOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The extended location of the virtual network.
+func (o VirtualNetworkOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The FlowTimeout value (in minutes) for the Virtual Network
+func (o VirtualNetworkOutput) FlowTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.IntPtrOutput { return v.FlowTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Array of IpAllocation which reference this VNET.
+func (o VirtualNetworkOutput) IpAllocations() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubResourceResponseArrayOutput { return v.IpAllocations }).(SubResourceResponseArrayOutput)
+}
+
+// Resource location.
+func (o VirtualNetworkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o VirtualNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the virtual network resource.
+func (o VirtualNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resourceGuid property of the Virtual Network resource.
+func (o VirtualNetworkOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// A list of subnets in a Virtual Network.
+func (o VirtualNetworkOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags.
+func (o VirtualNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of peerings in a Virtual Network.
+func (o VirtualNetworkOutput) VirtualNetworkPeerings() VirtualNetworkPeeringResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetwork) VirtualNetworkPeeringResponseArrayOutput { return v.VirtualNetworkPeerings }).(VirtualNetworkPeeringResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkOutput{})
 }

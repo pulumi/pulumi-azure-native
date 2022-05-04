@@ -140,6 +140,28 @@ func (o ManagedNetworkPeeringPolicyOutput) ToManagedNetworkPeeringPolicyOutputWi
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ManagedNetworkPeeringPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ManagedNetworkPeeringPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the properties of a Managed Network Policy
+func (o ManagedNetworkPeeringPolicyOutput) Properties() ManagedNetworkPeeringPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicy) ManagedNetworkPeeringPolicyPropertiesResponseOutput {
+		return v.Properties
+	}).(ManagedNetworkPeeringPolicyPropertiesResponseOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o ManagedNetworkPeeringPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyOutput{})
 }

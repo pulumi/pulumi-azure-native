@@ -164,6 +164,31 @@ func (o DataConnectionOutput) ToDataConnectionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Kind of the endpoint for the data connection
+func (o DataConnectionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnection) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DataConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DataConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DataConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DataConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataConnectionOutput{})
 }

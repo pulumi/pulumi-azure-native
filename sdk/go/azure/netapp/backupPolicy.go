@@ -220,6 +220,66 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Daily backups count to keep
+func (o BackupPolicyOutput) DailyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.DailyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// The property to decide policy is enabled or not
+func (o BackupPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o BackupPolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Monthly backups count to keep
+func (o BackupPolicyOutput) MonthlyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.MonthlyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// Name of backup policy
+func (o BackupPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o BackupPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o BackupPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o BackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of volumes assigned to this policy
+func (o BackupPolicyOutput) VolumeBackups() VolumeBackupsResponseArrayOutput {
+	return o.ApplyT(func(v *BackupPolicy) VolumeBackupsResponseArrayOutput { return v.VolumeBackups }).(VolumeBackupsResponseArrayOutput)
+}
+
+// Volumes using current backup policy
+func (o BackupPolicyOutput) VolumesAssigned() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.VolumesAssigned }).(pulumi.IntPtrOutput)
+}
+
+// Weekly backups count to keep
+func (o BackupPolicyOutput) WeeklyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.WeeklyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
+// Yearly backups count to keep
+func (o BackupPolicyOutput) YearlyBackupsToKeep() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.IntPtrOutput { return v.YearlyBackupsToKeep }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupPolicyOutput{})
 }

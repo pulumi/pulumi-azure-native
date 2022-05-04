@@ -172,6 +172,43 @@ func (o EncryptionScopeOutput) ToEncryptionScopeOutputWithContext(ctx context.Co
 	return o
 }
 
+// Gets the creation date and time of the encryption scope in UTC.
+func (o EncryptionScopeOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+func (o EncryptionScopeOutput) KeyVaultProperties() EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionScope) EncryptionScopeKeyVaultPropertiesResponsePtrOutput {
+		return v.KeyVaultProperties
+	}).(EncryptionScopeKeyVaultPropertiesResponsePtrOutput)
+}
+
+// Gets the last modification date and time of the encryption scope in UTC.
+func (o EncryptionScopeOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o EncryptionScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+func (o EncryptionScopeOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+func (o EncryptionScopeOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EncryptionScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EncryptionScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EncryptionScopeOutput{})
 }

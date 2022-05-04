@@ -139,6 +139,26 @@ func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlo
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o DataFlowOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DataFlowOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Data flow properties.
+func (o DataFlowOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o DataFlowOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataFlow) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataFlowOutput{})
 }

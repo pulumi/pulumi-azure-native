@@ -231,6 +231,38 @@ func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutputWithContext(
 	return o
 }
 
+// Authorization key to establish the connection.
+func (o ExpressRouteConnectionOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Enable internet security.
+func (o ExpressRouteConnectionOutput) EnableInternetSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.BoolPtrOutput { return v.EnableInternetSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// The ExpressRoute circuit peering.
+func (o ExpressRouteConnectionOutput) ExpressRouteCircuitPeering() ExpressRouteCircuitPeeringIdResponseOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) ExpressRouteCircuitPeeringIdResponseOutput {
+		return v.ExpressRouteCircuitPeering
+	}).(ExpressRouteCircuitPeeringIdResponseOutput)
+}
+
+// The name of the resource.
+func (o ExpressRouteConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the express route connection resource.
+func (o ExpressRouteConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The routing weight associated to the connection.
+func (o ExpressRouteConnectionOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteConnection) pulumi.IntPtrOutput { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteConnectionOutput{})
 }

@@ -163,6 +163,31 @@ func (o KustoPoolDataConnectionOutput) ToKustoPoolDataConnectionOutputWithContex
 	return o
 }
 
+// Kind of the endpoint for the data connection
+func (o KustoPoolDataConnectionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolDataConnection) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o KustoPoolDataConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KustoPoolDataConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o KustoPoolDataConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolDataConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o KustoPoolDataConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KustoPoolDataConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o KustoPoolDataConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolDataConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoPoolDataConnectionOutput{})
 }

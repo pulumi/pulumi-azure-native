@@ -194,6 +194,75 @@ func (o RelationshipLinkOutput) ToRelationshipLinkOutputWithContext(ctx context.
 	return o
 }
 
+// Localized descriptions for the Relationship Link.
+func (o RelationshipLinkOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display name for the Relationship Link.
+func (o RelationshipLinkOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The InteractionType associated with the Relationship Link.
+func (o RelationshipLinkOutput) InteractionType() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.InteractionType }).(pulumi.StringOutput)
+}
+
+// The name of the Relationship Link.
+func (o RelationshipLinkOutput) LinkName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.LinkName }).(pulumi.StringOutput)
+}
+
+// The mappings between Interaction and Relationship fields.
+func (o RelationshipLinkOutput) Mappings() RelationshipLinkFieldMappingResponseArrayOutput {
+	return o.ApplyT(func(v *RelationshipLink) RelationshipLinkFieldMappingResponseArrayOutput { return v.Mappings }).(RelationshipLinkFieldMappingResponseArrayOutput)
+}
+
+// Resource name.
+func (o RelationshipLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The property references for the Profile of the Relationship.
+func (o RelationshipLinkOutput) ProfilePropertyReferences() ParticipantPropertyReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *RelationshipLink) ParticipantPropertyReferenceResponseArrayOutput {
+		return v.ProfilePropertyReferences
+	}).(ParticipantPropertyReferenceResponseArrayOutput)
+}
+
+// Provisioning state.
+func (o RelationshipLinkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The property references for the Related Profile of the Relationship.
+func (o RelationshipLinkOutput) RelatedProfilePropertyReferences() ParticipantPropertyReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *RelationshipLink) ParticipantPropertyReferenceResponseArrayOutput {
+		return v.RelatedProfilePropertyReferences
+	}).(ParticipantPropertyReferenceResponseArrayOutput)
+}
+
+// The relationship guid id.
+func (o RelationshipLinkOutput) RelationshipGuidId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.RelationshipGuidId }).(pulumi.StringOutput)
+}
+
+// The Relationship associated with the Link.
+func (o RelationshipLinkOutput) RelationshipName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.RelationshipName }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o RelationshipLinkOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RelationshipLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RelationshipLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RelationshipLinkOutput{})
 }

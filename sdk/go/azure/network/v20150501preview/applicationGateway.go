@@ -321,6 +321,103 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx cont
 	return o
 }
 
+// Gets or sets backend address pool of application gateway resource
+func (o ApplicationGatewayOutput) BackendAddressPools() ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+		return v.BackendAddressPools
+	}).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
+}
+
+// Gets or sets backend http settings of application gateway resource
+func (o ApplicationGatewayOutput) BackendHttpSettingsCollection() ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+		return v.BackendHttpSettingsCollection
+	}).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o ApplicationGatewayOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets frontend IP addresses of application gateway resource
+func (o ApplicationGatewayOutput) FrontendIPConfigurations() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+		return v.FrontendIPConfigurations
+	}).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
+}
+
+// Gets or sets frontend ports of application gateway resource
+func (o ApplicationGatewayOutput) FrontendPorts() ApplicationGatewayFrontendPortResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayFrontendPortResponseArrayOutput { return v.FrontendPorts }).(ApplicationGatewayFrontendPortResponseArrayOutput)
+}
+
+// Gets or sets subnets of application gateway resource
+func (o ApplicationGatewayOutput) GatewayIPConfigurations() ApplicationGatewayIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayIPConfigurationResponseArrayOutput {
+		return v.GatewayIPConfigurations
+	}).(ApplicationGatewayIPConfigurationResponseArrayOutput)
+}
+
+// Gets or sets HTTP listeners of application gateway resource
+func (o ApplicationGatewayOutput) HttpListeners() ApplicationGatewayHttpListenerResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayHttpListenerResponseArrayOutput { return v.HttpListeners }).(ApplicationGatewayHttpListenerResponseArrayOutput)
+}
+
+// Resource location
+func (o ApplicationGatewayOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ApplicationGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets operational state of application gateway resource
+func (o ApplicationGatewayOutput) OperationalState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.OperationalState }).(pulumi.StringOutput)
+}
+
+// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+func (o ApplicationGatewayOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets request routing rules of application gateway resource
+func (o ApplicationGatewayOutput) RequestRoutingRules() ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+		return v.RequestRoutingRules
+	}).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
+}
+
+// Gets or sets resource guid property of the ApplicationGateway resource
+func (o ApplicationGatewayOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets sku of application gateway resource
+func (o ApplicationGatewayOutput) Sku() ApplicationGatewaySkuResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySkuResponsePtrOutput { return v.Sku }).(ApplicationGatewaySkuResponsePtrOutput)
+}
+
+// Gets or sets ssl certificates of application gateway resource
+func (o ApplicationGatewayOutput) SslCertificates() ApplicationGatewaySslCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslCertificateResponseArrayOutput {
+		return v.SslCertificates
+	}).(ApplicationGatewaySslCertificateResponseArrayOutput)
+}
+
+// Resource tags
+func (o ApplicationGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplicationGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 }

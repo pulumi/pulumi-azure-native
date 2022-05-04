@@ -223,6 +223,55 @@ func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutputWithContext(ctx co
 	return o
 }
 
+// Configuration for auto scaling.
+func (o ExpressRouteGatewayOutput) AutoScaleConfiguration() ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput {
+		return v.AutoScaleConfiguration
+	}).(ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRouteGatewayOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of ExpressRoute connections to the ExpressRoute gateway.
+func (o ExpressRouteGatewayOutput) ExpressRouteConnections() ExpressRouteConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) ExpressRouteConnectionResponseArrayOutput {
+		return v.ExpressRouteConnections
+	}).(ExpressRouteConnectionResponseArrayOutput)
+}
+
+// Resource location.
+func (o ExpressRouteGatewayOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExpressRouteGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the express route gateway resource.
+func (o ExpressRouteGatewayOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ExpressRouteGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExpressRouteGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+func (o ExpressRouteGatewayOutput) VirtualHub() VirtualHubIdResponseOutput {
+	return o.ApplyT(func(v *ExpressRouteGateway) VirtualHubIdResponseOutput { return v.VirtualHub }).(VirtualHubIdResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteGatewayOutput{})
 }

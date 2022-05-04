@@ -150,6 +150,52 @@ func (o CapacityReservationGroupOutput) ToCapacityReservationGroupOutputWithCont
 	return o
 }
 
+// A list of all capacity reservation resource ids that belong to capacity reservation group.
+func (o CapacityReservationGroupOutput) CapacityReservations() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) SubResourceReadOnlyResponseArrayOutput {
+		return v.CapacityReservations
+	}).(SubResourceReadOnlyResponseArrayOutput)
+}
+
+// The capacity reservation group instance view which has the list of instance views for all the capacity reservations that belong to the capacity reservation group.
+func (o CapacityReservationGroupOutput) InstanceView() CapacityReservationGroupInstanceViewResponseOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) CapacityReservationGroupInstanceViewResponseOutput {
+		return v.InstanceView
+	}).(CapacityReservationGroupInstanceViewResponseOutput)
+}
+
+// Resource location
+func (o CapacityReservationGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o CapacityReservationGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o CapacityReservationGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CapacityReservationGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of references to all virtual machines associated to the capacity reservation group.
+func (o CapacityReservationGroupOutput) VirtualMachinesAssociated() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) SubResourceReadOnlyResponseArrayOutput {
+		return v.VirtualMachinesAssociated
+	}).(SubResourceReadOnlyResponseArrayOutput)
+}
+
+// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+func (o CapacityReservationGroupOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationGroup) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CapacityReservationGroupOutput{})
 }

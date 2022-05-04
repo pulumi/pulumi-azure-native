@@ -161,6 +161,21 @@ func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutputWithContext(
 	return o
 }
 
+// Resource name
+func (o QueueAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o QueueAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o QueueAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueueAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueAuthorizationRuleOutput{})
 }

@@ -164,6 +164,46 @@ func (o SyncAgentOutput) ToSyncAgentOutputWithContext(ctx context.Context) SyncA
 	return o
 }
 
+// Expiration time of the sync agent version.
+func (o SyncAgentOutput) ExpiryTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.ExpiryTime }).(pulumi.StringOutput)
+}
+
+// If the sync agent version is up to date.
+func (o SyncAgentOutput) IsUpToDate() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.BoolOutput { return v.IsUpToDate }).(pulumi.BoolOutput)
+}
+
+// Last alive time of the sync agent.
+func (o SyncAgentOutput) LastAliveTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.LastAliveTime }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SyncAgentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the sync agent.
+func (o SyncAgentOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// ARM resource id of the sync database in the sync agent.
+func (o SyncAgentOutput) SyncDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringPtrOutput { return v.SyncDatabaseId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o SyncAgentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the sync agent.
+func (o SyncAgentOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncAgent) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncAgentOutput{})
 }

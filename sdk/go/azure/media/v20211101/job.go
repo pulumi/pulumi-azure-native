@@ -197,6 +197,71 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+func (o JobOutput) CorrelationData() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringMapOutput { return v.CorrelationData }).(pulumi.StringMapOutput)
+}
+
+// The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o JobOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Optional customer supplied description of the Job.
+func (o JobOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The UTC date and time at which this Job finished processing.
+func (o JobOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// The inputs for the Job.
+func (o JobOutput) Input() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.Input }).(pulumi.AnyOutput)
+}
+
+// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o JobOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The outputs for the Job.
+func (o JobOutput) Outputs() JobOutputAssetResponseArrayOutput {
+	return o.ApplyT(func(v *Job) JobOutputAssetResponseArrayOutput { return v.Outputs }).(JobOutputAssetResponseArrayOutput)
+}
+
+// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+func (o JobOutput) Priority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
+}
+
+// The UTC date and time at which this Job began processing.
+func (o JobOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// The current state of the job.
+func (o JobOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o JobOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Job) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o JobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobOutput{})
 }

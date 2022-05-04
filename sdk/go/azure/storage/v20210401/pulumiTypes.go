@@ -3387,6 +3387,17 @@ type EncryptionArgs struct {
 	Services EncryptionServicesPtrInput `pulumi:"services"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = pulumi.String("Microsoft.Storage")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }
@@ -5016,6 +5027,17 @@ type IPRuleArgs struct {
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
+// Defaults sets the appropriate defaults for IPRuleArgs
+func (val *IPRuleArgs) Defaults() *IPRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = Action("Allow")
+	}
+	return &tmp
+}
 func (IPRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPRule)(nil)).Elem()
 }
@@ -8428,6 +8450,20 @@ type NetworkRuleSetArgs struct {
 	VirtualNetworkRules VirtualNetworkRuleArrayInput `pulumi:"virtualNetworkRules"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetArgs
+func (val *NetworkRuleSetArgs) Defaults() *NetworkRuleSetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		tmp.Bypass = pulumi.StringPtr("AzureServices")
+	}
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = DefaultAction("Allow")
+	}
+	return &tmp
+}
 func (NetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSet)(nil)).Elem()
 }
@@ -10304,6 +10340,17 @@ type SasPolicyArgs struct {
 	SasExpirationPeriod pulumi.StringInput `pulumi:"sasExpirationPeriod"`
 }
 
+// Defaults sets the appropriate defaults for SasPolicyArgs
+func (val *SasPolicyArgs) Defaults() *SasPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExpirationAction) {
+		tmp.ExpirationAction = pulumi.String("Log")
+	}
+	return &tmp
+}
 func (SasPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SasPolicy)(nil)).Elem()
 }
@@ -11884,6 +11931,17 @@ type VirtualNetworkRuleArgs struct {
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
+// Defaults sets the appropriate defaults for VirtualNetworkRuleArgs
+func (val *VirtualNetworkRuleArgs) Defaults() *VirtualNetworkRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = Action("Allow")
+	}
+	return &tmp
+}
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
 }

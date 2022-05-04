@@ -186,6 +186,46 @@ func (o StorageTargetOutput) ToStorageTargetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Properties when clfs target.
+func (o StorageTargetOutput) Clfs() ClfsTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) ClfsTargetResponsePtrOutput { return v.Clfs }).(ClfsTargetResponsePtrOutput)
+}
+
+// List of cache namespace to target namespace associations.
+func (o StorageTargetOutput) Junctions() NamespaceJunctionResponseArrayOutput {
+	return o.ApplyT(func(v *StorageTarget) NamespaceJunctionResponseArrayOutput { return v.Junctions }).(NamespaceJunctionResponseArrayOutput)
+}
+
+// A fully qualified URL.
+func (o StorageTargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties when nfs3 target.
+func (o StorageTargetOutput) Nfs3() Nfs3TargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) Nfs3TargetResponsePtrOutput { return v.Nfs3 }).(Nfs3TargetResponsePtrOutput)
+}
+
+// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+func (o StorageTargetOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Type for storage target.
+func (o StorageTargetOutput) TargetType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringPtrOutput { return v.TargetType }).(pulumi.StringPtrOutput)
+}
+
+// Type for the storage target; Microsoft.StorageCache/Cache/StorageTarget
+func (o StorageTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageTarget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Properties when unknown target.
+func (o StorageTargetOutput) Unknown() UnknownTargetResponsePtrOutput {
+	return o.ApplyT(func(v *StorageTarget) UnknownTargetResponsePtrOutput { return v.Unknown }).(UnknownTargetResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageTargetOutput{})
 }

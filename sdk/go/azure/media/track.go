@@ -143,6 +143,26 @@ func (o TrackOutput) ToTrackOutputWithContext(ctx context.Context) TrackOutput {
 	return o
 }
 
+// The name of the resource
+func (o TrackOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Track) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the asset track.
+func (o TrackOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Track) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Detailed information about a track in the asset.
+func (o TrackOutput) Track() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Track) pulumi.AnyOutput { return v.Track }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TrackOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Track) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrackOutput{})
 }

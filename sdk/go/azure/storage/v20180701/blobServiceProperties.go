@@ -177,6 +177,31 @@ func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutputWithContext(ct
 	return o
 }
 
+// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+func (o BlobServicePropertiesOutput) Cors() CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) CorsRulesResponsePtrOutput { return v.Cors }).(CorsRulesResponsePtrOutput)
+}
+
+// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+func (o BlobServicePropertiesOutput) DefaultServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringPtrOutput { return v.DefaultServiceVersion }).(pulumi.StringPtrOutput)
+}
+
+// The blob service properties for soft delete.
+func (o BlobServicePropertiesOutput) DeleteRetentionPolicy() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) DeleteRetentionPolicyResponsePtrOutput { return v.DeleteRetentionPolicy }).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// The name of the resource
+func (o BlobServicePropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobServicePropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobServiceProperties) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobServicePropertiesOutput{})
 }

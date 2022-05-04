@@ -210,6 +210,53 @@ func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o DdosCustomPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DdosCustomPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o DdosCustomPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The protocol-specific DDoS policy customization parameters.
+func (o DdosCustomPolicyOutput) ProtocolCustomSettings() ProtocolCustomSettingsFormatResponseArrayOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) ProtocolCustomSettingsFormatResponseArrayOutput {
+		return v.ProtocolCustomSettings
+	}).(ProtocolCustomSettingsFormatResponseArrayOutput)
+}
+
+// The provisioning state of the DDoS custom policy resource.
+func (o DdosCustomPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+func (o DdosCustomPolicyOutput) PublicIPAddresses() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) SubResourceResponseArrayOutput { return v.PublicIPAddresses }).(SubResourceResponseArrayOutput)
+}
+
+// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+func (o DdosCustomPolicyOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o DdosCustomPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o DdosCustomPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdosCustomPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DdosCustomPolicyOutput{})
 }

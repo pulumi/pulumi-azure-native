@@ -141,6 +141,41 @@ func (o HybridUseBenefitOutput) ToHybridUseBenefitOutputWithContext(ctx context.
 	return o
 }
 
+// Created date
+func (o HybridUseBenefitOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Indicates the revision of the hybrid use benefit
+func (o HybridUseBenefitOutput) Etag() pulumi.IntOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.IntOutput { return v.Etag }).(pulumi.IntOutput)
+}
+
+// Last updated date
+func (o HybridUseBenefitOutput) LastUpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.StringOutput { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o HybridUseBenefitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state
+func (o HybridUseBenefitOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Hybrid use benefit SKU
+func (o HybridUseBenefitOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o HybridUseBenefitOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridUseBenefit) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridUseBenefitOutput{})
 }

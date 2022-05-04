@@ -158,6 +158,51 @@ func (o TaskRunOutput) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOu
 	return o
 }
 
+// How the run should be forced to rerun even if the run request configuration has not changed
+func (o TaskRunOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+func (o TaskRunOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *TaskRun) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+// The location of the resource
+func (o TaskRunOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o TaskRunOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of this task run
+func (o TaskRunOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request (parameters) for the run
+func (o TaskRunOutput) RunRequest() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.AnyOutput { return v.RunRequest }).(pulumi.AnyOutput)
+}
+
+// The result of this task run
+func (o TaskRunOutput) RunResult() RunResponseOutput {
+	return o.ApplyT(func(v *TaskRun) RunResponseOutput { return v.RunResult }).(RunResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o TaskRunOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TaskRun) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o TaskRunOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskRun) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TaskRunOutput{})
 }

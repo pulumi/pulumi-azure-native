@@ -190,6 +190,47 @@ func (o ADLSGen1FolderDataSetOutput) ToADLSGen1FolderDataSetOutputWithContext(ct
 	return o
 }
 
+// The ADLS account name.
+func (o ADLSGen1FolderDataSetOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Unique id for identifying a data set resource
+func (o ADLSGen1FolderDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// The folder path within the ADLS account.
+func (o ADLSGen1FolderDataSetOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'AdlsGen1Folder'.
+func (o ADLSGen1FolderDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen1FolderDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of ADLS account.
+func (o ADLSGen1FolderDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Subscription id of ADLS account.
+func (o ADLSGen1FolderDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen1FolderDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FolderDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen1FolderDataSetOutput{})
 }

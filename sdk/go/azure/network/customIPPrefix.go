@@ -190,6 +190,66 @@ func (o CustomIPPrefixOutput) ToCustomIPPrefixOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The prefix range in CIDR notation. Should include the start address and the prefix length.
+func (o CustomIPPrefixOutput) Cidr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringPtrOutput { return v.Cidr }).(pulumi.StringPtrOutput)
+}
+
+// The commissioned state of the Custom IP Prefix.
+func (o CustomIPPrefixOutput) CommissionedState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringPtrOutput { return v.CommissionedState }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o CustomIPPrefixOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The extended location of the custom IP prefix.
+func (o CustomIPPrefixOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Resource location.
+func (o CustomIPPrefixOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o CustomIPPrefixOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the custom IP prefix resource.
+func (o CustomIPPrefixOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The list of all referenced PublicIpPrefixes.
+func (o CustomIPPrefixOutput) PublicIpPrefixes() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) SubResourceResponseArrayOutput { return v.PublicIpPrefixes }).(SubResourceResponseArrayOutput)
+}
+
+// The resource GUID property of the custom IP prefix resource.
+func (o CustomIPPrefixOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o CustomIPPrefixOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o CustomIPPrefixOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of availability zones denoting the IP allocated for the resource needs to come from.
+func (o CustomIPPrefixOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CustomIPPrefix) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomIPPrefixOutput{})
 }

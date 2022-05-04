@@ -190,6 +190,36 @@ func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutputWith
 	return o
 }
 
+// The type of administrator.
+func (o ServerAzureADAdministratorOutput) AdministratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.AdministratorType }).(pulumi.StringOutput)
+}
+
+// The server administrator login value.
+func (o ServerAzureADAdministratorOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerAzureADAdministratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The server administrator Sid (Secure ID).
+func (o ServerAzureADAdministratorOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Sid }).(pulumi.StringOutput)
+}
+
+// The server Active Directory Administrator tenant id.
+func (o ServerAzureADAdministratorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerAzureADAdministratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADAdministrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerAzureADAdministratorOutput{})
 }

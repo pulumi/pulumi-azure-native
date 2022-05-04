@@ -177,6 +177,71 @@ func (o JitRequestOutput) ToJitRequestOutputWithContext(ctx context.Context) Jit
 	return o
 }
 
+// The parent application id.
+func (o JitRequestOutput) ApplicationResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.ApplicationResourceId }).(pulumi.StringOutput)
+}
+
+// The client entity that created the JIT request.
+func (o JitRequestOutput) CreatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *JitRequest) ApplicationClientDetailsResponseOutput { return v.CreatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+// The JIT authorization policies.
+func (o JitRequestOutput) JitAuthorizationPolicies() JitAuthorizationPoliciesResponseArrayOutput {
+	return o.ApplyT(func(v *JitRequest) JitAuthorizationPoliciesResponseArrayOutput { return v.JitAuthorizationPolicies }).(JitAuthorizationPoliciesResponseArrayOutput)
+}
+
+// The JIT request state.
+func (o JitRequestOutput) JitRequestState() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.JitRequestState }).(pulumi.StringOutput)
+}
+
+// The JIT request properties.
+func (o JitRequestOutput) JitSchedulingPolicy() JitSchedulingPolicyResponseOutput {
+	return o.ApplyT(func(v *JitRequest) JitSchedulingPolicyResponseOutput { return v.JitSchedulingPolicy }).(JitSchedulingPolicyResponseOutput)
+}
+
+// Resource location
+func (o JitRequestOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o JitRequestOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The JIT request provisioning state.
+func (o JitRequestOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publisher tenant id.
+func (o JitRequestOutput) PublisherTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o JitRequestOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *JitRequest) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o JitRequestOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o JitRequestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitRequest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The client entity that last updated the JIT request.
+func (o JitRequestOutput) UpdatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *JitRequest) ApplicationClientDetailsResponseOutput { return v.UpdatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JitRequestOutput{})
 }

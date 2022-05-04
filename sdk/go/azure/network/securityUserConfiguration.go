@@ -164,6 +164,51 @@ func (o SecurityUserConfigurationOutput) ToSecurityUserConfigurationOutputWithCo
 	return o
 }
 
+// Flag if need to delete existing network security groups.
+func (o SecurityUserConfigurationOutput) DeleteExistingNSGs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringPtrOutput { return v.DeleteExistingNSGs }).(pulumi.StringPtrOutput)
+}
+
+// A description of the security configuration.
+func (o SecurityUserConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security configuration.
+func (o SecurityUserConfigurationOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SecurityUserConfigurationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SecurityUserConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o SecurityUserConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Security Type.
+func (o SecurityUserConfigurationOutput) SecurityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringPtrOutput { return v.SecurityType }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o SecurityUserConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o SecurityUserConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityUserConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityUserConfigurationOutput{})
 }

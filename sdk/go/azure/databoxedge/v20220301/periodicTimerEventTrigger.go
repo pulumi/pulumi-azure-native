@@ -202,6 +202,42 @@ func (o PeriodicTimerEventTriggerOutput) ToPeriodicTimerEventTriggerOutputWithCo
 	return o
 }
 
+// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+func (o PeriodicTimerEventTriggerOutput) CustomContextTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) pulumi.StringPtrOutput { return v.CustomContextTag }).(pulumi.StringPtrOutput)
+}
+
+// Trigger Kind.
+// Expected value is 'PeriodicTimerEvent'.
+func (o PeriodicTimerEventTriggerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o PeriodicTimerEventTriggerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role Sink information.
+func (o PeriodicTimerEventTriggerOutput) SinkInfo() RoleSinkInfoResponseOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) RoleSinkInfoResponseOutput { return v.SinkInfo }).(RoleSinkInfoResponseOutput)
+}
+
+// Periodic timer details.
+func (o PeriodicTimerEventTriggerOutput) SourceInfo() PeriodicTimerSourceInfoResponseOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) PeriodicTimerSourceInfoResponseOutput { return v.SourceInfo }).(PeriodicTimerSourceInfoResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of Trigger
+func (o PeriodicTimerEventTriggerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o PeriodicTimerEventTriggerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeriodicTimerEventTrigger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PeriodicTimerEventTriggerOutput{})
 }

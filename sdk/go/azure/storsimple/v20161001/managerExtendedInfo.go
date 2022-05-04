@@ -172,6 +172,51 @@ func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutputWithContext(ctx co
 	return o
 }
 
+// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+func (o ManagerExtendedInfoOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Represents the CEK of the resource
+func (o ManagerExtendedInfoOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// Represents the Cert thumbprint that was used to encrypt the CEK
+func (o ManagerExtendedInfoOutput) EncryptionKeyThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.EncryptionKeyThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// ETag of the Resource
+func (o ManagerExtendedInfoOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Represents the CIK of the resource
+func (o ManagerExtendedInfoOutput) IntegrityKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.IntegrityKey }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o ManagerExtendedInfoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
+func (o ManagerExtendedInfoOutput) PortalCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.PortalCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// The type.
+func (o ManagerExtendedInfoOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Represents the version of the ExtendedInfo object being persisted
+func (o ManagerExtendedInfoOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerExtendedInfo) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagerExtendedInfoOutput{})
 }

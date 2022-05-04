@@ -11562,6 +11562,17 @@ type BackendPoolsSettingsArgs struct {
 	EnforceCertificateNameCheck pulumi.StringPtrInput `pulumi:"enforceCertificateNameCheck"`
 }
 
+// Defaults sets the appropriate defaults for BackendPoolsSettingsArgs
+func (val *BackendPoolsSettingsArgs) Defaults() *BackendPoolsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		tmp.EnforceCertificateNameCheck = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (BackendPoolsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendPoolsSettings)(nil)).Elem()
 }
@@ -27135,6 +27146,17 @@ type PacketCaptureFilterArgs struct {
 	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
 }
 
+// Defaults sets the appropriate defaults for PacketCaptureFilterArgs
+func (val *PacketCaptureFilterArgs) Defaults() *PacketCaptureFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		tmp.Protocol = pulumi.StringPtr("Any")
+	}
+	return &tmp
+}
 func (PacketCaptureFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
 }

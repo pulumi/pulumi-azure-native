@@ -161,6 +161,36 @@ func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the resource
+func (o LinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the linked service.
+func (o LinkedServiceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+func (o LinkedServiceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LinkedServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LinkedServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+func (o LinkedServiceOutput) WriteAccessResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.WriteAccessResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

@@ -182,6 +182,51 @@ func (o DedicatedHostGroupOutput) ToDedicatedHostGroupOutputWithContext(ctx cont
 	return o
 }
 
+// A list of references to all dedicated hosts in the dedicated host group.
+func (o DedicatedHostGroupOutput) Hosts() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) SubResourceReadOnlyResponseArrayOutput { return v.Hosts }).(SubResourceReadOnlyResponseArrayOutput)
+}
+
+// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
+func (o DedicatedHostGroupOutput) InstanceView() DedicatedHostGroupInstanceViewResponseOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) DedicatedHostGroupInstanceViewResponseOutput { return v.InstanceView }).(DedicatedHostGroupInstanceViewResponseOutput)
+}
+
+// Resource location
+func (o DedicatedHostGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DedicatedHostGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of fault domains that the host group can span.
+func (o DedicatedHostGroupOutput) PlatformFaultDomainCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.IntOutput { return v.PlatformFaultDomainCount }).(pulumi.IntOutput)
+}
+
+// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+func (o DedicatedHostGroupOutput) SupportAutomaticPlacement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.BoolPtrOutput { return v.SupportAutomaticPlacement }).(pulumi.BoolPtrOutput)
+}
+
+// Resource tags
+func (o DedicatedHostGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DedicatedHostGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+func (o DedicatedHostGroupOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DedicatedHostGroup) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedHostGroupOutput{})
 }

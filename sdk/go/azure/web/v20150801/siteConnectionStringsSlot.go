@@ -200,6 +200,36 @@ func (o SiteConnectionStringsSlotOutput) ToSiteConnectionStringsSlotOutputWithCo
 	return o
 }
 
+// Kind of resource
+func (o SiteConnectionStringsSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteConnectionStringsSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteConnectionStringsSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Connection strings
+func (o SiteConnectionStringsSlotOutput) Properties() ConnStringValueTypePairResponseMapOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) ConnStringValueTypePairResponseMapOutput { return v.Properties }).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Resource tags
+func (o SiteConnectionStringsSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteConnectionStringsSlotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConnectionStringsSlot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteConnectionStringsSlotOutput{})
 }

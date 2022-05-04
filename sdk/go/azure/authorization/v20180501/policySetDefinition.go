@@ -176,6 +176,46 @@ func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutputWithContext(ctx co
 	return o
 }
 
+// The policy set definition description.
+func (o PolicySetDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy set definition.
+func (o PolicySetDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy set definition metadata.
+func (o PolicySetDefinitionOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy set definition.
+func (o PolicySetDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy set definition parameters that can be used in policy definition references.
+func (o PolicySetDefinitionOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// An array of policy definition references.
+func (o PolicySetDefinitionOutput) PolicyDefinitions() PolicyDefinitionReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) PolicyDefinitionReferenceResponseArrayOutput { return v.PolicyDefinitions }).(PolicyDefinitionReferenceResponseArrayOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o PolicySetDefinitionOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policySetDefinitions).
+func (o PolicySetDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicySetDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicySetDefinitionOutput{})
 }

@@ -132,6 +132,38 @@ func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx 
 	return o
 }
 
+// The identity block returned by ARM resource that supports managed identity.
+func (o ConfigurationProfileOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The location where the resource is to be deployed.
+func (o ConfigurationProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ConfigurationProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a configuration profile.
+func (o ConfigurationProfileOutput) Properties() ConfigurationProfileResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileResourcePropertiesResponseOutput {
+		return v.Properties
+	}).(ConfigurationProfileResourcePropertiesResponseOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+func (o ConfigurationProfileOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) SystemDataResponsePtrOutput { return v.SystemData }).(SystemDataResponsePtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConfigurationProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
 }

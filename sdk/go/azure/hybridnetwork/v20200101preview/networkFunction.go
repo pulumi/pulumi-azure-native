@@ -180,6 +180,83 @@ func (o NetworkFunctionOutput) ToNetworkFunctionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The reference to the device resource.
+func (o NetworkFunctionOutput) Device() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkFunction) SubResourceResponsePtrOutput { return v.Device }).(SubResourceResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkFunctionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o NetworkFunctionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource URI of the managed application.
+func (o NetworkFunctionOutput) ManagedApplication() SubResourceResponseOutput {
+	return o.ApplyT(func(v *NetworkFunction) SubResourceResponseOutput { return v.ManagedApplication }).(SubResourceResponseOutput)
+}
+
+// The parameters for the managed application.
+func (o NetworkFunctionOutput) ManagedApplicationParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.AnyOutput { return v.ManagedApplicationParameters }).(pulumi.AnyOutput)
+}
+
+// The name of the resource
+func (o NetworkFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network function configurations from the user.
+func (o NetworkFunctionOutput) NetworkFunctionUserConfigurations() NetworkFunctionUserConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkFunction) NetworkFunctionUserConfigurationResponseArrayOutput {
+		return v.NetworkFunctionUserConfigurations
+	}).(NetworkFunctionUserConfigurationResponseArrayOutput)
+}
+
+// The provisioning state of the network function resource.
+func (o NetworkFunctionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The service key for the network function resource.
+func (o NetworkFunctionOutput) ServiceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+// The sku name for the network function.
+func (o NetworkFunctionOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
+// The sku type for the network function.
+func (o NetworkFunctionOutput) SkuType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.SkuType }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkFunctionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NetworkFunctionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The vendor name for the network function.
+func (o NetworkFunctionOutput) VendorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringPtrOutput { return v.VendorName }).(pulumi.StringPtrOutput)
+}
+
+// The vendor provisioning state for the network function resource.
+func (o NetworkFunctionOutput) VendorProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkFunction) pulumi.StringOutput { return v.VendorProvisioningState }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkFunctionOutput{})
 }
