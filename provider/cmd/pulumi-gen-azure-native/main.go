@@ -87,7 +87,7 @@ func main() {
 			}
 			// Ensure the spec is stamped with a version - Go gen needs it.
 			docsPkgSpec.Version = version
-			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go"})
+			err = gen.Examples(docsPkgSpec, docsMeta, resExamples, []string{"nodejs", "dotnet", "python", "go", "java", "yaml"})
 			if err != nil {
 				break
 			}
