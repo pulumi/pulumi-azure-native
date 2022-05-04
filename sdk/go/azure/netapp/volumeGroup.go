@@ -157,6 +157,41 @@ func (o VolumeGroupOutput) ToVolumeGroupOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// Volume group details
+func (o VolumeGroupOutput) GroupMetaData() VolumeGroupMetaDataResponsePtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) VolumeGroupMetaDataResponsePtrOutput { return v.GroupMetaData }).(VolumeGroupMetaDataResponsePtrOutput)
+}
+
+// Resource location
+func (o VolumeGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o VolumeGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o VolumeGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o VolumeGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VolumeGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of volumes from group
+func (o VolumeGroupOutput) Volumes() VolumeGroupVolumePropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *VolumeGroup) VolumeGroupVolumePropertiesResponseArrayOutput { return v.Volumes }).(VolumeGroupVolumePropertiesResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeGroupOutput{})
 }

@@ -221,6 +221,91 @@ func (o MetricAlertOutput) ToMetricAlertOutputWithContext(ctx context.Context) M
 	return o
 }
 
+// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+func (o MetricAlertOutput) Actions() MetricAlertActionResponseArrayOutput {
+	return o.ApplyT(func(v *MetricAlert) MetricAlertActionResponseArrayOutput { return v.Actions }).(MetricAlertActionResponseArrayOutput)
+}
+
+// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+func (o MetricAlertOutput) AutoMitigate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.BoolPtrOutput { return v.AutoMitigate }).(pulumi.BoolPtrOutput)
+}
+
+// defines the specific alert criteria information.
+func (o MetricAlertOutput) Criteria() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.AnyOutput { return v.Criteria }).(pulumi.AnyOutput)
+}
+
+// the description of the metric alert that will be included in the alert email.
+func (o MetricAlertOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// the flag that indicates whether the metric alert is enabled.
+func (o MetricAlertOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// how often the metric alert is evaluated represented in ISO 8601 duration format.
+func (o MetricAlertOutput) EvaluationFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.EvaluationFrequency }).(pulumi.StringOutput)
+}
+
+// the value indicating whether this alert rule is migrated.
+func (o MetricAlertOutput) IsMigrated() pulumi.BoolOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.BoolOutput { return v.IsMigrated }).(pulumi.BoolOutput)
+}
+
+// Last time the rule was updated in ISO8601 format.
+func (o MetricAlertOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o MetricAlertOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o MetricAlertOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the list of resource id's that this metric alert is scoped to.
+func (o MetricAlertOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Alert severity {0, 1, 2, 3, 4}
+func (o MetricAlertOutput) Severity() pulumi.IntOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.IntOutput { return v.Severity }).(pulumi.IntOutput)
+}
+
+// Resource tags
+func (o MetricAlertOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// the region of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+func (o MetricAlertOutput) TargetResourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringPtrOutput { return v.TargetResourceRegion }).(pulumi.StringPtrOutput)
+}
+
+// the resource type of the target resource(s) on which the alert is created/updated. Mandatory if the scope contains a subscription, resource group, or more than one resource.
+func (o MetricAlertOutput) TargetResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringPtrOutput { return v.TargetResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o MetricAlertOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+func (o MetricAlertOutput) WindowSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricAlert) pulumi.StringOutput { return v.WindowSize }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricAlertOutput{})
 }

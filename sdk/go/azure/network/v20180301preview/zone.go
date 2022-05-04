@@ -180,6 +180,66 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
 }
 
+// The etag of the zone.
+func (o ZoneOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ZoneOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o ZoneOutput) MaxNumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v *Zone) pulumi.Float64Output { return v.MaxNumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o ZoneOutput) MaxNumberOfRecordsPerRecordSet() pulumi.Float64Output {
+	return o.ApplyT(func(v *Zone) pulumi.Float64Output { return v.MaxNumberOfRecordsPerRecordSet }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o ZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o ZoneOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+func (o ZoneOutput) NumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v *Zone) pulumi.Float64Output { return v.NumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+func (o ZoneOutput) RegistrationVirtualNetworks() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *Zone) SubResourceResponseArrayOutput { return v.RegistrationVirtualNetworks }).(SubResourceResponseArrayOutput)
+}
+
+// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+func (o ZoneOutput) ResolutionVirtualNetworks() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *Zone) SubResourceResponseArrayOutput { return v.ResolutionVirtualNetworks }).(SubResourceResponseArrayOutput)
+}
+
+// Resource tags.
+func (o ZoneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The type of this DNS zone (Public or Private).
+func (o ZoneOutput) ZoneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.ZoneType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ZoneOutput{})
 }

@@ -166,6 +166,42 @@ func (o WebAppPrivateEndpointConnectionOutput) ToWebAppPrivateEndpointConnection
 	return o
 }
 
+// Kind of resource.
+func (o WebAppPrivateEndpointConnectionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// PrivateEndpoint of a remote private endpoint connection
+func (o WebAppPrivateEndpointConnectionOutput) PrivateEndpoint() ArmIdWrapperResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) ArmIdWrapperResponsePtrOutput { return v.PrivateEndpoint }).(ArmIdWrapperResponsePtrOutput)
+}
+
+// The state of a private link connection
+func (o WebAppPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) PrivateLinkConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkConnectionStateResponsePtrOutput)
+}
+
+func (o WebAppPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppPrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppPrivateEndpointConnectionOutput{})
 }

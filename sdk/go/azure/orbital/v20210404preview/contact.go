@@ -189,6 +189,101 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
+// The reference to the contact profile resource.
+func (o ContactOutput) ContactProfile() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v *Contact) ResourceReferenceResponseOutput { return v.ContactProfile }).(ResourceReferenceResponseOutput)
+}
+
+// Azimuth of the antenna at the end of the contact in decimal degrees.
+func (o ContactOutput) EndAzimuthDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v *Contact) pulumi.Float64Output { return v.EndAzimuthDegrees }).(pulumi.Float64Output)
+}
+
+// Spacecraft elevation above the horizon at contact end.
+func (o ContactOutput) EndElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v *Contact) pulumi.Float64Output { return v.EndElevationDegrees }).(pulumi.Float64Output)
+}
+
+// Any error message while scheduling a contact.
+func (o ContactOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ContactOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Azure Ground Station name.
+func (o ContactOutput) GroundStationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.GroundStationName }).(pulumi.StringOutput)
+}
+
+// Maximum elevation of the antenna during the contact in decimal degrees.
+func (o ContactOutput) MaximumElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v *Contact) pulumi.Float64Output { return v.MaximumElevationDegrees }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o ContactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Reservation end time of a contact.
+func (o ContactOutput) ReservationEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.ReservationEndTime }).(pulumi.StringOutput)
+}
+
+// Reservation start time of a contact.
+func (o ContactOutput) ReservationStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.ReservationStartTime }).(pulumi.StringOutput)
+}
+
+// Receive end time of a contact.
+func (o ContactOutput) RxEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.RxEndTime }).(pulumi.StringOutput)
+}
+
+// Receive start time of a contact.
+func (o ContactOutput) RxStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.RxStartTime }).(pulumi.StringOutput)
+}
+
+// Azimuth of the antenna at the start of the contact in decimal degrees.
+func (o ContactOutput) StartAzimuthDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v *Contact) pulumi.Float64Output { return v.StartAzimuthDegrees }).(pulumi.Float64Output)
+}
+
+// Spacecraft elevation above the horizon at contact start.
+func (o ContactOutput) StartElevationDegrees() pulumi.Float64Output {
+	return o.ApplyT(func(v *Contact) pulumi.Float64Output { return v.StartElevationDegrees }).(pulumi.Float64Output)
+}
+
+// Status of a contact.
+func (o ContactOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ContactOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Contact) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Transmit end time of a contact.
+func (o ContactOutput) TxEndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.TxEndTime }).(pulumi.StringOutput)
+}
+
+// Transmit start time of a contact.
+func (o ContactOutput) TxStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.TxStartTime }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContactOutput{})
 }

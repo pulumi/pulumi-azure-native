@@ -137,6 +137,38 @@ func (o OperationByProviderRegistrationOutput) ToOperationByProviderRegistration
 	return o
 }
 
+func (o OperationByProviderRegistrationOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.StringPtrOutput { return v.ActionType }).(pulumi.StringPtrOutput)
+}
+
+// Display information of the operation.
+func (o OperationByProviderRegistrationOutput) Display() OperationsDefinitionResponseDisplayOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) OperationsDefinitionResponseDisplayOutput { return v.Display }).(OperationsDefinitionResponseDisplayOutput)
+}
+
+// Indicates whether the operation applies to data-plane.
+func (o OperationByProviderRegistrationOutput) IsDataAction() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.BoolPtrOutput { return v.IsDataAction }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource
+func (o OperationByProviderRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o OperationByProviderRegistrationOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.StringPtrOutput { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+func (o OperationByProviderRegistrationOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OperationByProviderRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationByProviderRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OperationByProviderRegistrationOutput{})
 }

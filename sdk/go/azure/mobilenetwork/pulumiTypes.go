@@ -730,6 +730,29 @@ type DataNetworkConfigurationArgs struct {
 	SessionAmbr AmbrInput `pulumi:"sessionAmbr"`
 }
 
+// Defaults sets the appropriate defaults for DataNetworkConfigurationArgs
+func (val *DataNetworkConfigurationArgs) Defaults() *DataNetworkConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocationAndRetentionPriorityLevel) {
+		tmp.AllocationAndRetentionPriorityLevel = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.DefaultSessionType) {
+		tmp.DefaultSessionType = pulumi.StringPtr("IPv4")
+	}
+	if isZero(tmp.FiveQi) {
+		tmp.FiveQi = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.PreemptionCapability) {
+		tmp.PreemptionCapability = pulumi.StringPtr("NotPreempt")
+	}
+	if isZero(tmp.PreemptionVulnerability) {
+		tmp.PreemptionVulnerability = pulumi.StringPtr("Preemptable")
+	}
+	return &tmp
+}
 func (DataNetworkConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataNetworkConfiguration)(nil)).Elem()
 }
@@ -1400,6 +1423,18 @@ type NaptConfigurationArgs struct {
 	PortReuseHoldTime PortReuseHoldTimesPtrInput `pulumi:"portReuseHoldTime"`
 }
 
+// Defaults sets the appropriate defaults for NaptConfigurationArgs
+func (val *NaptConfigurationArgs) Defaults() *NaptConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PinholeLimits) {
+		tmp.PinholeLimits = pulumi.IntPtr(65536)
+	}
+
+	return &tmp
+}
 func (NaptConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NaptConfiguration)(nil)).Elem()
 }
@@ -1783,6 +1818,18 @@ type PccRuleConfigurationArgs struct {
 	TrafficControl pulumi.StringPtrInput `pulumi:"trafficControl"`
 }
 
+// Defaults sets the appropriate defaults for PccRuleConfigurationArgs
+func (val *PccRuleConfigurationArgs) Defaults() *PccRuleConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	if isZero(tmp.TrafficControl) {
+		tmp.TrafficControl = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (PccRuleConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PccRuleConfiguration)(nil)).Elem()
 }
@@ -2039,6 +2086,26 @@ type PccRuleQosPolicyArgs struct {
 	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
 }
 
+// Defaults sets the appropriate defaults for PccRuleQosPolicyArgs
+func (val *PccRuleQosPolicyArgs) Defaults() *PccRuleQosPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocationAndRetentionPriorityLevel) {
+		tmp.AllocationAndRetentionPriorityLevel = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.FiveQi) {
+		tmp.FiveQi = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.PreemptionCapability) {
+		tmp.PreemptionCapability = pulumi.StringPtr("NotPreempt")
+	}
+	if isZero(tmp.PreemptionVulnerability) {
+		tmp.PreemptionVulnerability = pulumi.StringPtr("Preemptable")
+	}
+	return &tmp
+}
 func (PccRuleQosPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PccRuleQosPolicy)(nil)).Elem()
 }
@@ -2453,6 +2520,23 @@ type PinholeTimeoutsArgs struct {
 	Udp pulumi.IntPtrInput `pulumi:"udp"`
 }
 
+// Defaults sets the appropriate defaults for PinholeTimeoutsArgs
+func (val *PinholeTimeoutsArgs) Defaults() *PinholeTimeoutsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Icmp) {
+		tmp.Icmp = pulumi.IntPtr(60)
+	}
+	if isZero(tmp.Tcp) {
+		tmp.Tcp = pulumi.IntPtr(7440)
+	}
+	if isZero(tmp.Udp) {
+		tmp.Udp = pulumi.IntPtr(300)
+	}
+	return &tmp
+}
 func (PinholeTimeoutsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PinholeTimeouts)(nil)).Elem()
 }
@@ -2858,6 +2942,20 @@ type PortRangeArgs struct {
 	MinPort pulumi.IntPtrInput `pulumi:"minPort"`
 }
 
+// Defaults sets the appropriate defaults for PortRangeArgs
+func (val *PortRangeArgs) Defaults() *PortRangeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPort) {
+		tmp.MaxPort = pulumi.IntPtr(65535)
+	}
+	if isZero(tmp.MinPort) {
+		tmp.MinPort = pulumi.IntPtr(1024)
+	}
+	return &tmp
+}
 func (PortRangeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PortRange)(nil)).Elem()
 }
@@ -3131,6 +3229,20 @@ type PortReuseHoldTimesArgs struct {
 	Udp pulumi.IntPtrInput `pulumi:"udp"`
 }
 
+// Defaults sets the appropriate defaults for PortReuseHoldTimesArgs
+func (val *PortReuseHoldTimesArgs) Defaults() *PortReuseHoldTimesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Tcp) {
+		tmp.Tcp = pulumi.IntPtr(120)
+	}
+	if isZero(tmp.Udp) {
+		tmp.Udp = pulumi.IntPtr(60)
+	}
+	return &tmp
+}
 func (PortReuseHoldTimesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PortReuseHoldTimes)(nil)).Elem()
 }
@@ -3421,6 +3533,26 @@ type QosPolicyArgs struct {
 	PreemptionVulnerability pulumi.StringPtrInput `pulumi:"preemptionVulnerability"`
 }
 
+// Defaults sets the appropriate defaults for QosPolicyArgs
+func (val *QosPolicyArgs) Defaults() *QosPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocationAndRetentionPriorityLevel) {
+		tmp.AllocationAndRetentionPriorityLevel = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.FiveQi) {
+		tmp.FiveQi = pulumi.IntPtr(9)
+	}
+	if isZero(tmp.PreemptionCapability) {
+		tmp.PreemptionCapability = pulumi.StringPtr("NotPreempt")
+	}
+	if isZero(tmp.PreemptionVulnerability) {
+		tmp.PreemptionVulnerability = pulumi.StringPtr("Preemptable")
+	}
+	return &tmp
+}
 func (QosPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*QosPolicy)(nil)).Elem()
 }

@@ -162,6 +162,46 @@ func (o BatchEndpointOutput) ToBatchEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Service identity associated with a resource.
+func (o BatchEndpointOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *BatchEndpoint) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+func (o BatchEndpointOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o BatchEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BatchEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o BatchEndpointOutput) Properties() BatchEndpointResponseOutput {
+	return o.ApplyT(func(v *BatchEndpoint) BatchEndpointResponseOutput { return v.Properties }).(BatchEndpointResponseOutput)
+}
+
+// System data associated with resource provider
+func (o BatchEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BatchEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o BatchEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BatchEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BatchEndpointOutput{})
 }

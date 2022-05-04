@@ -191,6 +191,62 @@ func (o FusionAlertRuleOutput) ToFusionAlertRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Name of the alert rule template used to create this rule.
+func (o FusionAlertRuleOutput) AlertRuleTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.AlertRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// The description of the alert rule.
+func (o FusionAlertRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o FusionAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o FusionAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o FusionAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'Fusion'.
+func (o FusionAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert has been modified.
+func (o FusionAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o FusionAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o FusionAlertRuleOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The tactics of the alert rule
+func (o FusionAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource type
+func (o FusionAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FusionAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FusionAlertRuleOutput{})
 }

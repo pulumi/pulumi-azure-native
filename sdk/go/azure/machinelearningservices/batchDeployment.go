@@ -169,6 +169,46 @@ func (o BatchDeploymentOutput) ToBatchDeploymentOutputWithContext(ctx context.Co
 	return o
 }
 
+// Service identity associated with a resource.
+func (o BatchDeploymentOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *BatchDeployment) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+func (o BatchDeploymentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchDeployment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o BatchDeploymentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchDeployment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BatchDeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchDeployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o BatchDeploymentOutput) Properties() BatchDeploymentResponseOutput {
+	return o.ApplyT(func(v *BatchDeployment) BatchDeploymentResponseOutput { return v.Properties }).(BatchDeploymentResponseOutput)
+}
+
+// System data associated with resource provider
+func (o BatchDeploymentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BatchDeployment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o BatchDeploymentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BatchDeployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BatchDeploymentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchDeployment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BatchDeploymentOutput{})
 }

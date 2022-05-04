@@ -170,6 +170,61 @@ func (o AutomationOutput) ToAutomationOutputWithContext(ctx context.Context) Aut
 	return o
 }
 
+// A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
+func (o AutomationOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Automation) pulumi.ArrayOutput { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// The security automation description.
+func (o AutomationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Entity tag is used for comparing two or more entities from the same requested resource.
+func (o AutomationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the security automation is enabled.
+func (o AutomationOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Automation) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of the resource
+func (o AutomationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o AutomationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o AutomationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
+func (o AutomationOutput) Scopes() AutomationScopeResponseArrayOutput {
+	return o.ApplyT(func(v *Automation) AutomationScopeResponseArrayOutput { return v.Scopes }).(AutomationScopeResponseArrayOutput)
+}
+
+// A collection of the source event types which evaluate the security automation set of rules.
+func (o AutomationOutput) Sources() AutomationSourceResponseArrayOutput {
+	return o.ApplyT(func(v *Automation) AutomationSourceResponseArrayOutput { return v.Sources }).(AutomationSourceResponseArrayOutput)
+}
+
+// A list of key value pairs that describe the resource.
+func (o AutomationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AutomationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Automation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutomationOutput{})
 }

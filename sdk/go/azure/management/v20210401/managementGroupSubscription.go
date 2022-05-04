@@ -134,6 +134,36 @@ func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutputWi
 	return o
 }
 
+// The friendly name of the subscription.
+func (o ManagementGroupSubscriptionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+func (o ManagementGroupSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the parent management group.
+func (o ManagementGroupSubscriptionOutput) Parent() DescendantParentGroupInfoResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) DescendantParentGroupInfoResponsePtrOutput { return v.Parent }).(DescendantParentGroupInfoResponsePtrOutput)
+}
+
+// The state of the subscription.
+func (o ManagementGroupSubscriptionOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
+func (o ManagementGroupSubscriptionOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringPtrOutput { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+func (o ManagementGroupSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementGroupSubscriptionOutput{})
 }

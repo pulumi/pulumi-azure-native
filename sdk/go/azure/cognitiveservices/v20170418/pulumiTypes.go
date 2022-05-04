@@ -592,6 +592,15 @@ type CognitiveServicesAccountPropertiesArgs struct {
 	UserOwnedStorage UserOwnedStorageArrayInput `pulumi:"userOwnedStorage"`
 }
 
+// Defaults sets the appropriate defaults for CognitiveServicesAccountPropertiesArgs
+func (val *CognitiveServicesAccountPropertiesArgs) Defaults() *CognitiveServicesAccountPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (CognitiveServicesAccountPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CognitiveServicesAccountProperties)(nil)).Elem()
 }
@@ -1019,6 +1028,17 @@ type EncryptionArgs struct {
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = pulumi.StringPtr("Microsoft.KeyVault")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }

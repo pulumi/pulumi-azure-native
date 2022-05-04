@@ -157,6 +157,21 @@ func (o DataSetMappingOutput) ToDataSetMappingOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Kind of data set mapping.
+func (o DataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o DataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o DataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataSetMappingOutput{})
 }

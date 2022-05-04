@@ -139,6 +139,21 @@ func (o ChapSettingOutput) ToChapSettingOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The name.
+func (o ChapSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChapSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The chap password.
+func (o ChapSettingOutput) Password() AsymmetricEncryptedSecretResponseOutput {
+	return o.ApplyT(func(v *ChapSetting) AsymmetricEncryptedSecretResponseOutput { return v.Password }).(AsymmetricEncryptedSecretResponseOutput)
+}
+
+// The type.
+func (o ChapSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChapSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChapSettingOutput{})
 }

@@ -235,6 +235,101 @@ func (o PredictionOutput) ToPredictionOutputWithContext(ctx context.Context) Pre
 	return o
 }
 
+// Whether do auto analyze.
+func (o PredictionOutput) AutoAnalyze() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.BoolOutput { return v.AutoAnalyze }).(pulumi.BoolOutput)
+}
+
+// Description of the prediction.
+func (o PredictionOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Display name of the prediction.
+func (o PredictionOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The prediction grades.
+func (o PredictionOutput) Grades() PredictionResponseGradesArrayOutput {
+	return o.ApplyT(func(v *Prediction) PredictionResponseGradesArrayOutput { return v.Grades }).(PredictionResponseGradesArrayOutput)
+}
+
+// Interaction types involved in the prediction.
+func (o PredictionOutput) InvolvedInteractionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringArrayOutput { return v.InvolvedInteractionTypes }).(pulumi.StringArrayOutput)
+}
+
+// KPI types involved in the prediction.
+func (o PredictionOutput) InvolvedKpiTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringArrayOutput { return v.InvolvedKpiTypes }).(pulumi.StringArrayOutput)
+}
+
+// Relationships involved in the prediction.
+func (o PredictionOutput) InvolvedRelationships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringArrayOutput { return v.InvolvedRelationships }).(pulumi.StringArrayOutput)
+}
+
+// Definition of the link mapping of prediction.
+func (o PredictionOutput) Mappings() PredictionResponseMappingsOutput {
+	return o.ApplyT(func(v *Prediction) PredictionResponseMappingsOutput { return v.Mappings }).(PredictionResponseMappingsOutput)
+}
+
+// Resource name.
+func (o PredictionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Negative outcome expression.
+func (o PredictionOutput) NegativeOutcomeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.NegativeOutcomeExpression }).(pulumi.StringOutput)
+}
+
+// Positive outcome expression.
+func (o PredictionOutput) PositiveOutcomeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.PositiveOutcomeExpression }).(pulumi.StringOutput)
+}
+
+// Name of the prediction.
+func (o PredictionOutput) PredictionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringPtrOutput { return v.PredictionName }).(pulumi.StringPtrOutput)
+}
+
+// Primary profile type.
+func (o PredictionOutput) PrimaryProfileType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.PrimaryProfileType }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o PredictionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Scope expression.
+func (o PredictionOutput) ScopeExpression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.ScopeExpression }).(pulumi.StringOutput)
+}
+
+// Score label.
+func (o PredictionOutput) ScoreLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.ScoreLabel }).(pulumi.StringOutput)
+}
+
+// System generated entities.
+func (o PredictionOutput) SystemGeneratedEntities() PredictionResponseSystemGeneratedEntitiesOutput {
+	return o.ApplyT(func(v *Prediction) PredictionResponseSystemGeneratedEntitiesOutput { return v.SystemGeneratedEntities }).(PredictionResponseSystemGeneratedEntitiesOutput)
+}
+
+// The hub name.
+func (o PredictionOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o PredictionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prediction) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PredictionOutput{})
 }

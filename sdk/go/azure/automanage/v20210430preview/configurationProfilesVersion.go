@@ -141,6 +141,38 @@ func (o ConfigurationProfilesVersionOutput) ToConfigurationProfilesVersionOutput
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ConfigurationProfilesVersionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ConfigurationProfilesVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the configuration profile.
+func (o ConfigurationProfilesVersionOutput) Properties() ConfigurationProfilePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) ConfigurationProfilePropertiesResponseOutput {
+		return v.Properties
+	}).(ConfigurationProfilePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ConfigurationProfilesVersionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ConfigurationProfilesVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConfigurationProfilesVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfilesVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationProfilesVersionOutput{})
 }

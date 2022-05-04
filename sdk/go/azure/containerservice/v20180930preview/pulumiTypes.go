@@ -50,6 +50,17 @@ type NetworkProfileArgs struct {
 	VnetCidr pulumi.StringPtrInput `pulumi:"vnetCidr"`
 }
 
+// Defaults sets the appropriate defaults for NetworkProfileArgs
+func (val *NetworkProfileArgs) Defaults() *NetworkProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.VnetCidr) {
+		tmp.VnetCidr = pulumi.StringPtr("10.0.0.0/8")
+	}
+	return &tmp
+}
 func (NetworkProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkProfile)(nil)).Elem()
 }
@@ -679,6 +690,17 @@ type OpenShiftManagedClusterAgentPoolProfileArgs struct {
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
 
+// Defaults sets the appropriate defaults for OpenShiftManagedClusterAgentPoolProfileArgs
+func (val *OpenShiftManagedClusterAgentPoolProfileArgs) Defaults() *OpenShiftManagedClusterAgentPoolProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SubnetCidr) {
+		tmp.SubnetCidr = pulumi.StringPtr("10.0.0.0/24")
+	}
+	return &tmp
+}
 func (OpenShiftManagedClusterAgentPoolProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenShiftManagedClusterAgentPoolProfile)(nil)).Elem()
 }

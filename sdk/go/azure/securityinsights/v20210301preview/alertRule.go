@@ -170,6 +170,31 @@ func (o AlertRuleOutput) ToAlertRuleOutputWithContext(ctx context.Context) Alert
 	return o
 }
 
+// Etag of the azure resource
+func (o AlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the alert rule
+func (o AlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o AlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertRuleOutput{})
 }

@@ -220,6 +220,128 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
+// The properties of any lab announcement associated with this lab
+func (o LabOutput) Announcement() LabAnnouncementPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) LabAnnouncementPropertiesResponsePtrOutput { return v.Announcement }).(LabAnnouncementPropertiesResponsePtrOutput)
+}
+
+// The lab's artifact storage account.
+func (o LabOutput) ArtifactsStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ArtifactsStorageAccount }).(pulumi.StringOutput)
+}
+
+// The creation date of the lab.
+func (o LabOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// The lab's default premium storage account.
+func (o LabOutput) DefaultPremiumStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.DefaultPremiumStorageAccount }).(pulumi.StringOutput)
+}
+
+// The lab's default storage account.
+func (o LabOutput) DefaultStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.DefaultStorageAccount }).(pulumi.StringOutput)
+}
+
+// The access rights to be granted to the user when provisioning an environment
+func (o LabOutput) EnvironmentPermission() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.EnvironmentPermission }).(pulumi.StringPtrOutput)
+}
+
+// Extended properties of the lab used for experimental features
+func (o LabOutput) ExtendedProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.ExtendedProperties }).(pulumi.StringMapOutput)
+}
+
+// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+func (o LabOutput) LabStorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.LabStorageType }).(pulumi.StringPtrOutput)
+}
+
+// The load balancer used to for lab VMs that use shared IP address.
+func (o LabOutput) LoadBalancerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.LoadBalancerId }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o LabOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+func (o LabOutput) MandatoryArtifactsResourceIdsLinux() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringArrayOutput { return v.MandatoryArtifactsResourceIdsLinux }).(pulumi.StringArrayOutput)
+}
+
+// The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+func (o LabOutput) MandatoryArtifactsResourceIdsWindows() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringArrayOutput { return v.MandatoryArtifactsResourceIdsWindows }).(pulumi.StringArrayOutput)
+}
+
+// The name of the resource.
+func (o LabOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+func (o LabOutput) NetworkSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.NetworkSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The lab's premium data disk storage account.
+func (o LabOutput) PremiumDataDiskStorageAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.PremiumDataDiskStorageAccount }).(pulumi.StringOutput)
+}
+
+// The setting to enable usage of premium data disks.
+// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+// When its value is 'Disabled', only creation of standard data disks is allowed.
+func (o LabOutput) PremiumDataDisks() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.PremiumDataDisks }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The public IP address for the lab's load balancer.
+func (o LabOutput) PublicIpId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.PublicIpId }).(pulumi.StringOutput)
+}
+
+// The properties of any lab support message associated with this lab
+func (o LabOutput) Support() LabSupportPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) LabSupportPropertiesResponsePtrOutput { return v.Support }).(LabSupportPropertiesResponsePtrOutput)
+}
+
+// The tags of the resource.
+func (o LabOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LabOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LabOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+// The lab's Key vault.
+func (o LabOutput) VaultName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.VaultName }).(pulumi.StringOutput)
+}
+
+// The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+func (o LabOutput) VmCreationResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.VmCreationResourceGroup }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabOutput{})
 }

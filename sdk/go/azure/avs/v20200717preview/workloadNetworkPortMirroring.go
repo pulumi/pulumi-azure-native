@@ -170,6 +170,51 @@ func (o WorkloadNetworkPortMirroringOutput) ToWorkloadNetworkPortMirroringOutput
 	return o
 }
 
+// Destination VM Group.
+func (o WorkloadNetworkPortMirroringOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// Direction of port mirroring profile.
+func (o WorkloadNetworkPortMirroringOutput) Direction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringPtrOutput { return v.Direction }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the port mirroring profile.
+func (o WorkloadNetworkPortMirroringOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkPortMirroringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkPortMirroringOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkPortMirroringOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// Source VM Group.
+func (o WorkloadNetworkPortMirroringOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// Port Mirroring Status.
+func (o WorkloadNetworkPortMirroringOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkPortMirroringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkPortMirroring) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkPortMirroringOutput{})
 }

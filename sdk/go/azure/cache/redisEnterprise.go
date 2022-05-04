@@ -176,6 +176,68 @@ func (o RedisEnterpriseOutput) ToRedisEnterpriseOutputWithContext(ctx context.Co
 	return o
 }
 
+// DNS name of the cluster endpoint
+func (o RedisEnterpriseOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o RedisEnterpriseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The minimum TLS version for the cluster to support, e.g. '1.2'
+func (o RedisEnterpriseOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o RedisEnterpriseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections associated with the specified RedisEnterprise cluster
+func (o RedisEnterpriseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *RedisEnterprise) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Current provisioning status of the cluster
+func (o RedisEnterpriseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Version of redis the cluster supports, e.g. '6'
+func (o RedisEnterpriseOutput) RedisVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.RedisVersion }).(pulumi.StringOutput)
+}
+
+// Current resource status of the cluster
+func (o RedisEnterpriseOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The SKU to create, which affects price, performance, and features.
+func (o RedisEnterpriseOutput) Sku() EnterpriseSkuResponseOutput {
+	return o.ApplyT(func(v *RedisEnterprise) EnterpriseSkuResponseOutput { return v.Sku }).(EnterpriseSkuResponseOutput)
+}
+
+// Resource tags.
+func (o RedisEnterpriseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o RedisEnterpriseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Availability Zones where this cluster will be deployed.
+func (o RedisEnterpriseOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RedisEnterprise) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RedisEnterpriseOutput{})
 }

@@ -218,6 +218,96 @@ func (o TopicOutput) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return o
 }
 
+// Last time the message was sent, or a request was received, for this topic.
+func (o TopicOutput) AccessedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.AccessedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+func (o TopicOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
+}
+
+// Message count details
+func (o TopicOutput) CountDetails() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v *Topic) MessageCountDetailsResponseOutput { return v.CountDetails }).(MessageCountDetailsResponseOutput)
+}
+
+// Exact time the message was created.
+func (o TopicOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+func (o TopicOutput) DefaultMessageTimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DefaultMessageTimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+func (o TopicOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether server-side batched operations are enabled.
+func (o TopicOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+func (o TopicOutput) MaxSizeInMegabytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.MaxSizeInMegabytes }).(pulumi.IntPtrOutput)
+}
+
+// Resource name
+func (o TopicOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value indicating if this topic requires duplicate detection.
+func (o TopicOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.RequiresDuplicateDetection }).(pulumi.BoolPtrOutput)
+}
+
+// Size of the topic, in bytes.
+func (o TopicOutput) SizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Topic) pulumi.Float64Output { return v.SizeInBytes }).(pulumi.Float64Output)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+func (o TopicOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Number of subscriptions.
+func (o TopicOutput) SubscriptionCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntOutput { return v.SubscriptionCount }).(pulumi.IntOutput)
+}
+
+// Value that indicates whether the topic supports ordering.
+func (o TopicOutput) SupportOrdering() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.SupportOrdering }).(pulumi.BoolPtrOutput)
+}
+
+// Resource type
+func (o TopicOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o TopicOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TopicOutput{})
 }

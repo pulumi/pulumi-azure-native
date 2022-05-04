@@ -184,6 +184,46 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
+// The value that indicates whether the admin user is enabled. This value is false by default.
+func (o RegistryOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AdminUserEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The creation date of the container registry in ISO8601 format.
+func (o RegistryOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o RegistryOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The URL that can be used to log into the container registry.
+func (o RegistryOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o RegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+func (o RegistryOutput) StorageAccount() StorageAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v *Registry) StorageAccountPropertiesResponseOutput { return v.StorageAccount }).(StorageAccountPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o RegistryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o RegistryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistryOutput{})
 }

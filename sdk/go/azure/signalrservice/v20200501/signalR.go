@@ -227,6 +227,102 @@ func (o SignalROutput) ToSignalROutputWithContext(ctx context.Context) SignalROu
 	return o
 }
 
+// Cross-Origin Resource Sharing (CORS) settings.
+func (o SignalROutput) Cors() SignalRCorsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) SignalRCorsSettingsResponsePtrOutput { return v.Cors }).(SignalRCorsSettingsResponsePtrOutput)
+}
+
+// The publicly accessible IP of the SignalR service.
+func (o SignalROutput) ExternalIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.ExternalIP }).(pulumi.StringOutput)
+}
+
+// List of SignalR featureFlags. e.g. ServiceMode.
+//
+// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+// And the response will only include featureFlags that are explicitly set.
+// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+func (o SignalROutput) Features() SignalRFeatureResponseArrayOutput {
+	return o.ApplyT(func(v *SignalR) SignalRFeatureResponseArrayOutput { return v.Features }).(SignalRFeatureResponseArrayOutput)
+}
+
+// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+func (o SignalROutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Prefix for the hostName of the SignalR service. Retained for future use.
+// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+func (o SignalROutput) HostNamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.HostNamePrefix }).(pulumi.StringOutput)
+}
+
+// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+func (o SignalROutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+func (o SignalROutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o SignalROutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network ACLs
+func (o SignalROutput) NetworkACLs() SignalRNetworkACLsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) SignalRNetworkACLsResponsePtrOutput { return v.NetworkACLs }).(SignalRNetworkACLsResponsePtrOutput)
+}
+
+// Private endpoint connections to the SignalR resource.
+func (o SignalROutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *SignalR) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o SignalROutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+func (o SignalROutput) PublicPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.IntOutput { return v.PublicPort }).(pulumi.IntOutput)
+}
+
+// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+func (o SignalROutput) ServerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.IntOutput { return v.ServerPort }).(pulumi.IntOutput)
+}
+
+// The billing information of the resource.(e.g. Free, Standard)
+func (o SignalROutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ResourceSkuResponsePtrOutput { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// Tags of the service which is a list of key value pairs that describe the resource.
+func (o SignalROutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalROutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Upstream settings when the Azure SignalR is in server-less mode.
+func (o SignalROutput) Upstream() ServerlessUpstreamSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SignalR) ServerlessUpstreamSettingsResponsePtrOutput { return v.Upstream }).(ServerlessUpstreamSettingsResponsePtrOutput)
+}
+
+// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+func (o SignalROutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalR) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalROutput{})
 }

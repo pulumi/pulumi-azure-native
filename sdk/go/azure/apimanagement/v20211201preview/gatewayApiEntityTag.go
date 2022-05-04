@@ -201,6 +201,125 @@ func (o GatewayApiEntityTagOutput) ToGatewayApiEntityTagOutputWithContext(ctx co
 	return o
 }
 
+// Describes the revision of the API. If no value is provided, default revision 1 is created
+func (o GatewayApiEntityTagOutput) ApiRevision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiRevision }).(pulumi.StringPtrOutput)
+}
+
+// Description of the API Revision.
+func (o GatewayApiEntityTagOutput) ApiRevisionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiRevisionDescription }).(pulumi.StringPtrOutput)
+}
+
+// Type of API.
+func (o GatewayApiEntityTagOutput) ApiType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the version identifier of the API if the API is versioned
+func (o GatewayApiEntityTagOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiVersion }).(pulumi.StringPtrOutput)
+}
+
+// Description of the API Version.
+func (o GatewayApiEntityTagOutput) ApiVersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiVersionDescription }).(pulumi.StringPtrOutput)
+}
+
+// Version set details
+func (o GatewayApiEntityTagOutput) ApiVersionSet() ApiVersionSetContractDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) ApiVersionSetContractDetailsResponsePtrOutput { return v.ApiVersionSet }).(ApiVersionSetContractDetailsResponsePtrOutput)
+}
+
+// A resource identifier for the related ApiVersionSet.
+func (o GatewayApiEntityTagOutput) ApiVersionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ApiVersionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Collection of authentication settings included into this API.
+func (o GatewayApiEntityTagOutput) AuthenticationSettings() AuthenticationSettingsContractResponsePtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) AuthenticationSettingsContractResponsePtrOutput {
+		return v.AuthenticationSettings
+	}).(AuthenticationSettingsContractResponsePtrOutput)
+}
+
+// Contact information for the API.
+func (o GatewayApiEntityTagOutput) Contact() ApiContactInformationResponsePtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) ApiContactInformationResponsePtrOutput { return v.Contact }).(ApiContactInformationResponsePtrOutput)
+}
+
+// Description of the API. May include HTML formatting tags.
+func (o GatewayApiEntityTagOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// API name. Must be 1 to 300 characters long.
+func (o GatewayApiEntityTagOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if API revision is current api revision.
+func (o GatewayApiEntityTagOutput) IsCurrent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.BoolPtrOutput { return v.IsCurrent }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates if API revision is accessible via the gateway.
+func (o GatewayApiEntityTagOutput) IsOnline() pulumi.BoolOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.BoolOutput { return v.IsOnline }).(pulumi.BoolOutput)
+}
+
+// License information for the API.
+func (o GatewayApiEntityTagOutput) License() ApiLicenseInformationResponsePtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) ApiLicenseInformationResponsePtrOutput { return v.License }).(ApiLicenseInformationResponsePtrOutput)
+}
+
+// The name of the resource
+func (o GatewayApiEntityTagOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+func (o GatewayApiEntityTagOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
+}
+
+// Describes on which protocols the operations in this API can be invoked.
+func (o GatewayApiEntityTagOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+func (o GatewayApiEntityTagOutput) ServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.ServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// API identifier of the source API.
+func (o GatewayApiEntityTagOutput) SourceApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.SourceApiId }).(pulumi.StringPtrOutput)
+}
+
+// Protocols over which API is made available.
+func (o GatewayApiEntityTagOutput) SubscriptionKeyParameterNames() SubscriptionKeyParameterNamesContractResponsePtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) SubscriptionKeyParameterNamesContractResponsePtrOutput {
+		return v.SubscriptionKeyParameterNames
+	}).(SubscriptionKeyParameterNamesContractResponsePtrOutput)
+}
+
+// Specifies whether an API or Product subscription is required for accessing the API.
+func (o GatewayApiEntityTagOutput) SubscriptionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.BoolPtrOutput { return v.SubscriptionRequired }).(pulumi.BoolPtrOutput)
+}
+
+//  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+func (o GatewayApiEntityTagOutput) TermsOfServiceUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringPtrOutput { return v.TermsOfServiceUrl }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GatewayApiEntityTagOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayApiEntityTag) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayApiEntityTagOutput{})
 }

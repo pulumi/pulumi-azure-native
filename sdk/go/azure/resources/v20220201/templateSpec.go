@@ -163,6 +163,51 @@ func (o TemplateSpecOutput) ToTemplateSpecOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Template Spec description.
+func (o TemplateSpecOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Template Spec display name.
+func (o TemplateSpecOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+func (o TemplateSpecOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+func (o TemplateSpecOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Name of this resource.
+func (o TemplateSpecOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o TemplateSpecOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TemplateSpec) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o TemplateSpecOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of this resource.
+func (o TemplateSpecOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpec) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+func (o TemplateSpecOutput) Versions() TemplateSpecVersionInfoResponseMapOutput {
+	return o.ApplyT(func(v *TemplateSpec) TemplateSpecVersionInfoResponseMapOutput { return v.Versions }).(TemplateSpecVersionInfoResponseMapOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TemplateSpecOutput{})
 }

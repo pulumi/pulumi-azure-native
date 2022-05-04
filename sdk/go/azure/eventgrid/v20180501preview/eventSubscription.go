@@ -210,6 +210,58 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+// The DeadLetter destination of the event subscription.
+func (o EventSubscriptionOutput) DeadLetterDestination() StorageBlobDeadLetterDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *EventSubscription) StorageBlobDeadLetterDestinationResponsePtrOutput {
+		return v.DeadLetterDestination
+	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
+}
+
+// Information about the destination where events have to be delivered for the event subscription.
+func (o EventSubscriptionOutput) Destination() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.AnyOutput { return v.Destination }).(pulumi.AnyOutput)
+}
+
+// The event delivery schema for the event subscription.
+func (o EventSubscriptionOutput) EventDeliverySchema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringPtrOutput { return v.EventDeliverySchema }).(pulumi.StringPtrOutput)
+}
+
+// Information about the filter for the event subscription.
+func (o EventSubscriptionOutput) Filter() EventSubscriptionFilterResponsePtrOutput {
+	return o.ApplyT(func(v *EventSubscription) EventSubscriptionFilterResponsePtrOutput { return v.Filter }).(EventSubscriptionFilterResponsePtrOutput)
+}
+
+// List of user defined labels.
+func (o EventSubscriptionOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Name of the resource
+func (o EventSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the event subscription.
+func (o EventSubscriptionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+func (o EventSubscriptionOutput) RetryPolicy() RetryPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *EventSubscription) RetryPolicyResponsePtrOutput { return v.RetryPolicy }).(RetryPolicyResponsePtrOutput)
+}
+
+// Name of the topic of the event subscription.
+func (o EventSubscriptionOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Topic }).(pulumi.StringOutput)
+}
+
+// Type of the resource
+func (o EventSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})
 }

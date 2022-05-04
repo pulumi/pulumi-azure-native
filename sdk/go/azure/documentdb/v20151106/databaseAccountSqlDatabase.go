@@ -223,6 +223,51 @@ func (o DatabaseAccountSqlDatabaseOutput) ToDatabaseAccountSqlDatabaseOutputWith
 	return o
 }
 
+// A system generated property that specified the addressable path of the collections resource.
+func (o DatabaseAccountSqlDatabaseOutput) Colls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringPtrOutput { return v.Colls }).(pulumi.StringPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o DatabaseAccountSqlDatabaseOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o DatabaseAccountSqlDatabaseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o DatabaseAccountSqlDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o DatabaseAccountSqlDatabaseOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringPtrOutput { return v.Rid }).(pulumi.StringPtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o DatabaseAccountSqlDatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o DatabaseAccountSqlDatabaseOutput) Ts() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.AnyOutput { return v.Ts }).(pulumi.AnyOutput)
+}
+
+// The type of Azure resource.
+func (o DatabaseAccountSqlDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A system generated property that specifies the addressable path of the users resource.
+func (o DatabaseAccountSqlDatabaseOutput) Users() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountSqlDatabase) pulumi.StringPtrOutput { return v.Users }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAccountSqlDatabaseOutput{})
 }

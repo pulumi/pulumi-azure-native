@@ -344,6 +344,144 @@ func (o ManagedClusterOutput) ToManagedClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Profile of Azure Active Directory configuration.
+func (o ManagedClusterOutput) AadProfile() ManagedClusterAADProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterAADProfileResponsePtrOutput { return v.AadProfile }).(ManagedClusterAADProfileResponsePtrOutput)
+}
+
+// Profile of managed cluster add-on.
+func (o ManagedClusterOutput) AddonProfiles() ManagedClusterAddonProfileResponseMapOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterAddonProfileResponseMapOutput { return v.AddonProfiles }).(ManagedClusterAddonProfileResponseMapOutput)
+}
+
+// Properties of the agent pool.
+func (o ManagedClusterOutput) AgentPoolProfiles() ManagedClusterAgentPoolProfileResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterAgentPoolProfileResponseArrayOutput { return v.AgentPoolProfiles }).(ManagedClusterAgentPoolProfileResponseArrayOutput)
+}
+
+// Access profile for managed cluster API server.
+func (o ManagedClusterOutput) ApiServerAccessProfile() ManagedClusterAPIServerAccessProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterAPIServerAccessProfileResponsePtrOutput {
+		return v.ApiServerAccessProfile
+	}).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+func (o ManagedClusterOutput) AutoScalerProfile() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+		return v.AutoScalerProfile
+	}).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
+}
+
+// ResourceId of the disk encryption set to use for enabling encryption at rest.
+func (o ManagedClusterOutput) DiskEncryptionSetID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.DiskEncryptionSetID }).(pulumi.StringPtrOutput)
+}
+
+// DNS prefix specified when creating the managed cluster.
+func (o ManagedClusterOutput) DnsPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.DnsPrefix }).(pulumi.StringPtrOutput)
+}
+
+// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+func (o ManagedClusterOutput) EnablePodSecurityPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.EnablePodSecurityPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable Kubernetes Role-Based Access Control.
+func (o ManagedClusterOutput) EnableRBAC() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.BoolPtrOutput { return v.EnableRBAC }).(pulumi.BoolPtrOutput)
+}
+
+// FQDN for the master pool.
+func (o ManagedClusterOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The identity of the managed cluster, if configured.
+func (o ManagedClusterOutput) Identity() ManagedClusterIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterIdentityResponsePtrOutput { return v.Identity }).(ManagedClusterIdentityResponsePtrOutput)
+}
+
+// Identities associated with the cluster.
+func (o ManagedClusterOutput) IdentityProfile() ManagedClusterPropertiesResponseIdentityProfileMapOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterPropertiesResponseIdentityProfileMapOutput {
+		return v.IdentityProfile
+	}).(ManagedClusterPropertiesResponseIdentityProfileMapOutput)
+}
+
+// Version of Kubernetes specified when creating the managed cluster.
+func (o ManagedClusterOutput) KubernetesVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.KubernetesVersion }).(pulumi.StringPtrOutput)
+}
+
+// Profile for Linux VMs in the container service cluster.
+func (o ManagedClusterOutput) LinuxProfile() ContainerServiceLinuxProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ContainerServiceLinuxProfileResponsePtrOutput { return v.LinuxProfile }).(ContainerServiceLinuxProfileResponsePtrOutput)
+}
+
+// Resource location
+func (o ManagedClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max number of agent pools for the managed cluster.
+func (o ManagedClusterOutput) MaxAgentPools() pulumi.IntOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.IntOutput { return v.MaxAgentPools }).(pulumi.IntOutput)
+}
+
+// Resource name
+func (o ManagedClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Profile of network configuration.
+func (o ManagedClusterOutput) NetworkProfile() ContainerServiceNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ContainerServiceNetworkProfileResponsePtrOutput { return v.NetworkProfile }).(ContainerServiceNetworkProfileResponsePtrOutput)
+}
+
+// Name of the resource group containing agent pool nodes.
+func (o ManagedClusterOutput) NodeResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringPtrOutput { return v.NodeResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// FQDN of private cluster.
+func (o ManagedClusterOutput) PrivateFQDN() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.PrivateFQDN }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ManagedClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+func (o ManagedClusterOutput) ServicePrincipalProfile() ManagedClusterServicePrincipalProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterServicePrincipalProfileResponsePtrOutput {
+		return v.ServicePrincipalProfile
+	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
+}
+
+// The managed cluster SKU.
+func (o ManagedClusterOutput) Sku() ManagedClusterSKUResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterSKUResponsePtrOutput { return v.Sku }).(ManagedClusterSKUResponsePtrOutput)
+}
+
+// Resource tags
+func (o ManagedClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ManagedClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Profile for Windows VMs in the container service cluster.
+func (o ManagedClusterOutput) WindowsProfile() ManagedClusterWindowsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedCluster) ManagedClusterWindowsProfileResponsePtrOutput { return v.WindowsProfile }).(ManagedClusterWindowsProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedClusterOutput{})
 }

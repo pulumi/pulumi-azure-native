@@ -78,6 +78,23 @@ type BucketDefinitionArgs struct {
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
+// Defaults sets the appropriate defaults for BucketDefinitionArgs
+func (val *BucketDefinitionArgs) Defaults() *BucketDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Insecure) {
+		tmp.Insecure = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		tmp.SyncIntervalInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		tmp.TimeoutInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	return &tmp
+}
 func (BucketDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketDefinition)(nil)).Elem()
 }
@@ -1074,6 +1091,17 @@ type ExtensionStatusArgs struct {
 	Time pulumi.StringPtrInput `pulumi:"time"`
 }
 
+// Defaults sets the appropriate defaults for ExtensionStatusArgs
+func (val *ExtensionStatusArgs) Defaults() *ExtensionStatusArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		tmp.Level = pulumi.StringPtr("Information")
+	}
+	return &tmp
+}
 func (ExtensionStatusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExtensionStatus)(nil)).Elem()
 }
@@ -1326,6 +1354,20 @@ type GitRepositoryDefinitionArgs struct {
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
+// Defaults sets the appropriate defaults for GitRepositoryDefinitionArgs
+func (val *GitRepositoryDefinitionArgs) Defaults() *GitRepositoryDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SyncIntervalInSeconds) {
+		tmp.SyncIntervalInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		tmp.TimeoutInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	return &tmp
+}
 func (GitRepositoryDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GitRepositoryDefinition)(nil)).Elem()
 }
@@ -2418,6 +2460,29 @@ type KustomizationDefinitionArgs struct {
 	TimeoutInSeconds pulumi.Float64PtrInput `pulumi:"timeoutInSeconds"`
 }
 
+// Defaults sets the appropriate defaults for KustomizationDefinitionArgs
+func (val *KustomizationDefinitionArgs) Defaults() *KustomizationDefinitionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Force) {
+		tmp.Force = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.Path) {
+		tmp.Path = pulumi.StringPtr("")
+	}
+	if isZero(tmp.Prune) {
+		tmp.Prune = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		tmp.SyncIntervalInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		tmp.TimeoutInSeconds = pulumi.Float64Ptr(600.0)
+	}
+	return &tmp
+}
 func (KustomizationDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustomizationDefinition)(nil)).Elem()
 }

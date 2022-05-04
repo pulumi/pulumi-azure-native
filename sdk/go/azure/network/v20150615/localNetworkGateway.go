@@ -284,6 +284,56 @@ func (o LocalNetworkGatewayOutput) ToLocalNetworkGatewayOutputWithContext(ctx co
 	return o
 }
 
+// Local network gateway's BGP speaker settings.
+func (o LocalNetworkGatewayOutput) BgpSettings() BgpSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) BgpSettingsResponsePtrOutput { return v.BgpSettings }).(BgpSettingsResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o LocalNetworkGatewayOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// IP address of local network gateway.
+func (o LocalNetworkGatewayOutput) GatewayIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.GatewayIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// Local network site address space.
+func (o LocalNetworkGatewayOutput) LocalNetworkAddressSpace() AddressSpaceResponsePtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) AddressSpaceResponsePtrOutput { return v.LocalNetworkAddressSpace }).(AddressSpaceResponsePtrOutput)
+}
+
+// Resource location.
+func (o LocalNetworkGatewayOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LocalNetworkGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+func (o LocalNetworkGatewayOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The resource GUID property of the LocalNetworkGateway resource.
+func (o LocalNetworkGatewayOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o LocalNetworkGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LocalNetworkGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalNetworkGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayOutput{})
 }

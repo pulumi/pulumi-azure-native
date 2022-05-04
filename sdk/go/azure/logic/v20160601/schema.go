@@ -199,6 +199,76 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
+// The changed time.
+func (o SchemaOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o SchemaOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The content link.
+func (o SchemaOutput) ContentLink() ContentLinkResponseOutput {
+	return o.ApplyT(func(v *Schema) ContentLinkResponseOutput { return v.ContentLink }).(ContentLinkResponseOutput)
+}
+
+// The content type.
+func (o SchemaOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o SchemaOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The document name.
+func (o SchemaOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.DocumentName }).(pulumi.StringPtrOutput)
+}
+
+// The file name.
+func (o SchemaOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o SchemaOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o SchemaOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Schema) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o SchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schema type.
+func (o SchemaOutput) SchemaType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaType }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o SchemaOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The target namespace of the schema.
+func (o SchemaOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource type.
+func (o SchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SchemaOutput{})
 }

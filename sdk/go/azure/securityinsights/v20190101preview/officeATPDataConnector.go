@@ -182,6 +182,36 @@ func (o OfficeATPDataConnectorOutput) ToOfficeATPDataConnectorOutputWithContext(
 	return o
 }
 
+// The available data types for the connector.
+func (o OfficeATPDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o OfficeATPDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'OfficeATP'.
+func (o OfficeATPDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o OfficeATPDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o OfficeATPDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o OfficeATPDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OfficeATPDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OfficeATPDataConnectorOutput{})
 }

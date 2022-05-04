@@ -166,6 +166,41 @@ func (o DataStoreOutput) ToDataStoreOutputWithContext(ctx context.Context) DataS
 	return o
 }
 
+// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+func (o DataStoreOutput) CustomerSecrets() CustomerSecretResponseArrayOutput {
+	return o.ApplyT(func(v *DataStore) CustomerSecretResponseArrayOutput { return v.CustomerSecrets }).(CustomerSecretResponseArrayOutput)
+}
+
+// The arm id of the data store type.
+func (o DataStoreOutput) DataStoreTypeId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.StringOutput { return v.DataStoreTypeId }).(pulumi.StringOutput)
+}
+
+// A generic json used differently by each data source type.
+func (o DataStoreOutput) ExtendedProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.AnyOutput { return v.ExtendedProperties }).(pulumi.AnyOutput)
+}
+
+// Name of the object.
+func (o DataStoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Arm Id for the manager resource to which the data source is associated. This is optional.
+func (o DataStoreOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.StringPtrOutput { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// State of the data source.
+func (o DataStoreOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of the object.
+func (o DataStoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataStore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataStoreOutput{})
 }

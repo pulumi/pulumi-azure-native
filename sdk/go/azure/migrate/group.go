@@ -143,6 +143,26 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// For optimistic concurrency control.
+func (o GroupOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Name of the group.
+func (o GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the group.
+func (o GroupOutput) Properties() GroupPropertiesResponseOutput {
+	return o.ApplyT(func(v *Group) GroupPropertiesResponseOutput { return v.Properties }).(GroupPropertiesResponseOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
+func (o GroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupOutput{})
 }

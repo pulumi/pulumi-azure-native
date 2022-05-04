@@ -148,6 +148,35 @@ func (o HyperVSiteOutput) ToHyperVSiteOutputWithContext(ctx context.Context) Hyp
 	return o
 }
 
+// eTag for concurrency control.
+func (o HyperVSiteOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HyperVSite) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which Sites is created.
+func (o HyperVSiteOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HyperVSite) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Hyper-V site.
+func (o HyperVSiteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HyperVSite) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Nested properties of Hyper-V site.
+func (o HyperVSiteOutput) Properties() SitePropertiesResponseOutput {
+	return o.ApplyT(func(v *HyperVSite) SitePropertiesResponseOutput { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+func (o HyperVSiteOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *HyperVSite) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of resource. Type = Microsoft.OffAzure/HyperVSites.
+func (o HyperVSiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HyperVSite) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HyperVSiteOutput{})
 }

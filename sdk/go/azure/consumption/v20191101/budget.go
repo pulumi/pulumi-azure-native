@@ -202,6 +202,61 @@ func (o BudgetOutput) ToBudgetOutputWithContext(ctx context.Context) BudgetOutpu
 	return o
 }
 
+// The total amount of cost to track with the budget
+func (o BudgetOutput) Amount() pulumi.Float64Output {
+	return o.ApplyT(func(v *Budget) pulumi.Float64Output { return v.Amount }).(pulumi.Float64Output)
+}
+
+// The category of the budget, whether the budget tracks cost or usage.
+func (o BudgetOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The current amount of cost which is being tracked for a budget.
+func (o BudgetOutput) CurrentSpend() CurrentSpendResponseOutput {
+	return o.ApplyT(func(v *Budget) CurrentSpendResponseOutput { return v.CurrentSpend }).(CurrentSpendResponseOutput)
+}
+
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o BudgetOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// May be used to filter budgets by user-specified dimensions and/or tags.
+func (o BudgetOutput) Filter() BudgetFilterResponsePtrOutput {
+	return o.ApplyT(func(v *Budget) BudgetFilterResponsePtrOutput { return v.Filter }).(BudgetFilterResponsePtrOutput)
+}
+
+// The forecasted cost which is being tracked for a budget.
+func (o BudgetOutput) ForecastSpend() ForecastSpendResponseOutput {
+	return o.ApplyT(func(v *Budget) ForecastSpendResponseOutput { return v.ForecastSpend }).(ForecastSpendResponseOutput)
+}
+
+// Resource name.
+func (o BudgetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+func (o BudgetOutput) Notifications() NotificationResponseMapOutput {
+	return o.ApplyT(func(v *Budget) NotificationResponseMapOutput { return v.Notifications }).(NotificationResponseMapOutput)
+}
+
+// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+func (o BudgetOutput) TimeGrain() pulumi.StringOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.TimeGrain }).(pulumi.StringOutput)
+}
+
+// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+func (o BudgetOutput) TimePeriod() BudgetTimePeriodResponseOutput {
+	return o.ApplyT(func(v *Budget) BudgetTimePeriodResponseOutput { return v.TimePeriod }).(BudgetTimePeriodResponseOutput)
+}
+
+// Resource type.
+func (o BudgetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BudgetOutput{})
 }

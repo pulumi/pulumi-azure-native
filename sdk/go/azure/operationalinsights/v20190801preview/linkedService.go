@@ -148,6 +148,26 @@ func (o LinkedServiceOutput) ToLinkedServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Resource name.
+func (o LinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
+func (o LinkedServiceOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o LinkedServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
+func (o LinkedServiceOutput) WriteAccessResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedService) pulumi.StringPtrOutput { return v.WriteAccessResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkedServiceOutput{})
 }

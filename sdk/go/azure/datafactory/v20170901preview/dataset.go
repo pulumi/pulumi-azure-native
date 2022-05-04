@@ -143,6 +143,26 @@ func (o DatasetOutput) ToDatasetOutputWithContext(ctx context.Context) DatasetOu
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o DatasetOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Dataset properties.
+func (o DatasetOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The resource type.
+func (o DatasetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dataset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatasetOutput{})
 }

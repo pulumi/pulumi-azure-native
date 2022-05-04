@@ -167,6 +167,31 @@ func (o UebaOutput) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 	return o
 }
 
+// The relevant data sources that enriched by ueba
+func (o UebaOutput) DataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ueba) pulumi.StringArrayOutput { return v.DataSources }).(pulumi.StringArrayOutput)
+}
+
+// Etag of the azure resource
+func (o UebaOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ueba) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'Ueba'.
+func (o UebaOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ueba) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o UebaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ueba) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o UebaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ueba) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UebaOutput{})
 }

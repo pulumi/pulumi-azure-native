@@ -150,6 +150,40 @@ func (o SiteOutput) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 	return o
 }
 
+// eTag for concurrency control.
+func (o SiteOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which Sites is created.
+func (o SiteOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the VMware site.
+func (o SiteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Nested properties of VMWare site.
+func (o SiteOutput) Properties() SitePropertiesResponseOutput {
+	return o.ApplyT(func(v *Site) SitePropertiesResponseOutput { return v.Properties }).(SitePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SiteOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Site) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o SiteOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of resource. Type = Microsoft.OffAzure/VMWareSites.
+func (o SiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Site) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteOutput{})
 }

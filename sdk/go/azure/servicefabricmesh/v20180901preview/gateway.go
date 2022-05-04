@@ -176,6 +176,71 @@ func (o GatewayOutput) ToGatewayOutputWithContext(ctx context.Context) GatewayOu
 	return o
 }
 
+// User readable description of the gateway.
+func (o GatewayOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Network that the Application is using.
+func (o GatewayOutput) DestinationNetwork() NetworkRefResponseOutput {
+	return o.ApplyT(func(v *Gateway) NetworkRefResponseOutput { return v.DestinationNetwork }).(NetworkRefResponseOutput)
+}
+
+// Configuration for http connectivity for this gateway.
+func (o GatewayOutput) Http() HttpConfigResponseArrayOutput {
+	return o.ApplyT(func(v *Gateway) HttpConfigResponseArrayOutput { return v.Http }).(HttpConfigResponseArrayOutput)
+}
+
+// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
+func (o GatewayOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o GatewayOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o GatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the resource.
+func (o GatewayOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Network the gateway should listen on for requests.
+func (o GatewayOutput) SourceNetwork() NetworkRefResponseOutput {
+	return o.ApplyT(func(v *Gateway) NetworkRefResponseOutput { return v.SourceNetwork }).(NetworkRefResponseOutput)
+}
+
+// Status of the resource.
+func (o GatewayOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Gives additional information about the current status of the gateway.
+func (o GatewayOutput) StatusDetails() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.StatusDetails }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o GatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Configuration for tcp connectivity for this gateway.
+func (o GatewayOutput) Tcp() TcpConfigResponseArrayOutput {
+	return o.ApplyT(func(v *Gateway) TcpConfigResponseArrayOutput { return v.Tcp }).(TcpConfigResponseArrayOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o GatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayOutput{})
 }

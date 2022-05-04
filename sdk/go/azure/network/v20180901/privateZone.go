@@ -154,6 +154,66 @@ func (o PrivateZoneOutput) ToPrivateZoneOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// The ETag of the zone.
+func (o PrivateZoneOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o PrivateZoneOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) MaxNumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.MaxNumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) MaxNumberOfVirtualNetworkLinks() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.MaxNumberOfVirtualNetworkLinks }).(pulumi.Float64Output)
+}
+
+// The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.MaxNumberOfVirtualNetworkLinksWithRegistration }).(pulumi.Float64Output)
+}
+
+// The name of the resource
+func (o PrivateZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) NumberOfRecordSets() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.NumberOfRecordSets }).(pulumi.Float64Output)
+}
+
+// The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) NumberOfVirtualNetworkLinks() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.NumberOfVirtualNetworkLinks }).(pulumi.Float64Output)
+}
+
+// The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) NumberOfVirtualNetworkLinksWithRegistration() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateZone) pulumi.Float64Output { return v.NumberOfVirtualNetworkLinksWithRegistration }).(pulumi.Float64Output)
+}
+
+// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+func (o PrivateZoneOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o PrivateZoneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+func (o PrivateZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateZone) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateZoneOutput{})
 }

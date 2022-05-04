@@ -170,8 +170,8 @@ export const SecurityAlertPolicyUseServerDefault = {
 export type SecurityAlertPolicyUseServerDefault = (typeof SecurityAlertPolicyUseServerDefault)[keyof typeof SecurityAlertPolicyUseServerDefault];
 
 export const ServerVersion = {
-    _2_0: "2.0",
-    _12_0: "12.0",
+    ServerVersion_2_0: "2.0",
+    ServerVersion_12_0: "12.0",
 } as const;
 
 /**

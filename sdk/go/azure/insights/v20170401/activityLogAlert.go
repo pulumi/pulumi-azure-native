@@ -177,6 +177,51 @@ func (o ActivityLogAlertOutput) ToActivityLogAlertOutputWithContext(ctx context.
 	return o
 }
 
+// The actions that will activate when the condition is met.
+func (o ActivityLogAlertOutput) Actions() ActivityLogAlertActionListResponseOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) ActivityLogAlertActionListResponseOutput { return v.Actions }).(ActivityLogAlertActionListResponseOutput)
+}
+
+// The condition that will cause this alert to activate.
+func (o ActivityLogAlertOutput) Condition() ActivityLogAlertAllOfConditionResponseOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) ActivityLogAlertAllOfConditionResponseOutput { return v.Condition }).(ActivityLogAlertAllOfConditionResponseOutput)
+}
+
+// A description of this activity log alert.
+func (o ActivityLogAlertOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+func (o ActivityLogAlertOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o ActivityLogAlertOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ActivityLogAlertOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+func (o ActivityLogAlertOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags
+func (o ActivityLogAlertOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o ActivityLogAlertOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityLogAlert) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertOutput{})
 }

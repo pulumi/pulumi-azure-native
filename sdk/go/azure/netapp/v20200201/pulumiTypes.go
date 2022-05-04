@@ -86,6 +86,20 @@ type ActiveDirectoryArgs struct {
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
+// Defaults sets the appropriate defaults for ActiveDirectoryArgs
+func (val *ActiveDirectoryArgs) Defaults() *ActiveDirectoryArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		tmp.ActiveDirectoryId = pulumi.StringPtr("guid id")
+	}
+	if isZero(tmp.OrganizationalUnit) {
+		tmp.OrganizationalUnit = pulumi.StringPtr("CN=Computers")
+	}
+	return &tmp
+}
 func (ActiveDirectoryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActiveDirectory)(nil)).Elem()
 }
@@ -394,6 +408,17 @@ type ExportPolicyRuleArgs struct {
 	UnixReadWrite pulumi.BoolPtrInput `pulumi:"unixReadWrite"`
 }
 
+// Defaults sets the appropriate defaults for ExportPolicyRuleArgs
+func (val *ExportPolicyRuleArgs) Defaults() *ExportPolicyRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cifs) {
+		tmp.Cifs = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ExportPolicyRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportPolicyRule)(nil)).Elem()
 }

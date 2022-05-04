@@ -159,6 +159,36 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The location of the resource.
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the Maps Account, which is unique within a Resource Group.
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The map account properties.
+func (o AccountOutput) Properties() MapsAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v *Account) MapsAccountPropertiesResponseOutput { return v.Properties }).(MapsAccountPropertiesResponseOutput)
+}
+
+// The SKU of this account.
+func (o AccountOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Account) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

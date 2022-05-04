@@ -194,6 +194,49 @@ func (o WebAppRelayServiceConnectionSlotOutput) ToWebAppRelayServiceConnectionSl
 	return o
 }
 
+func (o WebAppRelayServiceConnectionSlotOutput) BiztalkUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.BiztalkUri }).(pulumi.StringPtrOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) EntityConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.EntityConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) EntityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.EntityName }).(pulumi.StringPtrOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) Hostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Hostname }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppRelayServiceConnectionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppRelayServiceConnectionSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) ResourceConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.ResourceConnectionString }).(pulumi.StringPtrOutput)
+}
+
+func (o WebAppRelayServiceConnectionSlotOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringPtrOutput { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppRelayServiceConnectionSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppRelayServiceConnectionSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppRelayServiceConnectionSlotOutput{})
 }

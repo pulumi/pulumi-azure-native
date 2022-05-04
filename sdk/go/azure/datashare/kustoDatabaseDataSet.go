@@ -177,6 +177,47 @@ func (o KustoDatabaseDataSetOutput) ToKustoDatabaseDataSetOutputWithContext(ctx 
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o KustoDatabaseDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'KustoDatabase'.
+func (o KustoDatabaseDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the kusto database.
+func (o KustoDatabaseDataSetOutput) KustoDatabaseResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.KustoDatabaseResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the kusto cluster.
+func (o KustoDatabaseDataSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o KustoDatabaseDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the kusto database data set.
+func (o KustoDatabaseDataSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o KustoDatabaseDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o KustoDatabaseDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoDatabaseDataSetOutput{})
 }

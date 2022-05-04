@@ -197,6 +197,46 @@ func (o EndpointVariantOutput) ToEndpointVariantOutputWithContext(ctx context.Co
 	return o
 }
 
+// The identity of the resource.
+func (o EndpointVariantOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *EndpointVariant) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o EndpointVariantOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointVariant) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o EndpointVariantOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointVariant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service properties
+func (o EndpointVariantOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *EndpointVariant) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o EndpointVariantOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *EndpointVariant) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o EndpointVariantOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EndpointVariant) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o EndpointVariantOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EndpointVariant) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o EndpointVariantOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointVariant) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EndpointVariantOutput{})
 }

@@ -228,6 +228,96 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+func (o ServerOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// availability zone information of the server.
+func (o ServerOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// Backup properties of a server.
+func (o ServerOutput) Backup() BackupResponsePtrOutput {
+	return o.ApplyT(func(v *Server) BackupResponsePtrOutput { return v.Backup }).(BackupResponsePtrOutput)
+}
+
+// The fully qualified domain name of a server.
+func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// High availability properties of a server.
+func (o ServerOutput) HighAvailability() HighAvailabilityResponsePtrOutput {
+	return o.ApplyT(func(v *Server) HighAvailabilityResponsePtrOutput { return v.HighAvailability }).(HighAvailabilityResponsePtrOutput)
+}
+
+// The Azure Active Directory identity of the server.
+func (o ServerOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Server) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance window properties of a server.
+func (o ServerOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v *Server) MaintenanceWindowResponsePtrOutput { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
+}
+
+// The minor version of the server.
+func (o ServerOutput) MinorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.MinorVersion }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network properties of a server.
+func (o ServerOutput) Network() NetworkResponsePtrOutput {
+	return o.ApplyT(func(v *Server) NetworkResponsePtrOutput { return v.Network }).(NetworkResponsePtrOutput)
+}
+
+// The SKU (pricing tier) of the server.
+func (o ServerOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Server) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// A state of a server that is visible to user.
+func (o ServerOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Storage properties of a server.
+func (o ServerOutput) Storage() StorageResponsePtrOutput {
+	return o.ApplyT(func(v *Server) StorageResponsePtrOutput { return v.Storage }).(StorageResponsePtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o ServerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Server) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// PostgreSQL Server version.
+func (o ServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
 }

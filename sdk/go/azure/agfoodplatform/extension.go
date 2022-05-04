@@ -142,6 +142,51 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// The ETag value to implement optimistic concurrency.
+func (o ExtensionOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
+}
+
+// Extension api docs link.
+func (o ExtensionOutput) ExtensionApiDocsLink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionApiDocsLink }).(pulumi.StringOutput)
+}
+
+// Extension auth link.
+func (o ExtensionOutput) ExtensionAuthLink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionAuthLink }).(pulumi.StringOutput)
+}
+
+// Extension category. e.g. weather/sensor/satellite.
+func (o ExtensionOutput) ExtensionCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionCategory }).(pulumi.StringOutput)
+}
+
+// Extension Id.
+func (o ExtensionOutput) ExtensionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ExtensionId }).(pulumi.StringOutput)
+}
+
+// Installed extension version.
+func (o ExtensionOutput) InstalledExtensionVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.InstalledExtensionVersion }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ExtensionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Extension) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExtensionOutput{})
 }

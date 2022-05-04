@@ -182,6 +182,41 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// The time the data should be kept in cache for fast queries in TimeSpan.
+func (o DatabaseOutput) HotCachePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.HotCachePeriod }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o DatabaseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o DatabaseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+func (o DatabaseOutput) SoftDeletePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.SoftDeletePeriod }).(pulumi.StringPtrOutput)
+}
+
+// The statistics of the database.
+func (o DatabaseOutput) Statistics() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v *Database) DatabaseStatisticsResponseOutput { return v.Statistics }).(DatabaseStatisticsResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

@@ -235,6 +235,55 @@ func (o AzureFirewallOutput) ToAzureFirewallOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Collection of application rule collections used by a Azure Firewall.
+func (o AzureFirewallOutput) ApplicationRuleCollections() AzureFirewallApplicationRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallApplicationRuleCollectionResponseArrayOutput {
+		return v.ApplicationRuleCollections
+	}).(AzureFirewallApplicationRuleCollectionResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o AzureFirewallOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// IP configuration of the Azure Firewall resource.
+func (o AzureFirewallOutput) IpConfigurations() AzureFirewallIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallIPConfigurationResponseArrayOutput { return v.IpConfigurations }).(AzureFirewallIPConfigurationResponseArrayOutput)
+}
+
+// Resource location.
+func (o AzureFirewallOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o AzureFirewallOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Collection of network rule collections used by a Azure Firewall.
+func (o AzureFirewallOutput) NetworkRuleCollections() AzureFirewallNetworkRuleCollectionResponseArrayOutput {
+	return o.ApplyT(func(v *AzureFirewall) AzureFirewallNetworkRuleCollectionResponseArrayOutput {
+		return v.NetworkRuleCollections
+	}).(AzureFirewallNetworkRuleCollectionResponseArrayOutput)
+}
+
+// The provisioning state of the resource.
+func (o AzureFirewallOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o AzureFirewallOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AzureFirewallOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureFirewall) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureFirewallOutput{})
 }

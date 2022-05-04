@@ -146,6 +146,31 @@ func (o ProviderInstanceOutput) ToProviderInstanceOutputWithContext(ctx context.
 	return o
 }
 
+// A JSON string containing metadata of the provider instance.
+func (o ProviderInstanceOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProviderInstance) pulumi.StringPtrOutput { return v.Metadata }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ProviderInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A JSON string containing the properties of the provider instance.
+func (o ProviderInstanceOutput) Properties() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderInstance) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
+}
+
+// State of provisioning of the provider instance
+func (o ProviderInstanceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderInstance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ProviderInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProviderInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProviderInstanceOutput{})
 }

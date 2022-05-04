@@ -205,6 +205,71 @@ func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutputWi
 	return o
 }
 
+// The agreement type.
+func (o IntegrationAccountAgreementOutput) AgreementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.AgreementType }).(pulumi.StringPtrOutput)
+}
+
+// The changed time.
+func (o IntegrationAccountAgreementOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The agreement content.
+func (o IntegrationAccountAgreementOutput) Content() AgreementContentResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) AgreementContentResponsePtrOutput { return v.Content }).(AgreementContentResponsePtrOutput)
+}
+
+// The created time.
+func (o IntegrationAccountAgreementOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The guest identity.
+func (o IntegrationAccountAgreementOutput) GuestIdentity() BusinessIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) BusinessIdentityResponsePtrOutput { return v.GuestIdentity }).(BusinessIdentityResponsePtrOutput)
+}
+
+// The guest partner.
+func (o IntegrationAccountAgreementOutput) GuestPartner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.GuestPartner }).(pulumi.StringPtrOutput)
+}
+
+// The host identity.
+func (o IntegrationAccountAgreementOutput) HostIdentity() BusinessIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) BusinessIdentityResponsePtrOutput { return v.HostIdentity }).(BusinessIdentityResponsePtrOutput)
+}
+
+// The host partner.
+func (o IntegrationAccountAgreementOutput) HostPartner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.HostPartner }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountAgreementOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o IntegrationAccountAgreementOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The resource name.
+func (o IntegrationAccountAgreementOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountAgreementOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IntegrationAccountAgreementOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountAgreement) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountAgreementOutput{})
 }

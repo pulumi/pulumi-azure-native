@@ -191,6 +191,76 @@ func (o AssessmentMetadataInSubscriptionOutput) ToAssessmentMetadataInSubscripti
 	return o
 }
 
+// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+func (o AssessmentMetadataInSubscriptionOutput) AssessmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.AssessmentType }).(pulumi.StringOutput)
+}
+
+func (o AssessmentMetadataInSubscriptionOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringArrayOutput { return v.Categories }).(pulumi.StringArrayOutput)
+}
+
+// Human readable description of the assessment
+func (o AssessmentMetadataInSubscriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User friendly display name of the assessment
+func (o AssessmentMetadataInSubscriptionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The implementation effort required to remediate this assessment
+func (o AssessmentMetadataInSubscriptionOutput) ImplementationEffort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringPtrOutput { return v.ImplementationEffort }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o AssessmentMetadataInSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes the partner that created the assessment
+func (o AssessmentMetadataInSubscriptionOutput) PartnerData() SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) SecurityAssessmentMetadataPartnerDataResponsePtrOutput {
+		return v.PartnerData
+	}).(SecurityAssessmentMetadataPartnerDataResponsePtrOutput)
+}
+
+// Azure resource ID of the policy definition that turns this assessment calculation on
+func (o AssessmentMetadataInSubscriptionOutput) PolicyDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.PolicyDefinitionId }).(pulumi.StringOutput)
+}
+
+// True if this assessment is in preview release status
+func (o AssessmentMetadataInSubscriptionOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.BoolPtrOutput { return v.Preview }).(pulumi.BoolPtrOutput)
+}
+
+// Human readable description of what you should do to mitigate this security issue
+func (o AssessmentMetadataInSubscriptionOutput) RemediationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringPtrOutput { return v.RemediationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The severity level of the assessment
+func (o AssessmentMetadataInSubscriptionOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+func (o AssessmentMetadataInSubscriptionOutput) Threats() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringArrayOutput { return v.Threats }).(pulumi.StringArrayOutput)
+}
+
+// Resource type
+func (o AssessmentMetadataInSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user impact of the assessment
+func (o AssessmentMetadataInSubscriptionOutput) UserImpact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssessmentMetadataInSubscription) pulumi.StringPtrOutput { return v.UserImpact }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssessmentMetadataInSubscriptionOutput{})
 }

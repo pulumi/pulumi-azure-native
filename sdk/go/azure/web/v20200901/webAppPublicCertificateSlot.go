@@ -189,6 +189,41 @@ func (o WebAppPublicCertificateSlotOutput) ToWebAppPublicCertificateSlotOutputWi
 	return o
 }
 
+// Public Certificate byte array
+func (o WebAppPublicCertificateSlotOutput) Blob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringPtrOutput { return v.Blob }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppPublicCertificateSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPublicCertificateSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Public Certificate Location
+func (o WebAppPublicCertificateSlotOutput) PublicCertificateLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringPtrOutput { return v.PublicCertificateLocation }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppPublicCertificateSlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Certificate Thumbprint
+func (o WebAppPublicCertificateSlotOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppPublicCertificateSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPublicCertificateSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppPublicCertificateSlotOutput{})
 }

@@ -224,6 +224,41 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
+// The creation date of the snapshot
+func (o SnapshotOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// UUID v4 used to identify the FileSystem
+func (o SnapshotOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.FileSystemId }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o SnapshotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o SnapshotOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// UUID v4 used to identify the Snapshot
+func (o SnapshotOutput) SnapshotId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o SnapshotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotOutput{})
 }

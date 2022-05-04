@@ -171,6 +171,76 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Allowed values of the configuration.
+func (o ConfigurationOutput) AllowedValues() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.AllowedValues }).(pulumi.StringOutput)
+}
+
+// Data type of the configuration.
+func (o ConfigurationOutput) DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
+}
+
+// Default value of the configuration.
+func (o ConfigurationOutput) DefaultValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.DefaultValue }).(pulumi.StringOutput)
+}
+
+// Description of the configuration.
+func (o ConfigurationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Configuration documentation link.
+func (o ConfigurationOutput) DocumentationLink() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.DocumentationLink }).(pulumi.StringOutput)
+}
+
+// Configuration is pending restart or not.
+func (o ConfigurationOutput) IsConfigPendingRestart() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsConfigPendingRestart }).(pulumi.BoolOutput)
+}
+
+// Configuration dynamic or static.
+func (o ConfigurationOutput) IsDynamicConfig() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsDynamicConfig }).(pulumi.BoolOutput)
+}
+
+// Configuration read-only or not.
+func (o ConfigurationOutput) IsReadOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.BoolOutput { return v.IsReadOnly }).(pulumi.BoolOutput)
+}
+
+// The name of the resource
+func (o ConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Source of the configuration.
+func (o ConfigurationOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o ConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Configuration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration unit.
+func (o ConfigurationOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the configuration.
+func (o ConfigurationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationOutput{})
 }

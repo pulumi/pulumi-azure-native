@@ -138,6 +138,26 @@ func (o LabelingJobOutput) ToLabelingJobOutputWithContext(ctx context.Context) L
 	return o
 }
 
+// The name of the resource entity.
+func (o LabelingJobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabelingJob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definition of a labeling job.
+func (o LabelingJobOutput) Properties() LabelingJobPropertiesResponseOutput {
+	return o.ApplyT(func(v *LabelingJob) LabelingJobPropertiesResponseOutput { return v.Properties }).(LabelingJobPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o LabelingJobOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LabelingJob) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource provider and type.
+func (o LabelingJobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LabelingJob) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabelingJobOutput{})
 }

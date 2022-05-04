@@ -153,6 +153,21 @@ func (o PatchScheduleOutput) ToPatchScheduleOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Resource name.
+func (o PatchScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PatchSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of patch schedules for a Redis cache.
+func (o PatchScheduleOutput) ScheduleEntries() ScheduleEntryResponseArrayOutput {
+	return o.ApplyT(func(v *PatchSchedule) ScheduleEntryResponseArrayOutput { return v.ScheduleEntries }).(ScheduleEntryResponseArrayOutput)
+}
+
+// Resource type.
+func (o PatchScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PatchSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PatchScheduleOutput{})
 }

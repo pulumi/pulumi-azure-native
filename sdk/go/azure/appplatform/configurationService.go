@@ -139,6 +139,26 @@ func (o ConfigurationServiceOutput) ToConfigurationServiceOutputWithContext(ctx 
 	return o
 }
 
+// The name of the resource.
+func (o ConfigurationServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Application Configuration Service properties payload
+func (o ConfigurationServiceOutput) Properties() ConfigurationServicePropertiesResponseOutput {
+	return o.ApplyT(func(v *ConfigurationService) ConfigurationServicePropertiesResponseOutput { return v.Properties }).(ConfigurationServicePropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ConfigurationServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ConfigurationService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ConfigurationServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationServiceOutput{})
 }

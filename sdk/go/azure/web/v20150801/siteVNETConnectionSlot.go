@@ -237,6 +237,62 @@ func (o SiteVNETConnectionSlotOutput) ToSiteVNETConnectionSlotOutputWithContext(
 	return o
 }
 
+// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+//             Point-To-Site VPN connection.
+func (o SiteVNETConnectionSlotOutput) CertBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.CertBlob }).(pulumi.StringPtrOutput)
+}
+
+// The client certificate thumbprint
+func (o SiteVNETConnectionSlotOutput) CertThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.CertThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+func (o SiteVNETConnectionSlotOutput) DnsServers() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.DnsServers }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o SiteVNETConnectionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteVNETConnectionSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteVNETConnectionSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Flag to determine if a resync is required
+func (o SiteVNETConnectionSlotOutput) ResyncRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.BoolPtrOutput { return v.ResyncRequired }).(pulumi.BoolPtrOutput)
+}
+
+// The routes that this virtual network connection uses.
+func (o SiteVNETConnectionSlotOutput) Routes() VnetRouteResponseArrayOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) VnetRouteResponseArrayOutput { return v.Routes }).(VnetRouteResponseArrayOutput)
+}
+
+// Resource tags
+func (o SiteVNETConnectionSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteVNETConnectionSlotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The vnet resource id
+func (o SiteVNETConnectionSlotOutput) VnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteVNETConnectionSlot) pulumi.StringPtrOutput { return v.VnetResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteVNETConnectionSlotOutput{})
 }

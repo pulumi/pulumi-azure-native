@@ -328,6 +328,30 @@ type ContainerServiceNetworkProfileArgs struct {
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
+// Defaults sets the appropriate defaults for ContainerServiceNetworkProfileArgs
+func (val *ContainerServiceNetworkProfileArgs) Defaults() *ContainerServiceNetworkProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		tmp.DnsServiceIP = pulumi.StringPtr("10.0.0.10")
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		tmp.DockerBridgeCidr = pulumi.StringPtr("172.17.0.1/16")
+	}
+
+	if isZero(tmp.NetworkPlugin) {
+		tmp.NetworkPlugin = pulumi.StringPtr("kubenet")
+	}
+	if isZero(tmp.PodCidr) {
+		tmp.PodCidr = pulumi.StringPtr("10.244.0.0/16")
+	}
+	if isZero(tmp.ServiceCidr) {
+		tmp.ServiceCidr = pulumi.StringPtr("10.0.0.0/16")
+	}
+	return &tmp
+}
 func (ContainerServiceNetworkProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerServiceNetworkProfile)(nil)).Elem()
 }
@@ -2560,6 +2584,15 @@ type ManagedClusterLoadBalancerProfileArgs struct {
 	OutboundIPs ManagedClusterLoadBalancerProfileOutboundIPsPtrInput `pulumi:"outboundIPs"`
 }
 
+// Defaults sets the appropriate defaults for ManagedClusterLoadBalancerProfileArgs
+func (val *ManagedClusterLoadBalancerProfileArgs) Defaults() *ManagedClusterLoadBalancerProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ManagedClusterLoadBalancerProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedClusterLoadBalancerProfile)(nil)).Elem()
 }
@@ -2764,6 +2797,17 @@ type ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs struct {
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
+// Defaults sets the appropriate defaults for ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+func (val *ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) Defaults() *ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		tmp.Count = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileManagedOutboundIPs)(nil)).Elem()
 }

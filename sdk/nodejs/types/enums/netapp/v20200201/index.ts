@@ -33,7 +33,7 @@ export const PoolServiceLevel = {
 export type PoolServiceLevel = (typeof PoolServiceLevel)[keyof typeof PoolServiceLevel];
 
 export const ReplicationSchedule = {
-    _10minutely: "_10minutely",
+    ReplicationSchedule_10minutely: "_10minutely",
     Hourly: "hourly",
     Daily: "daily",
 } as const;

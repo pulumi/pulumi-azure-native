@@ -135,6 +135,28 @@ func (o TimeSeriesDatabaseConnectionOutput) ToTimeSeriesDatabaseConnectionOutput
 	return o
 }
 
+// Extension resource name.
+func (o TimeSeriesDatabaseConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a specific time series database connection.
+func (o TimeSeriesDatabaseConnectionOutput) Properties() AzureDataExplorerConnectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) AzureDataExplorerConnectionPropertiesResponseOutput {
+		return v.Properties
+	}).(AzureDataExplorerConnectionPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o TimeSeriesDatabaseConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource type.
+func (o TimeSeriesDatabaseConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TimeSeriesDatabaseConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TimeSeriesDatabaseConnectionOutput{})
 }

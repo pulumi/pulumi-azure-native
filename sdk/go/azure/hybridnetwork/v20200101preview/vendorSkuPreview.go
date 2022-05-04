@@ -133,6 +133,16 @@ func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutputWithContext(ctx context.
 	return o
 }
 
+// The preview subscription ID.
+func (o VendorSkuPreviewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o VendorSkuPreviewOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkuPreview) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VendorSkuPreviewOutput{})
 }

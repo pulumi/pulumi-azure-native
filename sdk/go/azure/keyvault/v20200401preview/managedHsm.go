@@ -159,6 +159,36 @@ func (o ManagedHsmOutput) ToManagedHsmOutputWithContext(ctx context.Context) Man
 	return o
 }
 
+// The supported Azure location where the managed HSM Pool should be created.
+func (o ManagedHsmOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedHsm) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the managed HSM Pool.
+func (o ManagedHsmOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedHsm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the managed HSM
+func (o ManagedHsmOutput) Properties() ManagedHsmPropertiesResponseOutput {
+	return o.ApplyT(func(v *ManagedHsm) ManagedHsmPropertiesResponseOutput { return v.Properties }).(ManagedHsmPropertiesResponseOutput)
+}
+
+// SKU details
+func (o ManagedHsmOutput) Sku() ManagedHsmSkuResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedHsm) ManagedHsmSkuResponsePtrOutput { return v.Sku }).(ManagedHsmSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ManagedHsmOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedHsm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type of the managed HSM Pool.
+func (o ManagedHsmOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedHsm) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedHsmOutput{})
 }

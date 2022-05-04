@@ -162,6 +162,41 @@ func (o GalleryOutput) ToGalleryOutputWithContext(ctx context.Context) GalleryOu
 	return o
 }
 
+// The description of this Shared Image Gallery resource. This property is updatable.
+func (o GalleryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Describes the gallery unique name.
+func (o GalleryOutput) Identifier() GalleryIdentifierResponsePtrOutput {
+	return o.ApplyT(func(v *Gallery) GalleryIdentifierResponsePtrOutput { return v.Identifier }).(GalleryIdentifierResponsePtrOutput)
+}
+
+// Resource location
+func (o GalleryOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o GalleryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o GalleryOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o GalleryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o GalleryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gallery) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryOutput{})
 }

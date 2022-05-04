@@ -163,6 +163,26 @@ func (o ServerTrustGroupOutput) ToServerTrustGroupOutputWithContext(ctx context.
 	return o
 }
 
+// Group members information for the server trust group.
+func (o ServerTrustGroupOutput) GroupMembers() ServerInfoResponseArrayOutput {
+	return o.ApplyT(func(v *ServerTrustGroup) ServerInfoResponseArrayOutput { return v.GroupMembers }).(ServerInfoResponseArrayOutput)
+}
+
+// Resource name.
+func (o ServerTrustGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Trust scope of the server trust group.
+func (o ServerTrustGroupOutput) TrustScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerTrustGroup) pulumi.StringArrayOutput { return v.TrustScopes }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o ServerTrustGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerTrustGroupOutput{})
 }

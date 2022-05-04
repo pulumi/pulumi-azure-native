@@ -190,6 +190,75 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// Describes custom rules inside the policy.
+func (o PolicyOutput) CustomRules() CustomRuleListResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) CustomRuleListResponsePtrOutput { return v.CustomRules }).(CustomRuleListResponsePtrOutput)
+}
+
+// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+func (o PolicyOutput) EndpointLinks() CdnEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *Policy) CdnEndpointResponseArrayOutput { return v.EndpointLinks }).(CdnEndpointResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o PolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o PolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Describes managed rules inside the policy.
+func (o PolicyOutput) ManagedRules() ManagedRuleSetListResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) ManagedRuleSetListResponsePtrOutput { return v.ManagedRules }).(ManagedRuleSetListResponsePtrOutput)
+}
+
+// Resource name.
+func (o PolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes  policySettings for policy
+func (o PolicyOutput) PolicySettings() PolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) PolicySettingsResponsePtrOutput { return v.PolicySettings }).(PolicySettingsResponsePtrOutput)
+}
+
+// Provisioning state of the WebApplicationFirewallPolicy.
+func (o PolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes rate limit rules inside the policy.
+func (o PolicyOutput) RateLimitRules() RateLimitRuleListResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) RateLimitRuleListResponsePtrOutput { return v.RateLimitRules }).(RateLimitRuleListResponsePtrOutput)
+}
+
+func (o PolicyOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
+func (o PolicyOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Policy) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Read only system data
+func (o PolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Policy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o PolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyOutput{})
 }

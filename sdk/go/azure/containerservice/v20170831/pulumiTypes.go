@@ -78,6 +78,17 @@ type ContainerServiceAgentPoolProfileArgs struct {
 	VnetSubnetID pulumi.StringPtrInput `pulumi:"vnetSubnetID"`
 }
 
+// Defaults sets the appropriate defaults for ContainerServiceAgentPoolProfileArgs
+func (val *ContainerServiceAgentPoolProfileArgs) Defaults() *ContainerServiceAgentPoolProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		tmp.Count = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ContainerServiceAgentPoolProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerServiceAgentPoolProfile)(nil)).Elem()
 }

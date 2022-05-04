@@ -3171,6 +3171,17 @@ type WebPubSubHubPropertiesArgs struct {
 	EventHandlers EventHandlerArrayInput `pulumi:"eventHandlers"`
 }
 
+// Defaults sets the appropriate defaults for WebPubSubHubPropertiesArgs
+func (val *WebPubSubHubPropertiesArgs) Defaults() *WebPubSubHubPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousConnectPolicy) {
+		tmp.AnonymousConnectPolicy = pulumi.StringPtr("deny")
+	}
+	return &tmp
+}
 func (WebPubSubHubPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubHubProperties)(nil)).Elem()
 }
@@ -3298,6 +3309,17 @@ type WebPubSubNetworkACLsArgs struct {
 	PublicNetwork NetworkACLPtrInput `pulumi:"publicNetwork"`
 }
 
+// Defaults sets the appropriate defaults for WebPubSubNetworkACLsArgs
+func (val *WebPubSubNetworkACLsArgs) Defaults() *WebPubSubNetworkACLsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.StringPtr("Deny")
+	}
+	return &tmp
+}
 func (WebPubSubNetworkACLsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubNetworkACLs)(nil)).Elem()
 }
@@ -3588,6 +3610,17 @@ type WebPubSubTlsSettingsArgs struct {
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
 }
 
+// Defaults sets the appropriate defaults for WebPubSubTlsSettingsArgs
+func (val *WebPubSubTlsSettingsArgs) Defaults() *WebPubSubTlsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		tmp.ClientCertEnabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (WebPubSubTlsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSubTlsSettings)(nil)).Elem()
 }

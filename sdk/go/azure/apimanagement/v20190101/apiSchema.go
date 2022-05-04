@@ -182,6 +182,26 @@ func (o ApiSchemaOutput) ToApiSchemaOutputWithContext(ctx context.Context) ApiSc
 	return o
 }
 
+// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+func (o ApiSchemaOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Properties of the Schema Document.
+func (o ApiSchemaOutput) Document() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.AnyOutput { return v.Document }).(pulumi.AnyOutput)
+}
+
+// Resource name.
+func (o ApiSchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiSchemaOutput{})
 }

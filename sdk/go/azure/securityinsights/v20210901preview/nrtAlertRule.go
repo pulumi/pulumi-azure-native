@@ -263,6 +263,107 @@ func (o NrtAlertRuleOutput) ToNrtAlertRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The alert details override settings
+func (o NrtAlertRuleOutput) AlertDetailsOverride() AlertDetailsOverrideResponsePtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) AlertDetailsOverrideResponsePtrOutput { return v.AlertDetailsOverride }).(AlertDetailsOverrideResponsePtrOutput)
+}
+
+// The Name of the alert rule template used to create this rule.
+func (o NrtAlertRuleOutput) AlertRuleTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.AlertRuleTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of string key-value pairs of columns to be attached to the alert
+func (o NrtAlertRuleOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringMapOutput { return v.CustomDetails }).(pulumi.StringMapOutput)
+}
+
+// The description of the alert rule.
+func (o NrtAlertRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o NrtAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o NrtAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Array of the entity mappings of the alert rule
+func (o NrtAlertRuleOutput) EntityMappings() EntityMappingResponseArrayOutput {
+	return o.ApplyT(func(v *NrtAlertRule) EntityMappingResponseArrayOutput { return v.EntityMappings }).(EntityMappingResponseArrayOutput)
+}
+
+// Etag of the azure resource
+func (o NrtAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The settings of the incidents that created from alerts triggered by this analytics rule
+func (o NrtAlertRuleOutput) IncidentConfiguration() IncidentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) IncidentConfigurationResponsePtrOutput { return v.IncidentConfiguration }).(IncidentConfigurationResponsePtrOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'NRT'.
+func (o NrtAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert rule has been modified.
+func (o NrtAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o NrtAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query that creates alerts for this rule.
+func (o NrtAlertRuleOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o NrtAlertRuleOutput) Severity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.Severity }).(pulumi.StringPtrOutput)
+}
+
+// The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
+func (o NrtAlertRuleOutput) SuppressionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.SuppressionDuration }).(pulumi.StringOutput)
+}
+
+// Determines whether the suppression for this alert rule is enabled or disabled.
+func (o NrtAlertRuleOutput) SuppressionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.BoolOutput { return v.SuppressionEnabled }).(pulumi.BoolOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o NrtAlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NrtAlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tactics of the alert rule
+func (o NrtAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+func (o NrtAlertRuleOutput) TemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringPtrOutput { return v.TemplateVersion }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NrtAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NrtAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NrtAlertRuleOutput{})
 }

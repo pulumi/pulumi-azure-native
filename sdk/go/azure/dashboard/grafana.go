@@ -153,6 +153,46 @@ func (o GrafanaOutput) ToGrafanaOutputWithContext(ctx context.Context) GrafanaOu
 	return o
 }
 
+// The managed identity of the grafana resource.
+func (o GrafanaOutput) Identity() ManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Grafana) ManagedIdentityResponsePtrOutput { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+}
+
+// The geo-location where the grafana resource lives
+func (o GrafanaOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the grafana resource.
+func (o GrafanaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties specific to the grafana resource.
+func (o GrafanaOutput) Properties() ManagedGrafanaPropertiesResponseOutput {
+	return o.ApplyT(func(v *Grafana) ManagedGrafanaPropertiesResponseOutput { return v.Properties }).(ManagedGrafanaPropertiesResponseOutput)
+}
+
+// The Sku of the grafana resource.
+func (o GrafanaOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Grafana) ResourceSkuResponsePtrOutput { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// The system meta data relating to this grafana resource.
+func (o GrafanaOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Grafana) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags for grafana resource.
+func (o GrafanaOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the grafana resource.
+func (o GrafanaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GrafanaOutput{})
 }

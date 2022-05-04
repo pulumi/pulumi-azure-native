@@ -180,6 +180,46 @@ func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutputWithCont
 	return o
 }
 
+// The details of the storage account password
+func (o StorageAccountCredentialOutput) AccessKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) AsymmetricEncryptedSecretResponsePtrOutput { return v.AccessKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The cloud service provider
+func (o StorageAccountCredentialOutput) CloudType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.CloudType }).(pulumi.StringOutput)
+}
+
+// SSL needs to be enabled or not
+func (o StorageAccountCredentialOutput) EnableSSL() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.EnableSSL }).(pulumi.StringOutput)
+}
+
+// The storage endpoint
+func (o StorageAccountCredentialOutput) EndPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.EndPoint }).(pulumi.StringOutput)
+}
+
+// The storage account's geo location
+func (o StorageAccountCredentialOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The storage account login
+func (o StorageAccountCredentialOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o StorageAccountCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o StorageAccountCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountCredentialOutput{})
 }

@@ -253,6 +253,86 @@ func (o PublicIPPrefixOutput) ToPublicIPPrefixOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The customIpPrefix that this prefix is associated with.
+func (o PublicIPPrefixOutput) CustomIPPrefix() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) SubResourceResponsePtrOutput { return v.CustomIPPrefix }).(SubResourceResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PublicIPPrefixOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The allocated Prefix.
+func (o PublicIPPrefixOutput) IpPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.IpPrefix }).(pulumi.StringOutput)
+}
+
+// The list of tags associated with the public IP prefix.
+func (o PublicIPPrefixOutput) IpTags() IpTagResponseArrayOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) IpTagResponseArrayOutput { return v.IpTags }).(IpTagResponseArrayOutput)
+}
+
+// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+func (o PublicIPPrefixOutput) LoadBalancerFrontendIpConfiguration() SubResourceResponseOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) SubResourceResponseOutput { return v.LoadBalancerFrontendIpConfiguration }).(SubResourceResponseOutput)
+}
+
+// Resource location.
+func (o PublicIPPrefixOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o PublicIPPrefixOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Length of the Public IP Prefix.
+func (o PublicIPPrefixOutput) PrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.IntPtrOutput { return v.PrefixLength }).(pulumi.IntPtrOutput)
+}
+
+// The provisioning state of the public IP prefix resource.
+func (o PublicIPPrefixOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The public IP address version.
+func (o PublicIPPrefixOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringPtrOutput { return v.PublicIPAddressVersion }).(pulumi.StringPtrOutput)
+}
+
+// The list of all referenced PublicIPAddresses.
+func (o PublicIPPrefixOutput) PublicIPAddresses() ReferencedPublicIpAddressResponseArrayOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) ReferencedPublicIpAddressResponseArrayOutput { return v.PublicIPAddresses }).(ReferencedPublicIpAddressResponseArrayOutput)
+}
+
+// The resource GUID property of the public IP prefix resource.
+func (o PublicIPPrefixOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The public IP prefix SKU.
+func (o PublicIPPrefixOutput) Sku() PublicIPPrefixSkuResponsePtrOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) PublicIPPrefixSkuResponsePtrOutput { return v.Sku }).(PublicIPPrefixSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o PublicIPPrefixOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PublicIPPrefixOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of availability zones denoting the IP allocated for the resource needs to come from.
+func (o PublicIPPrefixOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PublicIPPrefix) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublicIPPrefixOutput{})
 }

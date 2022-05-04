@@ -175,6 +175,51 @@ func (o WorkloadNetworkDnsZoneOutput) ToWorkloadNetworkDnsZoneOutputWithContext(
 	return o
 }
 
+// Display name of the DNS Zone.
+func (o WorkloadNetworkDnsZoneOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// DNS Server IP array of the DNS Zone.
+func (o WorkloadNetworkDnsZoneOutput) DnsServerIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringArrayOutput { return v.DnsServerIps }).(pulumi.StringArrayOutput)
+}
+
+// Number of DNS Services using the DNS zone.
+func (o WorkloadNetworkDnsZoneOutput) DnsServices() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.Float64PtrOutput { return v.DnsServices }).(pulumi.Float64PtrOutput)
+}
+
+// Domain names of the DNS Zone.
+func (o WorkloadNetworkDnsZoneOutput) Domain() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringArrayOutput { return v.Domain }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkDnsZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkDnsZoneOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkDnsZoneOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// Source IP of the DNS Zone.
+func (o WorkloadNetworkDnsZoneOutput) SourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkDnsZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsZone) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkDnsZoneOutput{})
 }

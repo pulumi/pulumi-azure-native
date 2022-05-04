@@ -164,6 +164,60 @@ func (o DigitalTwinOutput) ToDigitalTwinOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Time when DigitalTwinsInstance was created.
+func (o DigitalTwinOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Api endpoint to work with DigitalTwinsInstance.
+func (o DigitalTwinOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The managed identity for the DigitalTwinsInstance.
+func (o DigitalTwinOutput) Identity() DigitalTwinsIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DigitalTwin) DigitalTwinsIdentityResponsePtrOutput { return v.Identity }).(DigitalTwinsIdentityResponsePtrOutput)
+}
+
+// Time when DigitalTwinsInstance was updated.
+func (o DigitalTwinOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o DigitalTwinOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o DigitalTwinOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DigitalTwinOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *DigitalTwin) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioning state.
+func (o DigitalTwinOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public network access for the DigitalTwinsInstance.
+func (o DigitalTwinOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o DigitalTwinOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o DigitalTwinOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DigitalTwinOutput{})
 }

@@ -155,6 +155,41 @@ func (o SessionOutput) ToSessionOutputWithContext(ctx context.Context) SessionOu
 	return o
 }
 
+// The changed time.
+func (o SessionOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The session content.
+func (o SessionOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Session) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The created time.
+func (o SessionOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o SessionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o SessionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o SessionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o SessionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Session) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SessionOutput{})
 }

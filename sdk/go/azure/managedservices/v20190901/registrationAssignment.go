@@ -141,6 +141,21 @@ func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutputWithContext(
 	return o
 }
 
+// Name of the registration assignment.
+func (o RegistrationAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a registration assignment.
+func (o RegistrationAssignmentOutput) Properties() RegistrationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) RegistrationAssignmentPropertiesResponseOutput { return v.Properties }).(RegistrationAssignmentPropertiesResponseOutput)
+}
+
+// Type of the resource.
+func (o RegistrationAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistrationAssignmentOutput{})
 }

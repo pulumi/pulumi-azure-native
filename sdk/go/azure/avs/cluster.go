@@ -164,6 +164,41 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The identity
+func (o ClusterOutput) ClusterId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ClusterId }).(pulumi.IntOutput)
+}
+
+// The cluster size
+func (o ClusterOutput) ClusterSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.ClusterSize }).(pulumi.IntOutput)
+}
+
+// The hosts
+func (o ClusterOutput) Hosts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Hosts }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the cluster provisioning
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The cluster SKU
+func (o ClusterOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Cluster) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Resource type.
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

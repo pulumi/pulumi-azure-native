@@ -213,6 +213,81 @@ func (o VirtualMachineScheduleOutput) ToVirtualMachineScheduleOutputWithContext(
 	return o
 }
 
+// The creation date of the schedule.
+func (o VirtualMachineScheduleOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o VirtualMachineScheduleOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) DayDetailsResponsePtrOutput { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o VirtualMachineScheduleOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) HourDetailsResponsePtrOutput { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o VirtualMachineScheduleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualMachineScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification settings.
+func (o VirtualMachineScheduleOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) NotificationSettingsResponsePtrOutput { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o VirtualMachineScheduleOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o VirtualMachineScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o VirtualMachineScheduleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource ID to which the schedule belongs
+func (o VirtualMachineScheduleOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o VirtualMachineScheduleOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o VirtualMachineScheduleOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o VirtualMachineScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o VirtualMachineScheduleOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o VirtualMachineScheduleOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineSchedule) WeekDetailsResponsePtrOutput { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScheduleOutput{})
 }

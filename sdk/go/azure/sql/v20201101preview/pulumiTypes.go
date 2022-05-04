@@ -1048,6 +1048,23 @@ type JobScheduleArgs struct {
 	Type JobScheduleTypePtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for JobScheduleArgs
+func (val *JobScheduleArgs) Defaults() *JobScheduleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EndTime) {
+		tmp.EndTime = pulumi.StringPtr("9999-12-31T11:59:59+00:00")
+	}
+	if isZero(tmp.StartTime) {
+		tmp.StartTime = pulumi.StringPtr("0001-01-01T00:00:00+00:00")
+	}
+	if isZero(tmp.Type) {
+		tmp.Type = JobScheduleType("Once")
+	}
+	return &tmp
+}
 func (JobScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobSchedule)(nil)).Elem()
 }
@@ -1422,6 +1439,20 @@ type JobStepActionArgs struct {
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for JobStepActionArgs
+func (val *JobStepActionArgs) Defaults() *JobStepActionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Source) {
+		tmp.Source = pulumi.StringPtr("Inline")
+	}
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("TSql")
+	}
+	return &tmp
+}
 func (JobStepActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobStepAction)(nil)).Elem()
 }
@@ -1589,6 +1620,29 @@ type JobStepExecutionOptionsArgs struct {
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
 }
 
+// Defaults sets the appropriate defaults for JobStepExecutionOptionsArgs
+func (val *JobStepExecutionOptionsArgs) Defaults() *JobStepExecutionOptionsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InitialRetryIntervalSeconds) {
+		tmp.InitialRetryIntervalSeconds = pulumi.IntPtr(1)
+	}
+	if isZero(tmp.MaximumRetryIntervalSeconds) {
+		tmp.MaximumRetryIntervalSeconds = pulumi.IntPtr(120)
+	}
+	if isZero(tmp.RetryAttempts) {
+		tmp.RetryAttempts = pulumi.IntPtr(10)
+	}
+	if isZero(tmp.RetryIntervalBackoffMultiplier) {
+		tmp.RetryIntervalBackoffMultiplier = pulumi.Float64Ptr(2.0)
+	}
+	if isZero(tmp.TimeoutSeconds) {
+		tmp.TimeoutSeconds = pulumi.IntPtr(43200)
+	}
+	return &tmp
+}
 func (JobStepExecutionOptionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobStepExecutionOptions)(nil)).Elem()
 }
@@ -1991,6 +2045,20 @@ type JobStepOutputTypeArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for JobStepOutputTypeArgs
+func (val *JobStepOutputTypeArgs) Defaults() *JobStepOutputTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SchemaName) {
+		tmp.SchemaName = pulumi.StringPtr("dbo")
+	}
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("SqlDatabase")
+	}
+	return &tmp
+}
 func (JobStepOutputTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobStepOutputType)(nil)).Elem()
 }
@@ -2469,6 +2537,17 @@ type JobTargetArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for JobTargetArgs
+func (val *JobTargetArgs) Defaults() *JobTargetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MembershipType) {
+		tmp.MembershipType = JobTargetGroupMembershipType("Include")
+	}
+	return &tmp
+}
 func (JobTargetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobTarget)(nil)).Elem()
 }
@@ -6983,6 +7062,17 @@ type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
 	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
 }
 
+// Defaults sets the appropriate defaults for VulnerabilityAssessmentRecurringScansPropertiesArgs
+func (val *VulnerabilityAssessmentRecurringScansPropertiesArgs) Defaults() *VulnerabilityAssessmentRecurringScansPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		tmp.EmailSubscriptionAdmins = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (VulnerabilityAssessmentRecurringScansPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansProperties)(nil)).Elem()
 }

@@ -169,6 +169,26 @@ func (o DomainOwnershipIdentifierOutput) ToDomainOwnershipIdentifierOutputWithCo
 	return o
 }
 
+// Kind of resource.
+func (o DomainOwnershipIdentifierOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainOwnershipIdentifier) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o DomainOwnershipIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainOwnershipIdentifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Ownership Id.
+func (o DomainOwnershipIdentifierOutput) OwnershipId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainOwnershipIdentifier) pulumi.StringPtrOutput { return v.OwnershipId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o DomainOwnershipIdentifierOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainOwnershipIdentifier) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainOwnershipIdentifierOutput{})
 }

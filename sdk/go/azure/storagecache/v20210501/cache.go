@@ -217,6 +217,91 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// The size of this Cache, in GB.
+func (o CacheOutput) CacheSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.IntPtrOutput { return v.CacheSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Specifies Directory Services settings of the cache.
+func (o CacheOutput) DirectoryServicesSettings() CacheDirectorySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheDirectorySettingsResponsePtrOutput { return v.DirectoryServicesSettings }).(CacheDirectorySettingsResponsePtrOutput)
+}
+
+// Specifies encryption settings of the cache.
+func (o CacheOutput) EncryptionSettings() CacheEncryptionSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheEncryptionSettingsResponsePtrOutput { return v.EncryptionSettings }).(CacheEncryptionSettingsResponsePtrOutput)
+}
+
+// Health of the Cache.
+func (o CacheOutput) Health() CacheHealthResponseOutput {
+	return o.ApplyT(func(v *Cache) CacheHealthResponseOutput { return v.Health }).(CacheHealthResponseOutput)
+}
+
+// The identity of the cache, if configured.
+func (o CacheOutput) Identity() CacheIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheIdentityResponsePtrOutput { return v.Identity }).(CacheIdentityResponsePtrOutput)
+}
+
+// Region name string.
+func (o CacheOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Array of IP addresses that can be used by clients mounting this Cache.
+func (o CacheOutput) MountAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.MountAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Name of Cache.
+func (o CacheOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies network settings of the cache.
+func (o CacheOutput) NetworkSettings() CacheNetworkSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheNetworkSettingsResponsePtrOutput { return v.NetworkSettings }).(CacheNetworkSettingsResponsePtrOutput)
+}
+
+// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+func (o CacheOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies security settings of the cache.
+func (o CacheOutput) SecuritySettings() CacheSecuritySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheSecuritySettingsResponsePtrOutput { return v.SecuritySettings }).(CacheSecuritySettingsResponsePtrOutput)
+}
+
+// SKU for the Cache.
+func (o CacheOutput) Sku() CacheResponseSkuPtrOutput {
+	return o.ApplyT(func(v *Cache) CacheResponseSkuPtrOutput { return v.Sku }).(CacheResponseSkuPtrOutput)
+}
+
+// Subnet used for the Cache.
+func (o CacheOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Subnet }).(pulumi.StringPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o CacheOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cache) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o CacheOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the Cache; Microsoft.StorageCache/Cache
+func (o CacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Upgrade status of the Cache.
+func (o CacheOutput) UpgradeStatus() CacheUpgradeStatusResponseOutput {
+	return o.ApplyT(func(v *Cache) CacheUpgradeStatusResponseOutput { return v.UpgradeStatus }).(CacheUpgradeStatusResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheOutput{})
 }

@@ -141,6 +141,31 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// Resource Etag.
+func (o DeploymentOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of Cognitive Services account deployment.
+func (o DeploymentOutput) Properties() DeploymentPropertiesResponseOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentPropertiesResponseOutput { return v.Properties }).(DeploymentPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DeploymentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Deployment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DeploymentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentOutput{})
 }

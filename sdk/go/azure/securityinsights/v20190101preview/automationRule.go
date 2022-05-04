@@ -195,6 +195,61 @@ func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The actions to execute when the automation rule is triggered
+func (o AutomationRuleOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.ArrayOutput { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// Describes the client that created the automation rule
+func (o AutomationRuleOutput) CreatedBy() ClientInfoResponseOutput {
+	return o.ApplyT(func(v *AutomationRule) ClientInfoResponseOutput { return v.CreatedBy }).(ClientInfoResponseOutput)
+}
+
+// The time the automation rule was created
+func (o AutomationRuleOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The display name of the automation  rule
+func (o AutomationRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o AutomationRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Describes the client that last updated the automation rule
+func (o AutomationRuleOutput) LastModifiedBy() ClientInfoResponseOutput {
+	return o.ApplyT(func(v *AutomationRule) ClientInfoResponseOutput { return v.LastModifiedBy }).(ClientInfoResponseOutput)
+}
+
+// The last time the automation rule was updated
+func (o AutomationRuleOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AutomationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The order of execution of the automation rule
+func (o AutomationRuleOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
+}
+
+// The triggering logic of the automation rule
+func (o AutomationRuleOutput) TriggeringLogic() AutomationRuleTriggeringLogicResponseOutput {
+	return o.ApplyT(func(v *AutomationRule) AutomationRuleTriggeringLogicResponseOutput { return v.TriggeringLogic }).(AutomationRuleTriggeringLogicResponseOutput)
+}
+
+// Azure resource type
+func (o AutomationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutomationRuleOutput{})
 }

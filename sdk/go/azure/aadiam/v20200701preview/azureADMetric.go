@@ -133,6 +133,30 @@ func (o AzureADMetricOutput) ToAzureADMetricOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The geo-location where the resource lives
+func (o AzureADMetricOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureADMetric) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AzureADMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureADMetric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureADMetricOutput) Properties() AzureADMetricsPropertiesFormatResponseOutput {
+	return o.ApplyT(func(v *AzureADMetric) AzureADMetricsPropertiesFormatResponseOutput { return v.Properties }).(AzureADMetricsPropertiesFormatResponseOutput)
+}
+
+// Resource tags.
+func (o AzureADMetricOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AzureADMetric) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AzureADMetricOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureADMetric) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureADMetricOutput{})
 }

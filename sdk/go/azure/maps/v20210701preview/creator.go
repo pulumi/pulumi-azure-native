@@ -157,6 +157,31 @@ func (o CreatorOutput) ToCreatorOutputWithContext(ctx context.Context) CreatorOu
 	return o
 }
 
+// The geo-location where the resource lives
+func (o CreatorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Creator) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CreatorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Creator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Creator resource properties.
+func (o CreatorOutput) Properties() CreatorPropertiesResponseOutput {
+	return o.ApplyT(func(v *Creator) CreatorPropertiesResponseOutput { return v.Properties }).(CreatorPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o CreatorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Creator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CreatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Creator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CreatorOutput{})
 }

@@ -130,6 +130,22 @@ func (o HyperVCollectorOutput) ToHyperVCollectorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o HyperVCollectorOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HyperVCollector) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o HyperVCollectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HyperVCollector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o HyperVCollectorOutput) Properties() CollectorPropertiesResponseOutput {
+	return o.ApplyT(func(v *HyperVCollector) CollectorPropertiesResponseOutput { return v.Properties }).(CollectorPropertiesResponseOutput)
+}
+
+func (o HyperVCollectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HyperVCollector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HyperVCollectorOutput{})
 }

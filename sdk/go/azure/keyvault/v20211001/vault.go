@@ -171,6 +171,36 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
 }
 
+// Azure location of the key vault resource.
+func (o VaultOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the key vault resource.
+func (o VaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the vault
+func (o VaultOutput) Properties() VaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *Vault) VaultPropertiesResponseOutput { return v.Properties }).(VaultPropertiesResponseOutput)
+}
+
+// System metadata for the key vault.
+func (o VaultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Vault) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags assigned to the key vault resource.
+func (o VaultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type of the key vault resource.
+func (o VaultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VaultOutput{})
 }

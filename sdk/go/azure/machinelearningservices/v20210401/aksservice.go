@@ -249,6 +249,46 @@ func (o AKSServiceOutput) ToAKSServiceOutputWithContext(ctx context.Context) AKS
 	return o
 }
 
+// The identity of the resource.
+func (o AKSServiceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *AKSService) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o AKSServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AKSService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o AKSServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AKSService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service properties
+func (o AKSServiceOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AKSService) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the workspace.
+func (o AKSServiceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *AKSService) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Read only system data
+func (o AKSServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AKSService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o AKSServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AKSService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o AKSServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AKSService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AKSServiceOutput{})
 }

@@ -147,6 +147,31 @@ func (o CustomerEventOutput) ToCustomerEventOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The name of the event subscribed to.
+func (o CustomerEventOutput) EventName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerEvent) pulumi.StringOutput { return v.EventName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o CustomerEventOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerEvent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The notification event receivers.
+func (o CustomerEventOutput) Receivers() NotificationEventReceiverResponseArrayOutput {
+	return o.ApplyT(func(v *CustomerEvent) NotificationEventReceiverResponseArrayOutput { return v.Receivers }).(NotificationEventReceiverResponseArrayOutput)
+}
+
+// The system metadata relating to this resource
+func (o CustomerEventOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CustomerEvent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o CustomerEventOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerEvent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomerEventOutput{})
 }

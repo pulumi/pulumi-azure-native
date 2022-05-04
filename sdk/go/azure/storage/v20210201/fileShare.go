@@ -205,6 +205,91 @@ func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileS
 	return o
 }
 
+// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+func (o FileShareOutput) AccessTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringPtrOutput { return v.AccessTier }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the last modification time for share access tier.
+func (o FileShareOutput) AccessTierChangeTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.AccessTierChangeTime }).(pulumi.StringOutput)
+}
+
+// Indicates if there is a pending transition for access tier.
+func (o FileShareOutput) AccessTierStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.AccessTierStatus }).(pulumi.StringOutput)
+}
+
+// Indicates whether the share was deleted.
+func (o FileShareOutput) Deleted() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.BoolOutput { return v.Deleted }).(pulumi.BoolOutput)
+}
+
+// The deleted time if the share was deleted.
+func (o FileShareOutput) DeletedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.DeletedTime }).(pulumi.StringOutput)
+}
+
+// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+func (o FileShareOutput) EnabledProtocols() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringPtrOutput { return v.EnabledProtocols }).(pulumi.StringPtrOutput)
+}
+
+// Resource Etag.
+func (o FileShareOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Returns the date and time the share was last modified.
+func (o FileShareOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// A name-value pair to associate with the share as metadata.
+func (o FileShareOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o FileShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Remaining retention days for share that was soft deleted.
+func (o FileShareOutput) RemainingRetentionDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.IntOutput { return v.RemainingRetentionDays }).(pulumi.IntOutput)
+}
+
+// The property is for NFS share only. The default is NoRootSquash.
+func (o FileShareOutput) RootSquash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringPtrOutput { return v.RootSquash }).(pulumi.StringPtrOutput)
+}
+
+// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+func (o FileShareOutput) ShareQuota() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.IntPtrOutput { return v.ShareQuota }).(pulumi.IntPtrOutput)
+}
+
+// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+func (o FileShareOutput) ShareUsageBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *FileShare) pulumi.Float64Output { return v.ShareUsageBytes }).(pulumi.Float64Output)
+}
+
+// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
+func (o FileShareOutput) SnapshotTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.SnapshotTime }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FileShareOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of the share.
+func (o FileShareOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileShareOutput{})
 }

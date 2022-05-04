@@ -186,6 +186,66 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// List of activities in pipeline.
+func (o PipelineOutput) Activities() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.ArrayOutput { return v.Activities }).(pulumi.ArrayOutput)
+}
+
+// List of tags that can be used for describing the Pipeline.
+func (o PipelineOutput) Annotations() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.ArrayOutput { return v.Annotations }).(pulumi.ArrayOutput)
+}
+
+// The max number of concurrent runs for the pipeline.
+func (o PipelineOutput) Concurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.IntPtrOutput { return v.Concurrency }).(pulumi.IntPtrOutput)
+}
+
+// The description of the pipeline.
+func (o PipelineOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Etag identifies change in the resource.
+func (o PipelineOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+func (o PipelineOutput) Folder() PipelineResponseFolderPtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineResponseFolderPtrOutput { return v.Folder }).(PipelineResponseFolderPtrOutput)
+}
+
+// The resource name.
+func (o PipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of parameters for pipeline.
+func (o PipelineOutput) Parameters() ParameterSpecificationResponseMapOutput {
+	return o.ApplyT(func(v *Pipeline) ParameterSpecificationResponseMapOutput { return v.Parameters }).(ParameterSpecificationResponseMapOutput)
+}
+
+// Pipeline Policy.
+func (o PipelineOutput) Policy() PipelinePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelinePolicyResponsePtrOutput { return v.Policy }).(PipelinePolicyResponsePtrOutput)
+}
+
+// Dimensions emitted by Pipeline.
+func (o PipelineOutput) RunDimensions() pulumi.MapOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.MapOutput { return v.RunDimensions }).(pulumi.MapOutput)
+}
+
+// The resource type.
+func (o PipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of variables for pipeline.
+func (o PipelineOutput) Variables() VariableSpecificationResponseMapOutput {
+	return o.ApplyT(func(v *Pipeline) VariableSpecificationResponseMapOutput { return v.Variables }).(VariableSpecificationResponseMapOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineOutput{})
 }

@@ -150,6 +150,48 @@ func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutp
 	return o
 }
 
+// The resource ID of the data collection endpoint that is to be associated.
+func (o DataCollectionRuleAssociationOutput) DataCollectionEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringPtrOutput { return v.DataCollectionEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the data collection rule that is to be associated.
+func (o DataCollectionRuleAssociationOutput) DataCollectionRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringPtrOutput { return v.DataCollectionRuleId }).(pulumi.StringPtrOutput)
+}
+
+// Description of the association.
+func (o DataCollectionRuleAssociationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource entity tag (ETag).
+func (o DataCollectionRuleAssociationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o DataCollectionRuleAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource provisioning state.
+func (o DataCollectionRuleAssociationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DataCollectionRuleAssociationOutput) SystemData() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
+		return v.SystemData
+	}).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput)
+}
+
+// The type of the resource.
+func (o DataCollectionRuleAssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionRuleAssociation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataCollectionRuleAssociationOutput{})
 }

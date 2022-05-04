@@ -151,6 +151,42 @@ func (o JitNetworkAccessPolicyOutput) ToJitNetworkAccessPolicyOutputWithContext(
 	return o
 }
 
+// Kind of the resource
+func (o JitNetworkAccessPolicyOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o JitNetworkAccessPolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o JitNetworkAccessPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the provisioning state of the Just-in-Time policy.
+func (o JitNetworkAccessPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o JitNetworkAccessPolicyOutput) Requests() JitNetworkAccessRequestResponseArrayOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) JitNetworkAccessRequestResponseArrayOutput { return v.Requests }).(JitNetworkAccessRequestResponseArrayOutput)
+}
+
+// Resource type
+func (o JitNetworkAccessPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configurations for Microsoft.Compute/virtualMachines resource type.
+func (o JitNetworkAccessPolicyOutput) VirtualMachines() JitNetworkAccessPolicyVirtualMachineResponseArrayOutput {
+	return o.ApplyT(func(v *JitNetworkAccessPolicy) JitNetworkAccessPolicyVirtualMachineResponseArrayOutput {
+		return v.VirtualMachines
+	}).(JitNetworkAccessPolicyVirtualMachineResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyOutput{})
 }

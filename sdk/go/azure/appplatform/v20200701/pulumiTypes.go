@@ -68,6 +68,18 @@ type AppResourcePropertiesArgs struct {
 	TemporaryDisk TemporaryDiskPtrInput `pulumi:"temporaryDisk"`
 }
 
+// Defaults sets the appropriate defaults for AppResourcePropertiesArgs
+func (val *AppResourcePropertiesArgs) Defaults() *AppResourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		tmp.HttpsOnly = pulumi.BoolPtr(false)
+	}
+
+	return &tmp
+}
 func (AppResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppResourceProperties)(nil)).Elem()
 }
@@ -1375,6 +1387,15 @@ type DeploymentResourcePropertiesArgs struct {
 	Source UserSourceInfoPtrInput `pulumi:"source"`
 }
 
+// Defaults sets the appropriate defaults for DeploymentResourcePropertiesArgs
+func (val *DeploymentResourcePropertiesArgs) Defaults() *DeploymentResourcePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (DeploymentResourcePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentResourceProperties)(nil)).Elem()
 }
@@ -1657,6 +1678,23 @@ type DeploymentSettingsArgs struct {
 	RuntimeVersion pulumi.StringPtrInput `pulumi:"runtimeVersion"`
 }
 
+// Defaults sets the appropriate defaults for DeploymentSettingsArgs
+func (val *DeploymentSettingsArgs) Defaults() *DeploymentSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cpu) {
+		tmp.Cpu = pulumi.IntPtr(1)
+	}
+	if isZero(tmp.MemoryInGB) {
+		tmp.MemoryInGB = pulumi.IntPtr(1)
+	}
+	if isZero(tmp.RuntimeVersion) {
+		tmp.RuntimeVersion = pulumi.StringPtr("Java_8")
+	}
+	return &tmp
+}
 func (DeploymentSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentSettings)(nil)).Elem()
 }
@@ -3364,6 +3402,17 @@ type TemporaryDiskArgs struct {
 	SizeInGB pulumi.IntPtrInput `pulumi:"sizeInGB"`
 }
 
+// Defaults sets the appropriate defaults for TemporaryDiskArgs
+func (val *TemporaryDiskArgs) Defaults() *TemporaryDiskArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		tmp.MountPath = pulumi.StringPtr("/tmp")
+	}
+	return &tmp
+}
 func (TemporaryDiskArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemporaryDisk)(nil)).Elem()
 }

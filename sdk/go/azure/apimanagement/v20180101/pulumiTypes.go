@@ -52,6 +52,15 @@ type AdditionalLocationArgs struct {
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
 }
 
+// Defaults sets the appropriate defaults for AdditionalLocationArgs
+func (val *AdditionalLocationArgs) Defaults() *AdditionalLocationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (AdditionalLocationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdditionalLocation)(nil)).Elem()
 }
@@ -666,6 +675,17 @@ type ApiManagementServiceSkuPropertiesArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
+// Defaults sets the appropriate defaults for ApiManagementServiceSkuPropertiesArgs
+func (val *ApiManagementServiceSkuPropertiesArgs) Defaults() *ApiManagementServiceSkuPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		tmp.Capacity = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ApiManagementServiceSkuPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiManagementServiceSkuProperties)(nil)).Elem()
 }
@@ -2745,6 +2765,20 @@ type BackendTlsPropertiesArgs struct {
 	ValidateCertificateName pulumi.BoolPtrInput `pulumi:"validateCertificateName"`
 }
 
+// Defaults sets the appropriate defaults for BackendTlsPropertiesArgs
+func (val *BackendTlsPropertiesArgs) Defaults() *BackendTlsPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ValidateCertificateChain) {
+		tmp.ValidateCertificateChain = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.ValidateCertificateName) {
+		tmp.ValidateCertificateName = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (BackendTlsPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendTlsProperties)(nil)).Elem()
 }
@@ -3757,6 +3791,20 @@ type HostnameConfigurationArgs struct {
 	Type HostnameTypeInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for HostnameConfigurationArgs
+func (val *HostnameConfigurationArgs) Defaults() *HostnameConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultSslBinding) {
+		tmp.DefaultSslBinding = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.NegotiateClientCertificate) {
+		tmp.NegotiateClientCertificate = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (HostnameConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostnameConfiguration)(nil)).Elem()
 }

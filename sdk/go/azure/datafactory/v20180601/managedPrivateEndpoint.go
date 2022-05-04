@@ -145,6 +145,26 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o ManagedPrivateEndpointOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o ManagedPrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Managed private endpoint properties.
+func (o ManagedPrivateEndpointOutput) Properties() ManagedPrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) ManagedPrivateEndpointResponseOutput { return v.Properties }).(ManagedPrivateEndpointResponseOutput)
+}
+
+// The resource type.
+func (o ManagedPrivateEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
 }

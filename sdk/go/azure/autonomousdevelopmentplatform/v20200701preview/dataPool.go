@@ -150,6 +150,36 @@ func (o DataPoolOutput) ToDataPoolOutputWithContext(ctx context.Context) DataPoo
 	return o
 }
 
+// The Data Pool's data-plane ID
+func (o DataPoolOutput) DataPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataPool) pulumi.StringOutput { return v.DataPoolId }).(pulumi.StringOutput)
+}
+
+// Gets or sets the collection of locations where Data Pool resources should be created.
+func (o DataPoolOutput) Locations() DataPoolLocationResponseArrayOutput {
+	return o.ApplyT(func(v *DataPool) DataPoolLocationResponseArrayOutput { return v.Locations }).(DataPoolLocationResponseArrayOutput)
+}
+
+// The name of the resource
+func (o DataPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data pool at the time the operation was called.
+func (o DataPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o DataPoolOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataPool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DataPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataPoolOutput{})
 }

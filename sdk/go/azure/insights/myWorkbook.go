@@ -214,6 +214,81 @@ func (o MyWorkbookOutput) ToMyWorkbookOutputWithContext(ctx context.Context) MyW
 	return o
 }
 
+// Workbook category, as defined by the user at creation time.
+func (o MyWorkbookOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The user-defined name of the private workbook.
+func (o MyWorkbookOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource etag
+func (o MyWorkbookOutput) Etag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringMapOutput { return v.Etag }).(pulumi.StringMapOutput)
+}
+
+// Identity used for BYOS
+func (o MyWorkbookOutput) Identity() MyWorkbookManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) MyWorkbookManagedIdentityResponsePtrOutput { return v.Identity }).(MyWorkbookManagedIdentityResponsePtrOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o MyWorkbookOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o MyWorkbookOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o MyWorkbookOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+func (o MyWorkbookOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringOutput { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// Optional resourceId for a source resource.
+func (o MyWorkbookOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+// BYOS Storage Account URI
+func (o MyWorkbookOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o MyWorkbookOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this private workbook definition.
+func (o MyWorkbookOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o MyWorkbookOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Unique user id of the specific user that owns this private workbook.
+func (o MyWorkbookOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+func (o MyWorkbookOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MyWorkbook) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MyWorkbookOutput{})
 }

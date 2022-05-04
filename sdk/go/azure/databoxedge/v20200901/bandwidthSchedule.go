@@ -203,6 +203,41 @@ func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx contex
 	return o
 }
 
+// The days of the week when this schedule is applicable.
+func (o BandwidthScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.StringArrayOutput { return v.Days }).(pulumi.StringArrayOutput)
+}
+
+// The object name.
+func (o BandwidthScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The bandwidth rate in Mbps.
+func (o BandwidthScheduleOutput) RateInMbps() pulumi.IntOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.IntOutput { return v.RateInMbps }).(pulumi.IntOutput)
+}
+
+// The start time of the schedule in UTC.
+func (o BandwidthScheduleOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.StringOutput { return v.Start }).(pulumi.StringOutput)
+}
+
+// The stop time of the schedule in UTC.
+func (o BandwidthScheduleOutput) Stop() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.StringOutput { return v.Stop }).(pulumi.StringOutput)
+}
+
+// Bandwidth object related to ASE resource
+func (o BandwidthScheduleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o BandwidthScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BandwidthSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BandwidthScheduleOutput{})
 }

@@ -166,6 +166,41 @@ func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) J
 	return o
 }
 
+// Gets or sets the id of job schedule.
+func (o JobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringPtrOutput { return v.JobScheduleId }).(pulumi.StringPtrOutput)
+}
+
+// Gets the name of the variable.
+func (o JobScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the parameters of the job schedule.
+func (o JobScheduleOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the hybrid worker group that the scheduled job should run on.
+func (o JobScheduleOutput) RunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringPtrOutput { return v.RunOn }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the runbook.
+func (o JobScheduleOutput) Runbook() RunbookAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *JobSchedule) RunbookAssociationPropertyResponsePtrOutput { return v.Runbook }).(RunbookAssociationPropertyResponsePtrOutput)
+}
+
+// Gets or sets the schedule.
+func (o JobScheduleOutput) Schedule() ScheduleAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *JobSchedule) ScheduleAssociationPropertyResponsePtrOutput { return v.Schedule }).(ScheduleAssociationPropertyResponsePtrOutput)
+}
+
+// Resource type
+func (o JobScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobScheduleOutput{})
 }

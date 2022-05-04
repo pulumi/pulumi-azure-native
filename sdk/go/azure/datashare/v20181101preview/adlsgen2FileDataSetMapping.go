@@ -223,6 +223,67 @@ func (o ADLSGen2FileDataSetMappingOutput) ToADLSGen2FileDataSetMappingOutputWith
 	return o
 }
 
+// The id of the source data set.
+func (o ADLSGen2FileDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o ADLSGen2FileDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// File path within the file system.
+func (o ADLSGen2FileDataSetMappingOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// File system to which the file belongs.
+func (o ADLSGen2FileDataSetMappingOutput) FileSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.FileSystem }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'AdlsGen2File'.
+func (o ADLSGen2FileDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2FileDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of output file
+func (o ADLSGen2FileDataSetMappingOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringPtrOutput { return v.OutputType }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o ADLSGen2FileDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account.
+func (o ADLSGen2FileDataSetMappingOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set.
+func (o ADLSGen2FileDataSetMappingOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account.
+func (o ADLSGen2FileDataSetMappingOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2FileDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2FileDataSetMappingOutput{})
 }

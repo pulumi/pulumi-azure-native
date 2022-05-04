@@ -162,6 +162,31 @@ func (o DeploymentAtScopeOutput) ToDeploymentAtScopeOutputWithContext(ctx contex
 	return o
 }
 
+// the location of the deployment.
+func (o DeploymentAtScopeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAtScope) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o DeploymentAtScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o DeploymentAtScopeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v *DeploymentAtScope) DeploymentPropertiesExtendedResponseOutput { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// Deployment tags
+func (o DeploymentAtScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DeploymentAtScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the deployment.
+func (o DeploymentAtScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentAtScopeOutput{})
 }

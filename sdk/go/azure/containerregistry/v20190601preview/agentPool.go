@@ -168,6 +168,56 @@ func (o AgentPoolOutput) ToAgentPoolOutputWithContext(ctx context.Context) Agent
 	return o
 }
 
+// The count of agent machine
+func (o AgentPoolOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.IntPtrOutput { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o AgentPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o AgentPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The OS of agent machine
+func (o AgentPoolOutput) Os() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.Os }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of this agent pool
+func (o AgentPoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o AgentPoolOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AgentPool) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o AgentPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Tier of agent machine
+func (o AgentPoolOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o AgentPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Virtual Network Subnet Resource Id of the agent machine
+func (o AgentPoolOutput) VirtualNetworkSubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentPool) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AgentPoolOutput{})
 }

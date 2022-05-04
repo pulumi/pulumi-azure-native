@@ -159,6 +159,36 @@ func (o DatastoreOutput) ToDatastoreOutputWithContext(ctx context.Context) Datas
 	return o
 }
 
+// An iSCSI volume
+func (o DatastoreOutput) DiskPoolVolume() DiskPoolVolumeResponsePtrOutput {
+	return o.ApplyT(func(v *Datastore) DiskPoolVolumeResponsePtrOutput { return v.DiskPoolVolume }).(DiskPoolVolumeResponsePtrOutput)
+}
+
+// Resource name.
+func (o DatastoreOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An Azure NetApp Files volume
+func (o DatastoreOutput) NetAppVolume() NetAppVolumeResponsePtrOutput {
+	return o.ApplyT(func(v *Datastore) NetAppVolumeResponsePtrOutput { return v.NetAppVolume }).(NetAppVolumeResponsePtrOutput)
+}
+
+// The state of the datastore provisioning
+func (o DatastoreOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The operational status of the datastore
+func (o DatastoreOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o DatastoreOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Datastore) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatastoreOutput{})
 }

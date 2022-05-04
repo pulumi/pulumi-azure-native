@@ -167,6 +167,56 @@ func (o EnterprisePolicyOutput) ToEnterprisePolicyOutputWithContext(ctx context.
 	return o
 }
 
+// The encryption settings for a configuration store.
+func (o EnterprisePolicyOutput) Encryption() PropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) PropertiesResponseEncryptionPtrOutput { return v.Encryption }).(PropertiesResponseEncryptionPtrOutput)
+}
+
+// The identity of the EnterprisePolicy.
+func (o EnterprisePolicyOutput) Identity() EnterprisePolicyIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) EnterprisePolicyIdentityResponsePtrOutput { return v.Identity }).(EnterprisePolicyIdentityResponsePtrOutput)
+}
+
+// The kind (type) of Enterprise Policy.
+func (o EnterprisePolicyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o EnterprisePolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Settings concerning lockbox.
+func (o EnterprisePolicyOutput) Lockbox() PropertiesResponseLockboxPtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) PropertiesResponseLockboxPtrOutput { return v.Lockbox }).(PropertiesResponseLockboxPtrOutput)
+}
+
+// The name of the resource
+func (o EnterprisePolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings concerning network injection.
+func (o EnterprisePolicyOutput) NetworkInjection() PropertiesResponseNetworkInjectionPtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) PropertiesResponseNetworkInjectionPtrOutput { return v.NetworkInjection }).(PropertiesResponseNetworkInjectionPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o EnterprisePolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o EnterprisePolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EnterprisePolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterprisePolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnterprisePolicyOutput{})
 }

@@ -249,6 +249,133 @@ func (o AppServiceCertificateOrderOutput) ToAppServiceCertificateOrderOutputWith
 	return o
 }
 
+// Reasons why App Service Certificate is not renewable at the current moment.
+func (o AppServiceCertificateOrderOutput) AppServiceCertificateNotRenewableReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringArrayOutput {
+		return v.AppServiceCertificateNotRenewableReasons
+	}).(pulumi.StringArrayOutput)
+}
+
+// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+func (o AppServiceCertificateOrderOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.BoolPtrOutput { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// State of the Key Vault secret.
+func (o AppServiceCertificateOrderOutput) Certificates() AppServiceCertificateResponseMapOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) AppServiceCertificateResponseMapOutput { return v.Certificates }).(AppServiceCertificateResponseMapOutput)
+}
+
+// Last CSR that was created for this order.
+func (o AppServiceCertificateOrderOutput) Csr() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringPtrOutput { return v.Csr }).(pulumi.StringPtrOutput)
+}
+
+// Certificate distinguished name.
+func (o AppServiceCertificateOrderOutput) DistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringPtrOutput { return v.DistinguishedName }).(pulumi.StringPtrOutput)
+}
+
+// Domain verification token.
+func (o AppServiceCertificateOrderOutput) DomainVerificationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.DomainVerificationToken }).(pulumi.StringOutput)
+}
+
+// Certificate expiration time.
+func (o AppServiceCertificateOrderOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+// Intermediate certificate.
+func (o AppServiceCertificateOrderOutput) Intermediate() CertificateDetailsResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) CertificateDetailsResponseOutput { return v.Intermediate }).(CertificateDetailsResponseOutput)
+}
+
+// <code>true</code> if private key is external; otherwise, <code>false</code>.
+func (o AppServiceCertificateOrderOutput) IsPrivateKeyExternal() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.BoolOutput { return v.IsPrivateKeyExternal }).(pulumi.BoolOutput)
+}
+
+// Certificate key size.
+func (o AppServiceCertificateOrderOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
+}
+
+// Kind of resource.
+func (o AppServiceCertificateOrderOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Certificate last issuance time.
+func (o AppServiceCertificateOrderOutput) LastCertificateIssuanceTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.LastCertificateIssuanceTime }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o AppServiceCertificateOrderOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o AppServiceCertificateOrderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Time stamp when the certificate would be auto renewed next
+func (o AppServiceCertificateOrderOutput) NextAutoRenewalTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.NextAutoRenewalTimeStamp }).(pulumi.StringOutput)
+}
+
+// Certificate product type.
+func (o AppServiceCertificateOrderOutput) ProductType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.ProductType }).(pulumi.StringOutput)
+}
+
+// Status of certificate order.
+func (o AppServiceCertificateOrderOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Root certificate.
+func (o AppServiceCertificateOrderOutput) Root() CertificateDetailsResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) CertificateDetailsResponseOutput { return v.Root }).(CertificateDetailsResponseOutput)
+}
+
+// Current serial number of the certificate.
+func (o AppServiceCertificateOrderOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// Signed certificate.
+func (o AppServiceCertificateOrderOutput) SignedCertificate() CertificateDetailsResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) CertificateDetailsResponseOutput { return v.SignedCertificate }).(CertificateDetailsResponseOutput)
+}
+
+// Current order status.
+func (o AppServiceCertificateOrderOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AppServiceCertificateOrderOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AppServiceCertificateOrderOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AppServiceCertificateOrderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Duration in years (must be between 1 and 3).
+func (o AppServiceCertificateOrderOutput) ValidityInYears() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrder) pulumi.IntPtrOutput { return v.ValidityInYears }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOrderOutput{})
 }

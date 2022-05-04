@@ -815,6 +815,17 @@ type ExportPolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for ExportPolicyArgs
+func (val *ExportPolicyArgs) Defaults() *ExportPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("enabled")
+	}
+	return &tmp
+}
 func (ExportPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExportPolicy)(nil)).Elem()
 }
@@ -1045,6 +1056,17 @@ type IPRuleArgs struct {
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
 
+// Defaults sets the appropriate defaults for IPRuleArgs
+func (val *IPRuleArgs) Defaults() *IPRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (IPRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPRule)(nil)).Elem()
 }
@@ -1845,6 +1867,17 @@ type NetworkRuleSetArgs struct {
 	IpRules IPRuleArrayInput `pulumi:"ipRules"`
 }
 
+// Defaults sets the appropriate defaults for NetworkRuleSetArgs
+func (val *NetworkRuleSetArgs) Defaults() *NetworkRuleSetArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.String("Allow")
+	}
+	return &tmp
+}
 func (NetworkRuleSetArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkRuleSet)(nil)).Elem()
 }
@@ -2118,6 +2151,15 @@ type PoliciesArgs struct {
 	TrustPolicy TrustPolicyPtrInput `pulumi:"trustPolicy"`
 }
 
+// Defaults sets the appropriate defaults for PoliciesArgs
+func (val *PoliciesArgs) Defaults() *PoliciesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PoliciesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Policies)(nil)).Elem()
 }
@@ -3006,6 +3048,17 @@ type QuarantinePolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for QuarantinePolicyArgs
+func (val *QuarantinePolicyArgs) Defaults() *QuarantinePolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	return &tmp
+}
 func (QuarantinePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*QuarantinePolicy)(nil)).Elem()
 }
@@ -3421,6 +3474,20 @@ type RetentionPolicyArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for RetentionPolicyArgs
+func (val *RetentionPolicyArgs) Defaults() *RetentionPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		tmp.Days = pulumi.IntPtr(7)
+	}
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	return &tmp
+}
 func (RetentionPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetentionPolicy)(nil)).Elem()
 }
@@ -4170,6 +4237,20 @@ type TrustPolicyArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for TrustPolicyArgs
+func (val *TrustPolicyArgs) Defaults() *TrustPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("disabled")
+	}
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("Notary")
+	}
+	return &tmp
+}
 func (TrustPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrustPolicy)(nil)).Elem()
 }

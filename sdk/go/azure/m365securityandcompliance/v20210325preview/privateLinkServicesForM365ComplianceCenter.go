@@ -157,6 +157,55 @@ func (o PrivateLinkServicesForM365ComplianceCenterOutput) ToPrivateLinkServicesF
 	return o
 }
 
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) ServicesResourceResponseIdentityPtrOutput {
+		return v.Identity
+	}).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) ServicesPropertiesResponseOutput {
+		return v.Properties
+	}).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o PrivateLinkServicesForM365ComplianceCenterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForM365ComplianceCenter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkServicesForM365ComplianceCenterOutput{})
 }

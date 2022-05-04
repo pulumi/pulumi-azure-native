@@ -125,6 +125,26 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// Settings for authentication management, these settings are relevant only for the cloud connector.
+func (o ConnectorOutput) AuthenticationDetails() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Connector) pulumi.AnyOutput { return v.AuthenticationDetails }).(pulumi.AnyOutput)
+}
+
+// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
+func (o ConnectorOutput) HybridComputeSettings() HybridComputeSettingsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Connector) HybridComputeSettingsPropertiesResponsePtrOutput { return v.HybridComputeSettings }).(HybridComputeSettingsPropertiesResponsePtrOutput)
+}
+
+// Resource name
+func (o ConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o ConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectorOutput{})
 }

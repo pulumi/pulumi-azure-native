@@ -244,6 +244,125 @@ func (o ServerGroupOutput) ToServerGroupOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
+func (o ServerGroupOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// Availability Zone information of the server group.
+func (o ServerGroupOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The backup retention days for server group.
+func (o ServerGroupOutput) BackupRetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.IntPtrOutput { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// The Citus version of server group.
+func (o ServerGroupOutput) CitusVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringPtrOutput { return v.CitusVersion }).(pulumi.StringPtrOutput)
+}
+
+// The delegated subnet arguments for a server group.
+func (o ServerGroupOutput) DelegatedSubnetArguments() ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
+		return v.DelegatedSubnetArguments
+	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
+}
+
+// The earliest restore point time (ISO8601 format) for server group.
+func (o ServerGroupOutput) EarliestRestoreTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.EarliestRestoreTime }).(pulumi.StringOutput)
+}
+
+// If Citus MX is enabled or not for the server group.
+func (o ServerGroupOutput) EnableMx() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.BoolPtrOutput { return v.EnableMx }).(pulumi.BoolPtrOutput)
+}
+
+// If shards on coordinator is enabled or not for the server group.
+func (o ServerGroupOutput) EnableShardsOnCoordinator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.BoolPtrOutput { return v.EnableShardsOnCoordinator }).(pulumi.BoolPtrOutput)
+}
+
+// If ZFS compression is enabled or not for the server group.
+func (o ServerGroupOutput) EnableZfs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.BoolPtrOutput { return v.EnableZfs }).(pulumi.BoolPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServerGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance window of a server group.
+func (o ServerGroupOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v *ServerGroup) MaintenanceWindowResponsePtrOutput { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ServerGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The PostgreSQL version of server group.
+func (o ServerGroupOutput) PostgresqlVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringPtrOutput { return v.PostgresqlVersion }).(pulumi.StringPtrOutput)
+}
+
+// The private dns zone arguments for a server group.
+func (o ServerGroupOutput) PrivateDnsZoneArguments() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+		return v.PrivateDnsZoneArguments
+	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
+}
+
+// The array of read replica server groups.
+func (o ServerGroupOutput) ReadReplicas() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringArrayOutput { return v.ReadReplicas }).(pulumi.StringArrayOutput)
+}
+
+// The resource provider type of server group.
+func (o ServerGroupOutput) ResourceProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.ResourceProviderType }).(pulumi.StringOutput)
+}
+
+// The list of server role groups.
+func (o ServerGroupOutput) ServerRoleGroups() ServerRoleGroupResponseArrayOutput {
+	return o.ApplyT(func(v *ServerGroup) ServerRoleGroupResponseArrayOutput { return v.ServerRoleGroups }).(ServerRoleGroupResponseArrayOutput)
+}
+
+// The source server group id for read replica server groups.
+func (o ServerGroupOutput) SourceServerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.SourceServerGroup }).(pulumi.StringOutput)
+}
+
+// Standby Availability Zone information of the server group.
+func (o ServerGroupOutput) StandbyAvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringPtrOutput { return v.StandbyAvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// A state of a server group that is visible to user.
+func (o ServerGroupOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource
+func (o ServerGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ServerGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ServerGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerGroupOutput{})
 }

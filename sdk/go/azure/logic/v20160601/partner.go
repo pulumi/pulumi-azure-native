@@ -176,6 +176,51 @@ func (o PartnerOutput) ToPartnerOutputWithContext(ctx context.Context) PartnerOu
 	return o
 }
 
+// The changed time.
+func (o PartnerOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The partner content.
+func (o PartnerOutput) Content() PartnerContentResponseOutput {
+	return o.ApplyT(func(v *Partner) PartnerContentResponseOutput { return v.Content }).(PartnerContentResponseOutput)
+}
+
+// The created time.
+func (o PartnerOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o PartnerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o PartnerOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Partner) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o PartnerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The partner type.
+func (o PartnerOutput) PartnerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.PartnerType }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o PartnerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o PartnerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerOutput{})
 }

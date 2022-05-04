@@ -168,6 +168,65 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// Describes custom rules inside the policy.
+func (o PolicyOutput) CustomRules() CustomRuleListResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) CustomRuleListResponsePtrOutput { return v.CustomRules }).(CustomRuleListResponsePtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o PolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+func (o PolicyOutput) FrontendEndpointLinks() FrontendEndpointLinkResponseArrayOutput {
+	return o.ApplyT(func(v *Policy) FrontendEndpointLinkResponseArrayOutput { return v.FrontendEndpointLinks }).(FrontendEndpointLinkResponseArrayOutput)
+}
+
+// Resource location.
+func (o PolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Describes managed rules inside the policy.
+func (o PolicyOutput) ManagedRules() ManagedRuleSetListResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) ManagedRuleSetListResponsePtrOutput { return v.ManagedRules }).(ManagedRuleSetListResponsePtrOutput)
+}
+
+// Resource name.
+func (o PolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes settings for the policy.
+func (o PolicyOutput) PolicySettings() FrontDoorPolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Policy) FrontDoorPolicySettingsResponsePtrOutput { return v.PolicySettings }).(FrontDoorPolicySettingsResponsePtrOutput)
+}
+
+// Provisioning state of the policy.
+func (o PolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PolicyOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Describes Routing Rules associated with this Web Application Firewall policy.
+func (o PolicyOutput) RoutingRuleLinks() RoutingRuleLinkResponseArrayOutput {
+	return o.ApplyT(func(v *Policy) RoutingRuleLinkResponseArrayOutput { return v.RoutingRuleLinks }).(RoutingRuleLinkResponseArrayOutput)
+}
+
+// Resource tags.
+func (o PolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyOutput{})
 }

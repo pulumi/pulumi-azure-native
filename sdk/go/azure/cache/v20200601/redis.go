@@ -249,6 +249,126 @@ func (o RedisOutput) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 	return o
 }
 
+// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+func (o RedisOutput) AccessKeys() RedisAccessKeysResponseOutput {
+	return o.ApplyT(func(v *Redis) RedisAccessKeysResponseOutput { return v.AccessKeys }).(RedisAccessKeysResponseOutput)
+}
+
+// Specifies whether the non-ssl Redis server port (6379) is enabled.
+func (o RedisOutput) EnableNonSslPort() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.BoolPtrOutput { return v.EnableNonSslPort }).(pulumi.BoolPtrOutput)
+}
+
+// Redis host name.
+func (o RedisOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// List of the Redis instances associated with the cache
+func (o RedisOutput) Instances() RedisInstanceDetailsResponseArrayOutput {
+	return o.ApplyT(func(v *Redis) RedisInstanceDetailsResponseArrayOutput { return v.Instances }).(RedisInstanceDetailsResponseArrayOutput)
+}
+
+// List of the linked servers associated with the cache
+func (o RedisOutput) LinkedServers() RedisLinkedServerResponseArrayOutput {
+	return o.ApplyT(func(v *Redis) RedisLinkedServerResponseArrayOutput { return v.LinkedServers }).(RedisLinkedServerResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o RedisOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+func (o RedisOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o RedisOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Redis non-SSL port.
+func (o RedisOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v *Redis) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// List of private endpoint connection associated with the specified redis cache
+func (o RedisOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Redis) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Redis instance provisioning status.
+func (o RedisOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+func (o RedisOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+func (o RedisOutput) RedisConfiguration() RedisCommonPropertiesResponseRedisConfigurationPtrOutput {
+	return o.ApplyT(func(v *Redis) RedisCommonPropertiesResponseRedisConfigurationPtrOutput { return v.RedisConfiguration }).(RedisCommonPropertiesResponseRedisConfigurationPtrOutput)
+}
+
+// Redis version.
+func (o RedisOutput) RedisVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.RedisVersion }).(pulumi.StringOutput)
+}
+
+// The number of replicas to be created per master.
+func (o RedisOutput) ReplicasPerMaster() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.IntPtrOutput { return v.ReplicasPerMaster }).(pulumi.IntPtrOutput)
+}
+
+// The number of shards to be created on a Premium Cluster Cache.
+func (o RedisOutput) ShardCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.IntPtrOutput { return v.ShardCount }).(pulumi.IntPtrOutput)
+}
+
+// The SKU of the Redis cache to deploy.
+func (o RedisOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Redis) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Redis SSL port.
+func (o RedisOutput) SslPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *Redis) pulumi.IntOutput { return v.SslPort }).(pulumi.IntOutput)
+}
+
+// Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
+func (o RedisOutput) StaticIP() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringPtrOutput { return v.StaticIP }).(pulumi.StringPtrOutput)
+}
+
+// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+func (o RedisOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o RedisOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A dictionary of tenant settings
+func (o RedisOutput) TenantSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringMapOutput { return v.TenantSettings }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o RedisOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of availability zones denoting where the resource needs to come from.
+func (o RedisOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Redis) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RedisOutput{})
 }

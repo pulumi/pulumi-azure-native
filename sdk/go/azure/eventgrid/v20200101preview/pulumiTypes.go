@@ -136,6 +136,17 @@ type EventSubscriptionFilterArgs struct {
 	SubjectEndsWith pulumi.StringPtrInput `pulumi:"subjectEndsWith"`
 }
 
+// Defaults sets the appropriate defaults for EventSubscriptionFilterArgs
+func (val *EventSubscriptionFilterArgs) Defaults() *EventSubscriptionFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		tmp.IsSubjectCaseSensitive = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EventSubscriptionFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSubscriptionFilter)(nil)).Elem()
 }

@@ -161,6 +161,26 @@ func (o DeploymentAtSubscriptionScopeOutput) ToDeploymentAtSubscriptionScopeOutp
 	return o
 }
 
+// the location of the deployment.
+func (o DeploymentAtSubscriptionScopeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentAtSubscriptionScope) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the deployment.
+func (o DeploymentAtSubscriptionScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtSubscriptionScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Deployment properties.
+func (o DeploymentAtSubscriptionScopeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v *DeploymentAtSubscriptionScope) DeploymentPropertiesExtendedResponseOutput { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+}
+
+// The type of the deployment.
+func (o DeploymentAtSubscriptionScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentAtSubscriptionScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentAtSubscriptionScopeOutput{})
 }

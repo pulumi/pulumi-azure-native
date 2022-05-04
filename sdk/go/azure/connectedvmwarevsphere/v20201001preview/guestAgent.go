@@ -157,6 +157,61 @@ func (o GuestAgentOutput) ToGuestAgentOutputWithContext(ctx context.Context) Gue
 	return o
 }
 
+// Username / Password Credentials to provision guest agent.
+func (o GuestAgentOutput) Credentials() GuestCredentialResponsePtrOutput {
+	return o.ApplyT(func(v *GuestAgent) GuestCredentialResponsePtrOutput { return v.Credentials }).(GuestCredentialResponsePtrOutput)
+}
+
+// Gets the name of the corresponding resource in Kubernetes.
+func (o GuestAgentOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// HTTP Proxy configuration for the VM.
+func (o GuestAgentOutput) HttpProxyConfig() HttpProxyConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *GuestAgent) HttpProxyConfigurationResponsePtrOutput { return v.HttpProxyConfig }).(HttpProxyConfigurationResponsePtrOutput)
+}
+
+// The name of the resource
+func (o GuestAgentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the guest agent provisioning action.
+func (o GuestAgentOutput) ProvisioningAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringPtrOutput { return v.ProvisioningAction }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o GuestAgentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the guest agent status.
+func (o GuestAgentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o GuestAgentOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *GuestAgent) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// The system data.
+func (o GuestAgentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GuestAgent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GuestAgentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o GuestAgentOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestAgent) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestAgentOutput{})
 }

@@ -180,6 +180,36 @@ func (o LongTermRetentionPolicyOutput) ToLongTermRetentionPolicyOutputWithContex
 	return o
 }
 
+// The monthly retention policy for an LTR backup in an ISO 8601 format.
+func (o LongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.StringPtrOutput { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LongTermRetentionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LongTermRetentionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The week of year to take the yearly backup in an ISO 8601 format.
+func (o LongTermRetentionPolicyOutput) WeekOfYear() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.IntPtrOutput { return v.WeekOfYear }).(pulumi.IntPtrOutput)
+}
+
+// The weekly retention policy for an LTR backup in an ISO 8601 format.
+func (o LongTermRetentionPolicyOutput) WeeklyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.StringPtrOutput { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
+}
+
+// The yearly retention policy for an LTR backup in an ISO 8601 format.
+func (o LongTermRetentionPolicyOutput) YearlyRetention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LongTermRetentionPolicy) pulumi.StringPtrOutput { return v.YearlyRetention }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LongTermRetentionPolicyOutput{})
 }

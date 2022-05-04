@@ -166,6 +166,65 @@ func (o ObjectAnchorsAccountOutput) ToObjectAnchorsAccountOutputWithContext(ctx 
 	return o
 }
 
+// Correspond domain name of certain Spatial Anchors Account
+func (o ObjectAnchorsAccountOutput) AccountDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringOutput { return v.AccountDomain }).(pulumi.StringOutput)
+}
+
+// unique id of certain account.
+func (o ObjectAnchorsAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+func (o ObjectAnchorsAccountOutput) Identity() ObjectAnchorsAccountResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) ObjectAnchorsAccountResponseIdentityPtrOutput { return v.Identity }).(ObjectAnchorsAccountResponseIdentityPtrOutput)
+}
+
+// The kind of account, if supported
+func (o ObjectAnchorsAccountOutput) Kind() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) SkuResponsePtrOutput { return v.Kind }).(SkuResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ObjectAnchorsAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ObjectAnchorsAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The plan associated with this account
+func (o ObjectAnchorsAccountOutput) Plan() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) IdentityResponsePtrOutput { return v.Plan }).(IdentityResponsePtrOutput)
+}
+
+// The sku associated with this account
+func (o ObjectAnchorsAccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The name of the storage account associated with this accountId
+func (o ObjectAnchorsAccountOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to an object anchors account.
+func (o ObjectAnchorsAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ObjectAnchorsAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ObjectAnchorsAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectAnchorsAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ObjectAnchorsAccountOutput{})
 }

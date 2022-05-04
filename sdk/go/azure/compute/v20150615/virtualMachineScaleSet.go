@@ -212,6 +212,53 @@ func (o VirtualMachineScaleSetOutput) ToVirtualMachineScaleSetOutputWithContext(
 	return o
 }
 
+// Resource location
+func (o VirtualMachineScaleSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineScaleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+func (o VirtualMachineScaleSetOutput) OverProvision() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.OverProvision }).(pulumi.BoolPtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineScaleSetOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The virtual machine scale set sku.
+func (o VirtualMachineScaleSetOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineScaleSetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineScaleSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The upgrade policy.
+func (o VirtualMachineScaleSetOutput) UpgradePolicy() UpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) UpgradePolicyResponsePtrOutput { return v.UpgradePolicy }).(UpgradePolicyResponsePtrOutput)
+}
+
+// The virtual machine profile.
+func (o VirtualMachineScaleSetOutput) VirtualMachineProfile() VirtualMachineScaleSetVMProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSet) VirtualMachineScaleSetVMProfileResponsePtrOutput {
+		return v.VirtualMachineProfile
+	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOutput{})
 }

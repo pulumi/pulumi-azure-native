@@ -208,6 +208,46 @@ func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutputWith
 	return o
 }
 
+// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+func (o AppServicePlanRouteForVnetOutput) EndAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringPtrOutput { return v.EndAddress }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppServicePlanRouteForVnetOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o AppServicePlanRouteForVnetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of route this is:
+// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+// INHERITED - Routes inherited from the real Virtual Network routes
+// STATIC - Static route set on the app only
+//
+// These values will be used for syncing an app's routes with those from a Virtual Network.
+func (o AppServicePlanRouteForVnetOutput) RouteType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringPtrOutput { return v.RouteType }).(pulumi.StringPtrOutput)
+}
+
+// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+func (o AppServicePlanRouteForVnetOutput) StartAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringPtrOutput { return v.StartAddress }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AppServicePlanRouteForVnetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o AppServicePlanRouteForVnetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServicePlanRouteForVnet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServicePlanRouteForVnetOutput{})
 }

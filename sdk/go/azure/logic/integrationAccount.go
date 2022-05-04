@@ -160,6 +160,41 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx cont
 	return o
 }
 
+// The integration service environment.
+func (o IntegrationAccountOutput) IntegrationServiceEnvironment() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) ResourceReferenceResponsePtrOutput { return v.IntegrationServiceEnvironment }).(ResourceReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku.
+func (o IntegrationAccountOutput) Sku() IntegrationAccountSkuResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountSkuResponsePtrOutput { return v.Sku }).(IntegrationAccountSkuResponsePtrOutput)
+}
+
+// The workflow state.
+func (o IntegrationAccountOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountOutput{})
 }

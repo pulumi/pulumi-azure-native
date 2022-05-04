@@ -195,6 +195,63 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// This is only returned when the certificate provisioningState is 'Failed'.
+func (o CertificateOutput) DeleteCertificateError() DeleteCertificateErrorResponseOutput {
+	return o.ApplyT(func(v *Certificate) DeleteCertificateErrorResponseOutput { return v.DeleteCertificateError }).(DeleteCertificateErrorResponseOutput)
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o CertificateOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+func (o CertificateOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The previous provisioned state of the resource
+func (o CertificateOutput) PreviousProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PreviousProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) PreviousProvisioningStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PreviousProvisioningStateTransitionTime }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) ProvisioningStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ProvisioningStateTransitionTime }).(pulumi.StringOutput)
+}
+
+// The public key of the certificate.
+func (o CertificateOutput) PublicData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PublicData }).(pulumi.StringOutput)
+}
+
+// This must match the thumbprint from the name.
+func (o CertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+func (o CertificateOutput) ThumbprintAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ThumbprintAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

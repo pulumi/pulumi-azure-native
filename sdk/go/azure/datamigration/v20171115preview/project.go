@@ -211,6 +211,61 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// UTC Date and time when project was created
+func (o ProjectOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// List of DatabaseInfo
+func (o ProjectOutput) DatabasesInfo() DatabaseInfoResponseArrayOutput {
+	return o.ApplyT(func(v *Project) DatabaseInfoResponseArrayOutput { return v.DatabasesInfo }).(DatabaseInfoResponseArrayOutput)
+}
+
+// Resource location.
+func (o ProjectOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The project's provisioning state
+func (o ProjectOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Information for connecting to source
+func (o ProjectOutput) SourceConnectionInfo() SqlConnectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Project) SqlConnectionInfoResponsePtrOutput { return v.SourceConnectionInfo }).(SqlConnectionInfoResponsePtrOutput)
+}
+
+// Source platform for the project
+func (o ProjectOutput) SourcePlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.SourcePlatform }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ProjectOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Information for connecting to target
+func (o ProjectOutput) TargetConnectionInfo() SqlConnectionInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Project) SqlConnectionInfoResponsePtrOutput { return v.TargetConnectionInfo }).(SqlConnectionInfoResponsePtrOutput)
+}
+
+// Target platform for the project
+func (o ProjectOutput) TargetPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.TargetPlatform }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

@@ -161,6 +161,53 @@ func (o AlertsSuppressionRuleOutput) ToAlertsSuppressionRuleOutputWithContext(ct
 	return o
 }
 
+// Type of the alert to automatically suppress. For all alert types, use '*'
+func (o AlertsSuppressionRuleOutput) AlertType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.AlertType }).(pulumi.StringOutput)
+}
+
+// Any comment regarding the rule
+func (o AlertsSuppressionRuleOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+func (o AlertsSuppressionRuleOutput) ExpirationDateUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringPtrOutput { return v.ExpirationDateUtc }).(pulumi.StringPtrOutput)
+}
+
+// The last time this rule was modified
+func (o AlertsSuppressionRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o AlertsSuppressionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reason for dismissing the alert
+func (o AlertsSuppressionRuleOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.Reason }).(pulumi.StringOutput)
+}
+
+// Possible states of the rule
+func (o AlertsSuppressionRuleOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The suppression conditions
+func (o AlertsSuppressionRuleOutput) SuppressionAlertsScope() SuppressionAlertsScopeResponsePtrOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) SuppressionAlertsScopeResponsePtrOutput {
+		return v.SuppressionAlertsScope
+	}).(SuppressionAlertsScopeResponsePtrOutput)
+}
+
+// Resource type
+func (o AlertsSuppressionRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertsSuppressionRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertsSuppressionRuleOutput{})
 }

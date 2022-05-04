@@ -158,6 +158,31 @@ func (o IntegrationAccountOutput) ToIntegrationAccountOutputWithContext(ctx cont
 	return o
 }
 
+// The resource location.
+func (o IntegrationAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o IntegrationAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The sku.
+func (o IntegrationAccountOutput) Sku() IntegrationAccountSkuResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) IntegrationAccountSkuResponsePtrOutput { return v.Sku }).(IntegrationAccountSkuResponsePtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IntegrationAccountOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccount) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountOutput{})
 }

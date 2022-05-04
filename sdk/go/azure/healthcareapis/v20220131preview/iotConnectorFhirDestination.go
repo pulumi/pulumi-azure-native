@@ -177,6 +177,46 @@ func (o IotConnectorFhirDestinationOutput) ToIotConnectorFhirDestinationOutputWi
 	return o
 }
 
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o IotConnectorFhirDestinationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// FHIR Mappings
+func (o IotConnectorFhirDestinationOutput) FhirMapping() IotMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) IotMappingPropertiesResponseOutput { return v.FhirMapping }).(IotMappingPropertiesResponseOutput)
+}
+
+// Fully qualified resource id of the FHIR service to connect to.
+func (o IotConnectorFhirDestinationOutput) FhirServiceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringOutput { return v.FhirServiceResourceId }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o IotConnectorFhirDestinationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o IotConnectorFhirDestinationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines how resource identity is resolved on the destination.
+func (o IotConnectorFhirDestinationOutput) ResourceIdentityResolutionType() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringOutput { return v.ResourceIdentityResolutionType }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o IotConnectorFhirDestinationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource type.
+func (o IotConnectorFhirDestinationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotConnectorFhirDestination) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotConnectorFhirDestinationOutput{})
 }

@@ -145,6 +145,43 @@ func (o PowerBIResourceOutput) ToPowerBIResourceOutputWithContext(ctx context.Co
 	return o
 }
 
+// Specifies the location of the resource.
+func (o PowerBIResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerBIResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o PowerBIResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PowerBIResource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the private endpoint connections of the resource.
+func (o PowerBIResourceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PowerBIResource) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o PowerBIResourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PowerBIResource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Specifies the tags of the resource.
+func (o PowerBIResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PowerBIResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the tenant id of the resource.
+func (o PowerBIResourceOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerBIResource) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of the resource.
+func (o PowerBIResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PowerBIResource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PowerBIResourceOutput{})
 }

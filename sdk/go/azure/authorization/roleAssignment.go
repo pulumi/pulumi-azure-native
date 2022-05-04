@@ -203,6 +203,76 @@ func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+func (o RoleAssignmentOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+// Version of the condition. Currently accepted value is '2.0'
+func (o RoleAssignmentOutput) ConditionVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.ConditionVersion }).(pulumi.StringPtrOutput)
+}
+
+// Id of the user who created the assignment
+func (o RoleAssignmentOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// Time it was created
+func (o RoleAssignmentOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Id of the delegated managed identity resource
+func (o RoleAssignmentOutput) DelegatedManagedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.DelegatedManagedIdentityResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Description of role assignment
+func (o RoleAssignmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The role assignment name.
+func (o RoleAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o RoleAssignmentOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The principal type of the assigned principal ID.
+func (o RoleAssignmentOutput) PrincipalType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
+}
+
+// The role definition ID.
+func (o RoleAssignmentOutput) RoleDefinitionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.RoleDefinitionId }).(pulumi.StringOutput)
+}
+
+// The role assignment scope.
+func (o RoleAssignmentOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The role assignment type.
+func (o RoleAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Id of the user who updated the assignment
+func (o RoleAssignmentOutput) UpdatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.UpdatedBy }).(pulumi.StringOutput)
+}
+
+// Time it was updated
+func (o RoleAssignmentOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 }

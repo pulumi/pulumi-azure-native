@@ -225,6 +225,48 @@ func (o ServiceEndpointPolicyOutput) ToServiceEndpointPolicyOutputWithContext(ct
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o ServiceEndpointPolicyOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ServiceEndpointPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ServiceEndpointPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ServiceEndpointPolicyOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The resource GUID property of the service endpoint policy resource.
+func (o ServiceEndpointPolicyOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// A collection of service endpoint policy definitions of the service endpoint policy.
+func (o ServiceEndpointPolicyOutput) ServiceEndpointPolicyDefinitions() ServiceEndpointPolicyDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) ServiceEndpointPolicyDefinitionResponseArrayOutput {
+		return v.ServiceEndpointPolicyDefinitions
+	}).(ServiceEndpointPolicyDefinitionResponseArrayOutput)
+}
+
+// Resource tags.
+func (o ServiceEndpointPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ServiceEndpointPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointPolicyOutput{})
 }

@@ -181,6 +181,46 @@ func (o IncidentCommentOutput) ToIncidentCommentOutputWithContext(ctx context.Co
 	return o
 }
 
+// Describes the client that created the comment
+func (o IncidentCommentOutput) Author() ClientInfoResponseOutput {
+	return o.ApplyT(func(v *IncidentComment) ClientInfoResponseOutput { return v.Author }).(ClientInfoResponseOutput)
+}
+
+// The time the comment was created
+func (o IncidentCommentOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringOutput { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o IncidentCommentOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The time the comment was updated
+func (o IncidentCommentOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The comment message
+func (o IncidentCommentOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringOutput { return v.Message }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o IncidentCommentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o IncidentCommentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IncidentComment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o IncidentCommentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IncidentComment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IncidentCommentOutput{})
 }

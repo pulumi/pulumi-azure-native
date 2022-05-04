@@ -152,6 +152,46 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingOutputWithContext(ctx contex
 	return o
 }
 
+// The resource Id for the event hub authorization rule.
+func (o DiagnosticSettingOutput) EventHubAuthorizationRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventHubAuthorizationRuleId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the event hub. If none is specified, the default event hub will be selected.
+func (o DiagnosticSettingOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The list of logs settings.
+func (o DiagnosticSettingOutput) Logs() LogSettingsResponseArrayOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) LogSettingsResponseArrayOutput { return v.Logs }).(LogSettingsResponseArrayOutput)
+}
+
+// Azure resource name
+func (o DiagnosticSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+func (o DiagnosticSettingOutput) ServiceBusRuleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.ServiceBusRuleId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+func (o DiagnosticSettingOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o DiagnosticSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+func (o DiagnosticSettingOutput) WorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DiagnosticSetting) pulumi.StringPtrOutput { return v.WorkspaceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiagnosticSettingOutput{})
 }

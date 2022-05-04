@@ -185,6 +185,51 @@ func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) Serve
 	return o
 }
 
+// The server key creation date.
+func (o ServerKeyOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o ServerKeyOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ServerKeyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The server key type like 'ServiceManaged', 'AzureKeyVault'.
+func (o ServerKeyOutput) ServerKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.ServerKeyType }).(pulumi.StringOutput)
+}
+
+// Subregion of the server key.
+func (o ServerKeyOutput) Subregion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Subregion }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the server key.
+func (o ServerKeyOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringPtrOutput { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ServerKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI of the server key.
+func (o ServerKeyOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

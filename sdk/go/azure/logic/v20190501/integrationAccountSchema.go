@@ -199,6 +199,76 @@ func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutputWithCont
 	return o
 }
 
+// The changed time.
+func (o IntegrationAccountSchemaOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o IntegrationAccountSchemaOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The content link.
+func (o IntegrationAccountSchemaOutput) ContentLink() ContentLinkResponseOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) ContentLinkResponseOutput { return v.ContentLink }).(ContentLinkResponseOutput)
+}
+
+// The content type.
+func (o IntegrationAccountSchemaOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o IntegrationAccountSchemaOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The document name.
+func (o IntegrationAccountSchemaOutput) DocumentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.DocumentName }).(pulumi.StringPtrOutput)
+}
+
+// The file name.
+func (o IntegrationAccountSchemaOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountSchemaOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o IntegrationAccountSchemaOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationAccountSchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The schema type.
+func (o IntegrationAccountSchemaOutput) SchemaType() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringOutput { return v.SchemaType }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountSchemaOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The target namespace of the schema.
+func (o IntegrationAccountSchemaOutput) TargetNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringPtrOutput { return v.TargetNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationAccountSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountSchema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountSchemaOutput{})
 }

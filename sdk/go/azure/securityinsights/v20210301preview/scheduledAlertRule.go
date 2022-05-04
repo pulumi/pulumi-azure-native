@@ -312,6 +312,127 @@ func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The alert details override settings
+func (o ScheduledAlertRuleOutput) AlertDetailsOverride() AlertDetailsOverrideResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) AlertDetailsOverrideResponsePtrOutput { return v.AlertDetailsOverride }).(AlertDetailsOverrideResponsePtrOutput)
+}
+
+// The Name of the alert rule template used to create this rule.
+func (o ScheduledAlertRuleOutput) AlertRuleTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.AlertRuleTemplateName }).(pulumi.StringPtrOutput)
+}
+
+// Dictionary of string key-value pairs of columns to be attached to the alert
+func (o ScheduledAlertRuleOutput) CustomDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringMapOutput { return v.CustomDetails }).(pulumi.StringMapOutput)
+}
+
+// The description of the alert rule.
+func (o ScheduledAlertRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o ScheduledAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o ScheduledAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Array of the entity mappings of the alert rule
+func (o ScheduledAlertRuleOutput) EntityMappings() EntityMappingResponseArrayOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) EntityMappingResponseArrayOutput { return v.EntityMappings }).(EntityMappingResponseArrayOutput)
+}
+
+// Etag of the azure resource
+func (o ScheduledAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The event grouping settings.
+func (o ScheduledAlertRuleOutput) EventGroupingSettings() EventGroupingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) EventGroupingSettingsResponsePtrOutput { return v.EventGroupingSettings }).(EventGroupingSettingsResponsePtrOutput)
+}
+
+// The settings of the incidents that created from alerts triggered by this analytics rule
+func (o ScheduledAlertRuleOutput) IncidentConfiguration() IncidentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) IncidentConfigurationResponsePtrOutput { return v.IncidentConfiguration }).(IncidentConfigurationResponsePtrOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'Scheduled'.
+func (o ScheduledAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert rule has been modified.
+func (o ScheduledAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ScheduledAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query that creates alerts for this rule.
+func (o ScheduledAlertRuleOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The frequency (in ISO 8601 duration format) for this alert rule to run.
+func (o ScheduledAlertRuleOutput) QueryFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.QueryFrequency }).(pulumi.StringOutput)
+}
+
+// The period (in ISO 8601 duration format) that this alert rule looks at.
+func (o ScheduledAlertRuleOutput) QueryPeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.QueryPeriod }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o ScheduledAlertRuleOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
+func (o ScheduledAlertRuleOutput) SuppressionDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.SuppressionDuration }).(pulumi.StringOutput)
+}
+
+// Determines whether the suppression for this alert rule is enabled or disabled.
+func (o ScheduledAlertRuleOutput) SuppressionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.BoolOutput { return v.SuppressionEnabled }).(pulumi.BoolOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ScheduledAlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tactics of the alert rule
+func (o ScheduledAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The operation against the threshold that triggers alert rule.
+func (o ScheduledAlertRuleOutput) TriggerOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.TriggerOperator }).(pulumi.StringOutput)
+}
+
+// The threshold triggers this alert rule.
+func (o ScheduledAlertRuleOutput) TriggerThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.IntOutput { return v.TriggerThreshold }).(pulumi.IntOutput)
+}
+
+// Azure resource type
+func (o ScheduledAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledAlertRuleOutput{})
 }

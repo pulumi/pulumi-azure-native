@@ -189,6 +189,96 @@ func (o ShareSubscriptionOutput) ToShareSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
+// Time at which the share subscription was created.
+func (o ShareSubscriptionOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The expiration date of the share subscription.
+func (o ShareSubscriptionOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// The invitation id.
+func (o ShareSubscriptionOutput) InvitationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ShareSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Email of the provider who created the resource
+func (o ShareSubscriptionOutput) ProviderEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ProviderEmail }).(pulumi.StringOutput)
+}
+
+// Name of the provider who created the resource
+func (o ShareSubscriptionOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Tenant name of the provider who created the resource
+func (o ShareSubscriptionOutput) ProviderTenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ProviderTenantName }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the share subscription
+func (o ShareSubscriptionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Description of share
+func (o ShareSubscriptionOutput) ShareDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ShareDescription }).(pulumi.StringOutput)
+}
+
+// Kind of share
+func (o ShareSubscriptionOutput) ShareKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ShareKind }).(pulumi.StringOutput)
+}
+
+// Name of the share
+func (o ShareSubscriptionOutput) ShareName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ShareName }).(pulumi.StringOutput)
+}
+
+// Gets the current status of share subscription.
+func (o ShareSubscriptionOutput) ShareSubscriptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ShareSubscriptionStatus }).(pulumi.StringOutput)
+}
+
+// Terms of a share
+func (o ShareSubscriptionOutput) ShareTerms() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.ShareTerms }).(pulumi.StringOutput)
+}
+
+// Source share location.
+func (o ShareSubscriptionOutput) SourceShareLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.SourceShareLocation }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ShareSubscriptionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ShareSubscription) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ShareSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Email of the user who created the resource
+func (o ShareSubscriptionOutput) UserEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.UserEmail }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the resource
+func (o ShareSubscriptionOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ShareSubscription) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ShareSubscriptionOutput{})
 }

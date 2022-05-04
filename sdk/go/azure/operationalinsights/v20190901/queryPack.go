@@ -143,6 +143,46 @@ func (o QueryPackOutput) ToQueryPackOutputWithContext(ctx context.Context) Query
 	return o
 }
 
+// Resource location
+func (o QueryPackOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o QueryPackOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+func (o QueryPackOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The unique ID of your application. This field cannot be changed.
+func (o QueryPackOutput) QueryPackId() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.QueryPackId }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o QueryPackOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Creation Date for the Log Analytics QueryPack, in ISO 8601 format.
+func (o QueryPackOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Last modified date of the Log Analytics QueryPack, in ISO 8601 format.
+func (o QueryPackOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o QueryPackOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryPack) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueryPackOutput{})
 }

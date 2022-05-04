@@ -165,6 +165,70 @@ func (o DicomServiceOutput) ToDicomServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Dicom Service authentication configuration.
+func (o DicomServiceOutput) AuthenticationConfiguration() DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *DicomService) DicomServiceAuthenticationConfigurationResponsePtrOutput {
+		return v.AuthenticationConfiguration
+	}).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o DicomServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o DicomServiceOutput) Identity() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *DicomService) ServiceManagedIdentityResponseIdentityPtrOutput { return v.Identity }).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// The resource location.
+func (o DicomServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o DicomServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of private endpoint connections that are set up for this resource.
+func (o DicomServiceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *DicomService) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioning state.
+func (o DicomServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+func (o DicomServiceOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// The url of the Dicom Services.
+func (o DicomServiceOutput) ServiceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.ServiceUrl }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DicomServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DicomService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DicomServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o DicomServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DicomService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DicomServiceOutput{})
 }

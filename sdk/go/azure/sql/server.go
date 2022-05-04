@@ -222,6 +222,93 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// Administrator username for the server. Once created it cannot be changed.
+func (o ServerOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Active Directory identity of the server.
+func (o ServerOutput) Administrators() ServerExternalAdministratorResponsePtrOutput {
+	return o.ApplyT(func(v *Server) ServerExternalAdministratorResponsePtrOutput { return v.Administrators }).(ServerExternalAdministratorResponsePtrOutput)
+}
+
+// The fully qualified domain name of the server.
+func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory identity of the server.
+func (o ServerOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Server) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// A CMK URI of the key to use for encryption.
+func (o ServerOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// Kind of sql server. This is metadata used for the Azure portal experience.
+func (o ServerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+func (o ServerOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource id of a user assigned identity to be used by default.
+func (o ServerOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// List of private endpoint connections on a server
+func (o ServerOutput) PrivateEndpointConnections() ServerPrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Server) ServerPrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(ServerPrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+func (o ServerOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The state of the server.
+func (o ServerOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of the server.
+func (o ServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not existing server has a workspace created and if it allows connection from workspace
+func (o ServerOutput) WorkspaceFeature() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.WorkspaceFeature }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
 }

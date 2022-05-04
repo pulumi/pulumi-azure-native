@@ -207,6 +207,111 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The workspace provider authorizations.
+func (o WorkspaceOutput) Authorizations() WorkspaceProviderAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceProviderAuthorizationResponseArrayOutput { return v.Authorizations }).(WorkspaceProviderAuthorizationResponseArrayOutput)
+}
+
+// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+func (o WorkspaceOutput) CreatedBy() CreatedByResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) CreatedByResponsePtrOutput { return v.CreatedBy }).(CreatedByResponsePtrOutput)
+}
+
+// Specifies the date and time when the workspace is created.
+func (o WorkspaceOutput) CreatedDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
+}
+
+// Encryption properties for databricks workspace
+func (o WorkspaceOutput) Encryption() WorkspacePropertiesResponseEncryptionPtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspacePropertiesResponseEncryptionPtrOutput { return v.Encryption }).(WorkspacePropertiesResponseEncryptionPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o WorkspaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The managed resource group Id.
+func (o WorkspaceOutput) ManagedResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ManagedResourceGroupId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The workspace's custom parameters.
+func (o WorkspaceOutput) Parameters() WorkspaceCustomParametersResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceCustomParametersResponsePtrOutput { return v.Parameters }).(WorkspaceCustomParametersResponsePtrOutput)
+}
+
+// Private endpoint connections created on the workspace
+func (o WorkspaceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Workspace) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The workspace provisioning state.
+func (o WorkspaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+func (o WorkspaceOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+func (o WorkspaceOutput) RequiredNsgRules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.RequiredNsgRules }).(pulumi.StringPtrOutput)
+}
+
+// The SKU of the resource.
+func (o WorkspaceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The details of Managed Identity of Storage Account
+func (o WorkspaceOutput) StorageAccountIdentity() ManagedIdentityConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) ManagedIdentityConfigurationResponsePtrOutput { return v.StorageAccountIdentity }).(ManagedIdentityConfigurationResponsePtrOutput)
+}
+
+// The system metadata relating to this resource
+func (o WorkspaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Workspace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The blob URI where the UI definition file is located.
+func (o WorkspaceOutput) UiDefinitionUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.UiDefinitionUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+func (o WorkspaceOutput) UpdatedBy() CreatedByResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) CreatedByResponsePtrOutput { return v.UpdatedBy }).(CreatedByResponsePtrOutput)
+}
+
+// The unique identifier of the databricks workspace in databricks control plane.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+func (o WorkspaceOutput) WorkspaceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceUrl }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

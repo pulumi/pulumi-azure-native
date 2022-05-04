@@ -145,6 +145,31 @@ func (o AuthorizationOutput) ToAuthorizationOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The ID of the ExpressRoute Circuit Authorization
+func (o AuthorizationOutput) ExpressRouteAuthorizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.ExpressRouteAuthorizationId }).(pulumi.StringOutput)
+}
+
+// The key of the ExpressRoute Circuit Authorization
+func (o AuthorizationOutput) ExpressRouteAuthorizationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.ExpressRouteAuthorizationKey }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o AuthorizationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the  ExpressRoute Circuit Authorization provisioning
+func (o AuthorizationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o AuthorizationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorization) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AuthorizationOutput{})
 }

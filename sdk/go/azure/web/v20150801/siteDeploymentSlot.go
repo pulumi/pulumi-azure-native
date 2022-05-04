@@ -248,6 +248,76 @@ func (o SiteDeploymentSlotOutput) ToSiteDeploymentSlotOutputWithContext(ctx cont
 	return o
 }
 
+// Active
+func (o SiteDeploymentSlotOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.BoolPtrOutput { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// Author
+func (o SiteDeploymentSlotOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// AuthorEmail
+func (o SiteDeploymentSlotOutput) AuthorEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.AuthorEmail }).(pulumi.StringPtrOutput)
+}
+
+// Deployer
+func (o SiteDeploymentSlotOutput) Deployer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Deployer }).(pulumi.StringPtrOutput)
+}
+
+// Detail
+func (o SiteDeploymentSlotOutput) Details() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Details }).(pulumi.StringPtrOutput)
+}
+
+// EndTime
+func (o SiteDeploymentSlotOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o SiteDeploymentSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteDeploymentSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Message
+func (o SiteDeploymentSlotOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o SiteDeploymentSlotOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// StartTime
+func (o SiteDeploymentSlotOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+// Status
+func (o SiteDeploymentSlotOutput) Status() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.IntPtrOutput { return v.Status }).(pulumi.IntPtrOutput)
+}
+
+// Resource tags
+func (o SiteDeploymentSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteDeploymentSlotOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteDeploymentSlot) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteDeploymentSlotOutput{})
 }

@@ -225,6 +225,57 @@ func (o KubernetesRoleOutput) ToKubernetesRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Host OS supported by the Kubernetes role.
+func (o KubernetesRoleOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// Platform where the runtime is hosted.
+func (o KubernetesRoleOutput) HostPlatformType() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.HostPlatformType }).(pulumi.StringOutput)
+}
+
+// Role type.
+// Expected value is 'Kubernetes'.
+func (o KubernetesRoleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Kubernetes cluster configuration
+func (o KubernetesRoleOutput) KubernetesClusterInfo() KubernetesClusterInfoResponseOutput {
+	return o.ApplyT(func(v *KubernetesRole) KubernetesClusterInfoResponseOutput { return v.KubernetesClusterInfo }).(KubernetesClusterInfoResponseOutput)
+}
+
+// Kubernetes role resources
+func (o KubernetesRoleOutput) KubernetesRoleResources() KubernetesRoleResourcesResponseOutput {
+	return o.ApplyT(func(v *KubernetesRole) KubernetesRoleResourcesResponseOutput { return v.KubernetesRoleResources }).(KubernetesRoleResourcesResponseOutput)
+}
+
+// The object name.
+func (o KubernetesRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Kubernetes deployment
+func (o KubernetesRoleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Role status.
+func (o KubernetesRoleOutput) RoleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.RoleStatus }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of Role
+func (o KubernetesRoleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KubernetesRole) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o KubernetesRoleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubernetesRole) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KubernetesRoleOutput{})
 }

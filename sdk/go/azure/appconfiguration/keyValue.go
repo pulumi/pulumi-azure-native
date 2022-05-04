@@ -168,6 +168,60 @@ func (o KeyValueOutput) ToKeyValueOutputWithContext(ctx context.Context) KeyValu
 	return o
 }
 
+// The content type of the key-value's value.
+// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
+func (o KeyValueOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// An ETag indicating the state of a key-value within a configuration store.
+func (o KeyValueOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
+}
+
+// The primary identifier of a key-value.
+// The key is used in unison with the label to uniquely identify a key-value.
+func (o KeyValueOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// A value used to group key-values.
+// The label is used in unison with the key to uniquely identify a key-value.
+func (o KeyValueOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.Label }).(pulumi.StringOutput)
+}
+
+// The last time a modifying operation was performed on the given key-value.
+func (o KeyValueOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// A value indicating whether the key-value is locked.
+// A locked key-value may not be modified until it is unlocked.
+func (o KeyValueOutput) Locked() pulumi.BoolOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.BoolOutput { return v.Locked }).(pulumi.BoolOutput)
+}
+
+// The name of the resource.
+func (o KeyValueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A dictionary of tags that can help identify what a key-value may be applicable for.
+func (o KeyValueOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o KeyValueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of the key-value.
+func (o KeyValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyValue) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KeyValueOutput{})
 }

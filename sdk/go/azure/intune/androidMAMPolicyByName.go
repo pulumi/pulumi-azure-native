@@ -226,6 +226,106 @@ func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutputWithContext(
 	return o
 }
 
+func (o AndroidMAMPolicyByNameOutput) AccessRecheckOfflineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.AccessRecheckOfflineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) AccessRecheckOnlineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.AccessRecheckOnlineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) AppSharingFromLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.AppSharingFromLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) AppSharingToLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.AppSharingToLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.Authentication }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) ClipboardSharingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.ClipboardSharingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) DataBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.DataBackup }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) DeviceCompliance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.DeviceCompliance }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) FileEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.FileEncryption }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) FileSharingSaveAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.FileSharingSaveAs }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) GroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringOutput { return v.GroupStatus }).(pulumi.StringOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o AndroidMAMPolicyByNameOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) ManagedBrowser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.ManagedBrowser }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o AndroidMAMPolicyByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) NumOfApps() pulumi.IntOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.IntOutput { return v.NumOfApps }).(pulumi.IntOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) OfflineWipeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.OfflineWipeTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) Pin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.Pin }).(pulumi.StringPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) PinNumRetry() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.IntPtrOutput { return v.PinNumRetry }).(pulumi.IntPtrOutput)
+}
+
+func (o AndroidMAMPolicyByNameOutput) ScreenCapture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringPtrOutput { return v.ScreenCapture }).(pulumi.StringPtrOutput)
+}
+
+// Resource Tags
+func (o AndroidMAMPolicyByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AndroidMAMPolicyByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AndroidMAMPolicyByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AndroidMAMPolicyByNameOutput{})
 }

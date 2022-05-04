@@ -153,6 +153,41 @@ func (o MoveCollectionOutput) ToMoveCollectionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The etag of the resource.
+func (o MoveCollectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *MoveCollection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Defines the MSI properties of the Move Collection.
+func (o MoveCollectionOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *MoveCollection) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives.
+func (o MoveCollectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MoveCollection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o MoveCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MoveCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Defines the move collection properties.
+func (o MoveCollectionOutput) Properties() MoveCollectionPropertiesResponseOutput {
+	return o.ApplyT(func(v *MoveCollection) MoveCollectionPropertiesResponseOutput { return v.Properties }).(MoveCollectionPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o MoveCollectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MoveCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o MoveCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MoveCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MoveCollectionOutput{})
 }

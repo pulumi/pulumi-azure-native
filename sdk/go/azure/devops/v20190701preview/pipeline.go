@@ -166,6 +166,46 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// Configuration used to bootstrap the Pipeline.
+func (o PipelineOutput) BootstrapConfiguration() BootstrapConfigurationResponseOutput {
+	return o.ApplyT(func(v *Pipeline) BootstrapConfigurationResponseOutput { return v.BootstrapConfiguration }).(BootstrapConfigurationResponseOutput)
+}
+
+// Resource Location
+func (o PipelineOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o PipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Reference to the Azure DevOps Organization containing the Pipeline.
+func (o PipelineOutput) Organization() OrganizationReferenceResponseOutput {
+	return o.ApplyT(func(v *Pipeline) OrganizationReferenceResponseOutput { return v.Organization }).(OrganizationReferenceResponseOutput)
+}
+
+// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
+func (o PipelineOutput) PipelineId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.IntOutput { return v.PipelineId }).(pulumi.IntOutput)
+}
+
+// Reference to the Azure DevOps Project containing the Pipeline.
+func (o PipelineOutput) Project() ProjectReferenceResponseOutput {
+	return o.ApplyT(func(v *Pipeline) ProjectReferenceResponseOutput { return v.Project }).(ProjectReferenceResponseOutput)
+}
+
+// Resource Tags
+func (o PipelineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o PipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineOutput{})
 }

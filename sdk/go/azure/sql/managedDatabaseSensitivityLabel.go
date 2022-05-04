@@ -214,6 +214,65 @@ func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabel
 	return o
 }
 
+// The column name.
+func (o ManagedDatabaseSensitivityLabelOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The information type.
+func (o ManagedDatabaseSensitivityLabelOutput) InformationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringPtrOutput { return v.InformationType }).(pulumi.StringPtrOutput)
+}
+
+// The information type ID.
+func (o ManagedDatabaseSensitivityLabelOutput) InformationTypeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringPtrOutput { return v.InformationTypeId }).(pulumi.StringPtrOutput)
+}
+
+// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
+func (o ManagedDatabaseSensitivityLabelOutput) IsDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.BoolOutput { return v.IsDisabled }).(pulumi.BoolOutput)
+}
+
+// The label ID.
+func (o ManagedDatabaseSensitivityLabelOutput) LabelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringPtrOutput { return v.LabelId }).(pulumi.StringPtrOutput)
+}
+
+// The label name.
+func (o ManagedDatabaseSensitivityLabelOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringPtrOutput { return v.LabelName }).(pulumi.StringPtrOutput)
+}
+
+// Resource that manages the sensitivity label.
+func (o ManagedDatabaseSensitivityLabelOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagedDatabaseSensitivityLabelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ManagedDatabaseSensitivityLabelOutput) Rank() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringPtrOutput { return v.Rank }).(pulumi.StringPtrOutput)
+}
+
+// The schema name.
+func (o ManagedDatabaseSensitivityLabelOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The table name.
+func (o ManagedDatabaseSensitivityLabelOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ManagedDatabaseSensitivityLabelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedDatabaseSensitivityLabel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedDatabaseSensitivityLabelOutput{})
 }

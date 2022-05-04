@@ -205,6 +205,71 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The creation date of the elastic pool (ISO8601 format).
+func (o ElasticPoolOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The maximum DTU any one database can consume.
+func (o ElasticPoolOutput) DatabaseDtuMax() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntPtrOutput { return v.DatabaseDtuMax }).(pulumi.IntPtrOutput)
+}
+
+// The minimum DTU all databases are guaranteed.
+func (o ElasticPoolOutput) DatabaseDtuMin() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntPtrOutput { return v.DatabaseDtuMin }).(pulumi.IntPtrOutput)
+}
+
+// The total shared DTU for the database elastic pool.
+func (o ElasticPoolOutput) Dtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntPtrOutput { return v.Dtu }).(pulumi.IntPtrOutput)
+}
+
+// The edition of the elastic pool.
+func (o ElasticPoolOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+// Kind of elastic pool.  This is metadata used for the Azure portal experience.
+func (o ElasticPoolOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ElasticPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ElasticPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the elastic pool.
+func (o ElasticPoolOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Gets storage limit for the database elastic pool in MB.
+func (o ElasticPoolOutput) StorageMB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.IntPtrOutput { return v.StorageMB }).(pulumi.IntPtrOutput)
+}
+
+// Resource tags.
+func (o ElasticPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ElasticPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+func (o ElasticPoolOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ElasticPoolOutput{})
 }

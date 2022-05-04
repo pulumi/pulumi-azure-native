@@ -124,6 +124,31 @@ func (o VendorOutput) ToVendorOutputWithContext(ctx context.Context) VendorOutpu
 	return o
 }
 
+// The name of the resource
+func (o VendorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vendor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the vendor resource.
+func (o VendorOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vendor) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A list of IDs of the vendor skus offered by the vendor.
+func (o VendorOutput) Skus() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *Vendor) SubResourceResponseArrayOutput { return v.Skus }).(SubResourceResponseArrayOutput)
+}
+
+// The system meta data relating to this resource.
+func (o VendorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Vendor) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VendorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vendor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VendorOutput{})
 }

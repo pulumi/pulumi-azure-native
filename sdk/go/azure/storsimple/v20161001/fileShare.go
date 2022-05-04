@@ -192,6 +192,56 @@ func (o FileShareOutput) ToFileShareOutputWithContext(ctx context.Context) FileS
 	return o
 }
 
+// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+func (o FileShareOutput) AdminUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.AdminUser }).(pulumi.StringOutput)
+}
+
+// The data policy
+func (o FileShareOutput) DataPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.DataPolicy }).(pulumi.StringOutput)
+}
+
+// Description for file share
+func (o FileShareOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The local used capacity in Bytes.
+func (o FileShareOutput) LocalUsedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *FileShare) pulumi.Float64Output { return v.LocalUsedCapacityInBytes }).(pulumi.Float64Output)
+}
+
+// The monitoring status
+func (o FileShareOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// The name.
+func (o FileShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The total provisioned capacity in Bytes
+func (o FileShareOutput) ProvisionedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *FileShare) pulumi.Float64Output { return v.ProvisionedCapacityInBytes }).(pulumi.Float64Output)
+}
+
+// The Share Status
+func (o FileShareOutput) ShareStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o FileShareOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileShare) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The used capacity in Bytes.
+func (o FileShareOutput) UsedCapacityInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *FileShare) pulumi.Float64Output { return v.UsedCapacityInBytes }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileShareOutput{})
 }

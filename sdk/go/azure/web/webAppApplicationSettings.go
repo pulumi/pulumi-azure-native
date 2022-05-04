@@ -172,6 +172,26 @@ func (o WebAppApplicationSettingsOutput) ToWebAppApplicationSettingsOutputWithCo
 	return o
 }
 
+// Kind of resource.
+func (o WebAppApplicationSettingsOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppApplicationSettings) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppApplicationSettingsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppApplicationSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings.
+func (o WebAppApplicationSettingsOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppApplicationSettings) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppApplicationSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppApplicationSettings) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppApplicationSettingsOutput{})
 }

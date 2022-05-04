@@ -148,6 +148,36 @@ func (o MigrateProjectOutput) ToMigrateProjectOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Gets or sets the eTag for concurrency control.
+func (o MigrateProjectOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProject) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the Azure location in which migrate project is created.
+func (o MigrateProjectOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProject) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the name of the migrate project.
+func (o MigrateProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrateProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the nested properties.
+func (o MigrateProjectOutput) Properties() MigrateProjectPropertiesResponseOutput {
+	return o.ApplyT(func(v *MigrateProject) MigrateProjectPropertiesResponseOutput { return v.Properties }).(MigrateProjectPropertiesResponseOutput)
+}
+
+// Gets or sets the tags.
+func (o MigrateProjectOutput) Tags() MigrateProjectResponseTagsPtrOutput {
+	return o.ApplyT(func(v *MigrateProject) MigrateProjectResponseTagsPtrOutput { return v.Tags }).(MigrateProjectResponseTagsPtrOutput)
+}
+
+// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
+func (o MigrateProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrateProject) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MigrateProjectOutput{})
 }

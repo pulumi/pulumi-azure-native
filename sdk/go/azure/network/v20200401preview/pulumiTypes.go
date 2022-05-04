@@ -54,6 +54,17 @@ type InboundEndpointIPConfigurationArgs struct {
 	Subnet SubResourcePtrInput `pulumi:"subnet"`
 }
 
+// Defaults sets the appropriate defaults for InboundEndpointIPConfigurationArgs
+func (val *InboundEndpointIPConfigurationArgs) Defaults() *InboundEndpointIPConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateIpAllocationMethod) {
+		tmp.PrivateIpAllocationMethod = pulumi.StringPtr("Dynamic")
+	}
+	return &tmp
+}
 func (InboundEndpointIPConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*InboundEndpointIPConfiguration)(nil)).Elem()
 }
@@ -580,6 +591,17 @@ type TargetDnsServerArgs struct {
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
+// Defaults sets the appropriate defaults for TargetDnsServerArgs
+func (val *TargetDnsServerArgs) Defaults() *TargetDnsServerArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Port) {
+		tmp.Port = pulumi.IntPtr(53)
+	}
+	return &tmp
+}
 func (TargetDnsServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TargetDnsServer)(nil)).Elem()
 }

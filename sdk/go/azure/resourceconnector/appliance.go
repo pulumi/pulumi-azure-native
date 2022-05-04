@@ -168,6 +168,68 @@ func (o ApplianceOutput) ToApplianceOutputWithContext(ctx context.Context) Appli
 	return o
 }
 
+// Represents a supported Fabric/Infra. (AKSEdge etc...).
+func (o ApplianceOutput) Distro() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.Distro }).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+func (o ApplianceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Appliance) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Contains infrastructure information about the Appliance
+func (o ApplianceOutput) InfrastructureConfig() AppliancePropertiesResponseInfrastructureConfigPtrOutput {
+	return o.ApplyT(func(v *Appliance) AppliancePropertiesResponseInfrastructureConfigPtrOutput {
+		return v.InfrastructureConfig
+	}).(AppliancePropertiesResponseInfrastructureConfigPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ApplianceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ApplianceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ApplianceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Certificates pair used to download MSI certificate from HIS
+func (o ApplianceOutput) PublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringPtrOutput { return v.PublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Appliance’s health and state of connection to on-prem
+func (o ApplianceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o ApplianceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Appliance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ApplianceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApplianceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the Appliance
+func (o ApplianceOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Appliance) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplianceOutput{})
 }

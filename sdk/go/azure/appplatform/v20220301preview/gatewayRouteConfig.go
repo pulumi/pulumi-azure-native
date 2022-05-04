@@ -145,6 +145,26 @@ func (o GatewayRouteConfigOutput) ToGatewayRouteConfigOutputWithContext(ctx cont
 	return o
 }
 
+// The name of the resource.
+func (o GatewayRouteConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRouteConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// API route config of the Spring Cloud Gateway
+func (o GatewayRouteConfigOutput) Properties() GatewayRouteConfigPropertiesResponseOutput {
+	return o.ApplyT(func(v *GatewayRouteConfig) GatewayRouteConfigPropertiesResponseOutput { return v.Properties }).(GatewayRouteConfigPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o GatewayRouteConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GatewayRouteConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o GatewayRouteConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayRouteConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayRouteConfigOutput{})
 }

@@ -189,6 +189,41 @@ func (o ApiTagDescriptionOutput) ToApiTagDescriptionOutputWithContext(ctx contex
 	return o
 }
 
+// Description of the Tag.
+func (o ApiTagDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Tag name.
+func (o ApiTagDescriptionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Description of the external resources describing the tag.
+func (o ApiTagDescriptionOutput) ExternalDocsDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.ExternalDocsDescription }).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of external resources describing the tag.
+func (o ApiTagDescriptionOutput) ExternalDocsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.ExternalDocsUrl }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ApiTagDescriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier of the tag in the form of /tags/{tagId}
+func (o ApiTagDescriptionOutput) TagId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringPtrOutput { return v.TagId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiTagDescriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiTagDescription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiTagDescriptionOutput{})
 }

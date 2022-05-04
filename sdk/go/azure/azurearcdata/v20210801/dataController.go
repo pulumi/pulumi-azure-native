@@ -160,6 +160,41 @@ func (o DataControllerOutput) ToDataControllerOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The extendedLocation of the resource.
+func (o DataControllerOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *DataController) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o DataControllerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataController) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DataControllerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataController) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The data controller's properties
+func (o DataControllerOutput) Properties() DataControllerPropertiesResponseOutput {
+	return o.ApplyT(func(v *DataController) DataControllerPropertiesResponseOutput { return v.Properties }).(DataControllerPropertiesResponseOutput)
+}
+
+// Read only system data
+func (o DataControllerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataController) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DataControllerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataController) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o DataControllerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataController) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataControllerOutput{})
 }

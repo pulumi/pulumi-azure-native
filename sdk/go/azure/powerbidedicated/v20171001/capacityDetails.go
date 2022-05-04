@@ -162,6 +162,61 @@ func (o CapacityDetailsOutput) ToCapacityDetailsOutputWithContext(ctx context.Co
 	return o
 }
 
+// A collection of Dedicated capacity administrators
+func (o CapacityDetailsOutput) Administration() DedicatedCapacityAdministratorsResponsePtrOutput {
+	return o.ApplyT(func(v *CapacityDetails) DedicatedCapacityAdministratorsResponsePtrOutput { return v.Administration }).(DedicatedCapacityAdministratorsResponsePtrOutput)
+}
+
+// Capacity name
+func (o CapacityDetailsOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+// Location of the PowerBI Dedicated resource.
+func (o CapacityDetailsOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The capacity mode.
+func (o CapacityDetailsOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// The name of the PowerBI Dedicated resource.
+func (o CapacityDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
+func (o CapacityDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the PowerBI Dedicated resource.
+func (o CapacityDetailsOutput) Sku() ResourceSkuResponseOutput {
+	return o.ApplyT(func(v *CapacityDetails) ResourceSkuResponseOutput { return v.Sku }).(ResourceSkuResponseOutput)
+}
+
+// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+func (o CapacityDetailsOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o CapacityDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Tenant ID for the capacity. Used for creating Pro Plus capacity.
+func (o CapacityDetailsOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the PowerBI Dedicated resource.
+func (o CapacityDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CapacityDetailsOutput{})
 }

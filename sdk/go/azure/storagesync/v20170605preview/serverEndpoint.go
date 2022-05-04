@@ -283,6 +283,116 @@ func (o ServerEndpointOutput) ToServerEndpointOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Bytes in progress
+func (o ServerEndpointOutput) ByteProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ByteProgress }).(pulumi.IntPtrOutput)
+}
+
+// Bytes total
+func (o ServerEndpointOutput) ByteTotal() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ByteTotal }).(pulumi.IntPtrOutput)
+}
+
+// Cloud Tiering.
+func (o ServerEndpointOutput) CloudTiering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.CloudTiering }).(pulumi.StringPtrOutput)
+}
+
+// current progress type.
+func (o ServerEndpointOutput) CurrentProgressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.CurrentProgressType }).(pulumi.StringPtrOutput)
+}
+
+// Friendly Name
+func (o ServerEndpointOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Item download error count.
+func (o ServerEndpointOutput) ItemDownloadErrorCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ItemDownloadErrorCount }).(pulumi.IntPtrOutput)
+}
+
+// Item Progress Count
+func (o ServerEndpointOutput) ItemProgressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ItemProgressCount }).(pulumi.IntPtrOutput)
+}
+
+// Item Total Count
+func (o ServerEndpointOutput) ItemTotalCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ItemTotalCount }).(pulumi.IntPtrOutput)
+}
+
+// Item Upload Error Count.
+func (o ServerEndpointOutput) ItemUploadErrorCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.ItemUploadErrorCount }).(pulumi.IntPtrOutput)
+}
+
+// Last Sync Success
+func (o ServerEndpointOutput) LastSyncSuccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.LastSyncSuccess }).(pulumi.StringPtrOutput)
+}
+
+// ServerEndpoint lastWorkflowId
+func (o ServerEndpointOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServerEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ServerEndpoint Provisioning State
+func (o ServerEndpointOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Server Local path.
+func (o ServerEndpointOutput) ServerLocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.ServerLocalPath }).(pulumi.StringPtrOutput)
+}
+
+// Server Resource Id.
+func (o ServerEndpointOutput) ServerResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.ServerResourceId }).(pulumi.StringPtrOutput)
+}
+
+// sync error context.
+func (o ServerEndpointOutput) SyncErrorContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.SyncErrorContext }).(pulumi.StringPtrOutput)
+}
+
+// Sync Error Direction.
+func (o ServerEndpointOutput) SyncErrorDirection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.SyncErrorDirection }).(pulumi.StringPtrOutput)
+}
+
+// Sync Error State
+func (o ServerEndpointOutput) SyncErrorState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.SyncErrorState }).(pulumi.StringPtrOutput)
+}
+
+// Sync Error State Timestamp
+func (o ServerEndpointOutput) SyncErrorStateTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringPtrOutput { return v.SyncErrorStateTimestamp }).(pulumi.StringPtrOutput)
+}
+
+// Total progress
+func (o ServerEndpointOutput) TotalProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.TotalProgress }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource
+func (o ServerEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Level of free space to be maintained by Cloud Tiering if it is enabled.
+func (o ServerEndpointOutput) VolumeFreeSpacePercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerEndpoint) pulumi.IntPtrOutput { return v.VolumeFreeSpacePercent }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerEndpointOutput{})
 }

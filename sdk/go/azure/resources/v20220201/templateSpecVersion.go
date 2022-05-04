@@ -180,6 +180,56 @@ func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutputWithContext(ctx co
 	return o
 }
 
+// Template Spec version description.
+func (o TemplateSpecVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An array of linked template artifacts.
+func (o TemplateSpecVersionOutput) LinkedTemplates() LinkedTemplateArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) LinkedTemplateArtifactResponseArrayOutput { return v.LinkedTemplates }).(LinkedTemplateArtifactResponseArrayOutput)
+}
+
+// The location of the Template Spec Version. It must match the location of the parent Template Spec.
+func (o TemplateSpecVersionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The main Azure Resource Manager template content.
+func (o TemplateSpecVersionOutput) MainTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.AnyOutput { return v.MainTemplate }).(pulumi.AnyOutput)
+}
+
+// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+func (o TemplateSpecVersionOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Name of this resource.
+func (o TemplateSpecVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o TemplateSpecVersionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o TemplateSpecVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of this resource.
+func (o TemplateSpecVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Azure Resource Manager template UI definition content.
+func (o TemplateSpecVersionOutput) UiFormDefinition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSpecVersion) pulumi.AnyOutput { return v.UiFormDefinition }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TemplateSpecVersionOutput{})
 }

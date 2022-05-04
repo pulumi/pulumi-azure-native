@@ -150,6 +150,58 @@ func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutputWithCo
 	return o
 }
 
+// The time at which the remediation was created.
+func (o RemediationAtSubscriptionOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The deployment status summary for all deployments created by the remediation.
+func (o RemediationAtSubscriptionOutput) DeploymentStatus() RemediationDeploymentSummaryResponseOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) RemediationDeploymentSummaryResponseOutput {
+		return v.DeploymentStatus
+	}).(RemediationDeploymentSummaryResponseOutput)
+}
+
+// The filters that will be applied to determine which resources to remediate.
+func (o RemediationAtSubscriptionOutput) Filters() RemediationFiltersResponsePtrOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) RemediationFiltersResponsePtrOutput { return v.Filters }).(RemediationFiltersResponsePtrOutput)
+}
+
+// The time at which the remediation was last updated.
+func (o RemediationAtSubscriptionOutput) LastUpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringOutput { return v.LastUpdatedOn }).(pulumi.StringOutput)
+}
+
+// The name of the remediation.
+func (o RemediationAtSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource ID of the policy assignment that should be remediated.
+func (o RemediationAtSubscriptionOutput) PolicyAssignmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringPtrOutput { return v.PolicyAssignmentId }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+func (o RemediationAtSubscriptionOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the remediation.
+func (o RemediationAtSubscriptionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+func (o RemediationAtSubscriptionOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
+}
+
+// The type of the remediation.
+func (o RemediationAtSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemediationAtSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RemediationAtSubscriptionOutput{})
 }

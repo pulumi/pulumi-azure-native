@@ -136,6 +136,36 @@ func (o SettingOutput) ToSettingOutputWithContext(ctx context.Context) SettingOu
 	return o
 }
 
+// Array of scopes with additional details used by Cost Management in the Azure portal.
+func (o SettingOutput) Cache() SettingsPropertiesResponseCacheArrayOutput {
+	return o.ApplyT(func(v *Setting) SettingsPropertiesResponseCacheArrayOutput { return v.Cache }).(SettingsPropertiesResponseCacheArrayOutput)
+}
+
+// Resource kind.
+func (o SettingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Setting) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Setting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+func (o SettingOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *Setting) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+func (o SettingOutput) StartOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Setting) pulumi.StringPtrOutput { return v.StartOn }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o SettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Setting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SettingOutput{})
 }

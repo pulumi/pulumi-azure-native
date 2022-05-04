@@ -152,6 +152,36 @@ func (o SqlServerInstanceOutput) ToSqlServerInstanceOutputWithContext(ctx contex
 	return o
 }
 
+// The geo-location where the resource lives
+func (o SqlServerInstanceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlServerInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o SqlServerInstanceOutput) Properties() SqlServerInstancePropertiesResponseOutput {
+	return o.ApplyT(func(v *SqlServerInstance) SqlServerInstancePropertiesResponseOutput { return v.Properties }).(SqlServerInstancePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SqlServerInstanceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlServerInstance) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlServerInstanceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlServerInstanceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerInstance) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlServerInstanceOutput{})
 }

@@ -152,6 +152,48 @@ func (o ManagedClusterSnapshotOutput) ToManagedClusterSnapshotOutputWithContext(
 	return o
 }
 
+// CreationData to be used to specify the source resource ID to create this snapshot.
+func (o ManagedClusterSnapshotOutput) CreationData() CreationDataResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) CreationDataResponsePtrOutput { return v.CreationData }).(CreationDataResponsePtrOutput)
+}
+
+// Resource location
+func (o ManagedClusterSnapshotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// What the properties will be showed when getting managed cluster snapshot. Those properties are read-only.
+func (o ManagedClusterSnapshotOutput) ManagedClusterPropertiesReadOnly() ManagedClusterPropertiesForSnapshotResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) ManagedClusterPropertiesForSnapshotResponseOutput {
+		return v.ManagedClusterPropertiesReadOnly
+	}).(ManagedClusterPropertiesForSnapshotResponseOutput)
+}
+
+// The name of the resource
+func (o ManagedClusterSnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of a snapshot. The default is NodePool.
+func (o ManagedClusterSnapshotOutput) SnapshotType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) pulumi.StringPtrOutput { return v.SnapshotType }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ManagedClusterSnapshotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o ManagedClusterSnapshotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ManagedClusterSnapshotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedClusterSnapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedClusterSnapshotOutput{})
 }

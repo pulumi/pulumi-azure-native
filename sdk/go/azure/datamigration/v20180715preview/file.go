@@ -154,6 +154,26 @@ func (o FileOutput) ToFileOutputWithContext(ctx context.Context) FileOutput {
 	return o
 }
 
+// HTTP strong entity tag value. This is ignored if submitted.
+func (o FileOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *File) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o FileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *File) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom file properties
+func (o FileOutput) Properties() ProjectFilePropertiesResponseOutput {
+	return o.ApplyT(func(v *File) ProjectFilePropertiesResponseOutput { return v.Properties }).(ProjectFilePropertiesResponseOutput)
+}
+
+// Resource type.
+func (o FileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *File) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileOutput{})
 }

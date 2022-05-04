@@ -170,6 +170,46 @@ func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
 }
 
+// The identity of the Azure Health Bot.
+func (o BotOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Bot) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o BotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to Azure Health Bot resource.
+func (o BotOutput) Properties() HealthBotPropertiesResponseOutput {
+	return o.ApplyT(func(v *Bot) HealthBotPropertiesResponseOutput { return v.Properties }).(HealthBotPropertiesResponseOutput)
+}
+
+// SKU of the Azure Health Bot.
+func (o BotOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Bot) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o BotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Bot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o BotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o BotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BotOutput{})
 }

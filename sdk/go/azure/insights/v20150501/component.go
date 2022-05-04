@@ -237,6 +237,121 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
+// Application Insights Unique ID for your Application.
+func (o ComponentOutput) AppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
+}
+
+// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+func (o ComponentOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// Type of application being monitored.
+func (o ComponentOutput) ApplicationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ApplicationType }).(pulumi.StringOutput)
+}
+
+// Application Insights component connection string.
+func (o ComponentOutput) ConnectionString() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
+}
+
+// Creation Date for the Application Insights component, in ISO 8601 format.
+func (o ComponentOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Disable IP masking.
+func (o ComponentOutput) DisableIpMasking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.DisableIpMasking }).(pulumi.BoolPtrOutput)
+}
+
+// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+func (o ComponentOutput) FlowType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.FlowType }).(pulumi.StringPtrOutput)
+}
+
+// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+func (o ComponentOutput) HockeyAppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.HockeyAppId }).(pulumi.StringPtrOutput)
+}
+
+// Token used to authenticate communications with between Application Insights and HockeyApp.
+func (o ComponentOutput) HockeyAppToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.HockeyAppToken }).(pulumi.StringOutput)
+}
+
+// Purge data immediately after 30 days.
+func (o ComponentOutput) ImmediatePurgeDataOn30Days() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.ImmediatePurgeDataOn30Days }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates the flow of the ingestion.
+func (o ComponentOutput) IngestionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.IngestionMode }).(pulumi.StringPtrOutput)
+}
+
+// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+func (o ComponentOutput) InstrumentationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.InstrumentationKey }).(pulumi.StringOutput)
+}
+
+// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
+func (o ComponentOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ComponentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of linked private link scope resources.
+func (o ComponentOutput) PrivateLinkScopedResources() PrivateLinkScopedResourceResponseArrayOutput {
+	return o.ApplyT(func(v *Component) PrivateLinkScopedResourceResponseArrayOutput { return v.PrivateLinkScopedResources }).(PrivateLinkScopedResourceResponseArrayOutput)
+}
+
+// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+func (o ComponentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+func (o ComponentOutput) RequestSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.RequestSource }).(pulumi.StringPtrOutput)
+}
+
+// Retention period in days.
+func (o ComponentOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+func (o ComponentOutput) SamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Component) pulumi.Float64PtrOutput { return v.SamplingPercentage }).(pulumi.Float64PtrOutput)
+}
+
+// Resource tags
+func (o ComponentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Tenant Id.
+func (o ComponentOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o ComponentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComponentOutput{})
 }

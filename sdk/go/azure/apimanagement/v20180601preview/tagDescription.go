@@ -187,6 +187,36 @@ func (o TagDescriptionOutput) ToTagDescriptionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Description of the Tag.
+func (o TagDescriptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Tag name.
+func (o TagDescriptionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Description of the external resources describing the tag.
+func (o TagDescriptionOutput) ExternalDocsDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringPtrOutput { return v.ExternalDocsDescription }).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of external resources describing the tag.
+func (o TagDescriptionOutput) ExternalDocsUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringPtrOutput { return v.ExternalDocsUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o TagDescriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o TagDescriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagDescription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TagDescriptionOutput{})
 }

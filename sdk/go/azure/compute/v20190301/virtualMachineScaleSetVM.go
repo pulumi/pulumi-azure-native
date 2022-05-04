@@ -261,6 +261,134 @@ func (o VirtualMachineScaleSetVMOutput) ToVirtualMachineScaleSetVMOutputWithCont
 	return o
 }
 
+// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+func (o VirtualMachineScaleSetVMOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) AdditionalCapabilitiesResponsePtrOutput {
+		return v.AdditionalCapabilities
+	}).(AdditionalCapabilitiesResponsePtrOutput)
+}
+
+// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+func (o VirtualMachineScaleSetVMOutput) AvailabilitySet() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) SubResourceResponsePtrOutput { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+func (o VirtualMachineScaleSetVMOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) DiagnosticsProfileResponsePtrOutput { return v.DiagnosticsProfile }).(DiagnosticsProfileResponsePtrOutput)
+}
+
+// Specifies the hardware settings for the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// The virtual machine instance ID.
+func (o VirtualMachineScaleSetVMOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// The virtual machine instance view.
+func (o VirtualMachineScaleSetVMOutput) InstanceView() VirtualMachineScaleSetVMInstanceViewResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) VirtualMachineScaleSetVMInstanceViewResponseOutput {
+		return v.InstanceView
+	}).(VirtualMachineScaleSetVMInstanceViewResponseOutput)
+}
+
+// Specifies whether the latest model has been applied to the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) LatestModelApplied() pulumi.BoolOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.BoolOutput { return v.LatestModelApplied }).(pulumi.BoolOutput)
+}
+
+// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+func (o VirtualMachineScaleSetVMOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o VirtualMachineScaleSetVMOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) ModelDefinitionApplied() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.ModelDefinitionApplied }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineScaleSetVMOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network interfaces of the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Specifies the network profile configuration of the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) NetworkProfileConfiguration() VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput {
+		return v.NetworkProfileConfiguration
+	}).(VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput)
+}
+
+// Specifies the operating system settings for the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) OsProfile() OSProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) OSProfileResponsePtrOutput { return v.OsProfile }).(OSProfileResponsePtrOutput)
+}
+
+// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+func (o VirtualMachineScaleSetVMOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Specifies the protection policy of the virtual machine.
+func (o VirtualMachineScaleSetVMOutput) ProtectionPolicy() VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput {
+		return v.ProtectionPolicy
+	}).(VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineScaleSetVMOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The virtual machine child extension resources.
+func (o VirtualMachineScaleSetVMOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) VirtualMachineExtensionResponseArrayOutput { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
+}
+
+// The virtual machine SKU.
+func (o VirtualMachineScaleSetVMOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Specifies the storage settings for the virtual machine disks.
+func (o VirtualMachineScaleSetVMOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineScaleSetVMOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualMachineScaleSetVMOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Azure VM unique ID.
+func (o VirtualMachineScaleSetVMOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringOutput { return v.VmId }).(pulumi.StringOutput)
+}
+
+// The virtual machine zones.
+func (o VirtualMachineScaleSetVMOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetVM) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMOutput{})
 }

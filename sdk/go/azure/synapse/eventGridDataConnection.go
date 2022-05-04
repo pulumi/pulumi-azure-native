@@ -225,6 +225,77 @@ func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutputWithContex
 	return o
 }
 
+// The name of blob storage event type to process.
+func (o EventGridDataConnectionOutput) BlobStorageEventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.BlobStorageEventType }).(pulumi.StringPtrOutput)
+}
+
+// The event hub consumer group.
+func (o EventGridDataConnectionOutput) ConsumerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.ConsumerGroup }).(pulumi.StringOutput)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+func (o EventGridDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID where the event grid is configured to send events.
+func (o EventGridDataConnectionOutput) EventHubResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.EventHubResourceId }).(pulumi.StringOutput)
+}
+
+// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
+func (o EventGridDataConnectionOutput) IgnoreFirstRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.BoolPtrOutput { return v.IgnoreFirstRecord }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of the endpoint for the data connection
+// Expected value is 'EventGrid'.
+func (o EventGridDataConnectionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o EventGridDataConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+func (o EventGridDataConnectionOutput) MappingRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.MappingRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o EventGridDataConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o EventGridDataConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource ID of the storage account where the data resides.
+func (o EventGridDataConnectionOutput) StorageAccountResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.StorageAccountResourceId }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EventGridDataConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The table where the data should be ingested. Optionally the table information can be added to each message.
+func (o EventGridDataConnectionOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EventGridDataConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventGridDataConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventGridDataConnectionOutput{})
 }

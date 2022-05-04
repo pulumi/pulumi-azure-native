@@ -212,6 +212,71 @@ func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) Agree
 	return o
 }
 
+// The agreement type.
+func (o AgreementOutput) AgreementType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AgreementType }).(pulumi.StringOutput)
+}
+
+// The changed time.
+func (o AgreementOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The agreement content.
+func (o AgreementOutput) Content() AgreementContentResponseOutput {
+	return o.ApplyT(func(v *Agreement) AgreementContentResponseOutput { return v.Content }).(AgreementContentResponseOutput)
+}
+
+// The created time.
+func (o AgreementOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The business identity of the guest partner.
+func (o AgreementOutput) GuestIdentity() BusinessIdentityResponseOutput {
+	return o.ApplyT(func(v *Agreement) BusinessIdentityResponseOutput { return v.GuestIdentity }).(BusinessIdentityResponseOutput)
+}
+
+// The integration account partner that is set as guest partner for this agreement.
+func (o AgreementOutput) GuestPartner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.GuestPartner }).(pulumi.StringOutput)
+}
+
+// The business identity of the host partner.
+func (o AgreementOutput) HostIdentity() BusinessIdentityResponseOutput {
+	return o.ApplyT(func(v *Agreement) BusinessIdentityResponseOutput { return v.HostIdentity }).(BusinessIdentityResponseOutput)
+}
+
+// The integration account partner that is set as host partner for this agreement.
+func (o AgreementOutput) HostPartner() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.HostPartner }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o AgreementOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o AgreementOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o AgreementOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o AgreementOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o AgreementOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AgreementOutput{})
 }

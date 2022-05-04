@@ -231,6 +231,86 @@ func (o PrivateLinkServiceOutput) ToPrivateLinkServiceOutputWithContext(ctx cont
 	return o
 }
 
+// The alias of the private link service.
+func (o PrivateLinkServiceOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// The auto-approval list of the private link service.
+func (o PrivateLinkServiceOutput) AutoApproval() PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkService) PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput {
+		return v.AutoApproval
+	}).(PrivateLinkServicePropertiesResponseAutoApprovalPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PrivateLinkServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The list of Fqdn.
+func (o PrivateLinkServiceOutput) Fqdns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringArrayOutput { return v.Fqdns }).(pulumi.StringArrayOutput)
+}
+
+// An array of private link service IP configurations.
+func (o PrivateLinkServiceOutput) IpConfigurations() PrivateLinkServiceIpConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkService) PrivateLinkServiceIpConfigurationResponseArrayOutput {
+		return v.IpConfigurations
+	}).(PrivateLinkServiceIpConfigurationResponseArrayOutput)
+}
+
+// An array of references to the load balancer IP configurations.
+func (o PrivateLinkServiceOutput) LoadBalancerFrontendIpConfigurations() FrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkService) FrontendIPConfigurationResponseArrayOutput {
+		return v.LoadBalancerFrontendIpConfigurations
+	}).(FrontendIPConfigurationResponseArrayOutput)
+}
+
+// Resource location.
+func (o PrivateLinkServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o PrivateLinkServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of references to the network interfaces created for this private link service.
+func (o PrivateLinkServiceOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkService) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// An array of list about connections to the private endpoint.
+func (o PrivateLinkServiceOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateLinkService) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioning state of the private link service resource.
+func (o PrivateLinkServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o PrivateLinkServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PrivateLinkServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The visibility list of the private link service.
+func (o PrivateLinkServiceOutput) Visibility() PrivateLinkServicePropertiesResponseVisibilityPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkService) PrivateLinkServicePropertiesResponseVisibilityPtrOutput {
+		return v.Visibility
+	}).(PrivateLinkServicePropertiesResponseVisibilityPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceOutput{})
 }

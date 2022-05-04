@@ -146,6 +146,41 @@ func (o ExpressRoutePortAuthorizationOutput) ToExpressRoutePortAuthorizationOutp
 	return o
 }
 
+// The authorization key.
+func (o ExpressRoutePortAuthorizationOutput) AuthorizationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.AuthorizationKey }).(pulumi.StringOutput)
+}
+
+// The authorization use status.
+func (o ExpressRoutePortAuthorizationOutput) AuthorizationUseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.AuthorizationUseStatus }).(pulumi.StringOutput)
+}
+
+// The reference to the ExpressRoute circuit resource using the authorization.
+func (o ExpressRoutePortAuthorizationOutput) CircuitResourceUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.CircuitResourceUri }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRoutePortAuthorizationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ExpressRoutePortAuthorizationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the authorization resource.
+func (o ExpressRoutePortAuthorizationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o ExpressRoutePortAuthorizationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePortAuthorization) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRoutePortAuthorizationOutput{})
 }

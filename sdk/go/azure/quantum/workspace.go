@@ -162,6 +162,61 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The URI of the workspace endpoint.
+func (o WorkspaceOutput) EndpointUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.EndpointUri }).(pulumi.StringOutput)
+}
+
+// Managed Identity information.
+func (o WorkspaceOutput) Identity() QuantumWorkspaceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *Workspace) QuantumWorkspaceResponseIdentityPtrOutput { return v.Identity }).(QuantumWorkspaceResponseIdentityPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o WorkspaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of Providers selected for this Workspace
+func (o WorkspaceOutput) Providers() ProviderResponseArrayOutput {
+	return o.ApplyT(func(v *Workspace) ProviderResponseArrayOutput { return v.Providers }).(ProviderResponseArrayOutput)
+}
+
+// Provisioning status field
+func (o WorkspaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ARM Resource Id of the storage account associated with this workspace.
+func (o WorkspaceOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// System metadata
+func (o WorkspaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Workspace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether the current workspace is ready to accept Jobs.
+func (o WorkspaceOutput) Usable() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Usable }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

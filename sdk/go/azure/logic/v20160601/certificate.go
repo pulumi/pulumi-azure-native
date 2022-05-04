@@ -170,6 +170,51 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The changed time.
+func (o CertificateOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o CertificateOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The key details in the key vault.
+func (o CertificateOutput) Key() KeyVaultKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *Certificate) KeyVaultKeyReferenceResponsePtrOutput { return v.Key }).(KeyVaultKeyReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o CertificateOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o CertificateOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Gets the resource name.
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The public certificate.
+func (o CertificateOutput) PublicCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PublicCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o CertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

@@ -169,6 +169,21 @@ func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutputWith
 	return o
 }
 
+// User Email subscribed to notification.
+func (o NotificationRecipientEmailOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o NotificationRecipientEmailOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NotificationRecipientEmailOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRecipientEmail) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationRecipientEmailOutput{})
 }

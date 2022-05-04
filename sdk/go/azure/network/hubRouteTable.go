@@ -183,6 +183,46 @@ func (o HubRouteTableOutput) ToHubRouteTableOutputWithContext(ctx context.Contex
 	return o
 }
 
+// List of all connections associated with this route table.
+func (o HubRouteTableOutput) AssociatedConnections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringArrayOutput { return v.AssociatedConnections }).(pulumi.StringArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o HubRouteTableOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of labels associated with this route table.
+func (o HubRouteTableOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o HubRouteTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// List of all connections that advertise to this route table.
+func (o HubRouteTableOutput) PropagatingConnections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringArrayOutput { return v.PropagatingConnections }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state of the RouteTable resource.
+func (o HubRouteTableOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of all routes.
+func (o HubRouteTableOutput) Routes() HubRouteResponseArrayOutput {
+	return o.ApplyT(func(v *HubRouteTable) HubRouteResponseArrayOutput { return v.Routes }).(HubRouteResponseArrayOutput)
+}
+
+// Resource type.
+func (o HubRouteTableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HubRouteTable) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HubRouteTableOutput{})
 }

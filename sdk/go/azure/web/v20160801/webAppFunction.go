@@ -216,6 +216,66 @@ func (o WebAppFunctionOutput) ToWebAppFunctionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Config information.
+func (o WebAppFunctionOutput) Config() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.AnyOutput { return v.Config }).(pulumi.AnyOutput)
+}
+
+// Config URI.
+func (o WebAppFunctionOutput) ConfigHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ConfigHref }).(pulumi.StringPtrOutput)
+}
+
+// File list.
+func (o WebAppFunctionOutput) Files() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringMapOutput { return v.Files }).(pulumi.StringMapOutput)
+}
+
+// Function App ID.
+func (o WebAppFunctionOutput) FunctionAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringOutput { return v.FunctionAppId }).(pulumi.StringOutput)
+}
+
+// Function URI.
+func (o WebAppFunctionOutput) Href() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.Href }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppFunctionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Script URI.
+func (o WebAppFunctionOutput) ScriptHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ScriptHref }).(pulumi.StringPtrOutput)
+}
+
+// Script root path URI.
+func (o WebAppFunctionOutput) ScriptRootPathHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.ScriptRootPathHref }).(pulumi.StringPtrOutput)
+}
+
+// Secrets file URI.
+func (o WebAppFunctionOutput) SecretsFileHref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.SecretsFileHref }).(pulumi.StringPtrOutput)
+}
+
+// Test data used when testing via the Azure Portal.
+func (o WebAppFunctionOutput) TestData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringPtrOutput { return v.TestData }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppFunctionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppFunction) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppFunctionOutput{})
 }

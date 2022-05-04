@@ -323,6 +323,91 @@ func (o PublicIPAddressOutput) ToPublicIPAddressOutputWithContext(ctx context.Co
 	return o
 }
 
+// The FQDN of the DNS record associated with the public IP address.
+func (o PublicIPAddressOutput) DnsSettings() PublicIPAddressDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) PublicIPAddressDnsSettingsResponsePtrOutput { return v.DnsSettings }).(PublicIPAddressDnsSettingsResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PublicIPAddressOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The idle timeout of the public IP address.
+func (o PublicIPAddressOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.IntPtrOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The IP address associated with the public IP address resource.
+func (o PublicIPAddressOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The IP configuration associated with the public IP address.
+func (o PublicIPAddressOutput) IpConfiguration() IPConfigurationResponseOutput {
+	return o.ApplyT(func(v *PublicIPAddress) IPConfigurationResponseOutput { return v.IpConfiguration }).(IPConfigurationResponseOutput)
+}
+
+// The list of tags associated with the public IP address.
+func (o PublicIPAddressOutput) IpTags() IpTagResponseArrayOutput {
+	return o.ApplyT(func(v *PublicIPAddress) IpTagResponseArrayOutput { return v.IpTags }).(IpTagResponseArrayOutput)
+}
+
+// Resource location.
+func (o PublicIPAddressOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o PublicIPAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o PublicIPAddressOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+func (o PublicIPAddressOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.PublicIPAddressVersion }).(pulumi.StringPtrOutput)
+}
+
+// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+func (o PublicIPAddressOutput) PublicIPAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.PublicIPAllocationMethod }).(pulumi.StringPtrOutput)
+}
+
+// The Public IP Prefix this Public IP Address should be allocated from.
+func (o PublicIPAddressOutput) PublicIPPrefix() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) SubResourceResponsePtrOutput { return v.PublicIPPrefix }).(SubResourceResponsePtrOutput)
+}
+
+// The resource GUID property of the public IP resource.
+func (o PublicIPAddressOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// The public IP address SKU.
+func (o PublicIPAddressOutput) Sku() PublicIPAddressSkuResponsePtrOutput {
+	return o.ApplyT(func(v *PublicIPAddress) PublicIPAddressSkuResponsePtrOutput { return v.Sku }).(PublicIPAddressSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o PublicIPAddressOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o PublicIPAddressOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of availability zones denoting the IP allocated for the resource needs to come from.
+func (o PublicIPAddressOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PublicIPAddress) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PublicIPAddressOutput{})
 }

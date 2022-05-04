@@ -164,6 +164,46 @@ func (o BotOutput) ToBotOutputWithContext(ctx context.Context) BotOutput {
 	return o
 }
 
+// Entity Tag
+func (o BotOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Required. Gets or sets the Kind of the resource.
+func (o BotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o BotOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o BotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to bot resource
+func (o BotOutput) Properties() BotPropertiesResponseOutput {
+	return o.ApplyT(func(v *Bot) BotPropertiesResponseOutput { return v.Properties }).(BotPropertiesResponseOutput)
+}
+
+// Gets or sets the SKU of the resource.
+func (o BotOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Bot) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o BotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o BotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BotOutput{})
 }

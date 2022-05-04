@@ -164,6 +164,36 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 	return o
 }
 
+// Resource location
+func (o PrivateLinkScopeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o PrivateLinkScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+func (o PrivateLinkScopeOutput) Properties() HybridComputePrivateLinkScopePropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) HybridComputePrivateLinkScopePropertiesResponseOutput { return v.Properties }).(HybridComputePrivateLinkScopePropertiesResponseOutput)
+}
+
+// The system meta data relating to this resource.
+func (o PrivateLinkScopeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o PrivateLinkScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o PrivateLinkScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 }

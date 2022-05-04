@@ -163,6 +163,46 @@ func (o TokenOutput) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
 	return o
 }
 
+// The creation date of scope map.
+func (o TokenOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The credentials that can be used for authenticating the token.
+func (o TokenOutput) Credentials() TokenCredentialsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Token) TokenCredentialsPropertiesResponsePtrOutput { return v.Credentials }).(TokenCredentialsPropertiesResponsePtrOutput)
+}
+
+// The name of the resource.
+func (o TokenOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o TokenOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource ID of the scope map to which the token will be associated with.
+func (o TokenOutput) ScopeMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringPtrOutput { return v.ScopeMapId }).(pulumi.StringPtrOutput)
+}
+
+// The status of the token example enabled or disabled.
+func (o TokenOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o TokenOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Token) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o TokenOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Token) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TokenOutput{})
 }

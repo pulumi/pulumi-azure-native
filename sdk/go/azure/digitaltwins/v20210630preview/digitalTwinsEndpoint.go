@@ -147,6 +147,26 @@ func (o DigitalTwinsEndpointOutput) ToDigitalTwinsEndpointOutputWithContext(ctx 
 	return o
 }
 
+// Extension resource name.
+func (o DigitalTwinsEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwinsEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// DigitalTwinsInstance endpoint resource properties.
+func (o DigitalTwinsEndpointOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DigitalTwinsEndpoint) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DigitalTwinsEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DigitalTwinsEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource type.
+func (o DigitalTwinsEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DigitalTwinsEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DigitalTwinsEndpointOutput{})
 }

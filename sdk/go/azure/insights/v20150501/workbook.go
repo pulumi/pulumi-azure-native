@@ -216,6 +216,71 @@ func (o WorkbookOutput) ToWorkbookOutputWithContext(ctx context.Context) Workboo
 	return o
 }
 
+// Workbook category, as defined by the user at creation time.
+func (o WorkbookOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o WorkbookOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o WorkbookOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o WorkbookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+func (o WorkbookOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+func (o WorkbookOutput) SharedTypeKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.SharedTypeKind }).(pulumi.StringOutput)
+}
+
+// Optional resourceId for a source resource.
+func (o WorkbookOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o WorkbookOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this workbook definition.
+func (o WorkbookOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o WorkbookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique user id of the specific user that owns this workbook.
+func (o WorkbookOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+func (o WorkbookOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// Internally assigned unique id of the workbook definition.
+func (o WorkbookOutput) WorkbookId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.WorkbookId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkbookOutput{})
 }

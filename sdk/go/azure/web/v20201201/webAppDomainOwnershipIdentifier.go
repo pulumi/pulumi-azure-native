@@ -172,6 +172,26 @@ func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifier
 	return o
 }
 
+// Kind of resource.
+func (o WebAppDomainOwnershipIdentifierOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDomainOwnershipIdentifier) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDomainOwnershipIdentifierOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDomainOwnershipIdentifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppDomainOwnershipIdentifierOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDomainOwnershipIdentifier) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// String representation of the identity.
+func (o WebAppDomainOwnershipIdentifierOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDomainOwnershipIdentifier) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppDomainOwnershipIdentifierOutput{})
 }

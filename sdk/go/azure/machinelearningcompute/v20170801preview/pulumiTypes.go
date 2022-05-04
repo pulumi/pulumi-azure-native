@@ -74,6 +74,23 @@ type AcsClusterPropertiesArgs struct {
 	SystemServices SystemServiceArrayInput `pulumi:"systemServices"`
 }
 
+// Defaults sets the appropriate defaults for AcsClusterPropertiesArgs
+func (val *AcsClusterPropertiesArgs) Defaults() *AcsClusterPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AgentCount) {
+		tmp.AgentCount = pulumi.IntPtr(2)
+	}
+	if isZero(tmp.AgentVmSize) {
+		tmp.AgentVmSize = pulumi.StringPtr("Standard_D3_v2")
+	}
+	if isZero(tmp.MasterCount) {
+		tmp.MasterCount = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (AcsClusterPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AcsClusterProperties)(nil)).Elem()
 }
@@ -788,6 +805,23 @@ type AutoScaleConfigurationArgs struct {
 	TargetUtilization pulumi.Float64PtrInput `pulumi:"targetUtilization"`
 }
 
+// Defaults sets the appropriate defaults for AutoScaleConfigurationArgs
+func (val *AutoScaleConfigurationArgs) Defaults() *AutoScaleConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		tmp.MaxReplicas = pulumi.IntPtr(100)
+	}
+	if isZero(tmp.MinReplicas) {
+		tmp.MinReplicas = pulumi.IntPtr(1)
+	}
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Disabled")
+	}
+	return &tmp
+}
 func (AutoScaleConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoScaleConfiguration)(nil)).Elem()
 }
@@ -1762,6 +1796,15 @@ type GlobalServiceConfigurationArgs struct {
 	Ssl SslConfigurationPtrInput `pulumi:"ssl"`
 }
 
+// Defaults sets the appropriate defaults for GlobalServiceConfigurationArgs
+func (val *GlobalServiceConfigurationArgs) Defaults() *GlobalServiceConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (GlobalServiceConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalServiceConfiguration)(nil)).Elem()
 }
@@ -2770,6 +2813,17 @@ type SslConfigurationArgs struct {
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
+// Defaults sets the appropriate defaults for SslConfigurationArgs
+func (val *SslConfigurationArgs) Defaults() *SslConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		tmp.Status = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (SslConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SslConfiguration)(nil)).Elem()
 }

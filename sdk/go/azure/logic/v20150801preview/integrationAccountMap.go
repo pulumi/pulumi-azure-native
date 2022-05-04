@@ -189,6 +189,61 @@ func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutputWithContext(ct
 	return o
 }
 
+// The changed time.
+func (o IntegrationAccountMapOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The content.
+func (o IntegrationAccountMapOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.AnyOutput { return v.Content }).(pulumi.AnyOutput)
+}
+
+// The content link.
+func (o IntegrationAccountMapOutput) ContentLink() IntegrationAccountContentLinkResponseOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) IntegrationAccountContentLinkResponseOutput { return v.ContentLink }).(IntegrationAccountContentLinkResponseOutput)
+}
+
+// The content type.
+func (o IntegrationAccountMapOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The created time.
+func (o IntegrationAccountMapOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountMapOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The map type.
+func (o IntegrationAccountMapOutput) MapType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringPtrOutput { return v.MapType }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o IntegrationAccountMapOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The resource name.
+func (o IntegrationAccountMapOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountMapOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IntegrationAccountMapOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMap) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountMapOutput{})
 }

@@ -169,6 +169,46 @@ func (o MongoDBResourceMongoUserDefinitionOutput) ToMongoDBResourceMongoUserDefi
 	return o
 }
 
+// A custom definition for the USer Definition.
+func (o MongoDBResourceMongoUserDefinitionOutput) CustomData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringPtrOutput { return v.CustomData }).(pulumi.StringPtrOutput)
+}
+
+// The database name for which access is being granted for this User Definition.
+func (o MongoDBResourceMongoUserDefinitionOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringPtrOutput { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// The Mongo Auth mechanism. For now, we only support auth mechanism SCRAM-SHA-256.
+func (o MongoDBResourceMongoUserDefinitionOutput) Mechanisms() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringPtrOutput { return v.Mechanisms }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o MongoDBResourceMongoUserDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The password for User Definition. Response does not contain user password.
+func (o MongoDBResourceMongoUserDefinitionOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The set of roles inherited by the User Definition.
+func (o MongoDBResourceMongoUserDefinitionOutput) Roles() RoleResponseArrayOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) RoleResponseArrayOutput { return v.Roles }).(RoleResponseArrayOutput)
+}
+
+// The type of Azure resource.
+func (o MongoDBResourceMongoUserDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user name for User Definition.
+func (o MongoDBResourceMongoUserDefinitionOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBResourceMongoUserDefinition) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MongoDBResourceMongoUserDefinitionOutput{})
 }

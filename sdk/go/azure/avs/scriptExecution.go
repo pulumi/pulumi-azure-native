@@ -196,6 +196,91 @@ func (o ScriptExecutionOutput) ToScriptExecutionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Standard error output stream from the powershell execution
+func (o ScriptExecutionOutput) Errors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringArrayOutput { return v.Errors }).(pulumi.StringArrayOutput)
+}
+
+// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
+func (o ScriptExecutionOutput) FailureReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringPtrOutput { return v.FailureReason }).(pulumi.StringPtrOutput)
+}
+
+// Time the script execution was finished
+func (o ScriptExecutionOutput) FinishedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.FinishedAt }).(pulumi.StringOutput)
+}
+
+// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
+func (o ScriptExecutionOutput) HiddenParameters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.ArrayOutput { return v.HiddenParameters }).(pulumi.ArrayOutput)
+}
+
+// Standard information out stream from the powershell execution
+func (o ScriptExecutionOutput) Information() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringArrayOutput { return v.Information }).(pulumi.StringArrayOutput)
+}
+
+// Resource name.
+func (o ScriptExecutionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// User-defined dictionary.
+func (o ScriptExecutionOutput) NamedOutputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.MapOutput { return v.NamedOutputs }).(pulumi.MapOutput)
+}
+
+// Standard output stream from the powershell execution
+func (o ScriptExecutionOutput) Output() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringArrayOutput { return v.Output }).(pulumi.StringArrayOutput)
+}
+
+// Parameters the script will accept
+func (o ScriptExecutionOutput) Parameters() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.ArrayOutput { return v.Parameters }).(pulumi.ArrayOutput)
+}
+
+// The state of the script execution resource
+func (o ScriptExecutionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Time to live for the resource. If not provided, will be available for 60 days
+func (o ScriptExecutionOutput) Retention() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringPtrOutput { return v.Retention }).(pulumi.StringPtrOutput)
+}
+
+// A reference to the script cmdlet resource if user is running a AVS script
+func (o ScriptExecutionOutput) ScriptCmdletId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringPtrOutput { return v.ScriptCmdletId }).(pulumi.StringPtrOutput)
+}
+
+// Time the script execution was started
+func (o ScriptExecutionOutput) StartedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.StartedAt }).(pulumi.StringOutput)
+}
+
+// Time the script execution was submitted
+func (o ScriptExecutionOutput) SubmittedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.SubmittedAt }).(pulumi.StringOutput)
+}
+
+// Time limit for execution
+func (o ScriptExecutionOutput) Timeout() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.Timeout }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ScriptExecutionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Standard warning out stream from the powershell execution
+func (o ScriptExecutionOutput) Warnings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScriptExecution) pulumi.StringArrayOutput { return v.Warnings }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScriptExecutionOutput{})
 }

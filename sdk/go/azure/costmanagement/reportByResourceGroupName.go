@@ -153,6 +153,41 @@ func (o ReportByResourceGroupNameOutput) ToReportByResourceGroupNameOutputWithCo
 	return o
 }
 
+// Has definition for the report.
+func (o ReportByResourceGroupNameOutput) Definition() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) ReportDefinitionResponseOutput { return v.Definition }).(ReportDefinitionResponseOutput)
+}
+
+// Has delivery information for the report.
+func (o ReportByResourceGroupNameOutput) DeliveryInfo() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) ReportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportByResourceGroupNameOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportByResourceGroupNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report.
+func (o ReportByResourceGroupNameOutput) Schedule() ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) ReportScheduleResponsePtrOutput { return v.Schedule }).(ReportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportByResourceGroupNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportByResourceGroupNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByResourceGroupName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportByResourceGroupNameOutput{})
 }

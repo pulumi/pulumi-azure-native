@@ -229,6 +229,61 @@ func (o BackendOutput) ToBackendOutputWithContext(ctx context.Context) BackendOu
 	return o
 }
 
+// Backend Credentials Contract Properties
+func (o BackendOutput) Credentials() BackendCredentialsContractResponsePtrOutput {
+	return o.ApplyT(func(v *Backend) BackendCredentialsContractResponsePtrOutput { return v.Credentials }).(BackendCredentialsContractResponsePtrOutput)
+}
+
+// Backend Description.
+func (o BackendOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o BackendOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Backend Properties contract
+func (o BackendOutput) Properties() BackendPropertiesResponseOutput {
+	return o.ApplyT(func(v *Backend) BackendPropertiesResponseOutput { return v.Properties }).(BackendPropertiesResponseOutput)
+}
+
+// Backend communication protocol.
+func (o BackendOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Backend Proxy Contract Properties
+func (o BackendOutput) Proxy() BackendProxyContractResponsePtrOutput {
+	return o.ApplyT(func(v *Backend) BackendProxyContractResponsePtrOutput { return v.Proxy }).(BackendProxyContractResponsePtrOutput)
+}
+
+// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
+func (o BackendOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Backend Title.
+func (o BackendOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Backend TLS Properties
+func (o BackendOutput) Tls() BackendTlsPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Backend) BackendTlsPropertiesResponsePtrOutput { return v.Tls }).(BackendTlsPropertiesResponsePtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o BackendOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Runtime Url of the Backend.
+func (o BackendOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Backend) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackendOutput{})
 }

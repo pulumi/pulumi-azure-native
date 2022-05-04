@@ -175,6 +175,71 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// The creation time for this workspace resource.
+func (o WorkspaceOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The key vault identifier used for encrypted workspaces.
+func (o WorkspaceOutput) KeyVaultIdentifierId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KeyVaultIdentifierId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o WorkspaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The email id of the owner for this workspace.
+func (o WorkspaceOutput) OwnerEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.OwnerEmail }).(pulumi.StringOutput)
+}
+
+// The sku of the workspace.
+func (o WorkspaceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The regional endpoint for the machine learning studio service which hosts this workspace.
+func (o WorkspaceOutput) StudioEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.StudioEndpoint }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The fully qualified arm id of the storage account associated with this workspace.
+func (o WorkspaceOutput) UserStorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.UserStorageAccountId }).(pulumi.StringOutput)
+}
+
+// The immutable id associated with this workspace.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
+// The current state of workspace resource.
+func (o WorkspaceOutput) WorkspaceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceState }).(pulumi.StringOutput)
+}
+
+// The type of this workspace.
+func (o WorkspaceOutput) WorkspaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

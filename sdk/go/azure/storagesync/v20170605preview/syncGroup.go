@@ -164,6 +164,26 @@ func (o SyncGroupOutput) ToSyncGroupOutputWithContext(ctx context.Context) SyncG
 	return o
 }
 
+// The name of the resource.
+func (o SyncGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sync group status
+func (o SyncGroupOutput) SyncGroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.SyncGroupStatus }).(pulumi.StringOutput)
+}
+
+// The type of the resource
+func (o SyncGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Id
+func (o SyncGroupOutput) UniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SyncGroup) pulumi.StringPtrOutput { return v.UniqueId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SyncGroupOutput{})
 }

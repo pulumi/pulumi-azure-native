@@ -177,6 +177,42 @@ func (o IoTDataConnectorOutput) ToIoTDataConnectorOutputWithContext(ctx context.
 	return o
 }
 
+// The available data types for the connector.
+func (o IoTDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *IoTDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o IoTDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'IOT'.
+func (o IoTDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o IoTDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The subscription id to connect to, and get the data from.
+func (o IoTDataConnectorOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTDataConnector) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o IoTDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IoTDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o IoTDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTDataConnectorOutput{})
 }

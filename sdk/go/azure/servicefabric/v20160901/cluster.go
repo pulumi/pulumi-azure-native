@@ -261,6 +261,123 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
+func (o ClusterOutput) AvailableClusterVersions() ClusterVersionDetailsResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterVersionDetailsResponseArrayOutput { return v.AvailableClusterVersions }).(ClusterVersionDetailsResponseArrayOutput)
+}
+
+// The settings to enable AAD authentication on the cluster
+func (o ClusterOutput) AzureActiveDirectory() AzureActiveDirectoryResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) AzureActiveDirectoryResponsePtrOutput { return v.AzureActiveDirectory }).(AzureActiveDirectoryResponsePtrOutput)
+}
+
+// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+func (o ClusterOutput) Certificate() CertificateDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) CertificateDescriptionResponsePtrOutput { return v.Certificate }).(CertificateDescriptionResponsePtrOutput)
+}
+
+//  List of client certificates to whitelist based on common names
+func (o ClusterOutput) ClientCertificateCommonNames() ClientCertificateCommonNameResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClientCertificateCommonNameResponseArrayOutput { return v.ClientCertificateCommonNames }).(ClientCertificateCommonNameResponseArrayOutput)
+}
+
+// The client thumbprint details ,it is used for client access for cluster operation
+func (o ClusterOutput) ClientCertificateThumbprints() ClientCertificateThumbprintResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClientCertificateThumbprintResponseArrayOutput { return v.ClientCertificateThumbprints }).(ClientCertificateThumbprintResponseArrayOutput)
+}
+
+// The ServiceFabric code version running in your cluster
+func (o ClusterOutput) ClusterCodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterCodeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint for the cluster connecting to servicefabric resource provider
+func (o ClusterOutput) ClusterEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterEndpoint }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the cluster resource
+func (o ClusterOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// The state for the cluster
+func (o ClusterOutput) ClusterState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterState }).(pulumi.StringOutput)
+}
+
+// The storage diagnostics account configuration details
+func (o ClusterOutput) DiagnosticsStorageAccountConfig() DiagnosticsStorageAccountConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) DiagnosticsStorageAccountConfigResponsePtrOutput {
+		return v.DiagnosticsStorageAccountConfig
+	}).(DiagnosticsStorageAccountConfigResponsePtrOutput)
+}
+
+// List of custom fabric settings to configure the cluster.
+func (o ClusterOutput) FabricSettings() SettingsSectionDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) SettingsSectionDescriptionResponseArrayOutput { return v.FabricSettings }).(SettingsSectionDescriptionResponseArrayOutput)
+}
+
+// Resource location.
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The http management endpoint of the cluster
+func (o ClusterOutput) ManagementEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ManagementEndpoint }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of node types that make up the cluster
+func (o ClusterOutput) NodeTypes() NodeTypeDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) NodeTypeDescriptionResponseArrayOutput { return v.NodeTypes }).(NodeTypeDescriptionResponseArrayOutput)
+}
+
+// The provisioning state of the cluster resource
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Cluster reliability level indicates replica set size of system service
+func (o ClusterOutput) ReliabilityLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ReliabilityLevel }).(pulumi.StringPtrOutput)
+}
+
+// The server certificate used by reverse proxy
+func (o ClusterOutput) ReverseProxyCertificate() CertificateDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) CertificateDescriptionResponsePtrOutput { return v.ReverseProxyCertificate }).(CertificateDescriptionResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The policy to use when upgrading the cluster.
+func (o ClusterOutput) UpgradeDescription() ClusterUpgradePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterUpgradePolicyResponsePtrOutput { return v.UpgradeDescription }).(ClusterUpgradePolicyResponsePtrOutput)
+}
+
+// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+func (o ClusterOutput) UpgradeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
+}
+
+// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+func (o ClusterOutput) VmImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.VmImage }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

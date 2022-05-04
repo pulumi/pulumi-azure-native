@@ -162,6 +162,61 @@ func (o SqlVirtualMachineGroupOutput) ToSqlVirtualMachineGroupOutputWithContext(
 	return o
 }
 
+// Cluster type.
+func (o SqlVirtualMachineGroupOutput) ClusterConfiguration() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.ClusterConfiguration }).(pulumi.StringOutput)
+}
+
+// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
+func (o SqlVirtualMachineGroupOutput) ClusterManagerType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.ClusterManagerType }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o SqlVirtualMachineGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SqlVirtualMachineGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state to track the async operation status.
+func (o SqlVirtualMachineGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Scale type.
+func (o SqlVirtualMachineGroupOutput) ScaleType() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.ScaleType }).(pulumi.StringOutput)
+}
+
+// SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
+func (o SqlVirtualMachineGroupOutput) SqlImageOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringPtrOutput { return v.SqlImageOffer }).(pulumi.StringPtrOutput)
+}
+
+// SQL image sku.
+func (o SqlVirtualMachineGroupOutput) SqlImageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringPtrOutput { return v.SqlImageSku }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o SqlVirtualMachineGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o SqlVirtualMachineGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Cluster Active Directory domain profile.
+func (o SqlVirtualMachineGroupOutput) WsfcDomainProfile() WsfcDomainProfileResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachineGroup) WsfcDomainProfileResponsePtrOutput { return v.WsfcDomainProfile }).(WsfcDomainProfileResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlVirtualMachineGroupOutput{})
 }

@@ -195,6 +195,71 @@ func (o BlobContainerOutput) ToBlobContainerOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Resource Etag.
+func (o BlobContainerOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+func (o BlobContainerOutput) HasImmutabilityPolicy() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.BoolOutput { return v.HasImmutabilityPolicy }).(pulumi.BoolOutput)
+}
+
+// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+func (o BlobContainerOutput) HasLegalHold() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.BoolOutput { return v.HasLegalHold }).(pulumi.BoolOutput)
+}
+
+// The ImmutabilityPolicy property of the container.
+func (o BlobContainerOutput) ImmutabilityPolicy() ImmutabilityPolicyPropertiesResponseOutput {
+	return o.ApplyT(func(v *BlobContainer) ImmutabilityPolicyPropertiesResponseOutput { return v.ImmutabilityPolicy }).(ImmutabilityPolicyPropertiesResponseOutput)
+}
+
+// Returns the date and time the container was last modified.
+func (o BlobContainerOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+func (o BlobContainerOutput) LeaseDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.LeaseDuration }).(pulumi.StringOutput)
+}
+
+// Lease state of the container.
+func (o BlobContainerOutput) LeaseState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.LeaseState }).(pulumi.StringOutput)
+}
+
+// The lease status of the container.
+func (o BlobContainerOutput) LeaseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.LeaseStatus }).(pulumi.StringOutput)
+}
+
+// The LegalHold property of the container.
+func (o BlobContainerOutput) LegalHold() LegalHoldPropertiesResponseOutput {
+	return o.ApplyT(func(v *BlobContainer) LegalHoldPropertiesResponseOutput { return v.LegalHold }).(LegalHoldPropertiesResponseOutput)
+}
+
+// A name-value pair to associate with the container as metadata.
+func (o BlobContainerOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o BlobContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether data in the container may be accessed publicly and the level of access.
+func (o BlobContainerOutput) PublicAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringPtrOutput { return v.PublicAccess }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BlobContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobContainerOutput{})
 }

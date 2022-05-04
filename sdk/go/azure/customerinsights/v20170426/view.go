@@ -159,6 +159,51 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
+// Date time when view was last modified.
+func (o ViewOutput) Changed() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Changed }).(pulumi.StringOutput)
+}
+
+// Date time when view was created.
+func (o ViewOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// View definition.
+func (o ViewOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Definition }).(pulumi.StringOutput)
+}
+
+// Localized display name for the view.
+func (o ViewOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *View) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// Resource name.
+func (o ViewOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the hub name.
+func (o ViewOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ViewOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// the user ID.
+func (o ViewOutput) UserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.UserId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the view.
+func (o ViewOutput) ViewName() pulumi.StringOutput {
+	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.ViewName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ViewOutput{})
 }

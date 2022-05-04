@@ -156,6 +156,61 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The amount of usage quota time the user gets in addition to the lab usage quota.
+func (o UserOutput) AdditionalUsageQuota() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.AdditionalUsageQuota }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the user, for example user's full name.
+func (o UserOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Email address of the user.
+func (o UserOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Date and time when the invitation message was sent to the user.
+func (o UserOutput) InvitationSent() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.InvitationSent }).(pulumi.StringOutput)
+}
+
+// State of the invitation message for the user.
+func (o UserOutput) InvitationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.InvitationState }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current provisioning state of the user resource.
+func (o UserOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// State of the user's registration within the lab.
+func (o UserOutput) RegistrationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.RegistrationState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the user resource.
+func (o UserOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *User) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// How long the user has used their virtual machines in this lab.
+func (o UserOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o UserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserOutput{})
 }

@@ -317,6 +317,137 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// The collation of the database. If createMode is not Default, this value is ignored.
+func (o DatabaseOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// The containment state of the database.
+func (o DatabaseOutput) ContainmentState() pulumi.Float64Output {
+	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.ContainmentState }).(pulumi.Float64Output)
+}
+
+// The creation date of the database (ISO8601 format).
+func (o DatabaseOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+func (o DatabaseOutput) CurrentServiceObjectiveId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CurrentServiceObjectiveId }).(pulumi.StringOutput)
+}
+
+// The ID of the database.
+func (o DatabaseOutput) DatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
+}
+
+// The default secondary region for this database.
+func (o DatabaseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// This records the earliest start date and time that restore is available for this database (ISO8601 format).
+func (o DatabaseOutput) EarliestRestoreDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.EarliestRestoreDate }).(pulumi.StringOutput)
+}
+
+// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
+//
+// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+func (o DatabaseOutput) Edition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
+}
+
+// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
+func (o DatabaseOutput) ElasticPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ElasticPoolName }).(pulumi.StringPtrOutput)
+}
+
+// The resource identifier of the failover group containing this database.
+func (o DatabaseOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// Kind of database.  This is metadata used for the Azure portal experience.
+func (o DatabaseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+func (o DatabaseOutput) MaxSizeBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.MaxSizeBytes }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+func (o DatabaseOutput) ReadScale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ReadScale }).(pulumi.StringPtrOutput)
+}
+
+// The recommended indices for this database.
+func (o DatabaseOutput) RecommendedIndex() RecommendedIndexResponseArrayOutput {
+	return o.ApplyT(func(v *Database) RecommendedIndexResponseArrayOutput { return v.RecommendedIndex }).(RecommendedIndexResponseArrayOutput)
+}
+
+// The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
+//
+// The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+func (o DatabaseOutput) RequestedServiceObjectiveId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RequestedServiceObjectiveId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property.
+//
+// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+func (o DatabaseOutput) RequestedServiceObjectiveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.RequestedServiceObjectiveName }).(pulumi.StringPtrOutput)
+}
+
+// The current service level objective of the database.
+func (o DatabaseOutput) ServiceLevelObjective() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ServiceLevelObjective }).(pulumi.StringOutput)
+}
+
+// The list of service tier advisors for this database. Expanded property
+func (o DatabaseOutput) ServiceTierAdvisors() ServiceTierAdvisorResponseArrayOutput {
+	return o.ApplyT(func(v *Database) ServiceTierAdvisorResponseArrayOutput { return v.ServiceTierAdvisors }).(ServiceTierAdvisorResponseArrayOutput)
+}
+
+// The status of the database.
+func (o DatabaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The transparent data encryption info for this database.
+func (o DatabaseOutput) TransparentDataEncryption() TransparentDataEncryptionResponseArrayOutput {
+	return o.ApplyT(func(v *Database) TransparentDataEncryptionResponseArrayOutput { return v.TransparentDataEncryption }).(TransparentDataEncryptionResponseArrayOutput)
+}
+
+// Resource type.
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+func (o DatabaseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

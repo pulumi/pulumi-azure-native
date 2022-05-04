@@ -135,6 +135,26 @@ func (o ServiceRegistryOutput) ToServiceRegistryOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the resource.
+func (o ServiceRegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceRegistry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Service Registry properties payload
+func (o ServiceRegistryOutput) Properties() ServiceRegistryPropertiesResponseOutput {
+	return o.ApplyT(func(v *ServiceRegistry) ServiceRegistryPropertiesResponseOutput { return v.Properties }).(ServiceRegistryPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ServiceRegistryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ServiceRegistry) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ServiceRegistryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceRegistry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceRegistryOutput{})
 }

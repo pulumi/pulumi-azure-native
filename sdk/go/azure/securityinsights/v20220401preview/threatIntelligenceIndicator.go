@@ -273,6 +273,31 @@ func (o ThreatIntelligenceIndicatorOutput) ToThreatIntelligenceIndicatorOutputWi
 	return o
 }
 
+// Etag of the azure resource
+func (o ThreatIntelligenceIndicatorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the entity.
+func (o ThreatIntelligenceIndicatorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ThreatIntelligenceIndicatorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ThreatIntelligenceIndicatorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ThreatIntelligenceIndicatorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceIndicator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ThreatIntelligenceIndicatorOutput{})
 }

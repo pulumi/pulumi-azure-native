@@ -145,6 +145,36 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
+// For optimistic concurrency control.
+func (o ProjectOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which project is created.
+func (o ProjectOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the project.
+func (o ProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the project.
+func (o ProjectOutput) Properties() ProjectPropertiesResponseOutput {
+	return o.ApplyT(func(v *Project) ProjectPropertiesResponseOutput { return v.Properties }).(ProjectPropertiesResponseOutput)
+}
+
+// Tags provided by Azure Tagging service.
+func (o ProjectOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Project) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/assessmentProjects].
+func (o ProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectOutput{})
 }

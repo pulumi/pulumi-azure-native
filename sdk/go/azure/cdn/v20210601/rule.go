@@ -174,6 +174,55 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
+// A list of actions that are executed when all the conditions of a rule are satisfied.
+func (o RuleOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Rule) pulumi.ArrayOutput { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// A list of conditions that must be matched for the actions to be executed
+func (o RuleOutput) Conditions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *Rule) pulumi.ArrayOutput { return v.Conditions }).(pulumi.ArrayOutput)
+}
+
+func (o RuleOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+func (o RuleOutput) MatchProcessingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.MatchProcessingBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o RuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+func (o RuleOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *Rule) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
+}
+
+// Provisioning status
+func (o RuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the rule set containing the rule.
+func (o RuleOutput) RuleSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o RuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Rule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o RuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleOutput{})
 }

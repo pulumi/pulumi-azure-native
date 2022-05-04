@@ -189,6 +189,66 @@ func (o ServerDetailsOutput) ToServerDetailsOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A collection of AS server administrators
+func (o ServerDetailsOutput) AsAdministrators() ServerAdministratorsResponsePtrOutput {
+	return o.ApplyT(func(v *ServerDetails) ServerAdministratorsResponsePtrOutput { return v.AsAdministrators }).(ServerAdministratorsResponsePtrOutput)
+}
+
+// The container URI of backup blob.
+func (o ServerDetailsOutput) BackupBlobContainerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringPtrOutput { return v.BackupBlobContainerUri }).(pulumi.StringPtrOutput)
+}
+
+// Location of the Analysis Services resource.
+func (o ServerDetailsOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The managed mode of the server (0 = not managed, 1 = managed).
+func (o ServerDetailsOutput) ManagedMode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.IntPtrOutput { return v.ManagedMode }).(pulumi.IntPtrOutput)
+}
+
+// The name of the Analysis Services resource.
+func (o ServerDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+func (o ServerDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The full name of the Analysis Services resource.
+func (o ServerDetailsOutput) ServerFullName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.ServerFullName }).(pulumi.StringOutput)
+}
+
+// The server monitor mode for AS server
+func (o ServerDetailsOutput) ServerMonitorMode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.IntPtrOutput { return v.ServerMonitorMode }).(pulumi.IntPtrOutput)
+}
+
+// The SKU of the Analysis Services resource.
+func (o ServerDetailsOutput) Sku() ResourceSkuResponseOutput {
+	return o.ApplyT(func(v *ServerDetails) ResourceSkuResponseOutput { return v.Sku }).(ResourceSkuResponseOutput)
+}
+
+// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+func (o ServerDetailsOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o ServerDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the Analysis Services resource.
+func (o ServerDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerDetailsOutput{})
 }

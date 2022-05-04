@@ -156,6 +156,51 @@ func (o PipelineJobOutput) ToPipelineJobOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// An optional description for the pipeline.
+func (o PipelineJobOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Details about the error, in case the pipeline job fails.
+func (o PipelineJobOutput) Error() PipelineJobErrorResponseOutput {
+	return o.ApplyT(func(v *PipelineJob) PipelineJobErrorResponseOutput { return v.Error }).(PipelineJobErrorResponseOutput)
+}
+
+// The date-time by when this pipeline job will be automatically deleted from your account.
+func (o PipelineJobOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PipelineJobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
+func (o PipelineJobOutput) Parameters() ParameterDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *PipelineJob) ParameterDefinitionResponseArrayOutput { return v.Parameters }).(ParameterDefinitionResponseArrayOutput)
+}
+
+// Current state of the pipeline (read-only).
+func (o PipelineJobOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PipelineJobOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PipelineJob) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Reference to an existing pipeline topology. When activated, this pipeline job will process content according to the pipeline topology definition.
+func (o PipelineJobOutput) TopologyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringOutput { return v.TopologyName }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PipelineJobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineJob) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineJobOutput{})
 }

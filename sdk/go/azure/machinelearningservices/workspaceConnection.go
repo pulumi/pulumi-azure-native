@@ -183,6 +183,41 @@ func (o WorkspaceConnectionOutput) ToWorkspaceConnectionOutputWithContext(ctx co
 	return o
 }
 
+// Authorization type of the workspace connection.
+func (o WorkspaceConnectionOutput) AuthType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.AuthType }).(pulumi.StringPtrOutput)
+}
+
+// Category of the workspace connection.
+func (o WorkspaceConnectionOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// Friendly name of the workspace connection.
+func (o WorkspaceConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Target of the workspace connection.
+func (o WorkspaceConnectionOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// Resource type of workspace connection.
+func (o WorkspaceConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Value details of the workspace connection.
+func (o WorkspaceConnectionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// format for the workspace connection value
+func (o WorkspaceConnectionOutput) ValueFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceConnection) pulumi.StringPtrOutput { return v.ValueFormat }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceConnectionOutput{})
 }

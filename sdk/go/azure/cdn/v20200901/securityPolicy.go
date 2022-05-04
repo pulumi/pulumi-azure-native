@@ -141,6 +141,37 @@ func (o SecurityPolicyOutput) ToSecurityPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o SecurityPolicyOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SecurityPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// object which contains security policy parameters
+func (o SecurityPolicyOutput) Parameters() SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+	return o.ApplyT(func(v *SecurityPolicy) SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput {
+		return v.Parameters
+	}).(SecurityPolicyWebApplicationFirewallParametersResponsePtrOutput)
+}
+
+// Provisioning status
+func (o SecurityPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o SecurityPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SecurityPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o SecurityPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityPolicyOutput{})
 }

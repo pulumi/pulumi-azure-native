@@ -114,6 +114,21 @@ func (o OnPremiseSensorOutput) ToOnPremiseSensorOutputWithContext(ctx context.Co
 	return o
 }
 
+// The name of the resource
+func (o OnPremiseSensorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnPremiseSensor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o OnPremiseSensorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OnPremiseSensor) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OnPremiseSensorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnPremiseSensor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OnPremiseSensorOutput{})
 }

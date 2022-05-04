@@ -181,6 +181,41 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+// Current status of the container.
+func (o ContainerOutput) ContainerStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.ContainerStatus }).(pulumi.StringOutput)
+}
+
+// The UTC time when container got created.
+func (o ContainerOutput) CreatedDateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.CreatedDateTime }).(pulumi.StringOutput)
+}
+
+// DataFormat for Container
+func (o ContainerOutput) DataFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.DataFormat }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o ContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Details of the refresh job on this container.
+func (o ContainerOutput) RefreshDetails() RefreshDetailsResponseOutput {
+	return o.ApplyT(func(v *Container) RefreshDetailsResponseOutput { return v.RefreshDetails }).(RefreshDetailsResponseOutput)
+}
+
+// Container in DataBoxEdge Resource
+func (o ContainerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Container) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o ContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerOutput{})
 }

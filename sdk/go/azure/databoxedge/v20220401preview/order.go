@@ -193,6 +193,71 @@ func (o OrderOutput) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return o
 }
 
+// The contact details.
+func (o OrderOutput) ContactInformation() ContactDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Order) ContactDetailsResponsePtrOutput { return v.ContactInformation }).(ContactDetailsResponsePtrOutput)
+}
+
+// Current status of the order.
+func (o OrderOutput) CurrentStatus() OrderStatusResponseOutput {
+	return o.ApplyT(func(v *Order) OrderStatusResponseOutput { return v.CurrentStatus }).(OrderStatusResponseOutput)
+}
+
+// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+func (o OrderOutput) DeliveryTrackingInfo() TrackingInfoResponseArrayOutput {
+	return o.ApplyT(func(v *Order) TrackingInfoResponseArrayOutput { return v.DeliveryTrackingInfo }).(TrackingInfoResponseArrayOutput)
+}
+
+// It specify the order api version.
+func (o OrderOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o OrderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of status changes in the order.
+func (o OrderOutput) OrderHistory() OrderStatusResponseArrayOutput {
+	return o.ApplyT(func(v *Order) OrderStatusResponseArrayOutput { return v.OrderHistory }).(OrderStatusResponseArrayOutput)
+}
+
+// It specify the order resource id.
+func (o OrderOutput) OrderId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.OrderId }).(pulumi.StringOutput)
+}
+
+// Tracking information for the package returned from the customer whether it has an original or a replacement device.
+func (o OrderOutput) ReturnTrackingInfo() TrackingInfoResponseArrayOutput {
+	return o.ApplyT(func(v *Order) TrackingInfoResponseArrayOutput { return v.ReturnTrackingInfo }).(TrackingInfoResponseArrayOutput)
+}
+
+// Serial number of the device.
+func (o OrderOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
+// ShipmentType of the order
+func (o OrderOutput) ShipmentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringPtrOutput { return v.ShipmentType }).(pulumi.StringPtrOutput)
+}
+
+// The shipping address.
+func (o OrderOutput) ShippingAddress() AddressResponsePtrOutput {
+	return o.ApplyT(func(v *Order) AddressResponsePtrOutput { return v.ShippingAddress }).(AddressResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of Order
+func (o OrderOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Order) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o OrderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Order) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrderOutput{})
 }

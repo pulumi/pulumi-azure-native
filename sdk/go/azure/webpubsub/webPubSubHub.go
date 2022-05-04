@@ -140,6 +140,26 @@ func (o WebPubSubHubOutput) ToWebPubSubHubOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The name of the resource.
+func (o WebPubSubHubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebPubSubHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a hub.
+func (o WebPubSubHubOutput) Properties() WebPubSubHubPropertiesResponseOutput {
+	return o.ApplyT(func(v *WebPubSubHub) WebPubSubHubPropertiesResponseOutput { return v.Properties }).(WebPubSubHubPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o WebPubSubHubOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebPubSubHub) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o WebPubSubHubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebPubSubHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebPubSubHubOutput{})
 }

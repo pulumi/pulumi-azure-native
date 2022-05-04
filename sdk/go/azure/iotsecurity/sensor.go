@@ -155,6 +155,71 @@ func (o SensorOutput) ToSensorOutputWithContext(ctx context.Context) SensorOutpu
 	return o
 }
 
+// Last connectivity time of the IoT sensor
+func (o SensorOutput) ConnectivityTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.ConnectivityTime }).(pulumi.StringOutput)
+}
+
+// Dynamic mode status of the IoT sensor
+func (o SensorOutput) DynamicLearning() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.BoolOutput { return v.DynamicLearning }).(pulumi.BoolOutput)
+}
+
+// Learning mode status of the IoT sensor
+func (o SensorOutput) LearningMode() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.BoolOutput { return v.LearningMode }).(pulumi.BoolOutput)
+}
+
+// The name of the resource
+func (o SensorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the IoT sensor
+func (o SensorOutput) SensorStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.SensorStatus }).(pulumi.StringOutput)
+}
+
+// Type of sensor
+func (o SensorOutput) SensorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringPtrOutput { return v.SensorType }).(pulumi.StringPtrOutput)
+}
+
+// Version of the IoT sensor
+func (o SensorOutput) SensorVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.SensorVersion }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SensorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Sensor) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// TI Automatic mode status of the IoT sensor
+func (o SensorOutput) TiAutomaticUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.BoolPtrOutput { return v.TiAutomaticUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// TI Status of the IoT sensor
+func (o SensorOutput) TiStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.TiStatus }).(pulumi.StringOutput)
+}
+
+// TI Version of the IoT sensor
+func (o SensorOutput) TiVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.TiVersion }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SensorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Zone of the IoT sensor
+func (o SensorOutput) Zone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sensor) pulumi.StringPtrOutput { return v.Zone }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SensorOutput{})
 }

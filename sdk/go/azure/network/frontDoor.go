@@ -206,6 +206,91 @@ func (o FrontDoorOutput) ToFrontDoorOutputWithContext(ctx context.Context) Front
 	return o
 }
 
+// Backend pools available to routing rules.
+func (o FrontDoorOutput) BackendPools() BackendPoolResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) BackendPoolResponseArrayOutput { return v.BackendPools }).(BackendPoolResponseArrayOutput)
+}
+
+// Settings for all backendPools
+func (o FrontDoorOutput) BackendPoolsSettings() BackendPoolsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *FrontDoor) BackendPoolsSettingsResponsePtrOutput { return v.BackendPoolsSettings }).(BackendPoolsSettingsResponsePtrOutput)
+}
+
+// The host that each frontendEndpoint must CNAME to.
+func (o FrontDoorOutput) Cname() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.Cname }).(pulumi.StringOutput)
+}
+
+// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+func (o FrontDoorOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringPtrOutput { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the frontDoor
+func (o FrontDoorOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The Id of the frontdoor.
+func (o FrontDoorOutput) FrontdoorId() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.FrontdoorId }).(pulumi.StringOutput)
+}
+
+// Frontend endpoints available to routing rules.
+func (o FrontDoorOutput) FrontendEndpoints() FrontendEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) FrontendEndpointResponseArrayOutput { return v.FrontendEndpoints }).(FrontendEndpointResponseArrayOutput)
+}
+
+// Health probe settings associated with this Front Door instance.
+func (o FrontDoorOutput) HealthProbeSettings() HealthProbeSettingsModelResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) HealthProbeSettingsModelResponseArrayOutput { return v.HealthProbeSettings }).(HealthProbeSettingsModelResponseArrayOutput)
+}
+
+// Load balancing settings associated with this Front Door instance.
+func (o FrontDoorOutput) LoadBalancingSettings() LoadBalancingSettingsModelResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) LoadBalancingSettingsModelResponseArrayOutput { return v.LoadBalancingSettings }).(LoadBalancingSettingsModelResponseArrayOutput)
+}
+
+// Resource location.
+func (o FrontDoorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o FrontDoorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Front Door.
+func (o FrontDoorOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the Front Door.
+func (o FrontDoorOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Routing rules associated with this Front Door.
+func (o FrontDoorOutput) RoutingRules() RoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) RoutingRuleResponseArrayOutput { return v.RoutingRules }).(RoutingRuleResponseArrayOutput)
+}
+
+// Rules Engine Configurations available to routing rules.
+func (o FrontDoorOutput) RulesEngines() RulesEngineResponseArrayOutput {
+	return o.ApplyT(func(v *FrontDoor) RulesEngineResponseArrayOutput { return v.RulesEngines }).(RulesEngineResponseArrayOutput)
+}
+
+// Resource tags.
+func (o FrontDoorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o FrontDoorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FrontDoor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FrontDoorOutput{})
 }

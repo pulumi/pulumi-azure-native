@@ -177,6 +177,36 @@ func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutpu
 	return o
 }
 
+// Etag of the azure resource
+func (o ActionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+func (o ActionOutput) LogicAppResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.LogicAppResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ActionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Action) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The name of the logic app's workflow.
+func (o ActionOutput) WorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) pulumi.StringPtrOutput { return v.WorkflowId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionOutput{})
 }

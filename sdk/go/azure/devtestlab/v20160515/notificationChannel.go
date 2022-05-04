@@ -176,6 +176,56 @@ func (o NotificationChannelOutput) ToNotificationChannelOutputWithContext(ctx co
 	return o
 }
 
+// The creation date of the notification channel.
+func (o NotificationChannelOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Description of notification.
+func (o NotificationChannelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The list of event for which this notification is enabled.
+func (o NotificationChannelOutput) Events() EventResponseArrayOutput {
+	return o.ApplyT(func(v *NotificationChannel) EventResponseArrayOutput { return v.Events }).(EventResponseArrayOutput)
+}
+
+// The location of the resource.
+func (o NotificationChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o NotificationChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o NotificationChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o NotificationChannelOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o NotificationChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o NotificationChannelOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The webhook URL to send notifications to.
+func (o NotificationChannelOutput) WebHookUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationChannel) pulumi.StringPtrOutput { return v.WebHookUrl }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationChannelOutput{})
 }

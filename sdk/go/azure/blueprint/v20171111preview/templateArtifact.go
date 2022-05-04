@@ -176,6 +176,52 @@ func (o TemplateArtifactOutput) ToTemplateArtifactOutputWithContext(ctx context.
 	return o
 }
 
+// Artifacts which need to be deployed before the specified artifact.
+func (o TemplateArtifactOutput) DependsOn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringArrayOutput { return v.DependsOn }).(pulumi.StringArrayOutput)
+}
+
+// Multi-line explain this resource.
+func (o TemplateArtifactOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// One-liner string explain this resource.
+func (o TemplateArtifactOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the kind of Blueprint artifact.
+// Expected value is 'template'.
+func (o TemplateArtifactOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o TemplateArtifactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Template parameter values.
+func (o TemplateArtifactOutput) Parameters() ParameterValueBaseResponseMapOutput {
+	return o.ApplyT(func(v *TemplateArtifact) ParameterValueBaseResponseMapOutput { return v.Parameters }).(ParameterValueBaseResponseMapOutput)
+}
+
+// If applicable, the name of the resource group placeholder to which the template will be deployed.
+func (o TemplateArtifactOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource Manager template body.
+func (o TemplateArtifactOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.AnyOutput { return v.Template }).(pulumi.AnyOutput)
+}
+
+// Type of this resource.
+func (o TemplateArtifactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TemplateArtifact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TemplateArtifactOutput{})
 }

@@ -26948,6 +26948,17 @@ type FlowLogFormatParametersArgs struct {
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
+// Defaults sets the appropriate defaults for FlowLogFormatParametersArgs
+func (val *FlowLogFormatParametersArgs) Defaults() *FlowLogFormatParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		tmp.Version = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (FlowLogFormatParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlowLogFormatParameters)(nil)).Elem()
 }
@@ -28624,6 +28635,15 @@ type FrontendIPConfigurationArgs struct {
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
+// Defaults sets the appropriate defaults for FrontendIPConfigurationArgs
+func (val *FrontendIPConfigurationArgs) Defaults() *FrontendIPConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (FrontendIPConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*FrontendIPConfiguration)(nil)).Elem()
 }
@@ -30404,6 +30424,15 @@ type IPConfigurationProfileArgs struct {
 	Subnet SubnetTypePtrInput `pulumi:"subnet"`
 }
 
+// Defaults sets the appropriate defaults for IPConfigurationProfileArgs
+func (val *IPConfigurationProfileArgs) Defaults() *IPConfigurationProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (IPConfigurationProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPConfigurationProfile)(nil)).Elem()
 }
@@ -36580,6 +36609,15 @@ type NetworkInterfaceIPConfigurationArgs struct {
 	VirtualNetworkTaps VirtualNetworkTapTypeArrayInput `pulumi:"virtualNetworkTaps"`
 }
 
+// Defaults sets the appropriate defaults for NetworkInterfaceIPConfigurationArgs
+func (val *NetworkInterfaceIPConfigurationArgs) Defaults() *NetworkInterfaceIPConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (NetworkInterfaceIPConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceIPConfiguration)(nil)).Elem()
 }
@@ -39793,6 +39831,17 @@ type PacketCaptureFilterArgs struct {
 	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
 }
 
+// Defaults sets the appropriate defaults for PacketCaptureFilterArgs
+func (val *PacketCaptureFilterArgs) Defaults() *PacketCaptureFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		tmp.Protocol = pulumi.StringPtr("Any")
+	}
+	return &tmp
+}
 func (PacketCaptureFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
 }
@@ -41870,6 +41919,15 @@ type PrivateLinkServiceIpConfigurationArgs struct {
 	Subnet SubnetTypePtrInput `pulumi:"subnet"`
 }
 
+// Defaults sets the appropriate defaults for PrivateLinkServiceIpConfigurationArgs
+func (val *PrivateLinkServiceIpConfigurationArgs) Defaults() *PrivateLinkServiceIpConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (PrivateLinkServiceIpConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServiceIpConfiguration)(nil)).Elem()
 }
@@ -45973,6 +46031,20 @@ type RetentionPolicyParametersArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
+// Defaults sets the appropriate defaults for RetentionPolicyParametersArgs
+func (val *RetentionPolicyParametersArgs) Defaults() *RetentionPolicyParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		tmp.Days = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (RetentionPolicyParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetentionPolicyParameters)(nil)).Elem()
 }
@@ -49422,6 +49494,20 @@ type SubnetTypeArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for SubnetTypeArgs
+func (val *SubnetTypeArgs) Defaults() *SubnetTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrivateEndpointNetworkPolicies) {
+		tmp.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
+	}
+	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
+		tmp.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (SubnetTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubnetType)(nil)).Elem()
 }
@@ -54373,6 +54459,15 @@ type VirtualNetworkTapTypeArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
+// Defaults sets the appropriate defaults for VirtualNetworkTapTypeArgs
+func (val *VirtualNetworkTapTypeArgs) Defaults() *VirtualNetworkTapTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (VirtualNetworkTapTypeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkTapType)(nil)).Elem()
 }

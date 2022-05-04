@@ -203,6 +203,81 @@ func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
 }
 
+// The creation date of the disk.
+func (o DiskOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// When backed by a blob, the name of the VHD blob without extension.
+func (o DiskOutput) DiskBlobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.DiskBlobName }).(pulumi.StringPtrOutput)
+}
+
+// The size of the disk in Gibibytes.
+func (o DiskOutput) DiskSizeGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.IntPtrOutput { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
+}
+
+// The storage type for the disk (i.e. Standard, Premium).
+func (o DiskOutput) DiskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.DiskType }).(pulumi.StringPtrOutput)
+}
+
+// When backed by a blob, the URI of underlying blob.
+func (o DiskOutput) DiskUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.DiskUri }).(pulumi.StringPtrOutput)
+}
+
+// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+func (o DiskOutput) HostCaching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.HostCaching }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the VM to which this disk is leased.
+func (o DiskOutput) LeasedByLabVmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.LeasedByLabVmId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o DiskOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// When backed by managed disk, this is the ID of the compute disk resource.
+func (o DiskOutput) ManagedDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o DiskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o DiskOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// When backed by a blob, the storage account where the blob is.
+func (o DiskOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o DiskOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o DiskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o DiskOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Disk) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskOutput{})
 }

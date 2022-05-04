@@ -158,6 +158,45 @@ func (o ContainerAppsSourceControlOutput) ToContainerAppsSourceControlOutputWith
 	return o
 }
 
+// The branch which will trigger the auto deployment
+func (o ContainerAppsSourceControlOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Container App Revision Template with all possible settings and the
+// defaults if user did not provide them. The defaults are populated
+// as they were at the creation time
+func (o ContainerAppsSourceControlOutput) GithubActionConfiguration() GithubActionConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) GithubActionConfigurationResponsePtrOutput {
+		return v.GithubActionConfiguration
+	}).(GithubActionConfigurationResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ContainerAppsSourceControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Current provisioning State of the operation
+func (o ContainerAppsSourceControlOutput) OperationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) pulumi.StringOutput { return v.OperationState }).(pulumi.StringOutput)
+}
+
+// The repo url which will be integrated to ContainerApp.
+func (o ContainerAppsSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) pulumi.StringPtrOutput { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ContainerAppsSourceControlOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContainerAppsSourceControlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerAppsSourceControl) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAppsSourceControlOutput{})
 }

@@ -166,6 +166,61 @@ func (o AFDOriginGroupOutput) ToAFDOriginGroupOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o AFDOriginGroupOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Health probe settings to the origin that is used to determine the health of the origin.
+func (o AFDOriginGroupOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) HealthProbeParametersResponsePtrOutput { return v.HealthProbeSettings }).(HealthProbeParametersResponsePtrOutput)
+}
+
+// Load balancing settings for a backend pool
+func (o AFDOriginGroupOutput) LoadBalancingSettings() LoadBalancingSettingsParametersResponsePtrOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) LoadBalancingSettingsParametersResponsePtrOutput {
+		return v.LoadBalancingSettings
+	}).(LoadBalancingSettingsParametersResponsePtrOutput)
+}
+
+// Resource name.
+func (o AFDOriginGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o AFDOriginGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+func (o AFDOriginGroupOutput) ResponseBasedAfdOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
+		return v.ResponseBasedAfdOriginErrorDetectionSettings
+	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
+}
+
+// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+func (o AFDOriginGroupOutput) SessionAffinityState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.StringPtrOutput { return v.SessionAffinityState }).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
+func (o AFDOriginGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+func (o AFDOriginGroupOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.IntPtrOutput {
+		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o AFDOriginGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDOriginGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AFDOriginGroupOutput{})
 }

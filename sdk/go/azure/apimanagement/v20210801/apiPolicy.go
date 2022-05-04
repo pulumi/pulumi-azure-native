@@ -185,6 +185,26 @@ func (o ApiPolicyOutput) ToApiPolicyOutputWithContext(ctx context.Context) ApiPo
 	return o
 }
 
+// Format of the policyContent.
+func (o ApiPolicyOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ApiPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ApiPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Contents of the Policy as defined by the format.
+func (o ApiPolicyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPolicy) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPolicyOutput{})
 }

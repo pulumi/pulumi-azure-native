@@ -182,6 +182,51 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// Gets or sets the DNS settings of the Traffic Manager profile.
+func (o ProfileOutput) DnsConfig() DnsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Profile) DnsConfigResponsePtrOutput { return v.DnsConfig }).(DnsConfigResponsePtrOutput)
+}
+
+// Gets or sets the list of endpoints in the Traffic Manager profile.
+func (o ProfileOutput) Endpoints() EndpointResponseArrayOutput {
+	return o.ApplyT(func(v *Profile) EndpointResponseArrayOutput { return v.Endpoints }).(EndpointResponseArrayOutput)
+}
+
+// Resource location
+func (o ProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+func (o ProfileOutput) MonitorConfig() MonitorConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Profile) MonitorConfigResponsePtrOutput { return v.MonitorConfig }).(MonitorConfigResponsePtrOutput)
+}
+
+// Resource name
+func (o ProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
+func (o ProfileOutput) ProfileStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.ProfileStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o ProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+func (o ProfileOutput) TrafficRoutingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.TrafficRoutingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o ProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileOutput{})
 }

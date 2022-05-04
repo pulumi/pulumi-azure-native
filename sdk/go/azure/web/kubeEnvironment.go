@@ -199,6 +199,79 @@ func (o KubeEnvironmentOutput) ToKubeEnvironmentOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o KubeEnvironmentOutput) AksResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringPtrOutput { return v.AksResourceID }).(pulumi.StringPtrOutput)
+}
+
+// Cluster configuration which enables the log daemon to export
+// app logs to a destination. Currently only "log-analytics" is
+// supported
+func (o KubeEnvironmentOutput) AppLogsConfiguration() AppLogsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) AppLogsConfigurationResponsePtrOutput { return v.AppLogsConfiguration }).(AppLogsConfigurationResponsePtrOutput)
+}
+
+// Cluster configuration which determines the ARC cluster
+// components types. Eg: Choosing between BuildService kind,
+// FrontEnd Service ArtifactsStorageType etc.
+func (o KubeEnvironmentOutput) ArcConfiguration() ArcConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) ArcConfigurationResponsePtrOutput { return v.ArcConfiguration }).(ArcConfigurationResponsePtrOutput)
+}
+
+// Default Domain Name for the cluster
+func (o KubeEnvironmentOutput) DefaultDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.DefaultDomain }).(pulumi.StringOutput)
+}
+
+// Any errors that occurred during deployment or deployment validation
+func (o KubeEnvironmentOutput) DeploymentErrors() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.DeploymentErrors }).(pulumi.StringOutput)
+}
+
+// Extended Location.
+func (o KubeEnvironmentOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Only visible within Vnet/Subnet
+func (o KubeEnvironmentOutput) InternalLoadBalancerEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.BoolPtrOutput { return v.InternalLoadBalancerEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o KubeEnvironmentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o KubeEnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o KubeEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Kubernetes Environment.
+func (o KubeEnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Static IP of the KubeEnvironment
+func (o KubeEnvironmentOutput) StaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringPtrOutput { return v.StaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o KubeEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o KubeEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KubeEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KubeEnvironmentOutput{})
 }

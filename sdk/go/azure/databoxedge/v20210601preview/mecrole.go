@@ -205,6 +205,47 @@ func (o MECRoleOutput) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOu
 	return o
 }
 
+// Activation key of the MEC.
+func (o MECRoleOutput) ConnectionString() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *MECRole) AsymmetricEncryptedSecretResponsePtrOutput { return v.ConnectionString }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Controller Endpoint.
+func (o MECRoleOutput) ControllerEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringPtrOutput { return v.ControllerEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// Role type.
+// Expected value is 'MEC'.
+func (o MECRoleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o MECRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Unique Id of the Resource.
+func (o MECRoleOutput) ResourceUniqueId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringPtrOutput { return v.ResourceUniqueId }).(pulumi.StringPtrOutput)
+}
+
+// Role status.
+func (o MECRoleOutput) RoleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringOutput { return v.RoleStatus }).(pulumi.StringOutput)
+}
+
+// Role configured on ASE resource
+func (o MECRoleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MECRole) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o MECRoleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MECRole) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MECRoleOutput{})
 }

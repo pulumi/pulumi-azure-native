@@ -210,6 +210,67 @@ func (o ArcAddonOutput) ToArcAddonOutputWithContext(ctx context.Context) ArcAddo
 	return o
 }
 
+// Host OS supported by the Arc addon.
+func (o ArcAddonOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// Platform where the runtime is hosted.
+func (o ArcAddonOutput) HostPlatformType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.HostPlatformType }).(pulumi.StringOutput)
+}
+
+// Addon type.
+// Expected value is 'ArcForKubernetes'.
+func (o ArcAddonOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o ArcAddonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Addon Provisioning State
+func (o ArcAddonOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Arc resource group name
+func (o ArcAddonOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Arc resource location
+func (o ArcAddonOutput) ResourceLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.ResourceLocation }).(pulumi.StringOutput)
+}
+
+// Arc resource Name
+func (o ArcAddonOutput) ResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.ResourceName }).(pulumi.StringOutput)
+}
+
+// Arc resource subscription Id
+func (o ArcAddonOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of Addon
+func (o ArcAddonOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ArcAddon) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o ArcAddonOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Arc resource version
+func (o ArcAddonOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArcAddon) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ArcAddonOutput{})
 }

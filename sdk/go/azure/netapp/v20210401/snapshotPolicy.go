@@ -209,6 +209,61 @@ func (o SnapshotPolicyOutput) ToSnapshotPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Schedule for daily snapshots
+func (o SnapshotPolicyOutput) DailySchedule() DailyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) DailyScheduleResponsePtrOutput { return v.DailySchedule }).(DailyScheduleResponsePtrOutput)
+}
+
+// The property to decide policy is enabled or not
+func (o SnapshotPolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SnapshotPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Schedule for hourly snapshots
+func (o SnapshotPolicyOutput) HourlySchedule() HourlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) HourlyScheduleResponsePtrOutput { return v.HourlySchedule }).(HourlyScheduleResponsePtrOutput)
+}
+
+// Resource location
+func (o SnapshotPolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Schedule for monthly snapshots
+func (o SnapshotPolicyOutput) MonthlySchedule() MonthlyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) MonthlyScheduleResponsePtrOutput { return v.MonthlySchedule }).(MonthlyScheduleResponsePtrOutput)
+}
+
+// Resource name
+func (o SnapshotPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o SnapshotPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o SnapshotPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SnapshotPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Schedule for weekly snapshots
+func (o SnapshotPolicyOutput) WeeklySchedule() WeeklyScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *SnapshotPolicy) WeeklyScheduleResponsePtrOutput { return v.WeeklySchedule }).(WeeklyScheduleResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotPolicyOutput{})
 }

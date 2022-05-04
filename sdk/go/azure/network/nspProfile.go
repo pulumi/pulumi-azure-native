@@ -156,6 +156,36 @@ func (o NspProfileOutput) ToNspProfileOutputWithContext(ctx context.Context) Nsp
 	return o
 }
 
+// Version number that increases with every update to access rules within the profile.
+func (o NspProfileOutput) AccessRulesVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.AccessRulesVersion }).(pulumi.StringOutput)
+}
+
+// Gets the enabled log categories.
+func (o NspProfileOutput) EnabledLogCategories() LoggingCategoryResponseArrayOutput {
+	return o.ApplyT(func(v *NspProfile) LoggingCategoryResponseArrayOutput { return v.EnabledLogCategories }).(LoggingCategoryResponseArrayOutput)
+}
+
+// Resource location.
+func (o NspProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NspProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NspProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NspProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NspProfileOutput{})
 }

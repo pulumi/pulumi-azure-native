@@ -157,6 +157,26 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+// Used to activate the workspace after a customer managed key is provided.
+func (o KeyOutput) IsActiveCMK() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.BoolPtrOutput { return v.IsActiveCMK }).(pulumi.BoolPtrOutput)
+}
+
+// The Key Vault Url of the workspace key.
+func (o KeyOutput) KeyVaultUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.KeyVaultUrl }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o KeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o KeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KeyOutput{})
 }

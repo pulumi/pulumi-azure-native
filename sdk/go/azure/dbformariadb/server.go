@@ -175,6 +175,98 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+func (o ServerOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// Earliest restore point creation time (ISO8601 format)
+func (o ServerOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.EarliestRestoreDate }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of a server.
+func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.FullyQualifiedDomainName }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The master server id of a replica server.
+func (o ServerOutput) MasterServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MasterServerId }).(pulumi.StringPtrOutput)
+}
+
+// Enforce a minimal Tls version for the server.
+func (o ServerOutput) MinimalTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimalTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connections on a server
+func (o ServerOutput) PrivateEndpointConnections() ServerPrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *Server) ServerPrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(ServerPrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+func (o ServerOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of replicas that a master server can have.
+func (o ServerOutput) ReplicaCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntPtrOutput { return v.ReplicaCapacity }).(pulumi.IntPtrOutput)
+}
+
+// The replication role of the server.
+func (o ServerOutput) ReplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ReplicationRole }).(pulumi.StringPtrOutput)
+}
+
+// The SKU (pricing tier) of the server.
+func (o ServerOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Server) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Enable ssl enforcement or not when connect to server.
+func (o ServerOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+}
+
+// Storage profile of a server.
+func (o ServerOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Server) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A state of a server that is visible to user.
+func (o ServerOutput) UserVisibleState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.UserVisibleState }).(pulumi.StringPtrOutput)
+}
+
+// Server version.
+func (o ServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
 }

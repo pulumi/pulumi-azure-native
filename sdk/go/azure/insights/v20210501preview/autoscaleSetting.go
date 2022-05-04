@@ -186,6 +186,63 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.
 	return o
 }
 
+// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+func (o AutoscaleSettingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o AutoscaleSettingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// the name of the autoscale setting.
+func (o AutoscaleSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the collection of notifications.
+func (o AutoscaleSettingOutput) Notifications() AutoscaleNotificationResponseArrayOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleNotificationResponseArrayOutput { return v.Notifications }).(AutoscaleNotificationResponseArrayOutput)
+}
+
+// the predictive autoscale policy mode.
+func (o AutoscaleSettingOutput) PredictiveAutoscalePolicy() PredictiveAutoscalePolicyResponsePtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) PredictiveAutoscalePolicyResponsePtrOutput {
+		return v.PredictiveAutoscalePolicy
+	}).(PredictiveAutoscalePolicyResponsePtrOutput)
+}
+
+// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+func (o AutoscaleSettingOutput) Profiles() AutoscaleProfileResponseArrayOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleProfileResponseArrayOutput { return v.Profiles }).(AutoscaleProfileResponseArrayOutput)
+}
+
+// The system metadata related to the response.
+func (o AutoscaleSettingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
+func (o AutoscaleSettingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// the location of the resource that the autoscale setting should be added to.
+func (o AutoscaleSettingOutput) TargetResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringPtrOutput { return v.TargetResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// the resource identifier of the resource that the autoscale setting should be added to.
+func (o AutoscaleSettingOutput) TargetResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringPtrOutput { return v.TargetResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o AutoscaleSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
 }

@@ -160,6 +160,46 @@ func (o NetworkOutput) ToNetworkOutputWithContext(ctx context.Context) NetworkOu
 	return o
 }
 
+// the address prefix for this network.
+func (o NetworkOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// User readable description of the network.
+func (o NetworkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for public connectivity for this network.
+func (o NetworkOutput) IngressConfig() IngressConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Network) IngressConfigResponsePtrOutput { return v.IngressConfig }).(IngressConfigResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o NetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o NetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of the resource.
+func (o NetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o NetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkOutput{})
 }

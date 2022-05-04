@@ -1821,6 +1821,17 @@ type ArmRoleReceiverArgs struct {
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
+// Defaults sets the appropriate defaults for ArmRoleReceiverArgs
+func (val *ArmRoleReceiverArgs) Defaults() *ArmRoleReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (ArmRoleReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ArmRoleReceiver)(nil)).Elem()
 }
@@ -2041,6 +2052,17 @@ type AutomationRunbookReceiverArgs struct {
 	WebhookResourceId pulumi.StringInput `pulumi:"webhookResourceId"`
 }
 
+// Defaults sets the appropriate defaults for AutomationRunbookReceiverArgs
+func (val *AutomationRunbookReceiverArgs) Defaults() *AutomationRunbookReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (AutomationRunbookReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutomationRunbookReceiver)(nil)).Elem()
 }
@@ -2291,6 +2313,15 @@ type AutoscaleNotificationArgs struct {
 	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
 
+// Defaults sets the appropriate defaults for AutoscaleNotificationArgs
+func (val *AutoscaleNotificationArgs) Defaults() *AutoscaleNotificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (AutoscaleNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoscaleNotification)(nil)).Elem()
 }
@@ -2893,6 +2924,17 @@ type AzureFunctionReceiverArgs struct {
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
+// Defaults sets the appropriate defaults for AzureFunctionReceiverArgs
+func (val *AzureFunctionReceiverArgs) Defaults() *AzureFunctionReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (AzureFunctionReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureFunctionReceiver)(nil)).Elem()
 }
@@ -4818,6 +4860,20 @@ type EmailNotificationArgs struct {
 	SendToSubscriptionCoAdministrators pulumi.BoolPtrInput `pulumi:"sendToSubscriptionCoAdministrators"`
 }
 
+// Defaults sets the appropriate defaults for EmailNotificationArgs
+func (val *EmailNotificationArgs) Defaults() *EmailNotificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendToSubscriptionAdministrator) {
+		tmp.SendToSubscriptionAdministrator = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.SendToSubscriptionCoAdministrators) {
+		tmp.SendToSubscriptionCoAdministrators = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EmailNotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailNotification)(nil)).Elem()
 }
@@ -5120,6 +5176,17 @@ type EmailReceiverArgs struct {
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
+// Defaults sets the appropriate defaults for EmailReceiverArgs
+func (val *EmailReceiverArgs) Defaults() *EmailReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (EmailReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailReceiver)(nil)).Elem()
 }
@@ -6642,6 +6709,17 @@ type LogicAppReceiverArgs struct {
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
+// Defaults sets the appropriate defaults for LogicAppReceiverArgs
+func (val *LogicAppReceiverArgs) Defaults() *LogicAppReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (LogicAppReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogicAppReceiver)(nil)).Elem()
 }
@@ -9979,6 +10057,17 @@ type ScaleActionArgs struct {
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for ScaleActionArgs
+func (val *ScaleActionArgs) Defaults() *ScaleActionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Value) {
+		tmp.Value = pulumi.StringPtr("1")
+	}
+	return &tmp
+}
 func (ScaleActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleAction)(nil)).Elem()
 }
@@ -10237,6 +10326,15 @@ type ScaleRuleArgs struct {
 	ScaleAction ScaleActionInput `pulumi:"scaleAction"`
 }
 
+// Defaults sets the appropriate defaults for ScaleRuleArgs
+func (val *ScaleRuleArgs) Defaults() *ScaleRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ScaleRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScaleRule)(nil)).Elem()
 }
@@ -12694,6 +12792,20 @@ type WebhookReceiverArgs struct {
 	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
 }
 
+// Defaults sets the appropriate defaults for WebhookReceiverArgs
+func (val *WebhookReceiverArgs) Defaults() *WebhookReceiverArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseAadAuth) {
+		tmp.UseAadAuth = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.UseCommonAlertSchema) {
+		tmp.UseCommonAlertSchema = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (WebhookReceiverArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebhookReceiver)(nil)).Elem()
 }

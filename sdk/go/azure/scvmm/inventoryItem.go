@@ -153,6 +153,51 @@ func (o InventoryItemOutput) ToInventoryItemOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Gets the Managed Object name in VMM for the inventory item.
+func (o InventoryItemOutput) InventoryItemName() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.InventoryItemName }).(pulumi.StringOutput)
+}
+
+// They inventory type.
+func (o InventoryItemOutput) InventoryType() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.InventoryType }).(pulumi.StringOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o InventoryItemOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets the tracked resource id corresponding to the inventory resource.
+func (o InventoryItemOutput) ManagedResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.ManagedResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o InventoryItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the provisioning state.
+func (o InventoryItemOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system data.
+func (o InventoryItemOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *InventoryItem) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o InventoryItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets the UUID (which is assigned by VMM) for the inventory item.
+func (o InventoryItemOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *InventoryItem) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InventoryItemOutput{})
 }

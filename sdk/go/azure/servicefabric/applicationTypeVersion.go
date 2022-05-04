@@ -183,6 +183,46 @@ func (o ApplicationTypeVersionOutput) ToApplicationTypeVersionOutputWithContext(
 	return o
 }
 
+// The URL to the application package
+func (o ApplicationTypeVersionOutput) AppPackageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringOutput { return v.AppPackageUrl }).(pulumi.StringOutput)
+}
+
+// List of application type parameters that can be overridden when creating or updating the application.
+func (o ApplicationTypeVersionOutput) DefaultParameterList() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringMapOutput { return v.DefaultParameterList }).(pulumi.StringMapOutput)
+}
+
+// Azure resource etag.
+func (o ApplicationTypeVersionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ApplicationTypeVersionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response
+func (o ApplicationTypeVersionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource tags.
+func (o ApplicationTypeVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationTypeVersionOutput{})
 }

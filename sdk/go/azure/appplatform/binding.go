@@ -156,6 +156,21 @@ func (o BindingOutput) ToBindingOutputWithContext(ctx context.Context) BindingOu
 	return o
 }
 
+// The name of the resource.
+func (o BindingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Binding) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Binding resource
+func (o BindingOutput) Properties() BindingResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *Binding) BindingResourcePropertiesResponseOutput { return v.Properties }).(BindingResourcePropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o BindingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Binding) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BindingOutput{})
 }

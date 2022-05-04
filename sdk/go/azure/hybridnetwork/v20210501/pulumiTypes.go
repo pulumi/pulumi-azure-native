@@ -998,6 +998,15 @@ type NetworkFunctionRoleConfigurationArgs struct {
 	VirtualMachineSize pulumi.StringPtrInput `pulumi:"virtualMachineSize"`
 }
 
+// Defaults sets the appropriate defaults for NetworkFunctionRoleConfigurationArgs
+func (val *NetworkFunctionRoleConfigurationArgs) Defaults() *NetworkFunctionRoleConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (NetworkFunctionRoleConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkFunctionRoleConfiguration)(nil)).Elem()
 }
@@ -2593,6 +2602,17 @@ type OsProfileArgs struct {
 	LinuxConfiguration LinuxConfigurationPtrInput `pulumi:"linuxConfiguration"`
 }
 
+// Defaults sets the appropriate defaults for OsProfileArgs
+func (val *OsProfileArgs) Defaults() *OsProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CustomDataRequired) {
+		tmp.CustomDataRequired = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (OsProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*OsProfile)(nil)).Elem()
 }

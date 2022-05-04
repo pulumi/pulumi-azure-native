@@ -13265,6 +13265,17 @@ type BackendPoolsSettingsArgs struct {
 	SendRecvTimeoutSeconds pulumi.IntPtrInput `pulumi:"sendRecvTimeoutSeconds"`
 }
 
+// Defaults sets the appropriate defaults for BackendPoolsSettingsArgs
+func (val *BackendPoolsSettingsArgs) Defaults() *BackendPoolsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		tmp.EnforceCertificateNameCheck = pulumi.StringPtr("Enabled")
+	}
+	return &tmp
+}
 func (BackendPoolsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendPoolsSettings)(nil)).Elem()
 }
@@ -23466,6 +23477,17 @@ type FlowLogFormatParametersArgs struct {
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
+// Defaults sets the appropriate defaults for FlowLogFormatParametersArgs
+func (val *FlowLogFormatParametersArgs) Defaults() *FlowLogFormatParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		tmp.Version = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (FlowLogFormatParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlowLogFormatParameters)(nil)).Elem()
 }
@@ -25491,6 +25513,17 @@ type HealthProbeSettingsModelArgs struct {
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
+// Defaults sets the appropriate defaults for HealthProbeSettingsModelArgs
+func (val *HealthProbeSettingsModelArgs) Defaults() *HealthProbeSettingsModelArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		tmp.HealthProbeMethod = pulumi.StringPtr("HEAD")
+	}
+	return &tmp
+}
 func (HealthProbeSettingsModelArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*HealthProbeSettingsModel)(nil)).Elem()
 }
@@ -34616,6 +34649,17 @@ type PacketCaptureFilterArgs struct {
 	RemotePort pulumi.StringPtrInput `pulumi:"remotePort"`
 }
 
+// Defaults sets the appropriate defaults for PacketCaptureFilterArgs
+func (val *PacketCaptureFilterArgs) Defaults() *PacketCaptureFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		tmp.Protocol = pulumi.StringPtr("Any")
+	}
+	return &tmp
+}
 func (PacketCaptureFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*PacketCaptureFilter)(nil)).Elem()
 }
@@ -39535,6 +39579,20 @@ type RetentionPolicyParametersArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
+// Defaults sets the appropriate defaults for RetentionPolicyParametersArgs
+func (val *RetentionPolicyParametersArgs) Defaults() *RetentionPolicyParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		tmp.Days = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (RetentionPolicyParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*RetentionPolicyParameters)(nil)).Elem()
 }

@@ -137,6 +137,35 @@ func (o EnergyServiceOutput) ToEnergyServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Geo-location where the resource lives.
+func (o EnergyServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnergyService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o EnergyServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnergyService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EnergyServiceOutput) Properties() EnergyServicePropertiesResponseOutput {
+	return o.ApplyT(func(v *EnergyService) EnergyServicePropertiesResponseOutput { return v.Properties }).(EnergyServicePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EnergyServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EnergyService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o EnergyServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnergyService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o EnergyServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnergyService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnergyServiceOutput{})
 }

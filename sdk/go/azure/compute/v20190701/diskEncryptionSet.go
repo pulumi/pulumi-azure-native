@@ -174,6 +174,46 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx contex
 	return o
 }
 
+// The key vault key which is currently used by this disk encryption set.
+func (o DiskEncryptionSetOutput) ActiveKey() KeyVaultAndKeyReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) KeyVaultAndKeyReferenceResponsePtrOutput { return v.ActiveKey }).(KeyVaultAndKeyReferenceResponsePtrOutput)
+}
+
+// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+func (o DiskEncryptionSetOutput) Identity() EncryptionSetIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) EncryptionSetIdentityResponsePtrOutput { return v.Identity }).(EncryptionSetIdentityResponsePtrOutput)
+}
+
+// Resource location
+func (o DiskEncryptionSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o DiskEncryptionSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
+func (o DiskEncryptionSetOutput) PreviousKeys() KeyVaultAndKeyReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) KeyVaultAndKeyReferenceResponseArrayOutput { return v.PreviousKeys }).(KeyVaultAndKeyReferenceResponseArrayOutput)
+}
+
+// The disk encryption set provisioning state.
+func (o DiskEncryptionSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o DiskEncryptionSetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o DiskEncryptionSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiskEncryptionSetOutput{})
 }

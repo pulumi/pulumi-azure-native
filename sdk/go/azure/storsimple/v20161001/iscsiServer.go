@@ -166,6 +166,41 @@ func (o IscsiServerOutput) ToIscsiServerOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// The backup policy id.
+func (o IscsiServerOutput) BackupScheduleGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringOutput { return v.BackupScheduleGroupId }).(pulumi.StringOutput)
+}
+
+// The chap id.
+func (o IscsiServerOutput) ChapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringPtrOutput { return v.ChapId }).(pulumi.StringPtrOutput)
+}
+
+// The description.
+func (o IscsiServerOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name.
+func (o IscsiServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reverse chap id.
+func (o IscsiServerOutput) ReverseChapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringPtrOutput { return v.ReverseChapId }).(pulumi.StringPtrOutput)
+}
+
+// The storage domain id.
+func (o IscsiServerOutput) StorageDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringOutput { return v.StorageDomainId }).(pulumi.StringOutput)
+}
+
+// The type.
+func (o IscsiServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiServer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IscsiServerOutput{})
 }

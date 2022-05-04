@@ -195,6 +195,51 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// An ETag of the resource created.
+func (o DatabaseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The number of days of data that should be kept in cache for fast queries.
+func (o DatabaseOutput) HotCachePeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.HotCachePeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o DatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o DatabaseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The number of days data should be kept before it stops being accessible to queries.
+func (o DatabaseOutput) SoftDeletePeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntOutput { return v.SoftDeletePeriodInDays }).(pulumi.IntOutput)
+}
+
+// The statistics of the database.
+func (o DatabaseOutput) Statistics() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v *Database) DatabaseStatisticsResponseOutput { return v.Statistics }).(DatabaseStatisticsResponseOutput)
+}
+
+// Resource tags.
+func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

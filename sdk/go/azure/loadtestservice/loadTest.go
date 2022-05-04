@@ -154,6 +154,51 @@ func (o LoadTestOutput) ToLoadTestOutputWithContext(ctx context.Context) LoadTes
 	return o
 }
 
+// Resource data plane URI.
+func (o LoadTestOutput) DataPlaneURI() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.DataPlaneURI }).(pulumi.StringOutput)
+}
+
+// Description of the resource.
+func (o LoadTestOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for the resource.
+func (o LoadTestOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *LoadTest) SystemAssignedServiceIdentityResponsePtrOutput { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LoadTestOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LoadTestOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource provisioning state.
+func (o LoadTestOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LoadTestOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LoadTest) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LoadTestOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LoadTestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadTest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadTestOutput{})
 }

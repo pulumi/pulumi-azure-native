@@ -178,6 +178,57 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 	return o
 }
 
+// The type of the event channel which represents the  direction flow of events.
+func (o ChannelOutput) ChannelType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelType }).(pulumi.StringPtrOutput)
+}
+
+// Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
+// the channel and corresponding partner topic are deleted.
+func (o ChannelOutput) ExpirationTimeIfNotActivatedUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ExpirationTimeIfNotActivatedUtc }).(pulumi.StringPtrOutput)
+}
+
+// Context or helpful message that can be used during the approval process by the subscriber.
+func (o ChannelOutput) MessageForActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.MessageForActivation }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource.
+func (o ChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+func (o ChannelOutput) PartnerDestinationInfo() WebhookPartnerDestinationInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Channel) WebhookPartnerDestinationInfoResponsePtrOutput { return v.PartnerDestinationInfo }).(WebhookPartnerDestinationInfoResponsePtrOutput)
+}
+
+// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
+func (o ChannelOutput) PartnerTopicInfo() PartnerTopicInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Channel) PartnerTopicInfoResponsePtrOutput { return v.PartnerTopicInfo }).(PartnerTopicInfoResponsePtrOutput)
+}
+
+// Provisioning state of the channel.
+func (o ChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The readiness state of the corresponding partner topic.
+func (o ChannelOutput) ReadinessState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ReadinessState }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to Channel resource.
+func (o ChannelOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Channel) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the resource.
+func (o ChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ChannelOutput{})
 }

@@ -158,6 +158,28 @@ func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutput
 	return o
 }
 
+// Region where the VM is located.
+func (o GuestConfigurationAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o GuestConfigurationAssignmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o GuestConfigurationAssignmentOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignment) GuestConfigurationAssignmentPropertiesResponseOutput {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o GuestConfigurationAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestConfigurationAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentOutput{})
 }

@@ -1414,6 +1414,17 @@ type SchedulePropertiesArgs struct {
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
+// Defaults sets the appropriate defaults for SchedulePropertiesArgs
+func (val *SchedulePropertiesArgs) Defaults() *SchedulePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		tmp.IsEnabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (SchedulePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleProperties)(nil)).Elem()
 }

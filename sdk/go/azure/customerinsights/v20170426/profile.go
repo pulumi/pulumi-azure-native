@@ -226,6 +226,106 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+func (o ProfileOutput) ApiEntitySetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.ApiEntitySetName }).(pulumi.StringPtrOutput)
+}
+
+// The attributes for the Type.
+func (o ProfileOutput) Attributes() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringArrayMapOutput { return v.Attributes }).(pulumi.StringArrayMapOutput)
+}
+
+// Localized descriptions for the property.
+func (o ProfileOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display names for the property.
+func (o ProfileOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// Type of entity.
+func (o ProfileOutput) EntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.EntityType }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Profile.
+func (o ProfileOutput) Fields() PropertyDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *Profile) PropertyDefinitionResponseArrayOutput { return v.Fields }).(PropertyDefinitionResponseArrayOutput)
+}
+
+// The instance count.
+func (o ProfileOutput) InstancesCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.IntPtrOutput { return v.InstancesCount }).(pulumi.IntPtrOutput)
+}
+
+// Large Image associated with the Property or EntityType.
+func (o ProfileOutput) LargeImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.LargeImage }).(pulumi.StringPtrOutput)
+}
+
+// The last changed time for the type definition.
+func (o ProfileOutput) LastChangedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.LastChangedUtc }).(pulumi.StringOutput)
+}
+
+// Any custom localized attributes for the Type.
+func (o ProfileOutput) LocalizedAttributes() pulumi.StringMapMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapMapOutput { return v.LocalizedAttributes }).(pulumi.StringMapMapOutput)
+}
+
+// Medium Image associated with the Property or EntityType.
+func (o ProfileOutput) MediumImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.MediumImage }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o ProfileOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The schema org link. This helps ACI identify and suggest semantic models.
+func (o ProfileOutput) SchemaItemTypeLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SchemaItemTypeLink }).(pulumi.StringPtrOutput)
+}
+
+// Small Image associated with the Property or EntityType.
+func (o ProfileOutput) SmallImage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SmallImage }).(pulumi.StringPtrOutput)
+}
+
+// The strong IDs.
+func (o ProfileOutput) StrongIds() StrongIdResponseArrayOutput {
+	return o.ApplyT(func(v *Profile) StrongIdResponseArrayOutput { return v.StrongIds }).(StrongIdResponseArrayOutput)
+}
+
+// The hub name.
+func (o ProfileOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The timestamp property name. Represents the time when the interaction or profile update happened.
+func (o ProfileOutput) TimestampFieldName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.TimestampFieldName }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The name of the entity.
+func (o ProfileOutput) TypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.TypeName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileOutput{})
 }

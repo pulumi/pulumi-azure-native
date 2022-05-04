@@ -1563,6 +1563,20 @@ type SqlConnectionInfoArgs struct {
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
+// Defaults sets the appropriate defaults for SqlConnectionInfoArgs
+func (val *SqlConnectionInfoArgs) Defaults() *SqlConnectionInfoArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		tmp.EncryptConnection = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		tmp.TrustServerCertificate = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (SqlConnectionInfoArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlConnectionInfo)(nil)).Elem()
 }

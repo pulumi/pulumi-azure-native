@@ -232,6 +232,118 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Availability Sets in vm.
+func (o VirtualMachineOutput) AvailabilitySets() VirtualMachinePropertiesResponseAvailabilitySetsArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualMachinePropertiesResponseAvailabilitySetsArrayOutput {
+		return v.AvailabilitySets
+	}).(VirtualMachinePropertiesResponseAvailabilitySetsArrayOutput)
+}
+
+// Type of checkpoint supported for the vm.
+func (o VirtualMachineOutput) CheckpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.CheckpointType }).(pulumi.StringPtrOutput)
+}
+
+// Checkpoints in the vm.
+func (o VirtualMachineOutput) Checkpoints() CheckpointResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) CheckpointResponseArrayOutput { return v.Checkpoints }).(CheckpointResponseArrayOutput)
+}
+
+// ARM Id of the cloud resource to use for deploying the vm.
+func (o VirtualMachineOutput) CloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.CloudId }).(pulumi.StringPtrOutput)
+}
+
+// The extended location.
+func (o VirtualMachineOutput) ExtendedLocation() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *VirtualMachine) ExtendedLocationResponseOutput { return v.ExtendedLocation }).(ExtendedLocationResponseOutput)
+}
+
+// Gets or sets the generation for the vm.
+func (o VirtualMachineOutput) Generation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.IntPtrOutput { return v.Generation }).(pulumi.IntPtrOutput)
+}
+
+// Hardware properties.
+func (o VirtualMachineOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// Gets or sets the inventory Item ID for the resource.
+func (o VirtualMachineOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o VirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o VirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network properties.
+func (o VirtualMachineOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// OS properties.
+func (o VirtualMachineOutput) OsProfile() OsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) OsProfileResponsePtrOutput { return v.OsProfile }).(OsProfileResponsePtrOutput)
+}
+
+// Gets the power state of the virtual machine.
+func (o VirtualMachineOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.PowerState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Storage properties.
+func (o VirtualMachineOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// The system data.
+func (o VirtualMachineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualMachine) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// ARM Id of the template resource to use for deploying the vm.
+func (o VirtualMachineOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Type
+func (o VirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique ID of the virtual machine.
+func (o VirtualMachineOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Uuid }).(pulumi.StringPtrOutput)
+}
+
+// VMName is the name of VM on the SCVMM server.
+func (o VirtualMachineOutput) VmName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.VmName }).(pulumi.StringPtrOutput)
+}
+
+// ARM Id of the vmmServer resource in which this resource resides.
+func (o VirtualMachineOutput) VmmServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.VmmServerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

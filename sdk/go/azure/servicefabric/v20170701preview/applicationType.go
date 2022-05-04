@@ -158,6 +158,26 @@ func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Co
 	return o
 }
 
+// Azure resource location.
+func (o ApplicationTypeOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response.
+func (o ApplicationTypeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure resource type.
+func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 }

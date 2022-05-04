@@ -412,6 +412,15 @@ type EligibleAuthorizationArgs struct {
 	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
 }
 
+// Defaults sets the appropriate defaults for EligibleAuthorizationArgs
+func (val *EligibleAuthorizationArgs) Defaults() *EligibleAuthorizationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (EligibleAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*EligibleAuthorization)(nil)).Elem()
 }
@@ -629,6 +638,20 @@ type JustInTimeAccessPolicyArgs struct {
 	MultiFactorAuthProvider pulumi.StringInput `pulumi:"multiFactorAuthProvider"`
 }
 
+// Defaults sets the appropriate defaults for JustInTimeAccessPolicyArgs
+func (val *JustInTimeAccessPolicyArgs) Defaults() *JustInTimeAccessPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaximumActivationDuration) {
+		tmp.MaximumActivationDuration = pulumi.StringPtr("PT8H")
+	}
+	if isZero(tmp.MultiFactorAuthProvider) {
+		tmp.MultiFactorAuthProvider = pulumi.String("None")
+	}
+	return &tmp
+}
 func (JustInTimeAccessPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*JustInTimeAccessPolicy)(nil)).Elem()
 }

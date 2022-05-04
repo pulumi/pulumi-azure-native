@@ -186,6 +186,61 @@ func (o AlertRuleOutput) ToAlertRuleOutputWithContext(ctx context.Context) Alert
 	return o
 }
 
+// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+func (o AlertRuleOutput) Action() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.AnyOutput { return v.Action }).(pulumi.AnyOutput)
+}
+
+// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+func (o AlertRuleOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.ArrayOutput { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+// the condition that results in the alert rule being activated.
+func (o AlertRuleOutput) Condition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.AnyOutput { return v.Condition }).(pulumi.AnyOutput)
+}
+
+// the description of the alert rule that will be included in the alert email.
+func (o AlertRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// the flag that indicates whether the alert rule is enabled.
+func (o AlertRuleOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Last time the rule was updated in ISO8601 format.
+func (o AlertRuleOutput) LastUpdatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o AlertRuleOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the provisioning state.
+func (o AlertRuleOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o AlertRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o AlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertRuleOutput{})
 }

@@ -185,6 +185,51 @@ func (o VirtualNetworkResourceOutput) ToVirtualNetworkResourceOutputWithContext(
 	return o
 }
 
+// The allowed subnets of the virtual network.
+func (o VirtualNetworkResourceOutput) AllowedSubnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) SubnetResponseArrayOutput { return v.AllowedSubnets }).(SubnetResponseArrayOutput)
+}
+
+// The description of the virtual network.
+func (o VirtualNetworkResourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft.Network resource identifier of the virtual network.
+func (o VirtualNetworkResourceOutput) ExternalProviderResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.ExternalProviderResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o VirtualNetworkResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o VirtualNetworkResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o VirtualNetworkResourceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The subnet overrides of the virtual network.
+func (o VirtualNetworkResourceOutput) SubnetOverrides() SubnetOverrideResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) SubnetOverrideResponseArrayOutput { return v.SubnetOverrides }).(SubnetOverrideResponseArrayOutput)
+}
+
+// The tags of the resource.
+func (o VirtualNetworkResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o VirtualNetworkResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkResource) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkResourceOutput{})
 }

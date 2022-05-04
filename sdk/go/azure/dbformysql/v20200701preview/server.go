@@ -248,6 +248,131 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+func (o ServerOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// availability Zone information of the server.
+func (o ServerOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// Status showing whether the data encryption is enabled with customer-managed keys.
+func (o ServerOutput) ByokEnforcement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ByokEnforcement }).(pulumi.StringOutput)
+}
+
+// Delegated subnet arguments.
+func (o ServerOutput) DelegatedSubnetArguments() DelegatedSubnetArgumentsResponsePtrOutput {
+	return o.ApplyT(func(v *Server) DelegatedSubnetArgumentsResponsePtrOutput { return v.DelegatedSubnetArguments }).(DelegatedSubnetArgumentsResponsePtrOutput)
+}
+
+// Earliest restore point creation time (ISO8601 format)
+func (o ServerOutput) EarliestRestoreDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.EarliestRestoreDate }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name of a server.
+func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// Enable HA or not for a server.
+func (o ServerOutput) HaEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.HaEnabled }).(pulumi.StringPtrOutput)
+}
+
+// The state of a HA server.
+func (o ServerOutput) HaState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.HaState }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory identity of the server.
+func (o ServerOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Server) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance window of a server.
+func (o ServerOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v *Server) MaintenanceWindowResponsePtrOutput { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// private dns zone arguments.
+func (o ServerOutput) PrivateDnsZoneArguments() PrivateDnsZoneArgumentsResponsePtrOutput {
+	return o.ApplyT(func(v *Server) PrivateDnsZoneArgumentsResponsePtrOutput { return v.PrivateDnsZoneArguments }).(PrivateDnsZoneArgumentsResponsePtrOutput)
+}
+
+// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+func (o ServerOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// The maximum number of replicas that a primary server can have.
+func (o ServerOutput) ReplicaCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v *Server) pulumi.IntOutput { return v.ReplicaCapacity }).(pulumi.IntOutput)
+}
+
+// The replication role.
+func (o ServerOutput) ReplicationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ReplicationRole }).(pulumi.StringPtrOutput)
+}
+
+// The SKU (pricing tier) of the server.
+func (o ServerOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Server) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The source MySQL server id.
+func (o ServerOutput) SourceServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SourceServerId }).(pulumi.StringPtrOutput)
+}
+
+// Enable ssl enforcement or not when connect to server.
+func (o ServerOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SslEnforcement }).(pulumi.StringPtrOutput)
+}
+
+// availability Zone information of the server.
+func (o ServerOutput) StandbyAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.StandbyAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// The state of a server.
+func (o ServerOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Storage profile of a server.
+func (o ServerOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Server) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Server version.
+func (o ServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
 }

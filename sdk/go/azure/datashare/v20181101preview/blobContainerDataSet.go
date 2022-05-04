@@ -197,6 +197,47 @@ func (o BlobContainerDataSetOutput) ToBlobContainerDataSetOutputWithContext(ctx 
 	return o
 }
 
+// BLOB Container name.
+func (o BlobContainerDataSetOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Unique id for identifying a data set resource
+func (o BlobContainerDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'Container'.
+func (o BlobContainerDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o BlobContainerDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account
+func (o BlobContainerDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set
+func (o BlobContainerDataSetOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account
+func (o BlobContainerDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o BlobContainerDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobContainerDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobContainerDataSetOutput{})
 }

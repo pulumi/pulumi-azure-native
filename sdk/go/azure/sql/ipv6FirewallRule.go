@@ -147,6 +147,26 @@ func (o IPv6FirewallRuleOutput) ToIPv6FirewallRuleOutputWithContext(ctx context.
 	return o
 }
 
+// The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
+func (o IPv6FirewallRuleOutput) EndIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPv6FirewallRule) pulumi.StringPtrOutput { return v.EndIPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o IPv6FirewallRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPv6FirewallRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The start IP address of the firewall rule. Must be IPv6 format.
+func (o IPv6FirewallRuleOutput) StartIPv6Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPv6FirewallRule) pulumi.StringPtrOutput { return v.StartIPv6Address }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o IPv6FirewallRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPv6FirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IPv6FirewallRuleOutput{})
 }

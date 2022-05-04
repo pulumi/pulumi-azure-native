@@ -271,6 +271,46 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o RouteTableOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o RouteTableOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o RouteTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o RouteTableOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Collection of routes contained within a route table.
+func (o RouteTableOutput) Routes() RouteResponseArrayOutput {
+	return o.ApplyT(func(v *RouteTable) RouteResponseArrayOutput { return v.Routes }).(RouteResponseArrayOutput)
+}
+
+// A collection of references to subnets.
+func (o RouteTableOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *RouteTable) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags.
+func (o RouteTableOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o RouteTableOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteTableOutput{})
 }

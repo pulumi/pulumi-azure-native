@@ -147,6 +147,51 @@ func (o DnsForwardingRulesetOutput) ToDnsForwardingRulesetOutputWithContext(ctx 
 	return o
 }
 
+// The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
+func (o DnsForwardingRulesetOutput) DnsResolverOutboundEndpoints() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) SubResourceResponseArrayOutput { return v.DnsResolverOutboundEndpoints }).(SubResourceResponseArrayOutput)
+}
+
+// ETag of the DNS forwarding ruleset.
+func (o DnsForwardingRulesetOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o DnsForwardingRulesetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DnsForwardingRulesetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the DNS forwarding ruleset. This is a read-only property and any attempt to set this value will be ignored.
+func (o DnsForwardingRulesetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resourceGuid for the DNS forwarding ruleset.
+func (o DnsForwardingRulesetOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DnsForwardingRulesetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DnsForwardingRulesetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DnsForwardingRulesetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsForwardingRuleset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DnsForwardingRulesetOutput{})
 }

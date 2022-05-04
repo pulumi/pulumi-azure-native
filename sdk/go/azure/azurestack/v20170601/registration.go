@@ -149,6 +149,46 @@ func (o RegistrationOutput) ToRegistrationOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Specifies the billing mode for the Azure Stack registration.
+func (o RegistrationOutput) BillingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.BillingModel }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the registered Azure Stack.
+func (o RegistrationOutput) CloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.CloudId }).(pulumi.StringPtrOutput)
+}
+
+// The entity tag used for optimistic concurrency when modifying the resource.
+func (o RegistrationOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Location of the resource.
+func (o RegistrationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o RegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The object identifier associated with the Azure Stack connecting to Azure.
+func (o RegistrationOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringPtrOutput { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Custom tags for the resource.
+func (o RegistrationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of Resource.
+func (o RegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistrationOutput{})
 }

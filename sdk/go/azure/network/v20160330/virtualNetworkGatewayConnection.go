@@ -338,6 +338,107 @@ func (o VirtualNetworkGatewayConnectionOutput) ToVirtualNetworkGatewayConnection
 	return o
 }
 
+// The authorizationKey.
+func (o VirtualNetworkGatewayConnectionOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Virtual network Gateway connection status
+func (o VirtualNetworkGatewayConnectionOutput) ConnectionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ConnectionStatus }).(pulumi.StringPtrOutput)
+}
+
+// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+func (o VirtualNetworkGatewayConnectionOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ConnectionType }).(pulumi.StringPtrOutput)
+}
+
+// The Egress Bytes Transferred in this connection
+func (o VirtualNetworkGatewayConnectionOutput) EgressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.Float64PtrOutput { return v.EgressBytesTransferred }).(pulumi.Float64PtrOutput)
+}
+
+// EnableBgp Flag
+func (o VirtualNetworkGatewayConnectionOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.BoolPtrOutput { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o VirtualNetworkGatewayConnectionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Ingress Bytes Transferred in this connection
+func (o VirtualNetworkGatewayConnectionOutput) IngressBytesTransferred() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.Float64PtrOutput { return v.IngressBytesTransferred }).(pulumi.Float64PtrOutput)
+}
+
+// A common class for general resource information
+func (o VirtualNetworkGatewayConnectionOutput) LocalNetworkGateway2() LocalNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) LocalNetworkGatewayResponsePtrOutput {
+		return v.LocalNetworkGateway2
+	}).(LocalNetworkGatewayResponsePtrOutput)
+}
+
+// Resource location
+func (o VirtualNetworkGatewayConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o VirtualNetworkGatewayConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The reference to peerings resource.
+func (o VirtualNetworkGatewayConnectionOutput) Peer() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) SubResourceResponsePtrOutput { return v.Peer }).(SubResourceResponsePtrOutput)
+}
+
+// Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+func (o VirtualNetworkGatewayConnectionOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource GUID property of the VirtualNetworkGatewayConnection resource
+func (o VirtualNetworkGatewayConnectionOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// The Routing weight.
+func (o VirtualNetworkGatewayConnectionOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.IntPtrOutput { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+// The IPsec share key.
+func (o VirtualNetworkGatewayConnectionOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringPtrOutput { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o VirtualNetworkGatewayConnectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o VirtualNetworkGatewayConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A common class for general resource information
+func (o VirtualNetworkGatewayConnectionOutput) VirtualNetworkGateway1() VirtualNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayResponsePtrOutput {
+		return v.VirtualNetworkGateway1
+	}).(VirtualNetworkGatewayResponsePtrOutput)
+}
+
+// A common class for general resource information
+func (o VirtualNetworkGatewayConnectionOutput) VirtualNetworkGateway2() VirtualNetworkGatewayResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGatewayConnection) VirtualNetworkGatewayResponsePtrOutput {
+		return v.VirtualNetworkGateway2
+	}).(VirtualNetworkGatewayResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkGatewayConnectionOutput{})
 }

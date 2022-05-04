@@ -188,6 +188,31 @@ func (o VirtualHubRouteTableV2Output) ToVirtualHubRouteTableV2OutputWithContext(
 	return o
 }
 
+// List of all connections attached to this route table v2.
+func (o VirtualHubRouteTableV2Output) AttachedConnections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualHubRouteTableV2) pulumi.StringArrayOutput { return v.AttachedConnections }).(pulumi.StringArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualHubRouteTableV2Output) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubRouteTableV2) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o VirtualHubRouteTableV2Output) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHubRouteTableV2) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the virtual hub route table v2 resource.
+func (o VirtualHubRouteTableV2Output) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubRouteTableV2) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of all routes.
+func (o VirtualHubRouteTableV2Output) Routes() VirtualHubRouteV2ResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualHubRouteTableV2) VirtualHubRouteV2ResponseArrayOutput { return v.Routes }).(VirtualHubRouteV2ResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubRouteTableV2Output{})
 }

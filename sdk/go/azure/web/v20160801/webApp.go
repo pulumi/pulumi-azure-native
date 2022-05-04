@@ -317,6 +317,190 @@ func (o WebAppOutput) ToWebAppOutputWithContext(ctx context.Context) WebAppOutpu
 	return o
 }
 
+// Management information availability state for the app.
+func (o WebAppOutput) AvailabilityState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.AvailabilityState }).(pulumi.StringOutput)
+}
+
+// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+func (o WebAppOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.ClientAffinityEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+func (o WebAppOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Size of the function container.
+func (o WebAppOutput) ContainerSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.IntPtrOutput { return v.ContainerSize }).(pulumi.IntPtrOutput)
+}
+
+// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+func (o WebAppOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.IntPtrOutput { return v.DailyMemoryTimeQuota }).(pulumi.IntPtrOutput)
+}
+
+// Default hostname of the app. Read-only.
+func (o WebAppOutput) DefaultHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.DefaultHostName }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+func (o WebAppOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+// the app is not served on those hostnames.
+func (o WebAppOutput) EnabledHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringArrayOutput { return v.EnabledHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+func (o WebAppOutput) HostNameSslStates() HostNameSslStateResponseArrayOutput {
+	return o.ApplyT(func(v *WebApp) HostNameSslStateResponseArrayOutput { return v.HostNameSslStates }).(HostNameSslStateResponseArrayOutput)
+}
+
+// Hostnames associated with the app.
+func (o WebAppOutput) HostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringArrayOutput { return v.HostNames }).(pulumi.StringArrayOutput)
+}
+
+// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+//  If <code>true</code>, the app is only accessible via API management process.
+func (o WebAppOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// App Service Environment to use for the app.
+func (o WebAppOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *WebApp) HostingEnvironmentProfileResponsePtrOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponsePtrOutput)
+}
+
+// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+// http requests
+func (o WebAppOutput) HttpsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Managed service identity.
+func (o WebAppOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *WebApp) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// <code>true</code> if the app is a default container; otherwise, <code>false</code>.
+func (o WebAppOutput) IsDefaultContainer() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolOutput { return v.IsDefaultContainer }).(pulumi.BoolOutput)
+}
+
+// Kind of resource.
+func (o WebAppOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Last time the app was modified, in UTC. Read-only.
+func (o WebAppOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o WebAppOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of workers.
+// This only applies to Functions container.
+func (o WebAppOutput) MaxNumberOfWorkers() pulumi.IntOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.IntOutput { return v.MaxNumberOfWorkers }).(pulumi.IntOutput)
+}
+
+// Resource Name.
+func (o WebAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
+func (o WebAppOutput) OutboundIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.OutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants. Read-only.
+func (o WebAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
+}
+
+// Name of the repository site.
+func (o WebAppOutput) RepositorySiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.RepositorySiteName }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if reserved; otherwise, <code>false</code>.
+func (o WebAppOutput) Reserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.Reserved }).(pulumi.BoolPtrOutput)
+}
+
+// Name of the resource group the app belongs to. Read-only.
+func (o WebAppOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+func (o WebAppOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.BoolPtrOutput { return v.ScmSiteAlsoStopped }).(pulumi.BoolPtrOutput)
+}
+
+// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+func (o WebAppOutput) ServerFarmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.ServerFarmId }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of the app.
+func (o WebAppOutput) SiteConfig() SiteConfigResponsePtrOutput {
+	return o.ApplyT(func(v *WebApp) SiteConfigResponsePtrOutput { return v.SiteConfig }).(SiteConfigResponsePtrOutput)
+}
+
+// Status of the last deployment slot swap operation.
+func (o WebAppOutput) SlotSwapStatus() SlotSwapStatusResponseOutput {
+	return o.ApplyT(func(v *WebApp) SlotSwapStatusResponseOutput { return v.SlotSwapStatus }).(SlotSwapStatusResponseOutput)
+}
+
+// Current state of the app.
+func (o WebAppOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// App suspended till in case memory-time quota is exceeded.
+func (o WebAppOutput) SuspendedTill() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.SuspendedTill }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o WebAppOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies which deployment slot this app will swap into. Read-only.
+func (o WebAppOutput) TargetSwapSlot() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.TargetSwapSlot }).(pulumi.StringOutput)
+}
+
+// Azure Traffic Manager hostnames associated with the app. Read-only.
+func (o WebAppOutput) TrafficManagerHostNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringArrayOutput { return v.TrafficManagerHostNames }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o WebAppOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// State indicating whether the app has exceeded its quota usage. Read-only.
+func (o WebAppOutput) UsageState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.UsageState }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppOutput{})
 }

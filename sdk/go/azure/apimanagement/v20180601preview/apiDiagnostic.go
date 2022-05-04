@@ -206,6 +206,46 @@ func (o ApiDiagnosticOutput) ToApiDiagnosticOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies for what type of messages sampling settings should not apply.
+func (o ApiDiagnosticOutput) AlwaysLog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringPtrOutput { return v.AlwaysLog }).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+func (o ApiDiagnosticOutput) Backend() PipelineDiagnosticSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) PipelineDiagnosticSettingsResponsePtrOutput { return v.Backend }).(PipelineDiagnosticSettingsResponsePtrOutput)
+}
+
+// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+func (o ApiDiagnosticOutput) EnableHttpCorrelationHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.BoolPtrOutput { return v.EnableHttpCorrelationHeaders }).(pulumi.BoolPtrOutput)
+}
+
+// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+func (o ApiDiagnosticOutput) Frontend() PipelineDiagnosticSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) PipelineDiagnosticSettingsResponsePtrOutput { return v.Frontend }).(PipelineDiagnosticSettingsResponsePtrOutput)
+}
+
+// Resource Id of a target logger.
+func (o ApiDiagnosticOutput) LoggerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.LoggerId }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ApiDiagnosticOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sampling settings for Diagnostic.
+func (o ApiDiagnosticOutput) Sampling() SamplingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) SamplingSettingsResponsePtrOutput { return v.Sampling }).(SamplingSettingsResponsePtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o ApiDiagnosticOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiDiagnostic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiDiagnosticOutput{})
 }

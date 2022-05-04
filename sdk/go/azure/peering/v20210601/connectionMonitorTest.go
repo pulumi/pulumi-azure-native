@@ -160,6 +160,51 @@ func (o ConnectionMonitorTestOutput) ToConnectionMonitorTestOutputWithContext(ct
 	return o
 }
 
+// The Connection Monitor test destination
+func (o ConnectionMonitorTestOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringPtrOutput { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// The Connection Monitor test destination port
+func (o ConnectionMonitorTestOutput) DestinationPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
+}
+
+// The flag that indicates if the Connection Monitor test is successful or not.
+func (o ConnectionMonitorTestOutput) IsTestSuccessful() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.BoolOutput { return v.IsTestSuccessful }).(pulumi.BoolOutput)
+}
+
+// The name of the resource.
+func (o ConnectionMonitorTestOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path representing the Connection Monitor test.
+func (o ConnectionMonitorTestOutput) Path() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringArrayOutput { return v.Path }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state of the resource.
+func (o ConnectionMonitorTestOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The Connection Monitor test source agent
+func (o ConnectionMonitorTestOutput) SourceAgent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringPtrOutput { return v.SourceAgent }).(pulumi.StringPtrOutput)
+}
+
+// The Connection Monitor test frequency in seconds
+func (o ConnectionMonitorTestOutput) TestFrequencyInSec() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.IntPtrOutput { return v.TestFrequencyInSec }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource.
+func (o ConnectionMonitorTestOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionMonitorTest) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectionMonitorTestOutput{})
 }

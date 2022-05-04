@@ -183,6 +183,31 @@ func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutputWithCont
 	return o
 }
 
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o MaintenanceConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Time slots on which upgrade is not allowed.
+func (o MaintenanceConfigurationOutput) NotAllowedTime() TimeSpanResponseArrayOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) TimeSpanResponseArrayOutput { return v.NotAllowedTime }).(TimeSpanResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o MaintenanceConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
+func (o MaintenanceConfigurationOutput) TimeInWeek() TimeInWeekResponseArrayOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) TimeInWeekResponseArrayOutput { return v.TimeInWeek }).(TimeInWeekResponseArrayOutput)
+}
+
+// Resource type
+func (o MaintenanceConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MaintenanceConfigurationOutput{})
 }

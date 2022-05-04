@@ -173,6 +173,39 @@ func (o SynapseWorkspaceSqlPoolTableDataSetOutput) ToSynapseWorkspaceSqlPoolTabl
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'SynapseWorkspaceSqlPoolTable'.
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource id of the Synapse Workspace SQL Pool Table
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) SynapseWorkspaceSqlPoolTableResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) pulumi.StringOutput {
+		return v.SynapseWorkspaceSqlPoolTableResourceId
+	}).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o SynapseWorkspaceSqlPoolTableDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SynapseWorkspaceSqlPoolTableDataSetOutput{})
 }

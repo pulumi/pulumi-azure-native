@@ -135,6 +135,30 @@ func (o RuleSetOutput) ToRuleSetOutputWithContext(ctx context.Context) RuleSetOu
 	return o
 }
 
+func (o RuleSetOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o RuleSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o RuleSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o RuleSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RuleSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o RuleSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RuleSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RuleSetOutput{})
 }

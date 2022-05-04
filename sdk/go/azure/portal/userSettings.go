@@ -119,6 +119,11 @@ func (o UserSettingsOutput) ToUserSettingsOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The cloud shell user settings properties.
+func (o UserSettingsOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v *UserSettings) UserPropertiesResponseOutput { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserSettingsOutput{})
 }

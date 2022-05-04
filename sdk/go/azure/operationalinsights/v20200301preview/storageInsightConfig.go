@@ -168,6 +168,46 @@ func (o StorageInsightConfigOutput) ToStorageInsightConfigOutputWithContext(ctx 
 	return o
 }
 
+// The names of the blob containers that the workspace should read
+func (o StorageInsightConfigOutput) Containers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringArrayOutput { return v.Containers }).(pulumi.StringArrayOutput)
+}
+
+// The ETag of the storage insight.
+func (o StorageInsightConfigOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o StorageInsightConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the storage insight
+func (o StorageInsightConfigOutput) Status() StorageInsightStatusResponseOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) StorageInsightStatusResponseOutput { return v.Status }).(StorageInsightStatusResponseOutput)
+}
+
+// The storage account connection details
+func (o StorageInsightConfigOutput) StorageAccount() StorageAccountResponseOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) StorageAccountResponseOutput { return v.StorageAccount }).(StorageAccountResponseOutput)
+}
+
+// The names of the Azure tables that the workspace should read
+func (o StorageInsightConfigOutput) Tables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringArrayOutput { return v.Tables }).(pulumi.StringArrayOutput)
+}
+
+// Resource tags.
+func (o StorageInsightConfigOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o StorageInsightConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageInsightConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageInsightConfigOutput{})
 }

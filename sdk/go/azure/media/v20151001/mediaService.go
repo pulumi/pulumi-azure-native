@@ -158,6 +158,36 @@ func (o MediaServiceOutput) ToMediaServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+func (o MediaServiceOutput) ApiEndpoints() ApiEndpointResponseArrayOutput {
+	return o.ApplyT(func(v *MediaService) ApiEndpointResponseArrayOutput { return v.ApiEndpoints }).(ApiEndpointResponseArrayOutput)
+}
+
+// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
+func (o MediaServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o MediaServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The storage accounts for this resource.
+func (o MediaServiceOutput) StorageAccounts() StorageAccountResponseArrayOutput {
+	return o.ApplyT(func(v *MediaService) StorageAccountResponseArrayOutput { return v.StorageAccounts }).(StorageAccountResponseArrayOutput)
+}
+
+// Tags to help categorize the resource in the Azure portal.
+func (o MediaServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource
+func (o MediaServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MediaServiceOutput{})
 }

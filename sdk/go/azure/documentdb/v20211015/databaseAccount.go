@@ -400,6 +400,215 @@ func (o DatabaseAccountOutput) ToDatabaseAccountOutputWithContext(ctx context.Co
 	return o
 }
 
+// Analytical storage specific properties.
+func (o DatabaseAccountOutput) AnalyticalStorageConfiguration() AnalyticalStorageConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) AnalyticalStorageConfigurationResponsePtrOutput {
+		return v.AnalyticalStorageConfiguration
+	}).(AnalyticalStorageConfigurationResponsePtrOutput)
+}
+
+// API specific properties.
+func (o DatabaseAccountOutput) ApiProperties() ApiPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) ApiPropertiesResponsePtrOutput { return v.ApiProperties }).(ApiPropertiesResponsePtrOutput)
+}
+
+// The object representing the policy for taking backups on an account.
+func (o DatabaseAccountOutput) BackupPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.AnyOutput { return v.BackupPolicy }).(pulumi.AnyOutput)
+}
+
+// List of Cosmos DB capabilities for the account
+func (o DatabaseAccountOutput) Capabilities() CapabilityResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) CapabilityResponseArrayOutput { return v.Capabilities }).(CapabilityResponseArrayOutput)
+}
+
+// The object that represents all properties related to capacity enforcement on an account.
+func (o DatabaseAccountOutput) Capacity() CapacityResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) CapacityResponsePtrOutput { return v.Capacity }).(CapacityResponsePtrOutput)
+}
+
+// The cassandra connector offer type for the Cosmos DB database C* account.
+func (o DatabaseAccountOutput) ConnectorOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.ConnectorOffer }).(pulumi.StringPtrOutput)
+}
+
+// The consistency policy for the Cosmos DB database account.
+func (o DatabaseAccountOutput) ConsistencyPolicy() ConsistencyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) ConsistencyPolicyResponsePtrOutput { return v.ConsistencyPolicy }).(ConsistencyPolicyResponsePtrOutput)
+}
+
+// The CORS policy for the Cosmos DB database account.
+func (o DatabaseAccountOutput) Cors() CorsPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) CorsPolicyResponseArrayOutput { return v.Cors }).(CorsPolicyResponseArrayOutput)
+}
+
+// Enum to indicate the mode of account creation.
+func (o DatabaseAccountOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.CreateMode }).(pulumi.StringPtrOutput)
+}
+
+// The offer type for the Cosmos DB database account. Default value: Standard.
+func (o DatabaseAccountOutput) DatabaseAccountOfferType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.DatabaseAccountOfferType }).(pulumi.StringOutput)
+}
+
+// The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
+func (o DatabaseAccountOutput) DefaultIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.DefaultIdentity }).(pulumi.StringPtrOutput)
+}
+
+// Disable write operations on metadata resources (databases, containers, throughput) via account keys
+func (o DatabaseAccountOutput) DisableKeyBasedMetadataWriteAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.DisableKeyBasedMetadataWriteAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o DatabaseAccountOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+// The connection endpoint for the Cosmos DB database account.
+func (o DatabaseAccountOutput) DocumentEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.DocumentEndpoint }).(pulumi.StringOutput)
+}
+
+// Flag to indicate whether to enable storage analytics.
+func (o DatabaseAccountOutput) EnableAnalyticalStorage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.EnableAnalyticalStorage }).(pulumi.BoolPtrOutput)
+}
+
+// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+func (o DatabaseAccountOutput) EnableAutomaticFailover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.EnableAutomaticFailover }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the cassandra connector on the Cosmos DB C* account
+func (o DatabaseAccountOutput) EnableCassandraConnector() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.EnableCassandraConnector }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether Free Tier is enabled.
+func (o DatabaseAccountOutput) EnableFreeTier() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.EnableFreeTier }).(pulumi.BoolPtrOutput)
+}
+
+// Enables the account to write in multiple locations
+func (o DatabaseAccountOutput) EnableMultipleWriteLocations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.EnableMultipleWriteLocations }).(pulumi.BoolPtrOutput)
+}
+
+// An array that contains the regions ordered by their failover priorities.
+func (o DatabaseAccountOutput) FailoverPolicies() FailoverPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) FailoverPolicyResponseArrayOutput { return v.FailoverPolicies }).(FailoverPolicyResponseArrayOutput)
+}
+
+// Identity for the resource.
+func (o DatabaseAccountOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// A unique identifier assigned to the database account
+func (o DatabaseAccountOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// List of IpRules.
+func (o DatabaseAccountOutput) IpRules() IpAddressOrRangeResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) IpAddressOrRangeResponseArrayOutput { return v.IpRules }).(IpAddressOrRangeResponseArrayOutput)
+}
+
+// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+func (o DatabaseAccountOutput) IsVirtualNetworkFilterEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.BoolPtrOutput { return v.IsVirtualNetworkFilterEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The URI of the key vault
+func (o DatabaseAccountOutput) KeyVaultKeyUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.KeyVaultKeyUri }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of database account. This can only be set at database account creation.
+func (o DatabaseAccountOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o DatabaseAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains all of the locations enabled for the Cosmos DB account.
+func (o DatabaseAccountOutput) Locations() LocationResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) LocationResponseArrayOutput { return v.Locations }).(LocationResponseArrayOutput)
+}
+
+// The name of the ARM resource.
+func (o DatabaseAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates what services are allowed to bypass firewall checks.
+func (o DatabaseAccountOutput) NetworkAclBypass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.NetworkAclBypass }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
+func (o DatabaseAccountOutput) NetworkAclBypassResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringArrayOutput { return v.NetworkAclBypassResourceIds }).(pulumi.StringArrayOutput)
+}
+
+// List of Private Endpoint Connections configured for the Cosmos DB account.
+func (o DatabaseAccountOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+func (o DatabaseAccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether requests from Public Network are allowed
+func (o DatabaseAccountOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// An array that contains of the read locations enabled for the Cosmos DB account.
+func (o DatabaseAccountOutput) ReadLocations() LocationResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) LocationResponseArrayOutput { return v.ReadLocations }).(LocationResponseArrayOutput)
+}
+
+// Parameters to indicate the information about the restore.
+func (o DatabaseAccountOutput) RestoreParameters() RestoreParametersResponsePtrOutput {
+	return o.ApplyT(func(v *DatabaseAccount) RestoreParametersResponsePtrOutput { return v.RestoreParameters }).(RestoreParametersResponsePtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o DatabaseAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DatabaseAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o DatabaseAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o DatabaseAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of Virtual Network ACL rules configured for the Cosmos DB account.
+func (o DatabaseAccountOutput) VirtualNetworkRules() VirtualNetworkRuleResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) VirtualNetworkRuleResponseArrayOutput { return v.VirtualNetworkRules }).(VirtualNetworkRuleResponseArrayOutput)
+}
+
+// An array that contains the write location for the Cosmos DB account.
+func (o DatabaseAccountOutput) WriteLocations() LocationResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccount) LocationResponseArrayOutput { return v.WriteLocations }).(LocationResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAccountOutput{})
 }

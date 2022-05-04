@@ -185,6 +185,71 @@ func (o MobileNetworkOutput) ToMobileNetworkOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o MobileNetworkOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o MobileNetworkOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o MobileNetworkOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o MobileNetworkOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o MobileNetworkOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o MobileNetworkOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o MobileNetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MobileNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the mobile network resource.
+func (o MobileNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The unique public land mobile network identifier for the network. This is made up of the Mobile Country Code and Mobile Network Code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+func (o MobileNetworkOutput) PublicLandMobileNetworkIdentifier() PlmnIdResponseOutput {
+	return o.ApplyT(func(v *MobileNetwork) PlmnIdResponseOutput { return v.PublicLandMobileNetworkIdentifier }).(PlmnIdResponseOutput)
+}
+
+// The mobile network resource identifier
+func (o MobileNetworkOutput) ServiceKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.ServiceKey }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o MobileNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MobileNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MobileNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MobileNetworkOutput{})
 }

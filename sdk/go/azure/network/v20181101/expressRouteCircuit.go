@@ -341,6 +341,110 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx co
 	return o
 }
 
+// Allow classic operations
+func (o ExpressRouteCircuitOutput) AllowClassicOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.AllowClassicOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to enable Global Reach on the circuit.
+func (o ExpressRouteCircuitOutput) AllowGlobalReach() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.BoolPtrOutput { return v.AllowGlobalReach }).(pulumi.BoolPtrOutput)
+}
+
+// The list of authorizations.
+func (o ExpressRouteCircuitOutput) Authorizations() ExpressRouteCircuitAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitAuthorizationResponseArrayOutput {
+		return v.Authorizations
+	}).(ExpressRouteCircuitAuthorizationResponseArrayOutput)
+}
+
+// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+func (o ExpressRouteCircuitOutput) BandwidthInGbps() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.Float64PtrOutput { return v.BandwidthInGbps }).(pulumi.Float64PtrOutput)
+}
+
+// The CircuitProvisioningState state of the resource.
+func (o ExpressRouteCircuitOutput) CircuitProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.CircuitProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o ExpressRouteCircuitOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+func (o ExpressRouteCircuitOutput) ExpressRoutePort() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) SubResourceResponsePtrOutput { return v.ExpressRoutePort }).(SubResourceResponsePtrOutput)
+}
+
+// The GatewayManager Etag.
+func (o ExpressRouteCircuitOutput) GatewayManagerEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.GatewayManagerEtag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ExpressRouteCircuitOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExpressRouteCircuitOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of peerings.
+func (o ExpressRouteCircuitOutput) Peerings() ExpressRouteCircuitPeeringResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitPeeringResponseArrayOutput { return v.Peerings }).(ExpressRouteCircuitPeeringResponseArrayOutput)
+}
+
+// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ExpressRouteCircuitOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The ServiceKey.
+func (o ExpressRouteCircuitOutput) ServiceKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceKey }).(pulumi.StringPtrOutput)
+}
+
+// The ServiceProviderNotes.
+func (o ExpressRouteCircuitOutput) ServiceProviderNotes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceProviderNotes }).(pulumi.StringPtrOutput)
+}
+
+// The ServiceProviderProperties.
+func (o ExpressRouteCircuitOutput) ServiceProviderProperties() ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput {
+		return v.ServiceProviderProperties
+	}).(ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput)
+}
+
+// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+func (o ExpressRouteCircuitOutput) ServiceProviderProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringPtrOutput { return v.ServiceProviderProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The SKU.
+func (o ExpressRouteCircuitOutput) Sku() ExpressRouteCircuitSkuResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) ExpressRouteCircuitSkuResponsePtrOutput { return v.Sku }).(ExpressRouteCircuitSkuResponsePtrOutput)
+}
+
+// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+func (o ExpressRouteCircuitOutput) Stag() pulumi.IntOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.IntOutput { return v.Stag }).(pulumi.IntOutput)
+}
+
+// Resource tags.
+func (o ExpressRouteCircuitOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExpressRouteCircuitOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuit) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitOutput{})
 }

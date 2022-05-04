@@ -139,6 +139,40 @@ func (o HybridRunbookWorkerGroupOutput) ToHybridRunbookWorkerGroupOutputWithCont
 	return o
 }
 
+// Sets the credential of a worker group.
+func (o HybridRunbookWorkerGroupOutput) Credential() RunAsCredentialAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) RunAsCredentialAssociationPropertyResponsePtrOutput {
+		return v.Credential
+	}).(RunAsCredentialAssociationPropertyResponsePtrOutput)
+}
+
+// Type of the HybridWorkerGroup.
+func (o HybridRunbookWorkerGroupOutput) GroupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) pulumi.StringPtrOutput { return v.GroupType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the list of hybrid runbook workers.
+func (o HybridRunbookWorkerGroupOutput) HybridRunbookWorkers() HybridRunbookWorkerLegacyResponseArrayOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) HybridRunbookWorkerLegacyResponseArrayOutput {
+		return v.HybridRunbookWorkers
+	}).(HybridRunbookWorkerLegacyResponseArrayOutput)
+}
+
+// Gets or sets the name of the group.
+func (o HybridRunbookWorkerGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource system metadata.
+func (o HybridRunbookWorkerGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o HybridRunbookWorkerGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridRunbookWorkerGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridRunbookWorkerGroupOutput{})
 }

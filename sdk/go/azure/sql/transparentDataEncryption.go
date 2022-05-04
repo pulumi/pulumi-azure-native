@@ -164,6 +164,26 @@ func (o TransparentDataEncryptionOutput) ToTransparentDataEncryptionOutputWithCo
 	return o
 }
 
+// Resource location.
+func (o TransparentDataEncryptionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransparentDataEncryption) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o TransparentDataEncryptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransparentDataEncryption) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the database transparent data encryption.
+func (o TransparentDataEncryptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransparentDataEncryption) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o TransparentDataEncryptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransparentDataEncryption) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TransparentDataEncryptionOutput{})
 }

@@ -226,6 +226,76 @@ func (o WatchlistItemOutput) ToWatchlistItemOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The time the watchlist item was created
+func (o WatchlistItemOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the watchlist item
+func (o WatchlistItemOutput) CreatedBy() WatchlistUserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) WatchlistUserInfoResponsePtrOutput { return v.CreatedBy }).(WatchlistUserInfoResponsePtrOutput)
+}
+
+// key-value pairs for a watchlist item entity mapping
+func (o WatchlistItemOutput) EntityMapping() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.AnyOutput { return v.EntityMapping }).(pulumi.AnyOutput)
+}
+
+// Etag of the azure resource
+func (o WatchlistItemOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates if the watchlist item is deleted or not
+func (o WatchlistItemOutput) IsDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.BoolPtrOutput { return v.IsDeleted }).(pulumi.BoolPtrOutput)
+}
+
+// key-value pairs for a watchlist item
+func (o WatchlistItemOutput) ItemsKeyValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.AnyOutput { return v.ItemsKeyValue }).(pulumi.AnyOutput)
+}
+
+// Azure resource name
+func (o WatchlistItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o WatchlistItemOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WatchlistItem) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenantId to which the watchlist item belongs to
+func (o WatchlistItemOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o WatchlistItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The last time the watchlist item was updated
+func (o WatchlistItemOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the watchlist item
+func (o WatchlistItemOutput) UpdatedBy() WatchlistUserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) WatchlistUserInfoResponsePtrOutput { return v.UpdatedBy }).(WatchlistUserInfoResponsePtrOutput)
+}
+
+// The id (a Guid) of the watchlist item
+func (o WatchlistItemOutput) WatchlistItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.WatchlistItemId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the watchlist item
+func (o WatchlistItemOutput) WatchlistItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WatchlistItem) pulumi.StringPtrOutput { return v.WatchlistItemType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WatchlistItemOutput{})
 }

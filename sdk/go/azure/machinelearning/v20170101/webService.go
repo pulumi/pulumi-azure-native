@@ -145,6 +145,31 @@ func (o WebServiceOutput) ToWebServiceOutputWithContext(ctx context.Context) Web
 	return o
 }
 
+// Specifies the location of the resource.
+func (o WebServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the resource.
+func (o WebServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Contains the property payload that describes the web service.
+func (o WebServiceOutput) Properties() WebServicePropertiesForGraphResponseOutput {
+	return o.ApplyT(func(v *WebService) WebServicePropertiesForGraphResponseOutput { return v.Properties }).(WebServicePropertiesForGraphResponseOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o WebServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o WebServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebServiceOutput{})
 }

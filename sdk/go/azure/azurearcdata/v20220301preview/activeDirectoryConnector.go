@@ -139,6 +139,28 @@ func (o ActiveDirectoryConnectorOutput) ToActiveDirectoryConnectorOutputWithCont
 	return o
 }
 
+// The name of the resource
+func (o ActiveDirectoryConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// null
+func (o ActiveDirectoryConnectorOutput) Properties() ActiveDirectoryConnectorPropertiesResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnector) ActiveDirectoryConnectorPropertiesResponseOutput {
+		return v.Properties
+	}).(ActiveDirectoryConnectorPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ActiveDirectoryConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ActiveDirectoryConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActiveDirectoryConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActiveDirectoryConnectorOutput{})
 }

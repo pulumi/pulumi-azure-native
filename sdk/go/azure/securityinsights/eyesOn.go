@@ -169,6 +169,37 @@ func (o EyesOnOutput) ToEyesOnOutputWithContext(ctx context.Context) EyesOnOutpu
 	return o
 }
 
+// Etag of the azure resource
+func (o EyesOnOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EyesOn) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o EyesOnOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EyesOn) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// The kind of the setting
+// Expected value is 'EyesOn'.
+func (o EyesOnOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EyesOn) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o EyesOnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EyesOn) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o EyesOnOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EyesOn) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o EyesOnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EyesOn) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EyesOnOutput{})
 }

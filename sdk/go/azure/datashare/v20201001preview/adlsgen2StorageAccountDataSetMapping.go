@@ -209,6 +209,67 @@ func (o ADLSGen2StorageAccountDataSetMappingOutput) ToADLSGen2StorageAccountData
 	return o
 }
 
+// Gets or sets the container name.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The id of the source data set.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to folder within the container.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) Folder() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.Folder }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'AdlsGen2StorageAccount'.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the sink storage account.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the mount path
+func (o ADLSGen2StorageAccountDataSetMappingOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringPtrOutput { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2StorageAccountDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource id of the sink storage account
+func (o ADLSGen2StorageAccountDataSetMappingOutput) StorageAccountResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.StorageAccountResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ADLSGen2StorageAccountDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2StorageAccountDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2StorageAccountDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2StorageAccountDataSetMappingOutput{})
 }

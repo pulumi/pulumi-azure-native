@@ -149,6 +149,36 @@ func (o SignalRCustomDomainOutput) ToSignalRCustomDomainOutputWithContext(ctx co
 	return o
 }
 
+// Reference to a resource.
+func (o SignalRCustomDomainOutput) CustomCertificate() ResourceReferenceResponseOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) ResourceReferenceResponseOutput { return v.CustomCertificate }).(ResourceReferenceResponseOutput)
+}
+
+// The custom domain name.
+func (o SignalRCustomDomainOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o SignalRCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o SignalRCustomDomainOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SignalRCustomDomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+func (o SignalRCustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SignalRCustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SignalRCustomDomainOutput{})
 }

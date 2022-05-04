@@ -145,6 +145,26 @@ func (o ApiPortalCustomDomainOutput) ToApiPortalCustomDomainOutputWithContext(ct
 	return o
 }
 
+// The name of the resource.
+func (o ApiPortalCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPortalCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of custom domain for API portal
+func (o ApiPortalCustomDomainOutput) Properties() ApiPortalCustomDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v *ApiPortalCustomDomain) ApiPortalCustomDomainPropertiesResponseOutput { return v.Properties }).(ApiPortalCustomDomainPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ApiPortalCustomDomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ApiPortalCustomDomain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o ApiPortalCustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiPortalCustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApiPortalCustomDomainOutput{})
 }

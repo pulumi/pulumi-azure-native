@@ -423,6 +423,17 @@ type ExtensionStatusArgs struct {
 	Time pulumi.StringPtrInput `pulumi:"time"`
 }
 
+// Defaults sets the appropriate defaults for ExtensionStatusArgs
+func (val *ExtensionStatusArgs) Defaults() *ExtensionStatusArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		tmp.Level = pulumi.StringPtr("Information")
+	}
+	return &tmp
+}
 func (ExtensionStatusArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExtensionStatus)(nil)).Elem()
 }

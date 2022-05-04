@@ -152,6 +152,36 @@ func (o AlertProcessingRuleByNameOutput) ToAlertProcessingRuleByNameOutputWithCo
 	return o
 }
 
+// Resource location
+func (o AlertProcessingRuleByNameOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AlertProcessingRuleByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Alert processing rule properties.
+func (o AlertProcessingRuleByNameOutput) Properties() AlertProcessingRulePropertiesResponseOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) AlertProcessingRulePropertiesResponseOutput { return v.Properties }).(AlertProcessingRulePropertiesResponseOutput)
+}
+
+// Alert processing rule system data.
+func (o AlertProcessingRuleByNameOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o AlertProcessingRuleByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o AlertProcessingRuleByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AlertProcessingRuleByNameOutput{})
 }

@@ -133,6 +133,22 @@ func (o NotificationRegistrationOutput) ToNotificationRegistrationOutputWithCont
 	return o
 }
 
+// The name of the resource
+func (o NotificationRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o NotificationRegistrationOutput) Properties() NotificationRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v *NotificationRegistration) NotificationRegistrationResponsePropertiesOutput {
+		return v.Properties
+	}).(NotificationRegistrationResponsePropertiesOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o NotificationRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationRegistrationOutput{})
 }

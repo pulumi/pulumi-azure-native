@@ -184,6 +184,49 @@ func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ToSynapseWorkspaceSqlP
 	return o
 }
 
+// The id of the source data set.
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'SynapseWorkspaceSqlPoolTable'.
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource id of the Synapse Workspace SQL Pool Table
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) SynapseWorkspaceSqlPoolTableResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput {
+		return v.SynapseWorkspaceSqlPoolTableResourceId
+	}).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o SynapseWorkspaceSqlPoolTableDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SynapseWorkspaceSqlPoolTableDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SynapseWorkspaceSqlPoolTableDataSetMappingOutput{})
 }

@@ -181,6 +181,51 @@ func (o DataExportOutput) ToDataExportOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
+// The latest data export rule modification time.
+func (o DataExportOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringPtrOutput { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// The data export rule ID.
+func (o DataExportOutput) DataExportId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringPtrOutput { return v.DataExportId }).(pulumi.StringPtrOutput)
+}
+
+// Active when enabled.
+func (o DataExportOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
+func (o DataExportOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringPtrOutput { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// Date and time when the export was last modified.
+func (o DataExportOutput) LastModifiedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringPtrOutput { return v.LastModifiedDate }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o DataExportOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
+func (o DataExportOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+func (o DataExportOutput) TableNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringArrayOutput { return v.TableNames }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o DataExportOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataExport) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataExportOutput{})
 }

@@ -234,6 +234,56 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// Email address.
+func (o UserOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// First name.
+func (o UserOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Collection of groups user is part of.
+func (o UserOutput) Groups() GroupContractPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *User) GroupContractPropertiesResponseArrayOutput { return v.Groups }).(GroupContractPropertiesResponseArrayOutput)
+}
+
+// Collection of user identities.
+func (o UserOutput) Identities() UserIdentityContractResponseArrayOutput {
+	return o.ApplyT(func(v *User) UserIdentityContractResponseArrayOutput { return v.Identities }).(UserIdentityContractResponseArrayOutput)
+}
+
+// Last name.
+func (o UserOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional note about a user set by the administrator.
+func (o UserOutput) Note() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Note }).(pulumi.StringPtrOutput)
+}
+
+// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+func (o UserOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.RegistrationDate }).(pulumi.StringPtrOutput)
+}
+
+// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+func (o UserOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o UserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserOutput{})
 }

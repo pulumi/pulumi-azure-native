@@ -212,6 +212,92 @@ func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutputWithContext(ctx co
 	return o
 }
 
+// List of additional workspaces
+func (o IotSecuritySolutionOutput) AdditionalWorkspaces() AdditionalWorkspacesPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) AdditionalWorkspacesPropertiesResponseArrayOutput {
+		return v.AdditionalWorkspaces
+	}).(AdditionalWorkspacesPropertiesResponseArrayOutput)
+}
+
+// List of resources that were automatically discovered as relevant to the security solution.
+func (o IotSecuritySolutionOutput) AutoDiscoveredResources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringArrayOutput { return v.AutoDiscoveredResources }).(pulumi.StringArrayOutput)
+}
+
+// Disabled data sources. Disabling these data sources compromises the system.
+func (o IotSecuritySolutionOutput) DisabledDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringArrayOutput { return v.DisabledDataSources }).(pulumi.StringArrayOutput)
+}
+
+// Resource display name.
+func (o IotSecuritySolutionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// List of additional options for exporting to workspace data.
+func (o IotSecuritySolutionOutput) Export() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringArrayOutput { return v.Export }).(pulumi.StringArrayOutput)
+}
+
+// IoT Hub resource IDs
+func (o IotSecuritySolutionOutput) IotHubs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringArrayOutput { return v.IotHubs }).(pulumi.StringArrayOutput)
+}
+
+// The resource location.
+func (o IotSecuritySolutionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o IotSecuritySolutionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of the configuration status for each recommendation type.
+func (o IotSecuritySolutionOutput) RecommendationsConfiguration() RecommendationConfigurationPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) RecommendationConfigurationPropertiesResponseArrayOutput {
+		return v.RecommendationsConfiguration
+	}).(RecommendationConfigurationPropertiesResponseArrayOutput)
+}
+
+// Status of the IoT Security solution.
+func (o IotSecuritySolutionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o IotSecuritySolutionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o IotSecuritySolutionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o IotSecuritySolutionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unmasked IP address logging status
+func (o IotSecuritySolutionOutput) UnmaskedIpLoggingStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringPtrOutput { return v.UnmaskedIpLoggingStatus }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the IoT Security solution's user defined resources.
+func (o IotSecuritySolutionOutput) UserDefinedResources() UserDefinedResourcesPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) UserDefinedResourcesPropertiesResponsePtrOutput {
+		return v.UserDefinedResources
+	}).(UserDefinedResourcesPropertiesResponsePtrOutput)
+}
+
+// Workspace resource ID
+func (o IotSecuritySolutionOutput) Workspace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotSecuritySolution) pulumi.StringPtrOutput { return v.Workspace }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotSecuritySolutionOutput{})
 }

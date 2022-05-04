@@ -164,6 +164,56 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// Windows IoT Device Service OEM AAD domain
+func (o ServiceOutput) AdminDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.AdminDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Windows IoT Device Service ODM AAD domain
+func (o ServiceOutput) BillingDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.BillingDomainName }).(pulumi.StringPtrOutput)
+}
+
+// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+func (o ServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Region where the resource lives
+func (o ServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Windows IoT Device Service notes.
+func (o ServiceOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// Windows IoT Device Service device allocation,
+func (o ServiceOutput) Quantity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.Float64PtrOutput { return v.Quantity }).(pulumi.Float64PtrOutput)
+}
+
+// Windows IoT Device Service start date,
+func (o ServiceOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.StartDate }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

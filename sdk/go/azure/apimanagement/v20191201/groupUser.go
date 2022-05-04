@@ -183,6 +183,56 @@ func (o GroupUserOutput) ToGroupUserOutputWithContext(ctx context.Context) Group
 	return o
 }
 
+// Email address.
+func (o GroupUserOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// First name.
+func (o GroupUserOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// Collection of groups user is part of.
+func (o GroupUserOutput) Groups() GroupContractPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *GroupUser) GroupContractPropertiesResponseArrayOutput { return v.Groups }).(GroupContractPropertiesResponseArrayOutput)
+}
+
+// Collection of user identities.
+func (o GroupUserOutput) Identities() UserIdentityContractResponseArrayOutput {
+	return o.ApplyT(func(v *GroupUser) UserIdentityContractResponseArrayOutput { return v.Identities }).(UserIdentityContractResponseArrayOutput)
+}
+
+// Last name.
+func (o GroupUserOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o GroupUserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional note about a user set by the administrator.
+func (o GroupUserOutput) Note() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.Note }).(pulumi.StringPtrOutput)
+}
+
+// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+func (o GroupUserOutput) RegistrationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.RegistrationDate }).(pulumi.StringPtrOutput)
+}
+
+// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+func (o GroupUserOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o GroupUserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupUser) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupUserOutput{})
 }

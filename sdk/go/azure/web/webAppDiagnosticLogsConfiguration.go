@@ -193,6 +193,47 @@ func (o WebAppDiagnosticLogsConfigurationOutput) ToWebAppDiagnosticLogsConfigura
 	return o
 }
 
+// Application logs configuration.
+func (o WebAppDiagnosticLogsConfigurationOutput) ApplicationLogs() ApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) ApplicationLogsConfigResponsePtrOutput {
+		return v.ApplicationLogs
+	}).(ApplicationLogsConfigResponsePtrOutput)
+}
+
+// Detailed error messages configuration.
+func (o WebAppDiagnosticLogsConfigurationOutput) DetailedErrorMessages() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) EnabledConfigResponsePtrOutput {
+		return v.DetailedErrorMessages
+	}).(EnabledConfigResponsePtrOutput)
+}
+
+// Failed requests tracing configuration.
+func (o WebAppDiagnosticLogsConfigurationOutput) FailedRequestsTracing() EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) EnabledConfigResponsePtrOutput {
+		return v.FailedRequestsTracing
+	}).(EnabledConfigResponsePtrOutput)
+}
+
+// HTTP logs configuration.
+func (o WebAppDiagnosticLogsConfigurationOutput) HttpLogs() HttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) HttpLogsConfigResponsePtrOutput { return v.HttpLogs }).(HttpLogsConfigResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppDiagnosticLogsConfigurationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppDiagnosticLogsConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppDiagnosticLogsConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppDiagnosticLogsConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppDiagnosticLogsConfigurationOutput{})
 }

@@ -215,6 +215,46 @@ func (o JobStepOutput) ToJobStepOutputWithContext(ctx context.Context) JobStepOu
 	return o
 }
 
+// The action payload of the job step.
+func (o JobStepOutput) Action() JobStepActionResponseOutput {
+	return o.ApplyT(func(v *JobStep) JobStepActionResponseOutput { return v.Action }).(JobStepActionResponseOutput)
+}
+
+// The resource ID of the job credential that will be used to connect to the targets.
+func (o JobStepOutput) Credential() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.StringOutput { return v.Credential }).(pulumi.StringOutput)
+}
+
+// Execution options for the job step.
+func (o JobStepOutput) ExecutionOptions() JobStepExecutionOptionsResponsePtrOutput {
+	return o.ApplyT(func(v *JobStep) JobStepExecutionOptionsResponsePtrOutput { return v.ExecutionOptions }).(JobStepExecutionOptionsResponsePtrOutput)
+}
+
+// Resource name.
+func (o JobStepOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Output destination properties of the job step.
+func (o JobStepOutput) Output() JobStepOutputResponsePtrOutput {
+	return o.ApplyT(func(v *JobStep) JobStepOutputResponsePtrOutput { return v.Output }).(JobStepOutputResponsePtrOutput)
+}
+
+// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+func (o JobStepOutput) StepId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.IntPtrOutput { return v.StepId }).(pulumi.IntPtrOutput)
+}
+
+// The resource ID of the target group that the job step will be executed on.
+func (o JobStepOutput) TargetGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.StringOutput { return v.TargetGroup }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o JobStepOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobStep) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobStepOutput{})
 }

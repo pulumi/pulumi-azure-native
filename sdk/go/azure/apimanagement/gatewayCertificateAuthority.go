@@ -156,6 +156,21 @@ func (o GatewayCertificateAuthorityOutput) ToGatewayCertificateAuthorityOutputWi
 	return o
 }
 
+// Determines whether certificate authority is trusted.
+func (o GatewayCertificateAuthorityOutput) IsTrusted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.BoolPtrOutput { return v.IsTrusted }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name.
+func (o GatewayCertificateAuthorityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o GatewayCertificateAuthorityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayCertificateAuthority) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayCertificateAuthorityOutput{})
 }

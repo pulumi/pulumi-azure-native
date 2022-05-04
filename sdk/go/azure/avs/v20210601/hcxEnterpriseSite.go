@@ -143,6 +143,26 @@ func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutputWithContext(ctx contex
 	return o
 }
 
+// The activation key
+func (o HcxEnterpriseSiteOutput) ActivationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *HcxEnterpriseSite) pulumi.StringOutput { return v.ActivationKey }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o HcxEnterpriseSiteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HcxEnterpriseSite) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the HCX Enterprise Site
+func (o HcxEnterpriseSiteOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *HcxEnterpriseSite) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o HcxEnterpriseSiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HcxEnterpriseSite) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HcxEnterpriseSiteOutput{})
 }

@@ -132,6 +132,21 @@ func (o ArtifactOutput) ToArtifactOutputWithContext(ctx context.Context) Artifac
 	return o
 }
 
+// Specifies the kind of Blueprint artifact.
+func (o ArtifactOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o ArtifactOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of this resource.
+func (o ArtifactOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Artifact) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ArtifactOutput{})
 }

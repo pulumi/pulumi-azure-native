@@ -164,6 +164,51 @@ func (o ServiceFabricOutput) ToServiceFabricOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The applicable schedule for the virtual machine.
+func (o ServiceFabricOutput) ApplicableSchedule() ApplicableScheduleResponseOutput {
+	return o.ApplyT(func(v *ServiceFabric) ApplicableScheduleResponseOutput { return v.ApplicableSchedule }).(ApplicableScheduleResponseOutput)
+}
+
+// The resource id of the environment under which the service fabric resource is present
+func (o ServiceFabricOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringPtrOutput { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// The backing service fabric resource's id
+func (o ServiceFabricOutput) ExternalServiceFabricId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringPtrOutput { return v.ExternalServiceFabricId }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o ServiceFabricOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceFabricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o ServiceFabricOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o ServiceFabricOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o ServiceFabricOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ServiceFabricOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabric) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceFabricOutput{})
 }

@@ -231,6 +231,62 @@ func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutputWithContext(ctx 
 	return o
 }
 
+// The iot hub consumer group.
+func (o IotHubDataConnectionOutput) ConsumerGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.ConsumerGroup }).(pulumi.StringOutput)
+}
+
+// The data format of the message. Optionally the data format can be added to each message.
+func (o IotHubDataConnectionOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
+// System properties of the iot hub
+func (o IotHubDataConnectionOutput) EventSystemProperties() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringArrayOutput { return v.EventSystemProperties }).(pulumi.StringArrayOutput)
+}
+
+// The resource ID of the Iot hub to be used to create a data connection.
+func (o IotHubDataConnectionOutput) IotHubResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.IotHubResourceId }).(pulumi.StringOutput)
+}
+
+// Kind of the endpoint for the data connection
+// Expected value is 'IotHub'.
+func (o IotHubDataConnectionOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o IotHubDataConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+func (o IotHubDataConnectionOutput) MappingRuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.MappingRuleName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o IotHubDataConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the share access policy
+func (o IotHubDataConnectionOutput) SharedAccessPolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.SharedAccessPolicyName }).(pulumi.StringOutput)
+}
+
+// The table where the data should be ingested. Optionally the table information can be added to each message.
+func (o IotHubDataConnectionOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o IotHubDataConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IotHubDataConnectionOutput{})
 }

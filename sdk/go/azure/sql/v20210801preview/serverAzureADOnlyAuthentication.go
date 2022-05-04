@@ -154,6 +154,21 @@ func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthentication
 	return o
 }
 
+// Azure Active Directory only Authentication enabled.
+func (o ServerAzureADOnlyAuthenticationOutput) AzureADOnlyAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ServerAzureADOnlyAuthentication) pulumi.BoolOutput { return v.AzureADOnlyAuthentication }).(pulumi.BoolOutput)
+}
+
+// Resource name.
+func (o ServerAzureADOnlyAuthenticationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADOnlyAuthentication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerAzureADOnlyAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerAzureADOnlyAuthentication) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerAzureADOnlyAuthenticationOutput{})
 }

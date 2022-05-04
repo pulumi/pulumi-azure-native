@@ -165,6 +165,36 @@ func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx 
 	return o
 }
 
+// Workspace active directory administrator type
+func (o WorkspaceSqlAadAdminOutput) AdministratorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.AdministratorType }).(pulumi.StringPtrOutput)
+}
+
+// Login of the workspace active directory administrator
+func (o WorkspaceSqlAadAdminOutput) Login() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.Login }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o WorkspaceSqlAadAdminOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Object ID of the workspace active directory administrator
+func (o WorkspaceSqlAadAdminOutput) Sid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.Sid }).(pulumi.StringPtrOutput)
+}
+
+// Tenant ID of the workspace active directory administrator
+func (o WorkspaceSqlAadAdminOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o WorkspaceSqlAadAdminOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceSqlAadAdminOutput{})
 }

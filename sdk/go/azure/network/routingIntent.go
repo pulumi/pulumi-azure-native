@@ -149,6 +149,31 @@ func (o RoutingIntentOutput) ToRoutingIntentOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o RoutingIntentOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoutingIntent) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o RoutingIntentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingIntent) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the RoutingIntent resource.
+func (o RoutingIntentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoutingIntent) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of routing policies.
+func (o RoutingIntentOutput) RoutingPolicies() RoutingPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *RoutingIntent) RoutingPolicyResponseArrayOutput { return v.RoutingPolicies }).(RoutingPolicyResponseArrayOutput)
+}
+
+// Resource type.
+func (o RoutingIntentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoutingIntent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoutingIntentOutput{})
 }

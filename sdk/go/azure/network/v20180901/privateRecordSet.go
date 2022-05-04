@@ -206,6 +206,81 @@ func (o PrivateRecordSetOutput) ToPrivateRecordSetOutputWithContext(ctx context.
 	return o
 }
 
+// The list of A records in the record set.
+func (o PrivateRecordSetOutput) ARecords() ARecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) ARecordResponseArrayOutput { return v.ARecords }).(ARecordResponseArrayOutput)
+}
+
+// The list of AAAA records in the record set.
+func (o PrivateRecordSetOutput) AaaaRecords() AaaaRecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) AaaaRecordResponseArrayOutput { return v.AaaaRecords }).(AaaaRecordResponseArrayOutput)
+}
+
+// The CNAME record in the record set.
+func (o PrivateRecordSetOutput) CnameRecord() CnameRecordResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) CnameRecordResponsePtrOutput { return v.CnameRecord }).(CnameRecordResponsePtrOutput)
+}
+
+// The ETag of the record set.
+func (o PrivateRecordSetOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified domain name of the record set.
+func (o PrivateRecordSetOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Is the record set auto-registered in the Private DNS zone through a virtual network link?
+func (o PrivateRecordSetOutput) IsAutoRegistered() pulumi.BoolOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.BoolOutput { return v.IsAutoRegistered }).(pulumi.BoolOutput)
+}
+
+// The metadata attached to the record set.
+func (o PrivateRecordSetOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The list of MX records in the record set.
+func (o PrivateRecordSetOutput) MxRecords() MxRecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) MxRecordResponseArrayOutput { return v.MxRecords }).(MxRecordResponseArrayOutput)
+}
+
+// The name of the resource
+func (o PrivateRecordSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of PTR records in the record set.
+func (o PrivateRecordSetOutput) PtrRecords() PtrRecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) PtrRecordResponseArrayOutput { return v.PtrRecords }).(PtrRecordResponseArrayOutput)
+}
+
+// The SOA record in the record set.
+func (o PrivateRecordSetOutput) SoaRecord() SoaRecordResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) SoaRecordResponsePtrOutput { return v.SoaRecord }).(SoaRecordResponsePtrOutput)
+}
+
+// The list of SRV records in the record set.
+func (o PrivateRecordSetOutput) SrvRecords() SrvRecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) SrvRecordResponseArrayOutput { return v.SrvRecords }).(SrvRecordResponseArrayOutput)
+}
+
+// The TTL (time-to-live) of the records in the record set.
+func (o PrivateRecordSetOutput) Ttl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.Float64PtrOutput { return v.Ttl }).(pulumi.Float64PtrOutput)
+}
+
+// The list of TXT records in the record set.
+func (o PrivateRecordSetOutput) TxtRecords() TxtRecordResponseArrayOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) TxtRecordResponseArrayOutput { return v.TxtRecords }).(TxtRecordResponseArrayOutput)
+}
+
+// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
+func (o PrivateRecordSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateRecordSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateRecordSetOutput{})
 }

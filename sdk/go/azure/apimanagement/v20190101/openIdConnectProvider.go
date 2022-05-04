@@ -205,6 +205,41 @@ func (o OpenIdConnectProviderOutput) ToOpenIdConnectProviderOutputWithContext(ct
 	return o
 }
 
+// Client ID of developer console which is the client application.
+func (o OpenIdConnectProviderOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Client Secret of developer console which is the client application.
+func (o OpenIdConnectProviderOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringPtrOutput { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// User-friendly description of OpenID Connect Provider.
+func (o OpenIdConnectProviderOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// User-friendly OpenID Connect Provider name.
+func (o OpenIdConnectProviderOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Metadata endpoint URI.
+func (o OpenIdConnectProviderOutput) MetadataEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.MetadataEndpoint }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o OpenIdConnectProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type for API Management resource.
+func (o OpenIdConnectProviderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OpenIdConnectProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
 }

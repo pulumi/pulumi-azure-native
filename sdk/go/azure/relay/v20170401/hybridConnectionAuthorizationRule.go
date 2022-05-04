@@ -149,6 +149,21 @@ func (o HybridConnectionAuthorizationRuleOutput) ToHybridConnectionAuthorization
 	return o
 }
 
+// Resource name.
+func (o HybridConnectionAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rights associated with the rule.
+func (o HybridConnectionAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o HybridConnectionAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnectionAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HybridConnectionAuthorizationRuleOutput{})
 }

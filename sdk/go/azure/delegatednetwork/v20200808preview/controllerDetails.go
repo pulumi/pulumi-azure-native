@@ -147,6 +147,51 @@ func (o ControllerDetailsOutput) ToControllerDetailsOutputWithContext(ctx contex
 	return o
 }
 
+// dnc application id should be used by customer to authenticate with dnc gateway.
+func (o ControllerDetailsOutput) DncAppId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.DncAppId }).(pulumi.StringOutput)
+}
+
+// dnc endpoint url that customers can use to connect to
+func (o ControllerDetailsOutput) DncEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.DncEndpoint }).(pulumi.StringOutput)
+}
+
+// tenant id of dnc application id
+func (o ControllerDetailsOutput) DncTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.DncTenantId }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o ControllerDetailsOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ControllerDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of dnc controller resource.
+func (o ControllerDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource guid.
+func (o ControllerDetailsOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o ControllerDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of resource.
+func (o ControllerDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControllerDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ControllerDetailsOutput{})
 }

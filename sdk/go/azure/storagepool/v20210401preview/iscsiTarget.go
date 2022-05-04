@@ -170,6 +170,61 @@ func (o IscsiTargetOutput) ToIscsiTargetOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// Mode for Target connectivity.
+func (o IscsiTargetOutput) AclMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.AclMode }).(pulumi.StringOutput)
+}
+
+// List of private IPv4 addresses to connect to the iSCSI Target.
+func (o IscsiTargetOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringArrayOutput { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// List of LUNs to be exposed through iSCSI Target.
+func (o IscsiTargetOutput) Luns() IscsiLunResponseArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) IscsiLunResponseArrayOutput { return v.Luns }).(IscsiLunResponseArrayOutput)
+}
+
+// The name of the resource
+func (o IscsiTargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The port used by iSCSI Target portal group.
+func (o IscsiTargetOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// State of the operation on the resource.
+func (o IscsiTargetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+func (o IscsiTargetOutput) StaticAcls() AclResponseArrayOutput {
+	return o.ApplyT(func(v *IscsiTarget) AclResponseArrayOutput { return v.StaticAcls }).(AclResponseArrayOutput)
+}
+
+// Operational status of the iSCSI Target.
+func (o IscsiTargetOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o IscsiTargetOutput) SystemData() SystemMetadataResponseOutput {
+	return o.ApplyT(func(v *IscsiTarget) SystemMetadataResponseOutput { return v.SystemData }).(SystemMetadataResponseOutput)
+}
+
+// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+func (o IscsiTargetOutput) TargetIqn() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.TargetIqn }).(pulumi.StringOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o IscsiTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IscsiTarget) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IscsiTargetOutput{})
 }

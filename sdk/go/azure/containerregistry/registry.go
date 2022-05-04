@@ -213,6 +213,71 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
+// The value that indicates whether the admin user is enabled.
+func (o RegistryOutput) AdminUserEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AdminUserEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The creation date of the container registry in ISO8601 format.
+func (o RegistryOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o RegistryOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The URL that can be used to log into the container registry.
+func (o RegistryOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o RegistryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network rule set for a container registry.
+func (o RegistryOutput) NetworkRuleSet() NetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v *Registry) NetworkRuleSetResponsePtrOutput { return v.NetworkRuleSet }).(NetworkRuleSetResponsePtrOutput)
+}
+
+// The policies for a container registry.
+func (o RegistryOutput) Policies() PoliciesResponsePtrOutput {
+	return o.ApplyT(func(v *Registry) PoliciesResponsePtrOutput { return v.Policies }).(PoliciesResponsePtrOutput)
+}
+
+// The provisioning state of the container registry at the time the operation was called.
+func (o RegistryOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the container registry.
+func (o RegistryOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *Registry) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// The status of the container registry at the time the operation was called.
+func (o RegistryOutput) Status() StatusResponseOutput {
+	return o.ApplyT(func(v *Registry) StatusResponseOutput { return v.Status }).(StatusResponseOutput)
+}
+
+// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+func (o RegistryOutput) StorageAccount() StorageAccountPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Registry) StorageAccountPropertiesResponsePtrOutput { return v.StorageAccount }).(StorageAccountPropertiesResponsePtrOutput)
+}
+
+// The tags of the resource.
+func (o RegistryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o RegistryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistryOutput{})
 }

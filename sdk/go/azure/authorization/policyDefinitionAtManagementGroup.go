@@ -190,6 +190,53 @@ func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementG
 	return o
 }
 
+// The policy definition description.
+func (o PolicyDefinitionAtManagementGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o PolicyDefinitionAtManagementGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyDefinitionAtManagementGroupOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+func (o PolicyDefinitionAtManagementGroupOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition.
+func (o PolicyDefinitionAtManagementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+func (o PolicyDefinitionAtManagementGroupOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) ParameterDefinitionsValueResponseMapOutput {
+		return v.Parameters
+	}).(ParameterDefinitionsValueResponseMapOutput)
+}
+
+// The policy rule.
+func (o PolicyDefinitionAtManagementGroupOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.AnyOutput { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+func (o PolicyDefinitionAtManagementGroupOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policyDefinitions).
+func (o PolicyDefinitionAtManagementGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyDefinitionAtManagementGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupOutput{})
 }

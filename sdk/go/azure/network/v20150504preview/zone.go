@@ -157,6 +157,36 @@ func (o ZoneOutput) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 	return o
 }
 
+// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
+func (o ZoneOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ZoneOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the properties of the zone.
+func (o ZoneOutput) Properties() ZonePropertiesResponseOutput {
+	return o.ApplyT(func(v *Zone) ZonePropertiesResponseOutput { return v.Properties }).(ZonePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o ZoneOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ZoneOutput{})
 }

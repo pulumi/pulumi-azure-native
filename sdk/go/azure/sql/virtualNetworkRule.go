@@ -166,6 +166,31 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
+// Create firewall rule before the virtual network has vnet service endpoint enabled.
+func (o VirtualNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.BoolPtrOutput { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name.
+func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Virtual Network Rule State
+func (o VirtualNetworkRuleOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o VirtualNetworkRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ARM resource id of the virtual network subnet.
+func (o VirtualNetworkRuleOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

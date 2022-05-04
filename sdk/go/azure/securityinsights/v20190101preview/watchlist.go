@@ -282,6 +282,121 @@ func (o WatchlistOutput) ToWatchlistOutputWithContext(ctx context.Context) Watch
 	return o
 }
 
+// The content type of the raw content. Example : text/csv or text/tsv
+func (o WatchlistOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+// The time the watchlist was created
+func (o WatchlistOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the watchlist
+func (o WatchlistOutput) CreatedBy() WatchlistUserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Watchlist) WatchlistUserInfoResponsePtrOutput { return v.CreatedBy }).(WatchlistUserInfoResponsePtrOutput)
+}
+
+// The default duration of a watchlist (in ISO 8601 duration format)
+func (o WatchlistOutput) DefaultDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.DefaultDuration }).(pulumi.StringPtrOutput)
+}
+
+// A description of the watchlist
+func (o WatchlistOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the watchlist
+func (o WatchlistOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o WatchlistOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// A flag that indicates if the watchlist is deleted or not
+func (o WatchlistOutput) IsDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.BoolPtrOutput { return v.IsDeleted }).(pulumi.BoolPtrOutput)
+}
+
+// List of labels relevant to this watchlist
+func (o WatchlistOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource name
+func (o WatchlistOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of lines in a csv/tsv content to skip before the header
+func (o WatchlistOutput) NumberOfLinesToSkip() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.IntPtrOutput { return v.NumberOfLinesToSkip }).(pulumi.IntPtrOutput)
+}
+
+// The provider of the watchlist
+func (o WatchlistOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Provider }).(pulumi.StringOutput)
+}
+
+// The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+func (o WatchlistOutput) RawContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.RawContent }).(pulumi.StringPtrOutput)
+}
+
+// The source of the watchlist
+func (o WatchlistOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
+}
+
+// The tenantId where the watchlist belongs to
+func (o WatchlistOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o WatchlistOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The last time the watchlist was updated
+func (o WatchlistOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the watchlist
+func (o WatchlistOutput) UpdatedBy() WatchlistUserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Watchlist) WatchlistUserInfoResponsePtrOutput { return v.UpdatedBy }).(WatchlistUserInfoResponsePtrOutput)
+}
+
+// The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+func (o WatchlistOutput) UploadStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.UploadStatus }).(pulumi.StringPtrOutput)
+}
+
+// The alias of the watchlist
+func (o WatchlistOutput) WatchlistAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.WatchlistAlias }).(pulumi.StringPtrOutput)
+}
+
+// The id (a Guid) of the watchlist
+func (o WatchlistOutput) WatchlistId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.WatchlistId }).(pulumi.StringPtrOutput)
+}
+
+// The number of Watchlist Items in the Watchlist
+func (o WatchlistOutput) WatchlistItemsCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.IntPtrOutput { return v.WatchlistItemsCount }).(pulumi.IntPtrOutput)
+}
+
+// The type of the watchlist
+func (o WatchlistOutput) WatchlistType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Watchlist) pulumi.StringPtrOutput { return v.WatchlistType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WatchlistOutput{})
 }

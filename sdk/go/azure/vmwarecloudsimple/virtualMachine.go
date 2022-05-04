@@ -234,6 +234,136 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The amount of memory
+func (o VirtualMachineOutput) AmountOfRam() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.IntOutput { return v.AmountOfRam }).(pulumi.IntOutput)
+}
+
+// The list of Virtual Disks' Controllers
+func (o VirtualMachineOutput) Controllers() VirtualDiskControllerResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualDiskControllerResponseArrayOutput { return v.Controllers }).(VirtualDiskControllerResponseArrayOutput)
+}
+
+// Virtual machine properties
+func (o VirtualMachineOutput) Customization() GuestOSCustomizationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) GuestOSCustomizationResponsePtrOutput { return v.Customization }).(GuestOSCustomizationResponsePtrOutput)
+}
+
+// The list of Virtual Disks
+func (o VirtualMachineOutput) Disks() VirtualDiskResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualDiskResponseArrayOutput { return v.Disks }).(VirtualDiskResponseArrayOutput)
+}
+
+// The DNS name of Virtual Machine in VCenter
+func (o VirtualMachineOutput) Dnsname() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Dnsname }).(pulumi.StringOutput)
+}
+
+// Expose Guest OS or not
+func (o VirtualMachineOutput) ExposeToGuestVM() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.BoolPtrOutput { return v.ExposeToGuestVM }).(pulumi.BoolPtrOutput)
+}
+
+// The path to virtual machine folder in VCenter
+func (o VirtualMachineOutput) Folder() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Folder }).(pulumi.StringOutput)
+}
+
+// The name of Guest OS
+func (o VirtualMachineOutput) GuestOS() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.GuestOS }).(pulumi.StringOutput)
+}
+
+// The Guest OS type
+func (o VirtualMachineOutput) GuestOSType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.GuestOSType }).(pulumi.StringOutput)
+}
+
+// Azure region
+func (o VirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// {virtualMachineName}
+func (o VirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of Virtual NICs
+func (o VirtualMachineOutput) Nics() VirtualNicResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) VirtualNicResponseArrayOutput { return v.Nics }).(VirtualNicResponseArrayOutput)
+}
+
+// The number of CPU cores
+func (o VirtualMachineOutput) NumberOfCores() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.IntOutput { return v.NumberOfCores }).(pulumi.IntOutput)
+}
+
+// Password for login. Deprecated - use customization property
+func (o VirtualMachineOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Private Cloud Id
+func (o VirtualMachineOutput) PrivateCloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.PrivateCloudId }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource
+func (o VirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The public ip of Virtual Machine
+func (o VirtualMachineOutput) PublicIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.PublicIP }).(pulumi.StringOutput)
+}
+
+// Virtual Machines Resource Pool
+func (o VirtualMachineOutput) ResourcePool() ResourcePoolResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) ResourcePoolResponsePtrOutput { return v.ResourcePool }).(ResourcePoolResponsePtrOutput)
+}
+
+// The status of Virtual machine
+func (o VirtualMachineOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The list of tags
+func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Virtual Machine Template Id
+func (o VirtualMachineOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+// {resourceProviderNamespace}/{resourceType}
+func (o VirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Username for login. Deprecated - use customization property
+func (o VirtualMachineOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+// The list of Virtual VSphere Networks
+func (o VirtualMachineOutput) VSphereNetworks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringArrayOutput { return v.VSphereNetworks }).(pulumi.StringArrayOutput)
+}
+
+// The internal id of Virtual Machine in VCenter
+func (o VirtualMachineOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.VmId }).(pulumi.StringOutput)
+}
+
+// VMware tools version
+func (o VirtualMachineOutput) Vmwaretools() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Vmwaretools }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

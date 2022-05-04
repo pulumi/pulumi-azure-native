@@ -137,6 +137,21 @@ func (o OutboundFirewallRuleOutput) ToOutboundFirewallRuleOutputWithContext(ctx 
 	return o
 }
 
+// Resource name.
+func (o OutboundFirewallRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundFirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the outbound rule.
+func (o OutboundFirewallRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundFirewallRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o OutboundFirewallRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundFirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OutboundFirewallRuleOutput{})
 }

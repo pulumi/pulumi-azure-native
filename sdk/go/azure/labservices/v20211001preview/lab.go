@@ -207,6 +207,86 @@ func (o LabOutput) ToLabOutputWithContext(ctx context.Context) LabOutput {
 	return o
 }
 
+// The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
+func (o LabOutput) AutoShutdownProfile() AutoShutdownProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) AutoShutdownProfileResponseOutput { return v.AutoShutdownProfile }).(AutoShutdownProfileResponseOutput)
+}
+
+// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
+func (o LabOutput) ConnectionProfile() ConnectionProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) ConnectionProfileResponseOutput { return v.ConnectionProfile }).(ConnectionProfileResponseOutput)
+}
+
+// The description of the lab.
+func (o LabOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
+func (o LabOutput) LabPlanId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.LabPlanId }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o LabOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LabOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
+func (o LabOutput) NetworkProfile() LabNetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) LabNetworkProfileResponsePtrOutput { return v.NetworkProfile }).(LabNetworkProfileResponsePtrOutput)
+}
+
+// Current provisioning state of the lab.
+func (o LabOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The lab user list management profile.
+func (o LabOutput) RosterProfile() RosterProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Lab) RosterProfileResponsePtrOutput { return v.RosterProfile }).(RosterProfileResponsePtrOutput)
+}
+
+// The lab security profile.
+func (o LabOutput) SecurityProfile() SecurityProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) SecurityProfileResponseOutput { return v.SecurityProfile }).(SecurityProfileResponseOutput)
+}
+
+// The lab state.
+func (o LabOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the lab.
+func (o LabOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Lab) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LabOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The title of the lab.
+func (o LabOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LabOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Lab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The profile used for creating lab virtual machines.
+func (o LabOutput) VirtualMachineProfile() VirtualMachineProfileResponseOutput {
+	return o.ApplyT(func(v *Lab) VirtualMachineProfileResponseOutput { return v.VirtualMachineProfile }).(VirtualMachineProfileResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LabOutput{})
 }

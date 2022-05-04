@@ -413,6 +413,192 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx cont
 	return o
 }
 
+// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) AuthenticationCertificates() ApplicationGatewayAuthenticationCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayAuthenticationCertificateResponseArrayOutput {
+		return v.AuthenticationCertificates
+	}).(ApplicationGatewayAuthenticationCertificateResponseArrayOutput)
+}
+
+// Autoscale Configuration.
+func (o ApplicationGatewayOutput) AutoscaleConfiguration() ApplicationGatewayAutoscaleConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayAutoscaleConfigurationResponsePtrOutput {
+		return v.AutoscaleConfiguration
+	}).(ApplicationGatewayAutoscaleConfigurationResponsePtrOutput)
+}
+
+// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) BackendAddressPools() ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendAddressPoolResponseArrayOutput {
+		return v.BackendAddressPools
+	}).(ApplicationGatewayBackendAddressPoolResponseArrayOutput)
+}
+
+// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) BackendHttpSettingsCollection() ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayBackendHttpSettingsResponseArrayOutput {
+		return v.BackendHttpSettingsCollection
+	}).(ApplicationGatewayBackendHttpSettingsResponseArrayOutput)
+}
+
+// Custom error configurations of the application gateway resource.
+func (o ApplicationGatewayOutput) CustomErrorConfigurations() ApplicationGatewayCustomErrorResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayCustomErrorResponseArrayOutput {
+		return v.CustomErrorConfigurations
+	}).(ApplicationGatewayCustomErrorResponseArrayOutput)
+}
+
+// Whether FIPS is enabled on the application gateway resource.
+func (o ApplicationGatewayOutput) EnableFips() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolPtrOutput { return v.EnableFips }).(pulumi.BoolPtrOutput)
+}
+
+// Whether HTTP2 is enabled on the application gateway resource.
+func (o ApplicationGatewayOutput) EnableHttp2() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolPtrOutput { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ApplicationGatewayOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Reference of the FirewallPolicy resource.
+func (o ApplicationGatewayOutput) FirewallPolicy() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) SubResourceResponsePtrOutput { return v.FirewallPolicy }).(SubResourceResponsePtrOutput)
+}
+
+// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) FrontendIPConfigurations() ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayFrontendIPConfigurationResponseArrayOutput {
+		return v.FrontendIPConfigurations
+	}).(ApplicationGatewayFrontendIPConfigurationResponseArrayOutput)
+}
+
+// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) FrontendPorts() ApplicationGatewayFrontendPortResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayFrontendPortResponseArrayOutput { return v.FrontendPorts }).(ApplicationGatewayFrontendPortResponseArrayOutput)
+}
+
+// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) GatewayIPConfigurations() ApplicationGatewayIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayIPConfigurationResponseArrayOutput {
+		return v.GatewayIPConfigurations
+	}).(ApplicationGatewayIPConfigurationResponseArrayOutput)
+}
+
+// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) HttpListeners() ApplicationGatewayHttpListenerResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayHttpListenerResponseArrayOutput { return v.HttpListeners }).(ApplicationGatewayHttpListenerResponseArrayOutput)
+}
+
+// The identity of the application gateway, if configured.
+func (o ApplicationGatewayOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Resource location.
+func (o ApplicationGatewayOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ApplicationGatewayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operational state of the application gateway resource.
+func (o ApplicationGatewayOutput) OperationalState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.OperationalState }).(pulumi.StringOutput)
+}
+
+// Probes of the application gateway resource.
+func (o ApplicationGatewayOutput) Probes() ApplicationGatewayProbeResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayProbeResponseArrayOutput { return v.Probes }).(ApplicationGatewayProbeResponseArrayOutput)
+}
+
+// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ApplicationGatewayOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) RedirectConfigurations() ApplicationGatewayRedirectConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRedirectConfigurationResponseArrayOutput {
+		return v.RedirectConfigurations
+	}).(ApplicationGatewayRedirectConfigurationResponseArrayOutput)
+}
+
+// Request routing rules of the application gateway resource.
+func (o ApplicationGatewayOutput) RequestRoutingRules() ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRequestRoutingRuleResponseArrayOutput {
+		return v.RequestRoutingRules
+	}).(ApplicationGatewayRequestRoutingRuleResponseArrayOutput)
+}
+
+// Resource GUID property of the application gateway resource.
+func (o ApplicationGatewayOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Rewrite rules for the application gateway resource.
+func (o ApplicationGatewayOutput) RewriteRuleSets() ApplicationGatewayRewriteRuleSetResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayRewriteRuleSetResponseArrayOutput {
+		return v.RewriteRuleSets
+	}).(ApplicationGatewayRewriteRuleSetResponseArrayOutput)
+}
+
+// SKU of the application gateway resource.
+func (o ApplicationGatewayOutput) Sku() ApplicationGatewaySkuResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySkuResponsePtrOutput { return v.Sku }).(ApplicationGatewaySkuResponsePtrOutput)
+}
+
+// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) SslCertificates() ApplicationGatewaySslCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslCertificateResponseArrayOutput {
+		return v.SslCertificates
+	}).(ApplicationGatewaySslCertificateResponseArrayOutput)
+}
+
+// SSL policy of the application gateway resource.
+func (o ApplicationGatewayOutput) SslPolicy() ApplicationGatewaySslPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewaySslPolicyResponsePtrOutput { return v.SslPolicy }).(ApplicationGatewaySslPolicyResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ApplicationGatewayOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) TrustedRootCertificates() ApplicationGatewayTrustedRootCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayTrustedRootCertificateResponseArrayOutput {
+		return v.TrustedRootCertificates
+	}).(ApplicationGatewayTrustedRootCertificateResponseArrayOutput)
+}
+
+// Resource type.
+func (o ApplicationGatewayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+func (o ApplicationGatewayOutput) UrlPathMaps() ApplicationGatewayUrlPathMapResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayUrlPathMapResponseArrayOutput { return v.UrlPathMaps }).(ApplicationGatewayUrlPathMapResponseArrayOutput)
+}
+
+// Web application firewall configuration.
+func (o ApplicationGatewayOutput) WebApplicationFirewallConfiguration() ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput {
+		return v.WebApplicationFirewallConfiguration
+	}).(ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrOutput)
+}
+
+// A list of availability zones denoting where the resource needs to come from.
+func (o ApplicationGatewayOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayOutput{})
 }

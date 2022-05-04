@@ -183,6 +183,26 @@ func (o ReplicationvCenterOutput) ToReplicationvCenterOutputWithContext(ctx cont
 	return o
 }
 
+// Resource Location
+func (o ReplicationvCenterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationvCenter) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationvCenterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationvCenter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// VCenter related data.
+func (o ReplicationvCenterOutput) Properties() VCenterPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationvCenter) VCenterPropertiesResponseOutput { return v.Properties }).(VCenterPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationvCenterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationvCenter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationvCenterOutput{})
 }

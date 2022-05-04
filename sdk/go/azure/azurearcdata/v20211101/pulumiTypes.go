@@ -309,6 +309,17 @@ type DataControllerPropertiesArgs struct {
 	UploadWatermark UploadWatermarkPtrInput `pulumi:"uploadWatermark"`
 }
 
+// Defaults sets the appropriate defaults for DataControllerPropertiesArgs
+func (val *DataControllerPropertiesArgs) Defaults() *DataControllerPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		tmp.Infrastructure = Infrastructure("other")
+	}
+	return &tmp
+}
 func (DataControllerPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataControllerProperties)(nil)).Elem()
 }
@@ -2398,6 +2409,17 @@ type SqlManagedInstancePropertiesArgs struct {
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstancePropertiesArgs
+func (val *SqlManagedInstancePropertiesArgs) Defaults() *SqlManagedInstancePropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		tmp.LicenseType = pulumi.StringPtr("BasePrice")
+	}
+	return &tmp
+}
 func (SqlManagedInstancePropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceProperties)(nil)).Elem()
 }
@@ -2640,6 +2662,20 @@ type SqlManagedInstanceSkuArgs struct {
 	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
+// Defaults sets the appropriate defaults for SqlManagedInstanceSkuArgs
+func (val *SqlManagedInstanceSkuArgs) Defaults() *SqlManagedInstanceSkuArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		tmp.Dev = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.Tier) {
+		tmp.Tier = SqlManagedInstanceSkuTier("GeneralPurpose")
+	}
+	return &tmp
+}
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlManagedInstanceSku)(nil)).Elem()
 }

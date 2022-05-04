@@ -15,6 +15,9 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+
+	"github.com/pulumi/pulumi-java/pkg/codegen/java"
+	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
@@ -240,6 +243,10 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 			files, err = recoverableProgramGen(programBody, program, nodejs.GenerateProgram)
 		case "python":
 			files, err = recoverableProgramGen(programBody, program, python.GenerateProgram)
+		case "yaml":
+			files, err = recoverableProgramGen(programBody, program, yaml.GenerateProgram)
+		case "java":
+			files, err = recoverableProgramGen(programBody, program, java.GenerateProgram)
 		default:
 			continue
 		}

@@ -186,6 +186,56 @@ func (o BatchAccountOutput) ToBatchAccountOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The endpoint used by this account to interact with the Batch services.
+func (o BatchAccountOutput) AccountEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.AccountEndpoint }).(pulumi.StringOutput)
+}
+
+// The active job and job schedule quota for this Batch account.
+func (o BatchAccountOutput) ActiveJobAndJobScheduleQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.ActiveJobAndJobScheduleQuota }).(pulumi.IntOutput)
+}
+
+// The properties and status of any auto storage account associated with the account.
+func (o BatchAccountOutput) AutoStorage() AutoStoragePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *BatchAccount) AutoStoragePropertiesResponsePtrOutput { return v.AutoStorage }).(AutoStoragePropertiesResponsePtrOutput)
+}
+
+// The core quota for this Batch account.
+func (o BatchAccountOutput) CoreQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.CoreQuota }).(pulumi.IntOutput)
+}
+
+// The location of the resource
+func (o BatchAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o BatchAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The pool quota for this Batch account.
+func (o BatchAccountOutput) PoolQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.PoolQuota }).(pulumi.IntOutput)
+}
+
+// The provisioned state of the resource
+func (o BatchAccountOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource
+func (o BatchAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource
+func (o BatchAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BatchAccountOutput{})
 }

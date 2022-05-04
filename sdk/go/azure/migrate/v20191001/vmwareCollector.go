@@ -130,6 +130,22 @@ func (o VMwareCollectorOutput) ToVMwareCollectorOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o VMwareCollectorOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VMwareCollector) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o VMwareCollectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VMwareCollector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o VMwareCollectorOutput) Properties() CollectorPropertiesResponseOutput {
+	return o.ApplyT(func(v *VMwareCollector) CollectorPropertiesResponseOutput { return v.Properties }).(CollectorPropertiesResponseOutput)
+}
+
+func (o VMwareCollectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VMwareCollector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VMwareCollectorOutput{})
 }

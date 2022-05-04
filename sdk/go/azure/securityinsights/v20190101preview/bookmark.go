@@ -238,6 +238,86 @@ func (o BookmarkOutput) ToBookmarkOutputWithContext(ctx context.Context) Bookmar
 	return o
 }
 
+// The time the bookmark was created
+func (o BookmarkOutput) Created() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Created }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that created the bookmark
+func (o BookmarkOutput) CreatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Bookmark) UserInfoResponsePtrOutput { return v.CreatedBy }).(UserInfoResponsePtrOutput)
+}
+
+// The display name of the bookmark
+func (o BookmarkOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o BookmarkOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The bookmark event time
+func (o BookmarkOutput) EventTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.EventTime }).(pulumi.StringPtrOutput)
+}
+
+// Describes an incident that relates to bookmark
+func (o BookmarkOutput) IncidentInfo() IncidentInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Bookmark) IncidentInfoResponsePtrOutput { return v.IncidentInfo }).(IncidentInfoResponsePtrOutput)
+}
+
+// List of labels relevant to this bookmark
+func (o BookmarkOutput) Labels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringArrayOutput { return v.Labels }).(pulumi.StringArrayOutput)
+}
+
+// Azure resource name
+func (o BookmarkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The notes of the bookmark
+func (o BookmarkOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The query of the bookmark.
+func (o BookmarkOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
+}
+
+// The end time for the query
+func (o BookmarkOutput) QueryEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.QueryEndTime }).(pulumi.StringPtrOutput)
+}
+
+// The query result of the bookmark.
+func (o BookmarkOutput) QueryResult() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.QueryResult }).(pulumi.StringPtrOutput)
+}
+
+// The start time for the query
+func (o BookmarkOutput) QueryStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.QueryStartTime }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o BookmarkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The last time the bookmark was updated
+func (o BookmarkOutput) Updated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Bookmark) pulumi.StringPtrOutput { return v.Updated }).(pulumi.StringPtrOutput)
+}
+
+// Describes a user that updated the bookmark
+func (o BookmarkOutput) UpdatedBy() UserInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Bookmark) UserInfoResponsePtrOutput { return v.UpdatedBy }).(UserInfoResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BookmarkOutput{})
 }

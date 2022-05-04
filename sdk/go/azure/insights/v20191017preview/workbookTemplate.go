@@ -171,6 +171,51 @@ func (o WorkbookTemplateOutput) ToWorkbookTemplateOutputWithContext(ctx context.
 	return o
 }
 
+// Information about the author of the workbook template.
+func (o WorkbookTemplateOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// Workbook galleries supported by the template.
+func (o WorkbookTemplateOutput) Galleries() WorkbookTemplateGalleryResponseArrayOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) WorkbookTemplateGalleryResponseArrayOutput { return v.Galleries }).(WorkbookTemplateGalleryResponseArrayOutput)
+}
+
+// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
+func (o WorkbookTemplateOutput) Localized() WorkbookTemplateLocalizedGalleryResponseArrayMapOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) WorkbookTemplateLocalizedGalleryResponseArrayMapOutput { return v.Localized }).(WorkbookTemplateLocalizedGalleryResponseArrayMapOutput)
+}
+
+// Resource location
+func (o WorkbookTemplateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name.
+func (o WorkbookTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
+func (o WorkbookTemplateOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Resource tags
+func (o WorkbookTemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Valid JSON object containing workbook template payload.
+func (o WorkbookTemplateOutput) TemplateData() pulumi.AnyOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.AnyOutput { return v.TemplateData }).(pulumi.AnyOutput)
+}
+
+// Azure resource type
+func (o WorkbookTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkbookTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkbookTemplateOutput{})
 }

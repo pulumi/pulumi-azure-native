@@ -211,6 +211,56 @@ func (o DiagnosticOutput) ToDiagnosticOutputWithContext(ctx context.Context) Dia
 	return o
 }
 
+// Specifies for what type of messages sampling settings should not apply.
+func (o DiagnosticOutput) AlwaysLog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringPtrOutput { return v.AlwaysLog }).(pulumi.StringPtrOutput)
+}
+
+// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+func (o DiagnosticOutput) Backend() PipelineDiagnosticSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Diagnostic) PipelineDiagnosticSettingsResponsePtrOutput { return v.Backend }).(PipelineDiagnosticSettingsResponsePtrOutput)
+}
+
+// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+func (o DiagnosticOutput) EnableHttpCorrelationHeaders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.BoolPtrOutput { return v.EnableHttpCorrelationHeaders }).(pulumi.BoolPtrOutput)
+}
+
+// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+func (o DiagnosticOutput) Frontend() PipelineDiagnosticSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Diagnostic) PipelineDiagnosticSettingsResponsePtrOutput { return v.Frontend }).(PipelineDiagnosticSettingsResponsePtrOutput)
+}
+
+// Sets correlation protocol to use for Application Insights diagnostics.
+func (o DiagnosticOutput) HttpCorrelationProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringPtrOutput { return v.HttpCorrelationProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Resource Id of a target logger.
+func (o DiagnosticOutput) LoggerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.LoggerId }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DiagnosticOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Sampling settings for Diagnostic.
+func (o DiagnosticOutput) Sampling() SamplingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Diagnostic) SamplingSettingsResponsePtrOutput { return v.Sampling }).(SamplingSettingsResponsePtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o DiagnosticOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The verbosity level applied to traces emitted by trace policies.
+func (o DiagnosticOutput) Verbosity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Diagnostic) pulumi.StringPtrOutput { return v.Verbosity }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DiagnosticOutput{})
 }

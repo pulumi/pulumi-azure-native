@@ -181,6 +181,26 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Gets or sets the location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
+func (o ResourceGroupOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the Name of the resource group.
+func (o ResourceGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource group properties.
+func (o ResourceGroupOutput) Properties() ResourceGroupPropertiesResponseOutput {
+	return o.ApplyT(func(v *ResourceGroup) ResourceGroupPropertiesResponseOutput { return v.Properties }).(ResourceGroupPropertiesResponseOutput)
+}
+
+// Gets or sets the tags attached to the resource group.
+func (o ResourceGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceGroupOutput{})
 }

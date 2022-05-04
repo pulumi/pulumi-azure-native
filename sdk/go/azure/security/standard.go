@@ -175,6 +175,71 @@ func (o StandardOutput) ToStandardOutputWithContext(ctx context.Context) Standar
 	return o
 }
 
+// category of the standard provided
+func (o StandardOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
+func (o StandardOutput) Components() StandardComponentPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *Standard) StandardComponentPropertiesResponseArrayOutput { return v.Components }).(StandardComponentPropertiesResponseArrayOutput)
+}
+
+// description of the standard
+func (o StandardOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// display name of the standard, equivalent to the standardId
+func (o StandardOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Entity tag is used for comparing two or more entities from the same requested resource.
+func (o StandardOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the resource
+func (o StandardOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o StandardOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o StandardOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// standard type (Custom or BuiltIn only currently)
+func (o StandardOutput) StandardType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.StandardType }).(pulumi.StringOutput)
+}
+
+// List of all standard supported clouds.
+func (o StandardOutput) SupportedClouds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringArrayOutput { return v.SupportedClouds }).(pulumi.StringArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o StandardOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Standard) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// A list of key value pairs that describe the resource.
+func (o StandardOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o StandardOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StandardOutput{})
 }

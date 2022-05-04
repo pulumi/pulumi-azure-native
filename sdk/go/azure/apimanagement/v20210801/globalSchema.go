@@ -154,6 +154,31 @@ func (o GlobalSchemaOutput) ToGlobalSchemaOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Free-form schema entity description.
+func (o GlobalSchemaOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalSchema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o GlobalSchemaOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalSchema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Schema Type. Immutable.
+func (o GlobalSchemaOutput) SchemaType() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalSchema) pulumi.StringOutput { return v.SchemaType }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GlobalSchemaOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalSchema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Json-encoded string for non json-based schema.
+func (o GlobalSchemaOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v *GlobalSchema) pulumi.AnyOutput { return v.Value }).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GlobalSchemaOutput{})
 }

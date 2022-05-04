@@ -197,6 +197,61 @@ func (o CustomImageResourceOutput) ToCustomImageResourceOutputWithContext(ctx co
 	return o
 }
 
+// The author of the custom image.
+func (o CustomImageResourceOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the custom image.
+func (o CustomImageResourceOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+// The description of the custom image.
+func (o CustomImageResourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o CustomImageResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CustomImageResourceOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the custom image.
+func (o CustomImageResourceOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o CustomImageResourceOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o CustomImageResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o CustomImageResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The VHD from which the image is to be created.
+func (o CustomImageResourceOutput) Vhd() CustomImagePropertiesCustomResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) CustomImagePropertiesCustomResponsePtrOutput { return v.Vhd }).(CustomImagePropertiesCustomResponsePtrOutput)
+}
+
+// Properties for creating a custom image from a virtual machine.
+func (o CustomImageResourceOutput) Vm() CustomImagePropertiesFromVmResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImageResource) CustomImagePropertiesFromVmResponsePtrOutput { return v.Vm }).(CustomImagePropertiesFromVmResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomImageResourceOutput{})
 }

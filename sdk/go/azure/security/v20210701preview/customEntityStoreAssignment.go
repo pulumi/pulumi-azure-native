@@ -130,6 +130,31 @@ func (o CustomEntityStoreAssignmentOutput) ToCustomEntityStoreAssignmentOutputWi
 	return o
 }
 
+// The link to entity store database.
+func (o CustomEntityStoreAssignmentOutput) EntityStoreDatabaseLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomEntityStoreAssignment) pulumi.StringPtrOutput { return v.EntityStoreDatabaseLink }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o CustomEntityStoreAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomEntityStoreAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
+func (o CustomEntityStoreAssignmentOutput) Principal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomEntityStoreAssignment) pulumi.StringPtrOutput { return v.Principal }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CustomEntityStoreAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CustomEntityStoreAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type
+func (o CustomEntityStoreAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomEntityStoreAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomEntityStoreAssignmentOutput{})
 }

@@ -183,6 +183,36 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
+// The password details.
+func (o UserOutput) EncryptedPassword() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *User) AsymmetricEncryptedSecretResponsePtrOutput { return v.EncryptedPassword }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The object name.
+func (o UserOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of shares that the user has rights on. This field should not be specified during user creation.
+func (o UserOutput) ShareAccessRights() ShareAccessRightResponseArrayOutput {
+	return o.ApplyT(func(v *User) ShareAccessRightResponseArrayOutput { return v.ShareAccessRights }).(ShareAccessRightResponseArrayOutput)
+}
+
+// User in DataBoxEdge Resource
+func (o UserOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *User) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o UserOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Type of the user.
+func (o UserOutput) UserType() pulumi.StringOutput {
+	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserOutput{})
 }

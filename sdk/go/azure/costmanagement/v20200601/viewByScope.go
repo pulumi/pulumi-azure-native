@@ -205,6 +205,81 @@ func (o ViewByScopeOutput) ToViewByScopeOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// Show costs accumulated over time.
+func (o ViewByScopeOutput) Accumulated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.Accumulated }).(pulumi.StringPtrOutput)
+}
+
+// Chart type of the main view in Cost Analysis. Required.
+func (o ViewByScopeOutput) Chart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.Chart }).(pulumi.StringPtrOutput)
+}
+
+// Date the user created this view.
+func (o ViewByScopeOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Has definition for data in this report config.
+func (o ViewByScopeOutput) Dataset() ReportConfigDatasetResponsePtrOutput {
+	return o.ApplyT(func(v *ViewByScope) ReportConfigDatasetResponsePtrOutput { return v.Dataset }).(ReportConfigDatasetResponsePtrOutput)
+}
+
+// User input name of the view. Required.
+func (o ViewByScopeOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o ViewByScopeOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// List of KPIs to show in Cost Analysis UI.
+func (o ViewByScopeOutput) Kpis() KpiPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *ViewByScope) KpiPropertiesResponseArrayOutput { return v.Kpis }).(KpiPropertiesResponseArrayOutput)
+}
+
+// Metric to use when displaying costs.
+func (o ViewByScopeOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.Metric }).(pulumi.StringPtrOutput)
+}
+
+// Date when the user last modified this view.
+func (o ViewByScopeOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ViewByScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration of 3 sub-views in the Cost Analysis UI.
+func (o ViewByScopeOutput) Pivots() PivotPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *ViewByScope) PivotPropertiesResponseArrayOutput { return v.Pivots }).(PivotPropertiesResponseArrayOutput)
+}
+
+// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+func (o ViewByScopeOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Has time period for pulling data for the report.
+func (o ViewByScopeOutput) TimePeriod() ReportConfigTimePeriodResponsePtrOutput {
+	return o.ApplyT(func(v *ViewByScope) ReportConfigTimePeriodResponsePtrOutput { return v.TimePeriod }).(ReportConfigTimePeriodResponsePtrOutput)
+}
+
+// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+func (o ViewByScopeOutput) Timeframe() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.Timeframe }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ViewByScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ViewByScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ViewByScopeOutput{})
 }

@@ -180,6 +180,31 @@ func (o WebAppConnectionStringsSlotOutput) ToWebAppConnectionStringsSlotOutputWi
 	return o
 }
 
+// Kind of resource.
+func (o WebAppConnectionStringsSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppConnectionStringsSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppConnectionStringsSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppConnectionStringsSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Connection strings.
+func (o WebAppConnectionStringsSlotOutput) Properties() ConnStringValueTypePairResponseMapOutput {
+	return o.ApplyT(func(v *WebAppConnectionStringsSlot) ConnStringValueTypePairResponseMapOutput { return v.Properties }).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppConnectionStringsSlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppConnectionStringsSlot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppConnectionStringsSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppConnectionStringsSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppConnectionStringsSlotOutput{})
 }

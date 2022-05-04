@@ -113,6 +113,16 @@ func (o IngestionSettingOutput) ToIngestionSettingOutputWithContext(ctx context.
 	return o
 }
 
+// Resource name
+func (o IngestionSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IngestionSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o IngestionSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IngestionSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IngestionSettingOutput{})
 }

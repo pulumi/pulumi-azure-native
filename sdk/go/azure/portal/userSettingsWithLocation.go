@@ -126,6 +126,11 @@ func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutputWithCont
 	return o
 }
 
+// The cloud shell user settings properties.
+func (o UserSettingsWithLocationOutput) Properties() UserPropertiesResponseOutput {
+	return o.ApplyT(func(v *UserSettingsWithLocation) UserPropertiesResponseOutput { return v.Properties }).(UserPropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserSettingsWithLocationOutput{})
 }

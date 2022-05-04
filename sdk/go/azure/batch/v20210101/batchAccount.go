@@ -220,6 +220,103 @@ func (o BatchAccountOutput) ToBatchAccountOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The account endpoint used to interact with the Batch service.
+func (o BatchAccountOutput) AccountEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.AccountEndpoint }).(pulumi.StringOutput)
+}
+
+func (o BatchAccountOutput) ActiveJobAndJobScheduleQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.ActiveJobAndJobScheduleQuota }).(pulumi.IntOutput)
+}
+
+// Contains information about the auto-storage account associated with a Batch account.
+func (o BatchAccountOutput) AutoStorage() AutoStoragePropertiesResponseOutput {
+	return o.ApplyT(func(v *BatchAccount) AutoStoragePropertiesResponseOutput { return v.AutoStorage }).(AutoStoragePropertiesResponseOutput)
+}
+
+// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+func (o BatchAccountOutput) DedicatedCoreQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.DedicatedCoreQuota }).(pulumi.IntOutput)
+}
+
+// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+func (o BatchAccountOutput) DedicatedCoreQuotaPerVMFamily() VirtualMachineFamilyCoreQuotaResponseArrayOutput {
+	return o.ApplyT(func(v *BatchAccount) VirtualMachineFamilyCoreQuotaResponseArrayOutput {
+		return v.DedicatedCoreQuotaPerVMFamily
+	}).(VirtualMachineFamilyCoreQuotaResponseArrayOutput)
+}
+
+// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+func (o BatchAccountOutput) DedicatedCoreQuotaPerVMFamilyEnforced() pulumi.BoolOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.BoolOutput { return v.DedicatedCoreQuotaPerVMFamilyEnforced }).(pulumi.BoolOutput)
+}
+
+// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+func (o BatchAccountOutput) Encryption() EncryptionPropertiesResponseOutput {
+	return o.ApplyT(func(v *BatchAccount) EncryptionPropertiesResponseOutput { return v.Encryption }).(EncryptionPropertiesResponseOutput)
+}
+
+// The identity of the Batch account.
+func (o BatchAccountOutput) Identity() BatchAccountIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *BatchAccount) BatchAccountIdentityResponsePtrOutput { return v.Identity }).(BatchAccountIdentityResponsePtrOutput)
+}
+
+// Identifies the Azure key vault associated with a Batch account.
+func (o BatchAccountOutput) KeyVaultReference() KeyVaultReferenceResponseOutput {
+	return o.ApplyT(func(v *BatchAccount) KeyVaultReferenceResponseOutput { return v.KeyVaultReference }).(KeyVaultReferenceResponseOutput)
+}
+
+// The location of the resource.
+func (o BatchAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+func (o BatchAccountOutput) LowPriorityCoreQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.LowPriorityCoreQuota }).(pulumi.IntOutput)
+}
+
+// The name of the resource.
+func (o BatchAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The allocation mode for creating pools in the Batch account.
+func (o BatchAccountOutput) PoolAllocationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.PoolAllocationMode }).(pulumi.StringOutput)
+}
+
+func (o BatchAccountOutput) PoolQuota() pulumi.IntOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.IntOutput { return v.PoolQuota }).(pulumi.IntOutput)
+}
+
+// List of private endpoint connections associated with the Batch account
+func (o BatchAccountOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *BatchAccount) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioned state of the resource
+func (o BatchAccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// If not specified, the default value is 'enabled'.
+func (o BatchAccountOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o BatchAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o BatchAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BatchAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BatchAccountOutput{})
 }

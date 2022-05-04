@@ -170,6 +170,31 @@ func (o PolicyDefinitionOutput) ToPolicyDefinitionOutputWithContext(ctx context.
 	return o
 }
 
+// The policy definition description.
+func (o PolicyDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy definition.
+func (o PolicyDefinitionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
+func (o PolicyDefinitionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The policy rule.
+func (o PolicyDefinitionOutput) PolicyRule() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.AnyOutput { return v.PolicyRule }).(pulumi.AnyOutput)
+}
+
+// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+func (o PolicyDefinitionOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDefinition) pulumi.StringPtrOutput { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionOutput{})
 }

@@ -174,6 +174,101 @@ func (o IntegrationServiceEnvironmentManagedApiOutput) ToIntegrationServiceEnvir
 	return o
 }
 
+// The API definition.
+func (o IntegrationServiceEnvironmentManagedApiOutput) ApiDefinitionUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringOutput { return v.ApiDefinitionUrl }).(pulumi.StringOutput)
+}
+
+// The api definitions.
+func (o IntegrationServiceEnvironmentManagedApiOutput) ApiDefinitions() ApiResourceDefinitionsResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ApiResourceDefinitionsResponseOutput {
+		return v.ApiDefinitions
+	}).(ApiResourceDefinitionsResponseOutput)
+}
+
+// The backend service.
+func (o IntegrationServiceEnvironmentManagedApiOutput) BackendService() ApiResourceBackendServiceResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ApiResourceBackendServiceResponseOutput {
+		return v.BackendService
+	}).(ApiResourceBackendServiceResponseOutput)
+}
+
+// The capabilities.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Capabilities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringArrayOutput { return v.Capabilities }).(pulumi.StringArrayOutput)
+}
+
+// The category.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The connection parameters.
+func (o IntegrationServiceEnvironmentManagedApiOutput) ConnectionParameters() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.MapOutput { return v.ConnectionParameters }).(pulumi.MapOutput)
+}
+
+// The integration service environment managed api deployment parameters.
+func (o IntegrationServiceEnvironmentManagedApiOutput) DeploymentParameters() IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput {
+		return v.DeploymentParameters
+	}).(IntegrationServiceEnvironmentManagedApiDeploymentParametersResponsePtrOutput)
+}
+
+// The api general information.
+func (o IntegrationServiceEnvironmentManagedApiOutput) GeneralInformation() ApiResourceGeneralInformationResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ApiResourceGeneralInformationResponseOutput {
+		return v.GeneralInformation
+	}).(ApiResourceGeneralInformationResponseOutput)
+}
+
+// The integration service environment reference.
+func (o IntegrationServiceEnvironmentManagedApiOutput) IntegrationServiceEnvironment() ResourceReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ResourceReferenceResponsePtrOutput {
+		return v.IntegrationServiceEnvironment
+	}).(ResourceReferenceResponsePtrOutput)
+}
+
+// The resource location.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Metadata() ApiResourceMetadataResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ApiResourceMetadataResponseOutput { return v.Metadata }).(ApiResourceMetadataResponseOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policies for the API.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Policies() ApiResourcePoliciesResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) ApiResourcePoliciesResponseOutput { return v.Policies }).(ApiResourcePoliciesResponseOutput)
+}
+
+// The provisioning state.
+func (o IntegrationServiceEnvironmentManagedApiOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The runtime urls.
+func (o IntegrationServiceEnvironmentManagedApiOutput) RuntimeUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringArrayOutput { return v.RuntimeUrls }).(pulumi.StringArrayOutput)
+}
+
+// The resource tags.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationServiceEnvironmentManagedApiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentManagedApi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiOutput{})
 }

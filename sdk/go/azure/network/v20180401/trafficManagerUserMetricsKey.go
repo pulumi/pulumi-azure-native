@@ -115,6 +115,21 @@ func (o TrafficManagerUserMetricsKeyOutput) ToTrafficManagerUserMetricsKeyOutput
 	return o
 }
 
+// The key returned by the User Metrics operation.
+func (o TrafficManagerUserMetricsKeyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerUserMetricsKey) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o TrafficManagerUserMetricsKeyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerUserMetricsKey) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+func (o TrafficManagerUserMetricsKeyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerUserMetricsKey) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrafficManagerUserMetricsKeyOutput{})
 }

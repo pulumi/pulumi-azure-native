@@ -235,6 +235,88 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+// A list that describes the correlation of the service with other services.
+func (o ServiceOutput) CorrelationScheme() ServiceCorrelationDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceCorrelationDescriptionResponseArrayOutput { return v.CorrelationScheme }).(ServiceCorrelationDescriptionResponseArrayOutput)
+}
+
+// Specifies the move cost for the service.
+func (o ServiceOutput) DefaultMoveCost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.DefaultMoveCost }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource etag.
+func (o ServiceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// It will be deprecated in New API, resource location depends on the parent resource.
+func (o ServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o ServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes how the service is partitioned.
+func (o ServiceOutput) PartitionDescription() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Service) pulumi.AnyOutput { return v.PartitionDescription }).(pulumi.AnyOutput)
+}
+
+// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+func (o ServiceOutput) PlacementConstraints() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.PlacementConstraints }).(pulumi.StringPtrOutput)
+}
+
+// The current deployment or provisioning state, which only appears in the response
+func (o ServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+func (o ServiceOutput) ServiceDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceDnsName }).(pulumi.StringPtrOutput)
+}
+
+// The kind of service (Stateless or Stateful).
+func (o ServiceOutput) ServiceKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.ServiceKind }).(pulumi.StringOutput)
+}
+
+// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+func (o ServiceOutput) ServiceLoadMetrics() ServiceLoadMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceLoadMetricDescriptionResponseArrayOutput { return v.ServiceLoadMetrics }).(ServiceLoadMetricDescriptionResponseArrayOutput)
+}
+
+// The activation Mode of the service package
+func (o ServiceOutput) ServicePackageActivationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServicePackageActivationMode }).(pulumi.StringPtrOutput)
+}
+
+// A list that describes the correlation of the service with other services.
+func (o ServiceOutput) ServicePlacementPolicies() ServicePlacementPolicyDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *Service) ServicePlacementPolicyDescriptionResponseArrayOutput {
+		return v.ServicePlacementPolicies
+	}).(ServicePlacementPolicyDescriptionResponseArrayOutput)
+}
+
+// The name of the service type
+func (o ServiceOutput) ServiceTypeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.ServiceTypeName }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource tags.
+func (o ServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o ServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceOutput{})
 }

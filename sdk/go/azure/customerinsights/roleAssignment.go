@@ -245,6 +245,116 @@ func (o RoleAssignmentOutput) ToRoleAssignmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The name of the metadata object.
+func (o RoleAssignmentOutput) AssignmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.AssignmentName }).(pulumi.StringOutput)
+}
+
+// Widget types set for the assignment.
+func (o RoleAssignmentOutput) ConflationPolicies() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.ConflationPolicies }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Connectors set for the assignment.
+func (o RoleAssignmentOutput) Connectors() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Connectors }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Localized description for the metadata.
+func (o RoleAssignmentOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display names for the metadata.
+func (o RoleAssignmentOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// Interactions set for the assignment.
+func (o RoleAssignmentOutput) Interactions() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Interactions }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Kpis set for the assignment.
+func (o RoleAssignmentOutput) Kpis() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Kpis }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Links set for the assignment.
+func (o RoleAssignmentOutput) Links() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Links }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Resource name.
+func (o RoleAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principals being assigned to.
+func (o RoleAssignmentOutput) Principals() AssignmentPrincipalResponseArrayOutput {
+	return o.ApplyT(func(v *RoleAssignment) AssignmentPrincipalResponseArrayOutput { return v.Principals }).(AssignmentPrincipalResponseArrayOutput)
+}
+
+// Profiles set for the assignment.
+func (o RoleAssignmentOutput) Profiles() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Profiles }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Provisioning state.
+func (o RoleAssignmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The Role assignments set for the relationship links.
+func (o RoleAssignmentOutput) RelationshipLinks() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.RelationshipLinks }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// The Role assignments set for the relationships.
+func (o RoleAssignmentOutput) Relationships() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Relationships }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Type of roles.
+func (o RoleAssignmentOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The Role assignments set for the assignment.
+func (o RoleAssignmentOutput) RoleAssignments() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.RoleAssignments }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Sas Policies set for the assignment.
+func (o RoleAssignmentOutput) SasPolicies() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.SasPolicies }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// The Role assignments set for the assignment.
+func (o RoleAssignmentOutput) Segments() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Segments }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// The hub name.
+func (o RoleAssignmentOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RoleAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Views set for the assignment.
+func (o RoleAssignmentOutput) Views() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.Views }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
+// Widget types set for the assignment.
+func (o RoleAssignmentOutput) WidgetTypes() ResourceSetDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *RoleAssignment) ResourceSetDescriptionResponsePtrOutput { return v.WidgetTypes }).(ResourceSetDescriptionResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleAssignmentOutput{})
 }

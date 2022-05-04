@@ -151,6 +151,41 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+// Specifies the job identity details
+func (o JobOutput) Identity() IdentityDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Job) IdentityDetailsResponsePtrOutput { return v.Identity }).(IdentityDetailsResponsePtrOutput)
+}
+
+// Specifies the Azure location where the job is created.
+func (o JobOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the job.
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the job properties
+func (o JobOutput) Properties() JobDetailsResponseOutput {
+	return o.ApplyT(func(v *Job) JobDetailsResponseOutput { return v.Properties }).(JobDetailsResponseOutput)
+}
+
+// SystemData of ImportExport Jobs.
+func (o JobOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Job) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Specifies the tags that are assigned to the job.
+func (o JobOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Job) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Specifies the type of the job resource.
+func (o JobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobOutput{})
 }

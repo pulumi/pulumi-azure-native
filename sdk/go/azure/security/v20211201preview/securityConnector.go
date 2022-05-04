@@ -169,6 +169,61 @@ func (o SecurityConnectorOutput) ToSecurityConnectorOutputWithContext(ctx contex
 	return o
 }
 
+// The security connector environment data.
+func (o SecurityConnectorOutput) EnvironmentData() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.AnyOutput { return v.EnvironmentData }).(pulumi.AnyOutput)
+}
+
+// The multi cloud resource's cloud name.
+func (o SecurityConnectorOutput) EnvironmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringPtrOutput { return v.EnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+// Entity tag is used for comparing two or more entities from the same requested resource.
+func (o SecurityConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
+func (o SecurityConnectorOutput) HierarchyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringPtrOutput { return v.HierarchyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the resource
+func (o SecurityConnectorOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o SecurityConnectorOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o SecurityConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of offerings for the security connector.
+func (o SecurityConnectorOutput) Offerings() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.ArrayOutput { return v.Offerings }).(pulumi.ArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o SecurityConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SecurityConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// A list of key value pairs that describe the resource.
+func (o SecurityConnectorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SecurityConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityConnectorOutput{})
 }

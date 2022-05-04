@@ -179,6 +179,51 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.
 	return o
 }
 
+// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+func (o AutoscaleSettingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o AutoscaleSettingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o AutoscaleSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// the collection of notifications.
+func (o AutoscaleSettingOutput) Notifications() AutoscaleNotificationResponseArrayOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleNotificationResponseArrayOutput { return v.Notifications }).(AutoscaleNotificationResponseArrayOutput)
+}
+
+// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+func (o AutoscaleSettingOutput) Profiles() AutoscaleProfileResponseArrayOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) AutoscaleProfileResponseArrayOutput { return v.Profiles }).(AutoscaleProfileResponseArrayOutput)
+}
+
+// Resource tags
+func (o AutoscaleSettingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// the location of the resource that the autoscale setting should be added to.
+func (o AutoscaleSettingOutput) TargetResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringPtrOutput { return v.TargetResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+// the resource identifier of the resource that the autoscale setting should be added to.
+func (o AutoscaleSettingOutput) TargetResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringPtrOutput { return v.TargetResourceUri }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o AutoscaleSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutoscaleSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutoscaleSettingOutput{})
 }

@@ -145,6 +145,26 @@ func (o BuildServiceBuilderOutput) ToBuildServiceBuilderOutputWithContext(ctx co
 	return o
 }
 
+// The name of the resource.
+func (o BuildServiceBuilderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildServiceBuilder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Property of the Builder resource.
+func (o BuildServiceBuilderOutput) Properties() BuilderPropertiesResponseOutput {
+	return o.ApplyT(func(v *BuildServiceBuilder) BuilderPropertiesResponseOutput { return v.Properties }).(BuilderPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BuildServiceBuilderOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BuildServiceBuilder) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o BuildServiceBuilderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildServiceBuilder) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildServiceBuilderOutput{})
 }

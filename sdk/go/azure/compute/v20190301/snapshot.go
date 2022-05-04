@@ -231,6 +231,86 @@ func (o SnapshotOutput) ToSnapshotOutputWithContext(ctx context.Context) Snapsho
 	return o
 }
 
+// Disk source information. CreationData information cannot be changed after the disk has been created.
+func (o SnapshotOutput) CreationData() CreationDataResponseOutput {
+	return o.ApplyT(func(v *Snapshot) CreationDataResponseOutput { return v.CreationData }).(CreationDataResponseOutput)
+}
+
+// The size of the disk in bytes. This field is read only.
+func (o SnapshotOutput) DiskSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Snapshot) pulumi.Float64Output { return v.DiskSizeBytes }).(pulumi.Float64Output)
+}
+
+// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+func (o SnapshotOutput) DiskSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.IntPtrOutput { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+func (o SnapshotOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) EncryptionSettingsCollectionResponsePtrOutput { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionResponsePtrOutput)
+}
+
+// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+func (o SnapshotOutput) HyperVGeneration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
+}
+
+// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+func (o SnapshotOutput) Incremental() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.BoolPtrOutput { return v.Incremental }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location
+func (o SnapshotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Unused. Always Null.
+func (o SnapshotOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o SnapshotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Operating System type.
+func (o SnapshotOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The disk provisioning state.
+func (o SnapshotOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+func (o SnapshotOutput) Sku() SnapshotSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Snapshot) SnapshotSkuResponsePtrOutput { return v.Sku }).(SnapshotSkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o SnapshotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time when the disk was created.
+func (o SnapshotOutput) TimeCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.TimeCreated }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o SnapshotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique Guid identifying the resource.
+func (o SnapshotOutput) UniqueId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnapshotOutput{})
 }

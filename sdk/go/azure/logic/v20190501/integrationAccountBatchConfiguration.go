@@ -154,6 +154,33 @@ func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchCon
 	return o
 }
 
+// The resource location.
+func (o IntegrationAccountBatchConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationAccountBatchConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The batch configuration properties.
+func (o IntegrationAccountBatchConfigurationOutput) Properties() BatchConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) BatchConfigurationPropertiesResponseOutput {
+		return v.Properties
+	}).(BatchConfigurationPropertiesResponseOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountBatchConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationAccountBatchConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountBatchConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationOutput{})
 }

@@ -255,6 +255,106 @@ func (o VpnServerConfigurationOutput) ToVpnServerConfigurationOutputWithContext(
 	return o
 }
 
+// The set of aad vpn authentication parameters.
+func (o VpnServerConfigurationOutput) AadAuthenticationParameters() AadAuthenticationParametersResponsePtrOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) AadAuthenticationParametersResponsePtrOutput {
+		return v.AadAuthenticationParameters
+	}).(AadAuthenticationParametersResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VpnServerConfigurationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o VpnServerConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o VpnServerConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of references to P2SVpnGateways.
+func (o VpnServerConfigurationOutput) P2SVpnGateways() P2SVpnGatewayResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) P2SVpnGatewayResponseArrayOutput { return v.P2SVpnGateways }).(P2SVpnGatewayResponseArrayOutput)
+}
+
+// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o VpnServerConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Radius client root certificate of VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) RadiusClientRootCertificates() VpnServerConfigRadiusClientRootCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigRadiusClientRootCertificateResponseArrayOutput {
+		return v.RadiusClientRootCertificates
+	}).(VpnServerConfigRadiusClientRootCertificateResponseArrayOutput)
+}
+
+// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+func (o VpnServerConfigurationOutput) RadiusServerAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringPtrOutput { return v.RadiusServerAddress }).(pulumi.StringPtrOutput)
+}
+
+// Radius Server root certificate of VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) RadiusServerRootCertificates() VpnServerConfigRadiusServerRootCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigRadiusServerRootCertificateResponseArrayOutput {
+		return v.RadiusServerRootCertificates
+	}).(VpnServerConfigRadiusServerRootCertificateResponseArrayOutput)
+}
+
+// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+func (o VpnServerConfigurationOutput) RadiusServerSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringPtrOutput { return v.RadiusServerSecret }).(pulumi.StringPtrOutput)
+}
+
+// Multiple Radius Server configuration for VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) RadiusServers() RadiusServerResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) RadiusServerResponseArrayOutput { return v.RadiusServers }).(RadiusServerResponseArrayOutput)
+}
+
+// Resource tags.
+func (o VpnServerConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VpnServerConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// VPN authentication types for the VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) VpnAuthenticationTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringArrayOutput { return v.VpnAuthenticationTypes }).(pulumi.StringArrayOutput)
+}
+
+// VpnClientIpsecPolicies for VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) VpnClientIpsecPolicies() IpsecPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) IpsecPolicyResponseArrayOutput { return v.VpnClientIpsecPolicies }).(IpsecPolicyResponseArrayOutput)
+}
+
+// VPN client revoked certificate of VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) VpnClientRevokedCertificates() VpnServerConfigVpnClientRevokedCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigVpnClientRevokedCertificateResponseArrayOutput {
+		return v.VpnClientRevokedCertificates
+	}).(VpnServerConfigVpnClientRevokedCertificateResponseArrayOutput)
+}
+
+// VPN client root certificate of VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) VpnClientRootCertificates() VpnServerConfigVpnClientRootCertificateResponseArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) VpnServerConfigVpnClientRootCertificateResponseArrayOutput {
+		return v.VpnClientRootCertificates
+	}).(VpnServerConfigVpnClientRootCertificateResponseArrayOutput)
+}
+
+// VPN protocols for the VpnServerConfiguration.
+func (o VpnServerConfigurationOutput) VpnProtocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpnServerConfiguration) pulumi.StringArrayOutput { return v.VpnProtocols }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnServerConfigurationOutput{})
 }

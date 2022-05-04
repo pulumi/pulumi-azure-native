@@ -242,6 +242,56 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+// The identity of the resource.
+func (o ResourceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Resource) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The kind of the resource.
+func (o ResourceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o ResourceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Id of the resource that manages this resource.
+func (o ResourceOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o ResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The plan of the resource.
+func (o ResourceOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *Resource) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The resource properties.
+func (o ResourceOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Resource) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The sku of the resource.
+func (o ResourceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Resource) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o ResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceOutput{})
 }

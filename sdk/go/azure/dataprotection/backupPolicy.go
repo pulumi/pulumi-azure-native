@@ -160,6 +160,26 @@ func (o BackupPolicyOutput) ToBackupPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Resource name associated with the resource.
+func (o BackupPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// BaseBackupPolicyResource properties
+func (o BackupPolicyOutput) Properties() BackupPolicyResponseOutput {
+	return o.ApplyT(func(v *BackupPolicy) BackupPolicyResponseOutput { return v.Properties }).(BackupPolicyResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BackupPolicyOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BackupPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o BackupPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupPolicyOutput{})
 }

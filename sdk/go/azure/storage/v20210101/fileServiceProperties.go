@@ -173,6 +173,38 @@ func (o FileServicePropertiesOutput) ToFileServicePropertiesOutputWithContext(ct
 	return o
 }
 
+// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
+func (o FileServicePropertiesOutput) Cors() CorsRulesResponsePtrOutput {
+	return o.ApplyT(func(v *FileServiceProperties) CorsRulesResponsePtrOutput { return v.Cors }).(CorsRulesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o FileServicePropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServiceProperties) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Protocol settings for file service
+func (o FileServicePropertiesOutput) ProtocolSettings() ProtocolSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *FileServiceProperties) ProtocolSettingsResponsePtrOutput { return v.ProtocolSettings }).(ProtocolSettingsResponsePtrOutput)
+}
+
+// The file service properties for share soft delete.
+func (o FileServicePropertiesOutput) ShareDeleteRetentionPolicy() DeleteRetentionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *FileServiceProperties) DeleteRetentionPolicyResponsePtrOutput {
+		return v.ShareDeleteRetentionPolicy
+	}).(DeleteRetentionPolicyResponsePtrOutput)
+}
+
+// Sku name and tier.
+func (o FileServicePropertiesOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *FileServiceProperties) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o FileServicePropertiesOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileServiceProperties) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FileServicePropertiesOutput{})
 }

@@ -162,6 +162,51 @@ func (o PrivateLinkServicesForEDMUploadOutput) ToPrivateLinkServicesForEDMUpload
 	return o
 }
 
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o PrivateLinkServicesForEDMUploadOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o PrivateLinkServicesForEDMUploadOutput) Identity() ServicesResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) ServicesResourceResponseIdentityPtrOutput { return v.Identity }).(ServicesResourceResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o PrivateLinkServicesForEDMUploadOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o PrivateLinkServicesForEDMUploadOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateLinkServicesForEDMUploadOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The common properties of a service.
+func (o PrivateLinkServicesForEDMUploadOutput) Properties() ServicesPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) ServicesPropertiesResponseOutput { return v.Properties }).(ServicesPropertiesResponseOutput)
+}
+
+// Required property for system data
+func (o PrivateLinkServicesForEDMUploadOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource tags.
+func (o PrivateLinkServicesForEDMUploadOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o PrivateLinkServicesForEDMUploadOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicesForEDMUpload) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkServicesForEDMUploadOutput{})
 }

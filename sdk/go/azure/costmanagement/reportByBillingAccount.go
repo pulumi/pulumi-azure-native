@@ -153,6 +153,41 @@ func (o ReportByBillingAccountOutput) ToReportByBillingAccountOutputWithContext(
 	return o
 }
 
+// Has definition for the report.
+func (o ReportByBillingAccountOutput) Definition() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) ReportDefinitionResponseOutput { return v.Definition }).(ReportDefinitionResponseOutput)
+}
+
+// Has delivery information for the report.
+func (o ReportByBillingAccountOutput) DeliveryInfo() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) ReportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportByBillingAccountOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportByBillingAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report.
+func (o ReportByBillingAccountOutput) Schedule() ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) ReportScheduleResponsePtrOutput { return v.Schedule }).(ReportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportByBillingAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportByBillingAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByBillingAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportByBillingAccountOutput{})
 }

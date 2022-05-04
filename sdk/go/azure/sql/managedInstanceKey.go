@@ -168,6 +168,36 @@ func (o ManagedInstanceKeyOutput) ToManagedInstanceKeyOutputWithContext(ctx cont
 	return o
 }
 
+// Key auto rotation opt-in flag. Either true or false.
+func (o ManagedInstanceKeyOutput) AutoRotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.BoolOutput { return v.AutoRotationEnabled }).(pulumi.BoolOutput)
+}
+
+// The key creation date.
+func (o ManagedInstanceKeyOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o ManagedInstanceKeyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagedInstanceKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Thumbprint of the key.
+func (o ManagedInstanceKeyOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ManagedInstanceKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedInstanceKeyOutput{})
 }

@@ -497,6 +497,17 @@ type DiskPoolVolumeArgs struct {
 	TargetId pulumi.StringInput `pulumi:"targetId"`
 }
 
+// Defaults sets the appropriate defaults for DiskPoolVolumeArgs
+func (val *DiskPoolVolumeArgs) Defaults() *DiskPoolVolumeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		tmp.MountOption = pulumi.StringPtr("MOUNT")
+	}
+	return &tmp
+}
 func (DiskPoolVolumeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskPoolVolume)(nil)).Elem()
 }

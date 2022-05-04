@@ -201,6 +201,52 @@ func (o AwsS3DataConnectorOutput) ToAwsS3DataConnectorOutputWithContext(ctx cont
 	return o
 }
 
+// The available data types for the connector.
+func (o AwsS3DataConnectorOutput) DataTypes() AwsS3DataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) AwsS3DataConnectorDataTypesResponseOutput { return v.DataTypes }).(AwsS3DataConnectorDataTypesResponseOutput)
+}
+
+// The logs destination table name in LogAnalytics.
+func (o AwsS3DataConnectorOutput) DestinationTable() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringOutput { return v.DestinationTable }).(pulumi.StringOutput)
+}
+
+// Etag of the azure resource
+func (o AwsS3DataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'AmazonWebServicesS3'.
+func (o AwsS3DataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AwsS3DataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Aws Role Arn that is used to access the Aws account.
+func (o AwsS3DataConnectorOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The AWS sqs urls for the connector.
+func (o AwsS3DataConnectorOutput) SqsUrls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringArrayOutput { return v.SqsUrls }).(pulumi.StringArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AwsS3DataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AwsS3DataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AwsS3DataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AwsS3DataConnectorOutput{})
 }

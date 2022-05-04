@@ -202,6 +202,57 @@ func (o ADLSGen1FileDataSetOutput) ToADLSGen1FileDataSetOutputWithContext(ctx co
 	return o
 }
 
+// The ADLS account name.
+func (o ADLSGen1FileDataSetOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Unique id for identifying a data set resource
+func (o ADLSGen1FileDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// The file name in the ADLS account.
+func (o ADLSGen1FileDataSetOutput) FileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.FileName }).(pulumi.StringOutput)
+}
+
+// The folder path within the ADLS account.
+func (o ADLSGen1FileDataSetOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'AdlsGen1File'.
+func (o ADLSGen1FileDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen1FileDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of ADLS account.
+func (o ADLSGen1FileDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Subscription id of ADLS account.
+func (o ADLSGen1FileDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ADLSGen1FileDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen1FileDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen1FileDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen1FileDataSetOutput{})
 }

@@ -199,6 +199,44 @@ func (o WebAppSitePushSettingsOutput) ToWebAppSitePushSettingsOutputWithContext(
 	return o
 }
 
+// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+func (o WebAppSitePushSettingsOutput) DynamicTagsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringPtrOutput { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a flag indicating whether the Push endpoint is enabled.
+func (o WebAppSitePushSettingsOutput) IsPushEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.BoolOutput { return v.IsPushEnabled }).(pulumi.BoolOutput)
+}
+
+// Kind of resource.
+func (o WebAppSitePushSettingsOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSitePushSettingsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+func (o WebAppSitePushSettingsOutput) TagWhitelistJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringPtrOutput { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+// Tags can consist of alphanumeric characters and the following:
+// '_', '@', '#', '.', ':', '-'.
+// Validation should be performed at the PushRequestHandler.
+func (o WebAppSitePushSettingsOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringPtrOutput { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o WebAppSitePushSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSitePushSettings) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSitePushSettingsOutput{})
 }

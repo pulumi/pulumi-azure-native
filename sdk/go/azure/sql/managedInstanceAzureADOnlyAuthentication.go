@@ -155,6 +155,23 @@ func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureAD
 	return o
 }
 
+// Azure Active Directory only Authentication enabled.
+func (o ManagedInstanceAzureADOnlyAuthenticationOutput) AzureADOnlyAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureADOnlyAuthentication) pulumi.BoolOutput {
+		return v.AzureADOnlyAuthentication
+	}).(pulumi.BoolOutput)
+}
+
+// Resource name.
+func (o ManagedInstanceAzureADOnlyAuthenticationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureADOnlyAuthentication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ManagedInstanceAzureADOnlyAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAzureADOnlyAuthentication) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedInstanceAzureADOnlyAuthenticationOutput{})
 }

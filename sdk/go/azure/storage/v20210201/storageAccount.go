@@ -346,6 +346,195 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+func (o StorageAccountOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+func (o StorageAccountOutput) AllowBlobPublicAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolPtrOutput { return v.AllowBlobPublicAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
+func (o StorageAccountOutput) AllowSharedKeyAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolPtrOutput { return v.AllowSharedKeyAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Provides the identity based authentication settings for Azure Files.
+func (o StorageAccountOutput) AzureFilesIdentityBasedAuthentication() AzureFilesIdentityBasedAuthenticationResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) AzureFilesIdentityBasedAuthenticationResponsePtrOutput {
+		return v.AzureFilesIdentityBasedAuthentication
+	}).(AzureFilesIdentityBasedAuthenticationResponsePtrOutput)
+}
+
+// Blob restore status
+func (o StorageAccountOutput) BlobRestoreStatus() BlobRestoreStatusResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) BlobRestoreStatusResponseOutput { return v.BlobRestoreStatus }).(BlobRestoreStatusResponseOutput)
+}
+
+// Gets the creation date and time of the storage account in UTC.
+func (o StorageAccountOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets the custom domain the user assigned to this storage account.
+func (o StorageAccountOutput) CustomDomain() CustomDomainResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) CustomDomainResponseOutput { return v.CustomDomain }).(CustomDomainResponseOutput)
+}
+
+// Allows https traffic only to storage service if sets to true.
+func (o StorageAccountOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolPtrOutput { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
+}
+
+// NFS 3.0 protocol support enabled if set to true.
+func (o StorageAccountOutput) EnableNfsV3() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolPtrOutput { return v.EnableNfsV3 }).(pulumi.BoolPtrOutput)
+}
+
+// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+func (o StorageAccountOutput) Encryption() EncryptionResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) EncryptionResponseOutput { return v.Encryption }).(EncryptionResponseOutput)
+}
+
+// The extendedLocation of the resource.
+func (o StorageAccountOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// If the failover is in progress, the value will be true, otherwise, it will be null.
+func (o StorageAccountOutput) FailoverInProgress() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolOutput { return v.FailoverInProgress }).(pulumi.BoolOutput)
+}
+
+// Geo Replication Stats
+func (o StorageAccountOutput) GeoReplicationStats() GeoReplicationStatsResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) GeoReplicationStatsResponseOutput { return v.GeoReplicationStats }).(GeoReplicationStatsResponseOutput)
+}
+
+// The identity of the resource.
+func (o StorageAccountOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Account HierarchicalNamespace enabled if sets to true.
+func (o StorageAccountOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.BoolPtrOutput { return v.IsHnsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Storage account keys creation time.
+func (o StorageAccountOutput) KeyCreationTime() KeyCreationTimeResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) KeyCreationTimeResponseOutput { return v.KeyCreationTime }).(KeyCreationTimeResponseOutput)
+}
+
+// KeyPolicy assigned to the storage account.
+func (o StorageAccountOutput) KeyPolicy() KeyPolicyResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) KeyPolicyResponseOutput { return v.KeyPolicy }).(KeyPolicyResponseOutput)
+}
+
+// Gets the Kind.
+func (o StorageAccountOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+func (o StorageAccountOutput) LargeFileSharesState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.LargeFileSharesState }).(pulumi.StringPtrOutput)
+}
+
+// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) LastGeoFailoverTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.LastGeoFailoverTime }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o StorageAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+func (o StorageAccountOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o StorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network rule set
+func (o StorageAccountOutput) NetworkRuleSet() NetworkRuleSetResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) NetworkRuleSetResponseOutput { return v.NetworkRuleSet }).(NetworkRuleSetResponseOutput)
+}
+
+// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+func (o StorageAccountOutput) PrimaryEndpoints() EndpointsResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) EndpointsResponseOutput { return v.PrimaryEndpoints }).(EndpointsResponseOutput)
+}
+
+// Gets the location of the primary data center for the storage account.
+func (o StorageAccountOutput) PrimaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.PrimaryLocation }).(pulumi.StringOutput)
+}
+
+// List of private endpoint connection associated with the specified storage account
+func (o StorageAccountOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *StorageAccount) PrivateEndpointConnectionResponseArrayOutput {
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// Gets the status of the storage account at the time the operation was called.
+func (o StorageAccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Maintains information about the network routing choice opted by the user for data transfer
+func (o StorageAccountOutput) RoutingPreference() RoutingPreferenceResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) RoutingPreferenceResponsePtrOutput { return v.RoutingPreference }).(RoutingPreferenceResponsePtrOutput)
+}
+
+// SasPolicy assigned to the storage account.
+func (o StorageAccountOutput) SasPolicy() SasPolicyResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) SasPolicyResponseOutput { return v.SasPolicy }).(SasPolicyResponseOutput)
+}
+
+// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+func (o StorageAccountOutput) SecondaryEndpoints() EndpointsResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) EndpointsResponseOutput { return v.SecondaryEndpoints }).(EndpointsResponseOutput)
+}
+
+// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) SecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.SecondaryLocation }).(pulumi.StringOutput)
+}
+
+// Gets the SKU.
+func (o StorageAccountOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *StorageAccount) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+func (o StorageAccountOutput) StatusOfPrimary() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.StatusOfPrimary }).(pulumi.StringOutput)
+}
+
+// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) StatusOfSecondary() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.StatusOfSecondary }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o StorageAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o StorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 }

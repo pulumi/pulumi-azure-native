@@ -156,6 +156,47 @@ func (o PartnerNamespaceOutput) ToPartnerNamespaceOutputWithContext(ctx context.
 	return o
 }
 
+// Endpoint for the partner namespace.
+func (o PartnerNamespaceOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Location of the resource.
+func (o PartnerNamespaceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the resource.
+func (o PartnerNamespaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
+// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+func (o PartnerNamespaceOutput) PartnerRegistrationFullyQualifiedId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringPtrOutput { return v.PartnerRegistrationFullyQualifiedId }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the partner namespace.
+func (o PartnerNamespaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to Partner Namespace resource.
+func (o PartnerNamespaceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PartnerNamespace) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o PartnerNamespaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o PartnerNamespaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerNamespace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerNamespaceOutput{})
 }

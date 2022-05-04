@@ -218,6 +218,47 @@ func (o IoTRoleOutput) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOu
 	return o
 }
 
+// Host OS supported by the IoT role.
+func (o IoTRoleOutput) HostPlatform() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTRole) pulumi.StringOutput { return v.HostPlatform }).(pulumi.StringOutput)
+}
+
+// IoT device metadata to which data box edge device needs to be connected.
+func (o IoTRoleOutput) IoTDeviceDetails() IoTDeviceInfoResponseOutput {
+	return o.ApplyT(func(v *IoTRole) IoTDeviceInfoResponseOutput { return v.IoTDeviceDetails }).(IoTDeviceInfoResponseOutput)
+}
+
+// IoT edge device to which the IoT role needs to be configured.
+func (o IoTRoleOutput) IoTEdgeDeviceDetails() IoTDeviceInfoResponseOutput {
+	return o.ApplyT(func(v *IoTRole) IoTDeviceInfoResponseOutput { return v.IoTEdgeDeviceDetails }).(IoTDeviceInfoResponseOutput)
+}
+
+// Role type.
+// Expected value is 'IOT'.
+func (o IoTRoleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTRole) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o IoTRoleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTRole) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role status.
+func (o IoTRoleOutput) RoleStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTRole) pulumi.StringOutput { return v.RoleStatus }).(pulumi.StringOutput)
+}
+
+// Mount points of shares in role(s).
+func (o IoTRoleOutput) ShareMappings() MountPointMapResponseArrayOutput {
+	return o.ApplyT(func(v *IoTRole) MountPointMapResponseArrayOutput { return v.ShareMappings }).(MountPointMapResponseArrayOutput)
+}
+
+// The hierarchical type of the object.
+func (o IoTRoleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTRole) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTRoleOutput{})
 }

@@ -211,6 +211,81 @@ func (o LinkOutput) ToLinkOutputWithContext(ctx context.Context) LinkOutput {
 	return o
 }
 
+// Localized descriptions for the Link.
+func (o LinkOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display name for the Link.
+func (o LinkOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The link name.
+func (o LinkOutput) LinkName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkName }).(pulumi.StringOutput)
+}
+
+// The set of properties mappings between the source and target Types.
+func (o LinkOutput) Mappings() TypePropertiesMappingResponseArrayOutput {
+	return o.ApplyT(func(v *Link) TypePropertiesMappingResponseArrayOutput { return v.Mappings }).(TypePropertiesMappingResponseArrayOutput)
+}
+
+// Resource name.
+func (o LinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+func (o LinkOutput) OperationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringPtrOutput { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+// The properties that represent the participating profile.
+func (o LinkOutput) ParticipantPropertyReferences() ParticipantPropertyReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *Link) ParticipantPropertyReferenceResponseArrayOutput { return v.ParticipantPropertyReferences }).(ParticipantPropertyReferenceResponseArrayOutput)
+}
+
+// Provisioning state.
+func (o LinkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+func (o LinkOutput) ReferenceOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Link) pulumi.BoolPtrOutput { return v.ReferenceOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Type of source entity.
+func (o LinkOutput) SourceEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SourceEntityType }).(pulumi.StringOutput)
+}
+
+// Name of the source Entity Type.
+func (o LinkOutput) SourceEntityTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.SourceEntityTypeName }).(pulumi.StringOutput)
+}
+
+// Type of target entity.
+func (o LinkOutput) TargetEntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.TargetEntityType }).(pulumi.StringOutput)
+}
+
+// Name of the target Entity Type.
+func (o LinkOutput) TargetEntityTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.TargetEntityTypeName }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o LinkOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o LinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LinkOutput{})
 }

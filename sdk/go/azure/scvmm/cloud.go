@@ -170,6 +170,71 @@ func (o CloudOutput) ToCloudOutputWithContext(ctx context.Context) CloudOutput {
 	return o
 }
 
+// Capacity of the cloud.
+func (o CloudOutput) CloudCapacity() CloudCapacityResponseOutput {
+	return o.ApplyT(func(v *Cloud) CloudCapacityResponseOutput { return v.CloudCapacity }).(CloudCapacityResponseOutput)
+}
+
+// Name of the cloud in VMMServer.
+func (o CloudOutput) CloudName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringOutput { return v.CloudName }).(pulumi.StringOutput)
+}
+
+// The extended location.
+func (o CloudOutput) ExtendedLocation() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *Cloud) ExtendedLocationResponseOutput { return v.ExtendedLocation }).(ExtendedLocationResponseOutput)
+}
+
+// Gets or sets the inventory Item ID for the resource.
+func (o CloudOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o CloudOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o CloudOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o CloudOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of QoS policies available for the cloud.
+func (o CloudOutput) StorageQoSPolicies() StorageQoSPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *Cloud) StorageQoSPolicyResponseArrayOutput { return v.StorageQoSPolicies }).(StorageQoSPolicyResponseArrayOutput)
+}
+
+// The system data.
+func (o CloudOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Cloud) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o CloudOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o CloudOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique ID of the cloud.
+func (o CloudOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringPtrOutput { return v.Uuid }).(pulumi.StringPtrOutput)
+}
+
+// ARM Id of the vmmServer resource in which this resource resides.
+func (o CloudOutput) VmmServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cloud) pulumi.StringPtrOutput { return v.VmmServerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudOutput{})
 }

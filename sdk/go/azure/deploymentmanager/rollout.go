@@ -178,6 +178,51 @@ func (o RolloutOutput) ToRolloutOutputWithContext(ctx context.Context) RolloutOu
 	return o
 }
 
+// The reference to the artifact source resource Id where the payload is located.
+func (o RolloutOutput) ArtifactSourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringPtrOutput { return v.ArtifactSourceId }).(pulumi.StringPtrOutput)
+}
+
+// The version of the build being deployed.
+func (o RolloutOutput) BuildVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringOutput { return v.BuildVersion }).(pulumi.StringOutput)
+}
+
+// Identity for the resource.
+func (o RolloutOutput) Identity() IdentityResponseOutput {
+	return o.ApplyT(func(v *Rollout) IdentityResponseOutput { return v.Identity }).(IdentityResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o RolloutOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o RolloutOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of step groups that define the orchestration.
+func (o RolloutOutput) StepGroups() StepGroupResponseArrayOutput {
+	return o.ApplyT(func(v *Rollout) StepGroupResponseArrayOutput { return v.StepGroups }).(StepGroupResponseArrayOutput)
+}
+
+// Resource tags.
+func (o RolloutOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
+func (o RolloutOutput) TargetServiceTopologyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringOutput { return v.TargetServiceTopologyId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o RolloutOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rollout) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RolloutOutput{})
 }

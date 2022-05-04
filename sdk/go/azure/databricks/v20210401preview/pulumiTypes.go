@@ -352,6 +352,17 @@ type EncryptionArgs struct {
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = pulumi.StringPtr("Default")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }
@@ -2743,6 +2754,15 @@ type WorkspaceCustomParametersArgs struct {
 	VnetAddressPrefix WorkspaceCustomStringParameterPtrInput `pulumi:"vnetAddressPrefix"`
 }
 
+// Defaults sets the appropriate defaults for WorkspaceCustomParametersArgs
+func (val *WorkspaceCustomParametersArgs) Defaults() *WorkspaceCustomParametersArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (WorkspaceCustomParametersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceCustomParameters)(nil)).Elem()
 }
@@ -3681,6 +3701,15 @@ type WorkspaceEncryptionParameterArgs struct {
 	Value EncryptionPtrInput `pulumi:"value"`
 }
 
+// Defaults sets the appropriate defaults for WorkspaceEncryptionParameterArgs
+func (val *WorkspaceEncryptionParameterArgs) Defaults() *WorkspaceEncryptionParameterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (WorkspaceEncryptionParameterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceEncryptionParameter)(nil)).Elem()
 }

@@ -240,6 +240,101 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Last time there was a receive request to this subscription.
+func (o SubscriptionOutput) AccessedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.AccessedAt }).(pulumi.StringOutput)
+}
+
+// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+func (o SubscriptionOutput) AutoDeleteOnIdle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.AutoDeleteOnIdle }).(pulumi.StringPtrOutput)
+}
+
+// Message Count Details.
+func (o SubscriptionOutput) CountDetails() MessageCountDetailsResponseOutput {
+	return o.ApplyT(func(v *Subscription) MessageCountDetailsResponseOutput { return v.CountDetails }).(MessageCountDetailsResponseOutput)
+}
+
+// Exact time the message was created.
+func (o SubscriptionOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+func (o SubscriptionOutput) DeadLetteringOnFilterEvaluationExceptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.DeadLetteringOnFilterEvaluationExceptions }).(pulumi.BoolPtrOutput)
+}
+
+// Value that indicates whether a subscription has dead letter support when a message expires.
+func (o SubscriptionOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
+}
+
+// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+func (o SubscriptionOutput) DefaultMessageTimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.DefaultMessageTimeToLive }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether server-side batched operations are enabled.
+func (o SubscriptionOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Entity availability status for the topic.
+func (o SubscriptionOutput) EntityAvailabilityStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.EntityAvailabilityStatus }).(pulumi.StringPtrOutput)
+}
+
+// Value that indicates whether the entity description is read-only.
+func (o SubscriptionOutput) IsReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.IsReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Resource location.
+func (o SubscriptionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The lock duration time span for the subscription.
+func (o SubscriptionOutput) LockDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.LockDuration }).(pulumi.StringPtrOutput)
+}
+
+// Number of maximum deliveries.
+func (o SubscriptionOutput) MaxDeliveryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.IntPtrOutput { return v.MaxDeliveryCount }).(pulumi.IntPtrOutput)
+}
+
+// Number of messages.
+func (o SubscriptionOutput) MessageCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *Subscription) pulumi.Float64Output { return v.MessageCount }).(pulumi.Float64Output)
+}
+
+// Resource name
+func (o SubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Value indicating if a subscription supports the concept of sessions.
+func (o SubscriptionOutput) RequiresSession() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.BoolPtrOutput { return v.RequiresSession }).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the status of a messaging entity.
+func (o SubscriptionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o SubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The exact time the message was updated.
+func (o SubscriptionOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubscriptionOutput{})
 }

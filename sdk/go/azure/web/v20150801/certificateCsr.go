@@ -178,6 +178,61 @@ func (o CertificateCsrOutput) ToCertificateCsrOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Actual CSR string created
+func (o CertificateCsrOutput) CsrString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.CsrString }).(pulumi.StringPtrOutput)
+}
+
+// Distinguished name of certificate to be created
+func (o CertificateCsrOutput) DistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.DistinguishedName }).(pulumi.StringPtrOutput)
+}
+
+// Hosting environment
+func (o CertificateCsrOutput) HostingEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.HostingEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o CertificateCsrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o CertificateCsrOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o CertificateCsrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// PFX password
+func (o CertificateCsrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// PFX certificate of created certificate
+func (o CertificateCsrOutput) PfxBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.PfxBlob }).(pulumi.StringPtrOutput)
+}
+
+// Hash of the certificates public key
+func (o CertificateCsrOutput) PublicKeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.PublicKeyHash }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o CertificateCsrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CertificateCsrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateCsr) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateCsrOutput{})
 }

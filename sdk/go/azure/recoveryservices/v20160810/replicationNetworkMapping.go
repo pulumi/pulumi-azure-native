@@ -190,6 +190,26 @@ func (o ReplicationNetworkMappingOutput) ToReplicationNetworkMappingOutputWithCo
 	return o
 }
 
+// Resource Location
+func (o ReplicationNetworkMappingOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationNetworkMapping) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationNetworkMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationNetworkMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Mapping Properties.
+func (o ReplicationNetworkMappingOutput) Properties() NetworkMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationNetworkMapping) NetworkMappingPropertiesResponseOutput { return v.Properties }).(NetworkMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationNetworkMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationNetworkMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationNetworkMappingOutput{})
 }

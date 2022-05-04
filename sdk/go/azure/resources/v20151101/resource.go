@@ -218,6 +218,36 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 	return o
 }
 
+// Resource location
+func (o ResourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ResourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the plan of the resource.
+func (o ResourceOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *Resource) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Gets or sets the resource properties.
+func (o ResourceOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Resource) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource tags
+func (o ResourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceOutput{})
 }

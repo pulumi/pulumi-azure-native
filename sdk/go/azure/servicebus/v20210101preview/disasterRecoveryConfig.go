@@ -159,6 +159,46 @@ func (o DisasterRecoveryConfigOutput) ToDisasterRecoveryConfigOutputWithContext(
 	return o
 }
 
+// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+func (o DisasterRecoveryConfigOutput) AlternateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringPtrOutput { return v.AlternateName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o DisasterRecoveryConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+func (o DisasterRecoveryConfigOutput) PartnerNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringPtrOutput { return v.PartnerNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Number of entities pending to be replicated.
+func (o DisasterRecoveryConfigOutput) PendingReplicationOperationsCount() pulumi.Float64Output {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.Float64Output { return v.PendingReplicationOperationsCount }).(pulumi.Float64Output)
+}
+
+// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+func (o DisasterRecoveryConfigOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+func (o DisasterRecoveryConfigOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o DisasterRecoveryConfigOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type
+func (o DisasterRecoveryConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DisasterRecoveryConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DisasterRecoveryConfigOutput{})
 }

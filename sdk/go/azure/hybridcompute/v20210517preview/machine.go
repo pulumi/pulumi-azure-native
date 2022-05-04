@@ -185,6 +185,41 @@ func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOu
 	return o
 }
 
+// Identity for the resource.
+func (o MachineOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Machine) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o MachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Hybrid Compute Machine properties
+func (o MachineOutput) Properties() MachinePropertiesResponseOutput {
+	return o.ApplyT(func(v *Machine) MachinePropertiesResponseOutput { return v.Properties }).(MachinePropertiesResponseOutput)
+}
+
+// The system meta data relating to this resource.
+func (o MachineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Machine) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o MachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineOutput{})
 }

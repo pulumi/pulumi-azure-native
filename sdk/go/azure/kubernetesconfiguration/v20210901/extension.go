@@ -235,6 +235,91 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// Identity of the Extension resource in an AKS cluster
+func (o ExtensionOutput) AksAssignedIdentity() ExtensionResponseAksAssignedIdentityPtrOutput {
+	return o.ApplyT(func(v *Extension) ExtensionResponseAksAssignedIdentityPtrOutput { return v.AksAssignedIdentity }).(ExtensionResponseAksAssignedIdentityPtrOutput)
+}
+
+// Flag to note if this extension participates in auto upgrade of minor version, or not.
+func (o ExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+func (o ExtensionOutput) ConfigurationProtectedSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.ConfigurationProtectedSettings }).(pulumi.StringMapOutput)
+}
+
+// Configuration settings, as name-value pairs for configuring this extension.
+func (o ExtensionOutput) ConfigurationSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.ConfigurationSettings }).(pulumi.StringMapOutput)
+}
+
+// Custom Location settings properties.
+func (o ExtensionOutput) CustomLocationSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.CustomLocationSettings }).(pulumi.StringMapOutput)
+}
+
+// The error detail.
+func (o ExtensionOutput) ErrorInfo() ErrorDetailResponsePtrOutput {
+	return o.ApplyT(func(v *Extension) ErrorDetailResponsePtrOutput { return v.ErrorInfo }).(ErrorDetailResponsePtrOutput)
+}
+
+// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+func (o ExtensionOutput) ExtensionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ExtensionType }).(pulumi.StringPtrOutput)
+}
+
+// Identity of the Extension resource
+func (o ExtensionOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Extension) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Uri of the Helm package
+func (o ExtensionOutput) PackageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.PackageUri }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the extension resource.
+func (o ExtensionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+func (o ExtensionOutput) ReleaseTrain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ReleaseTrain }).(pulumi.StringPtrOutput)
+}
+
+// Scope at which the extension is installed.
+func (o ExtensionOutput) Scope() ScopeResponsePtrOutput {
+	return o.ApplyT(func(v *Extension) ScopeResponsePtrOutput { return v.Scope }).(ScopeResponsePtrOutput)
+}
+
+// Status from this extension.
+func (o ExtensionOutput) Statuses() ExtensionStatusResponseArrayOutput {
+	return o.ApplyT(func(v *Extension) ExtensionStatusResponseArrayOutput { return v.Statuses }).(ExtensionStatusResponseArrayOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+func (o ExtensionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Extension) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+func (o ExtensionOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExtensionOutput{})
 }

@@ -154,6 +154,21 @@ func (o ContentItemOutput) ToContentItemOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The name of the resource
+func (o ContentItemOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentItem) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the content item.
+func (o ContentItemOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentItem) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContentItemOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentItem) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContentItemOutput{})
 }

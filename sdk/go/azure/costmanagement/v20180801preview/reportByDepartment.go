@@ -152,6 +152,41 @@ func (o ReportByDepartmentOutput) ToReportByDepartmentOutputWithContext(ctx cont
 	return o
 }
 
+// Has definition for the report.
+func (o ReportByDepartmentOutput) Definition() ReportDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportByDepartment) ReportDefinitionResponseOutput { return v.Definition }).(ReportDefinitionResponseOutput)
+}
+
+// Has delivery information for the report.
+func (o ReportByDepartmentOutput) DeliveryInfo() ReportDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportByDepartment) ReportDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportByDepartmentOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportByDepartment) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportByDepartmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByDepartment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report.
+func (o ReportByDepartmentOutput) Schedule() ReportScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ReportByDepartment) ReportScheduleResponsePtrOutput { return v.Schedule }).(ReportScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportByDepartmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReportByDepartment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportByDepartmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportByDepartment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportByDepartmentOutput{})
 }

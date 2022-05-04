@@ -218,6 +218,56 @@ func (o WebAppPremierAddOnSlotOutput) ToWebAppPremierAddOnSlotOutputWithContext(
 	return o
 }
 
+// Kind of resource.
+func (o WebAppPremierAddOnSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o WebAppPremierAddOnSlotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Premier add on Marketplace offer.
+func (o WebAppPremierAddOnSlotOutput) MarketplaceOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.MarketplaceOffer }).(pulumi.StringPtrOutput)
+}
+
+// Premier add on Marketplace publisher.
+func (o WebAppPremierAddOnSlotOutput) MarketplacePublisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.MarketplacePublisher }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppPremierAddOnSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Premier add on Product.
+func (o WebAppPremierAddOnSlotOutput) Product() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.Product }).(pulumi.StringPtrOutput)
+}
+
+// Premier add on SKU.
+func (o WebAppPremierAddOnSlotOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o WebAppPremierAddOnSlotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppPremierAddOnSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Premier add on Vendor.
+func (o WebAppPremierAddOnSlotOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppPremierAddOnSlot) pulumi.StringPtrOutput { return v.Vendor }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppPremierAddOnSlotOutput{})
 }

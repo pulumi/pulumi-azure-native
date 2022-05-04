@@ -141,6 +141,26 @@ func (o SaasSubscriptionLevelOutput) ToSaasSubscriptionLevelOutputWithContext(ct
 	return o
 }
 
+// The name of the resource
+func (o SaasSubscriptionLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SaasSubscriptionLevel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// saas properties
+func (o SaasSubscriptionLevelOutput) Properties() SaasResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *SaasSubscriptionLevel) SaasResourceResponsePropertiesOutput { return v.Properties }).(SaasResourceResponsePropertiesOutput)
+}
+
+// the resource tags.
+func (o SaasSubscriptionLevelOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SaasSubscriptionLevel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o SaasSubscriptionLevelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SaasSubscriptionLevel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SaasSubscriptionLevelOutput{})
 }

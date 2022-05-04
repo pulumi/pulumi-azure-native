@@ -177,6 +177,56 @@ func (o WorkloadNetworkDnsServiceOutput) ToWorkloadNetworkDnsServiceOutputWithCo
 	return o
 }
 
+// Default DNS zone of the DNS Service.
+func (o WorkloadNetworkDnsServiceOutput) DefaultDnsZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringPtrOutput { return v.DefaultDnsZone }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the DNS Service.
+func (o WorkloadNetworkDnsServiceOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// DNS service IP of the DNS Service.
+func (o WorkloadNetworkDnsServiceOutput) DnsServiceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringPtrOutput { return v.DnsServiceIp }).(pulumi.StringPtrOutput)
+}
+
+// FQDN zones of the DNS Service.
+func (o WorkloadNetworkDnsServiceOutput) FqdnZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringArrayOutput { return v.FqdnZones }).(pulumi.StringArrayOutput)
+}
+
+// DNS Service log level.
+func (o WorkloadNetworkDnsServiceOutput) LogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringPtrOutput { return v.LogLevel }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkDnsServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkDnsServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkDnsServiceOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// DNS Service status.
+func (o WorkloadNetworkDnsServiceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkDnsServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDnsService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkDnsServiceOutput{})
 }

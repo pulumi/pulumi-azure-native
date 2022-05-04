@@ -146,6 +146,26 @@ func (o GatewayCustomDomainOutput) ToGatewayCustomDomainOutputWithContext(ctx co
 	return o
 }
 
+// The name of the resource.
+func (o GatewayCustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayCustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of custom domain for Spring Cloud Gateway
+func (o GatewayCustomDomainOutput) Properties() GatewayCustomDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v *GatewayCustomDomain) GatewayCustomDomainPropertiesResponseOutput { return v.Properties }).(GatewayCustomDomainPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o GatewayCustomDomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GatewayCustomDomain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o GatewayCustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayCustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayCustomDomainOutput{})
 }

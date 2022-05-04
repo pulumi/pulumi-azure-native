@@ -156,6 +156,46 @@ func (o ManagerOutput) ToManagerOutputWithContext(ctx context.Context) ManagerOu
 	return o
 }
 
+// Represents the type of StorSimple Manager.
+func (o ManagerOutput) CisIntrinsicSettings() ManagerIntrinsicSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Manager) ManagerIntrinsicSettingsResponsePtrOutput { return v.CisIntrinsicSettings }).(ManagerIntrinsicSettingsResponsePtrOutput)
+}
+
+// The etag of the manager.
+func (o ManagerOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The geo location of the resource.
+func (o ManagerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o ManagerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
+func (o ManagerOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Sku.
+func (o ManagerOutput) Sku() ManagerSkuResponsePtrOutput {
+	return o.ApplyT(func(v *Manager) ManagerSkuResponsePtrOutput { return v.Sku }).(ManagerSkuResponsePtrOutput)
+}
+
+// The tags attached to the resource.
+func (o ManagerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o ManagerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Manager) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagerOutput{})
 }

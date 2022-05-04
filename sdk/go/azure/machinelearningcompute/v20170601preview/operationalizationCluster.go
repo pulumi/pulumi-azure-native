@@ -195,6 +195,80 @@ func (o OperationalizationClusterOutput) ToOperationalizationClusterOutputWithCo
 	return o
 }
 
+// AppInsights configuration
+func (o OperationalizationClusterOutput) AppInsights() AppInsightsCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) AppInsightsCredentialsResponsePtrOutput { return v.AppInsights }).(AppInsightsCredentialsResponsePtrOutput)
+}
+
+// The cluster type.
+func (o OperationalizationClusterOutput) ClusterType() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.ClusterType }).(pulumi.StringOutput)
+}
+
+// Container Registry properties.
+func (o OperationalizationClusterOutput) ContainerRegistry() ContainerRegistryPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) ContainerRegistryPropertiesResponsePtrOutput {
+		return v.ContainerRegistry
+	}).(ContainerRegistryPropertiesResponsePtrOutput)
+}
+
+// Parameters for the Azure Container Service cluster.
+func (o OperationalizationClusterOutput) ContainerService() AcsClusterPropertiesResponseOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) AcsClusterPropertiesResponseOutput { return v.ContainerService }).(AcsClusterPropertiesResponseOutput)
+}
+
+// The date and time when the cluster was created.
+func (o OperationalizationClusterOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// The description of the cluster.
+func (o OperationalizationClusterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Contains global configuration for the web services in the cluster.
+func (o OperationalizationClusterOutput) GlobalServiceConfiguration() GlobalServiceConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) GlobalServiceConfigurationResponsePtrOutput {
+		return v.GlobalServiceConfiguration
+	}).(GlobalServiceConfigurationResponsePtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o OperationalizationClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The date and time when the cluster was last modified.
+func (o OperationalizationClusterOutput) ModifiedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.ModifiedOn }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the resource.
+func (o OperationalizationClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.
+func (o OperationalizationClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Storage Account properties.
+func (o OperationalizationClusterOutput) StorageAccount() StorageAccountPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) StorageAccountPropertiesResponsePtrOutput { return v.StorageAccount }).(StorageAccountPropertiesResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o OperationalizationClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o OperationalizationClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OperationalizationCluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OperationalizationClusterOutput{})
 }

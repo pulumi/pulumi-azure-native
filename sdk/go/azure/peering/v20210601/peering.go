@@ -191,6 +191,56 @@ func (o PeeringOutput) ToPeeringOutputWithContext(ctx context.Context) PeeringOu
 	return o
 }
 
+// The properties that define a direct peering.
+func (o PeeringOutput) Direct() PeeringPropertiesDirectResponsePtrOutput {
+	return o.ApplyT(func(v *Peering) PeeringPropertiesDirectResponsePtrOutput { return v.Direct }).(PeeringPropertiesDirectResponsePtrOutput)
+}
+
+// The properties that define an exchange peering.
+func (o PeeringOutput) Exchange() PeeringPropertiesExchangeResponsePtrOutput {
+	return o.ApplyT(func(v *Peering) PeeringPropertiesExchangeResponsePtrOutput { return v.Exchange }).(PeeringPropertiesExchangeResponsePtrOutput)
+}
+
+// The kind of the peering.
+func (o PeeringOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The location of the resource.
+func (o PeeringOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PeeringOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The location of the peering.
+func (o PeeringOutput) PeeringLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringPtrOutput { return v.PeeringLocation }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o PeeringOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU that defines the tier and kind of the peering.
+func (o PeeringOutput) Sku() PeeringSkuResponseOutput {
+	return o.ApplyT(func(v *Peering) PeeringSkuResponseOutput { return v.Sku }).(PeeringSkuResponseOutput)
+}
+
+// The resource tags.
+func (o PeeringOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o PeeringOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Peering) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PeeringOutput{})
 }

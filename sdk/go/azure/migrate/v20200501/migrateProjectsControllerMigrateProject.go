@@ -143,6 +143,38 @@ func (o MigrateProjectsControllerMigrateProjectOutput) ToMigrateProjectsControll
 	return o
 }
 
+// For optimistic concurrency control.
+func (o MigrateProjectsControllerMigrateProjectOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Azure location in which project is created.
+func (o MigrateProjectsControllerMigrateProjectOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the project.
+func (o MigrateProjectsControllerMigrateProjectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a migrate project.
+func (o MigrateProjectsControllerMigrateProjectOutput) Properties() MigrateProjectPropertiesResponseOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) MigrateProjectPropertiesResponseOutput {
+		return v.Properties
+	}).(MigrateProjectPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MigrateProjectsControllerMigrateProjectOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/migrateProjects].
+func (o MigrateProjectsControllerMigrateProjectOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MigrateProjectsControllerMigrateProject) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MigrateProjectsControllerMigrateProjectOutput{})
 }

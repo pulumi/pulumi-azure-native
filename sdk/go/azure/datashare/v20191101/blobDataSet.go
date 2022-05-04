@@ -206,6 +206,52 @@ func (o BlobDataSetOutput) ToBlobDataSetOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Container that has the file path.
+func (o BlobDataSetOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// Unique id for identifying a data set resource
+func (o BlobDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// File path within the source data set
+func (o BlobDataSetOutput) FilePath() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.FilePath }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'Blob'.
+func (o BlobDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o BlobDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account
+func (o BlobDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set
+func (o BlobDataSetOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account
+func (o BlobDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o BlobDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobDataSetOutput{})
 }

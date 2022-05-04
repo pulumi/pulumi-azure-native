@@ -154,6 +154,51 @@ func (o TestBaseAccountOutput) ToTestBaseAccountOutputWithContext(ctx context.Co
 	return o
 }
 
+// The access level of the Test Base Account.
+func (o TestBaseAccountOutput) AccessLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.AccessLevel }).(pulumi.StringOutput)
+}
+
+// Resource Etag.
+func (o TestBaseAccountOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o TestBaseAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o TestBaseAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o TestBaseAccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the Test Base Account.
+func (o TestBaseAccountOutput) Sku() TestBaseAccountSKUResponseOutput {
+	return o.ApplyT(func(v *TestBaseAccount) TestBaseAccountSKUResponseOutput { return v.Sku }).(TestBaseAccountSKUResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o TestBaseAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *TestBaseAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tags of the resource.
+func (o TestBaseAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o TestBaseAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TestBaseAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TestBaseAccountOutput{})
 }

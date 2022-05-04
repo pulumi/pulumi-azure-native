@@ -201,6 +201,68 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// This is only returned when the certificate provisioningState is 'Failed'.
+func (o CertificateOutput) DeleteCertificateError() DeleteCertificateErrorResponseOutput {
+	return o.ApplyT(func(v *Certificate) DeleteCertificateErrorResponseOutput { return v.DeleteCertificateError }).(DeleteCertificateErrorResponseOutput)
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o CertificateOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+func (o CertificateOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The previous provisioned state of the resource
+func (o CertificateOutput) PreviousProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PreviousProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) PreviousProvisioningStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PreviousProvisioningStateTransitionTime }).(pulumi.StringOutput)
+}
+
+// Values are:
+//
+//  Succeeded - The certificate is available for use in pools.
+//  Deleting - The user has requested that the certificate be deleted, but the delete operation has not yet completed. You may not reference the certificate when creating or updating pools.
+//  Failed - The user requested that the certificate be deleted, but there are pools that still have references to the certificate, or it is still installed on one or more compute nodes. (The latter can occur if the certificate has been removed from the pool, but the node has not yet restarted. Nodes refresh their certificates only when they restart.) You may use the cancel certificate delete operation to cancel the delete, or the delete certificate operation to retry the delete.
+func (o CertificateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o CertificateOutput) ProvisioningStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ProvisioningStateTransitionTime }).(pulumi.StringOutput)
+}
+
+// The public key of the certificate.
+func (o CertificateOutput) PublicData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.PublicData }).(pulumi.StringOutput)
+}
+
+// This must match the thumbprint from the name.
+func (o CertificateOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+func (o CertificateOutput) ThumbprintAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.ThumbprintAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o CertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CertificateOutput{})
 }

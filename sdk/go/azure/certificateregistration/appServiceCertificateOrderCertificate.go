@@ -192,6 +192,51 @@ func (o AppServiceCertificateOrderCertificateOutput) ToAppServiceCertificateOrde
 	return o
 }
 
+// Key Vault resource Id.
+func (o AppServiceCertificateOrderCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringPtrOutput { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Key Vault secret name.
+func (o AppServiceCertificateOrderCertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringPtrOutput { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource.
+func (o AppServiceCertificateOrderCertificateOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location.
+func (o AppServiceCertificateOrderCertificateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o AppServiceCertificateOrderCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Status of the Key Vault secret.
+func (o AppServiceCertificateOrderCertificateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AppServiceCertificateOrderCertificateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AppServiceCertificateOrderCertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AppServiceCertificateOrderCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppServiceCertificateOrderCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateOutput{})
 }

@@ -142,6 +142,31 @@ func (o PrivateAtlaseOutput) ToPrivateAtlaseOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The geo-location where the resource lives
+func (o PrivateAtlaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateAtlase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateAtlaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateAtlase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Private Atlas resource properties.
+func (o PrivateAtlaseOutput) Properties() PrivateAtlasPropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateAtlase) PrivateAtlasPropertiesResponseOutput { return v.Properties }).(PrivateAtlasPropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o PrivateAtlaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateAtlase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateAtlaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateAtlase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateAtlaseOutput{})
 }

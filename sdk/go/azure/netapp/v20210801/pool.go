@@ -257,6 +257,76 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
 }
 
+// If enabled (true) the pool can contain cool Access enabled volumes.
+func (o PoolOutput) CoolAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.CoolAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+func (o PoolOutput) EncryptionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.EncryptionType }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PoolOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o PoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o PoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// UUID v4 used to identify the Pool
+func (o PoolOutput) PoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.PoolId }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o PoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The qos type of the pool
+func (o PoolOutput) QosType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.QosType }).(pulumi.StringPtrOutput)
+}
+
+// The service level of the file system
+func (o PoolOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+func (o PoolOutput) Size() pulumi.Float64Output {
+	return o.ApplyT(func(v *Pool) pulumi.Float64Output { return v.Size }).(pulumi.Float64Output)
+}
+
+// Resource tags
+func (o PoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Total throughput of pool in Mibps
+func (o PoolOutput) TotalThroughputMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v *Pool) pulumi.Float64Output { return v.TotalThroughputMibps }).(pulumi.Float64Output)
+}
+
+// Resource type
+func (o PoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Utilized throughput of pool in Mibps
+func (o PoolOutput) UtilizedThroughputMibps() pulumi.Float64Output {
+	return o.ApplyT(func(v *Pool) pulumi.Float64Output { return v.UtilizedThroughputMibps }).(pulumi.Float64Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PoolOutput{})
 }

@@ -152,6 +152,56 @@ func (o DnsResolverOutput) ToDnsResolverOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+func (o DnsResolverOutput) DnsResolverState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.DnsResolverState }).(pulumi.StringOutput)
+}
+
+// ETag of the DNS resolver.
+func (o DnsResolverOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o DnsResolverOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DnsResolverOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored.
+func (o DnsResolverOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resourceGuid property of the DNS resolver resource.
+func (o DnsResolverOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DnsResolverOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DnsResolver) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DnsResolverOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DnsResolverOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DnsResolver) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference to the virtual network. This cannot be changed after creation.
+func (o DnsResolverOutput) VirtualNetwork() SubResourceResponseOutput {
+	return o.ApplyT(func(v *DnsResolver) SubResourceResponseOutput { return v.VirtualNetwork }).(SubResourceResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DnsResolverOutput{})
 }

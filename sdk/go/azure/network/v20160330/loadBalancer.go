@@ -311,6 +311,76 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Gets or sets Pools of backend IP addresses
+func (o LoadBalancerOutput) BackendAddressPools() BackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) BackendAddressPoolResponseArrayOutput { return v.BackendAddressPools }).(BackendAddressPoolResponseArrayOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated
+func (o LoadBalancerOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets frontend IP addresses of the load balancer
+func (o LoadBalancerOutput) FrontendIPConfigurations() FrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) FrontendIPConfigurationResponseArrayOutput { return v.FrontendIPConfigurations }).(FrontendIPConfigurationResponseArrayOutput)
+}
+
+// Gets or sets inbound NAT pools
+func (o LoadBalancerOutput) InboundNatPools() InboundNatPoolResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) InboundNatPoolResponseArrayOutput { return v.InboundNatPools }).(InboundNatPoolResponseArrayOutput)
+}
+
+// Gets or sets list of inbound rules
+func (o LoadBalancerOutput) InboundNatRules() InboundNatRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) InboundNatRuleResponseArrayOutput { return v.InboundNatRules }).(InboundNatRuleResponseArrayOutput)
+}
+
+// Gets or sets load balancing rules
+func (o LoadBalancerOutput) LoadBalancingRules() LoadBalancingRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancingRuleResponseArrayOutput { return v.LoadBalancingRules }).(LoadBalancingRuleResponseArrayOutput)
+}
+
+// Resource location
+func (o LoadBalancerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o LoadBalancerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets outbound NAT rules
+func (o LoadBalancerOutput) OutboundNatRules() OutboundNatRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) OutboundNatRuleResponseArrayOutput { return v.OutboundNatRules }).(OutboundNatRuleResponseArrayOutput)
+}
+
+// Gets or sets list of Load balancer probes
+func (o LoadBalancerOutput) Probes() ProbeResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) ProbeResponseArrayOutput { return v.Probes }).(ProbeResponseArrayOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o LoadBalancerOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets resource GUID property of the Load balancer resource
+func (o LoadBalancerOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o LoadBalancerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerOutput{})
 }

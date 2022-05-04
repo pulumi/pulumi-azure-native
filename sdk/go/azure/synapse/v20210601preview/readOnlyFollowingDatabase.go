@@ -176,6 +176,67 @@ func (o ReadOnlyFollowingDatabaseOutput) ToReadOnlyFollowingDatabaseOutputWithCo
 	return o
 }
 
+// The name of the attached database configuration cluster
+func (o ReadOnlyFollowingDatabaseOutput) AttachedDatabaseConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.AttachedDatabaseConfigurationName }).(pulumi.StringOutput)
+}
+
+// The time the data should be kept in cache for fast queries in TimeSpan.
+func (o ReadOnlyFollowingDatabaseOutput) HotCachePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringPtrOutput { return v.HotCachePeriod }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the database
+// Expected value is 'ReadOnlyFollowing'.
+func (o ReadOnlyFollowingDatabaseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the leader cluster
+func (o ReadOnlyFollowingDatabaseOutput) LeaderClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.LeaderClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ReadOnlyFollowingDatabaseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ReadOnlyFollowingDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principals modification kind of the database
+func (o ReadOnlyFollowingDatabaseOutput) PrincipalsModificationKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.PrincipalsModificationKind }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o ReadOnlyFollowingDatabaseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+func (o ReadOnlyFollowingDatabaseOutput) SoftDeletePeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.SoftDeletePeriod }).(pulumi.StringOutput)
+}
+
+// The statistics of the database.
+func (o ReadOnlyFollowingDatabaseOutput) Statistics() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) DatabaseStatisticsResponseOutput { return v.Statistics }).(DatabaseStatisticsResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ReadOnlyFollowingDatabaseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ReadOnlyFollowingDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadOnlyFollowingDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReadOnlyFollowingDatabaseOutput{})
 }

@@ -180,6 +180,66 @@ func (o ScheduledActionOutput) ToScheduledActionOutputWithContext(ctx context.Co
 	return o
 }
 
+// Scheduled action name.
+func (o ScheduledActionOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource Etag.
+func (o ScheduledActionOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ETag }).(pulumi.StringOutput)
+}
+
+// Destination format of the view data.
+func (o ScheduledActionOutput) FileDestination() FileDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) FileDestinationResponsePtrOutput { return v.FileDestination }).(FileDestinationResponsePtrOutput)
+}
+
+// Kind of the scheduled action.
+func (o ScheduledActionOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ScheduledActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification properties based on scheduled action kind.
+func (o ScheduledActionOutput) Notification() NotificationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ScheduledAction) NotificationPropertiesResponseOutput { return v.Notification }).(NotificationPropertiesResponseOutput)
+}
+
+// Schedule of the scheduled action.
+func (o ScheduledActionOutput) Schedule() SchedulePropertiesResponseOutput {
+	return o.ApplyT(func(v *ScheduledAction) SchedulePropertiesResponseOutput { return v.Schedule }).(SchedulePropertiesResponseOutput)
+}
+
+// Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+func (o ScheduledActionOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Status of the scheduled action.
+func (o ScheduledActionOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ScheduledActionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ScheduledAction) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o ScheduledActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
+func (o ScheduledActionOutput) ViewId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.ViewId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScheduledActionOutput{})
 }

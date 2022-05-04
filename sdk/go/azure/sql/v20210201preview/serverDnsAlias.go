@@ -150,6 +150,21 @@ func (o ServerDnsAliasOutput) ToServerDnsAliasOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The fully qualified DNS record for alias
+func (o ServerDnsAliasOutput) AzureDnsRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDnsAlias) pulumi.StringOutput { return v.AzureDnsRecord }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerDnsAliasOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDnsAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerDnsAliasOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerDnsAlias) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerDnsAliasOutput{})
 }

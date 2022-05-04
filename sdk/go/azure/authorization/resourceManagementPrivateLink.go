@@ -127,6 +127,27 @@ func (o ResourceManagementPrivateLinkOutput) ToResourceManagementPrivateLinkOutp
 	return o
 }
 
+// the region of the rmpl
+func (o ResourceManagementPrivateLinkOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceManagementPrivateLink) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The rmpl Name.
+func (o ResourceManagementPrivateLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceManagementPrivateLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceManagementPrivateLinkOutput) Properties() ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
+	return o.ApplyT(func(v *ResourceManagementPrivateLink) ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
+		return v.Properties
+	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
+}
+
+// The operation type.
+func (o ResourceManagementPrivateLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceManagementPrivateLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceManagementPrivateLinkOutput{})
 }

@@ -4518,6 +4518,15 @@ type ConfigurationArgs struct {
 	Secrets SecretArrayInput `pulumi:"secrets"`
 }
 
+// Defaults sets the appropriate defaults for ConfigurationArgs
+func (val *ConfigurationArgs) Defaults() *ConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Configuration)(nil)).Elem()
 }
@@ -11455,6 +11464,17 @@ type IngressArgs struct {
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
+// Defaults sets the appropriate defaults for IngressArgs
+func (val *IngressArgs) Defaults() *IngressArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.External) {
+		tmp.External = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (IngressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Ingress)(nil)).Elem()
 }
@@ -16732,6 +16752,17 @@ type TrafficWeightArgs struct {
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
+// Defaults sets the appropriate defaults for TrafficWeightArgs
+func (val *TrafficWeightArgs) Defaults() *TrafficWeightArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LatestRevision) {
+		tmp.LatestRevision = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (TrafficWeightArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficWeight)(nil)).Elem()
 }

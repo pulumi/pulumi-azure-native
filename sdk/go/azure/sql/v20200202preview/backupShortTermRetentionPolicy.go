@@ -161,6 +161,21 @@ func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOu
 	return o
 }
 
+// Resource name.
+func (o BackupShortTermRetentionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+func (o BackupShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o BackupShortTermRetentionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupShortTermRetentionPolicyOutput{})
 }

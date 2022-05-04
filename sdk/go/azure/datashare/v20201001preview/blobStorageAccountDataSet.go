@@ -183,6 +183,47 @@ func (o BlobStorageAccountDataSetOutput) ToBlobStorageAccountDataSetOutputWithCo
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o BlobStorageAccountDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'BlobStorageAccount'.
+func (o BlobStorageAccountDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the storage account.
+func (o BlobStorageAccountDataSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o BlobStorageAccountDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A list of storage account paths.
+func (o BlobStorageAccountDataSetOutput) Paths() BlobStorageAccountPathResponseArrayOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) BlobStorageAccountPathResponseArrayOutput { return v.Paths }).(BlobStorageAccountPathResponseArrayOutput)
+}
+
+// Resource id of the storage account.
+func (o BlobStorageAccountDataSetOutput) StorageAccountResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.StorageAccountResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o BlobStorageAccountDataSetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o BlobStorageAccountDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobStorageAccountDataSetOutput{})
 }

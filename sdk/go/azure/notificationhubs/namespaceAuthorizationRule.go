@@ -162,6 +162,76 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWith
 	return o
 }
 
+// A string that describes the claim type
+func (o NamespaceAuthorizationRuleOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// A string that describes the claim value
+func (o NamespaceAuthorizationRuleOutput) ClaimValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.ClaimValue }).(pulumi.StringOutput)
+}
+
+// The created time for this rule
+func (o NamespaceAuthorizationRuleOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A string that describes the authorization rule.
+func (o NamespaceAuthorizationRuleOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o NamespaceAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The last modified time for this rule
+func (o NamespaceAuthorizationRuleOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o NamespaceAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o NamespaceAuthorizationRuleOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The revision number for the rule
+func (o NamespaceAuthorizationRuleOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The rights associated with the rule.
+func (o NamespaceAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o NamespaceAuthorizationRuleOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// The sku of the created namespace
+func (o NamespaceAuthorizationRuleOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NamespaceAuthorizationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NamespaceAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceAuthorizationRuleOutput{})
 }

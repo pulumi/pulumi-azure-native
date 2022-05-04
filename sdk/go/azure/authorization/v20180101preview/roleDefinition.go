@@ -153,6 +153,41 @@ func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Role definition assignable scopes.
+func (o RoleDefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+// The role definition description.
+func (o RoleDefinitionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The role definition name.
+func (o RoleDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role definition permissions.
+func (o RoleDefinitionOutput) Permissions() PermissionResponseArrayOutput {
+	return o.ApplyT(func(v *RoleDefinition) PermissionResponseArrayOutput { return v.Permissions }).(PermissionResponseArrayOutput)
+}
+
+// The role name.
+func (o RoleDefinitionOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The role type.
+func (o RoleDefinitionOutput) RoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringPtrOutput { return v.RoleType }).(pulumi.StringPtrOutput)
+}
+
+// The role definition type.
+func (o RoleDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RoleDefinitionOutput{})
 }

@@ -169,6 +169,46 @@ func (o OnlineDeploymentOutput) ToOnlineDeploymentOutputWithContext(ctx context.
 	return o
 }
 
+// Service identity associated with a resource.
+func (o OnlineDeploymentOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *OnlineDeployment) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+func (o OnlineDeploymentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o OnlineDeploymentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o OnlineDeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [Required] Additional attributes of the entity.
+func (o OnlineDeploymentOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// System data associated with resource provider
+func (o OnlineDeploymentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OnlineDeployment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o OnlineDeploymentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OnlineDeploymentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OnlineDeployment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OnlineDeploymentOutput{})
 }

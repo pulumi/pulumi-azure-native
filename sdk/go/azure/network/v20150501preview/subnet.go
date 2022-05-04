@@ -287,6 +287,41 @@ func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutpu
 	return o
 }
 
+// Gets or sets Address prefix for the subnet.
+func (o SubnetOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated
+func (o SubnetOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets array of references to the network interface IP configurations using subnet
+func (o SubnetOutput) IpConfigurations() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *Subnet) SubResourceResponseArrayOutput { return v.IpConfigurations }).(SubResourceResponseArrayOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+func (o SubnetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reference of the NetworkSecurityGroup resource
+func (o SubnetOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *Subnet) SubResourceResponsePtrOutput { return v.NetworkSecurityGroup }).(SubResourceResponsePtrOutput)
+}
+
+// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+func (o SubnetOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the reference of the RouteTable resource
+func (o SubnetOutput) RouteTable() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *Subnet) SubResourceResponsePtrOutput { return v.RouteTable }).(SubResourceResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubnetOutput{})
 }

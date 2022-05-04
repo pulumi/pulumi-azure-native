@@ -194,6 +194,56 @@ func (o GalleryApplicationOutput) ToGalleryApplicationOutputWithContext(ctx cont
 	return o
 }
 
+// The description of this gallery Application Definition resource. This property is updatable.
+func (o GalleryApplicationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+func (o GalleryApplicationOutput) EndOfLifeDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringPtrOutput { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
+}
+
+// The Eula agreement for the gallery Application Definition.
+func (o GalleryApplicationOutput) Eula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringPtrOutput { return v.Eula }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o GalleryApplicationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o GalleryApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The privacy statement uri.
+func (o GalleryApplicationOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringPtrOutput { return v.PrivacyStatementUri }).(pulumi.StringPtrOutput)
+}
+
+// The release note uri.
+func (o GalleryApplicationOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringPtrOutput { return v.ReleaseNoteUri }).(pulumi.StringPtrOutput)
+}
+
+// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+func (o GalleryApplicationOutput) SupportedOSType() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringOutput { return v.SupportedOSType }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o GalleryApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o GalleryApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryApplication) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryApplicationOutput{})
 }

@@ -137,6 +137,21 @@ func (o TrustedIdProviderOutput) ToTrustedIdProviderOutputWithContext(ctx contex
 	return o
 }
 
+// The URL of this trusted identity provider.
+func (o TrustedIdProviderOutput) IdProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustedIdProvider) pulumi.StringOutput { return v.IdProvider }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o TrustedIdProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustedIdProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o TrustedIdProviderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustedIdProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrustedIdProviderOutput{})
 }

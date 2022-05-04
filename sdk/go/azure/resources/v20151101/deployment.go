@@ -177,6 +177,16 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// Gets or sets the name of the deployment.
+func (o DeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets deployment properties.
+func (o DeploymentOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentPropertiesExtendedResponseOutput { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentOutput{})
 }

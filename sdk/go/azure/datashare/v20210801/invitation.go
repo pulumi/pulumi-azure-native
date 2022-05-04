@@ -190,6 +190,73 @@ func (o InvitationOutput) ToInvitationOutputWithContext(ctx context.Context) Inv
 	return o
 }
 
+// The expiration date for the invitation and share subscription.
+func (o InvitationOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// unique invitation id
+func (o InvitationOutput) InvitationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.InvitationId }).(pulumi.StringOutput)
+}
+
+// The status of the invitation.
+func (o InvitationOutput) InvitationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.InvitationStatus }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o InvitationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The time the recipient responded to the invitation.
+func (o InvitationOutput) RespondedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.RespondedAt }).(pulumi.StringOutput)
+}
+
+// Gets the time at which the invitation was sent.
+func (o InvitationOutput) SentAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.SentAt }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o InvitationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Invitation) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The target Azure AD Id. Can't be combined with email.
+func (o InvitationOutput) TargetActiveDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringPtrOutput { return v.TargetActiveDirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// The email the invitation is directed to.
+func (o InvitationOutput) TargetEmail() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringPtrOutput { return v.TargetEmail }).(pulumi.StringPtrOutput)
+}
+
+// The target user or application Id that invitation is being sent to.
+// Must be specified along TargetActiveDirectoryId. This enables sending
+// invitations to specific users or applications in an AD tenant.
+func (o InvitationOutput) TargetObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringPtrOutput { return v.TargetObjectId }).(pulumi.StringPtrOutput)
+}
+
+// Type of the azure resource
+func (o InvitationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Email of the user who created the resource
+func (o InvitationOutput) UserEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.UserEmail }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the resource
+func (o InvitationOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Invitation) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InvitationOutput{})
 }

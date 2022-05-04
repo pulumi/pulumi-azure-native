@@ -35,9 +35,9 @@ export const HighAvailabilityMode = {
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
 export const ServerVersion = {
-    _13: "13",
-    _12: "12",
-    _11: "11",
+    ServerVersion_13: "13",
+    ServerVersion_12: "12",
+    ServerVersion_11: "11",
 } as const;
 
 /**

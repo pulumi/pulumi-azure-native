@@ -140,6 +140,25 @@ func (o SkusOutput) ToSkusOutputWithContext(ctx context.Context) SkusOutput {
 	return o
 }
 
+// The name of the resource
+func (o SkusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Skus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SkusOutput) Properties() SkuResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *Skus) SkuResourceResponsePropertiesOutput { return v.Properties }).(SkuResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SkusOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Skus) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SkusOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Skus) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SkusOutput{})
 }

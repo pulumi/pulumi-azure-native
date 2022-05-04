@@ -123,6 +123,20 @@ type ConfigurationSettingArgs struct {
 	RefreshFrequencyMins pulumi.Float64PtrInput `pulumi:"refreshFrequencyMins"`
 }
 
+// Defaults sets the appropriate defaults for ConfigurationSettingArgs
+func (val *ConfigurationSettingArgs) Defaults() *ConfigurationSettingArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConfigurationModeFrequencyMins) {
+		tmp.ConfigurationModeFrequencyMins = pulumi.Float64Ptr(15.0)
+	}
+	if isZero(tmp.RefreshFrequencyMins) {
+		tmp.RefreshFrequencyMins = pulumi.Float64Ptr(30.0)
+	}
+	return &tmp
+}
 func (ConfigurationSettingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationSetting)(nil)).Elem()
 }
@@ -515,6 +529,15 @@ type GuestConfigurationAssignmentPropertiesArgs struct {
 	GuestConfiguration GuestConfigurationNavigationPtrInput `pulumi:"guestConfiguration"`
 }
 
+// Defaults sets the appropriate defaults for GuestConfigurationAssignmentPropertiesArgs
+func (val *GuestConfigurationAssignmentPropertiesArgs) Defaults() *GuestConfigurationAssignmentPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (GuestConfigurationAssignmentPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationAssignmentProperties)(nil)).Elem()
 }
@@ -776,6 +799,15 @@ type GuestConfigurationNavigationArgs struct {
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
+// Defaults sets the appropriate defaults for GuestConfigurationNavigationArgs
+func (val *GuestConfigurationNavigationArgs) Defaults() *GuestConfigurationNavigationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (GuestConfigurationNavigationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestConfigurationNavigation)(nil)).Elem()
 }

@@ -155,6 +155,51 @@ func (o HubOutput) ToHubOutputWithContext(ctx context.Context) HubOutput {
 	return o
 }
 
+// API endpoint URL of the hub.
+func (o HubOutput) ApiEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.ApiEndpoint }).(pulumi.StringOutput)
+}
+
+// Billing settings of the hub.
+func (o HubOutput) HubBillingInfo() HubBillingInfoFormatResponsePtrOutput {
+	return o.ApplyT(func(v *Hub) HubBillingInfoFormatResponsePtrOutput { return v.HubBillingInfo }).(HubBillingInfoFormatResponsePtrOutput)
+}
+
+// Resource location.
+func (o HubOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o HubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the hub.
+func (o HubOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o HubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+func (o HubOutput) TenantFeatures() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Hub) pulumi.IntPtrOutput { return v.TenantFeatures }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o HubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Web endpoint URL of the hub.
+func (o HubOutput) WebEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.WebEndpoint }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(HubOutput{})
 }

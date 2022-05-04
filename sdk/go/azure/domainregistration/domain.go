@@ -261,6 +261,111 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+func (o DomainOutput) AuthCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AuthCode }).(pulumi.StringPtrOutput)
+}
+
+// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+func (o DomainOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// Domain creation timestamp.
+func (o DomainOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Current DNS type
+func (o DomainOutput) DnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DnsType }).(pulumi.StringPtrOutput)
+}
+
+// Azure DNS Zone to use
+func (o DomainOutput) DnsZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.DnsZoneId }).(pulumi.StringPtrOutput)
+}
+
+// Reasons why domain is not renewable.
+func (o DomainOutput) DomainNotRenewableReasons() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.DomainNotRenewableReasons }).(pulumi.StringArrayOutput)
+}
+
+// Domain expiration timestamp.
+func (o DomainOutput) ExpirationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ExpirationTime }).(pulumi.StringOutput)
+}
+
+// Kind of resource.
+func (o DomainOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the domain was renewed last time.
+func (o DomainOutput) LastRenewedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.LastRenewedTime }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o DomainOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// All hostnames derived from the domain and assigned to Azure resources.
+func (o DomainOutput) ManagedHostNames() HostNameResponseArrayOutput {
+	return o.ApplyT(func(v *Domain) HostNameResponseArrayOutput { return v.ManagedHostNames }).(HostNameResponseArrayOutput)
+}
+
+// Resource Name.
+func (o DomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name servers.
+func (o DomainOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+func (o DomainOutput) Privacy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolPtrOutput { return v.Privacy }).(pulumi.BoolPtrOutput)
+}
+
+// Domain provisioning state.
+func (o DomainOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and
+//  it is hosted on name servers Azure has programmatic access to.
+func (o DomainOutput) ReadyForDnsRecordManagement() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Domain) pulumi.BoolOutput { return v.ReadyForDnsRecordManagement }).(pulumi.BoolOutput)
+}
+
+// Domain registration status.
+func (o DomainOutput) RegistrationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.RegistrationStatus }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o DomainOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Domain) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o DomainOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Target DNS type (would be used for migration)
+func (o DomainOutput) TargetDnsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.TargetDnsType }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o DomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainOutput{})
 }

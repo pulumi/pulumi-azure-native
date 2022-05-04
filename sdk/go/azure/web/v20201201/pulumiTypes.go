@@ -1396,6 +1396,15 @@ type ApplicationLogsConfigArgs struct {
 	FileSystem FileSystemApplicationLogsConfigPtrInput `pulumi:"fileSystem"`
 }
 
+// Defaults sets the appropriate defaults for ApplicationLogsConfigArgs
+func (val *ApplicationLogsConfigArgs) Defaults() *ApplicationLogsConfigArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ApplicationLogsConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationLogsConfig)(nil)).Elem()
 }
@@ -6222,6 +6231,26 @@ type BackupScheduleArgs struct {
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
 
+// Defaults sets the appropriate defaults for BackupScheduleArgs
+func (val *BackupScheduleArgs) Defaults() *BackupScheduleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.FrequencyInterval) {
+		tmp.FrequencyInterval = pulumi.Int(7)
+	}
+	if isZero(tmp.FrequencyUnit) {
+		tmp.FrequencyUnit = FrequencyUnit("Day")
+	}
+	if isZero(tmp.KeepAtLeastOneBackup) {
+		tmp.KeepAtLeastOneBackup = pulumi.Bool(true)
+	}
+	if isZero(tmp.RetentionPeriodInDays) {
+		tmp.RetentionPeriodInDays = pulumi.Int(30)
+	}
+	return &tmp
+}
 func (BackupScheduleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
 }
@@ -9643,6 +9672,17 @@ type FileSystemApplicationLogsConfigArgs struct {
 	Level LogLevelPtrInput `pulumi:"level"`
 }
 
+// Defaults sets the appropriate defaults for FileSystemApplicationLogsConfigArgs
+func (val *FileSystemApplicationLogsConfigArgs) Defaults() *FileSystemApplicationLogsConfigArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		tmp.Level = LogLevel("Off")
+	}
+	return &tmp
+}
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileSystemApplicationLogsConfig)(nil)).Elem()
 }
@@ -19894,6 +19934,23 @@ type SiteConfigArgs struct {
 	XManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"xManagedServiceIdentityId"`
 }
 
+// Defaults sets the appropriate defaults for SiteConfigArgs
+func (val *SiteConfigArgs) Defaults() *SiteConfigArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Http20Enabled) {
+		tmp.Http20Enabled = pulumi.BoolPtr(true)
+	}
+	if isZero(tmp.LocalMySqlEnabled) {
+		tmp.LocalMySqlEnabled = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.NetFrameworkVersion) {
+		tmp.NetFrameworkVersion = pulumi.StringPtr("v4.6")
+	}
+	return &tmp
+}
 func (SiteConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteConfig)(nil)).Elem()
 }

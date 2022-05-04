@@ -171,6 +171,31 @@ func (o ContentTypeOutput) ToContentTypeOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Content type description.
+func (o ContentTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentType) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ContentTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentType) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Content type schema.
+func (o ContentTypeOutput) Schema() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ContentType) pulumi.AnyOutput { return v.Schema }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContentTypeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentType) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Content type version.
+func (o ContentTypeOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentType) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContentTypeOutput{})
 }

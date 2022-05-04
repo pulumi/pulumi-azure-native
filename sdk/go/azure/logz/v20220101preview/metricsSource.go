@@ -143,6 +143,38 @@ func (o MetricsSourceOutput) ToMetricsSourceOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o MetricsSourceOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *MetricsSource) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+func (o MetricsSourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsSource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the monitor resource.
+func (o MetricsSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties specific to the monitor resource.
+func (o MetricsSourceOutput) Properties() MonitorPropertiesResponseOutput {
+	return o.ApplyT(func(v *MetricsSource) MonitorPropertiesResponseOutput { return v.Properties }).(MonitorPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o MetricsSourceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MetricsSource) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o MetricsSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MetricsSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the monitor resource.
+func (o MetricsSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MetricsSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricsSourceOutput{})
 }

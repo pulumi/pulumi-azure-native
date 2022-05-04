@@ -4702,6 +4702,17 @@ type VulnerabilityAssessmentRecurringScansPropertiesArgs struct {
 	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
 }
 
+// Defaults sets the appropriate defaults for VulnerabilityAssessmentRecurringScansPropertiesArgs
+func (val *VulnerabilityAssessmentRecurringScansPropertiesArgs) Defaults() *VulnerabilityAssessmentRecurringScansPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EmailSubscriptionAdmins) {
+		tmp.EmailSubscriptionAdmins = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (VulnerabilityAssessmentRecurringScansPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VulnerabilityAssessmentRecurringScansProperties)(nil)).Elem()
 }

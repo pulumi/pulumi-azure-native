@@ -1973,6 +1973,17 @@ type SignalRNetworkACLsArgs struct {
 	PublicNetwork NetworkACLPtrInput `pulumi:"publicNetwork"`
 }
 
+// Defaults sets the appropriate defaults for SignalRNetworkACLsArgs
+func (val *SignalRNetworkACLsArgs) Defaults() *SignalRNetworkACLsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = pulumi.StringPtr("Deny")
+	}
+	return &tmp
+}
 func (SignalRNetworkACLsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRNetworkACLs)(nil)).Elem()
 }

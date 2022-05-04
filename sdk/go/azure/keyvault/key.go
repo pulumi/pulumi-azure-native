@@ -171,6 +171,60 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+// The attributes of the key.
+func (o KeyOutput) Attributes() KeyAttributesResponsePtrOutput {
+	return o.ApplyT(func(v *Key) KeyAttributesResponsePtrOutput { return v.Attributes }).(KeyAttributesResponsePtrOutput)
+}
+
+// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+func (o KeyOutput) CurveName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.CurveName }).(pulumi.StringPtrOutput)
+}
+
+func (o KeyOutput) KeyOps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringArrayOutput { return v.KeyOps }).(pulumi.StringArrayOutput)
+}
+
+// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+func (o KeyOutput) KeySize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
+}
+
+// The URI to retrieve the current version of the key.
+func (o KeyOutput) KeyUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyUri }).(pulumi.StringOutput)
+}
+
+// The URI to retrieve the specific version of the key.
+func (o KeyOutput) KeyUriWithVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyUriWithVersion }).(pulumi.StringOutput)
+}
+
+// The type of the key. For valid values, see JsonWebKeyType.
+func (o KeyOutput) Kty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Kty }).(pulumi.StringPtrOutput)
+}
+
+// Azure location of the key vault resource.
+func (o KeyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the key vault resource.
+func (o KeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tags assigned to the key vault resource.
+func (o KeyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type of the key vault resource.
+func (o KeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KeyOutput{})
 }

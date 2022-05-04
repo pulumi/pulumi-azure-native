@@ -273,6 +273,66 @@ func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutputWithContext(ctx 
 	return o
 }
 
+// The default security rules of network security group.
+func (o NetworkSecurityGroupOutput) DefaultSecurityRules() SecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SecurityRuleResponseArrayOutput { return v.DefaultSecurityRules }).(SecurityRuleResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkSecurityGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A collection of references to flow log resources.
+func (o NetworkSecurityGroupOutput) FlowLogs() FlowLogResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) FlowLogResponseArrayOutput { return v.FlowLogs }).(FlowLogResponseArrayOutput)
+}
+
+// Resource location.
+func (o NetworkSecurityGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkSecurityGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of references to network interfaces.
+func (o NetworkSecurityGroupOutput) NetworkInterfaces() NetworkInterfaceResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) NetworkInterfaceResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfaceResponseArrayOutput)
+}
+
+// The provisioning state of the network security group resource.
+func (o NetworkSecurityGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the network security group resource.
+func (o NetworkSecurityGroupOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// A collection of security rules of the network security group.
+func (o NetworkSecurityGroupOutput) SecurityRules() SecurityRuleResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SecurityRuleResponseArrayOutput { return v.SecurityRules }).(SecurityRuleResponseArrayOutput)
+}
+
+// A collection of references to subnets.
+func (o NetworkSecurityGroupOutput) Subnets() SubnetResponseArrayOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) SubnetResponseArrayOutput { return v.Subnets }).(SubnetResponseArrayOutput)
+}
+
+// Resource tags.
+func (o NetworkSecurityGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkSecurityGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkSecurityGroupOutput{})
 }

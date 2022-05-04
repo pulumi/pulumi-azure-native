@@ -179,6 +179,71 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+// ID of the connector.
+func (o ConnectorOutput) ConnectorId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Connector) pulumi.IntOutput { return v.ConnectorId }).(pulumi.IntOutput)
+}
+
+// Name of the connector.
+func (o ConnectorOutput) ConnectorName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.ConnectorName }).(pulumi.StringPtrOutput)
+}
+
+// The connector properties.
+func (o ConnectorOutput) ConnectorProperties() pulumi.MapOutput {
+	return o.ApplyT(func(v *Connector) pulumi.MapOutput { return v.ConnectorProperties }).(pulumi.MapOutput)
+}
+
+// Type of connector.
+func (o ConnectorOutput) ConnectorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorType }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o ConnectorOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Description of the connector.
+func (o ConnectorOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Display name of the connector.
+func (o ConnectorOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// If this is an internal connector.
+func (o ConnectorOutput) IsInternal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Connector) pulumi.BoolPtrOutput { return v.IsInternal }).(pulumi.BoolPtrOutput)
+}
+
+// The last modified time.
+func (o ConnectorOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of connector.
+func (o ConnectorOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o ConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConnectorOutput{})
 }

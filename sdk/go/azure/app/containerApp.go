@@ -175,6 +175,76 @@ func (o ContainerAppOutput) ToContainerAppOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Non versioned Container App configuration properties.
+func (o ContainerAppOutput) Configuration() ConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerApp) ConfigurationResponsePtrOutput { return v.Configuration }).(ConfigurationResponsePtrOutput)
+}
+
+// Id used to verify domain name ownership
+func (o ContainerAppOutput) CustomDomainVerificationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.CustomDomainVerificationId }).(pulumi.StringOutput)
+}
+
+// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
+func (o ContainerAppOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerApp) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// Fully Qualified Domain Name of the latest revision of the Container App.
+func (o ContainerAppOutput) LatestRevisionFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.LatestRevisionFqdn }).(pulumi.StringOutput)
+}
+
+// Name of the latest revision of the Container App.
+func (o ContainerAppOutput) LatestRevisionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.LatestRevisionName }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o ContainerAppOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource ID of the Container App's environment.
+func (o ContainerAppOutput) ManagedEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringPtrOutput { return v.ManagedEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ContainerAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Outbound IP Addresses for container app.
+func (o ContainerAppOutput) OutboundIPAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringArrayOutput { return v.OutboundIPAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Provisioning state of the Container App.
+func (o ContainerAppOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ContainerAppOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ContainerApp) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ContainerAppOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Container App versioned application definition.
+func (o ContainerAppOutput) Template() TemplateResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerApp) TemplateResponsePtrOutput { return v.Template }).(TemplateResponsePtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContainerAppOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAppOutput{})
 }

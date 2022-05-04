@@ -160,6 +160,56 @@ func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutputWithContext(
 	return o
 }
 
+// Indicating whether all subscriptions are selected (=true) or not (=false).
+func (o PrivateStoreCollectionOutput) AllSubscriptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolPtrOutput { return v.AllSubscriptions }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the association with Commercial's Billing Account.
+func (o PrivateStoreCollectionOutput) Claim() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringPtrOutput { return v.Claim }).(pulumi.StringPtrOutput)
+}
+
+// Gets collection Id.
+func (o PrivateStoreCollectionOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// Gets or sets collection name.
+func (o PrivateStoreCollectionOutput) CollectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringPtrOutput { return v.CollectionName }).(pulumi.StringPtrOutput)
+}
+
+// Indicating whether the collection is enabled or disabled.
+func (o PrivateStoreCollectionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the resource.
+func (o PrivateStoreCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the number of offers associated with the collection.
+func (o PrivateStoreCollectionOutput) NumberOfOffers() pulumi.Float64Output {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.Float64Output { return v.NumberOfOffers }).(pulumi.Float64Output)
+}
+
+// Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
+func (o PrivateStoreCollectionOutput) SubscriptionsList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringArrayOutput { return v.SubscriptionsList }).(pulumi.StringArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o PrivateStoreCollectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o PrivateStoreCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateStoreCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateStoreCollectionOutput{})
 }

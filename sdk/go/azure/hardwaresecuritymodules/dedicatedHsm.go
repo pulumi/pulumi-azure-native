@@ -167,6 +167,56 @@ func (o DedicatedHsmOutput) ToDedicatedHsmOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The supported Azure location where the dedicated HSM should be created.
+func (o DedicatedHsmOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the dedicated HSM.
+func (o DedicatedHsmOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the network interfaces of the dedicated hsm.
+func (o DedicatedHsmOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *DedicatedHsm) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// Provisioning state.
+func (o DedicatedHsmOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SKU details
+func (o DedicatedHsmOutput) Sku() SkuResponseOutput {
+	return o.ApplyT(func(v *DedicatedHsm) SkuResponseOutput { return v.Sku }).(SkuResponseOutput)
+}
+
+// This field will be used when RP does not support Availability zones.
+func (o DedicatedHsmOutput) StampId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringPtrOutput { return v.StampId }).(pulumi.StringPtrOutput)
+}
+
+// Resource Status Message.
+func (o DedicatedHsmOutput) StatusMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o DedicatedHsmOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type of the dedicated HSM.
+func (o DedicatedHsmOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The Dedicated Hsm zones.
+func (o DedicatedHsmOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DedicatedHsm) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedHsmOutput{})
 }

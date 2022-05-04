@@ -171,6 +171,51 @@ func (o PrefixOutput) ToPrefixOutputWithContext(ctx context.Context) PrefixOutpu
 	return o
 }
 
+// The error message for validation state
+func (o PrefixOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
+// The list of events for peering service prefix
+func (o PrefixOutput) Events() PeeringServicePrefixEventResponseArrayOutput {
+	return o.ApplyT(func(v *Prefix) PeeringServicePrefixEventResponseArrayOutput { return v.Events }).(PeeringServicePrefixEventResponseArrayOutput)
+}
+
+// The prefix learned type
+func (o PrefixOutput) LearnedType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.LearnedType }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PrefixOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The peering service prefix key
+func (o PrefixOutput) PeeringServicePrefixKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringPtrOutput { return v.PeeringServicePrefixKey }).(pulumi.StringPtrOutput)
+}
+
+// The prefix from which your traffic originates.
+func (o PrefixOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// The prefix validation state
+func (o PrefixOutput) PrefixValidationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.PrefixValidationState }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o PrefixOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o PrefixOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Prefix) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrefixOutput{})
 }

@@ -133,6 +133,21 @@ func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutp
 	return o
 }
 
+// Linked storage account resource ID
+func (o ComponentLinkedStorageAccountOutput) LinkedStorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComponentLinkedStorageAccount) pulumi.StringPtrOutput { return v.LinkedStorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ComponentLinkedStorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentLinkedStorageAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ComponentLinkedStorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComponentLinkedStorageAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComponentLinkedStorageAccountOutput{})
 }

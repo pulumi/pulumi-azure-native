@@ -141,6 +141,31 @@ func (o CloudServiceOutput) ToCloudServiceOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Resource location.
+func (o CloudServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o CloudServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Cloud service properties
+func (o CloudServiceOutput) Properties() CloudServicePropertiesResponseOutput {
+	return o.ApplyT(func(v *CloudService) CloudServicePropertiesResponseOutput { return v.Properties }).(CloudServicePropertiesResponseOutput)
+}
+
+// Resource tags.
+func (o CloudServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CloudService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o CloudServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudServiceOutput{})
 }

@@ -129,6 +129,56 @@ func (o PartnerOutput) ToPartnerOutputWithContext(ctx context.Context) PartnerOu
 	return o
 }
 
+// This is the DateTime when the partner was created.
+func (o PartnerOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// Type of the partner
+func (o PartnerOutput) Etag() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.IntPtrOutput { return v.Etag }).(pulumi.IntPtrOutput)
+}
+
+// Name of the partner
+func (o PartnerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This is the object id.
+func (o PartnerOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// This is the partner id
+func (o PartnerOutput) PartnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.PartnerId }).(pulumi.StringPtrOutput)
+}
+
+// This is the partner name
+func (o PartnerOutput) PartnerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.PartnerName }).(pulumi.StringPtrOutput)
+}
+
+// This is the tenant id.
+func (o PartnerOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of resource. "Microsoft.ManagementPartner/partners"
+func (o PartnerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// This is the DateTime when the partner was updated.
+func (o PartnerOutput) UpdatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.StringPtrOutput { return v.UpdatedTime }).(pulumi.StringPtrOutput)
+}
+
+// This is the version.
+func (o PartnerOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Partner) pulumi.IntPtrOutput { return v.Version }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerOutput{})
 }

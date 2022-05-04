@@ -149,6 +149,38 @@ func (o SubAccountOutput) ToSubAccountOutputWithContext(ctx context.Context) Sub
 	return o
 }
 
+func (o SubAccountOutput) Identity() IdentityPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SubAccount) IdentityPropertiesResponsePtrOutput { return v.Identity }).(IdentityPropertiesResponsePtrOutput)
+}
+
+func (o SubAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the monitor resource.
+func (o SubAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties specific to the monitor resource.
+func (o SubAccountOutput) Properties() MonitorPropertiesResponseOutput {
+	return o.ApplyT(func(v *SubAccount) MonitorPropertiesResponseOutput { return v.Properties }).(MonitorPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o SubAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SubAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o SubAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SubAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the monitor resource.
+func (o SubAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubAccountOutput{})
 }

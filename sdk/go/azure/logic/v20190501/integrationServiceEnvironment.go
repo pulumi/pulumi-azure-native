@@ -150,6 +150,43 @@ func (o IntegrationServiceEnvironmentOutput) ToIntegrationServiceEnvironmentOutp
 	return o
 }
 
+// Managed service identity properties.
+func (o IntegrationServiceEnvironmentOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The resource location.
+func (o IntegrationServiceEnvironmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o IntegrationServiceEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The integration service environment properties.
+func (o IntegrationServiceEnvironmentOutput) Properties() IntegrationServiceEnvironmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) IntegrationServiceEnvironmentPropertiesResponseOutput {
+		return v.Properties
+	}).(IntegrationServiceEnvironmentPropertiesResponseOutput)
+}
+
+// The sku.
+func (o IntegrationServiceEnvironmentOutput) Sku() IntegrationServiceEnvironmentSkuResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) IntegrationServiceEnvironmentSkuResponsePtrOutput { return v.Sku }).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationServiceEnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o IntegrationServiceEnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentOutput{})
 }

@@ -157,6 +157,35 @@ func (o ManagedInstancePrivateEndpointConnectionOutput) ToManagedInstancePrivate
 	return o
 }
 
+// Resource name.
+func (o ManagedInstancePrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Private endpoint which the connection belongs to.
+func (o ManagedInstancePrivateEndpointConnectionOutput) PrivateEndpoint() ManagedInstancePrivateEndpointPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointConnection) ManagedInstancePrivateEndpointPropertyResponsePtrOutput {
+		return v.PrivateEndpoint
+	}).(ManagedInstancePrivateEndpointPropertyResponsePtrOutput)
+}
+
+// Connection State of the Private Endpoint Connection.
+func (o ManagedInstancePrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointConnection) ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(ManagedInstancePrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+}
+
+// State of the Private Endpoint Connection.
+func (o ManagedInstancePrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ManagedInstancePrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstancePrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedInstancePrivateEndpointConnectionOutput{})
 }

@@ -197,6 +197,86 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
+// Additional data about the assignment
+func (o AssignmentOutput) AdditionalData() AssignmentPropertiesResponseAdditionalDataPtrOutput {
+	return o.ApplyT(func(v *Assignment) AssignmentPropertiesResponseAdditionalDataPtrOutput { return v.AdditionalData }).(AssignmentPropertiesResponseAdditionalDataPtrOutput)
+}
+
+// Component item with key as applied to this standard assignment over the given scope
+func (o AssignmentOutput) AssignedComponent() AssignedComponentItemResponsePtrOutput {
+	return o.ApplyT(func(v *Assignment) AssignedComponentItemResponsePtrOutput { return v.AssignedComponent }).(AssignedComponentItemResponsePtrOutput)
+}
+
+// Standard item with key as applied to this standard assignment over the given scope
+func (o AssignmentOutput) AssignedStandard() AssignedStandardItemResponsePtrOutput {
+	return o.ApplyT(func(v *Assignment) AssignedStandardItemResponsePtrOutput { return v.AssignedStandard }).(AssignedStandardItemResponsePtrOutput)
+}
+
+// description of the standardAssignment
+func (o AssignmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// display name of the standardAssignment
+func (o AssignmentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// expected effect of this assignment (Disable/Exempt/etc)
+func (o AssignmentOutput) Effect() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Effect }).(pulumi.StringPtrOutput)
+}
+
+// Entity tag is used for comparing two or more entities from the same requested resource.
+func (o AssignmentOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expiration date of this assignment as a full ISO date
+func (o AssignmentOutput) ExpiresOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.ExpiresOn }).(pulumi.StringPtrOutput)
+}
+
+// Kind of the resource
+func (o AssignmentOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Location where the resource is stored
+func (o AssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o AssignmentOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// Resource name
+func (o AssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
+func (o AssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Assignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// A list of key value pairs that describe the resource.
+func (o AssignmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssignmentOutput{})
 }

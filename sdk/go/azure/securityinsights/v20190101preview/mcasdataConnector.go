@@ -185,6 +185,36 @@ func (o MCASDataConnectorOutput) ToMCASDataConnectorOutputWithContext(ctx contex
 	return o
 }
 
+// The available data types for the connector.
+func (o MCASDataConnectorOutput) DataTypes() MCASDataConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *MCASDataConnector) MCASDataConnectorDataTypesResponseOutput { return v.DataTypes }).(MCASDataConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o MCASDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MCASDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Expected value is 'MicrosoftCloudAppSecurity'.
+func (o MCASDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *MCASDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o MCASDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MCASDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o MCASDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *MCASDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o MCASDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MCASDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MCASDataConnectorOutput{})
 }

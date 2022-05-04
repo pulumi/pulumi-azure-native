@@ -166,6 +166,26 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
+// HTTP strong entity tag value. This is ignored if submitted.
+func (o TaskOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o TaskOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom task properties
+func (o TaskOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Task) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o TaskOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TaskOutput{})
 }

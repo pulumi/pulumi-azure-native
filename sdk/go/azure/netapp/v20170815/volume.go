@@ -254,6 +254,61 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+// A unique file path for the volume. Used when creating mount targets
+func (o VolumeOutput) CreationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreationToken }).(pulumi.StringOutput)
+}
+
+// Export policy rule
+func (o VolumeOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v *Volume) VolumePropertiesResponseExportPolicyPtrOutput { return v.ExportPolicy }).(VolumePropertiesResponseExportPolicyPtrOutput)
+}
+
+// Unique FileSystem Identifier.
+func (o VolumeOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o VolumeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure lifecycle management
+func (o VolumeOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The service level of the file system
+func (o VolumeOutput) ServiceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.ServiceLevel }).(pulumi.StringOutput)
+}
+
+// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+func (o VolumeOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o VolumeOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Volume) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Resource type
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
+func (o VolumeOutput) UsageThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.Float64PtrOutput { return v.UsageThreshold }).(pulumi.Float64PtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

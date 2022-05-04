@@ -189,6 +189,71 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The time the resource was created.
+func (o EnvironmentOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o EnvironmentOutput) DataAccessFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DataAccessFqdn }).(pulumi.StringOutput)
+}
+
+// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+func (o EnvironmentOutput) DataAccessId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DataAccessId }).(pulumi.StringOutput)
+}
+
+// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+func (o EnvironmentOutput) DataRetentionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DataRetentionTime }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o EnvironmentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of partition keys according to which the data in the environment will be ordered.
+func (o EnvironmentOutput) PartitionKeyProperties() PartitionKeyPropertyResponseArrayOutput {
+	return o.ApplyT(func(v *Environment) PartitionKeyPropertyResponseArrayOutput { return v.PartitionKeyProperties }).(PartitionKeyPropertyResponseArrayOutput)
+}
+
+// Provisioning state of the resource.
+func (o EnvironmentOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+func (o EnvironmentOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Environment) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+func (o EnvironmentOutput) Status() EnvironmentStatusResponseOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentStatusResponseOutput { return v.Status }).(EnvironmentStatusResponseOutput)
+}
+
+// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+func (o EnvironmentOutput) StorageLimitExceededBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.StorageLimitExceededBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentOutput{})
 }

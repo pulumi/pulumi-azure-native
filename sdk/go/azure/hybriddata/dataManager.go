@@ -153,6 +153,39 @@ func (o DataManagerOutput) ToDataManagerOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Etag of the Resource.
+func (o DataManagerOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataManager) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+// region is specified on update the request will succeed.
+func (o DataManagerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataManager) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The Resource Name.
+func (o DataManagerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The sku type.
+func (o DataManagerOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *DataManager) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+// (across resource groups).
+func (o DataManagerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataManager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Resource type.
+func (o DataManagerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataManager) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataManagerOutput{})
 }

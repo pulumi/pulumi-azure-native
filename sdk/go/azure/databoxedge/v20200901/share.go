@@ -232,6 +232,71 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
+// Access protocol to be used by the share.
+func (o ShareOutput) AccessProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.AccessProtocol }).(pulumi.StringOutput)
+}
+
+// Azure container mapping for the share.
+func (o ShareOutput) AzureContainerInfo() AzureContainerInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Share) AzureContainerInfoResponsePtrOutput { return v.AzureContainerInfo }).(AzureContainerInfoResponsePtrOutput)
+}
+
+// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+func (o ShareOutput) ClientAccessRights() ClientAccessRightResponseArrayOutput {
+	return o.ApplyT(func(v *Share) ClientAccessRightResponseArrayOutput { return v.ClientAccessRights }).(ClientAccessRightResponseArrayOutput)
+}
+
+// Data policy of the share.
+func (o ShareOutput) DataPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.DataPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Description for the share.
+func (o ShareOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Current monitoring status of the share.
+func (o ShareOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// The object name.
+func (o ShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Details of the refresh job on this share.
+func (o ShareOutput) RefreshDetails() RefreshDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *Share) RefreshDetailsResponsePtrOutput { return v.RefreshDetails }).(RefreshDetailsResponsePtrOutput)
+}
+
+// Share mount point to the role.
+func (o ShareOutput) ShareMappings() MountPointMapResponseArrayOutput {
+	return o.ApplyT(func(v *Share) MountPointMapResponseArrayOutput { return v.ShareMappings }).(MountPointMapResponseArrayOutput)
+}
+
+// Current status of the share.
+func (o ShareOutput) ShareStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
+}
+
+// Share on ASE device
+func (o ShareOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Share) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o ShareOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+func (o ShareOutput) UserAccessRights() UserAccessRightResponseArrayOutput {
+	return o.ApplyT(func(v *Share) UserAccessRightResponseArrayOutput { return v.UserAccessRights }).(UserAccessRightResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ShareOutput{})
 }

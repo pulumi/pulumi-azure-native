@@ -170,6 +170,51 @@ func (o NspAssociationOutput) ToNspAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Access mode on the association.
+func (o NspAssociationOutput) AccessMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringPtrOutput { return v.AccessMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if there are provisioning issues
+func (o NspAssociationOutput) HasProvisioningIssues() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringOutput { return v.HasProvisioningIssues }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o NspAssociationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NspAssociationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The PaaS resource to be associated.
+func (o NspAssociationOutput) PrivateLinkResource() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *NspAssociation) SubResourceResponsePtrOutput { return v.PrivateLinkResource }).(SubResourceResponsePtrOutput)
+}
+
+// Profile id to which the PaaS resource is associated.
+func (o NspAssociationOutput) Profile() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *NspAssociation) SubResourceResponsePtrOutput { return v.Profile }).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the resource  association resource.
+func (o NspAssociationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NspAssociationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NspAssociationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NspAssociation) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NspAssociationOutput{})
 }

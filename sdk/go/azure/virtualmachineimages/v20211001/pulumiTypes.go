@@ -682,6 +682,21 @@ type ImageTemplateVmProfileArgs struct {
 	VnetConfig VirtualNetworkConfigPtrInput `pulumi:"vnetConfig"`
 }
 
+// Defaults sets the appropriate defaults for ImageTemplateVmProfileArgs
+func (val *ImageTemplateVmProfileArgs) Defaults() *ImageTemplateVmProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OsDiskSizeGB) {
+		tmp.OsDiskSizeGB = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.VmSize) {
+		tmp.VmSize = pulumi.StringPtr("")
+	}
+
+	return &tmp
+}
 func (ImageTemplateVmProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageTemplateVmProfile)(nil)).Elem()
 }
@@ -1158,6 +1173,17 @@ type VirtualNetworkConfigArgs struct {
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
+// Defaults sets the appropriate defaults for VirtualNetworkConfigArgs
+func (val *VirtualNetworkConfigArgs) Defaults() *VirtualNetworkConfigArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ProxyVmSize) {
+		tmp.ProxyVmSize = pulumi.StringPtr("")
+	}
+	return &tmp
+}
 func (VirtualNetworkConfigArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkConfig)(nil)).Elem()
 }

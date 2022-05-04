@@ -1210,6 +1210,17 @@ type NWRuleSetIpRulesArgs struct {
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
+// Defaults sets the appropriate defaults for NWRuleSetIpRulesArgs
+func (val *NWRuleSetIpRulesArgs) Defaults() *NWRuleSetIpRulesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (NWRuleSetIpRulesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
 }

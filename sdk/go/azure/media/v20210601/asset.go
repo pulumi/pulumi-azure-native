@@ -176,6 +176,61 @@ func (o AssetOutput) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return o
 }
 
+// The alternate ID of the Asset.
+func (o AssetOutput) AlternateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.AlternateId }).(pulumi.StringPtrOutput)
+}
+
+// The Asset ID.
+func (o AssetOutput) AssetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetId }).(pulumi.StringOutput)
+}
+
+// The name of the asset blob container.
+func (o AssetOutput) Container() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.Container }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the Asset.
+func (o AssetOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// The Asset description.
+func (o AssetOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The last modified date of the Asset.
+func (o AssetOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AssetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the storage account.
+func (o AssetOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The Asset encryption format. One of None or MediaStorageEncryption.
+func (o AssetOutput) StorageEncryptionFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.StorageEncryptionFormat }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o AssetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Asset) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AssetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssetOutput{})
 }

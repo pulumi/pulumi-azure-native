@@ -177,6 +177,57 @@ func (o ReadWriteDatabaseOutput) ToReadWriteDatabaseOutputWithContext(ctx contex
 	return o
 }
 
+// The time the data should be kept in cache for fast queries in TimeSpan.
+func (o ReadWriteDatabaseOutput) HotCachePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringPtrOutput { return v.HotCachePeriod }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the database is followed.
+func (o ReadWriteDatabaseOutput) IsFollowed() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.BoolOutput { return v.IsFollowed }).(pulumi.BoolOutput)
+}
+
+// Kind of the database
+// Expected value is 'ReadWrite'.
+func (o ReadWriteDatabaseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o ReadWriteDatabaseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ReadWriteDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o ReadWriteDatabaseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+func (o ReadWriteDatabaseOutput) SoftDeletePeriod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringPtrOutput { return v.SoftDeletePeriod }).(pulumi.StringPtrOutput)
+}
+
+// The statistics of the database.
+func (o ReadWriteDatabaseOutput) Statistics() DatabaseStatisticsResponseOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) DatabaseStatisticsResponseOutput { return v.Statistics }).(DatabaseStatisticsResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ReadWriteDatabaseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ReadWriteDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReadWriteDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReadWriteDatabaseOutput{})
 }

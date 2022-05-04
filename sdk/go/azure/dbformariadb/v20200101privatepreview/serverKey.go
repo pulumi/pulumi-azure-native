@@ -140,6 +140,36 @@ func (o ServerKeyOutput) ToServerKeyOutputWithContext(ctx context.Context) Serve
 	return o
 }
 
+// The key creation date.
+func (o ServerKeyOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Kind of encryption protector. This is metadata used for the Azure portal experience.
+func (o ServerKeyOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ServerKeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The key type like  'AzureKeyVault'.
+func (o ServerKeyOutput) ServerKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.ServerKeyType }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerKeyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI of the key.
+func (o ServerKeyOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerKey) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerKeyOutput{})
 }

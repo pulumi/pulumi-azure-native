@@ -140,6 +140,21 @@ func (o TagAtScopeOutput) ToTagAtScopeOutputWithContext(ctx context.Context) Tag
 	return o
 }
 
+// The name of the tags wrapper resource.
+func (o TagAtScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagAtScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of tags.
+func (o TagAtScopeOutput) Properties() TagsResponseOutput {
+	return o.ApplyT(func(v *TagAtScope) TagsResponseOutput { return v.Properties }).(TagsResponseOutput)
+}
+
+// The type of the tags wrapper resource.
+func (o TagAtScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagAtScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TagAtScopeOutput{})
 }

@@ -163,6 +163,61 @@ func (o AutomationAccountOutput) ToAutomationAccountOutputWithContext(ctx contex
 	return o
 }
 
+// Gets the creation time.
+func (o AutomationAccountOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the description.
+func (o AutomationAccountOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the etag of the resource.
+func (o AutomationAccountOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified by.
+func (o AutomationAccountOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets the last modified time.
+func (o AutomationAccountOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The Azure Region where the resource lives
+func (o AutomationAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o AutomationAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the SKU of account.
+func (o AutomationAccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *AutomationAccount) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Gets status of account.
+func (o AutomationAccountOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o AutomationAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o AutomationAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AutomationAccountOutput{})
 }

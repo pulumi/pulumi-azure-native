@@ -226,6 +226,126 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The fully qualified path of managed application definition Id.
+func (o ApplicationOutput) ApplicationDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The collection of managed application artifacts.
+func (o ApplicationOutput) Artifacts() ApplicationArtifactResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationArtifactResponseArrayOutput { return v.Artifacts }).(ApplicationArtifactResponseArrayOutput)
+}
+
+// The  read-only authorizations property that is retrieved from the application package.
+func (o ApplicationOutput) Authorizations() ApplicationAuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationAuthorizationResponseArrayOutput { return v.Authorizations }).(ApplicationAuthorizationResponseArrayOutput)
+}
+
+// The managed application billing details.
+func (o ApplicationOutput) BillingDetails() ApplicationBillingDetailsDefinitionResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationBillingDetailsDefinitionResponseOutput { return v.BillingDetails }).(ApplicationBillingDetailsDefinitionResponseOutput)
+}
+
+// The client entity that created the JIT request.
+func (o ApplicationOutput) CreatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationClientDetailsResponseOutput { return v.CreatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
+// The read-only customer support property that is retrieved from the application package.
+func (o ApplicationOutput) CustomerSupport() ApplicationPackageContactResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationPackageContactResponseOutput { return v.CustomerSupport }).(ApplicationPackageContactResponseOutput)
+}
+
+// The identity of the resource.
+func (o ApplicationOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Application) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The managed application Jit access policy.
+func (o ApplicationOutput) JitAccessPolicy() ApplicationJitAccessPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationJitAccessPolicyResponsePtrOutput { return v.JitAccessPolicy }).(ApplicationJitAccessPolicyResponsePtrOutput)
+}
+
+// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
+func (o ApplicationOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o ApplicationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// ID of the resource that manages this resource.
+func (o ApplicationOutput) ManagedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ManagedBy }).(pulumi.StringPtrOutput)
+}
+
+// The managed resource group Id.
+func (o ApplicationOutput) ManagedResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ManagedResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+// The managed application management mode.
+func (o ApplicationOutput) ManagementMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ManagementMode }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o ApplicationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name and value pairs that define the managed application outputs.
+func (o ApplicationOutput) Outputs() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Outputs }).(pulumi.AnyOutput)
+}
+
+// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+func (o ApplicationOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The plan information.
+func (o ApplicationOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *Application) PlanResponsePtrOutput { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// The managed application provisioning state.
+func (o ApplicationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publisher tenant Id.
+func (o ApplicationOutput) PublisherTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.PublisherTenantId }).(pulumi.StringOutput)
+}
+
+// The SKU of the resource.
+func (o ApplicationOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Application) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The read-only support URLs property that is retrieved from the application package.
+func (o ApplicationOutput) SupportUrls() ApplicationPackageSupportUrlsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationPackageSupportUrlsResponseOutput { return v.SupportUrls }).(ApplicationPackageSupportUrlsResponseOutput)
+}
+
+// Resource tags
+func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ApplicationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The client entity that last updated the JIT request.
+func (o ApplicationOutput) UpdatedBy() ApplicationClientDetailsResponseOutput {
+	return o.ApplyT(func(v *Application) ApplicationClientDetailsResponseOutput { return v.UpdatedBy }).(ApplicationClientDetailsResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationOutput{})
 }

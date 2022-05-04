@@ -226,6 +226,106 @@ func (o IoMAMPolicyByNameOutput) ToIoMAMPolicyByNameOutputWithContext(ctx contex
 	return o
 }
 
+func (o IoMAMPolicyByNameOutput) AccessRecheckOfflineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.AccessRecheckOfflineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) AccessRecheckOnlineTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.AccessRecheckOnlineTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) AppSharingFromLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.AppSharingFromLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) AppSharingToLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.AppSharingToLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) Authentication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.Authentication }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) ClipboardSharingLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.ClipboardSharingLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) DataBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.DataBackup }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) DeviceCompliance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.DeviceCompliance }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) FileEncryptionLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.FileEncryptionLevel }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) FileSharingSaveAs() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.FileSharingSaveAs }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) FriendlyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringOutput { return v.FriendlyName }).(pulumi.StringOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) GroupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringOutput { return v.GroupStatus }).(pulumi.StringOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource Location
+func (o IoMAMPolicyByNameOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) ManagedBrowser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.ManagedBrowser }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o IoMAMPolicyByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) NumOfApps() pulumi.IntOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.IntOutput { return v.NumOfApps }).(pulumi.IntOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) OfflineWipeTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.OfflineWipeTimeout }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) Pin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.Pin }).(pulumi.StringPtrOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) PinNumRetry() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.IntPtrOutput { return v.PinNumRetry }).(pulumi.IntPtrOutput)
+}
+
+// Resource Tags
+func (o IoMAMPolicyByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o IoMAMPolicyByNameOutput) TouchId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringPtrOutput { return v.TouchId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o IoMAMPolicyByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoMAMPolicyByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoMAMPolicyByNameOutput{})
 }

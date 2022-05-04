@@ -161,6 +161,41 @@ func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutputWithContext(ctx co
 	return o
 }
 
+// Type of DHCP: SERVER or RELAY.
+func (o WorkloadNetworkDhcpOutput) DhcpType() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.DhcpType }).(pulumi.StringOutput)
+}
+
+// Display name of the DHCP entity.
+func (o WorkloadNetworkDhcpOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o WorkloadNetworkDhcpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state
+func (o WorkloadNetworkDhcpOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// NSX revision number.
+func (o WorkloadNetworkDhcpOutput) Revision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.Float64PtrOutput { return v.Revision }).(pulumi.Float64PtrOutput)
+}
+
+// NSX Segments consuming DHCP.
+func (o WorkloadNetworkDhcpOutput) Segments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringArrayOutput { return v.Segments }).(pulumi.StringArrayOutput)
+}
+
+// Resource type.
+func (o WorkloadNetworkDhcpOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkloadNetworkDhcp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkloadNetworkDhcpOutput{})
 }

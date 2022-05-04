@@ -185,6 +185,61 @@ func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
 }
 
+// The size of this Cache, in GB.
+func (o CacheOutput) CacheSizeGB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.IntPtrOutput { return v.CacheSizeGB }).(pulumi.IntPtrOutput)
+}
+
+// Health of the Cache.
+func (o CacheOutput) Health() CacheHealthResponseOutput {
+	return o.ApplyT(func(v *Cache) CacheHealthResponseOutput { return v.Health }).(CacheHealthResponseOutput)
+}
+
+// Region name string.
+func (o CacheOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Array of IP addresses that can be used by clients mounting this Cache.
+func (o CacheOutput) MountAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.MountAddresses }).(pulumi.StringArrayOutput)
+}
+
+// Name of Cache.
+func (o CacheOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+func (o CacheOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// SKU for the Cache.
+func (o CacheOutput) Sku() CacheResponseSkuPtrOutput {
+	return o.ApplyT(func(v *Cache) CacheResponseSkuPtrOutput { return v.Sku }).(CacheResponseSkuPtrOutput)
+}
+
+// Subnet used for the Cache.
+func (o CacheOutput) Subnet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.Subnet }).(pulumi.StringPtrOutput)
+}
+
+// ARM tags as name/value pairs.
+func (o CacheOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Cache) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Type of the Cache; Microsoft.StorageCache/Cache
+func (o CacheOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Upgrade status of the Cache.
+func (o CacheOutput) UpgradeStatus() CacheUpgradeStatusResponsePtrOutput {
+	return o.ApplyT(func(v *Cache) CacheUpgradeStatusResponsePtrOutput { return v.UpgradeStatus }).(CacheUpgradeStatusResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CacheOutput{})
 }

@@ -138,6 +138,21 @@ func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
 }
 
+// Gets the job resource name.
+func (o JobOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the job properties.
+func (o JobOutput) Properties() JobPropertiesResponseOutput {
+	return o.ApplyT(func(v *Job) JobPropertiesResponseOutput { return v.Properties }).(JobPropertiesResponseOutput)
+}
+
+// Gets the job resource type.
+func (o JobOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Job) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobOutput{})
 }

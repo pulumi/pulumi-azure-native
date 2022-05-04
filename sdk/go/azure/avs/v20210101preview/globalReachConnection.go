@@ -154,6 +154,41 @@ func (o GlobalReachConnectionOutput) ToGlobalReachConnectionOutputWithContext(ct
 	return o
 }
 
+// The network used for global reach carved out from the original network block provided for the private cloud
+func (o GlobalReachConnectionOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringOutput { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// Authorization key from the peer express route used for the global reach connection
+func (o GlobalReachConnectionOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// The connection status of the global reach connection
+func (o GlobalReachConnectionOutput) CircuitConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringOutput { return v.CircuitConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o GlobalReachConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+func (o GlobalReachConnectionOutput) PeerExpressRouteCircuit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringPtrOutput { return v.PeerExpressRouteCircuit }).(pulumi.StringPtrOutput)
+}
+
+// The state of the  ExpressRoute Circuit Authorization provisioning
+func (o GlobalReachConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o GlobalReachConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReachConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GlobalReachConnectionOutput{})
 }

@@ -143,6 +143,36 @@ func (o ServerCommunicationLinkOutput) ToServerCommunicationLinkOutputWithContex
 	return o
 }
 
+// Communication link kind.  This property is used for Azure Portal metadata.
+func (o ServerCommunicationLinkOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Communication link location.
+func (o ServerCommunicationLinkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerCommunicationLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the partner server.
+func (o ServerCommunicationLinkOutput) PartnerServer() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.PartnerServer }).(pulumi.StringOutput)
+}
+
+// The state.
+func (o ServerCommunicationLinkOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerCommunicationLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerCommunicationLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerCommunicationLinkOutput{})
 }

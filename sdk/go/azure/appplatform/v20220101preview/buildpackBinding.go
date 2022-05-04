@@ -152,6 +152,26 @@ func (o BuildpackBindingOutput) ToBuildpackBindingOutputWithContext(ctx context.
 	return o
 }
 
+// The name of the resource.
+func (o BuildpackBindingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildpackBinding) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of a buildpack binding
+func (o BuildpackBindingOutput) Properties() BuildpackBindingPropertiesResponseOutput {
+	return o.ApplyT(func(v *BuildpackBinding) BuildpackBindingPropertiesResponseOutput { return v.Properties }).(BuildpackBindingPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o BuildpackBindingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BuildpackBinding) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o BuildpackBindingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BuildpackBinding) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildpackBindingOutput{})
 }

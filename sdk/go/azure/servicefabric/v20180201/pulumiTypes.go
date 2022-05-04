@@ -48,6 +48,15 @@ type ApplicationDeltaHealthPolicyArgs struct {
 	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
+// Defaults sets the appropriate defaults for ApplicationDeltaHealthPolicyArgs
+func (val *ApplicationDeltaHealthPolicyArgs) Defaults() *ApplicationDeltaHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ApplicationDeltaHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
@@ -240,6 +249,15 @@ type ApplicationHealthPolicyArgs struct {
 	ServiceTypeHealthPolicies ServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicies"`
 }
 
+// Defaults sets the appropriate defaults for ApplicationHealthPolicyArgs
+func (val *ApplicationHealthPolicyArgs) Defaults() *ApplicationHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ApplicationHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
 }
@@ -1346,6 +1364,20 @@ type ClusterHealthPolicyArgs struct {
 	MaxPercentUnhealthyNodes pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyNodes"`
 }
 
+// Defaults sets the appropriate defaults for ClusterHealthPolicyArgs
+func (val *ClusterHealthPolicyArgs) Defaults() *ClusterHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyApplications) {
+		tmp.MaxPercentUnhealthyApplications = pulumi.IntPtr(0)
+	}
+	if isZero(tmp.MaxPercentUnhealthyNodes) {
+		tmp.MaxPercentUnhealthyNodes = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (ClusterHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterHealthPolicy)(nil)).Elem()
 }
@@ -2088,6 +2120,15 @@ type ClusterUpgradePolicyArgs struct {
 	UpgradeTimeout pulumi.StringInput `pulumi:"upgradeTimeout"`
 }
 
+// Defaults sets the appropriate defaults for ClusterUpgradePolicyArgs
+func (val *ClusterUpgradePolicyArgs) Defaults() *ClusterUpgradePolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (ClusterUpgradePolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterUpgradePolicy)(nil)).Elem()
 }
@@ -3940,6 +3981,17 @@ type ServiceTypeDeltaHealthPolicyArgs struct {
 	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
 }
 
+// Defaults sets the appropriate defaults for ServiceTypeDeltaHealthPolicyArgs
+func (val *ServiceTypeDeltaHealthPolicyArgs) Defaults() *ServiceTypeDeltaHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
+		tmp.MaxPercentDeltaUnhealthyServices = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (ServiceTypeDeltaHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
 }
@@ -4241,6 +4293,17 @@ type ServiceTypeHealthPolicyArgs struct {
 	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
 }
 
+// Defaults sets the appropriate defaults for ServiceTypeHealthPolicyArgs
+func (val *ServiceTypeHealthPolicyArgs) Defaults() *ServiceTypeHealthPolicyArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		tmp.MaxPercentUnhealthyServices = pulumi.IntPtr(0)
+	}
+	return &tmp
+}
 func (ServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
 }

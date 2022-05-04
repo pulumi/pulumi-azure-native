@@ -169,6 +169,41 @@ func (o PeeringServiceOutput) ToPeeringServiceOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The location of the resource.
+func (o PeeringServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o PeeringServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The PeeringServiceLocation of the Customer.
+func (o PeeringServiceOutput) PeeringServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringPtrOutput { return v.PeeringServiceLocation }).(pulumi.StringPtrOutput)
+}
+
+// The MAPS Provider Name.
+func (o PeeringServiceOutput) PeeringServiceProvider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringPtrOutput { return v.PeeringServiceProvider }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o PeeringServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o PeeringServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o PeeringServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PeeringService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PeeringServiceOutput{})
 }

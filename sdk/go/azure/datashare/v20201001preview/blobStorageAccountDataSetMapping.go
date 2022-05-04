@@ -209,6 +209,67 @@ func (o BlobStorageAccountDataSetMappingOutput) ToBlobStorageAccountDataSetMappi
 	return o
 }
 
+// Gets or sets the container name.
+func (o BlobStorageAccountDataSetMappingOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The id of the source data set.
+func (o BlobStorageAccountDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o BlobStorageAccountDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// Gets or sets the path to folder within the container.
+func (o BlobStorageAccountDataSetMappingOutput) Folder() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.Folder }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'BlobStorageAccount'.
+func (o BlobStorageAccountDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Location of the sink storage account.
+func (o BlobStorageAccountDataSetMappingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the mount path on the consumer side where the dataset is to be mapped.
+func (o BlobStorageAccountDataSetMappingOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringPtrOutput { return v.MountPath }).(pulumi.StringPtrOutput)
+}
+
+// Name of the azure resource
+func (o BlobStorageAccountDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o BlobStorageAccountDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource id of the sink storage account
+func (o BlobStorageAccountDataSetMappingOutput) StorageAccountResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.StorageAccountResourceId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o BlobStorageAccountDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o BlobStorageAccountDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BlobStorageAccountDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BlobStorageAccountDataSetMappingOutput{})
 }

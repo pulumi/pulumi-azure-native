@@ -165,6 +165,56 @@ func (o OrganizationOutput) ToOrganizationOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The creation time of the resource.
+func (o OrganizationOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Location of Organization resource
+func (o OrganizationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o OrganizationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Confluent offer detail
+func (o OrganizationOutput) OfferDetail() OrganizationResourcePropertiesResponseOfferDetailPtrOutput {
+	return o.ApplyT(func(v *Organization) OrganizationResourcePropertiesResponseOfferDetailPtrOutput { return v.OfferDetail }).(OrganizationResourcePropertiesResponseOfferDetailPtrOutput)
+}
+
+// Id of the Confluent organization.
+func (o OrganizationOutput) OrganizationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.OrganizationId }).(pulumi.StringOutput)
+}
+
+// Provision states for confluent RP
+func (o OrganizationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SSO url for the Confluent organization.
+func (o OrganizationOutput) SsoUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.SsoUrl }).(pulumi.StringOutput)
+}
+
+// Organization resource tags
+func (o OrganizationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o OrganizationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Organization) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Subscriber detail
+func (o OrganizationOutput) UserDetail() OrganizationResourcePropertiesResponseUserDetailPtrOutput {
+	return o.ApplyT(func(v *Organization) OrganizationResourcePropertiesResponseUserDetailPtrOutput { return v.UserDetail }).(OrganizationResourcePropertiesResponseUserDetailPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrganizationOutput{})
 }

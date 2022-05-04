@@ -768,6 +768,17 @@ type SourceRepositoryPropertiesArgs struct {
 	SourceControlType pulumi.StringInput `pulumi:"sourceControlType"`
 }
 
+// Defaults sets the appropriate defaults for SourceRepositoryPropertiesArgs
+func (val *SourceRepositoryPropertiesArgs) Defaults() *SourceRepositoryPropertiesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsCommitTriggerEnabled) {
+		tmp.IsCommitTriggerEnabled = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
 func (SourceRepositoryPropertiesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceRepositoryProperties)(nil)).Elem()
 }

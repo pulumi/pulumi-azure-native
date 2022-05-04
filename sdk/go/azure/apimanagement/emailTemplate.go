@@ -193,6 +193,48 @@ func (o EmailTemplateOutput) ToEmailTemplateOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Email Template Body. This should be a valid XDocument
+func (o EmailTemplateOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
+}
+
+// Description of the Email Template.
+func (o EmailTemplateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the template is the default template provided by Api Management or has been edited.
+func (o EmailTemplateOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+// Resource name.
+func (o EmailTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Email Template Parameter values.
+func (o EmailTemplateOutput) Parameters() EmailTemplateParametersContractPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *EmailTemplate) EmailTemplateParametersContractPropertiesResponseArrayOutput {
+		return v.Parameters
+	}).(EmailTemplateParametersContractPropertiesResponseArrayOutput)
+}
+
+// Subject of the Template.
+func (o EmailTemplateOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Subject }).(pulumi.StringOutput)
+}
+
+// Title of the Template.
+func (o EmailTemplateOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Resource type for API Management resource.
+func (o EmailTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EmailTemplateOutput{})
 }

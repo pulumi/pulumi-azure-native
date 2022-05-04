@@ -191,6 +191,66 @@ func (o CustomImageOutput) ToCustomImageOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The author of the custom image.
+func (o CustomImageOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the custom image.
+func (o CustomImageOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of the custom image.
+func (o CustomImageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resource.
+func (o CustomImageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The Managed Image Id backing the custom image.
+func (o CustomImageOutput) ManagedImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.ManagedImageId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CustomImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o CustomImageOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o CustomImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o CustomImageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o CustomImageOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The VHD from which the image is to be created.
+func (o CustomImageOutput) Vhd() CustomImagePropertiesCustomResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImage) CustomImagePropertiesCustomResponsePtrOutput { return v.Vhd }).(CustomImagePropertiesCustomResponsePtrOutput)
+}
+
+// The virtual machine from which the image is to be created.
+func (o CustomImageOutput) Vm() CustomImagePropertiesFromVmResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImage) CustomImagePropertiesFromVmResponsePtrOutput { return v.Vm }).(CustomImagePropertiesFromVmResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomImageOutput{})
 }

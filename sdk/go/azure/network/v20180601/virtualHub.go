@@ -233,6 +233,53 @@ func (o VirtualHubOutput) ToVirtualHubOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+// Address-prefix for this VirtualHub.
+func (o VirtualHubOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o VirtualHubOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// list of all vnet connections with this VirtualHub.
+func (o VirtualHubOutput) HubVirtualNetworkConnections() HubVirtualNetworkConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualHub) HubVirtualNetworkConnectionResponseArrayOutput {
+		return v.HubVirtualNetworkConnections
+	}).(HubVirtualNetworkConnectionResponseArrayOutput)
+}
+
+// Resource location.
+func (o VirtualHubOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VirtualHubOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualHubOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VirtualHubOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualHubOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHub) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The VirtualWAN to which the VirtualHub belongs
+func (o VirtualHubOutput) VirtualWan() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualHub) SubResourceResponsePtrOutput { return v.VirtualWan }).(SubResourceResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubOutput{})
 }

@@ -208,6 +208,51 @@ func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Co
 	return o
 }
 
+// Resource location
+func (o AvailabilitySetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o AvailabilitySetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Fault Domain count.
+func (o AvailabilitySetOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.IntPtrOutput { return v.PlatformFaultDomainCount }).(pulumi.IntPtrOutput)
+}
+
+// Update Domain count.
+func (o AvailabilitySetOutput) PlatformUpdateDomainCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.IntPtrOutput { return v.PlatformUpdateDomainCount }).(pulumi.IntPtrOutput)
+}
+
+// Sku of the availability set
+func (o AvailabilitySetOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The resource status information.
+func (o AvailabilitySetOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v *AvailabilitySet) InstanceViewStatusResponseArrayOutput { return v.Statuses }).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Resource tags
+func (o AvailabilitySetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o AvailabilitySetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of references to all virtual machines in the availability set.
+func (o AvailabilitySetOutput) VirtualMachines() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *AvailabilitySet) SubResourceResponseArrayOutput { return v.VirtualMachines }).(SubResourceResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AvailabilitySetOutput{})
 }

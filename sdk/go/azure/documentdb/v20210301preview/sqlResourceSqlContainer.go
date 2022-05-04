@@ -232,6 +232,39 @@ func (o SqlResourceSqlContainerOutput) ToSqlResourceSqlContainerOutputWithContex
 	return o
 }
 
+// Identity for the resource.
+func (o SqlResourceSqlContainerOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o SqlResourceSqlContainerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o SqlResourceSqlContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SqlResourceSqlContainerOutput) Options() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) SqlContainerGetPropertiesResponseOptionsPtrOutput { return v.Options }).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
+}
+
+func (o SqlResourceSqlContainerOutput) Resource() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) SqlContainerGetPropertiesResponseResourcePtrOutput { return v.Resource }).(SqlContainerGetPropertiesResponseResourcePtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o SqlResourceSqlContainerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlContainer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlResourceSqlContainerOutput{})
 }

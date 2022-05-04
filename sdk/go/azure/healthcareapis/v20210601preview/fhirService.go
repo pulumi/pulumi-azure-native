@@ -195,6 +195,78 @@ func (o FhirServiceOutput) ToFhirServiceOutputWithContext(ctx context.Context) F
 	return o
 }
 
+// Fhir Service access policies.
+func (o FhirServiceOutput) AccessPolicies() FhirServiceAccessPolicyEntryResponseArrayOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceAccessPolicyEntryResponseArrayOutput { return v.AccessPolicies }).(FhirServiceAccessPolicyEntryResponseArrayOutput)
+}
+
+// Fhir Service Azure container registry configuration.
+func (o FhirServiceOutput) AcrConfiguration() FhirServiceAcrConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceAcrConfigurationResponsePtrOutput { return v.AcrConfiguration }).(FhirServiceAcrConfigurationResponsePtrOutput)
+}
+
+// Fhir Service authentication configuration.
+func (o FhirServiceOutput) AuthenticationConfiguration() FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceAuthenticationConfigurationResponsePtrOutput {
+		return v.AuthenticationConfiguration
+	}).(FhirServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// Fhir Service Cors configuration.
+func (o FhirServiceOutput) CorsConfiguration() FhirServiceCorsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceCorsConfigurationResponsePtrOutput { return v.CorsConfiguration }).(FhirServiceCorsConfigurationResponsePtrOutput)
+}
+
+// An etag associated with the resource, used for optimistic concurrency when editing it.
+func (o FhirServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Fhir Service export configuration.
+func (o FhirServiceOutput) ExportConfiguration() FhirServiceExportConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceExportConfigurationResponsePtrOutput { return v.ExportConfiguration }).(FhirServiceExportConfigurationResponsePtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+func (o FhirServiceOutput) Identity() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *FhirService) ServiceManagedIdentityResponseIdentityPtrOutput { return v.Identity }).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// The kind of the service.
+func (o FhirServiceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The resource location.
+func (o FhirServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o FhirServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state.
+func (o FhirServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o FhirServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *FhirService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o FhirServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o FhirServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FhirServiceOutput{})
 }

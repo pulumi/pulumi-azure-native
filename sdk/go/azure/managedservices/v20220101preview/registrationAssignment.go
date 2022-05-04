@@ -143,6 +143,26 @@ func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutputWithContext(
 	return o
 }
 
+// The name of the registration assignment.
+func (o RegistrationAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of a registration assignment.
+func (o RegistrationAssignmentOutput) Properties() RegistrationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) RegistrationAssignmentPropertiesResponseOutput { return v.Properties }).(RegistrationAssignmentPropertiesResponseOutput)
+}
+
+// The metadata for the registration assignment resource.
+func (o RegistrationAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
+func (o RegistrationAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistrationAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegistrationAssignmentOutput{})
 }

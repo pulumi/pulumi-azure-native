@@ -190,6 +190,28 @@ func (o ReplicationProtectionContainerMappingOutput) ToReplicationProtectionCont
 	return o
 }
 
+// Resource Location
+func (o ReplicationProtectionContainerMappingOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationProtectionContainerMapping) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationProtectionContainerMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationProtectionContainerMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The custom data.
+func (o ReplicationProtectionContainerMappingOutput) Properties() ProtectionContainerMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationProtectionContainerMapping) ProtectionContainerMappingPropertiesResponseOutput {
+		return v.Properties
+	}).(ProtectionContainerMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationProtectionContainerMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationProtectionContainerMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationProtectionContainerMappingOutput{})
 }

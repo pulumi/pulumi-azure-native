@@ -189,6 +189,105 @@ func (o MigrationOutput) ToMigrationOutputWithContext(ctx context.Context) Migra
 	return o
 }
 
+// Migration status.
+func (o MigrationOutput) CurrentStatus() MigrationStatusResponseOutput {
+	return o.ApplyT(func(v *Migration) MigrationStatusResponseOutput { return v.CurrentStatus }).(MigrationStatusResponseOutput)
+}
+
+func (o MigrationOutput) DBsToMigrate() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringArrayOutput { return v.DBsToMigrate }).(pulumi.StringArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o MigrationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Migration details level.
+func (o MigrationOutput) MigrationDetailsLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.MigrationDetailsLevel }).(pulumi.StringOutput)
+}
+
+func (o MigrationOutput) MigrationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.MigrationId }).(pulumi.StringOutput)
+}
+
+func (o MigrationOutput) MigrationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.MigrationName }).(pulumi.StringOutput)
+}
+
+// Migration resource group.
+func (o MigrationOutput) MigrationResourceGroup() MigrationResourceGroupResponsePtrOutput {
+	return o.ApplyT(func(v *Migration) MigrationResourceGroupResponsePtrOutput { return v.MigrationResourceGroup }).(MigrationResourceGroupResponsePtrOutput)
+}
+
+func (o MigrationOutput) MigrationWindowStartTimeInUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringPtrOutput { return v.MigrationWindowStartTimeInUtc }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o MigrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MigrationOutput) OverwriteDBsInTarget() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.BoolPtrOutput { return v.OverwriteDBsInTarget }).(pulumi.BoolPtrOutput)
+}
+
+// Migration secret parameters.
+func (o MigrationOutput) SecretParameters() MigrationSecretParametersResponsePtrOutput {
+	return o.ApplyT(func(v *Migration) MigrationSecretParametersResponsePtrOutput { return v.SecretParameters }).(MigrationSecretParametersResponsePtrOutput)
+}
+
+func (o MigrationOutput) SetupLogicalReplicationOnSourceDBIfNeeded() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.BoolPtrOutput { return v.SetupLogicalReplicationOnSourceDBIfNeeded }).(pulumi.BoolPtrOutput)
+}
+
+// Database server metadata.
+func (o MigrationOutput) SourceDBServerMetadata() DBServerMetadataResponseOutput {
+	return o.ApplyT(func(v *Migration) DBServerMetadataResponseOutput { return v.SourceDBServerMetadata }).(DBServerMetadataResponseOutput)
+}
+
+func (o MigrationOutput) SourceDBServerResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringPtrOutput { return v.SourceDBServerResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o MigrationOutput) StartDataMigration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.BoolPtrOutput { return v.StartDataMigration }).(pulumi.BoolPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o MigrationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Migration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o MigrationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Database server metadata.
+func (o MigrationOutput) TargetDBServerMetadata() DBServerMetadataResponseOutput {
+	return o.ApplyT(func(v *Migration) DBServerMetadataResponseOutput { return v.TargetDBServerMetadata }).(DBServerMetadataResponseOutput)
+}
+
+func (o MigrationOutput) TargetDBServerResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.TargetDBServerResourceId }).(pulumi.StringOutput)
+}
+
+func (o MigrationOutput) TriggerCutover() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.BoolPtrOutput { return v.TriggerCutover }).(pulumi.BoolPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MigrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o MigrationOutput) UserAssignedIdentityResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Migration) pulumi.StringPtrOutput { return v.UserAssignedIdentityResourceId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MigrationOutput{})
 }

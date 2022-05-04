@@ -180,6 +180,67 @@ func (o PartnerDestinationOutput) ToPartnerDestinationOutputWithContext(ctx cont
 	return o
 }
 
+// Activation state of the partner destination.
+func (o PartnerDestinationOutput) ActivationState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.ActivationState }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint Base URL of the partner destination
+func (o PartnerDestinationOutput) EndpointBaseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.EndpointBaseUrl }).(pulumi.StringPtrOutput)
+}
+
+// Endpoint context associated with this partner destination.
+func (o PartnerDestinationOutput) EndpointServiceContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.EndpointServiceContext }).(pulumi.StringPtrOutput)
+}
+
+// Expiration time of the partner destination. If this timer expires and the partner destination was never activated,
+// the partner destination and corresponding channel are deleted.
+func (o PartnerDestinationOutput) ExpirationTimeIfNotActivatedUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.ExpirationTimeIfNotActivatedUtc }).(pulumi.StringPtrOutput)
+}
+
+// Location of the resource.
+func (o PartnerDestinationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Context or helpful message that can be used during the approval process.
+func (o PartnerDestinationOutput) MessageForActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.MessageForActivation }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource.
+func (o PartnerDestinationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The immutable Id of the corresponding partner registration.
+func (o PartnerDestinationOutput) PartnerRegistrationImmutableId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.PartnerRegistrationImmutableId }).(pulumi.StringPtrOutput)
+}
+
+// Provisioning state of the partner destination.
+func (o PartnerDestinationOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata relating to Partner Destination resource.
+func (o PartnerDestinationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PartnerDestination) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Tags of the resource.
+func (o PartnerDestinationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Type of the resource.
+func (o PartnerDestinationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PartnerDestination) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PartnerDestinationOutput{})
 }

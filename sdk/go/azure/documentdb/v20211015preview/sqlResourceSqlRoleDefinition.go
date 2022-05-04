@@ -179,6 +179,31 @@ func (o SqlResourceSqlRoleDefinitionOutput) ToSqlResourceSqlRoleDefinitionOutput
 	return o
 }
 
+// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+func (o SqlResourceSqlRoleDefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleDefinition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
+}
+
+// The name of the database account.
+func (o SqlResourceSqlRoleDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of operations allowed through this Role Definition.
+func (o SqlResourceSqlRoleDefinitionOutput) Permissions() PermissionResponseArrayOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleDefinition) PermissionResponseArrayOutput { return v.Permissions }).(PermissionResponseArrayOutput)
+}
+
+// A user-friendly name for the Role Definition. Must be unique for the database account.
+func (o SqlResourceSqlRoleDefinitionOutput) RoleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleDefinition) pulumi.StringPtrOutput { return v.RoleName }).(pulumi.StringPtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlRoleDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlResourceSqlRoleDefinitionOutput{})
 }

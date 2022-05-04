@@ -129,6 +129,21 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutputWithCont
 	return o
 }
 
+// Indicates whether Advanced Threat Protection is enabled.
+func (o AdvancedThreatProtectionOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AdvancedThreatProtection) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Resource name
+func (o AdvancedThreatProtectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdvancedThreatProtection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o AdvancedThreatProtectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdvancedThreatProtection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdvancedThreatProtectionOutput{})
 }

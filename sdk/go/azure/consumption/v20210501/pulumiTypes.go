@@ -1114,6 +1114,17 @@ type NotificationArgs struct {
 	ThresholdType pulumi.StringPtrInput `pulumi:"thresholdType"`
 }
 
+// Defaults sets the appropriate defaults for NotificationArgs
+func (val *NotificationArgs) Defaults() *NotificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ThresholdType) {
+		tmp.ThresholdType = pulumi.StringPtr("Actual")
+	}
+	return &tmp
+}
 func (NotificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Notification)(nil)).Elem()
 }

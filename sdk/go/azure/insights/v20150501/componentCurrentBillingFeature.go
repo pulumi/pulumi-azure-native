@@ -131,6 +131,18 @@ func (o ComponentCurrentBillingFeatureOutput) ToComponentCurrentBillingFeatureOu
 	return o
 }
 
+// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
+func (o ComponentCurrentBillingFeatureOutput) CurrentBillingFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ComponentCurrentBillingFeature) pulumi.StringArrayOutput { return v.CurrentBillingFeatures }).(pulumi.StringArrayOutput)
+}
+
+// An Application Insights component daily data volume cap
+func (o ComponentCurrentBillingFeatureOutput) DataVolumeCap() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o.ApplyT(func(v *ComponentCurrentBillingFeature) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+		return v.DataVolumeCap
+	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComponentCurrentBillingFeatureOutput{})
 }

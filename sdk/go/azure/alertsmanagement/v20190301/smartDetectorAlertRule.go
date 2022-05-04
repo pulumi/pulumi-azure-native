@@ -194,6 +194,56 @@ func (o SmartDetectorAlertRuleOutput) ToSmartDetectorAlertRuleOutputWithContext(
 	return o
 }
 
+// The alert rule actions.
+func (o SmartDetectorAlertRuleOutput) ActionGroups() ActionGroupsInformationResponseOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) ActionGroupsInformationResponseOutput { return v.ActionGroups }).(ActionGroupsInformationResponseOutput)
+}
+
+// The alert rule description.
+func (o SmartDetectorAlertRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The alert rule's detector.
+func (o SmartDetectorAlertRuleOutput) Detector() DetectorResponseOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) DetectorResponseOutput { return v.Detector }).(DetectorResponseOutput)
+}
+
+// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+func (o SmartDetectorAlertRuleOutput) Frequency() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringOutput { return v.Frequency }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o SmartDetectorAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The alert rule resources scope.
+func (o SmartDetectorAlertRuleOutput) Scope() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringArrayOutput { return v.Scope }).(pulumi.StringArrayOutput)
+}
+
+// The alert rule severity.
+func (o SmartDetectorAlertRuleOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The alert rule state.
+func (o SmartDetectorAlertRuleOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The alert rule throttling information.
+func (o SmartDetectorAlertRuleOutput) Throttling() ThrottlingInformationResponsePtrOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) ThrottlingInformationResponsePtrOutput { return v.Throttling }).(ThrottlingInformationResponsePtrOutput)
+}
+
+// The resource type.
+func (o SmartDetectorAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmartDetectorAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SmartDetectorAlertRuleOutput{})
 }

@@ -217,6 +217,56 @@ func (o SiteSourceControlOutput) ToSiteSourceControlOutputWithContext(ctx contex
 	return o
 }
 
+// Name of branch to use for deployment
+func (o SiteSourceControlOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringPtrOutput { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// Whether to manual or continuous integration
+func (o SiteSourceControlOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.BoolPtrOutput { return v.DeploymentRollbackEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to manual or continuous integration
+func (o SiteSourceControlOutput) IsManualIntegration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.BoolPtrOutput { return v.IsManualIntegration }).(pulumi.BoolPtrOutput)
+}
+
+// Mercurial or Git repository type
+func (o SiteSourceControlOutput) IsMercurial() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.BoolPtrOutput { return v.IsMercurial }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource
+func (o SiteSourceControlOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o SiteSourceControlOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o SiteSourceControlOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Repository or source control url
+func (o SiteSourceControlOutput) RepoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringPtrOutput { return v.RepoUrl }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o SiteSourceControlOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o SiteSourceControlOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteSourceControl) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SiteSourceControlOutput{})
 }

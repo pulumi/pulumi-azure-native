@@ -166,6 +166,31 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
+// The name of the resource.
+func (o DeploymentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the Deployment resource
+func (o DeploymentOutput) Properties() DeploymentResourcePropertiesResponseOutput {
+	return o.ApplyT(func(v *Deployment) DeploymentResourcePropertiesResponseOutput { return v.Properties }).(DeploymentResourcePropertiesResponseOutput)
+}
+
+// Sku of the Deployment resource
+func (o DeploymentOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Deployment) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DeploymentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Deployment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o DeploymentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeploymentOutput{})
 }

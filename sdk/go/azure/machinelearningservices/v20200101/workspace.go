@@ -265,6 +265,101 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
+// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+func (o WorkspaceOutput) ApplicationInsights() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ApplicationInsights }).(pulumi.StringPtrOutput)
+}
+
+// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+func (o WorkspaceOutput) ContainerRegistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ContainerRegistry }).(pulumi.StringPtrOutput)
+}
+
+// The creation time of the machine learning workspace in ISO8601 format.
+func (o WorkspaceOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The description of this workspace.
+func (o WorkspaceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+func (o WorkspaceOutput) DiscoveryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.DiscoveryUrl }).(pulumi.StringPtrOutput)
+}
+
+// The encryption settings of Azure ML workspace.
+func (o WorkspaceOutput) Encryption() EncryptionPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) EncryptionPropertyResponsePtrOutput { return v.Encryption }).(EncryptionPropertyResponsePtrOutput)
+}
+
+// The friendly name for this workspace. This name in mutable
+func (o WorkspaceOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+func (o WorkspaceOutput) HbiWorkspace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.HbiWorkspace }).(pulumi.BoolPtrOutput)
+}
+
+// The identity of the resource.
+func (o WorkspaceOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+func (o WorkspaceOutput) KeyVault() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.KeyVault }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o WorkspaceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o WorkspaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+func (o WorkspaceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+func (o WorkspaceOutput) ServiceProvisionedResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ServiceProvisionedResourceGroup }).(pulumi.StringOutput)
+}
+
+// The sku of the workspace.
+func (o WorkspaceOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Workspace) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+func (o WorkspaceOutput) StorageAccount() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StorageAccount }).(pulumi.StringPtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o WorkspaceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The immutable id associated with this workspace.
+func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkspaceOutput{})
 }

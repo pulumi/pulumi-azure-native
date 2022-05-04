@@ -172,6 +172,26 @@ func (o WebAppMetadataOutput) ToWebAppMetadataOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Kind of resource.
+func (o WebAppMetadataOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppMetadata) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppMetadataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppMetadata) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings.
+func (o WebAppMetadataOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppMetadata) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebAppMetadataOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppMetadata) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppMetadataOutput{})
 }

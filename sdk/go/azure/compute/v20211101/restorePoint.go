@@ -162,6 +162,51 @@ func (o RestorePointOutput) ToRestorePointOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
+func (o RestorePointOutput) ConsistencyMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.ConsistencyMode }).(pulumi.StringOutput)
+}
+
+// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
+func (o RestorePointOutput) ExcludeDisks() ApiEntityReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *RestorePoint) ApiEntityReferenceResponseArrayOutput { return v.ExcludeDisks }).(ApiEntityReferenceResponseArrayOutput)
+}
+
+// The restore point instance view.
+func (o RestorePointOutput) InstanceView() RestorePointInstanceViewResponseOutput {
+	return o.ApplyT(func(v *RestorePoint) RestorePointInstanceViewResponseOutput { return v.InstanceView }).(RestorePointInstanceViewResponseOutput)
+}
+
+// Resource name
+func (o RestorePointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets the provisioning state of the restore point.
+func (o RestorePointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets the details of the VM captured at the time of the restore point creation.
+func (o RestorePointOutput) SourceMetadata() RestorePointSourceMetadataResponseOutput {
+	return o.ApplyT(func(v *RestorePoint) RestorePointSourceMetadataResponseOutput { return v.SourceMetadata }).(RestorePointSourceMetadataResponseOutput)
+}
+
+// Resource Id of the source restore point from which a copy needs to be created.
+func (o RestorePointOutput) SourceRestorePoint() ApiEntityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *RestorePoint) ApiEntityReferenceResponsePtrOutput { return v.SourceRestorePoint }).(ApiEntityReferenceResponsePtrOutput)
+}
+
+// Gets the creation time of the restore point.
+func (o RestorePointOutput) TimeCreated() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestorePoint) pulumi.StringPtrOutput { return v.TimeCreated }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o RestorePointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RestorePointOutput{})
 }

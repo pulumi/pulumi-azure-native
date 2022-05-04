@@ -159,6 +159,56 @@ func (o SqlDatabaseOutput) ToSqlDatabaseOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// The collation of the database.
+func (o SqlDatabaseOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// Sql database data retention.
+func (o SqlDatabaseOutput) DataRetention() SqlDatabaseDataRetentionResponsePtrOutput {
+	return o.ApplyT(func(v *SqlDatabase) SqlDatabaseDataRetentionResponsePtrOutput { return v.DataRetention }).(SqlDatabaseDataRetentionResponsePtrOutput)
+}
+
+// The Guid of the database.
+func (o SqlDatabaseOutput) DatabaseGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.DatabaseGuid }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o SqlDatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The status of the database.
+func (o SqlDatabaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The storage redundancy of the database.
+func (o SqlDatabaseOutput) StorageRedundancy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringPtrOutput { return v.StorageRedundancy }).(pulumi.StringPtrOutput)
+}
+
+// SystemData of SqlDatabase.
+func (o SqlDatabaseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlDatabase) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlDatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SqlDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlDatabaseOutput{})
 }

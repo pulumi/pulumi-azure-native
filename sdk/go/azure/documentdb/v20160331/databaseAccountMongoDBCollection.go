@@ -224,6 +224,36 @@ func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollecti
 	return o
 }
 
+// List of index keys
+func (o DatabaseAccountMongoDBCollectionOutput) Indexes() MongoIndexResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) MongoIndexResponseArrayOutput { return v.Indexes }).(MongoIndexResponseArrayOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o DatabaseAccountMongoDBCollectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database account.
+func (o DatabaseAccountMongoDBCollectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A key-value pair of shard keys to be applied for the request.
+func (o DatabaseAccountMongoDBCollectionOutput) ShardKey() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) pulumi.StringMapOutput { return v.ShardKey }).(pulumi.StringMapOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o DatabaseAccountMongoDBCollectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o DatabaseAccountMongoDBCollectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAccountMongoDBCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAccountMongoDBCollectionOutput{})
 }

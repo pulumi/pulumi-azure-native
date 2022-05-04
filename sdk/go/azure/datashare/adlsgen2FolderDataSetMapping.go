@@ -220,6 +220,67 @@ func (o ADLSGen2FolderDataSetMappingOutput) ToADLSGen2FolderDataSetMappingOutput
 	return o
 }
 
+// The id of the source data set.
+func (o ADLSGen2FolderDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o ADLSGen2FolderDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// File system to which the folder belongs.
+func (o ADLSGen2FolderDataSetMappingOutput) FileSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.FileSystem }).(pulumi.StringOutput)
+}
+
+// Folder path within the file system.
+func (o ADLSGen2FolderDataSetMappingOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'AdlsGen2Folder'.
+func (o ADLSGen2FolderDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2FolderDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o ADLSGen2FolderDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account.
+func (o ADLSGen2FolderDataSetMappingOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set.
+func (o ADLSGen2FolderDataSetMappingOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account.
+func (o ADLSGen2FolderDataSetMappingOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// System Data of the Azure resource.
+func (o ADLSGen2FolderDataSetMappingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2FolderDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FolderDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2FolderDataSetMappingOutput{})
 }

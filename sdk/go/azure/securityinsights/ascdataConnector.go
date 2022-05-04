@@ -176,6 +176,37 @@ func (o ASCDataConnectorOutput) ToASCDataConnectorOutputWithContext(ctx context.
 	return o
 }
 
+// The available data types for the connector.
+func (o ASCDataConnectorOutput) DataTypes() AlertsDataTypeOfDataConnectorResponsePtrOutput {
+	return o.ApplyT(func(v *ASCDataConnector) AlertsDataTypeOfDataConnectorResponsePtrOutput { return v.DataTypes }).(AlertsDataTypeOfDataConnectorResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o ASCDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ASCDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'AzureSecurityCenter'.
+func (o ASCDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ASCDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ASCDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ASCDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The subscription id to connect to, and get the data from.
+func (o ASCDataConnectorOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ASCDataConnector) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o ASCDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ASCDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ASCDataConnectorOutput{})
 }

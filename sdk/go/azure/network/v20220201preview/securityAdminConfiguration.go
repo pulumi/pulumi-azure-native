@@ -151,6 +151,43 @@ func (o SecurityAdminConfigurationOutput) ToSecurityAdminConfigurationOutputWith
 	return o
 }
 
+// Enum list of network intent policy based services.
+func (o SecurityAdminConfigurationOutput) ApplyOnNetworkIntentPolicyBasedServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringArrayOutput {
+		return v.ApplyOnNetworkIntentPolicyBasedServices
+	}).(pulumi.StringArrayOutput)
+}
+
+// A description of the security configuration.
+func (o SecurityAdminConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o SecurityAdminConfigurationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SecurityAdminConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o SecurityAdminConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o SecurityAdminConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o SecurityAdminConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityAdminConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecurityAdminConfigurationOutput{})
 }

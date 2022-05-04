@@ -179,6 +179,56 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The display name of the Azure Resource Manager template that produced the environment.
+func (o EnvironmentOutput) ArmTemplateDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.ArmTemplateDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The creator of the environment.
+func (o EnvironmentOutput) CreatedByUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CreatedByUser }).(pulumi.StringOutput)
+}
+
+// The deployment properties of the environment.
+func (o EnvironmentOutput) DeploymentProperties() EnvironmentDeploymentPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentDeploymentPropertiesResponsePtrOutput { return v.DeploymentProperties }).(EnvironmentDeploymentPropertiesResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o EnvironmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o EnvironmentOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the resource group containing the environment's resources.
+func (o EnvironmentOutput) ResourceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ResourceGroupId }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o EnvironmentOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentOutput{})
 }

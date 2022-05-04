@@ -169,6 +169,76 @@ func (o NotificationHubAuthorizationRuleOutput) ToNotificationHubAuthorizationRu
 	return o
 }
 
+// A string that describes the claim type
+func (o NotificationHubAuthorizationRuleOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// A string that describes the claim value
+func (o NotificationHubAuthorizationRuleOutput) ClaimValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.ClaimValue }).(pulumi.StringOutput)
+}
+
+// The created time for this rule
+func (o NotificationHubAuthorizationRuleOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A string that describes the authorization rule.
+func (o NotificationHubAuthorizationRuleOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o NotificationHubAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The last modified time for this rule
+func (o NotificationHubAuthorizationRuleOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o NotificationHubAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o NotificationHubAuthorizationRuleOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The revision number for the rule
+func (o NotificationHubAuthorizationRuleOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.IntOutput { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The rights associated with the rule.
+func (o NotificationHubAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o NotificationHubAuthorizationRuleOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.SecondaryKey }).(pulumi.StringOutput)
+}
+
+// The sku of the created namespace
+func (o NotificationHubAuthorizationRuleOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Resource tags
+func (o NotificationHubAuthorizationRuleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o NotificationHubAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationHubAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NotificationHubAuthorizationRuleOutput{})
 }

@@ -154,6 +154,41 @@ func (o NetworkGroupOutput) ToNetworkGroupOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A description of the network group.
+func (o NetworkGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkGroupOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Group member type.
+func (o NetworkGroupOutput) MemberType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o NetworkGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o NetworkGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata related to this resource.
+func (o NetworkGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *NetworkGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o NetworkGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkGroupOutput{})
 }

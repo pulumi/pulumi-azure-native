@@ -150,6 +150,31 @@ func (o SuppressionOutput) ToSuppressionOutputWithContext(ctx context.Context) S
 	return o
 }
 
+// Gets or sets the expiration time stamp.
+func (o SuppressionOutput) ExpirationTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.ExpirationTimeStamp }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o SuppressionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The GUID of the suppression.
+func (o SuppressionOutput) SuppressionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Suppression) pulumi.StringPtrOutput { return v.SuppressionId }).(pulumi.StringPtrOutput)
+}
+
+// The duration for which the suppression is valid.
+func (o SuppressionOutput) Ttl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Suppression) pulumi.StringPtrOutput { return v.Ttl }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o SuppressionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Suppression) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SuppressionOutput{})
 }

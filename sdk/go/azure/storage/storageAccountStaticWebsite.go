@@ -127,6 +127,21 @@ func (o StorageAccountStaticWebsiteOutput) ToStorageAccountStaticWebsiteOutputWi
 	return o
 }
 
+// The name of the container to upload blobs to.
+func (o StorageAccountStaticWebsiteOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountStaticWebsite) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+func (o StorageAccountStaticWebsiteOutput) Error404Document() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountStaticWebsite) pulumi.StringPtrOutput { return v.Error404Document }).(pulumi.StringPtrOutput)
+}
+
+// The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
+func (o StorageAccountStaticWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountStaticWebsite) pulumi.StringPtrOutput { return v.IndexDocument }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountStaticWebsiteOutput{})
 }

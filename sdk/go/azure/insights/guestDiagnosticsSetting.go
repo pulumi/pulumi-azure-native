@@ -148,6 +148,40 @@ func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutputWithContex
 	return o
 }
 
+// the array of data source object which are configured to collect and send data
+func (o GuestDiagnosticsSettingOutput) DataSources() DataSourceResponseArrayOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) DataSourceResponseArrayOutput { return v.DataSources }).(DataSourceResponseArrayOutput)
+}
+
+// Resource location
+func (o GuestDiagnosticsSettingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o GuestDiagnosticsSettingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operating system type for the configuration
+func (o GuestDiagnosticsSettingOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringPtrOutput { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+func (o GuestDiagnosticsSettingOutput) ProxySetting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringPtrOutput { return v.ProxySetting }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o GuestDiagnosticsSettingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type
+func (o GuestDiagnosticsSettingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestDiagnosticsSetting) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestDiagnosticsSettingOutput{})
 }

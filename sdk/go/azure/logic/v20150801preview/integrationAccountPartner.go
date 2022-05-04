@@ -181,6 +181,51 @@ func (o IntegrationAccountPartnerOutput) ToIntegrationAccountPartnerOutputWithCo
 	return o
 }
 
+// The changed time.
+func (o IntegrationAccountPartnerOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The partner content.
+func (o IntegrationAccountPartnerOutput) Content() PartnerContentResponsePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) PartnerContentResponsePtrOutput { return v.Content }).(PartnerContentResponsePtrOutput)
+}
+
+// The created time.
+func (o IntegrationAccountPartnerOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The resource location.
+func (o IntegrationAccountPartnerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o IntegrationAccountPartnerOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The resource name.
+func (o IntegrationAccountPartnerOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The partner type.
+func (o IntegrationAccountPartnerOutput) PartnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringPtrOutput { return v.PartnerType }).(pulumi.StringPtrOutput)
+}
+
+// The resource tags.
+func (o IntegrationAccountPartnerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o IntegrationAccountPartnerOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountPartner) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IntegrationAccountPartnerOutput{})
 }

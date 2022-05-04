@@ -154,6 +154,31 @@ func (o RegisteredAsnOutput) ToRegisteredAsnOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The customer's ASN from which traffic originates.
+func (o RegisteredAsnOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RegisteredAsn) pulumi.IntPtrOutput { return v.Asn }).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource.
+func (o RegisteredAsnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredAsn) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The peering service prefix key that is to be shared with the customer.
+func (o RegisteredAsnOutput) PeeringServicePrefixKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredAsn) pulumi.StringOutput { return v.PeeringServicePrefixKey }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o RegisteredAsnOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredAsn) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o RegisteredAsnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegisteredAsn) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RegisteredAsnOutput{})
 }

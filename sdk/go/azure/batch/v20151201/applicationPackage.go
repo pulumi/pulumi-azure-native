@@ -180,6 +180,36 @@ func (o ApplicationPackageOutput) ToApplicationPackageOutputWithContext(ctx cont
 	return o
 }
 
+// The format of the application package, if the package is active.
+func (o ApplicationPackageOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// The time at which the package was last activated, if the package is active.
+func (o ApplicationPackageOutput) LastActivationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.LastActivationTime }).(pulumi.StringPtrOutput)
+}
+
+// The current state of the application package.
+func (o ApplicationPackageOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// The storage URL at which the application package is stored.
+func (o ApplicationPackageOutput) StorageUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.StorageUrl }).(pulumi.StringPtrOutput)
+}
+
+// The UTC time at which the storage URL will expire.
+func (o ApplicationPackageOutput) StorageUrlExpiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.StorageUrlExpiry }).(pulumi.StringPtrOutput)
+}
+
+// The version of the application package.
+func (o ApplicationPackageOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationPackageOutput{})
 }

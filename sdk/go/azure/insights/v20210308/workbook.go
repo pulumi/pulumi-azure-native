@@ -233,6 +233,96 @@ func (o WorkbookOutput) ToWorkbookOutputWithContext(ctx context.Context) Workboo
 	return o
 }
 
+// Workbook category, as defined by the user at creation time.
+func (o WorkbookOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.Category }).(pulumi.StringOutput)
+}
+
+// The description of the workbook.
+func (o WorkbookOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The user-defined name (display name) of the workbook.
+func (o WorkbookOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Resource etag
+func (o WorkbookOutput) Etag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Etag }).(pulumi.StringMapOutput)
+}
+
+// Identity used for BYOS
+func (o WorkbookOutput) Identity() WorkbookManagedIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Workbook) WorkbookManagedIdentityResponsePtrOutput { return v.Identity }).(WorkbookManagedIdentityResponsePtrOutput)
+}
+
+// The kind of workbook. Choices are user and shared.
+func (o WorkbookOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o WorkbookOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name
+func (o WorkbookOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The unique revision id for this workbook definition
+func (o WorkbookOutput) Revision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Revision }).(pulumi.StringPtrOutput)
+}
+
+// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+func (o WorkbookOutput) SerializedData() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.SerializedData }).(pulumi.StringOutput)
+}
+
+// ResourceId for a source resource.
+func (o WorkbookOutput) SourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.SourceId }).(pulumi.StringPtrOutput)
+}
+
+// BYOS Storage Account URI
+func (o WorkbookOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.StorageUri }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o WorkbookOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Workbook) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o WorkbookOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Date and time in UTC of the last modification that was made to this workbook definition.
+func (o WorkbookOutput) TimeModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.TimeModified }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o WorkbookOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Unique user id of the specific user that owns this workbook.
+func (o WorkbookOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringOutput { return v.UserId }).(pulumi.StringOutput)
+}
+
+// Workbook version
+func (o WorkbookOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workbook) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkbookOutput{})
 }

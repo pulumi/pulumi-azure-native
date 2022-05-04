@@ -231,6 +231,90 @@ func (o AttachedDataNetworkOutput) ToAttachedDataNetworkOutputWithContext(ctx co
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o AttachedDataNetworkOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o AttachedDataNetworkOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o AttachedDataNetworkOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o AttachedDataNetworkOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o AttachedDataNetworkOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o AttachedDataNetworkOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o AttachedDataNetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AttachedDataNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Network Address and Port Translation configuration.
+// If not specified the attached data network uses a default NAPT configuration with NAPT enabled.
+func (o AttachedDataNetworkOutput) NaptConfiguration() NaptConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) NaptConfigurationResponsePtrOutput { return v.NaptConfiguration }).(NaptConfigurationResponsePtrOutput)
+}
+
+// The provisioning state of the attached data network resource.
+func (o AttachedDataNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AttachedDataNetworkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AttachedDataNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AttachedDataNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user equipment address pool prefixes for the attached data network that are dynamically assigned by the core to UEs when they set up a PDU session.
+// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+func (o AttachedDataNetworkOutput) UserEquipmentAddressPoolPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringArrayOutput { return v.UserEquipmentAddressPoolPrefix }).(pulumi.StringArrayOutput)
+}
+
+// The user equipment address pool prefixes for the attached data network that are statically assigned by the core to UEs when they set up a PDU session.
+// The mapping of static IP to sim is configured in staticIpConfiguration on the sim resource.
+// At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined then they must be the same size.
+func (o AttachedDataNetworkOutput) UserEquipmentStaticAddressPoolPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) pulumi.StringArrayOutput { return v.UserEquipmentStaticAddressPoolPrefix }).(pulumi.StringArrayOutput)
+}
+
+// The user plane interface on the data network. In 5G networks this is called as N6 interface whereas in 4G networks this is called as SGi interface.
+func (o AttachedDataNetworkOutput) UserPlaneDataInterface() InterfacePropertiesResponseOutput {
+	return o.ApplyT(func(v *AttachedDataNetwork) InterfacePropertiesResponseOutput { return v.UserPlaneDataInterface }).(InterfacePropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AttachedDataNetworkOutput{})
 }

@@ -2511,6 +2511,17 @@ type InputPortArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for InputPortArgs
+func (val *InputPortArgs) Defaults() *InputPortArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("Dataset")
+	}
+	return &tmp
+}
 func (InputPortArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*InputPort)(nil)).Elem()
 }
@@ -3223,6 +3234,17 @@ type OutputPortArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for OutputPortArgs
+func (val *OutputPortArgs) Defaults() *OutputPortArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.StringPtr("Dataset")
+	}
+	return &tmp
+}
 func (OutputPortArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutputPort)(nil)).Elem()
 }
@@ -3945,6 +3967,17 @@ type ServiceInputOutputSpecificationArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for ServiceInputOutputSpecificationArgs
+func (val *ServiceInputOutputSpecificationArgs) Defaults() *ServiceInputOutputSpecificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.String("object")
+	}
+	return &tmp
+}
 func (ServiceInputOutputSpecificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceInputOutputSpecification)(nil)).Elem()
 }
@@ -4519,6 +4552,17 @@ type TableSpecificationArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for TableSpecificationArgs
+func (val *TableSpecificationArgs) Defaults() *TableSpecificationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = pulumi.String("object")
+	}
+	return &tmp
+}
 func (TableSpecificationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*TableSpecification)(nil)).Elem()
 }
@@ -5210,6 +5254,15 @@ type WebServicePropertiesForGraphArgs struct {
 	Title pulumi.StringPtrInput `pulumi:"title"`
 }
 
+// Defaults sets the appropriate defaults for WebServicePropertiesForGraphArgs
+func (val *WebServicePropertiesForGraphArgs) Defaults() *WebServicePropertiesForGraphArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+
+	return &tmp
+}
 func (WebServicePropertiesForGraphArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebServicePropertiesForGraph)(nil)).Elem()
 }

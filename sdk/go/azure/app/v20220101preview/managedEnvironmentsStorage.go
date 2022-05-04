@@ -140,6 +140,28 @@ func (o ManagedEnvironmentsStorageOutput) ToManagedEnvironmentsStorageOutputWith
 	return o
 }
 
+// The name of the resource
+func (o ManagedEnvironmentsStorageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironmentsStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Storage properties
+func (o ManagedEnvironmentsStorageOutput) Properties() ManagedEnvironmentStorageResponsePropertiesOutput {
+	return o.ApplyT(func(v *ManagedEnvironmentsStorage) ManagedEnvironmentStorageResponsePropertiesOutput {
+		return v.Properties
+	}).(ManagedEnvironmentStorageResponsePropertiesOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ManagedEnvironmentsStorageOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagedEnvironmentsStorage) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ManagedEnvironmentsStorageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedEnvironmentsStorage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedEnvironmentsStorageOutput{})
 }

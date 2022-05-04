@@ -152,6 +152,46 @@ func (o EnterpriseChannelOutput) ToEnterpriseChannelOutputWithContext(ctx contex
 	return o
 }
 
+// Entity Tag
+func (o EnterpriseChannelOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Required. Gets or sets the Kind of the resource.
+func (o EnterpriseChannelOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location of the resource.
+func (o EnterpriseChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o EnterpriseChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to an Enterprise Channel resource.
+func (o EnterpriseChannelOutput) Properties() EnterpriseChannelPropertiesResponseOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) EnterpriseChannelPropertiesResponseOutput { return v.Properties }).(EnterpriseChannelPropertiesResponseOutput)
+}
+
+// Gets or sets the SKU of the resource.
+func (o EnterpriseChannelOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o EnterpriseChannelOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o EnterpriseChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterpriseChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnterpriseChannelOutput{})
 }

@@ -267,6 +267,116 @@ func (o BigDataPoolOutput) ToBigDataPoolOutputWithContext(ctx context.Context) B
 	return o
 }
 
+// Auto-pausing properties
+func (o BigDataPoolOutput) AutoPause() AutoPausePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *BigDataPool) AutoPausePropertiesResponsePtrOutput { return v.AutoPause }).(AutoPausePropertiesResponsePtrOutput)
+}
+
+// Auto-scaling properties
+func (o BigDataPoolOutput) AutoScale() AutoScalePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *BigDataPool) AutoScalePropertiesResponsePtrOutput { return v.AutoScale }).(AutoScalePropertiesResponsePtrOutput)
+}
+
+// The cache size
+func (o BigDataPoolOutput) CacheSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.IntPtrOutput { return v.CacheSize }).(pulumi.IntPtrOutput)
+}
+
+// The time when the Big Data pool was created.
+func (o BigDataPoolOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+// List of custom libraries/packages associated with the spark pool.
+func (o BigDataPoolOutput) CustomLibraries() LibraryInfoResponseArrayOutput {
+	return o.ApplyT(func(v *BigDataPool) LibraryInfoResponseArrayOutput { return v.CustomLibraries }).(LibraryInfoResponseArrayOutput)
+}
+
+// The default folder where Spark logs will be written.
+func (o BigDataPoolOutput) DefaultSparkLogFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.DefaultSparkLogFolder }).(pulumi.StringPtrOutput)
+}
+
+// Dynamic Executor Allocation
+func (o BigDataPoolOutput) DynamicExecutorAllocation() DynamicExecutorAllocationResponsePtrOutput {
+	return o.ApplyT(func(v *BigDataPool) DynamicExecutorAllocationResponsePtrOutput { return v.DynamicExecutorAllocation }).(DynamicExecutorAllocationResponsePtrOutput)
+}
+
+// Whether compute isolation is required or not.
+func (o BigDataPoolOutput) IsComputeIsolationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.BoolPtrOutput { return v.IsComputeIsolationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The time when the Big Data pool was updated successfully.
+func (o BigDataPoolOutput) LastSucceededTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringOutput { return v.LastSucceededTimestamp }).(pulumi.StringOutput)
+}
+
+// Library version requirements
+func (o BigDataPoolOutput) LibraryRequirements() LibraryRequirementsResponsePtrOutput {
+	return o.ApplyT(func(v *BigDataPool) LibraryRequirementsResponsePtrOutput { return v.LibraryRequirements }).(LibraryRequirementsResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o BigDataPoolOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o BigDataPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of nodes in the Big Data pool.
+func (o BigDataPoolOutput) NodeCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.IntPtrOutput { return v.NodeCount }).(pulumi.IntPtrOutput)
+}
+
+// The level of compute power that each node in the Big Data pool has.
+func (o BigDataPoolOutput) NodeSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.NodeSize }).(pulumi.StringPtrOutput)
+}
+
+// The kind of nodes that the Big Data pool provides.
+func (o BigDataPoolOutput) NodeSizeFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.NodeSizeFamily }).(pulumi.StringPtrOutput)
+}
+
+// The state of the Big Data pool.
+func (o BigDataPoolOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Whether session level packages enabled.
+func (o BigDataPoolOutput) SessionLevelPackagesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.BoolPtrOutput { return v.SessionLevelPackagesEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Spark configuration file to specify additional properties
+func (o BigDataPoolOutput) SparkConfigProperties() LibraryRequirementsResponsePtrOutput {
+	return o.ApplyT(func(v *BigDataPool) LibraryRequirementsResponsePtrOutput { return v.SparkConfigProperties }).(LibraryRequirementsResponsePtrOutput)
+}
+
+// The Spark events folder
+func (o BigDataPoolOutput) SparkEventsFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.SparkEventsFolder }).(pulumi.StringPtrOutput)
+}
+
+// The Apache Spark version.
+func (o BigDataPoolOutput) SparkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringPtrOutput { return v.SparkVersion }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o BigDataPoolOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o BigDataPoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigDataPool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BigDataPoolOutput{})
 }

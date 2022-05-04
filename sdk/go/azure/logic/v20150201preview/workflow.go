@@ -198,6 +198,81 @@ func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) Workflo
 	return o
 }
 
+// Gets the access endpoint.
+func (o WorkflowOutput) AccessEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.AccessEndpoint }).(pulumi.StringOutput)
+}
+
+// Gets the changed time.
+func (o WorkflowOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// Gets the created time.
+func (o WorkflowOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Gets or sets the definition.
+func (o WorkflowOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
+}
+
+// Gets or sets the link to definition.
+func (o WorkflowOutput) DefinitionLink() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) ContentLinkResponsePtrOutput { return v.DefinitionLink }).(ContentLinkResponsePtrOutput)
+}
+
+// Gets or sets the resource location.
+func (o WorkflowOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Gets the resource name.
+func (o WorkflowOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the parameters.
+func (o WorkflowOutput) Parameters() WorkflowParameterResponseMapOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowParameterResponseMapOutput { return v.Parameters }).(WorkflowParameterResponseMapOutput)
+}
+
+// Gets or sets the link to parameters.
+func (o WorkflowOutput) ParametersLink() ContentLinkResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) ContentLinkResponsePtrOutput { return v.ParametersLink }).(ContentLinkResponsePtrOutput)
+}
+
+// Gets the provisioning state.
+func (o WorkflowOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the sku.
+func (o WorkflowOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Workflow) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Gets or sets the state.
+func (o WorkflowOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the resource tags.
+func (o WorkflowOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o WorkflowOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Gets the version.
+func (o WorkflowOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WorkflowOutput{})
 }

@@ -144,6 +144,38 @@ func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutputWithCont
 	return o
 }
 
+// Specifies the location of the resource.
+func (o EnterpriseKnowledgeGraphOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the resource.
+func (o EnterpriseKnowledgeGraphOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to EnterpriseKnowledgeGraph resource
+func (o EnterpriseKnowledgeGraphOutput) Properties() EnterpriseKnowledgeGraphPropertiesResponseOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) EnterpriseKnowledgeGraphPropertiesResponseOutput {
+		return v.Properties
+	}).(EnterpriseKnowledgeGraphPropertiesResponseOutput)
+}
+
+// Gets or sets the SKU of the resource.
+func (o EnterpriseKnowledgeGraphOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Contains resource tags defined as key/value pairs.
+func (o EnterpriseKnowledgeGraphOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Specifies the type of the resource.
+func (o EnterpriseKnowledgeGraphOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnterpriseKnowledgeGraph) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphOutput{})
 }

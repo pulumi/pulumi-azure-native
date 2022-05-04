@@ -159,6 +159,41 @@ func (o GetbotOutput) ToGetbotOutputWithContext(ctx context.Context) GetbotOutpu
 	return o
 }
 
+// The geo-location where the resource lives
+func (o GetbotOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Getbot) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o GetbotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Getbot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The set of properties specific to healthcare bot resource.
+func (o GetbotOutput) Properties() HealthBotPropertiesResponseOutput {
+	return o.ApplyT(func(v *Getbot) HealthBotPropertiesResponseOutput { return v.Properties }).(HealthBotPropertiesResponseOutput)
+}
+
+// SKU of the HealthBot.
+func (o GetbotOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Getbot) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o GetbotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Getbot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o GetbotOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Getbot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o GetbotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Getbot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GetbotOutput{})
 }

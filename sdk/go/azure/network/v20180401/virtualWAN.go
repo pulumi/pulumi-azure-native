@@ -226,6 +226,50 @@ func (o VirtualWANOutput) ToVirtualWANOutputWithContext(ctx context.Context) Vir
 	return o
 }
 
+// Vpn encryption to be disabled or not.
+func (o VirtualWANOutput) DisableVpnEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.BoolPtrOutput { return v.DisableVpnEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o VirtualWANOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o VirtualWANOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o VirtualWANOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualWANOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o VirtualWANOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o VirtualWANOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualWAN) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// List of VirtualHubs in the VirtualWAN.
+func (o VirtualWANOutput) VirtualHubs() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualWAN) SubResourceResponseArrayOutput { return v.VirtualHubs }).(SubResourceResponseArrayOutput)
+}
+
+func (o VirtualWANOutput) VpnSites() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualWAN) SubResourceResponseArrayOutput { return v.VpnSites }).(SubResourceResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualWANOutput{})
 }

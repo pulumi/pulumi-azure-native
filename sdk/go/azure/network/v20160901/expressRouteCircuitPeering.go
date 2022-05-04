@@ -344,6 +344,93 @@ func (o ExpressRouteCircuitPeeringOutput) ToExpressRouteCircuitPeeringOutputWith
 	return o
 }
 
+// The Azure ASN.
+func (o ExpressRouteCircuitPeeringOutput) AzureASN() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.IntPtrOutput { return v.AzureASN }).(pulumi.IntPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRouteCircuitPeeringOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The GatewayManager Etag.
+func (o ExpressRouteCircuitPeeringOutput) GatewayManagerEtag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.GatewayManagerEtag }).(pulumi.StringPtrOutput)
+}
+
+// Gets whether the provider or the customer last modified the peering.
+func (o ExpressRouteCircuitPeeringOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft peering configuration.
+func (o ExpressRouteCircuitPeeringOutput) MicrosoftPeeringConfig() ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) ExpressRouteCircuitPeeringConfigResponsePtrOutput {
+		return v.MicrosoftPeeringConfig
+	}).(ExpressRouteCircuitPeeringConfigResponsePtrOutput)
+}
+
+// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ExpressRouteCircuitPeeringOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The peer ASN.
+func (o ExpressRouteCircuitPeeringOutput) PeerASN() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.IntPtrOutput { return v.PeerASN }).(pulumi.IntPtrOutput)
+}
+
+// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+func (o ExpressRouteCircuitPeeringOutput) PeeringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.PeeringType }).(pulumi.StringPtrOutput)
+}
+
+// The primary port.
+func (o ExpressRouteCircuitPeeringOutput) PrimaryAzurePort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.PrimaryAzurePort }).(pulumi.StringPtrOutput)
+}
+
+// The primary address prefix.
+func (o ExpressRouteCircuitPeeringOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.PrimaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+func (o ExpressRouteCircuitPeeringOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The secondary port.
+func (o ExpressRouteCircuitPeeringOutput) SecondaryAzurePort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.SecondaryAzurePort }).(pulumi.StringPtrOutput)
+}
+
+// The secondary address prefix.
+func (o ExpressRouteCircuitPeeringOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.SecondaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The shared key.
+func (o ExpressRouteCircuitPeeringOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
+// The state of peering. Possible values are: 'Disabled' and 'Enabled'
+func (o ExpressRouteCircuitPeeringOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Gets peering stats.
+func (o ExpressRouteCircuitPeeringOutput) Stats() ExpressRouteCircuitStatsResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) ExpressRouteCircuitStatsResponsePtrOutput { return v.Stats }).(ExpressRouteCircuitStatsResponsePtrOutput)
+}
+
+// The VLAN ID.
+func (o ExpressRouteCircuitPeeringOutput) VlanId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.IntPtrOutput { return v.VlanId }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitPeeringOutput{})
 }

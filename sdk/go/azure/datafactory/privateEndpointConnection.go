@@ -136,6 +136,26 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
+// Etag identifies change in the resource.
+func (o PrivateEndpointConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The resource name.
+func (o PrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Core resource properties
+func (o PrivateEndpointConnectionOutput) Properties() RemotePrivateEndpointConnectionResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) RemotePrivateEndpointConnectionResponseOutput { return v.Properties }).(RemotePrivateEndpointConnectionResponseOutput)
+}
+
+// The resource type.
+func (o PrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 }

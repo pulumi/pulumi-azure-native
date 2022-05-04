@@ -171,6 +171,56 @@ func (o PolicyExemptionOutput) ToPolicyExemptionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The description of the policy exemption.
+func (o PolicyExemptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy exemption.
+func (o PolicyExemptionOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy exemption category. Possible values are Waiver and Mitigated.
+func (o PolicyExemptionOutput) ExemptionCategory() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringOutput { return v.ExemptionCategory }).(pulumi.StringOutput)
+}
+
+// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+func (o PolicyExemptionOutput) ExpiresOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringPtrOutput { return v.ExpiresOn }).(pulumi.StringPtrOutput)
+}
+
+// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyExemptionOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy exemption.
+func (o PolicyExemptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the policy assignment that is being exempted.
+func (o PolicyExemptionOutput) PolicyAssignmentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
+}
+
+// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+func (o PolicyExemptionOutput) PolicyDefinitionReferenceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringArrayOutput { return v.PolicyDefinitionReferenceIds }).(pulumi.StringArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PolicyExemptionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PolicyExemption) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource (Microsoft.Authorization/policyExemptions).
+func (o PolicyExemptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyExemption) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyExemptionOutput{})
 }

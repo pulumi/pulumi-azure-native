@@ -231,6 +231,52 @@ func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutputWithContext(
 	return o
 }
 
+// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+func (o ServerFarmRouteForVnetOutput) EndAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.EndAddress }).(pulumi.StringPtrOutput)
+}
+
+// Kind of resource
+func (o ServerFarmRouteForVnetOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ServerFarmRouteForVnetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name
+func (o ServerFarmRouteForVnetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of route this is:
+//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+//             INHERITED - Routes inherited from the real Virtual Network routes
+//             STATIC - Static route set on the web app only
+//
+//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+//             with new INHERITED routes.
+func (o ServerFarmRouteForVnetOutput) RouteType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.RouteType }).(pulumi.StringPtrOutput)
+}
+
+// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+func (o ServerFarmRouteForVnetOutput) StartAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.StartAddress }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o ServerFarmRouteForVnetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ServerFarmRouteForVnetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarmRouteForVnet) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerFarmRouteForVnetOutput{})
 }

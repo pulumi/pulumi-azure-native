@@ -142,6 +142,41 @@ func (o CommitmentPlanOutput) ToCommitmentPlanOutputWithContext(ctx context.Cont
 	return o
 }
 
+// An entity tag used to enforce optimistic concurrency.
+func (o CommitmentPlanOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o CommitmentPlanOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o CommitmentPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The commitment plan properties.
+func (o CommitmentPlanOutput) Properties() CommitmentPlanPropertiesResponseOutput {
+	return o.ApplyT(func(v *CommitmentPlan) CommitmentPlanPropertiesResponseOutput { return v.Properties }).(CommitmentPlanPropertiesResponseOutput)
+}
+
+// The commitment plan SKU.
+func (o CommitmentPlanOutput) Sku() ResourceSkuResponsePtrOutput {
+	return o.ApplyT(func(v *CommitmentPlan) ResourceSkuResponsePtrOutput { return v.Sku }).(ResourceSkuResponsePtrOutput)
+}
+
+// User-defined tags for the resource.
+func (o CommitmentPlanOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o CommitmentPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommitmentPlanOutput{})
 }

@@ -248,6 +248,133 @@ func (o ServerOutput) ToServerOutputWithContext(ctx context.Context) ServerOutpu
 	return o
 }
 
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+func (o ServerOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AdministratorLogin }).(pulumi.StringPtrOutput)
+}
+
+// availability Zone information of the server.
+func (o ServerOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// Status showing whether the data encryption is enabled with customer-managed keys.
+func (o ServerOutput) ByokEnforcement() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ByokEnforcement }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) DelegatedSubnetArguments() ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
+		return v.DelegatedSubnetArguments
+	}).(ServerPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
+}
+
+// The display name of a server.
+func (o ServerOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified domain name of a server.
+func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
+}
+
+// stand by count value can be either enabled or disabled
+func (o ServerOutput) HaEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.HaEnabled }).(pulumi.StringPtrOutput)
+}
+
+// A state of a HA server that is visible to user.
+func (o ServerOutput) HaState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.HaState }).(pulumi.StringOutput)
+}
+
+// The Azure Active Directory identity of the server.
+func (o ServerOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Server) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ServerOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maintenance window of a server.
+func (o ServerOutput) MaintenanceWindow() MaintenanceWindowResponsePtrOutput {
+	return o.ApplyT(func(v *Server) MaintenanceWindowResponsePtrOutput { return v.MaintenanceWindow }).(MaintenanceWindowResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ServerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Restore point creation time (ISO8601 format), specifying the time to restore from.
+func (o ServerOutput) PointInTimeUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.PointInTimeUTC }).(pulumi.StringPtrOutput)
+}
+
+func (o ServerOutput) PrivateDnsZoneArguments() ServerPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
+		return v.PrivateDnsZoneArguments
+	}).(ServerPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
+}
+
+// public network access is enabled or not
+func (o ServerOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
+}
+
+// The SKU (pricing tier) of the server.
+func (o ServerOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Server) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The resource group name of source PostgreSQL server name to restore from.
+func (o ServerOutput) SourceResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SourceResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The source PostgreSQL server name to restore from.
+func (o ServerOutput) SourceServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SourceServerName }).(pulumi.StringPtrOutput)
+}
+
+// The subscription id of source PostgreSQL server name to restore from.
+func (o ServerOutput) SourceSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.SourceSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// availability Zone information of the server.
+func (o ServerOutput) StandbyAvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.StandbyAvailabilityZone }).(pulumi.StringOutput)
+}
+
+// A state of a server that is visible to user.
+func (o ServerOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Storage profile of a server.
+func (o ServerOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *Server) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ServerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ServerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// PostgreSQL Server version.
+func (o ServerOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerOutput{})
 }

@@ -182,6 +182,56 @@ func (o DatabaseAdvisorOutput) ToDatabaseAdvisorOutputWithContext(ctx context.Co
 	return o
 }
 
+// Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
+func (o DatabaseAdvisorOutput) AdvisorStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.AdvisorStatus }).(pulumi.StringOutput)
+}
+
+// Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
+func (o DatabaseAdvisorOutput) AutoExecuteStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.AutoExecuteStatus }).(pulumi.StringOutput)
+}
+
+// Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
+func (o DatabaseAdvisorOutput) AutoExecuteStatusInheritedFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.AutoExecuteStatusInheritedFrom }).(pulumi.StringOutput)
+}
+
+// Resource kind.
+func (o DatabaseAdvisorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Gets the time when the current resource was analyzed for recommendations by this advisor.
+func (o DatabaseAdvisorOutput) LastChecked() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.LastChecked }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o DatabaseAdvisorOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o DatabaseAdvisorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available),LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
+func (o DatabaseAdvisorOutput) RecommendationsStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.RecommendationsStatus }).(pulumi.StringOutput)
+}
+
+// Gets the recommended actions for this advisor.
+func (o DatabaseAdvisorOutput) RecommendedActions() RecommendedActionResponseArrayOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) RecommendedActionResponseArrayOutput { return v.RecommendedActions }).(RecommendedActionResponseArrayOutput)
+}
+
+// Resource type.
+func (o DatabaseAdvisorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DatabaseAdvisor) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseAdvisorOutput{})
 }

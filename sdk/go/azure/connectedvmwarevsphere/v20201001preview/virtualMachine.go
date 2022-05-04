@@ -247,6 +247,157 @@ func (o VirtualMachineOutput) ToVirtualMachineOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Gets the name of the corresponding resource in Kubernetes.
+func (o VirtualMachineOutput) CustomResourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.CustomResourceName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the extended location.
+func (o VirtualMachineOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Firmware type
+func (o VirtualMachineOutput) FirmwareType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.FirmwareType }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the folder path of the vm.
+func (o VirtualMachineOutput) FolderPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.FolderPath }).(pulumi.StringOutput)
+}
+
+// Guest agent status properties.
+func (o VirtualMachineOutput) GuestAgentProfile() GuestAgentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) GuestAgentProfileResponsePtrOutput { return v.GuestAgentProfile }).(GuestAgentProfileResponsePtrOutput)
+}
+
+// Hardware properties.
+func (o VirtualMachineOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) HardwareProfileResponsePtrOutput { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
+}
+
+// The identity of the resource.
+func (o VirtualMachineOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// Gets or sets the instance uuid of the vm.
+func (o VirtualMachineOutput) InstanceUuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.InstanceUuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the inventory Item ID for the virtual machine.
+func (o VirtualMachineOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+func (o VirtualMachineOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the location.
+func (o VirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter Managed Object name for the virtual machine.
+func (o VirtualMachineOutput) MoName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.MoName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+func (o VirtualMachineOutput) MoRefId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.MoRefId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the name.
+func (o VirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network properties.
+func (o VirtualMachineOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) NetworkProfileResponsePtrOutput { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
+}
+
+// OS properties.
+func (o VirtualMachineOutput) OsProfile() OsProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) OsProfileResponsePtrOutput { return v.OsProfile }).(OsProfileResponsePtrOutput)
+}
+
+// Placement properties.
+func (o VirtualMachineOutput) PlacementProfile() PlacementProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) PlacementProfileResponsePtrOutput { return v.PlacementProfile }).(PlacementProfileResponsePtrOutput)
+}
+
+// Gets the power state of the virtual machine.
+func (o VirtualMachineOutput) PowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.PowerState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
+// deploy.
+func (o VirtualMachineOutput) ResourcePoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.ResourcePoolId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the SMBIOS UUID of the vm.
+func (o VirtualMachineOutput) SmbiosUuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.SmbiosUuid }).(pulumi.StringPtrOutput)
+}
+
+// The resource status information.
+func (o VirtualMachineOutput) Statuses() ResourceStatusResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachine) ResourceStatusResponseArrayOutput { return v.Statuses }).(ResourceStatusResponseArrayOutput)
+}
+
+// Storage properties.
+func (o VirtualMachineOutput) StorageProfile() StorageProfileResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) StorageProfileResponsePtrOutput { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
+}
+
+// The system data.
+func (o VirtualMachineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualMachine) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Gets or sets the Resource tags.
+func (o VirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+func (o VirtualMachineOutput) TemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.TemplateId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the type of the resource.
+func (o VirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets a unique identifier for this resource.
+func (o VirtualMachineOutput) Uuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.Uuid }).(pulumi.StringOutput)
+}
+
+// Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+func (o VirtualMachineOutput) VCenterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringPtrOutput { return v.VCenterId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a unique identifier for the vm resource.
+func (o VirtualMachineOutput) VmId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachine) pulumi.StringOutput { return v.VmId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineOutput{})
 }

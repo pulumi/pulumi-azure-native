@@ -186,6 +186,76 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
+// The immutable id associated with this team account.
+func (o AccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The creation date of the machine learning team account in ISO8601 format.
+func (o AccountOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The description of this workspace.
+func (o AccountOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The uri for this machine learning team account.
+func (o AccountOutput) DiscoveryUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DiscoveryUri }).(pulumi.StringOutput)
+}
+
+// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
+func (o AccountOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified arm id of the user key vault.
+func (o AccountOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The location of the resource. This cannot be changed after the resource is created.
+func (o AccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o AccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current deployment state of team account resource. The provisioningState is to indicate states for resource provisioning.
+func (o AccountOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The no of users/seats who can access this team account. This property defines the charge on the team account.
+func (o AccountOutput) Seats() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Seats }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the storage account for the machine learning team account.
+func (o AccountOutput) StorageAccount() StorageAccountPropertiesResponseOutput {
+	return o.ApplyT(func(v *Account) StorageAccountPropertiesResponseOutput { return v.StorageAccount }).(StorageAccountPropertiesResponseOutput)
+}
+
+// The tags of the resource.
+func (o AccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o AccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The fully qualified arm id of the vso account to be used for this team account.
+func (o AccountOutput) VsoAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.VsoAccountId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountOutput{})
 }

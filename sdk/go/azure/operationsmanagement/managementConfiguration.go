@@ -133,6 +133,26 @@ func (o ManagementConfigurationOutput) ToManagementConfigurationOutputWithContex
 	return o
 }
 
+// Resource location
+func (o ManagementConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ManagementConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
+func (o ManagementConfigurationOutput) Properties() ManagementConfigurationPropertiesResponseOutput {
+	return o.ApplyT(func(v *ManagementConfiguration) ManagementConfigurationPropertiesResponseOutput { return v.Properties }).(ManagementConfigurationPropertiesResponseOutput)
+}
+
+// Resource type.
+func (o ManagementConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementConfigurationOutput{})
 }

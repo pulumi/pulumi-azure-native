@@ -214,6 +214,33 @@ func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurati
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkInterfaceTapConfigurationOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceTapConfiguration) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o NetworkInterfaceTapConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceTapConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the network interface tap configuration resource.
+func (o NetworkInterfaceTapConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceTapConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Sub Resource type.
+func (o NetworkInterfaceTapConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceTapConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference to the Virtual Network Tap resource.
+func (o NetworkInterfaceTapConfigurationOutput) VirtualNetworkTap() VirtualNetworkTapResponsePtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceTapConfiguration) VirtualNetworkTapResponsePtrOutput {
+		return v.VirtualNetworkTap
+	}).(VirtualNetworkTapResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkInterfaceTapConfigurationOutput{})
 }

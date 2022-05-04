@@ -221,6 +221,89 @@ func (o ActivityCustomEntityQueryOutput) ToActivityCustomEntityQueryOutputWithCo
 	return o
 }
 
+// The entity query content to display in timeline
+func (o ActivityCustomEntityQueryOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The time the activity was created
+func (o ActivityCustomEntityQueryOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringOutput { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The entity query description
+func (o ActivityCustomEntityQueryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether this activity is enabled or disabled.
+func (o ActivityCustomEntityQueryOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The query applied only to entities matching to all filters
+func (o ActivityCustomEntityQueryOutput) EntitiesFilter() pulumi.StringArrayMapOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringArrayMapOutput { return v.EntitiesFilter }).(pulumi.StringArrayMapOutput)
+}
+
+// Etag of the azure resource
+func (o ActivityCustomEntityQueryOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The type of the query's source entity
+func (o ActivityCustomEntityQueryOutput) InputEntityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.InputEntityType }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the entity query
+// Expected value is 'Activity'.
+func (o ActivityCustomEntityQueryOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time the activity was updated
+func (o ActivityCustomEntityQueryOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o ActivityCustomEntityQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Activity query definitions
+func (o ActivityCustomEntityQueryOutput) QueryDefinitions() ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput {
+		return v.QueryDefinitions
+	}).(ActivityEntityQueriesPropertiesResponseQueryDefinitionsPtrOutput)
+}
+
+// List of the fields of the source entity that are required to run the query
+func (o ActivityCustomEntityQueryOutput) RequiredInputFieldsSets() pulumi.StringArrayArrayOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringArrayArrayOutput { return v.RequiredInputFieldsSets }).(pulumi.StringArrayArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ActivityCustomEntityQueryOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The template id this activity was created from
+func (o ActivityCustomEntityQueryOutput) TemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.TemplateName }).(pulumi.StringPtrOutput)
+}
+
+// The entity query title
+func (o ActivityCustomEntityQueryOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource type
+func (o ActivityCustomEntityQueryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ActivityCustomEntityQuery) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActivityCustomEntityQueryOutput{})
 }

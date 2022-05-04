@@ -141,6 +141,38 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.
 	return o
 }
 
+// The geo-location where the resource lives
+func (o PrivateLinkScopeOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateLinkScopeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties that define a Azure Arc PrivateLinkScope resource.
+func (o PrivateLinkScopeOutput) Properties() KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput {
+		return v.Properties
+	}).(KubernetesConfigurationPrivateLinkScopePropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o PrivateLinkScopeOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o PrivateLinkScopeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateLinkScopeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkScope) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkScopeOutput{})
 }

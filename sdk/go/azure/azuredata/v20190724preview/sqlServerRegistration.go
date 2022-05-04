@@ -155,6 +155,46 @@ func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutputWithContext(ct
 	return o
 }
 
+// The geo-location where the resource lives
+func (o SqlServerRegistrationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SqlServerRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optional Properties as JSON string
+func (o SqlServerRegistrationOutput) PropertyBag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringPtrOutput { return v.PropertyBag }).(pulumi.StringPtrOutput)
+}
+
+// Resource Group Name
+func (o SqlServerRegistrationOutput) ResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id
+func (o SqlServerRegistrationOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringPtrOutput { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// Read only system data
+func (o SqlServerRegistrationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlServerRegistrationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+func (o SqlServerRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlServerRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlServerRegistrationOutput{})
 }

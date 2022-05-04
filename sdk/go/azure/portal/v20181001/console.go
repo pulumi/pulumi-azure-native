@@ -118,6 +118,11 @@ func (o ConsoleOutput) ToConsoleOutputWithContext(ctx context.Context) ConsoleOu
 	return o
 }
 
+// Cloud shell console properties.
+func (o ConsoleOutput) Properties() ConsolePropertiesResponseOutput {
+	return o.ApplyT(func(v *Console) ConsolePropertiesResponseOutput { return v.Properties }).(ConsolePropertiesResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConsoleOutput{})
 }

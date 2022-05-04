@@ -165,6 +165,46 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(
 	return o
 }
 
+// The groupId in which the managed private endpoint is created.
+func (o ManagedPrivateEndpointOutput) GroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ManagedPrivateEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ARM resource ID of the resource for which the managed private endpoint is created.
+func (o ManagedPrivateEndpointOutput) PrivateLinkResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.PrivateLinkResourceId }).(pulumi.StringOutput)
+}
+
+// The region of the resource to which the managed private endpoint is created.
+func (o ManagedPrivateEndpointOutput) PrivateLinkResourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringPtrOutput { return v.PrivateLinkResourceRegion }).(pulumi.StringPtrOutput)
+}
+
+// The provisioned state of the resource.
+func (o ManagedPrivateEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The user request message.
+func (o ManagedPrivateEndpointOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringPtrOutput { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ManagedPrivateEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ManagedPrivateEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedPrivateEndpointOutput{})
 }

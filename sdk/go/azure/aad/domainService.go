@@ -221,6 +221,111 @@ func (o DomainServiceOutput) ToDomainServiceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Deployment Id
+func (o DomainServiceOutput) DeploymentId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.DeploymentId }).(pulumi.StringOutput)
+}
+
+// Domain Configuration Type
+func (o DomainServiceOutput) DomainConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.DomainConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure domain that the user would like to deploy Domain Services to.
+func (o DomainServiceOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
+}
+
+// DomainSecurity Settings
+func (o DomainServiceOutput) DomainSecuritySettings() DomainSecuritySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) DomainSecuritySettingsResponsePtrOutput { return v.DomainSecuritySettings }).(DomainSecuritySettingsResponsePtrOutput)
+}
+
+// Resource etag
+func (o DomainServiceOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Enabled or Disabled flag to turn on Group-based filtered sync
+func (o DomainServiceOutput) FilteredSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.FilteredSync }).(pulumi.StringPtrOutput)
+}
+
+// Secure LDAP Settings
+func (o DomainServiceOutput) LdapsSettings() LdapsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) LdapsSettingsResponsePtrOutput { return v.LdapsSettings }).(LdapsSettingsResponsePtrOutput)
+}
+
+// Resource location
+func (o DomainServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Migration Properties
+func (o DomainServiceOutput) MigrationProperties() MigrationPropertiesResponseOutput {
+	return o.ApplyT(func(v *DomainService) MigrationPropertiesResponseOutput { return v.MigrationProperties }).(MigrationPropertiesResponseOutput)
+}
+
+// Resource name
+func (o DomainServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification Settings
+func (o DomainServiceOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) NotificationSettingsResponsePtrOutput { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// the current deployment or provisioning state, which only appears in the response.
+func (o DomainServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of ReplicaSets
+func (o DomainServiceOutput) ReplicaSets() ReplicaSetResponseArrayOutput {
+	return o.ApplyT(func(v *DomainService) ReplicaSetResponseArrayOutput { return v.ReplicaSets }).(ReplicaSetResponseArrayOutput)
+}
+
+// Resource Forest Settings
+func (o DomainServiceOutput) ResourceForestSettings() ResourceForestSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DomainService) ResourceForestSettingsResponsePtrOutput { return v.ResourceForestSettings }).(ResourceForestSettingsResponsePtrOutput)
+}
+
+// Sku Type
+func (o DomainServiceOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// SyncOwner ReplicaSet Id
+func (o DomainServiceOutput) SyncOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.SyncOwner }).(pulumi.StringOutput)
+}
+
+// The system meta data relating to this resource.
+func (o DomainServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DomainService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o DomainServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure Active Directory Tenant Id
+func (o DomainServiceOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o DomainServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Data Model Version
+func (o DomainServiceOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v *DomainService) pulumi.IntOutput { return v.Version }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainServiceOutput{})
 }

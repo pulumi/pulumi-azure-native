@@ -218,6 +218,73 @@ func (o FirewallPolicyOutput) ToFirewallPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The parent firewall policy from which rules are inherited.
+func (o FirewallPolicyOutput) BasePolicy() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) SubResourceResponsePtrOutput { return v.BasePolicy }).(SubResourceResponsePtrOutput)
+}
+
+// List of references to Child Firewall Policies.
+func (o FirewallPolicyOutput) ChildPolicies() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicy) SubResourceResponseArrayOutput { return v.ChildPolicies }).(SubResourceResponseArrayOutput)
+}
+
+// DNS Proxy Settings definition.
+func (o FirewallPolicyOutput) DnsSettings() DnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) DnsSettingsResponsePtrOutput { return v.DnsSettings }).(DnsSettingsResponsePtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o FirewallPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// List of references to Azure Firewalls that this Firewall Policy is associated with.
+func (o FirewallPolicyOutput) Firewalls() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicy) SubResourceResponseArrayOutput { return v.Firewalls }).(SubResourceResponseArrayOutput)
+}
+
+// Resource location.
+func (o FirewallPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o FirewallPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the firewall policy resource.
+func (o FirewallPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// List of references to FirewallPolicyRuleCollectionGroups.
+func (o FirewallPolicyOutput) RuleCollectionGroups() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicy) SubResourceResponseArrayOutput { return v.RuleCollectionGroups }).(SubResourceResponseArrayOutput)
+}
+
+// Resource tags.
+func (o FirewallPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The operation mode for Threat Intelligence.
+func (o FirewallPolicyOutput) ThreatIntelMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringPtrOutput { return v.ThreatIntelMode }).(pulumi.StringPtrOutput)
+}
+
+// ThreatIntel Whitelist for Firewall Policy.
+func (o FirewallPolicyOutput) ThreatIntelWhitelist() FirewallPolicyThreatIntelWhitelistResponsePtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) FirewallPolicyThreatIntelWhitelistResponsePtrOutput {
+		return v.ThreatIntelWhitelist
+	}).(FirewallPolicyThreatIntelWhitelistResponsePtrOutput)
+}
+
+// Resource type.
+func (o FirewallPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallPolicyOutput{})
 }

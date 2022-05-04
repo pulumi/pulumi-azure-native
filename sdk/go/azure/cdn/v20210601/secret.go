@@ -143,6 +143,40 @@ func (o SecretOutput) ToSecretOutputWithContext(ctx context.Context) SecretOutpu
 	return o
 }
 
+func (o SecretOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SecretOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// object which contains secret parameters
+func (o SecretOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Secret) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The name of the profile which holds the secret.
+func (o SecretOutput) ProfileName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.ProfileName }).(pulumi.StringOutput)
+}
+
+// Provisioning status
+func (o SecretOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o SecretOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Secret) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o SecretOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Secret) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SecretOutput{})
 }

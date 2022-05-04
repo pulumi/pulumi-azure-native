@@ -180,6 +180,31 @@ func (o WebAppMetadataSlotOutput) ToWebAppMetadataSlotOutputWithContext(ctx cont
 	return o
 }
 
+// Kind of resource.
+func (o WebAppMetadataSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppMetadataSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppMetadataSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppMetadataSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Settings.
+func (o WebAppMetadataSlotOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebAppMetadataSlot) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppMetadataSlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppMetadataSlot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppMetadataSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppMetadataSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppMetadataSlotOutput{})
 }

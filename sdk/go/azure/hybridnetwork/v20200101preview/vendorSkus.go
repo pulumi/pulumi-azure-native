@@ -164,6 +164,51 @@ func (o VendorSkusOutput) ToVendorSkusOutputWithContext(ctx context.Context) Ven
 	return o
 }
 
+// The sku deployment mode.
+func (o VendorSkusOutput) DeploymentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.StringPtrOutput { return v.DeploymentMode }).(pulumi.StringPtrOutput)
+}
+
+// The parameters for the managed application to be supplied by the vendor.
+func (o VendorSkusOutput) ManagedApplicationParameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.AnyOutput { return v.ManagedApplicationParameters }).(pulumi.AnyOutput)
+}
+
+// The template for the managed application deployment.
+func (o VendorSkusOutput) ManagedApplicationTemplate() pulumi.AnyOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.AnyOutput { return v.ManagedApplicationTemplate }).(pulumi.AnyOutput)
+}
+
+// The name of the resource
+func (o VendorSkusOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The template definition of the network function.
+func (o VendorSkusOutput) NetworkFunctionTemplate() NetworkFunctionTemplateResponsePtrOutput {
+	return o.ApplyT(func(v *VendorSkus) NetworkFunctionTemplateResponsePtrOutput { return v.NetworkFunctionTemplate }).(NetworkFunctionTemplateResponsePtrOutput)
+}
+
+// Indicates if the vendor sku is in preview mode.
+func (o VendorSkusOutput) Preview() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.BoolPtrOutput { return v.Preview }).(pulumi.BoolPtrOutput)
+}
+
+// The provisioning state of the vendor sku sub resource.
+func (o VendorSkusOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The sku type.
+func (o VendorSkusOutput) SkuType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.StringPtrOutput { return v.SkuType }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VendorSkusOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VendorSkus) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VendorSkusOutput{})
 }

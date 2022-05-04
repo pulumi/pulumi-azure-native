@@ -147,6 +147,46 @@ func (o DedicatedCloudServiceOutput) ToDedicatedCloudServiceOutputWithContext(ct
 	return o
 }
 
+// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+func (o DedicatedCloudServiceOutput) GatewaySubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.GatewaySubnet }).(pulumi.StringOutput)
+}
+
+// indicates whether account onboarded or not in a given region
+func (o DedicatedCloudServiceOutput) IsAccountOnboarded() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.IsAccountOnboarded }).(pulumi.StringOutput)
+}
+
+// Azure region
+func (o DedicatedCloudServiceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// {dedicatedCloudServiceName}
+func (o DedicatedCloudServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// total nodes purchased
+func (o DedicatedCloudServiceOutput) Nodes() pulumi.IntOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.IntOutput { return v.Nodes }).(pulumi.IntOutput)
+}
+
+// link to a service management web portal
+func (o DedicatedCloudServiceOutput) ServiceURL() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.ServiceURL }).(pulumi.StringOutput)
+}
+
+// The list of tags
+func (o DedicatedCloudServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// {resourceProviderNamespace}/{resourceType}
+func (o DedicatedCloudServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DedicatedCloudService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DedicatedCloudServiceOutput{})
 }

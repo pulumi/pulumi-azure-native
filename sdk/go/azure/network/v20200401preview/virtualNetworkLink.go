@@ -139,6 +139,41 @@ func (o VirtualNetworkLinkOutput) ToVirtualNetworkLinkOutputWithContext(ctx cont
 	return o
 }
 
+// ETag of the virtual network link.
+func (o VirtualNetworkLinkOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Metadata attached to the virtual network link.
+func (o VirtualNetworkLinkOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o VirtualNetworkLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
+func (o VirtualNetworkLinkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o VirtualNetworkLinkOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VirtualNetworkLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The reference to the virtual network. This cannot be changed after creation.
+func (o VirtualNetworkLinkOutput) VirtualNetwork() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkLink) SubResourceResponsePtrOutput { return v.VirtualNetwork }).(SubResourceResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkLinkOutput{})
 }

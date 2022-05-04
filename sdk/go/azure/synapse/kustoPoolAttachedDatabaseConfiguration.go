@@ -180,6 +180,62 @@ func (o KustoPoolAttachedDatabaseConfigurationOutput) ToKustoPoolAttachedDatabas
 	return o
 }
 
+// The list of databases from the clusterResourceId which are currently attached to the kusto pool.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) AttachedDatabaseNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringArrayOutput {
+		return v.AttachedDatabaseNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// The default principals modification kind
+func (o KustoPoolAttachedDatabaseConfigurationOutput) DefaultPrincipalsModificationKind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput {
+		return v.DefaultPrincipalsModificationKind
+	}).(pulumi.StringOutput)
+}
+
+// The resource id of the kusto pool where the databases you would like to attach reside.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) KustoPoolResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput { return v.KustoPoolResourceId }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o KustoPoolAttachedDatabaseConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o KustoPoolAttachedDatabaseConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Table level sharing specifications
+func (o KustoPoolAttachedDatabaseConfigurationOutput) TableLevelSharingProperties() TableLevelSharingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) TableLevelSharingPropertiesResponsePtrOutput {
+		return v.TableLevelSharingProperties
+	}).(TableLevelSharingPropertiesResponsePtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o KustoPoolAttachedDatabaseConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoPoolAttachedDatabaseConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoPoolAttachedDatabaseConfigurationOutput{})
 }

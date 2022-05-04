@@ -159,6 +159,31 @@ func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutpu
 	return o
 }
 
+// Location of the target resource.
+func (o TargetOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o TargetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the target resource.
+func (o TargetOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Target) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// The system metadata of the target resource.
+func (o TargetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Target) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Target) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TargetOutput{})
 }

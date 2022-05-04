@@ -174,6 +174,48 @@ func (o DscNodeConfigurationOutput) ToDscNodeConfigurationOutputWithContext(ctx 
 	return o
 }
 
+// Gets or sets the configuration of the node.
+func (o DscNodeConfigurationOutput) Configuration() DscConfigurationAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) DscConfigurationAssociationPropertyResponsePtrOutput {
+		return v.Configuration
+	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
+}
+
+// Gets or sets creation time.
+func (o DscNodeConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// If a new build version of NodeConfiguration is required.
+func (o DscNodeConfigurationOutput) IncrementNodeConfigurationBuild() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.BoolPtrOutput { return v.IncrementNodeConfigurationBuild }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o DscNodeConfigurationOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o DscNodeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Number of nodes with this node configuration assigned
+func (o DscNodeConfigurationOutput) NodeCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.Float64PtrOutput { return v.NodeCount }).(pulumi.Float64PtrOutput)
+}
+
+// Source of node configuration.
+func (o DscNodeConfigurationOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o DscNodeConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DscNodeConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DscNodeConfigurationOutput{})
 }

@@ -193,6 +193,76 @@ func (o RelationshipOutput) ToRelationshipOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The Relationship Cardinality.
+func (o RelationshipOutput) Cardinality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringPtrOutput { return v.Cardinality }).(pulumi.StringPtrOutput)
+}
+
+// Localized descriptions for the Relationship.
+func (o RelationshipOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display name for the Relationship.
+func (o RelationshipOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The expiry date time in UTC.
+func (o RelationshipOutput) ExpiryDateTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringPtrOutput { return v.ExpiryDateTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// The properties of the Relationship.
+func (o RelationshipOutput) Fields() PropertyDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *Relationship) PropertyDefinitionResponseArrayOutput { return v.Fields }).(PropertyDefinitionResponseArrayOutput)
+}
+
+// Optional property to be used to map fields in profile to their strong ids in related profile.
+func (o RelationshipOutput) LookupMappings() RelationshipTypeMappingResponseArrayOutput {
+	return o.ApplyT(func(v *Relationship) RelationshipTypeMappingResponseArrayOutput { return v.LookupMappings }).(RelationshipTypeMappingResponseArrayOutput)
+}
+
+// Resource name.
+func (o RelationshipOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Profile type.
+func (o RelationshipOutput) ProfileType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.ProfileType }).(pulumi.StringOutput)
+}
+
+// Provisioning state.
+func (o RelationshipOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Related profile being referenced.
+func (o RelationshipOutput) RelatedProfileType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.RelatedProfileType }).(pulumi.StringOutput)
+}
+
+// The relationship guid id.
+func (o RelationshipOutput) RelationshipGuidId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.RelationshipGuidId }).(pulumi.StringOutput)
+}
+
+// The Relationship name.
+func (o RelationshipOutput) RelationshipName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.RelationshipName }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o RelationshipOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o RelationshipOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Relationship) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RelationshipOutput{})
 }

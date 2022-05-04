@@ -145,6 +145,36 @@ func (o CustomApiOutput) ToCustomApiOutputWithContext(ctx context.Context) Custo
 	return o
 }
 
+// Resource ETag
+func (o CustomApiOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomApi) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o CustomApiOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomApi) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o CustomApiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomApi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Custom API properties
+func (o CustomApiOutput) Properties() CustomApiPropertiesDefinitionResponseOutput {
+	return o.ApplyT(func(v *CustomApi) CustomApiPropertiesDefinitionResponseOutput { return v.Properties }).(CustomApiPropertiesDefinitionResponseOutput)
+}
+
+// Resource tags
+func (o CustomApiOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomApi) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CustomApiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomApi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomApiOutput{})
 }

@@ -209,6 +209,66 @@ func (o PolicyAssignmentOutput) ToPolicyAssignmentOutputWithContext(ctx context.
 	return o
 }
 
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The managed identity associated with the policy assignment.
+func (o PolicyAssignmentOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The location of the policy assignment. Only required when utilizing managed identity.
+func (o PolicyAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata.
+func (o PolicyAssignmentOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy assignment.
+func (o PolicyAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringArrayOutput { return v.NotScopes }).(pulumi.StringArrayOutput)
+}
+
+// Required if a parameter is used in policy rule.
+func (o PolicyAssignmentOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.AnyOutput { return v.Parameters }).(pulumi.AnyOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The policy sku. This property is optional, obsolete, and will be ignored.
+func (o PolicyAssignmentOutput) Sku() PolicySkuResponsePtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) PolicySkuResponsePtrOutput { return v.Sku }).(PolicySkuResponsePtrOutput)
+}
+
+// The type of the policy assignment.
+func (o PolicyAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyAssignmentOutput{})
 }

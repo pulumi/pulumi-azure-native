@@ -198,6 +198,101 @@ func (o ExportConfigurationOutput) ToExportConfigurationOutputWithContext(ctx co
 	return o
 }
 
+// The name of the Application Insights component.
+func (o ExportConfigurationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The name of the destination storage container.
+func (o ExportConfigurationOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The name of destination account.
+func (o ExportConfigurationOutput) DestinationAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.DestinationAccountId }).(pulumi.StringOutput)
+}
+
+// The destination account location ID.
+func (o ExportConfigurationOutput) DestinationStorageLocationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.DestinationStorageLocationId }).(pulumi.StringOutput)
+}
+
+// The destination storage account subscription ID.
+func (o ExportConfigurationOutput) DestinationStorageSubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.DestinationStorageSubscriptionId }).(pulumi.StringOutput)
+}
+
+// The destination type.
+func (o ExportConfigurationOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
+func (o ExportConfigurationOutput) ExportId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.ExportId }).(pulumi.StringOutput)
+}
+
+// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
+func (o ExportConfigurationOutput) ExportStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.ExportStatus }).(pulumi.StringOutput)
+}
+
+// The instrumentation key of the Application Insights component.
+func (o ExportConfigurationOutput) InstrumentationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.InstrumentationKey }).(pulumi.StringOutput)
+}
+
+// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
+func (o ExportConfigurationOutput) IsUserEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.IsUserEnabled }).(pulumi.StringOutput)
+}
+
+// The last time the Continuous Export configuration started failing.
+func (o ExportConfigurationOutput) LastGapTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.LastGapTime }).(pulumi.StringOutput)
+}
+
+// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
+func (o ExportConfigurationOutput) LastSuccessTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.LastSuccessTime }).(pulumi.StringOutput)
+}
+
+// Last time the Continuous Export configuration was updated.
+func (o ExportConfigurationOutput) LastUserUpdate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.LastUserUpdate }).(pulumi.StringOutput)
+}
+
+// Deprecated
+func (o ExportConfigurationOutput) NotificationQueueEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringPtrOutput { return v.NotificationQueueEnabled }).(pulumi.StringPtrOutput)
+}
+
+// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
+func (o ExportConfigurationOutput) PermanentErrorReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.PermanentErrorReason }).(pulumi.StringOutput)
+}
+
+// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
+func (o ExportConfigurationOutput) RecordTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringPtrOutput { return v.RecordTypes }).(pulumi.StringPtrOutput)
+}
+
+// The resource group of the Application Insights component.
+func (o ExportConfigurationOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// The name of the destination storage account.
+func (o ExportConfigurationOutput) StorageName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.StorageName }).(pulumi.StringOutput)
+}
+
+// The subscription of the Application Insights component.
+func (o ExportConfigurationOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExportConfiguration) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExportConfigurationOutput{})
 }

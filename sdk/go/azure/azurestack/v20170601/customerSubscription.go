@@ -138,6 +138,26 @@ func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutputWithContext(ctx 
 	return o
 }
 
+// The entity tag used for optimistic concurrency when modifying the resource.
+func (o CustomerSubscriptionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscription) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Name of the resource.
+func (o CustomerSubscriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Tenant Id.
+func (o CustomerSubscriptionOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerSubscription) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Type of Resource.
+func (o CustomerSubscriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomerSubscription) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomerSubscriptionOutput{})
 }

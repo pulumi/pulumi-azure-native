@@ -167,6 +167,51 @@ func (o VolumeGroupOutput) ToVolumeGroupOutputWithContext(ctx context.Context) V
 	return o
 }
 
+// Type of encryption
+func (o VolumeGroupOutput) Encryption() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Encryption }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives.
+func (o VolumeGroupOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Azure resource name.
+func (o VolumeGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of rules governing the accessibility from specific network locations.
+func (o VolumeGroupOutput) NetworkAcls() NetworkRuleSetResponsePtrOutput {
+	return o.ApplyT(func(v *VolumeGroup) NetworkRuleSetResponsePtrOutput { return v.NetworkAcls }).(NetworkRuleSetResponsePtrOutput)
+}
+
+// Type of storage target
+func (o VolumeGroupOutput) ProtocolType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
+}
+
+// State of the operation on the resource.
+func (o VolumeGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource metadata required by ARM RPC
+func (o VolumeGroupOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VolumeGroup) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource tags.
+func (o VolumeGroupOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Azure resource type.
+func (o VolumeGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeGroupOutput{})
 }

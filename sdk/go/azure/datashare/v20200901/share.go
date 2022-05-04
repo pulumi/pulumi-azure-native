@@ -167,6 +167,56 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
+// Time at which the share was created.
+func (o ShareOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Share description.
+func (o ShareOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the azure resource
+func (o ShareOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state
+func (o ShareOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Share kind.
+func (o ShareOutput) ShareKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.ShareKind }).(pulumi.StringPtrOutput)
+}
+
+// System Data of the Azure resource.
+func (o ShareOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Share) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Share terms.
+func (o ShareOutput) Terms() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Terms }).(pulumi.StringPtrOutput)
+}
+
+// Type of the azure resource
+func (o ShareOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Email of the user who created the resource
+func (o ShareOutput) UserEmail() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.UserEmail }).(pulumi.StringOutput)
+}
+
+// Name of the user who created the resource
+func (o ShareOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ShareOutput{})
 }

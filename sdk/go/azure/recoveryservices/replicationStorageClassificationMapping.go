@@ -189,6 +189,28 @@ func (o ReplicationStorageClassificationMappingOutput) ToReplicationStorageClass
 	return o
 }
 
+// Resource Location
+func (o ReplicationStorageClassificationMappingOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationStorageClassificationMapping) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o ReplicationStorageClassificationMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationStorageClassificationMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the storage mapping object.
+func (o ReplicationStorageClassificationMappingOutput) Properties() StorageClassificationMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *ReplicationStorageClassificationMapping) StorageClassificationMappingPropertiesResponseOutput {
+		return v.Properties
+	}).(StorageClassificationMappingPropertiesResponseOutput)
+}
+
+// Resource Type
+func (o ReplicationStorageClassificationMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationStorageClassificationMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationStorageClassificationMappingOutput{})
 }

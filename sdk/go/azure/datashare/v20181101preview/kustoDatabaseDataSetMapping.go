@@ -183,6 +183,47 @@ func (o KustoDatabaseDataSetMappingOutput) ToKustoDatabaseDataSetMappingOutputWi
 	return o
 }
 
+// The id of the source data set.
+func (o KustoDatabaseDataSetMappingOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Gets the status of the data set mapping.
+func (o KustoDatabaseDataSetMappingOutput) DataSetMappingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.DataSetMappingStatus }).(pulumi.StringOutput)
+}
+
+// Kind of data set mapping.
+// Expected value is 'KustoDatabase'.
+func (o KustoDatabaseDataSetMappingOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the sink kusto cluster.
+func (o KustoDatabaseDataSetMappingOutput) KustoClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.KustoClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the sink kusto cluster.
+func (o KustoDatabaseDataSetMappingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o KustoDatabaseDataSetMappingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the data set mapping.
+func (o KustoDatabaseDataSetMappingOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o KustoDatabaseDataSetMappingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoDatabaseDataSetMapping) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoDatabaseDataSetMappingOutput{})
 }

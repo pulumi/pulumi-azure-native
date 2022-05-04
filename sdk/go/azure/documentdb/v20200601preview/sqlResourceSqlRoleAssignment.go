@@ -177,6 +177,31 @@ func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutput
 	return o
 }
 
+// The name of the database account.
+func (o SqlResourceSqlRoleAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
+func (o SqlResourceSqlRoleAssignmentOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleAssignment) pulumi.StringPtrOutput { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier for the associated Role Definition.
+func (o SqlResourceSqlRoleAssignmentOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleAssignment) pulumi.StringPtrOutput { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The data plane resource path for which access is being granted through this Role Assignment.
+func (o SqlResourceSqlRoleAssignmentOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleAssignment) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The type of Azure resource.
+func (o SqlResourceSqlRoleAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlResourceSqlRoleAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlResourceSqlRoleAssignmentOutput{})
 }

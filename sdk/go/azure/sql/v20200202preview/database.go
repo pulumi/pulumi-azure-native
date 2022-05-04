@@ -343,6 +343,158 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
+// Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
+func (o DatabaseOutput) AutoPauseDelay() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.AutoPauseDelay }).(pulumi.IntPtrOutput)
+}
+
+// Collation of the metadata catalog.
+func (o DatabaseOutput) CatalogCollation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.CatalogCollation }).(pulumi.StringPtrOutput)
+}
+
+// The collation of the database.
+func (o DatabaseOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the database (ISO8601 format).
+func (o DatabaseOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The current service level objective name of the database.
+func (o DatabaseOutput) CurrentServiceObjectiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.CurrentServiceObjectiveName }).(pulumi.StringOutput)
+}
+
+// The name and tier of the SKU.
+func (o DatabaseOutput) CurrentSku() SkuResponseOutput {
+	return o.ApplyT(func(v *Database) SkuResponseOutput { return v.CurrentSku }).(SkuResponseOutput)
+}
+
+// The ID of the database.
+func (o DatabaseOutput) DatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
+}
+
+// The default secondary region for this database.
+func (o DatabaseOutput) DefaultSecondaryLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultSecondaryLocation }).(pulumi.StringOutput)
+}
+
+// This records the earliest start date and time that restore is available for this database (ISO8601 format).
+func (o DatabaseOutput) EarliestRestoreDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.EarliestRestoreDate }).(pulumi.StringOutput)
+}
+
+// The resource identifier of the elastic pool containing this database.
+func (o DatabaseOutput) ElasticPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ElasticPoolId }).(pulumi.StringPtrOutput)
+}
+
+// Failover Group resource identifier that this database belongs to.
+func (o DatabaseOutput) FailoverGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.FailoverGroupId }).(pulumi.StringOutput)
+}
+
+// Kind of database. This is metadata used for the Azure portal experience.
+func (o DatabaseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+func (o DatabaseOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o DatabaseOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource that manages the database.
+func (o DatabaseOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
+}
+
+// The max log size for this database.
+func (o DatabaseOutput) MaxLogSizeBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Database) pulumi.Float64Output { return v.MaxLogSizeBytes }).(pulumi.Float64Output)
+}
+
+// The max size of the database expressed in bytes.
+func (o DatabaseOutput) MaxSizeBytes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.Float64PtrOutput { return v.MaxSizeBytes }).(pulumi.Float64PtrOutput)
+}
+
+// Minimal capacity that database will always have allocated, if not paused
+func (o DatabaseOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.Float64PtrOutput { return v.MinCapacity }).(pulumi.Float64PtrOutput)
+}
+
+// Resource name.
+func (o DatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
+func (o DatabaseOutput) PausedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.PausedDate }).(pulumi.StringOutput)
+}
+
+// The number of readonly secondary replicas associated with the database.
+func (o DatabaseOutput) ReadReplicaCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.IntPtrOutput { return v.ReadReplicaCount }).(pulumi.IntPtrOutput)
+}
+
+// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+func (o DatabaseOutput) ReadScale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.ReadScale }).(pulumi.StringPtrOutput)
+}
+
+// The requested service level objective name of the database.
+func (o DatabaseOutput) RequestedServiceObjectiveName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.RequestedServiceObjectiveName }).(pulumi.StringOutput)
+}
+
+// The date when database was resumed by user action or database login (ISO8601 format). Null if the database is paused.
+func (o DatabaseOutput) ResumedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.ResumedDate }).(pulumi.StringOutput)
+}
+
+// The database SKU.
+//
+// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+func (o DatabaseOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *Database) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The status of the database.
+func (o DatabaseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The storage account type used to store backups for this database.
+func (o DatabaseOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o DatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o DatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+func (o DatabaseOutput) ZoneRedundant() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Database) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DatabaseOutput{})
 }

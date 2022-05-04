@@ -131,6 +131,22 @@ func (o ResourceTypeRegistrationOutput) ToResourceTypeRegistrationOutputWithCont
 	return o
 }
 
+// The name of the resource
+func (o ResourceTypeRegistrationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceTypeRegistration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceTypeRegistrationOutput) Properties() ResourceTypeRegistrationResponsePropertiesOutput {
+	return o.ApplyT(func(v *ResourceTypeRegistration) ResourceTypeRegistrationResponsePropertiesOutput {
+		return v.Properties
+	}).(ResourceTypeRegistrationResponsePropertiesOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ResourceTypeRegistrationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceTypeRegistration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceTypeRegistrationOutput{})
 }

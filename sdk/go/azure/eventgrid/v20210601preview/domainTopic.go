@@ -155,6 +155,26 @@ func (o DomainTopicOutput) ToDomainTopicOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Name of the resource.
+func (o DomainTopicOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainTopic) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the domain topic.
+func (o DomainTopicOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainTopic) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to Domain Topic resource.
+func (o DomainTopicOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DomainTopic) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the resource.
+func (o DomainTopicOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainTopic) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DomainTopicOutput{})
 }

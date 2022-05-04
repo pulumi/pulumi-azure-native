@@ -144,6 +144,36 @@ func (o LedgerOutput) ToLedgerOutputWithContext(ctx context.Context) LedgerOutpu
 	return o
 }
 
+// The Azure location where the Confidential Ledger is running.
+func (o LedgerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Resource.
+func (o LedgerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of Confidential Ledger Resource.
+func (o LedgerOutput) Properties() LedgerPropertiesResponseOutput {
+	return o.ApplyT(func(v *Ledger) LedgerPropertiesResponseOutput { return v.Properties }).(LedgerPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource
+func (o LedgerOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Ledger) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Additional tags for Confidential Ledger
+func (o LedgerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o LedgerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LedgerOutput{})
 }

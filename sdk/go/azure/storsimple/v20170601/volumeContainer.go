@@ -175,6 +175,61 @@ func (o VolumeContainerOutput) ToVolumeContainerOutputWithContext(ctx context.Co
 	return o
 }
 
+// The bandwidth-rate set on the volume container.
+func (o VolumeContainerOutput) BandWidthRateInMbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.IntPtrOutput { return v.BandWidthRateInMbps }).(pulumi.IntPtrOutput)
+}
+
+// The ID of the bandwidth setting associated with the volume container.
+func (o VolumeContainerOutput) BandwidthSettingId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringPtrOutput { return v.BandwidthSettingId }).(pulumi.StringPtrOutput)
+}
+
+// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+func (o VolumeContainerOutput) EncryptionKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *VolumeContainer) AsymmetricEncryptedSecretResponsePtrOutput { return v.EncryptionKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// The flag to denote whether encryption is enabled or not.
+func (o VolumeContainerOutput) EncryptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringOutput { return v.EncryptionStatus }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o VolumeContainerOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o VolumeContainerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+func (o VolumeContainerOutput) OwnerShipStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringOutput { return v.OwnerShipStatus }).(pulumi.StringOutput)
+}
+
+// The path ID of storage account associated with the volume container.
+func (o VolumeContainerOutput) StorageAccountCredentialId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringOutput { return v.StorageAccountCredentialId }).(pulumi.StringOutput)
+}
+
+// The total cloud storage for the volume container.
+func (o VolumeContainerOutput) TotalCloudStorageUsageInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.Float64Output { return v.TotalCloudStorageUsageInBytes }).(pulumi.Float64Output)
+}
+
+// The hierarchical type of the object.
+func (o VolumeContainerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of volumes in the volume Container.
+func (o VolumeContainerOutput) VolumeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *VolumeContainer) pulumi.IntOutput { return v.VolumeCount }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeContainerOutput{})
 }

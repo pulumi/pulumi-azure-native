@@ -156,6 +156,26 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
+// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+func (o QueueOutput) ApproximateMessageCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *Queue) pulumi.IntOutput { return v.ApproximateMessageCount }).(pulumi.IntOutput)
+}
+
+// A name-value pair that represents queue metadata.
+func (o QueueOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o QueueOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o QueueOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(QueueOutput{})
 }

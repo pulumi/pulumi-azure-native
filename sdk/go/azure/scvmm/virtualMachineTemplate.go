@@ -192,6 +192,126 @@ func (o VirtualMachineTemplateOutput) ToVirtualMachineTemplateOutputWithContext(
 	return o
 }
 
+// Gets or sets computer name.
+func (o VirtualMachineTemplateOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.ComputerName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the desired number of vCPUs for the vm.
+func (o VirtualMachineTemplateOutput) CpuCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.CpuCount }).(pulumi.IntOutput)
+}
+
+// Gets or sets the disks of the template.
+func (o VirtualMachineTemplateOutput) Disks() VirtualDiskResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) VirtualDiskResponseArrayOutput { return v.Disks }).(VirtualDiskResponseArrayOutput)
+}
+
+// Gets or sets a value indicating whether to enable dynamic memory or not.
+func (o VirtualMachineTemplateOutput) DynamicMemoryEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.DynamicMemoryEnabled }).(pulumi.StringOutput)
+}
+
+// Gets or sets the max dynamic memory for the vm.
+func (o VirtualMachineTemplateOutput) DynamicMemoryMaxMB() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.DynamicMemoryMaxMB }).(pulumi.IntOutput)
+}
+
+// Gets or sets the min dynamic memory for the vm.
+func (o VirtualMachineTemplateOutput) DynamicMemoryMinMB() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.DynamicMemoryMinMB }).(pulumi.IntOutput)
+}
+
+// The extended location.
+func (o VirtualMachineTemplateOutput) ExtendedLocation() ExtendedLocationResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) ExtendedLocationResponseOutput { return v.ExtendedLocation }).(ExtendedLocationResponseOutput)
+}
+
+// Gets or sets the generation for the vm.
+func (o VirtualMachineTemplateOutput) Generation() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.Generation }).(pulumi.IntOutput)
+}
+
+// Gets or sets the inventory Item ID for the resource.
+func (o VirtualMachineTemplateOutput) InventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.InventoryItemId }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a value indicating whether the vm template is customizable or not.
+func (o VirtualMachineTemplateOutput) IsCustomizable() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.IsCustomizable }).(pulumi.StringOutput)
+}
+
+// Gets highly available property.
+func (o VirtualMachineTemplateOutput) IsHighlyAvailable() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.IsHighlyAvailable }).(pulumi.StringOutput)
+}
+
+// Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
+func (o VirtualMachineTemplateOutput) LimitCpuForMigration() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.LimitCpuForMigration }).(pulumi.StringOutput)
+}
+
+// Gets or sets the location.
+func (o VirtualMachineTemplateOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// MemoryMB is the desired size of a virtual machine's memory, in MB.
+func (o VirtualMachineTemplateOutput) MemoryMB() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.IntOutput { return v.MemoryMB }).(pulumi.IntOutput)
+}
+
+// Resource Name
+func (o VirtualMachineTemplateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the network interfaces of the template.
+func (o VirtualMachineTemplateOutput) NetworkInterfaces() NetworkInterfacesResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) NetworkInterfacesResponseArrayOutput { return v.NetworkInterfaces }).(NetworkInterfacesResponseArrayOutput)
+}
+
+// Gets or sets os name.
+func (o VirtualMachineTemplateOutput) OsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.OsName }).(pulumi.StringOutput)
+}
+
+// Gets or sets the type of the os.
+func (o VirtualMachineTemplateOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.OsType }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o VirtualMachineTemplateOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system data.
+func (o VirtualMachineTemplateOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o VirtualMachineTemplateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o VirtualMachineTemplateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Unique ID of the virtual machine template.
+func (o VirtualMachineTemplateOutput) Uuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.Uuid }).(pulumi.StringPtrOutput)
+}
+
+// ARM Id of the vmmServer resource in which this resource resides.
+func (o VirtualMachineTemplateOutput) VmmServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineTemplate) pulumi.StringPtrOutput { return v.VmmServerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineTemplateOutput{})
 }

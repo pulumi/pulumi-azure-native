@@ -187,6 +187,66 @@ func (o DataNetworkOutput) ToDataNetworkOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o DataNetworkOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o DataNetworkOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o DataNetworkOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// An optional description for this data network.
+func (o DataNetworkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o DataNetworkOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o DataNetworkOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o DataNetworkOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o DataNetworkOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o DataNetworkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the data network resource.
+func (o DataNetworkOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o DataNetworkOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DataNetworkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataNetwork) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataNetworkOutput{})
 }

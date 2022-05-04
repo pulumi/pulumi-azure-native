@@ -223,6 +223,86 @@ func (o SimPolicyOutput) ToSimPolicyOutputWithContext(ctx context.Context) SimPo
 	return o
 }
 
+// The timestamp of resource creation (UTC).
+func (o SimPolicyOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SimPolicyOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SimPolicyOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The default slice to use if the UE does not explicitly specify it.  This slice must exist in the `sliceConfigurations` map.
+func (o SimPolicyOutput) DefaultSlice() SliceResourceIdResponseOutput {
+	return o.ApplyT(func(v *SimPolicy) SliceResourceIdResponseOutput { return v.DefaultSlice }).(SliceResourceIdResponseOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SimPolicyOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SimPolicyOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SimPolicyOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o SimPolicyOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o SimPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the sim policy resource.
+func (o SimPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Interval for the UE periodic registration update procedure, in seconds.
+func (o SimPolicyOutput) RegistrationTimer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.IntPtrOutput { return v.RegistrationTimer }).(pulumi.IntPtrOutput)
+}
+
+// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.  This is an optional setting and by default is unspecified.
+func (o SimPolicyOutput) RfspIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.IntPtrOutput { return v.RfspIndex }).(pulumi.IntPtrOutput)
+}
+
+// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
+func (o SimPolicyOutput) SliceConfigurations() SliceConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *SimPolicy) SliceConfigurationResponseArrayOutput { return v.SliceConfigurations }).(SliceConfigurationResponseArrayOutput)
+}
+
+// Resource tags.
+func (o SimPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SimPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SimPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
+func (o SimPolicyOutput) UeAmbr() AmbrResponseOutput {
+	return o.ApplyT(func(v *SimPolicy) AmbrResponseOutput { return v.UeAmbr }).(AmbrResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SimPolicyOutput{})
 }

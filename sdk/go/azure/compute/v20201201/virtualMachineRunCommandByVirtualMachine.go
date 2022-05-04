@@ -215,6 +215,89 @@ func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunComma
 	return o
 }
 
+// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) AsyncExecution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.BoolPtrOutput { return v.AsyncExecution }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the Azure storage blob where script error stream will be uploaded.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) ErrorBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringPtrOutput { return v.ErrorBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// The virtual machine run command instance view.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) InstanceView() VirtualMachineRunCommandInstanceViewResponseOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) VirtualMachineRunCommandInstanceViewResponseOutput {
+		return v.InstanceView
+	}).(VirtualMachineRunCommandInstanceViewResponseOutput)
+}
+
+// Resource location
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the Azure storage blob where script output stream will be uploaded.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) OutputBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringPtrOutput { return v.OutputBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// The parameters used by the script.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Parameters() RunCommandInputParameterResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) RunCommandInputParameterResponseArrayOutput {
+		return v.Parameters
+	}).(RunCommandInputParameterResponseArrayOutput)
+}
+
+// The parameters used by the script.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) ProtectedParameters() RunCommandInputParameterResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) RunCommandInputParameterResponseArrayOutput {
+		return v.ProtectedParameters
+	}).(RunCommandInputParameterResponseArrayOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Specifies the user account password on the VM when executing the run command.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) RunAsPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringPtrOutput { return v.RunAsPassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user account on the VM when executing the run command.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) RunAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringPtrOutput { return v.RunAsUser }).(pulumi.StringPtrOutput)
+}
+
+// The source of the run command script.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Source() VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) VirtualMachineRunCommandScriptSourceResponsePtrOutput {
+		return v.Source
+	}).(VirtualMachineRunCommandScriptSourceResponsePtrOutput)
+}
+
+// Resource tags
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The timeout in seconds to execute the run command.
+func (o VirtualMachineRunCommandByVirtualMachineOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Resource type
+func (o VirtualMachineRunCommandByVirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualMachineRunCommandByVirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualMachineRunCommandByVirtualMachineOutput{})
 }

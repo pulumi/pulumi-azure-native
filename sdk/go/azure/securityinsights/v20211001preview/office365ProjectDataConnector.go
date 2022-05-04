@@ -183,6 +183,44 @@ func (o Office365ProjectDataConnectorOutput) ToOffice365ProjectDataConnectorOutp
 	return o
 }
 
+// The available data types for the connector.
+func (o Office365ProjectDataConnectorOutput) DataTypes() Office365ProjectConnectorDataTypesResponseOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) Office365ProjectConnectorDataTypesResponseOutput {
+		return v.DataTypes
+	}).(Office365ProjectConnectorDataTypesResponseOutput)
+}
+
+// Etag of the azure resource
+func (o Office365ProjectDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'Office365Project'.
+func (o Office365ProjectDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o Office365ProjectDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o Office365ProjectDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tenant id to connect to, and get the data from.
+func (o Office365ProjectDataConnectorOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o Office365ProjectDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Office365ProjectDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(Office365ProjectDataConnectorOutput{})
 }

@@ -176,6 +176,41 @@ func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutpu
 	return o
 }
 
+// Flag that indicates whether to continue if one of the command fails.
+func (o ScriptOutput) ContinueOnErrors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.BoolPtrOutput { return v.ContinueOnErrors }).(pulumi.BoolPtrOutput)
+}
+
+// A unique string. If changed the script will be applied again.
+func (o ScriptOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ScriptOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioned state of the resource.
+func (o ScriptOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The url to the KQL script blob file.
+func (o ScriptOutput) ScriptUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.ScriptUrl }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ScriptOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Script) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ScriptOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ScriptOutput{})
 }

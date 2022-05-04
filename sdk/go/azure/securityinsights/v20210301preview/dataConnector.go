@@ -170,6 +170,31 @@ func (o DataConnectorOutput) ToDataConnectorOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Etag of the azure resource
+func (o DataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The data connector kind
+func (o DataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o DataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Azure resource type
+func (o DataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataConnectorOutput{})
 }

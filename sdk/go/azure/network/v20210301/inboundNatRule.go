@@ -297,6 +297,81 @@ func (o InboundNatRuleOutput) ToInboundNatRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A reference to backendAddressPool resource.
+func (o InboundNatRuleOutput) BackendAddressPool() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) SubResourceResponsePtrOutput { return v.BackendAddressPool }).(SubResourceResponsePtrOutput)
+}
+
+// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+func (o InboundNatRuleOutput) BackendIPConfiguration() NetworkInterfaceIPConfigurationResponseOutput {
+	return o.ApplyT(func(v *InboundNatRule) NetworkInterfaceIPConfigurationResponseOutput { return v.BackendIPConfiguration }).(NetworkInterfaceIPConfigurationResponseOutput)
+}
+
+// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+func (o InboundNatRuleOutput) BackendPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.IntPtrOutput { return v.BackendPort }).(pulumi.IntPtrOutput)
+}
+
+// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+func (o InboundNatRuleOutput) EnableFloatingIP() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.BoolPtrOutput { return v.EnableFloatingIP }).(pulumi.BoolPtrOutput)
+}
+
+// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+func (o InboundNatRuleOutput) EnableTcpReset() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.BoolPtrOutput { return v.EnableTcpReset }).(pulumi.BoolPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o InboundNatRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A reference to frontend IP addresses.
+func (o InboundNatRuleOutput) FrontendIPConfiguration() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) SubResourceResponsePtrOutput { return v.FrontendIPConfiguration }).(SubResourceResponsePtrOutput)
+}
+
+// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+func (o InboundNatRuleOutput) FrontendPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.IntPtrOutput { return v.FrontendPort }).(pulumi.IntPtrOutput)
+}
+
+// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+func (o InboundNatRuleOutput) FrontendPortRangeEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.IntPtrOutput { return v.FrontendPortRangeEnd }).(pulumi.IntPtrOutput)
+}
+
+// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+func (o InboundNatRuleOutput) FrontendPortRangeStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.IntPtrOutput { return v.FrontendPortRangeStart }).(pulumi.IntPtrOutput)
+}
+
+// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+func (o InboundNatRuleOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.IntPtrOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+func (o InboundNatRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The reference to the transport protocol used by the load balancing rule.
+func (o InboundNatRuleOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the inbound NAT rule resource.
+func (o InboundNatRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o InboundNatRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *InboundNatRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InboundNatRuleOutput{})
 }

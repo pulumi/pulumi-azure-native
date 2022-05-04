@@ -249,6 +249,117 @@ func (o AzureCliScriptOutput) ToAzureCliScriptOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2'
+func (o AzureCliScriptOutput) Arguments() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.Arguments }).(pulumi.StringPtrOutput)
+}
+
+// Azure CLI module version to be used.
+func (o AzureCliScriptOutput) AzCliVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.AzCliVersion }).(pulumi.StringOutput)
+}
+
+// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
+func (o AzureCliScriptOutput) CleanupPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.CleanupPreference }).(pulumi.StringPtrOutput)
+}
+
+// Container settings.
+func (o AzureCliScriptOutput) ContainerSettings() ContainerConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) ContainerConfigurationResponsePtrOutput { return v.ContainerSettings }).(ContainerConfigurationResponsePtrOutput)
+}
+
+// The environment variables to pass over to the script.
+func (o AzureCliScriptOutput) EnvironmentVariables() EnvironmentVariableResponseArrayOutput {
+	return o.ApplyT(func(v *AzureCliScript) EnvironmentVariableResponseArrayOutput { return v.EnvironmentVariables }).(EnvironmentVariableResponseArrayOutput)
+}
+
+// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
+func (o AzureCliScriptOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
+func (o AzureCliScriptOutput) Identity() ManagedServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *AzureCliScript) ManagedServiceIdentityResponseOutput { return v.Identity }).(ManagedServiceIdentityResponseOutput)
+}
+
+// Type of the script.
+// Expected value is 'AzureCLI'.
+func (o AzureCliScriptOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The location of the ACI and the storage account for the deployment script.
+func (o AzureCliScriptOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of this resource.
+func (o AzureCliScriptOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of script outputs.
+func (o AzureCliScriptOutput) Outputs() pulumi.MapOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.MapOutput { return v.Outputs }).(pulumi.MapOutput)
+}
+
+// Uri for the script. This is the entry point for the external script.
+func (o AzureCliScriptOutput) PrimaryScriptUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.PrimaryScriptUri }).(pulumi.StringPtrOutput)
+}
+
+// State of the script execution. This only appears in the response.
+func (o AzureCliScriptOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
+func (o AzureCliScriptOutput) RetentionInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.RetentionInterval }).(pulumi.StringOutput)
+}
+
+// Script body.
+func (o AzureCliScriptOutput) ScriptContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.ScriptContent }).(pulumi.StringPtrOutput)
+}
+
+// Contains the results of script execution.
+func (o AzureCliScriptOutput) Status() ScriptStatusResponseOutput {
+	return o.ApplyT(func(v *AzureCliScript) ScriptStatusResponseOutput { return v.Status }).(ScriptStatusResponseOutput)
+}
+
+// Storage Account settings.
+func (o AzureCliScriptOutput) StorageAccountSettings() StorageAccountConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) StorageAccountConfigurationResponsePtrOutput { return v.StorageAccountSettings }).(StorageAccountConfigurationResponsePtrOutput)
+}
+
+// Supporting files for the external script.
+func (o AzureCliScriptOutput) SupportingScriptUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringArrayOutput { return v.SupportingScriptUris }).(pulumi.StringArrayOutput)
+}
+
+// The system metadata related to this resource.
+func (o AzureCliScriptOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AzureCliScript) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AzureCliScriptOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
+func (o AzureCliScriptOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringPtrOutput { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+// Type of this resource.
+func (o AzureCliScriptOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AzureCliScript) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureCliScriptOutput{})
 }

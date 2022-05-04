@@ -203,6 +203,61 @@ func (o JobDefinitionOutput) ToJobDefinitionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+func (o JobDefinitionOutput) CustomerSecrets() CustomerSecretResponseArrayOutput {
+	return o.ApplyT(func(v *JobDefinition) CustomerSecretResponseArrayOutput { return v.CustomerSecrets }).(CustomerSecretResponseArrayOutput)
+}
+
+// A generic json used differently by each data service type.
+func (o JobDefinitionOutput) DataServiceInput() pulumi.AnyOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.AnyOutput { return v.DataServiceInput }).(pulumi.AnyOutput)
+}
+
+// Data Sink Id associated to the job definition.
+func (o JobDefinitionOutput) DataSinkId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.DataSinkId }).(pulumi.StringOutput)
+}
+
+// Data Source Id associated to the job definition.
+func (o JobDefinitionOutput) DataSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.DataSourceId }).(pulumi.StringOutput)
+}
+
+// Last modified time of the job definition.
+func (o JobDefinitionOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Name of the object.
+func (o JobDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This is the preferred geo location for the job to run.
+func (o JobDefinitionOutput) RunLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.RunLocation }).(pulumi.StringPtrOutput)
+}
+
+// Schedule for running the job definition
+func (o JobDefinitionOutput) Schedules() ScheduleResponseArrayOutput {
+	return o.ApplyT(func(v *JobDefinition) ScheduleResponseArrayOutput { return v.Schedules }).(ScheduleResponseArrayOutput)
+}
+
+// State of the job definition.
+func (o JobDefinitionOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Type of the object.
+func (o JobDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+func (o JobDefinitionOutput) UserConfirmation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinition) pulumi.StringPtrOutput { return v.UserConfirmation }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(JobDefinitionOutput{})
 }

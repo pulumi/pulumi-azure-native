@@ -169,6 +169,61 @@ func (o ContactProfileOutput) ToContactProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Auto track configuration.
+func (o ContactProfileOutput) AutoTrackingConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.AutoTrackingConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ContactProfileOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The URI of the Event Hub used for telemetry
+func (o ContactProfileOutput) EventHubUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.EventHubUri }).(pulumi.StringPtrOutput)
+}
+
+// Links of the Contact Profile
+func (o ContactProfileOutput) Links() ContactProfileLinkResponseArrayOutput {
+	return o.ApplyT(func(v *ContactProfile) ContactProfileLinkResponseArrayOutput { return v.Links }).(ContactProfileLinkResponseArrayOutput)
+}
+
+// The geo-location where the resource lives
+func (o ContactProfileOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Minimum viable elevation for the contact in decimal degrees.
+func (o ContactProfileOutput) MinimumElevationDegrees() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.Float64PtrOutput { return v.MinimumElevationDegrees }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum viable contact duration in ISO 8601 format.
+func (o ContactProfileOutput) MinimumViableContactDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringPtrOutput { return v.MinimumViableContactDuration }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ContactProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ContactProfileOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ContactProfile) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ContactProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ContactProfileOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContactProfileOutput{})
 }

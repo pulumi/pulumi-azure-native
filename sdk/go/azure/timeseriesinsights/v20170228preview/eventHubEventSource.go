@@ -229,6 +229,72 @@ func (o EventHubEventSourceOutput) ToEventHubEventSourceOutputWithContext(ctx co
 	return o
 }
 
+// The name of the event hub's consumer group that holds the partitions from which events will be read.
+func (o EventHubEventSourceOutput) ConsumerGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.ConsumerGroupName }).(pulumi.StringOutput)
+}
+
+// The time the resource was created.
+func (o EventHubEventSourceOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The name of the event hub.
+func (o EventHubEventSourceOutput) EventHubName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.EventHubName }).(pulumi.StringOutput)
+}
+
+// The resource id of the event source in Azure Resource Manager.
+func (o EventHubEventSourceOutput) EventSourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.EventSourceResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
+func (o EventHubEventSourceOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The kind of the event source.
+// Expected value is 'Microsoft.EventHub'.
+func (o EventHubEventSourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource location
+func (o EventHubEventSourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o EventHubEventSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o EventHubEventSourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the service bus that contains the event hub.
+func (o EventHubEventSourceOutput) ServiceBusNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.ServiceBusNamespace }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o EventHubEventSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+func (o EventHubEventSourceOutput) TimestampPropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringPtrOutput { return v.TimestampPropertyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o EventHubEventSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventHubEventSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventHubEventSourceOutput{})
 }

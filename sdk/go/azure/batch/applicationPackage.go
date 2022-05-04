@@ -183,6 +183,46 @@ func (o ApplicationPackageOutput) ToApplicationPackageOutputWithContext(ctx cont
 	return o
 }
 
+// The ETag of the resource, used for concurrency statements.
+func (o ApplicationPackageOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The format of the application package, if the package is active.
+func (o ApplicationPackageOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.Format }).(pulumi.StringOutput)
+}
+
+// The time at which the package was last activated, if the package is active.
+func (o ApplicationPackageOutput) LastActivationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.LastActivationTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ApplicationPackageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of the application package.
+func (o ApplicationPackageOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The URL for the application package in Azure Storage.
+func (o ApplicationPackageOutput) StorageUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.StorageUrl }).(pulumi.StringOutput)
+}
+
+// The UTC time at which the Azure Storage URL will expire.
+func (o ApplicationPackageOutput) StorageUrlExpiry() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.StorageUrlExpiry }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o ApplicationPackageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationPackage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ApplicationPackageOutput{})
 }

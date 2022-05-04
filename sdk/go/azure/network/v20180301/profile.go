@@ -200,6 +200,56 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+// The DNS settings of the Traffic Manager profile.
+func (o ProfileOutput) DnsConfig() DnsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Profile) DnsConfigResponsePtrOutput { return v.DnsConfig }).(DnsConfigResponsePtrOutput)
+}
+
+// The list of endpoints in the Traffic Manager profile.
+func (o ProfileOutput) Endpoints() EndpointResponseArrayOutput {
+	return o.ApplyT(func(v *Profile) EndpointResponseArrayOutput { return v.Endpoints }).(EndpointResponseArrayOutput)
+}
+
+// The Azure Region where the resource lives
+func (o ProfileOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint monitoring settings of the Traffic Manager profile.
+func (o ProfileOutput) MonitorConfig() MonitorConfigResponsePtrOutput {
+	return o.ApplyT(func(v *Profile) MonitorConfigResponsePtrOutput { return v.MonitorConfig }).(MonitorConfigResponsePtrOutput)
+}
+
+// The name of the resource
+func (o ProfileOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The status of the Traffic Manager profile.
+func (o ProfileOutput) ProfileStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.ProfileStatus }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o ProfileOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The traffic routing method of the Traffic Manager profile.
+func (o ProfileOutput) TrafficRoutingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.TrafficRoutingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+func (o ProfileOutput) TrafficViewEnrollmentStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.TrafficViewEnrollmentStatus }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+func (o ProfileOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileOutput{})
 }

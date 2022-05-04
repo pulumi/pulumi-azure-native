@@ -136,6 +136,21 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 	return o
 }
 
+// The resource name.
+func (o VirtualNetworkRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource identifier for the subnet.
+func (o VirtualNetworkRuleOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o VirtualNetworkRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualNetworkRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 }

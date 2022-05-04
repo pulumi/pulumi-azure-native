@@ -220,6 +220,76 @@ func (o PolicyAssignmentOutput) ToPolicyAssignmentOutputWithContext(ctx context.
 	return o
 }
 
+// This message will be part of response in case of policy violation.
+func (o PolicyAssignmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The display name of the policy assignment.
+func (o PolicyAssignmentOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+func (o PolicyAssignmentOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+// The managed identity associated with the policy assignment.
+func (o PolicyAssignmentOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The location of the policy assignment. Only required when utilizing managed identity.
+func (o PolicyAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+func (o PolicyAssignmentOutput) Metadata() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.AnyOutput { return v.Metadata }).(pulumi.AnyOutput)
+}
+
+// The name of the policy assignment.
+func (o PolicyAssignmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The messages that describe why a resource is non-compliant with the policy.
+func (o PolicyAssignmentOutput) NonComplianceMessages() NonComplianceMessageResponseArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignment) NonComplianceMessageResponseArrayOutput { return v.NonComplianceMessages }).(NonComplianceMessageResponseArrayOutput)
+}
+
+// The policy's excluded scopes.
+func (o PolicyAssignmentOutput) NotScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringArrayOutput { return v.NotScopes }).(pulumi.StringArrayOutput)
+}
+
+// The parameter values for the assigned policy rule. The keys are the parameter names.
+func (o PolicyAssignmentOutput) Parameters() ParameterValuesValueResponseMapOutput {
+	return o.ApplyT(func(v *PolicyAssignment) ParameterValuesValueResponseMapOutput { return v.Parameters }).(ParameterValuesValueResponseMapOutput)
+}
+
+// The ID of the policy definition or policy set definition being assigned.
+func (o PolicyAssignmentOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope for the policy assignment.
+func (o PolicyAssignmentOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// The system metadata relating to this resource.
+func (o PolicyAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PolicyAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the policy assignment.
+func (o PolicyAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PolicyAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PolicyAssignmentOutput{})
 }

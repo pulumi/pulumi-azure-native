@@ -226,6 +226,75 @@ func (o WebApplicationFirewallPolicyOutput) ToWebApplicationFirewallPolicyOutput
 	return o
 }
 
+// A collection of references to application gateways.
+func (o WebApplicationFirewallPolicyOutput) ApplicationGateways() ApplicationGatewayResponseArrayOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) ApplicationGatewayResponseArrayOutput {
+		return v.ApplicationGateways
+	}).(ApplicationGatewayResponseArrayOutput)
+}
+
+// The custom rules inside the policy.
+func (o WebApplicationFirewallPolicyOutput) CustomRules() WebApplicationFirewallCustomRuleResponseArrayOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) WebApplicationFirewallCustomRuleResponseArrayOutput {
+		return v.CustomRules
+	}).(WebApplicationFirewallCustomRuleResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o WebApplicationFirewallPolicyOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A collection of references to application gateway http listeners.
+func (o WebApplicationFirewallPolicyOutput) HttpListeners() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) SubResourceResponseArrayOutput { return v.HttpListeners }).(SubResourceResponseArrayOutput)
+}
+
+// Resource location.
+func (o WebApplicationFirewallPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Describes the managedRules structure.
+func (o WebApplicationFirewallPolicyOutput) ManagedRules() ManagedRulesDefinitionResponseOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) ManagedRulesDefinitionResponseOutput { return v.ManagedRules }).(ManagedRulesDefinitionResponseOutput)
+}
+
+// Resource name.
+func (o WebApplicationFirewallPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of references to application gateway path rules.
+func (o WebApplicationFirewallPolicyOutput) PathBasedRules() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) SubResourceResponseArrayOutput { return v.PathBasedRules }).(SubResourceResponseArrayOutput)
+}
+
+// The PolicySettings for policy.
+func (o WebApplicationFirewallPolicyOutput) PolicySettings() PolicySettingsResponsePtrOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) PolicySettingsResponsePtrOutput { return v.PolicySettings }).(PolicySettingsResponsePtrOutput)
+}
+
+// The provisioning state of the web application firewall policy resource.
+func (o WebApplicationFirewallPolicyOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the policy.
+func (o WebApplicationFirewallPolicyOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o WebApplicationFirewallPolicyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o WebApplicationFirewallPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApplicationFirewallPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebApplicationFirewallPolicyOutput{})
 }

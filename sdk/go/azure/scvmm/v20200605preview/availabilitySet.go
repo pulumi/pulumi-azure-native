@@ -150,6 +150,51 @@ func (o AvailabilitySetOutput) ToAvailabilitySetOutputWithContext(ctx context.Co
 	return o
 }
 
+// Name of the availability set.
+func (o AvailabilitySetOutput) AvailabilitySetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringPtrOutput { return v.AvailabilitySetName }).(pulumi.StringPtrOutput)
+}
+
+// The extended location.
+func (o AvailabilitySetOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Gets or sets the location.
+func (o AvailabilitySetOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o AvailabilitySetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the provisioning state.
+func (o AvailabilitySetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The system data.
+func (o AvailabilitySetOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AvailabilitySet) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o AvailabilitySetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o AvailabilitySetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// ARM Id of the vmmServer resource in which this resource resides.
+func (o AvailabilitySetOutput) VmmServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AvailabilitySet) pulumi.StringPtrOutput { return v.VmmServerId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AvailabilitySetOutput{})
 }

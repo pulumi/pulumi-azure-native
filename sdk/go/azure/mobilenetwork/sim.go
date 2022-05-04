@@ -223,6 +223,96 @@ func (o SimOutput) ToSimOutputWithContext(ctx context.Context) SimOutput {
 	return o
 }
 
+// The configuration state of the sim resource - complete or incomplete.
+func (o SimOutput) ConfigurationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.ConfigurationState }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SimOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SimOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SimOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// An optional free-form text field that can be used to record the device type this sim is associated with, for example 'Video camera'. The Azure portal allows Sims to be grouped and filtered based on this value.
+func (o SimOutput) DeviceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.DeviceType }).(pulumi.StringPtrOutput)
+}
+
+// The Integrated Circuit Card ID (ICC Id) for the sim.
+func (o SimOutput) IntegratedCircuitCardIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.IntegratedCircuitCardIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The International Mobile Subscriber Identity (IMSI) for the sim.
+func (o SimOutput) InternationalMobileSubscriberIdentity() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.InternationalMobileSubscriberIdentity }).(pulumi.StringOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SimOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SimOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SimOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o SimOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Mobile network that this sim belongs to
+func (o SimOutput) MobileNetwork() MobileNetworkResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *Sim) MobileNetworkResourceIdResponsePtrOutput { return v.MobileNetwork }).(MobileNetworkResourceIdResponsePtrOutput)
+}
+
+// The name of the resource
+func (o SimOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the sim resource.
+func (o SimOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The simPolicy used by this sim.
+func (o SimOutput) SimPolicy() SimPolicyResourceIdResponsePtrOutput {
+	return o.ApplyT(func(v *Sim) SimPolicyResourceIdResponsePtrOutput { return v.SimPolicy }).(SimPolicyResourceIdResponsePtrOutput)
+}
+
+// A list of static IP addresses assigned to this sim. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
+func (o SimOutput) StaticIpConfiguration() SimStaticIpPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *Sim) SimStaticIpPropertiesResponseArrayOutput { return v.StaticIpConfiguration }).(SimStaticIpPropertiesResponseArrayOutput)
+}
+
+// Resource tags.
+func (o SimOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SimOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Sim) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SimOutput{})
 }

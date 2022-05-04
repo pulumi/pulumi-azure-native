@@ -3,7 +3,7 @@
 
 
 export const CompatibilityLevel = {
-    _1_0: "1.0",
+    CompatibilityLevel_1_0: "1.0",
 } as const;
 
 /**

@@ -1030,6 +1030,17 @@ type ScheduleEntryArgs struct {
 	StartHourUtc pulumi.IntInput `pulumi:"startHourUtc"`
 }
 
+// Defaults sets the appropriate defaults for ScheduleEntryArgs
+func (val *ScheduleEntryArgs) Defaults() *ScheduleEntryArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaintenanceWindow) {
+		tmp.MaintenanceWindow = pulumi.StringPtr("PT5H")
+	}
+	return &tmp
+}
 func (ScheduleEntryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduleEntry)(nil)).Elem()
 }

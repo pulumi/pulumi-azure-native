@@ -165,6 +165,61 @@ func (o ContainerAppOutput) ToContainerAppOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Non versioned Container App configuration properties.
+func (o ContainerAppOutput) Configuration() ConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerApp) ConfigurationResponsePtrOutput { return v.Configuration }).(ConfigurationResponsePtrOutput)
+}
+
+// Kind of resource.
+func (o ContainerAppOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID of the Container App's KubeEnvironment.
+func (o ContainerAppOutput) KubeEnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringPtrOutput { return v.KubeEnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// Fully Qualified Domain Name of the latest revision of the Container App.
+func (o ContainerAppOutput) LatestRevisionFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.LatestRevisionFqdn }).(pulumi.StringOutput)
+}
+
+// Name of the latest revision of the Container App.
+func (o ContainerAppOutput) LatestRevisionName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.LatestRevisionName }).(pulumi.StringOutput)
+}
+
+// Resource Location.
+func (o ContainerAppOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource Name.
+func (o ContainerAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the Container App.
+func (o ContainerAppOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ContainerAppOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Container App versioned application definition.
+func (o ContainerAppOutput) Template() TemplateResponsePtrOutput {
+	return o.ApplyT(func(v *ContainerApp) TemplateResponsePtrOutput { return v.Template }).(TemplateResponsePtrOutput)
+}
+
+// Resource type.
+func (o ContainerAppOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerApp) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContainerAppOutput{})
 }

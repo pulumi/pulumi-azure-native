@@ -141,6 +141,31 @@ func (o CommitmentPlanOutput) ToCommitmentPlanOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Resource Etag.
+func (o CommitmentPlanOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CommitmentPlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of Cognitive Services account commitment plan.
+func (o CommitmentPlanOutput) Properties() CommitmentPlanPropertiesResponseOutput {
+	return o.ApplyT(func(v *CommitmentPlan) CommitmentPlanPropertiesResponseOutput { return v.Properties }).(CommitmentPlanPropertiesResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o CommitmentPlanOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CommitmentPlan) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CommitmentPlanOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommitmentPlan) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommitmentPlanOutput{})
 }

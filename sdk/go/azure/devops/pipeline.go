@@ -158,6 +158,46 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
+// Configuration used to bootstrap the Pipeline.
+func (o PipelineOutput) BootstrapConfiguration() BootstrapConfigurationResponseOutput {
+	return o.ApplyT(func(v *Pipeline) BootstrapConfigurationResponseOutput { return v.BootstrapConfiguration }).(BootstrapConfigurationResponseOutput)
+}
+
+// Resource Location
+func (o PipelineOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name
+func (o PipelineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the Pipeline
+func (o PipelineOutput) PipelineId() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.IntOutput { return v.PipelineId }).(pulumi.IntOutput)
+}
+
+// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
+func (o PipelineOutput) PipelineType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineType }).(pulumi.StringOutput)
+}
+
+// The system metadata pertaining to this resource.
+func (o PipelineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Pipeline) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource Tags
+func (o PipelineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource Type
+func (o PipelineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineOutput{})
 }

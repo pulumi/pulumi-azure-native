@@ -314,6 +314,86 @@ func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Collection of backend address pools used by a load balancer.
+func (o LoadBalancerOutput) BackendAddressPools() BackendAddressPoolResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) BackendAddressPoolResponseArrayOutput { return v.BackendAddressPools }).(BackendAddressPoolResponseArrayOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o LoadBalancerOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The extended location of the load balancer.
+func (o LoadBalancerOutput) ExtendedLocation() ExtendedLocationResponsePtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) ExtendedLocationResponsePtrOutput { return v.ExtendedLocation }).(ExtendedLocationResponsePtrOutput)
+}
+
+// Object representing the frontend IPs to be used for the load balancer.
+func (o LoadBalancerOutput) FrontendIPConfigurations() FrontendIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) FrontendIPConfigurationResponseArrayOutput { return v.FrontendIPConfigurations }).(FrontendIPConfigurationResponseArrayOutput)
+}
+
+// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+func (o LoadBalancerOutput) InboundNatPools() InboundNatPoolResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) InboundNatPoolResponseArrayOutput { return v.InboundNatPools }).(InboundNatPoolResponseArrayOutput)
+}
+
+// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+func (o LoadBalancerOutput) InboundNatRules() InboundNatRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) InboundNatRuleResponseArrayOutput { return v.InboundNatRules }).(InboundNatRuleResponseArrayOutput)
+}
+
+// Object collection representing the load balancing rules Gets the provisioning.
+func (o LoadBalancerOutput) LoadBalancingRules() LoadBalancingRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancingRuleResponseArrayOutput { return v.LoadBalancingRules }).(LoadBalancingRuleResponseArrayOutput)
+}
+
+// Resource location.
+func (o LoadBalancerOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o LoadBalancerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The outbound rules.
+func (o LoadBalancerOutput) OutboundRules() OutboundRuleResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) OutboundRuleResponseArrayOutput { return v.OutboundRules }).(OutboundRuleResponseArrayOutput)
+}
+
+// Collection of probe objects used in the load balancer.
+func (o LoadBalancerOutput) Probes() ProbeResponseArrayOutput {
+	return o.ApplyT(func(v *LoadBalancer) ProbeResponseArrayOutput { return v.Probes }).(ProbeResponseArrayOutput)
+}
+
+// The provisioning state of the load balancer resource.
+func (o LoadBalancerOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the load balancer resource.
+func (o LoadBalancerOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// The load balancer SKU.
+func (o LoadBalancerOutput) Sku() LoadBalancerSkuResponsePtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSkuResponsePtrOutput { return v.Sku }).(LoadBalancerSkuResponsePtrOutput)
+}
+
+// Resource tags.
+func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o LoadBalancerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LoadBalancerOutput{})
 }

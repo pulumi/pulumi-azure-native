@@ -152,6 +152,46 @@ func (o DelegatedSubnetServiceDetailsOutput) ToDelegatedSubnetServiceDetailsOutp
 	return o
 }
 
+// Properties of the controller.
+func (o DelegatedSubnetServiceDetailsOutput) ControllerDetails() ControllerDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) ControllerDetailsResponsePtrOutput { return v.ControllerDetails }).(ControllerDetailsResponsePtrOutput)
+}
+
+// Location of the resource.
+func (o DelegatedSubnetServiceDetailsOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o DelegatedSubnetServiceDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current state of dnc delegated subnet resource.
+func (o DelegatedSubnetServiceDetailsOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource guid.
+func (o DelegatedSubnetServiceDetailsOutput) ResourceGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringOutput { return v.ResourceGuid }).(pulumi.StringOutput)
+}
+
+// subnet details
+func (o DelegatedSubnetServiceDetailsOutput) SubnetDetails() SubnetDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) SubnetDetailsResponsePtrOutput { return v.SubnetDetails }).(SubnetDetailsResponsePtrOutput)
+}
+
+// The resource tags.
+func (o DelegatedSubnetServiceDetailsOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of resource.
+func (o DelegatedSubnetServiceDetailsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DelegatedSubnetServiceDetails) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DelegatedSubnetServiceDetailsOutput{})
 }

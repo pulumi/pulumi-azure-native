@@ -240,6 +240,106 @@ func (o IncidentOutput) ToIncidentOutputWithContext(ctx context.Context) Inciden
 	return o
 }
 
+// Additional data on the incident
+func (o IncidentOutput) AdditionalData() IncidentAdditionalDataResponseOutput {
+	return o.ApplyT(func(v *Incident) IncidentAdditionalDataResponseOutput { return v.AdditionalData }).(IncidentAdditionalDataResponseOutput)
+}
+
+// The reason the incident was closed
+func (o IncidentOutput) Classification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.Classification }).(pulumi.StringPtrOutput)
+}
+
+// Describes the reason the incident was closed
+func (o IncidentOutput) ClassificationComment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.ClassificationComment }).(pulumi.StringPtrOutput)
+}
+
+// The classification reason the incident was closed with
+func (o IncidentOutput) ClassificationReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.ClassificationReason }).(pulumi.StringPtrOutput)
+}
+
+// The time the incident was created
+func (o IncidentOutput) CreatedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.CreatedTimeUtc }).(pulumi.StringOutput)
+}
+
+// The description of the incident
+func (o IncidentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Etag of the azure resource
+func (o IncidentOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The time of the first activity in the incident
+func (o IncidentOutput) FirstActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.FirstActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// A sequential number
+func (o IncidentOutput) IncidentNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v *Incident) pulumi.IntOutput { return v.IncidentNumber }).(pulumi.IntOutput)
+}
+
+// The deep-link url to the incident in Azure portal
+func (o IncidentOutput) IncidentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.IncidentUrl }).(pulumi.StringOutput)
+}
+
+// List of labels relevant to this incident
+func (o IncidentOutput) Labels() IncidentLabelResponseArrayOutput {
+	return o.ApplyT(func(v *Incident) IncidentLabelResponseArrayOutput { return v.Labels }).(IncidentLabelResponseArrayOutput)
+}
+
+// The time of the last activity in the incident
+func (o IncidentOutput) LastActivityTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringPtrOutput { return v.LastActivityTimeUtc }).(pulumi.StringPtrOutput)
+}
+
+// The last time the incident was updated
+func (o IncidentOutput) LastModifiedTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.LastModifiedTimeUtc }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o IncidentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Describes a user that the incident is assigned to
+func (o IncidentOutput) Owner() IncidentOwnerInfoResponsePtrOutput {
+	return o.ApplyT(func(v *Incident) IncidentOwnerInfoResponsePtrOutput { return v.Owner }).(IncidentOwnerInfoResponsePtrOutput)
+}
+
+// List of resource ids of Analytic rules related to the incident
+func (o IncidentOutput) RelatedAnalyticRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringArrayOutput { return v.RelatedAnalyticRuleIds }).(pulumi.StringArrayOutput)
+}
+
+// The severity of the incident
+func (o IncidentOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// The status of the incident
+func (o IncidentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// The title of the incident
+func (o IncidentOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Title }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o IncidentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Incident) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IncidentOutput{})
 }

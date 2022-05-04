@@ -224,6 +224,61 @@ func (o StorageAccountCredentialOutput) ToStorageAccountCredentialOutputWithCont
 	return o
 }
 
+// Encrypted storage key.
+func (o StorageAccountCredentialOutput) AccountKey() AsymmetricEncryptedSecretResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) AsymmetricEncryptedSecretResponsePtrOutput { return v.AccountKey }).(AsymmetricEncryptedSecretResponsePtrOutput)
+}
+
+// Type of storage accessed on the storage account.
+func (o StorageAccountCredentialOutput) AccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.AccountType }).(pulumi.StringOutput)
+}
+
+// Alias for the storage account.
+func (o StorageAccountCredentialOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
+}
+
+// Blob end point for private clouds.
+func (o StorageAccountCredentialOutput) BlobDomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.BlobDomainName }).(pulumi.StringPtrOutput)
+}
+
+// Connection string for the storage account. Use this string if username and account key are not specified.
+func (o StorageAccountCredentialOutput) ConnectionString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.ConnectionString }).(pulumi.StringPtrOutput)
+}
+
+// The object name.
+func (o StorageAccountCredentialOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Signifies whether SSL needs to be enabled or not.
+func (o StorageAccountCredentialOutput) SslStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.SslStatus }).(pulumi.StringOutput)
+}
+
+// Id of the storage account.
+func (o StorageAccountCredentialOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// StorageAccountCredential object
+func (o StorageAccountCredentialOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The hierarchical type of the object.
+func (o StorageAccountCredentialOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Username for the storage account.
+func (o StorageAccountCredentialOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccountCredential) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountCredentialOutput{})
 }

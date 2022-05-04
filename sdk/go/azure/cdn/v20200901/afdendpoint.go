@@ -161,6 +161,55 @@ func (o AFDEndpointOutput) ToAFDEndpointOutputWithContext(ctx context.Context) A
 	return o
 }
 
+func (o AFDEndpointOutput) DeploymentStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.DeploymentStatus }).(pulumi.StringOutput)
+}
+
+// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+func (o AFDEndpointOutput) EnabledState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringPtrOutput { return v.EnabledState }).(pulumi.StringPtrOutput)
+}
+
+// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+func (o AFDEndpointOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o AFDEndpointOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o AFDEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+func (o AFDEndpointOutput) OriginResponseTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.IntPtrOutput { return v.OriginResponseTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Provisioning status
+func (o AFDEndpointOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Read only system data
+func (o AFDEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *AFDEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AFDEndpointOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o AFDEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AFDEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AFDEndpointOutput{})
 }

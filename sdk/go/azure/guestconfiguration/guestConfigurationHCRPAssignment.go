@@ -155,6 +155,28 @@ func (o GuestConfigurationHCRPAssignmentOutput) ToGuestConfigurationHCRPAssignme
 	return o
 }
 
+// Region where the VM is located.
+func (o GuestConfigurationHCRPAssignmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the guest configuration assignment.
+func (o GuestConfigurationHCRPAssignmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Properties of the Guest configuration assignment.
+func (o GuestConfigurationHCRPAssignmentOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
+	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) GuestConfigurationAssignmentPropertiesResponseOutput {
+		return v.Properties
+	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o GuestConfigurationHCRPAssignmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestConfigurationHCRPAssignmentOutput{})
 }

@@ -136,6 +136,36 @@ func (o ManagementGroupNetworkManagerConnectionOutput) ToManagementGroupNetworkM
 	return o
 }
 
+// A description of the scope connection.
+func (o ManagementGroupNetworkManagerConnectionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ManagementGroupNetworkManagerConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagementGroupNetworkManagerConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network Manager Id.
+func (o ManagementGroupNetworkManagerConnectionOutput) NetworkManagerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) pulumi.StringPtrOutput { return v.NetworkManagerId }).(pulumi.StringPtrOutput)
+}
+
+// The system metadata related to this resource.
+func (o ManagementGroupNetworkManagerConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o ManagementGroupNetworkManagerConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroupNetworkManagerConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementGroupNetworkManagerConnectionOutput{})
 }

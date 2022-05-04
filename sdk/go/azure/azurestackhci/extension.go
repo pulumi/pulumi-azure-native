@@ -226,6 +226,91 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// Aggregate state of Arc Extensions across the nodes in this HCI cluster.
+func (o ExtensionOutput) AggregateState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.AggregateState }).(pulumi.StringOutput)
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o ExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o ExtensionOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o ExtensionOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o ExtensionOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// How the extension handler should be forced to update even if the extension configuration has not changed.
+func (o ExtensionOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o ExtensionOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o ExtensionOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o ExtensionOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o ExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// State of Arc Extension in each of the nodes.
+func (o ExtensionOutput) PerNodeExtensionDetails() PerNodeExtensionStateResponseArrayOutput {
+	return o.ApplyT(func(v *Extension) PerNodeExtensionStateResponseArrayOutput { return v.PerNodeExtensionDetails }).(PerNodeExtensionStateResponseArrayOutput)
+}
+
+// Protected settings (may contain secrets).
+func (o ExtensionOutput) ProtectedSettings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Extension) pulumi.AnyOutput { return v.ProtectedSettings }).(pulumi.AnyOutput)
+}
+
+// Provisioning state of the Extension proxy resource.
+func (o ExtensionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o ExtensionOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o ExtensionOutput) Settings() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Extension) pulumi.AnyOutput { return v.Settings }).(pulumi.AnyOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o ExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExtensionOutput{})
 }

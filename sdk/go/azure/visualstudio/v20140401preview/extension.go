@@ -154,6 +154,36 @@ func (o ExtensionOutput) ToExtensionOutputWithContext(ctx context.Context) Exten
 	return o
 }
 
+// Resource location.
+func (o ExtensionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension plan that was purchased.
+func (o ExtensionOutput) Plan() ExtensionResourcePlanResponsePtrOutput {
+	return o.ApplyT(func(v *Extension) ExtensionResourcePlanResponsePtrOutput { return v.Plan }).(ExtensionResourcePlanResponsePtrOutput)
+}
+
+// Resource properties.
+func (o ExtensionOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Resource tags.
+func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExtensionOutput{})
 }

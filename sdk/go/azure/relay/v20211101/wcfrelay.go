@@ -169,6 +169,66 @@ func (o WCFRelayOutput) ToWCFRelayOutputWithContext(ctx context.Context) WCFRela
 	return o
 }
 
+// The time the WCF relay was created.
+func (o WCFRelayOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Returns true if the relay is dynamic; otherwise, false.
+func (o WCFRelayOutput) IsDynamic() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.BoolOutput { return v.IsDynamic }).(pulumi.BoolOutput)
+}
+
+// The number of listeners for this relay. Note that min :1 and max:25 are supported.
+func (o WCFRelayOutput) ListenerCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.IntOutput { return v.ListenerCount }).(pulumi.IntOutput)
+}
+
+// The geo-location where the resource lives
+func (o WCFRelayOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o WCFRelayOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// WCF relay type.
+func (o WCFRelayOutput) RelayType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringPtrOutput { return v.RelayType }).(pulumi.StringPtrOutput)
+}
+
+// Returns true if client authorization is needed for this relay; otherwise, false.
+func (o WCFRelayOutput) RequiresClientAuthorization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.BoolPtrOutput { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
+}
+
+// Returns true if transport security is needed for this relay; otherwise, false.
+func (o WCFRelayOutput) RequiresTransportSecurity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.BoolPtrOutput { return v.RequiresTransportSecurity }).(pulumi.BoolPtrOutput)
+}
+
+// The system meta data relating to this resource.
+func (o WCFRelayOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WCFRelay) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+func (o WCFRelayOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The time the namespace was updated.
+func (o WCFRelayOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+func (o WCFRelayOutput) UserMetadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WCFRelay) pulumi.StringPtrOutput { return v.UserMetadata }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WCFRelayOutput{})
 }

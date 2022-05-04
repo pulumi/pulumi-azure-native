@@ -246,6 +246,86 @@ func (o ExpressRoutePortOutput) ToExpressRoutePortOutputWithContext(ctx context.
 	return o
 }
 
+// Date of the physical port allocation to be used in Letter of Authorization.
+func (o ExpressRoutePortOutput) AllocationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.AllocationDate }).(pulumi.StringOutput)
+}
+
+// Bandwidth of procured ports in Gbps.
+func (o ExpressRoutePortOutput) BandwidthInGbps() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.IntPtrOutput { return v.BandwidthInGbps }).(pulumi.IntPtrOutput)
+}
+
+// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+func (o ExpressRoutePortOutput) Circuits() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) SubResourceResponseArrayOutput { return v.Circuits }).(SubResourceResponseArrayOutput)
+}
+
+// Encapsulation method on physical ports.
+func (o ExpressRoutePortOutput) Encapsulation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringPtrOutput { return v.Encapsulation }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRoutePortOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Ether type of the physical port.
+func (o ExpressRoutePortOutput) EtherType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.EtherType }).(pulumi.StringOutput)
+}
+
+// The set of physical links of the ExpressRoutePort resource.
+func (o ExpressRoutePortOutput) Links() ExpressRouteLinkResponseArrayOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) ExpressRouteLinkResponseArrayOutput { return v.Links }).(ExpressRouteLinkResponseArrayOutput)
+}
+
+// Resource location.
+func (o ExpressRoutePortOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Maximum transmission unit of the physical port pair(s).
+func (o ExpressRoutePortOutput) Mtu() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.Mtu }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ExpressRoutePortOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the peering location that the ExpressRoutePort is mapped to physically.
+func (o ExpressRoutePortOutput) PeeringLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringPtrOutput { return v.PeeringLocation }).(pulumi.StringPtrOutput)
+}
+
+// Aggregate Gbps of associated circuit bandwidths.
+func (o ExpressRoutePortOutput) ProvisionedBandwidthInGbps() pulumi.Float64Output {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.Float64Output { return v.ProvisionedBandwidthInGbps }).(pulumi.Float64Output)
+}
+
+// The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+func (o ExpressRoutePortOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource GUID property of the ExpressRoutePort resource.
+func (o ExpressRoutePortOutput) ResourceGuid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringPtrOutput { return v.ResourceGuid }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags.
+func (o ExpressRoutePortOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ExpressRoutePortOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRoutePort) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRoutePortOutput{})
 }

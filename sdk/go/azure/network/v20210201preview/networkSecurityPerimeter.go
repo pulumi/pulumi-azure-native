@@ -159,6 +159,46 @@ func (o NetworkSecurityPerimeterOutput) ToNetworkSecurityPerimeterOutputWithCont
 	return o
 }
 
+// A description of the network security perimeter.
+func (o NetworkSecurityPerimeterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the network security perimeter.
+func (o NetworkSecurityPerimeterOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o NetworkSecurityPerimeterOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Resource location.
+func (o NetworkSecurityPerimeterOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o NetworkSecurityPerimeterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o NetworkSecurityPerimeterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkSecurityPerimeterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkSecurityPerimeterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkSecurityPerimeter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkSecurityPerimeterOutput{})
 }

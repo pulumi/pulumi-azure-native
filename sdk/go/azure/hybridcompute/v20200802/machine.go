@@ -224,6 +224,125 @@ func (o MachineOutput) ToMachineOutputWithContext(ctx context.Context) MachineOu
 	return o
 }
 
+// Specifies the AD fully qualified display name.
+func (o MachineOutput) AdFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.AdFqdn }).(pulumi.StringOutput)
+}
+
+// The hybrid machine agent full version.
+func (o MachineOutput) AgentVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.AgentVersion }).(pulumi.StringOutput)
+}
+
+// Public Key that the client provides to be used during initial resource onboarding
+func (o MachineOutput) ClientPublicKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringPtrOutput { return v.ClientPublicKey }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hybrid machine display name.
+func (o MachineOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Specifies the DNS fully qualified display name.
+func (o MachineOutput) DnsFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.DnsFqdn }).(pulumi.StringOutput)
+}
+
+// Specifies the Windows domain name.
+func (o MachineOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Details about the error state.
+func (o MachineOutput) ErrorDetails() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v *Machine) ErrorDetailResponseArrayOutput { return v.ErrorDetails }).(ErrorDetailResponseArrayOutput)
+}
+
+// Machine Extensions information
+func (o MachineOutput) Extensions() MachineExtensionInstanceViewResponseArrayOutput {
+	return o.ApplyT(func(v *Machine) MachineExtensionInstanceViewResponseArrayOutput { return v.Extensions }).(MachineExtensionInstanceViewResponseArrayOutput)
+}
+
+func (o MachineOutput) Identity() MachineResponseIdentityPtrOutput {
+	return o.ApplyT(func(v *Machine) MachineResponseIdentityPtrOutput { return v.Identity }).(MachineResponseIdentityPtrOutput)
+}
+
+// The time of the last status change.
+func (o MachineOutput) LastStatusChange() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.LastStatusChange }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o MachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to the geographic location of the resource.
+func (o MachineOutput) LocationData() LocationDataResponsePtrOutput {
+	return o.ApplyT(func(v *Machine) LocationDataResponsePtrOutput { return v.LocationData }).(LocationDataResponsePtrOutput)
+}
+
+// Specifies the hybrid machine FQDN.
+func (o MachineOutput) MachineFqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.MachineFqdn }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o MachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Operating System running on the hybrid machine.
+func (o MachineOutput) OsName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.OsName }).(pulumi.StringOutput)
+}
+
+// Specifies the operating system settings for the hybrid machine.
+func (o MachineOutput) OsProfile() MachinePropertiesResponseOsProfilePtrOutput {
+	return o.ApplyT(func(v *Machine) MachinePropertiesResponseOsProfilePtrOutput { return v.OsProfile }).(MachinePropertiesResponseOsProfilePtrOutput)
+}
+
+// Specifies the Operating System product SKU.
+func (o MachineOutput) OsSku() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.OsSku }).(pulumi.StringOutput)
+}
+
+// The version of Operating System running on the hybrid machine.
+func (o MachineOutput) OsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.OsVersion }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o MachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The status of the hybrid machine agent.
+func (o MachineOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o MachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o MachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the hybrid machine unique ID.
+func (o MachineOutput) VmId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringPtrOutput { return v.VmId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Arc Machine's unique SMBIOS ID
+func (o MachineOutput) VmUuid() pulumi.StringOutput {
+	return o.ApplyT(func(v *Machine) pulumi.StringOutput { return v.VmUuid }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MachineOutput{})
 }

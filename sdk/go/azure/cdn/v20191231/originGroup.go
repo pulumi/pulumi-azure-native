@@ -179,6 +179,50 @@ func (o OriginGroupOutput) ToOriginGroupOutputWithContext(ctx context.Context) O
 	return o
 }
 
+// Health probe settings to the origin that is used to determine the health of the origin.
+func (o OriginGroupOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
+	return o.ApplyT(func(v *OriginGroup) HealthProbeParametersResponsePtrOutput { return v.HealthProbeSettings }).(HealthProbeParametersResponsePtrOutput)
+}
+
+// Resource name.
+func (o OriginGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The source of the content being delivered via CDN within given origin group.
+func (o OriginGroupOutput) Origins() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *OriginGroup) ResourceReferenceResponseArrayOutput { return v.Origins }).(ResourceReferenceResponseArrayOutput)
+}
+
+// Provisioning status of the origin group.
+func (o OriginGroupOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginGroup) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the origin group.
+func (o OriginGroupOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginGroup) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+func (o OriginGroupOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
+	return o.ApplyT(func(v *OriginGroup) ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
+		return v.ResponseBasedOriginErrorDetectionSettings
+	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
+}
+
+// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+func (o OriginGroupOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OriginGroup) pulumi.IntPtrOutput {
+		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o OriginGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OriginGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OriginGroupOutput{})
 }

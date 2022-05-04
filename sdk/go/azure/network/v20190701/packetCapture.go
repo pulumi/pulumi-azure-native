@@ -285,6 +285,51 @@ func (o PacketCaptureOutput) ToPacketCaptureOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Number of bytes captured per packet, the remaining bytes are truncated.
+func (o PacketCaptureOutput) BytesToCapturePerPacket() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.IntPtrOutput { return v.BytesToCapturePerPacket }).(pulumi.IntPtrOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o PacketCaptureOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// A list of packet capture filters.
+func (o PacketCaptureOutput) Filters() PacketCaptureFilterResponseArrayOutput {
+	return o.ApplyT(func(v *PacketCapture) PacketCaptureFilterResponseArrayOutput { return v.Filters }).(PacketCaptureFilterResponseArrayOutput)
+}
+
+// Name of the packet capture session.
+func (o PacketCaptureOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the packet capture session.
+func (o PacketCaptureOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Describes the storage location for a packet capture session.
+func (o PacketCaptureOutput) StorageLocation() PacketCaptureStorageLocationResponseOutput {
+	return o.ApplyT(func(v *PacketCapture) PacketCaptureStorageLocationResponseOutput { return v.StorageLocation }).(PacketCaptureStorageLocationResponseOutput)
+}
+
+// The ID of the targeted resource, only VM is currently supported.
+func (o PacketCaptureOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
+}
+
+// Maximum duration of the capture session in seconds.
+func (o PacketCaptureOutput) TimeLimitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.IntPtrOutput { return v.TimeLimitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size of the capture output.
+func (o PacketCaptureOutput) TotalBytesPerSession() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PacketCapture) pulumi.IntPtrOutput { return v.TotalBytesPerSession }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PacketCaptureOutput{})
 }

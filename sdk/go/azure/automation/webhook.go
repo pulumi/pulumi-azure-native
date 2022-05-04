@@ -181,6 +181,71 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
+// Gets or sets the creation time.
+func (o WebhookOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the description.
+func (o WebhookOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the expiry time.
+func (o WebhookOutput) ExpiryTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.ExpiryTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the value of the enabled flag of the webhook.
+func (o WebhookOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.BoolPtrOutput { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Gets or sets the last invoked time.
+func (o WebhookOutput) LastInvokedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.LastInvokedTime }).(pulumi.StringPtrOutput)
+}
+
+// Details of the user who last modified the Webhook
+func (o WebhookOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the last modified time.
+func (o WebhookOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o WebhookOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+func (o WebhookOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Gets or sets the name of the hybrid worker group the webhook job will run on.
+func (o WebhookOutput) RunOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.RunOn }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the runbook the webhook is associated with.
+func (o WebhookOutput) Runbook() RunbookAssociationPropertyResponsePtrOutput {
+	return o.ApplyT(func(v *Webhook) RunbookAssociationPropertyResponsePtrOutput { return v.Runbook }).(RunbookAssociationPropertyResponsePtrOutput)
+}
+
+// The type of the resource.
+func (o WebhookOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Gets or sets the webhook uri.
+func (o WebhookOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebhookOutput{})
 }

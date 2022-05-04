@@ -167,6 +167,26 @@ func (o BackupShortTermRetentionPolicyOutput) ToBackupShortTermRetentionPolicyOu
 	return o
 }
 
+// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+func (o BackupShortTermRetentionPolicyOutput) DiffBackupIntervalInHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.IntPtrOutput { return v.DiffBackupIntervalInHours }).(pulumi.IntPtrOutput)
+}
+
+// Resource name.
+func (o BackupShortTermRetentionPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+func (o BackupShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.IntPtrOutput { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+// Resource type.
+func (o BackupShortTermRetentionPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupShortTermRetentionPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupShortTermRetentionPolicyOutput{})
 }

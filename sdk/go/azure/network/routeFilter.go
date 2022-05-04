@@ -253,6 +253,51 @@ func (o RouteFilterOutput) ToRouteFilterOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o RouteFilterOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// A collection of references to express route circuit ipv6 peerings.
+func (o RouteFilterOutput) Ipv6Peerings() ExpressRouteCircuitPeeringResponseArrayOutput {
+	return o.ApplyT(func(v *RouteFilter) ExpressRouteCircuitPeeringResponseArrayOutput { return v.Ipv6Peerings }).(ExpressRouteCircuitPeeringResponseArrayOutput)
+}
+
+// Resource location.
+func (o RouteFilterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o RouteFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A collection of references to express route circuit peerings.
+func (o RouteFilterOutput) Peerings() ExpressRouteCircuitPeeringResponseArrayOutput {
+	return o.ApplyT(func(v *RouteFilter) ExpressRouteCircuitPeeringResponseArrayOutput { return v.Peerings }).(ExpressRouteCircuitPeeringResponseArrayOutput)
+}
+
+// The provisioning state of the route filter resource.
+func (o RouteFilterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Collection of RouteFilterRules contained within a route filter.
+func (o RouteFilterOutput) Rules() RouteFilterRuleResponseArrayOutput {
+	return o.ApplyT(func(v *RouteFilter) RouteFilterRuleResponseArrayOutput { return v.Rules }).(RouteFilterRuleResponseArrayOutput)
+}
+
+// Resource tags.
+func (o RouteFilterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o RouteFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteFilter) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RouteFilterOutput{})
 }

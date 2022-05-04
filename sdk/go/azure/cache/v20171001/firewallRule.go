@@ -168,6 +168,26 @@ func (o FirewallRuleOutput) ToFirewallRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
+// highest IP address included in the range
+func (o FirewallRuleOutput) EndIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.EndIP }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o FirewallRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// lowest IP address included in the range
+func (o FirewallRuleOutput) StartIP() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.StartIP }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o FirewallRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *FirewallRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FirewallRuleOutput{})
 }

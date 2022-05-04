@@ -135,6 +135,26 @@ func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) Solutio
 	return o
 }
 
+// Gets or sets the ETAG for optimistic concurrency control.
+func (o SolutionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Gets the name of this REST resource.
+func (o SolutionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Gets or sets the properties of the solution.
+func (o SolutionOutput) Properties() SolutionPropertiesResponseOutput {
+	return o.ApplyT(func(v *Solution) SolutionPropertiesResponseOutput { return v.Properties }).(SolutionPropertiesResponseOutput)
+}
+
+// Gets the type of this REST resource.
+func (o SolutionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SolutionOutput{})
 }

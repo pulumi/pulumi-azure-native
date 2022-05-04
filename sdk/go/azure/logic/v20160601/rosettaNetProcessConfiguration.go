@@ -209,6 +209,82 @@ func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOu
 	return o
 }
 
+// The RosettaNet process configuration activity settings.
+func (o RosettaNetProcessConfigurationOutput) ActivitySettings() RosettaNetPipActivitySettingsResponseOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) RosettaNetPipActivitySettingsResponseOutput {
+		return v.ActivitySettings
+	}).(RosettaNetPipActivitySettingsResponseOutput)
+}
+
+// The changed time.
+func (o RosettaNetProcessConfigurationOutput) ChangedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.ChangedTime }).(pulumi.StringOutput)
+}
+
+// The created time.
+func (o RosettaNetProcessConfigurationOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet ProcessConfiguration properties.
+func (o RosettaNetProcessConfigurationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The RosettaNet initiator role settings.
+func (o RosettaNetProcessConfigurationOutput) InitiatorRoleSettings() RosettaNetPipRoleSettingsResponseOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) RosettaNetPipRoleSettingsResponseOutput {
+		return v.InitiatorRoleSettings
+	}).(RosettaNetPipRoleSettingsResponseOutput)
+}
+
+// The resource location.
+func (o RosettaNetProcessConfigurationOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The metadata.
+func (o RosettaNetProcessConfigurationOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource name.
+func (o RosettaNetProcessConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process code.
+func (o RosettaNetProcessConfigurationOutput) ProcessCode() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.ProcessCode }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process name.
+func (o RosettaNetProcessConfigurationOutput) ProcessName() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.ProcessName }).(pulumi.StringOutput)
+}
+
+// The integration account RosettaNet process version.
+func (o RosettaNetProcessConfigurationOutput) ProcessVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.ProcessVersion }).(pulumi.StringOutput)
+}
+
+// The RosettaNet responder role settings.
+func (o RosettaNetProcessConfigurationOutput) ResponderRoleSettings() RosettaNetPipRoleSettingsResponseOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) RosettaNetPipRoleSettingsResponseOutput {
+		return v.ResponderRoleSettings
+	}).(RosettaNetPipRoleSettingsResponseOutput)
+}
+
+// The resource tags.
+func (o RosettaNetProcessConfigurationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Gets the resource type.
+func (o RosettaNetProcessConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RosettaNetProcessConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RosettaNetProcessConfigurationOutput{})
 }

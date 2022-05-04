@@ -166,6 +166,51 @@ func (o OrderItemByNameOutput) ToOrderItemByNameOutputWithContext(ctx context.Co
 	return o
 }
 
+// Represents shipping and return address for order item
+func (o OrderItemByNameOutput) AddressDetails() AddressDetailsResponseOutput {
+	return o.ApplyT(func(v *OrderItemByName) AddressDetailsResponseOutput { return v.AddressDetails }).(AddressDetailsResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o OrderItemByNameOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o OrderItemByNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Id of the order to which order item belongs to
+func (o OrderItemByNameOutput) OrderId() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringOutput { return v.OrderId }).(pulumi.StringOutput)
+}
+
+// Represents order item details.
+func (o OrderItemByNameOutput) OrderItemDetails() OrderItemDetailsResponseOutput {
+	return o.ApplyT(func(v *OrderItemByName) OrderItemDetailsResponseOutput { return v.OrderItemDetails }).(OrderItemDetailsResponseOutput)
+}
+
+// Start time of order item
+func (o OrderItemByNameOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringOutput { return v.StartTime }).(pulumi.StringOutput)
+}
+
+// Represents resource creation and update time
+func (o OrderItemByNameOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *OrderItemByName) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o OrderItemByNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o OrderItemByNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrderItemByName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OrderItemByNameOutput{})
 }

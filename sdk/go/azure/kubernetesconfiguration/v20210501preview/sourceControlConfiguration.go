@@ -233,6 +233,88 @@ func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutputWith
 	return o
 }
 
+// Compliance Status of the Configuration
+func (o SourceControlConfigurationOutput) ComplianceStatus() ComplianceStatusResponseOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) ComplianceStatusResponseOutput { return v.ComplianceStatus }).(ComplianceStatusResponseOutput)
+}
+
+// Name-value pairs of protected configuration settings for the configuration
+func (o SourceControlConfigurationOutput) ConfigurationProtectedSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringMapOutput { return v.ConfigurationProtectedSettings }).(pulumi.StringMapOutput)
+}
+
+// Option to enable Helm Operator for this git configuration.
+func (o SourceControlConfigurationOutput) EnableHelmOperator() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.BoolPtrOutput { return v.EnableHelmOperator }).(pulumi.BoolPtrOutput)
+}
+
+// Properties for Helm operator.
+func (o SourceControlConfigurationOutput) HelmOperatorProperties() HelmOperatorPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) HelmOperatorPropertiesResponsePtrOutput {
+		return v.HelmOperatorProperties
+	}).(HelmOperatorPropertiesResponsePtrOutput)
+}
+
+// The name of the resource
+func (o SourceControlConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Instance name of the operator - identifying the specific configuration.
+func (o SourceControlConfigurationOutput) OperatorInstanceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorInstanceName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
+func (o SourceControlConfigurationOutput) OperatorNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Any Parameters for the Operator instance in string format.
+func (o SourceControlConfigurationOutput) OperatorParams() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorParams }).(pulumi.StringPtrOutput)
+}
+
+// Scope at which the operator will be installed.
+func (o SourceControlConfigurationOutput) OperatorScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorScope }).(pulumi.StringPtrOutput)
+}
+
+// Type of the operator
+func (o SourceControlConfigurationOutput) OperatorType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.OperatorType }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource provider.
+func (o SourceControlConfigurationOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
+func (o SourceControlConfigurationOutput) RepositoryPublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.RepositoryPublicKey }).(pulumi.StringOutput)
+}
+
+// Url of the SourceControl Repository.
+func (o SourceControlConfigurationOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
+func (o SourceControlConfigurationOutput) SshKnownHostsContents() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringPtrOutput { return v.SshKnownHostsContents }).(pulumi.StringPtrOutput)
+}
+
+// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+func (o SourceControlConfigurationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o SourceControlConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceControlConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SourceControlConfigurationOutput{})
 }

@@ -229,6 +229,96 @@ func (o LiveEventOutput) ToLiveEventOutputWithContext(ctx context.Context) LiveE
 	return o
 }
 
+// The creation time for the live event
+func (o LiveEventOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Live event cross site access policies.
+func (o LiveEventOutput) CrossSiteAccessPolicies() CrossSiteAccessPoliciesResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) CrossSiteAccessPoliciesResponsePtrOutput { return v.CrossSiteAccessPolicies }).(CrossSiteAccessPoliciesResponsePtrOutput)
+}
+
+// A description for the live event.
+func (o LiveEventOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Encoding settings for the live event. It configures whether a live encoder is used for the live event and settings for the live encoder if it is used.
+func (o LiveEventOutput) Encoding() LiveEventEncodingResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventEncodingResponsePtrOutput { return v.Encoding }).(LiveEventEncodingResponsePtrOutput)
+}
+
+// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+func (o LiveEventOutput) HostnamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringPtrOutput { return v.HostnamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// Live event input settings. It defines how the live event receives input from a contribution encoder.
+func (o LiveEventOutput) Input() LiveEventInputResponseOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventInputResponseOutput { return v.Input }).(LiveEventInputResponseOutput)
+}
+
+// The last modified time of the live event.
+func (o LiveEventOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o LiveEventOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o LiveEventOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
+func (o LiveEventOutput) Preview() LiveEventPreviewResponsePtrOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventPreviewResponsePtrOutput { return v.Preview }).(LiveEventPreviewResponsePtrOutput)
+}
+
+// The provisioning state of the live event.
+func (o LiveEventOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource state of the live event. See https://go.microsoft.com/fwlink/?linkid=2139012 for more information.
+func (o LiveEventOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+func (o LiveEventOutput) StreamOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringArrayOutput { return v.StreamOptions }).(pulumi.StringArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o LiveEventOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *LiveEvent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o LiveEventOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
+func (o LiveEventOutput) Transcriptions() LiveEventTranscriptionResponseArrayOutput {
+	return o.ApplyT(func(v *LiveEvent) LiveEventTranscriptionResponseArrayOutput { return v.Transcriptions }).(LiveEventTranscriptionResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o LiveEventOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
+func (o LiveEventOutput) UseStaticHostname() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LiveEvent) pulumi.BoolPtrOutput { return v.UseStaticHostname }).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(LiveEventOutput{})
 }

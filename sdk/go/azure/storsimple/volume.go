@@ -201,6 +201,66 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 	return o
 }
 
+// The IDs of the access control records, associated with the volume.
+func (o VolumeOutput) AccessControlRecordIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringArrayOutput { return v.AccessControlRecordIds }).(pulumi.StringArrayOutput)
+}
+
+// The IDs of the backup policies, in which this volume is part of.
+func (o VolumeOutput) BackupPolicyIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringArrayOutput { return v.BackupPolicyIds }).(pulumi.StringArrayOutput)
+}
+
+// The backup status of the volume.
+func (o VolumeOutput) BackupStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.BackupStatus }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o VolumeOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The monitoring status of the volume.
+func (o VolumeOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.MonitoringStatus }).(pulumi.StringOutput)
+}
+
+// The name of the object.
+func (o VolumeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The operation status on the volume.
+func (o VolumeOutput) OperationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.OperationStatus }).(pulumi.StringOutput)
+}
+
+// The size of the volume in bytes.
+func (o VolumeOutput) SizeInBytes() pulumi.Float64Output {
+	return o.ApplyT(func(v *Volume) pulumi.Float64Output { return v.SizeInBytes }).(pulumi.Float64Output)
+}
+
+// The hierarchical type of the object.
+func (o VolumeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The ID of the volume container, in which this volume is created.
+func (o VolumeOutput) VolumeContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeContainerId }).(pulumi.StringOutput)
+}
+
+// The volume status.
+func (o VolumeOutput) VolumeStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeStatus }).(pulumi.StringOutput)
+}
+
+// The type of the volume.
+func (o VolumeOutput) VolumeType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.VolumeType }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VolumeOutput{})
 }

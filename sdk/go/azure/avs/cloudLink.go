@@ -139,6 +139,26 @@ func (o CloudLinkOutput) ToCloudLinkOutputWithContext(ctx context.Context) Cloud
 	return o
 }
 
+// Identifier of the other private cloud participating in the link.
+func (o CloudLinkOutput) LinkedCloud() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudLink) pulumi.StringPtrOutput { return v.LinkedCloud }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o CloudLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudLink) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The state of the cloud link.
+func (o CloudLinkOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudLink) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o CloudLinkOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudLink) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudLinkOutput{})
 }

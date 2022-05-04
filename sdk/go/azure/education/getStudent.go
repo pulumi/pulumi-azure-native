@@ -209,6 +209,76 @@ func (o GetStudentOutput) ToGetStudentOutputWithContext(ctx context.Context) Get
 	return o
 }
 
+// Student Budget
+func (o GetStudentOutput) Budget() AmountResponseOutput {
+	return o.ApplyT(func(v *GetStudent) AmountResponseOutput { return v.Budget }).(AmountResponseOutput)
+}
+
+// Date student was added to the lab
+func (o GetStudentOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.EffectiveDate }).(pulumi.StringOutput)
+}
+
+// Student Email
+func (o GetStudentOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// Date this student is set to expire from the lab.
+func (o GetStudentOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// First Name
+func (o GetStudentOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Last Name
+func (o GetStudentOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.LastName }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o GetStudentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Student Role
+func (o GetStudentOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+}
+
+// Student Lab Status
+func (o GetStudentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Subscription alias
+func (o GetStudentOutput) SubscriptionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringPtrOutput { return v.SubscriptionAlias }).(pulumi.StringPtrOutput)
+}
+
+// Subscription Id
+func (o GetStudentOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// subscription invite last sent date
+func (o GetStudentOutput) SubscriptionInviteLastSentDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringPtrOutput { return v.SubscriptionInviteLastSentDate }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o GetStudentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GetStudent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o GetStudentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GetStudentOutput{})
 }

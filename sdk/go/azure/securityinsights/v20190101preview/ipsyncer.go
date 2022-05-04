@@ -163,6 +163,31 @@ func (o IPSyncerOutput) ToIPSyncerOutputWithContext(ctx context.Context) IPSynce
 	return o
 }
 
+// Etag of the azure resource
+func (o IPSyncerOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IPSyncer) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the setting is enable or disabled.
+func (o IPSyncerOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *IPSyncer) pulumi.BoolOutput { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Expected value is 'IPSyncer'.
+func (o IPSyncerOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSyncer) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Azure resource name
+func (o IPSyncerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSyncer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Azure resource type
+func (o IPSyncerOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IPSyncer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IPSyncerOutput{})
 }

@@ -153,6 +153,48 @@ func (o CustomResourceProviderOutput) ToCustomResourceProviderOutputWithContext(
 	return o
 }
 
+// A list of actions that the custom resource provider implements.
+func (o CustomResourceProviderOutput) Actions() CustomRPActionRouteDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) CustomRPActionRouteDefinitionResponseArrayOutput { return v.Actions }).(CustomRPActionRouteDefinitionResponseArrayOutput)
+}
+
+// Resource location
+func (o CustomResourceProviderOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o CustomResourceProviderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource provider.
+func (o CustomResourceProviderOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// A list of resource types that the custom resource provider implements.
+func (o CustomResourceProviderOutput) ResourceTypes() CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
+		return v.ResourceTypes
+	}).(CustomRPResourceTypeRouteDefinitionResponseArrayOutput)
+}
+
+// Resource tags
+func (o CustomResourceProviderOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o CustomResourceProviderOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// A list of validations to run on the custom resource provider's requests.
+func (o CustomResourceProviderOutput) Validations() CustomRPValidationsResponseArrayOutput {
+	return o.ApplyT(func(v *CustomResourceProvider) CustomRPValidationsResponseArrayOutput { return v.Validations }).(CustomRPValidationsResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomResourceProviderOutput{})
 }

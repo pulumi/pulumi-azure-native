@@ -178,6 +178,66 @@ func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutputWithContext(
 	return o
 }
 
+// Correspond domain name of certain Spatial Anchors Account
+func (o RemoteRenderingAccountOutput) AccountDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringOutput { return v.AccountDomain }).(pulumi.StringOutput)
+}
+
+// unique id of certain account.
+func (o RemoteRenderingAccountOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The identity associated with this account
+func (o RemoteRenderingAccountOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// The kind of account, if supported
+func (o RemoteRenderingAccountOutput) Kind() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) SkuResponsePtrOutput { return v.Kind }).(SkuResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o RemoteRenderingAccountOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o RemoteRenderingAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The plan associated with this account
+func (o RemoteRenderingAccountOutput) Plan() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) IdentityResponsePtrOutput { return v.Plan }).(IdentityResponsePtrOutput)
+}
+
+// The sku associated with this account
+func (o RemoteRenderingAccountOutput) Sku() SkuResponsePtrOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) SkuResponsePtrOutput { return v.Sku }).(SkuResponsePtrOutput)
+}
+
+// The name of the storage account associated with this accountId
+func (o RemoteRenderingAccountOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// System metadata for this account
+func (o RemoteRenderingAccountOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o RemoteRenderingAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o RemoteRenderingAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RemoteRenderingAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RemoteRenderingAccountOutput{})
 }

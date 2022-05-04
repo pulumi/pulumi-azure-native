@@ -252,6 +252,66 @@ func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Expected bandwidth in MBPS.
+func (o VpnConnectionOutput) ConnectionBandwidth() pulumi.IntOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.IntOutput { return v.ConnectionBandwidth }).(pulumi.IntOutput)
+}
+
+// The connection status.
+func (o VpnConnectionOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// Egress bytes transferred.
+func (o VpnConnectionOutput) EgressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v *VpnConnection) pulumi.Float64Output { return v.EgressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// EnableBgp flag
+func (o VpnConnectionOutput) EnableBgp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.BoolPtrOutput { return v.EnableBgp }).(pulumi.BoolPtrOutput)
+}
+
+// Gets a unique read-only string that changes whenever the resource is updated.
+func (o VpnConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Ingress bytes transferred.
+func (o VpnConnectionOutput) IngressBytesTransferred() pulumi.Float64Output {
+	return o.ApplyT(func(v *VpnConnection) pulumi.Float64Output { return v.IngressBytesTransferred }).(pulumi.Float64Output)
+}
+
+// The IPSec Policies to be considered by this connection.
+func (o VpnConnectionOutput) IpsecPolicies() IpsecPolicyResponseArrayOutput {
+	return o.ApplyT(func(v *VpnConnection) IpsecPolicyResponseArrayOutput { return v.IpsecPolicies }).(IpsecPolicyResponseArrayOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o VpnConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o VpnConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Id of the connected vpn site.
+func (o VpnConnectionOutput) RemoteVpnSite() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VpnConnection) SubResourceResponsePtrOutput { return v.RemoteVpnSite }).(SubResourceResponsePtrOutput)
+}
+
+// routing weight for vpn connection.
+func (o VpnConnectionOutput) RoutingWeight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.IntPtrOutput { return v.RoutingWeight }).(pulumi.IntPtrOutput)
+}
+
+// SharedKey for the vpn connection.
+func (o VpnConnectionOutput) SharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.SharedKey }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VpnConnectionOutput{})
 }

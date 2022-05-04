@@ -220,6 +220,81 @@ func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The type of the storage account.
+func (o StorageAccountOutput) AccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.AccountType }).(pulumi.StringPtrOutput)
+}
+
+// The creation date and time of the storage account in UTC.
+func (o StorageAccountOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The custom domain the user assigned to this storage account.
+func (o StorageAccountOutput) CustomDomain() CustomDomainResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) CustomDomainResponsePtrOutput { return v.CustomDomain }).(CustomDomainResponsePtrOutput)
+}
+
+// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) LastGeoFailoverTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.LastGeoFailoverTime }).(pulumi.StringPtrOutput)
+}
+
+// Resource location
+func (o StorageAccountOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name
+func (o StorageAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+func (o StorageAccountOutput) PrimaryEndpoints() EndpointsResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) EndpointsResponsePtrOutput { return v.PrimaryEndpoints }).(EndpointsResponsePtrOutput)
+}
+
+// The location of the primary data center for the storage account.
+func (o StorageAccountOutput) PrimaryLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.PrimaryLocation }).(pulumi.StringPtrOutput)
+}
+
+// The status of the storage account at the time the operation was called.
+func (o StorageAccountOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+func (o StorageAccountOutput) SecondaryEndpoints() EndpointsResponsePtrOutput {
+	return o.ApplyT(func(v *StorageAccount) EndpointsResponsePtrOutput { return v.SecondaryEndpoints }).(EndpointsResponsePtrOutput)
+}
+
+// The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) SecondaryLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.SecondaryLocation }).(pulumi.StringPtrOutput)
+}
+
+// The status indicating whether the primary location of the storage account is available or unavailable.
+func (o StorageAccountOutput) StatusOfPrimary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.StatusOfPrimary }).(pulumi.StringPtrOutput)
+}
+
+// The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+func (o StorageAccountOutput) StatusOfSecondary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringPtrOutput { return v.StatusOfSecondary }).(pulumi.StringPtrOutput)
+}
+
+// Resource tags
+func (o StorageAccountOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o StorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 }

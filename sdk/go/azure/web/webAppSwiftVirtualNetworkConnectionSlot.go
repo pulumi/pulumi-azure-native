@@ -175,6 +175,36 @@ func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) ToWebAppSwiftVirtualNetwo
 	return o
 }
 
+// Kind of resource.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) SubnetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) pulumi.StringPtrOutput { return v.SubnetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) SwiftSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) pulumi.BoolPtrOutput { return v.SwiftSupported }).(pulumi.BoolPtrOutput)
+}
+
+// The system metadata relating to this resource.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource type.
+func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppSwiftVirtualNetworkConnectionSlot) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppSwiftVirtualNetworkConnectionSlotOutput{})
 }

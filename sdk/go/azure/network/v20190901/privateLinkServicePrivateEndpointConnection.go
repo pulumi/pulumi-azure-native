@@ -188,6 +188,45 @@ func (o PrivateLinkServicePrivateEndpointConnectionOutput) ToPrivateLinkServiceP
 	return o
 }
 
+// A unique read-only string that changes whenever the resource is updated.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The consumer link id.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) LinkIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) pulumi.StringOutput { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The resource of private end point.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) PrivateEndpointResponseOutput {
+		return v.PrivateEndpoint
+	}).(PrivateEndpointResponseOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) PrivateLinkServiceConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o PrivateLinkServicePrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PrivateLinkServicePrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PrivateLinkServicePrivateEndpointConnectionOutput{})
 }

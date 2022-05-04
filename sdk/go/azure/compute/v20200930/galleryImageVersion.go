@@ -183,6 +183,48 @@ func (o GalleryImageVersionOutput) ToGalleryImageVersionOutputWithContext(ctx co
 	return o
 }
 
+// Resource location
+func (o GalleryImageVersionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o GalleryImageVersionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o GalleryImageVersionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The publishing profile of a gallery image Version.
+func (o GalleryImageVersionOutput) PublishingProfile() GalleryImageVersionPublishingProfileResponsePtrOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) GalleryImageVersionPublishingProfileResponsePtrOutput {
+		return v.PublishingProfile
+	}).(GalleryImageVersionPublishingProfileResponsePtrOutput)
+}
+
+// This is the replication status of the gallery image version.
+func (o GalleryImageVersionOutput) ReplicationStatus() ReplicationStatusResponseOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) ReplicationStatusResponseOutput { return v.ReplicationStatus }).(ReplicationStatusResponseOutput)
+}
+
+// This is the storage profile of a Gallery Image Version.
+func (o GalleryImageVersionOutput) StorageProfile() GalleryImageVersionStorageProfileResponseOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) GalleryImageVersionStorageProfileResponseOutput { return v.StorageProfile }).(GalleryImageVersionStorageProfileResponseOutput)
+}
+
+// Resource tags
+func (o GalleryImageVersionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o GalleryImageVersionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GalleryImageVersion) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GalleryImageVersionOutput{})
 }

@@ -145,6 +145,36 @@ func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionL
 	return o
 }
 
+// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+func (o ManagementLockAtSubscriptionLevelOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) pulumi.StringOutput { return v.Level }).(pulumi.StringOutput)
+}
+
+// The name of the lock.
+func (o ManagementLockAtSubscriptionLevelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notes about the lock. Maximum of 512 characters.
+func (o ManagementLockAtSubscriptionLevelOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) pulumi.StringPtrOutput { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The owners of the lock.
+func (o ManagementLockAtSubscriptionLevelOutput) Owners() ManagementLockOwnerResponseArrayOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) ManagementLockOwnerResponseArrayOutput { return v.Owners }).(ManagementLockOwnerResponseArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ManagementLockAtSubscriptionLevelOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The resource type of the lock - Microsoft.Authorization/locks.
+func (o ManagementLockAtSubscriptionLevelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementLockAtSubscriptionLevel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementLockAtSubscriptionLevelOutput{})
 }

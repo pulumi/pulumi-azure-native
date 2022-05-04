@@ -181,6 +181,58 @@ func (o EventChannelOutput) ToEventChannelOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Represents the destination of an event channel.
+func (o EventChannelOutput) Destination() EventChannelDestinationResponsePtrOutput {
+	return o.ApplyT(func(v *EventChannel) EventChannelDestinationResponsePtrOutput { return v.Destination }).(EventChannelDestinationResponsePtrOutput)
+}
+
+// Expiration time of the event channel. If this timer expires while the corresponding partner topic is never activated,
+// the event channel and corresponding partner topic are deleted.
+func (o EventChannelOutput) ExpirationTimeIfNotActivatedUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringPtrOutput { return v.ExpirationTimeIfNotActivatedUtc }).(pulumi.StringPtrOutput)
+}
+
+// Information about the filter for the event channel.
+func (o EventChannelOutput) Filter() EventChannelFilterResponsePtrOutput {
+	return o.ApplyT(func(v *EventChannel) EventChannelFilterResponsePtrOutput { return v.Filter }).(EventChannelFilterResponsePtrOutput)
+}
+
+// Name of the resource.
+func (o EventChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
+// This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+func (o EventChannelOutput) PartnerTopicFriendlyDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringPtrOutput { return v.PartnerTopicFriendlyDescription }).(pulumi.StringPtrOutput)
+}
+
+// The readiness state of the corresponding partner topic.
+func (o EventChannelOutput) PartnerTopicReadinessState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringOutput { return v.PartnerTopicReadinessState }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the event channel.
+func (o EventChannelOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Source of the event channel. This represents a unique resource in the partner's resource model.
+func (o EventChannelOutput) Source() EventChannelSourceResponsePtrOutput {
+	return o.ApplyT(func(v *EventChannel) EventChannelSourceResponsePtrOutput { return v.Source }).(EventChannelSourceResponsePtrOutput)
+}
+
+// The system metadata relating to Event Channel resource.
+func (o EventChannelOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *EventChannel) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Type of the resource.
+func (o EventChannelOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventChannel) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventChannelOutput{})
 }

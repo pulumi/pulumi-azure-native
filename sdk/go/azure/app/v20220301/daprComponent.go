@@ -174,6 +174,56 @@ func (o DaprComponentOutput) ToDaprComponentOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Component type
+func (o DaprComponentOutput) ComponentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringPtrOutput { return v.ComponentType }).(pulumi.StringPtrOutput)
+}
+
+// Boolean describing if the component errors are ignores
+func (o DaprComponentOutput) IgnoreErrors() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.BoolPtrOutput { return v.IgnoreErrors }).(pulumi.BoolPtrOutput)
+}
+
+// Initialization timeout
+func (o DaprComponentOutput) InitTimeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringPtrOutput { return v.InitTimeout }).(pulumi.StringPtrOutput)
+}
+
+// Component metadata
+func (o DaprComponentOutput) Metadata() DaprMetadataResponseArrayOutput {
+	return o.ApplyT(func(v *DaprComponent) DaprMetadataResponseArrayOutput { return v.Metadata }).(DaprMetadataResponseArrayOutput)
+}
+
+// The name of the resource
+func (o DaprComponentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Names of container apps that can use this Dapr component
+func (o DaprComponentOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+// Collection of secrets used by a Dapr component
+func (o DaprComponentOutput) Secrets() SecretResponseArrayOutput {
+	return o.ApplyT(func(v *DaprComponent) SecretResponseArrayOutput { return v.Secrets }).(SecretResponseArrayOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o DaprComponentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *DaprComponent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o DaprComponentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Component version
+func (o DaprComponentOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DaprComponent) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DaprComponentOutput{})
 }

@@ -163,6 +163,41 @@ func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// The creation date of the Policy
+func (o ContentKeyPolicyOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// A description for the Policy.
+func (o ContentKeyPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The last modified date of the Policy
+func (o ContentKeyPolicyOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o ContentKeyPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Key Policy options.
+func (o ContentKeyPolicyOutput) Options() ContentKeyPolicyOptionResponseArrayOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) ContentKeyPolicyOptionResponseArrayOutput { return v.Options }).(ContentKeyPolicyOptionResponseArrayOutput)
+}
+
+// The legacy Policy ID.
+func (o ContentKeyPolicyOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o ContentKeyPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContentKeyPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ContentKeyPolicyOutput{})
 }

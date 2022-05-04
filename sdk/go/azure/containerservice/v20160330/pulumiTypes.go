@@ -545,6 +545,17 @@ type ContainerServiceMasterProfileArgs struct {
 	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
 }
 
+// Defaults sets the appropriate defaults for ContainerServiceMasterProfileArgs
+func (val *ContainerServiceMasterProfileArgs) Defaults() *ContainerServiceMasterProfileArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		tmp.Count = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
 func (ContainerServiceMasterProfileArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerServiceMasterProfile)(nil)).Elem()
 }

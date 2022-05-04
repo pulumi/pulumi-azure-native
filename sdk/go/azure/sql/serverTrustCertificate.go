@@ -144,6 +144,31 @@ func (o ServerTrustCertificateOutput) ToServerTrustCertificateOutputWithContext(
 	return o
 }
 
+// The certificate name
+func (o ServerTrustCertificateOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustCertificate) pulumi.StringOutput { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ServerTrustCertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustCertificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The certificate public blob
+func (o ServerTrustCertificateOutput) PublicBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerTrustCertificate) pulumi.StringPtrOutput { return v.PublicBlob }).(pulumi.StringPtrOutput)
+}
+
+// The certificate thumbprint
+func (o ServerTrustCertificateOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustCertificate) pulumi.StringOutput { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o ServerTrustCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerTrustCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerTrustCertificateOutput{})
 }

@@ -144,6 +144,41 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx 
 	return o
 }
 
+// The id of the app associated with the identity. This is a random generated UUID by MSI.
+func (o UserAssignedIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The geo-location where the resource lives
+func (o UserAssignedIdentityOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o UserAssignedIdentityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The id of the service principal object associated with the created identity.
+func (o UserAssignedIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o UserAssignedIdentityOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The id of the tenant which the identity belongs to.
+func (o UserAssignedIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o UserAssignedIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserAssignedIdentity) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 }

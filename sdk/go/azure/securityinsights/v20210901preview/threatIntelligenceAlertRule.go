@@ -193,6 +193,67 @@ func (o ThreatIntelligenceAlertRuleOutput) ToThreatIntelligenceAlertRuleOutputWi
 	return o
 }
 
+// The Name of the alert rule template used to create this rule.
+func (o ThreatIntelligenceAlertRuleOutput) AlertRuleTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.AlertRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// The description of the alert rule.
+func (o ThreatIntelligenceAlertRuleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// The display name for alerts created by this alert rule.
+func (o ThreatIntelligenceAlertRuleOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Determines whether this alert rule is enabled or disabled.
+func (o ThreatIntelligenceAlertRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Etag of the azure resource
+func (o ThreatIntelligenceAlertRuleOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the alert rule
+// Expected value is 'ThreatIntelligence'.
+func (o ThreatIntelligenceAlertRuleOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The last time that this alert has been modified.
+func (o ThreatIntelligenceAlertRuleOutput) LastModifiedUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.LastModifiedUtc }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ThreatIntelligenceAlertRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The severity for alerts created by this alert rule.
+func (o ThreatIntelligenceAlertRuleOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.Severity }).(pulumi.StringOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o ThreatIntelligenceAlertRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The tactics of the alert rule
+func (o ThreatIntelligenceAlertRuleOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ThreatIntelligenceAlertRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelligenceAlertRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ThreatIntelligenceAlertRuleOutput{})
 }

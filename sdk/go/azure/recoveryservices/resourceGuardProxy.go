@@ -151,6 +151,36 @@ func (o ResourceGuardProxyOutput) ToResourceGuardProxyOutputWithContext(ctx cont
 	return o
 }
 
+// Optional ETag.
+func (o ResourceGuardProxyOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o ResourceGuardProxyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name associated with the resource.
+func (o ResourceGuardProxyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// ResourceGuardProxyBaseResource properties
+func (o ResourceGuardProxyOutput) Properties() ResourceGuardProxyBaseResponseOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) ResourceGuardProxyBaseResponseOutput { return v.Properties }).(ResourceGuardProxyBaseResponseOutput)
+}
+
+// Resource tags.
+func (o ResourceGuardProxyOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+func (o ResourceGuardProxyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGuardProxy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceGuardProxyOutput{})
 }

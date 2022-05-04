@@ -255,6 +255,111 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
+// The cluster data ingestion URI.
+func (o ClusterOutput) DataIngestionUri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DataIngestionUri }).(pulumi.StringOutput)
+}
+
+// A boolean value that indicates if the cluster's disks are encrypted.
+func (o ClusterOutput) EnableDiskEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableDiskEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean value that indicates if double encryption is enabled.
+func (o ClusterOutput) EnableDoubleEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableDoubleEncryption }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean value that indicates if the purge operations are enabled.
+func (o ClusterOutput) EnablePurge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnablePurge }).(pulumi.BoolPtrOutput)
+}
+
+// A boolean value that indicates if the streaming ingest is enabled.
+func (o ClusterOutput) EnableStreamingIngest() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableStreamingIngest }).(pulumi.BoolPtrOutput)
+}
+
+// The identity of the cluster, if configured.
+func (o ClusterOutput) Identity() IdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) IdentityResponsePtrOutput { return v.Identity }).(IdentityResponsePtrOutput)
+}
+
+// KeyVault properties for the cluster encryption.
+func (o ClusterOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) KeyVaultPropertiesResponsePtrOutput { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// List of the cluster's language extensions.
+func (o ClusterOutput) LanguageExtensions() LanguageExtensionsListResponseOutput {
+	return o.ApplyT(func(v *Cluster) LanguageExtensionsListResponseOutput { return v.LanguageExtensions }).(LanguageExtensionsListResponseOutput)
+}
+
+// The geo-location where the resource lives
+func (o ClusterOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ClusterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Optimized auto scale definition.
+func (o ClusterOutput) OptimizedAutoscale() OptimizedAutoscaleResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) OptimizedAutoscaleResponsePtrOutput { return v.OptimizedAutoscale }).(OptimizedAutoscaleResponsePtrOutput)
+}
+
+// The provisioned state of the resource.
+func (o ClusterOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The SKU of the cluster.
+func (o ClusterOutput) Sku() AzureSkuResponseOutput {
+	return o.ApplyT(func(v *Cluster) AzureSkuResponseOutput { return v.Sku }).(AzureSkuResponseOutput)
+}
+
+// The state of the resource.
+func (o ClusterOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The reason for the cluster's current state.
+func (o ClusterOutput) StateReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.StateReason }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o ClusterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The cluster's external tenants.
+func (o ClusterOutput) TrustedExternalTenants() TrustedExternalTenantResponseArrayOutput {
+	return o.ApplyT(func(v *Cluster) TrustedExternalTenantResponseArrayOutput { return v.TrustedExternalTenants }).(TrustedExternalTenantResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ClusterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The cluster URI.
+func (o ClusterOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Uri }).(pulumi.StringOutput)
+}
+
+// Virtual network definition.
+func (o ClusterOutput) VirtualNetworkConfiguration() VirtualNetworkConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Cluster) VirtualNetworkConfigurationResponsePtrOutput { return v.VirtualNetworkConfiguration }).(VirtualNetworkConfigurationResponsePtrOutput)
+}
+
+// The availability zones of the cluster.
+func (o ClusterOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterOutput{})
 }

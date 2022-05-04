@@ -142,6 +142,21 @@ func (o AddonOutput) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return o
 }
 
+// Resource name.
+func (o AddonOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of an addon resource
+func (o AddonOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Addon) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
+}
+
+// Resource type.
+func (o AddonOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Addon) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AddonOutput{})
 }

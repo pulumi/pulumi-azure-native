@@ -155,6 +155,51 @@ func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOu
 	return o
 }
 
+// Time the factory was created in ISO8601 format.
+func (o FactoryOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
+// Managed service identity of the factory.
+func (o FactoryOutput) Identity() FactoryIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Factory) FactoryIdentityResponsePtrOutput { return v.Identity }).(FactoryIdentityResponsePtrOutput)
+}
+
+// The resource location.
+func (o FactoryOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The resource name.
+func (o FactoryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Factory provisioning state, example Succeeded.
+func (o FactoryOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The resource tags.
+func (o FactoryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type.
+func (o FactoryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Version of the factory.
+func (o FactoryOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *Factory) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
+// VSTS repo information of the factory.
+func (o FactoryOutput) VstsConfiguration() FactoryVSTSConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Factory) FactoryVSTSConfigurationResponsePtrOutput { return v.VstsConfiguration }).(FactoryVSTSConfigurationResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(FactoryOutput{})
 }

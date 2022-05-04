@@ -164,6 +164,51 @@ func (o ForwardingRuleOutput) ToForwardingRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The domain name for the forwarding rule.
+func (o ForwardingRuleOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// ETag of the forwarding rule.
+func (o ForwardingRuleOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The state of forwarding rule.
+func (o ForwardingRuleOutput) ForwardingRuleState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringPtrOutput { return v.ForwardingRuleState }).(pulumi.StringPtrOutput)
+}
+
+// Metadata attached to the forwarding rule.
+func (o ForwardingRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the resource
+func (o ForwardingRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
+func (o ForwardingRuleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ForwardingRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *ForwardingRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// DNS servers to forward the DNS query to.
+func (o ForwardingRuleOutput) TargetDnsServers() TargetDnsServerResponseArrayOutput {
+	return o.ApplyT(func(v *ForwardingRule) TargetDnsServerResponseArrayOutput { return v.TargetDnsServers }).(TargetDnsServerResponseArrayOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ForwardingRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ForwardingRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ForwardingRuleOutput{})
 }

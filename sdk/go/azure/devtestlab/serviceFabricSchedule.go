@@ -214,6 +214,81 @@ func (o ServiceFabricScheduleOutput) ToServiceFabricScheduleOutputWithContext(ct
 	return o
 }
 
+// The creation date of the schedule.
+func (o ServiceFabricScheduleOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o ServiceFabricScheduleOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) DayDetailsResponsePtrOutput { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o ServiceFabricScheduleOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) HourDetailsResponsePtrOutput { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
+// The location of the resource.
+func (o ServiceFabricScheduleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o ServiceFabricScheduleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Notification settings.
+func (o ServiceFabricScheduleOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) NotificationSettingsResponsePtrOutput { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o ServiceFabricScheduleOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o ServiceFabricScheduleOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The tags of the resource.
+func (o ServiceFabricScheduleOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource ID to which the schedule belongs
+func (o ServiceFabricScheduleOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o ServiceFabricScheduleOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringPtrOutput { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o ServiceFabricScheduleOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringPtrOutput { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.
+func (o ServiceFabricScheduleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ServiceFabricScheduleOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o ServiceFabricScheduleOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ServiceFabricSchedule) WeekDetailsResponsePtrOutput { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceFabricScheduleOutput{})
 }

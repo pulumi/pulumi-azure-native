@@ -179,6 +179,36 @@ func (o ManagedInstanceAdministratorOutput) ToManagedInstanceAdministratorOutput
 	return o
 }
 
+// Type of the managed instance administrator.
+func (o ManagedInstanceAdministratorOutput) AdministratorType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringOutput { return v.AdministratorType }).(pulumi.StringOutput)
+}
+
+// Login name of the managed instance administrator.
+func (o ManagedInstanceAdministratorOutput) Login() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringOutput { return v.Login }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o ManagedInstanceAdministratorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SID (object ID) of the managed instance administrator.
+func (o ManagedInstanceAdministratorOutput) Sid() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringOutput { return v.Sid }).(pulumi.StringOutput)
+}
+
+// Tenant ID of the managed instance administrator.
+func (o ManagedInstanceAdministratorOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Resource type.
+func (o ManagedInstanceAdministratorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedInstanceAdministrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagedInstanceAdministratorOutput{})
 }

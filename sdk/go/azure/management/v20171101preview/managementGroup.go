@@ -151,6 +151,36 @@ func (o ManagementGroupOutput) ToManagementGroupOutputWithContext(ctx context.Co
 	return o
 }
 
+// The list of children.
+func (o ManagementGroupOutput) Children() ManagementGroupChildInfoResponseArrayOutput {
+	return o.ApplyT(func(v *ManagementGroup) ManagementGroupChildInfoResponseArrayOutput { return v.Children }).(ManagementGroupChildInfoResponseArrayOutput)
+}
+
+// The details of a management group.
+func (o ManagementGroupOutput) Details() ManagementGroupDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementGroup) ManagementGroupDetailsResponsePtrOutput { return v.Details }).(ManagementGroupDetailsResponsePtrOutput)
+}
+
+// The friendly name of the management group.
+func (o ManagementGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroup) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+func (o ManagementGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+func (o ManagementGroupOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementGroup) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource.  For example, /providers/Microsoft.Management/managementGroups
+func (o ManagementGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementGroupOutput{})
 }

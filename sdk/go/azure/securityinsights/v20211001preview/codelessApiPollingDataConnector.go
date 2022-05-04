@@ -177,6 +177,46 @@ func (o CodelessApiPollingDataConnectorOutput) ToCodelessApiPollingDataConnector
 	return o
 }
 
+// Config to describe the instructions blade
+func (o CodelessApiPollingDataConnectorOutput) ConnectorUiConfig() CodelessUiConnectorConfigPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) CodelessUiConnectorConfigPropertiesResponsePtrOutput {
+		return v.ConnectorUiConfig
+	}).(CodelessUiConnectorConfigPropertiesResponsePtrOutput)
+}
+
+// Etag of the azure resource
+func (o CodelessApiPollingDataConnectorOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The kind of the data connector
+// Expected value is 'APIPolling'.
+func (o CodelessApiPollingDataConnectorOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o CodelessApiPollingDataConnectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Config to describe the polling instructions
+func (o CodelessApiPollingDataConnectorOutput) PollingConfig() CodelessConnectorPollingConfigPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) CodelessConnectorPollingConfigPropertiesResponsePtrOutput {
+		return v.PollingConfig
+	}).(CodelessConnectorPollingConfigPropertiesResponsePtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CodelessApiPollingDataConnectorOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CodelessApiPollingDataConnectorOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodelessApiPollingDataConnector) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CodelessApiPollingDataConnectorOutput{})
 }

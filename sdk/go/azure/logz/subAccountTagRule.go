@@ -147,6 +147,26 @@ func (o SubAccountTagRuleOutput) ToSubAccountTagRuleOutputWithContext(ctx contex
 	return o
 }
 
+// Name of the rule set.
+func (o SubAccountTagRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubAccountTagRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Definition of the properties for a TagRules resource.
+func (o SubAccountTagRuleOutput) Properties() MonitoringTagRulesPropertiesResponseOutput {
+	return o.ApplyT(func(v *SubAccountTagRule) MonitoringTagRulesPropertiesResponseOutput { return v.Properties }).(MonitoringTagRulesPropertiesResponseOutput)
+}
+
+// The system metadata relating to this resource
+func (o SubAccountTagRuleOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SubAccountTagRule) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the rule set.
+func (o SubAccountTagRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubAccountTagRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SubAccountTagRuleOutput{})
 }

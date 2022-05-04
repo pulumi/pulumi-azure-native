@@ -246,6 +246,35 @@ func (o NetworkWatcherOutput) ToNetworkWatcherOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NetworkWatcherOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o NetworkWatcherOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o NetworkWatcherOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o NetworkWatcherOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags.
+func (o NetworkWatcherOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o NetworkWatcherOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkWatcher) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NetworkWatcherOutput{})
 }

@@ -150,6 +150,41 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
+// List of References to Assessments created on this group.
+func (o GroupOutput) Assessments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Assessments }).(pulumi.StringArrayOutput)
+}
+
+// Time when this project was created. Date-Time represented in ISO-8601 format.
+func (o GroupOutput) CreatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
+}
+
+// For optimistic concurrency control.
+func (o GroupOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+// List of machine names that are part of this group.
+func (o GroupOutput) Machines() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.Machines }).(pulumi.StringArrayOutput)
+}
+
+// Name of the group.
+func (o GroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the object = [Microsoft.Migrate/projects/groups].
+func (o GroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+func (o GroupOutput) UpdatedTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.UpdatedTimestamp }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GroupOutput{})
 }

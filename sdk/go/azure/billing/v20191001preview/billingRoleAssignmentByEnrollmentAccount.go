@@ -167,6 +167,72 @@ func (o BillingRoleAssignmentByEnrollmentAccountOutput) ToBillingRoleAssignmentB
 	return o
 }
 
+// The principal Id of the user who created the role assignment.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) CreatedByPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput { return v.CreatedByPrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant Id of the user who created the role assignment.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) CreatedByPrincipalTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput {
+		return v.CreatedByPrincipalTenantId
+	}).(pulumi.StringOutput)
+}
+
+// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) CreatedByUserEmailAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput {
+		return v.CreatedByUserEmailAddress
+	}).(pulumi.StringOutput)
+}
+
+// The date the role assignment was created.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The principal id of the user to whom the role was assigned.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringPtrOutput { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The principal tenant id of the user to whom the role was assigned.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) PrincipalTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringPtrOutput { return v.PrincipalTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the role definition.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) RoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringPtrOutput { return v.RoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// The scope at which the role was assigned.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) UserAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringPtrOutput {
+		return v.UserAuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+func (o BillingRoleAssignmentByEnrollmentAccountOutput) UserEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingRoleAssignmentByEnrollmentAccount) pulumi.StringPtrOutput { return v.UserEmailAddress }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BillingRoleAssignmentByEnrollmentAccountOutput{})
 }

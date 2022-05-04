@@ -165,6 +165,36 @@ func (o ComputePolicyOutput) ToComputePolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The maximum degree of parallelism per job this user can use to submit jobs.
+func (o ComputePolicyOutput) MaxDegreeOfParallelismPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.IntOutput { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntOutput)
+}
+
+// The minimum priority per job this user can use to submit jobs.
+func (o ComputePolicyOutput) MinPriorityPerJob() pulumi.IntOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.IntOutput { return v.MinPriorityPerJob }).(pulumi.IntOutput)
+}
+
+// The resource name.
+func (o ComputePolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The AAD object identifier for the entity to create a policy for.
+func (o ComputePolicyOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.StringOutput { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of AAD object the object identifier refers to.
+func (o ComputePolicyOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.StringOutput { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+// The resource type.
+func (o ComputePolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ComputePolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ComputePolicyOutput{})
 }

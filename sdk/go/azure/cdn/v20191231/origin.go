@@ -203,6 +203,61 @@ func (o OriginOutput) ToOriginOutputWithContext(ctx context.Context) OriginOutpu
 	return o
 }
 
+// Origin is enabled for load balancing or not
+func (o OriginOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+func (o OriginOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535.
+func (o OriginOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535.
+func (o OriginOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
+// Resource name.
+func (o OriginOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+func (o OriginOutput) OriginHostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringPtrOutput { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
+}
+
+// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+func (o OriginOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Provisioning status of the origin.
+func (o OriginOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource status of the origin.
+func (o OriginOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o OriginOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Origin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+func (o OriginOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Origin) pulumi.IntPtrOutput { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(OriginOutput{})
 }

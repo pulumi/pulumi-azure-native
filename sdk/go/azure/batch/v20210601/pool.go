@@ -262,6 +262,143 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
 }
 
+func (o PoolOutput) AllocationState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AllocationState }).(pulumi.StringOutput)
+}
+
+func (o PoolOutput) AllocationStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AllocationStateTransitionTime }).(pulumi.StringOutput)
+}
+
+// The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
+func (o PoolOutput) ApplicationLicenses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringArrayOutput { return v.ApplicationLicenses }).(pulumi.StringArrayOutput)
+}
+
+// Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
+func (o PoolOutput) ApplicationPackages() ApplicationPackageReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *Pool) ApplicationPackageReferenceResponseArrayOutput { return v.ApplicationPackages }).(ApplicationPackageReferenceResponseArrayOutput)
+}
+
+// This property is set only if the pool automatically scales, i.e. autoScaleSettings are used.
+func (o PoolOutput) AutoScaleRun() AutoScaleRunResponseOutput {
+	return o.ApplyT(func(v *Pool) AutoScaleRunResponseOutput { return v.AutoScaleRun }).(AutoScaleRunResponseOutput)
+}
+
+// For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+func (o PoolOutput) Certificates() CertificateReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *Pool) CertificateReferenceResponseArrayOutput { return v.Certificates }).(CertificateReferenceResponseArrayOutput)
+}
+
+func (o PoolOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+func (o PoolOutput) CurrentDedicatedNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.CurrentDedicatedNodes }).(pulumi.IntOutput)
+}
+
+func (o PoolOutput) CurrentLowPriorityNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.CurrentLowPriorityNodes }).(pulumi.IntOutput)
+}
+
+// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
+func (o PoolOutput) DeploymentConfiguration() DeploymentConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) DeploymentConfigurationResponsePtrOutput { return v.DeploymentConfiguration }).(DeploymentConfigurationResponsePtrOutput)
+}
+
+// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
+func (o PoolOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The ETag of the resource, used for concurrency statements.
+func (o PoolOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// The type of identity used for the Batch Pool.
+func (o PoolOutput) Identity() BatchPoolIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) BatchPoolIdentityResponsePtrOutput { return v.Identity }).(BatchPoolIdentityResponsePtrOutput)
+}
+
+// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
+func (o PoolOutput) InterNodeCommunication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.InterNodeCommunication }).(pulumi.StringPtrOutput)
+}
+
+// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.
+func (o PoolOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
+func (o PoolOutput) Metadata() MetadataItemResponseArrayOutput {
+	return o.ApplyT(func(v *Pool) MetadataItemResponseArrayOutput { return v.Metadata }).(MetadataItemResponseArrayOutput)
+}
+
+// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
+func (o PoolOutput) MountConfiguration() MountConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v *Pool) MountConfigurationResponseArrayOutput { return v.MountConfiguration }).(MountConfigurationResponseArrayOutput)
+}
+
+// The name of the resource.
+func (o PoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The network configuration for a pool.
+func (o PoolOutput) NetworkConfiguration() NetworkConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) NetworkConfigurationResponsePtrOutput { return v.NetworkConfiguration }).(NetworkConfigurationResponsePtrOutput)
+}
+
+func (o PoolOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PoolOutput) ProvisioningStateTransitionTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ProvisioningStateTransitionTime }).(pulumi.StringOutput)
+}
+
+// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
+func (o PoolOutput) ResizeOperationStatus() ResizeOperationStatusResponseOutput {
+	return o.ApplyT(func(v *Pool) ResizeOperationStatusResponseOutput { return v.ResizeOperationStatus }).(ResizeOperationStatusResponseOutput)
+}
+
+// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
+func (o PoolOutput) ScaleSettings() ScaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) ScaleSettingsResponsePtrOutput { return v.ScaleSettings }).(ScaleSettingsResponsePtrOutput)
+}
+
+// In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+func (o PoolOutput) StartTask() StartTaskResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) StartTaskResponsePtrOutput { return v.StartTask }).(StartTaskResponsePtrOutput)
+}
+
+// If not specified, the default is spread.
+func (o PoolOutput) TaskSchedulingPolicy() TaskSchedulingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *Pool) TaskSchedulingPolicyResponsePtrOutput { return v.TaskSchedulingPolicy }).(TaskSchedulingPolicyResponsePtrOutput)
+}
+
+// The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
+func (o PoolOutput) TaskSlotsPerNode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntPtrOutput { return v.TaskSlotsPerNode }).(pulumi.IntPtrOutput)
+}
+
+// The type of the resource.
+func (o PoolOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o PoolOutput) UserAccounts() UserAccountResponseArrayOutput {
+	return o.ApplyT(func(v *Pool) UserAccountResponseArrayOutput { return v.UserAccounts }).(UserAccountResponseArrayOutput)
+}
+
+// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+func (o PoolOutput) VmSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.VmSize }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PoolOutput{})
 }

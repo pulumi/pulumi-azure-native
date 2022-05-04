@@ -163,6 +163,41 @@ func (o TransformOutput) ToTransformOutputWithContext(ctx context.Context) Trans
 	return o
 }
 
+// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o TransformOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *Transform) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// An optional verbose description of the Transform.
+func (o TransformOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Transform) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+func (o TransformOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Transform) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o TransformOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Transform) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An array of one or more TransformOutputs that the Transform should generate.
+func (o TransformOutput) Outputs() TransformOutputResponseArrayOutput {
+	return o.ApplyT(func(v *Transform) TransformOutputResponseArrayOutput { return v.Outputs }).(TransformOutputResponseArrayOutput)
+}
+
+// The system metadata relating to this resource.
+func (o TransformOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Transform) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o TransformOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Transform) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TransformOutput{})
 }

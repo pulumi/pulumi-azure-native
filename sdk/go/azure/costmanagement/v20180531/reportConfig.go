@@ -141,6 +141,41 @@ func (o ReportConfigOutput) ToReportConfigOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Has definition for the report config.
+func (o ReportConfigOutput) Definition() ReportConfigDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportConfig) ReportConfigDefinitionResponseOutput { return v.Definition }).(ReportConfigDefinitionResponseOutput)
+}
+
+// Has delivery information for the report config.
+func (o ReportConfigOutput) DeliveryInfo() ReportConfigDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportConfig) ReportConfigDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportConfigDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportConfigOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportConfig) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report config.
+func (o ReportConfigOutput) Schedule() ReportConfigScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ReportConfig) ReportConfigScheduleResponsePtrOutput { return v.Schedule }).(ReportConfigScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportConfigOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReportConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportConfig) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportConfigOutput{})
 }

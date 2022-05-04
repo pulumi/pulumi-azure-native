@@ -147,6 +147,36 @@ func (o ModelingOutput) ToModelingOutputWithContext(ctx context.Context) Modelin
 	return o
 }
 
+// The geo-location where the resource lives
+func (o ModelingOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Modeling) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ModelingOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Modeling) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Modeling resource properties.
+func (o ModelingOutput) Properties() ModelingResourceResponsePropertiesOutput {
+	return o.ApplyT(func(v *Modeling) ModelingResourceResponsePropertiesOutput { return v.Properties }).(ModelingResourceResponsePropertiesOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o ModelingOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Modeling) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ModelingOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Modeling) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ModelingOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Modeling) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ModelingOutput{})
 }

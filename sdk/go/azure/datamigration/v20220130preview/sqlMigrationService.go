@@ -135,6 +135,36 @@ func (o SqlMigrationServiceOutput) ToSqlMigrationServiceOutputWithContext(ctx co
 	return o
 }
 
+// Current state of the Integration runtime.
+func (o SqlMigrationServiceOutput) IntegrationRuntimeState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringOutput { return v.IntegrationRuntimeState }).(pulumi.StringOutput)
+}
+
+func (o SqlMigrationServiceOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o SqlMigrationServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state to track the async operation status.
+func (o SqlMigrationServiceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o SqlMigrationServiceOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlMigrationService) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+func (o SqlMigrationServiceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o SqlMigrationServiceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlMigrationService) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlMigrationServiceOutput{})
 }

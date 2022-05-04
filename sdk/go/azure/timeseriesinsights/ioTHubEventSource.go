@@ -237,6 +237,77 @@ func (o IoTHubEventSourceOutput) ToIoTHubEventSourceOutputWithContext(ctx contex
 	return o
 }
 
+// The name of the iot hub's consumer group that holds the partitions from which events will be read.
+func (o IoTHubEventSourceOutput) ConsumerGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.ConsumerGroupName }).(pulumi.StringOutput)
+}
+
+// The time the resource was created.
+func (o IoTHubEventSourceOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// The resource id of the event source in Azure Resource Manager.
+func (o IoTHubEventSourceOutput) EventSourceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.EventSourceResourceId }).(pulumi.StringOutput)
+}
+
+// The name of the iot hub.
+func (o IoTHubEventSourceOutput) IotHubName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.IotHubName }).(pulumi.StringOutput)
+}
+
+// The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub.
+func (o IoTHubEventSourceOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The kind of the event source.
+// Expected value is 'Microsoft.IoTHub'.
+func (o IoTHubEventSourceOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
+func (o IoTHubEventSourceOutput) LocalTimestamp() LocalTimestampResponsePtrOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) LocalTimestampResponsePtrOutput { return v.LocalTimestamp }).(LocalTimestampResponsePtrOutput)
+}
+
+// Resource location
+func (o IoTHubEventSourceOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o IoTHubEventSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the resource.
+func (o IoTHubEventSourceOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o IoTHubEventSourceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
+func (o IoTHubEventSourceOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringPtrOutput { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
+func (o IoTHubEventSourceOutput) TimestampPropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringPtrOutput { return v.TimestampPropertyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o IoTHubEventSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *IoTHubEventSource) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IoTHubEventSourceOutput{})
 }

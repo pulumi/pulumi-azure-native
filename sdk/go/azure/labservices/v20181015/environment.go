@@ -189,6 +189,86 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 	return o
 }
 
+// The name or email address of the user who has claimed the environment
+func (o EnvironmentOutput) ClaimedByUserName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ClaimedByUserName }).(pulumi.StringOutput)
+}
+
+// The AAD object Id of the user who has claimed the environment
+func (o EnvironmentOutput) ClaimedByUserObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ClaimedByUserObjectId }).(pulumi.StringOutput)
+}
+
+// The user principal Id of the user who has claimed the environment
+func (o EnvironmentOutput) ClaimedByUserPrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ClaimedByUserPrincipalId }).(pulumi.StringOutput)
+}
+
+// Is the environment claimed or not
+func (o EnvironmentOutput) IsClaimed() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Environment) pulumi.BoolOutput { return v.IsClaimed }).(pulumi.BoolOutput)
+}
+
+// Last known power state of the environment
+func (o EnvironmentOutput) LastKnownPowerState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.LastKnownPowerState }).(pulumi.StringOutput)
+}
+
+// The details of the latest operation. ex: status, error
+func (o EnvironmentOutput) LatestOperationResult() LatestOperationResultResponseOutput {
+	return o.ApplyT(func(v *Environment) LatestOperationResultResponseOutput { return v.LatestOperationResult }).(LatestOperationResultResponseOutput)
+}
+
+// The location of the resource.
+func (o EnvironmentOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o EnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network details of the environment
+func (o EnvironmentOutput) NetworkInterface() NetworkInterfaceResponseOutput {
+	return o.ApplyT(func(v *Environment) NetworkInterfaceResponseOutput { return v.NetworkInterface }).(NetworkInterfaceResponseOutput)
+}
+
+// When the password was last reset on the environment.
+func (o EnvironmentOutput) PasswordLastReset() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.PasswordLastReset }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o EnvironmentOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The set of a VM and the setting id it was created for
+func (o EnvironmentOutput) ResourceSets() ResourceSetResponsePtrOutput {
+	return o.ApplyT(func(v *Environment) ResourceSetResponsePtrOutput { return v.ResourceSets }).(ResourceSetResponsePtrOutput)
+}
+
+// The tags of the resource.
+func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// How long the environment has been used by a lab user
+func (o EnvironmentOutput) TotalUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.TotalUsage }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o EnvironmentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o EnvironmentOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EnvironmentOutput{})
 }

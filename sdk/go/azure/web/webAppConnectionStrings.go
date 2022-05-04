@@ -172,6 +172,26 @@ func (o WebAppConnectionStringsOutput) ToWebAppConnectionStringsOutputWithContex
 	return o
 }
 
+// Kind of resource.
+func (o WebAppConnectionStringsOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppConnectionStrings) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppConnectionStringsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppConnectionStrings) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Connection strings.
+func (o WebAppConnectionStringsOutput) Properties() ConnStringValueTypePairResponseMapOutput {
+	return o.ApplyT(func(v *WebAppConnectionStrings) ConnStringValueTypePairResponseMapOutput { return v.Properties }).(ConnStringValueTypePairResponseMapOutput)
+}
+
+// Resource type.
+func (o WebAppConnectionStringsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppConnectionStrings) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppConnectionStringsOutput{})
 }

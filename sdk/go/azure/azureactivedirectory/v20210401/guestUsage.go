@@ -143,6 +143,36 @@ func (o GuestUsageOutput) ToGuestUsageOutputWithContext(ctx context.Context) Gue
 	return o
 }
 
+// Location of the Guest Usages resource.
+func (o GuestUsageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestUsage) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Guest Usages resource.
+func (o GuestUsageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestUsage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o GuestUsageOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GuestUsage) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Key-value pairs of additional resource provisioning properties.
+func (o GuestUsageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GuestUsage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// An identifier for the tenant for which the resource is being created
+func (o GuestUsageOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuestUsage) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the Guest Usages resource.
+func (o GuestUsageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GuestUsage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GuestUsageOutput{})
 }

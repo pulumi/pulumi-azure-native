@@ -150,6 +150,41 @@ func (o ExperimentOutput) ToExperimentOutputWithContext(ctx context.Context) Exp
 	return o
 }
 
+// The identity of the experiment resource.
+func (o ExperimentOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Experiment) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o ExperimentOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ExperimentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The properties of the experiment resource.
+func (o ExperimentOutput) Properties() ExperimentPropertiesResponseOutput {
+	return o.ApplyT(func(v *Experiment) ExperimentPropertiesResponseOutput { return v.Properties }).(ExperimentPropertiesResponseOutput)
+}
+
+// The system metadata of the experiment resource.
+func (o ExperimentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Experiment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o ExperimentOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ExperimentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Experiment) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExperimentOutput{})
 }

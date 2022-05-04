@@ -240,6 +240,17 @@ type LiveTraceConfigurationArgs struct {
 	Enabled pulumi.StringPtrInput `pulumi:"enabled"`
 }
 
+// Defaults sets the appropriate defaults for LiveTraceConfigurationArgs
+func (val *LiveTraceConfigurationArgs) Defaults() *LiveTraceConfigurationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = pulumi.StringPtr("false")
+	}
+	return &tmp
+}
 func (LiveTraceConfigurationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LiveTraceConfiguration)(nil)).Elem()
 }
@@ -3783,6 +3794,17 @@ type SignalRTlsSettingsArgs struct {
 	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
 }
 
+// Defaults sets the appropriate defaults for SignalRTlsSettingsArgs
+func (val *SignalRTlsSettingsArgs) Defaults() *SignalRTlsSettingsArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		tmp.ClientCertEnabled = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (SignalRTlsSettingsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRTlsSettings)(nil)).Elem()
 }

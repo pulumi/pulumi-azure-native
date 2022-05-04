@@ -142,6 +142,26 @@ func (o RulesEngineOutput) ToRulesEngineOutputWithContext(ctx context.Context) R
 	return o
 }
 
+// Resource name.
+func (o RulesEngineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *RulesEngine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource status.
+func (o RulesEngineOutput) ResourceState() pulumi.StringOutput {
+	return o.ApplyT(func(v *RulesEngine) pulumi.StringOutput { return v.ResourceState }).(pulumi.StringOutput)
+}
+
+// A list of rules that define a particular Rules Engine Configuration.
+func (o RulesEngineOutput) Rules() RulesEngineRuleResponseArrayOutput {
+	return o.ApplyT(func(v *RulesEngine) RulesEngineRuleResponseArrayOutput { return v.Rules }).(RulesEngineRuleResponseArrayOutput)
+}
+
+// Resource type.
+func (o RulesEngineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *RulesEngine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(RulesEngineOutput{})
 }

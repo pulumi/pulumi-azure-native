@@ -240,6 +240,92 @@ func (o ServerFarmOutput) ToServerFarmOutputWithContext(ctx context.Context) Ser
 	return o
 }
 
+// App Service Plan administration site
+func (o ServerFarmOutput) AdminSiteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringPtrOutput { return v.AdminSiteName }).(pulumi.StringPtrOutput)
+}
+
+// Geographical location for the App Service Plan
+func (o ServerFarmOutput) GeoRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringOutput { return v.GeoRegion }).(pulumi.StringOutput)
+}
+
+// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+func (o ServerFarmOutput) HostingEnvironmentProfile() HostingEnvironmentProfileResponsePtrOutput {
+	return o.ApplyT(func(v *ServerFarm) HostingEnvironmentProfileResponsePtrOutput { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfileResponsePtrOutput)
+}
+
+// Kind of resource
+func (o ServerFarmOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Location
+func (o ServerFarmOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Maximum number of instances that can be assigned to this App Service Plan
+func (o ServerFarmOutput) MaximumNumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.IntPtrOutput { return v.MaximumNumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Resource Name
+func (o ServerFarmOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Number of web apps assigned to this App Service Plan
+func (o ServerFarmOutput) NumberOfSites() pulumi.IntOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.IntOutput { return v.NumberOfSites }).(pulumi.IntOutput)
+}
+
+// If True apps assigned to this App Service Plan can be scaled independently
+//             If False apps assigned to this App Service Plan will scale to all instances of the plan
+func (o ServerFarmOutput) PerSiteScaling() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.BoolPtrOutput { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
+}
+
+// Enables creation of a Linux App Service Plan
+func (o ServerFarmOutput) Reserved() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.BoolPtrOutput { return v.Reserved }).(pulumi.BoolPtrOutput)
+}
+
+// Resource group of the server farm
+func (o ServerFarmOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Describes a sku for a scalable resource
+func (o ServerFarmOutput) Sku() SkuDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v *ServerFarm) SkuDescriptionResponsePtrOutput { return v.Sku }).(SkuDescriptionResponsePtrOutput)
+}
+
+// App Service Plan Status
+func (o ServerFarmOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// App Service Plan Subscription
+func (o ServerFarmOutput) Subscription() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringOutput { return v.Subscription }).(pulumi.StringOutput)
+}
+
+// Resource tags
+func (o ServerFarmOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type
+func (o ServerFarmOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Target worker tier assigned to the App Service Plan
+func (o ServerFarmOutput) WorkerTierName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerFarm) pulumi.StringPtrOutput { return v.WorkerTierName }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerFarmOutput{})
 }

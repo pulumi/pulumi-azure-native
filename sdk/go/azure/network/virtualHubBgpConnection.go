@@ -178,6 +178,41 @@ func (o VirtualHubBgpConnectionOutput) ToVirtualHubBgpConnectionOutputWithContex
 	return o
 }
 
+// The current state of the VirtualHub to Peer.
+func (o VirtualHubBgpConnectionOutput) ConnectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringOutput { return v.ConnectionState }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o VirtualHubBgpConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Name of the connection.
+func (o VirtualHubBgpConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Peer ASN.
+func (o VirtualHubBgpConnectionOutput) PeerAsn() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.Float64PtrOutput { return v.PeerAsn }).(pulumi.Float64PtrOutput)
+}
+
+// Peer IP.
+func (o VirtualHubBgpConnectionOutput) PeerIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringPtrOutput { return v.PeerIp }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the resource.
+func (o VirtualHubBgpConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Connection type.
+func (o VirtualHubBgpConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualHubBgpConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualHubBgpConnectionOutput{})
 }

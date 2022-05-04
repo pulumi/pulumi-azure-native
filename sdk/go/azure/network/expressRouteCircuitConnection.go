@@ -257,6 +257,62 @@ func (o ExpressRouteCircuitConnectionOutput) ToExpressRouteCircuitConnectionOutp
 	return o
 }
 
+// /29 IP address space to carve out Customer addresses for tunnels.
+func (o ExpressRouteCircuitConnectionOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringPtrOutput { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The authorization key.
+func (o ExpressRouteCircuitConnectionOutput) AuthorizationKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringPtrOutput { return v.AuthorizationKey }).(pulumi.StringPtrOutput)
+}
+
+// Express Route Circuit connection state.
+func (o ExpressRouteCircuitConnectionOutput) CircuitConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringOutput { return v.CircuitConnectionStatus }).(pulumi.StringOutput)
+}
+
+// A unique read-only string that changes whenever the resource is updated.
+func (o ExpressRouteCircuitConnectionOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringOutput { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+func (o ExpressRouteCircuitConnectionOutput) ExpressRouteCircuitPeering() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) SubResourceResponsePtrOutput {
+		return v.ExpressRouteCircuitPeering
+	}).(SubResourceResponsePtrOutput)
+}
+
+// IPv6 Address PrefixProperties of the express route circuit connection.
+func (o ExpressRouteCircuitConnectionOutput) Ipv6CircuitConnectionConfig() Ipv6CircuitConnectionConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) Ipv6CircuitConnectionConfigResponsePtrOutput {
+		return v.Ipv6CircuitConnectionConfig
+	}).(Ipv6CircuitConnectionConfigResponsePtrOutput)
+}
+
+// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+func (o ExpressRouteCircuitConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+func (o ExpressRouteCircuitConnectionOutput) PeerExpressRouteCircuitPeering() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) SubResourceResponsePtrOutput {
+		return v.PeerExpressRouteCircuitPeering
+	}).(SubResourceResponsePtrOutput)
+}
+
+// The provisioning state of the express route circuit connection resource.
+func (o ExpressRouteCircuitConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the resource.
+func (o ExpressRouteCircuitConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ExpressRouteCircuitConnectionOutput{})
 }

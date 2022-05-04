@@ -170,6 +170,26 @@ func (o ManagementPolicyOutput) ToManagementPolicyOutputWithContext(ctx context.
 	return o
 }
 
+// Returns the date and time the ManagementPolicies was last modified.
+func (o ManagementPolicyOutput) LastModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementPolicy) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o ManagementPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+func (o ManagementPolicyOutput) Policy() ManagementPolicySchemaResponseOutput {
+	return o.ApplyT(func(v *ManagementPolicy) ManagementPolicySchemaResponseOutput { return v.Policy }).(ManagementPolicySchemaResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o ManagementPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagementPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ManagementPolicyOutput{})
 }

@@ -134,6 +134,21 @@ func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutputWi
 	return o
 }
 
+// Resource name
+func (o NamespaceVirtualNetworkRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceVirtualNetworkRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o NamespaceVirtualNetworkRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *NamespaceVirtualNetworkRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Resource ID of Virtual Network Subnet
+func (o NamespaceVirtualNetworkRuleOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceVirtualNetworkRule) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NamespaceVirtualNetworkRuleOutput{})
 }

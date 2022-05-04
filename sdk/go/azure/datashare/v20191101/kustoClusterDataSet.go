@@ -174,6 +174,42 @@ func (o KustoClusterDataSetOutput) ToKustoClusterDataSetOutputWithContext(ctx co
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o KustoClusterDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'KustoCluster'.
+func (o KustoClusterDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Resource id of the kusto cluster.
+func (o KustoClusterDataSetOutput) KustoClusterResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.KustoClusterResourceId }).(pulumi.StringOutput)
+}
+
+// Location of the kusto cluster.
+func (o KustoClusterDataSetOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o KustoClusterDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state of the kusto cluster data set.
+func (o KustoClusterDataSetOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o KustoClusterDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *KustoClusterDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KustoClusterDataSetOutput{})
 }

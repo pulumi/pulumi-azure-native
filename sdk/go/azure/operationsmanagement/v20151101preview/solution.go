@@ -144,6 +144,36 @@ func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) Solutio
 	return o
 }
 
+// Resource location
+func (o SolutionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o SolutionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Plan for solution object supported by the OperationsManagement resource provider.
+func (o SolutionOutput) Plan() SolutionPlanResponsePtrOutput {
+	return o.ApplyT(func(v *Solution) SolutionPlanResponsePtrOutput { return v.Plan }).(SolutionPlanResponsePtrOutput)
+}
+
+// Properties for solution object supported by the OperationsManagement resource provider.
+func (o SolutionOutput) Properties() SolutionPropertiesResponseOutput {
+	return o.ApplyT(func(v *Solution) SolutionPropertiesResponseOutput { return v.Properties }).(SolutionPropertiesResponseOutput)
+}
+
+// Resource tags
+func (o SolutionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o SolutionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Solution) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SolutionOutput{})
 }

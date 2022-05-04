@@ -151,6 +151,46 @@ func (o VideoOutput) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 	return o
 }
 
+// Optional video description provided by the user. Value can be up to 2048 characters long.
+func (o VideoOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Video) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
+func (o VideoOutput) Flags() VideoFlagsResponseOutput {
+	return o.ApplyT(func(v *Video) VideoFlagsResponseOutput { return v.Flags }).(VideoFlagsResponseOutput)
+}
+
+// Contains information about the video and audio content.
+func (o VideoOutput) MediaInfo() VideoMediaInfoResponseOutput {
+	return o.ApplyT(func(v *Video) VideoMediaInfoResponseOutput { return v.MediaInfo }).(VideoMediaInfoResponseOutput)
+}
+
+// The name of the resource
+func (o VideoOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Video) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Video streaming holds information about video streaming URLs.
+func (o VideoOutput) Streaming() VideoStreamingResponseOutput {
+	return o.ApplyT(func(v *Video) VideoStreamingResponseOutput { return v.Streaming }).(VideoStreamingResponseOutput)
+}
+
+// The system metadata relating to this resource.
+func (o VideoOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *Video) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Optional video title provided by the user. Value can be up to 256 characters long.
+func (o VideoOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Video) pulumi.StringPtrOutput { return v.Title }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o VideoOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Video) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VideoOutput{})
 }

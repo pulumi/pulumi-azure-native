@@ -207,6 +207,61 @@ func (o TopicAuthorizationRuleOutput) ToTopicAuthorizationRuleOutputWithContext(
 	return o
 }
 
+// A string that describes Claim Type for authorization rule.
+func (o TopicAuthorizationRuleOutput) ClaimType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.ClaimType }).(pulumi.StringPtrOutput)
+}
+
+// A string that describes Claim Value of authorization rule.
+func (o TopicAuthorizationRuleOutput) ClaimValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.ClaimValue }).(pulumi.StringPtrOutput)
+}
+
+// The time the namespace was created.
+func (o TopicAuthorizationRuleOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// A string that describes the Key Name of authorization rule.
+func (o TopicAuthorizationRuleOutput) KeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.KeyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource location.
+func (o TopicAuthorizationRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The time the namespace was updated.
+func (o TopicAuthorizationRuleOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o TopicAuthorizationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o TopicAuthorizationRuleOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.PrimaryKey }).(pulumi.StringPtrOutput)
+}
+
+// The rights associated with the rule.
+func (o TopicAuthorizationRuleOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringArrayOutput { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o TopicAuthorizationRuleOutput) SecondaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringPtrOutput { return v.SecondaryKey }).(pulumi.StringPtrOutput)
+}
+
+// Resource type
+func (o TopicAuthorizationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicAuthorizationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TopicAuthorizationRuleOutput{})
 }

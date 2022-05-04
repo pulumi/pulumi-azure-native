@@ -155,6 +155,21 @@ func (o CustomDomainOutput) ToCustomDomainOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The name of the resource.
+func (o CustomDomainOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the custom domain resource.
+func (o CustomDomainOutput) Properties() CustomDomainPropertiesResponseOutput {
+	return o.ApplyT(func(v *CustomDomain) CustomDomainPropertiesResponseOutput { return v.Properties }).(CustomDomainPropertiesResponseOutput)
+}
+
+// The type of the resource.
+func (o CustomDomainOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomain) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomDomainOutput{})
 }

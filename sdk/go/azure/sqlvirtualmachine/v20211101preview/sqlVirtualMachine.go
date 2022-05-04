@@ -223,6 +223,112 @@ func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutputWithContext(ctx contex
 	return o
 }
 
+// Assessment Settings.
+func (o SqlVirtualMachineOutput) AssessmentSettings() AssessmentSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) AssessmentSettingsResponsePtrOutput { return v.AssessmentSettings }).(AssessmentSettingsResponsePtrOutput)
+}
+
+// Auto backup settings for SQL Server.
+func (o SqlVirtualMachineOutput) AutoBackupSettings() AutoBackupSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) AutoBackupSettingsResponsePtrOutput { return v.AutoBackupSettings }).(AutoBackupSettingsResponsePtrOutput)
+}
+
+// Auto patching settings for applying critical security updates to SQL virtual machine.
+func (o SqlVirtualMachineOutput) AutoPatchingSettings() AutoPatchingSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) AutoPatchingSettingsResponsePtrOutput { return v.AutoPatchingSettings }).(AutoPatchingSettingsResponsePtrOutput)
+}
+
+// Azure Active Directory identity of the server.
+func (o SqlVirtualMachineOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) ResourceIdentityResponsePtrOutput { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// Key vault credential settings.
+func (o SqlVirtualMachineOutput) KeyVaultCredentialSettings() KeyVaultCredentialSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) KeyVaultCredentialSettingsResponsePtrOutput {
+		return v.KeyVaultCredentialSettings
+	}).(KeyVaultCredentialSettingsResponsePtrOutput)
+}
+
+// Resource location.
+func (o SqlVirtualMachineOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o SqlVirtualMachineOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Provisioning state to track the async operation status.
+func (o SqlVirtualMachineOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SQL Server configuration management settings.
+func (o SqlVirtualMachineOutput) ServerConfigurationsManagementSettings() ServerConfigurationsManagementSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) ServerConfigurationsManagementSettingsResponsePtrOutput {
+		return v.ServerConfigurationsManagementSettings
+	}).(ServerConfigurationsManagementSettingsResponsePtrOutput)
+}
+
+// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
+func (o SqlVirtualMachineOutput) SqlImageOffer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.SqlImageOffer }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server edition type.
+func (o SqlVirtualMachineOutput) SqlImageSku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.SqlImageSku }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server Management type.
+func (o SqlVirtualMachineOutput) SqlManagement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.SqlManagement }).(pulumi.StringPtrOutput)
+}
+
+// SQL Server license type.
+func (o SqlVirtualMachineOutput) SqlServerLicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.SqlServerLicenseType }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
+func (o SqlVirtualMachineOutput) SqlVirtualMachineGroupResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.SqlVirtualMachineGroupResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Storage Configuration Settings.
+func (o SqlVirtualMachineOutput) StorageConfigurationSettings() StorageConfigurationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) StorageConfigurationSettingsResponsePtrOutput {
+		return v.StorageConfigurationSettings
+	}).(StorageConfigurationSettingsResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o SqlVirtualMachineOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o SqlVirtualMachineOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o SqlVirtualMachineOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// ARM Resource id of underlying virtual machine created from SQL marketplace image.
+func (o SqlVirtualMachineOutput) VirtualMachineResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) pulumi.StringPtrOutput { return v.VirtualMachineResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+func (o SqlVirtualMachineOutput) WsfcDomainCredentials() WsfcDomainCredentialsResponsePtrOutput {
+	return o.ApplyT(func(v *SqlVirtualMachine) WsfcDomainCredentialsResponsePtrOutput { return v.WsfcDomainCredentials }).(WsfcDomainCredentialsResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SqlVirtualMachineOutput{})
 }

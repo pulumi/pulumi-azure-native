@@ -837,6 +837,17 @@ type VirtualNetworkRuleArgs struct {
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
 
+// Defaults sets the appropriate defaults for VirtualNetworkRuleArgs
+func (val *VirtualNetworkRuleArgs) Defaults() *VirtualNetworkRuleArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = Action("Allow")
+	}
+	return &tmp
+}
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil)).Elem()
 }

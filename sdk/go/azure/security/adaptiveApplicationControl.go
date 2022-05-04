@@ -150,6 +150,62 @@ func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutputWith
 	return o
 }
 
+// The configuration status of the machines group or machine or rule
+func (o AdaptiveApplicationControlOutput) ConfigurationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.ConfigurationStatus }).(pulumi.StringOutput)
+}
+
+// The application control policy enforcement/protection mode of the machine group
+func (o AdaptiveApplicationControlOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringPtrOutput { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+func (o AdaptiveApplicationControlOutput) Issues() AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) AdaptiveApplicationControlIssueSummaryResponseArrayOutput {
+		return v.Issues
+	}).(AdaptiveApplicationControlIssueSummaryResponseArrayOutput)
+}
+
+// Location where the resource is stored
+func (o AdaptiveApplicationControlOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Resource name
+func (o AdaptiveApplicationControlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AdaptiveApplicationControlOutput) PathRecommendations() PathRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) PathRecommendationResponseArrayOutput {
+		return v.PathRecommendations
+	}).(PathRecommendationResponseArrayOutput)
+}
+
+// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+func (o AdaptiveApplicationControlOutput) ProtectionMode() ProtectionModeResponsePtrOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) ProtectionModeResponsePtrOutput { return v.ProtectionMode }).(ProtectionModeResponsePtrOutput)
+}
+
+// The initial recommendation status of the machine group or machine
+func (o AdaptiveApplicationControlOutput) RecommendationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.RecommendationStatus }).(pulumi.StringOutput)
+}
+
+// The source type of the machine group
+func (o AdaptiveApplicationControlOutput) SourceSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.SourceSystem }).(pulumi.StringOutput)
+}
+
+// Resource type
+func (o AdaptiveApplicationControlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o AdaptiveApplicationControlOutput) VmRecommendations() VmRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v *AdaptiveApplicationControl) VmRecommendationResponseArrayOutput { return v.VmRecommendations }).(VmRecommendationResponseArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AdaptiveApplicationControlOutput{})
 }

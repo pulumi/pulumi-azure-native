@@ -199,6 +199,73 @@ func (o CloudEndpointOutput) ToCloudEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Azure file share name
+func (o CloudEndpointOutput) AzureFileShareName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.AzureFileShareName }).(pulumi.StringPtrOutput)
+}
+
+// Backup Enabled
+func (o CloudEndpointOutput) BackupEnabled() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringOutput { return v.BackupEnabled }).(pulumi.StringOutput)
+}
+
+// Cloud endpoint change enumeration status
+func (o CloudEndpointOutput) ChangeEnumerationStatus() CloudEndpointChangeEnumerationStatusResponseOutput {
+	return o.ApplyT(func(v *CloudEndpoint) CloudEndpointChangeEnumerationStatusResponseOutput {
+		return v.ChangeEnumerationStatus
+	}).(CloudEndpointChangeEnumerationStatusResponseOutput)
+}
+
+// Friendly Name
+func (o CloudEndpointOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+// Resource Last Operation Name
+func (o CloudEndpointOutput) LastOperationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.LastOperationName }).(pulumi.StringPtrOutput)
+}
+
+// CloudEndpoint lastWorkflowId
+func (o CloudEndpointOutput) LastWorkflowId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.LastWorkflowId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource
+func (o CloudEndpointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partnership Id
+func (o CloudEndpointOutput) PartnershipId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.PartnershipId }).(pulumi.StringPtrOutput)
+}
+
+// CloudEndpoint Provisioning State
+func (o CloudEndpointOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Resource Id
+func (o CloudEndpointOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Storage Account Tenant Id
+func (o CloudEndpointOutput) StorageAccountTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringPtrOutput { return v.StorageAccountTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o CloudEndpointOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *CloudEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o CloudEndpointOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudEndpoint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CloudEndpointOutput{})
 }

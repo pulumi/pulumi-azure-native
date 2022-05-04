@@ -160,6 +160,46 @@ func (o MediaGraphOutput) ToMediaGraphOutputWithContext(ctx context.Context) Med
 	return o
 }
 
+// Date the Media Graph was created
+func (o MediaGraphOutput) Created() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+// Media Graph  description
+func (o MediaGraphOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Date the Media Graph was last modified
+func (o MediaGraphOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the resource.
+func (o MediaGraphOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Media Graph sinks
+func (o MediaGraphOutput) Sinks() MediaGraphAssetSinkResponseArrayOutput {
+	return o.ApplyT(func(v *MediaGraph) MediaGraphAssetSinkResponseArrayOutput { return v.Sinks }).(MediaGraphAssetSinkResponseArrayOutput)
+}
+
+// Media Graph sources
+func (o MediaGraphOutput) Sources() MediaGraphRtspSourceResponseArrayOutput {
+	return o.ApplyT(func(v *MediaGraph) MediaGraphRtspSourceResponseArrayOutput { return v.Sources }).(MediaGraphRtspSourceResponseArrayOutput)
+}
+
+// Media Graph state
+func (o MediaGraphOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The type of the resource.
+func (o MediaGraphOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaGraph) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MediaGraphOutput{})
 }

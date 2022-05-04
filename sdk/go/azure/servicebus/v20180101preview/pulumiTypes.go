@@ -54,6 +54,17 @@ type ActionArgs struct {
 	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
+// Defaults sets the appropriate defaults for ActionArgs
+func (val *ActionArgs) Defaults() *ActionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		tmp.RequiresPreprocessing = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (ActionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Action)(nil)).Elem()
 }
@@ -616,6 +627,17 @@ type CorrelationFilterArgs struct {
 	To pulumi.StringPtrInput `pulumi:"to"`
 }
 
+// Defaults sets the appropriate defaults for CorrelationFilterArgs
+func (val *CorrelationFilterArgs) Defaults() *CorrelationFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		tmp.RequiresPreprocessing = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (CorrelationFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*CorrelationFilter)(nil)).Elem()
 }
@@ -1134,6 +1156,17 @@ type EncryptionArgs struct {
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
 
+// Defaults sets the appropriate defaults for EncryptionArgs
+func (val *EncryptionArgs) Defaults() *EncryptionArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = KeySource("Microsoft.KeyVault")
+	}
+	return &tmp
+}
 func (EncryptionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Encryption)(nil)).Elem()
 }
@@ -1400,6 +1433,17 @@ type IdentityArgs struct {
 	Type IdentityTypePtrInput `pulumi:"type"`
 }
 
+// Defaults sets the appropriate defaults for IdentityArgs
+func (val *IdentityArgs) Defaults() *IdentityArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = IdentityType("SystemAssigned")
+	}
+	return &tmp
+}
 func (IdentityArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Identity)(nil)).Elem()
 }
@@ -1984,6 +2028,17 @@ type NWRuleSetIpRulesArgs struct {
 	IpMask pulumi.StringPtrInput `pulumi:"ipMask"`
 }
 
+// Defaults sets the appropriate defaults for NWRuleSetIpRulesArgs
+func (val *NWRuleSetIpRulesArgs) Defaults() *NWRuleSetIpRulesArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		tmp.Action = pulumi.StringPtr("Allow")
+	}
+	return &tmp
+}
 func (NWRuleSetIpRulesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*NWRuleSetIpRules)(nil)).Elem()
 }
@@ -2814,6 +2869,20 @@ type SqlFilterArgs struct {
 	SqlExpression pulumi.StringPtrInput `pulumi:"sqlExpression"`
 }
 
+// Defaults sets the appropriate defaults for SqlFilterArgs
+func (val *SqlFilterArgs) Defaults() *SqlFilterArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CompatibilityLevel) {
+		tmp.CompatibilityLevel = pulumi.IntPtr(20)
+	}
+	if isZero(tmp.RequiresPreprocessing) {
+		tmp.RequiresPreprocessing = pulumi.BoolPtr(true)
+	}
+	return &tmp
+}
 func (SqlFilterArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlFilter)(nil)).Elem()
 }

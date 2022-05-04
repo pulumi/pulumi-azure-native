@@ -205,6 +205,86 @@ func (o CustomImageOutput) ToCustomImageOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// The author of the custom image.
+func (o CustomImageOutput) Author() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Author }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the custom image.
+func (o CustomImageOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// Storage information about the plan related to this custom image
+func (o CustomImageOutput) CustomImagePlan() CustomImagePropertiesFromPlanResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImage) CustomImagePropertiesFromPlanResponsePtrOutput { return v.CustomImagePlan }).(CustomImagePropertiesFromPlanResponsePtrOutput)
+}
+
+// Storage information about the data disks present in the custom image
+func (o CustomImageOutput) DataDiskStorageInfo() DataDiskStorageTypeInfoResponseArrayOutput {
+	return o.ApplyT(func(v *CustomImage) DataDiskStorageTypeInfoResponseArrayOutput { return v.DataDiskStorageInfo }).(DataDiskStorageTypeInfoResponseArrayOutput)
+}
+
+// The description of the custom image.
+func (o CustomImageOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+func (o CustomImageOutput) IsPlanAuthorized() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.BoolPtrOutput { return v.IsPlanAuthorized }).(pulumi.BoolPtrOutput)
+}
+
+// The location of the resource.
+func (o CustomImageOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The Managed Image Id backing the custom image.
+func (o CustomImageOutput) ManagedImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.ManagedImageId }).(pulumi.StringPtrOutput)
+}
+
+// The Managed Snapshot Id backing the custom image.
+func (o CustomImageOutput) ManagedSnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringPtrOutput { return v.ManagedSnapshotId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o CustomImageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning status of the resource.
+func (o CustomImageOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The tags of the resource.
+func (o CustomImageOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the resource.
+func (o CustomImageOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o CustomImageOutput) UniqueIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomImage) pulumi.StringOutput { return v.UniqueIdentifier }).(pulumi.StringOutput)
+}
+
+// The VHD from which the image is to be created.
+func (o CustomImageOutput) Vhd() CustomImagePropertiesCustomResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImage) CustomImagePropertiesCustomResponsePtrOutput { return v.Vhd }).(CustomImagePropertiesCustomResponsePtrOutput)
+}
+
+// The virtual machine from which the image is to be created.
+func (o CustomImageOutput) Vm() CustomImagePropertiesFromVmResponsePtrOutput {
+	return o.ApplyT(func(v *CustomImage) CustomImagePropertiesFromVmResponsePtrOutput { return v.Vm }).(CustomImagePropertiesFromVmResponsePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CustomImageOutput{})
 }

@@ -208,6 +208,46 @@ func (o WebAppBackupConfigurationOutput) ToWebAppBackupConfigurationOutputWithCo
 	return o
 }
 
+// Name of the backup.
+func (o WebAppBackupConfigurationOutput) BackupRequestName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.StringOutput { return v.BackupRequestName }).(pulumi.StringOutput)
+}
+
+// Schedule for the backup if it is executed periodically.
+func (o WebAppBackupConfigurationOutput) BackupSchedule() BackupScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) BackupScheduleResponsePtrOutput { return v.BackupSchedule }).(BackupScheduleResponsePtrOutput)
+}
+
+// Databases included in the backup.
+func (o WebAppBackupConfigurationOutput) Databases() DatabaseBackupSettingResponseArrayOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) DatabaseBackupSettingResponseArrayOutput { return v.Databases }).(DatabaseBackupSettingResponseArrayOutput)
+}
+
+// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+func (o WebAppBackupConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Kind of resource.
+func (o WebAppBackupConfigurationOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// Resource Name.
+func (o WebAppBackupConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// SAS URL to the container.
+func (o WebAppBackupConfigurationOutput) StorageAccountUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.StringOutput { return v.StorageAccountUrl }).(pulumi.StringOutput)
+}
+
+// Resource type.
+func (o WebAppBackupConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebAppBackupConfiguration) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(WebAppBackupConfigurationOutput{})
 }

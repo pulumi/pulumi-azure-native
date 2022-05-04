@@ -168,6 +168,39 @@ func (o GraphResourceGraphOutput) ToGraphResourceGraphOutputWithContext(ctx cont
 	return o
 }
 
+// Identity for the resource.
+func (o GraphResourceGraphOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
+}
+
+// The location of the resource group to which the resource belongs.
+func (o GraphResourceGraphOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o GraphResourceGraphOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GraphResourceGraphOutput) Options() GraphResourceGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) GraphResourceGetPropertiesResponseOptionsPtrOutput { return v.Options }).(GraphResourceGetPropertiesResponseOptionsPtrOutput)
+}
+
+func (o GraphResourceGraphOutput) Resource() GraphResourceGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) GraphResourceGetPropertiesResponseResourcePtrOutput { return v.Resource }).(GraphResourceGetPropertiesResponseResourcePtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o GraphResourceGraphOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o GraphResourceGraphOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphResourceGraph) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GraphResourceGraphOutput{})
 }

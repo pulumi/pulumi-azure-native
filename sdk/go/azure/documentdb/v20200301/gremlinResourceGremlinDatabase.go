@@ -223,6 +223,38 @@ func (o GremlinResourceGremlinDatabaseOutput) ToGremlinResourceGremlinDatabaseOu
 	return o
 }
 
+// The location of the resource group to which the resource belongs.
+func (o GremlinResourceGremlinDatabaseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the ARM resource.
+func (o GremlinResourceGremlinDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GremlinResourceGremlinDatabaseOutput) Options() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+		return v.Options
+	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+func (o GremlinResourceGremlinDatabaseOutput) Resource() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+		return v.Resource
+	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+func (o GremlinResourceGremlinDatabaseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of Azure resource.
+func (o GremlinResourceGremlinDatabaseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *GremlinResourceGremlinDatabase) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GremlinResourceGremlinDatabaseOutput{})
 }

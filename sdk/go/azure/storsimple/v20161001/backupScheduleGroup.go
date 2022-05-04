@@ -139,6 +139,21 @@ func (o BackupScheduleGroupOutput) ToBackupScheduleGroupOutputWithContext(ctx co
 	return o
 }
 
+// The name.
+func (o BackupScheduleGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupScheduleGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+func (o BackupScheduleGroupOutput) StartTime() TimeResponseOutput {
+	return o.ApplyT(func(v *BackupScheduleGroup) TimeResponseOutput { return v.StartTime }).(TimeResponseOutput)
+}
+
+// The type.
+func (o BackupScheduleGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *BackupScheduleGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BackupScheduleGroupOutput{})
 }

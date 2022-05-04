@@ -193,6 +193,86 @@ func (o AppOutput) ToAppOutputWithContext(ctx context.Context) AppOutput {
 	return o
 }
 
+// The ID of the application.
+func (o AppOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// The display name of the application.
+func (o AppOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The managed identities for the IoT Central application.
+func (o AppOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *App) SystemAssignedServiceIdentityResponsePtrOutput { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+}
+
+// The geo-location where the resource lives
+func (o AppOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o AppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network Rule Set Properties of this IoT Central application.
+func (o AppOutput) NetworkRuleSets() NetworkRuleSetsResponsePtrOutput {
+	return o.ApplyT(func(v *App) NetworkRuleSetsResponsePtrOutput { return v.NetworkRuleSets }).(NetworkRuleSetsResponsePtrOutput)
+}
+
+// Private endpoint connections created on this IoT Central application.
+func (o AppOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *App) PrivateEndpointConnectionResponseArrayOutput { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The provisioning state of the application.
+func (o AppOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Whether requests from the public network are allowed.
+func (o AppOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// A valid instance SKU.
+func (o AppOutput) Sku() AppSkuInfoResponseOutput {
+	return o.ApplyT(func(v *App) AppSkuInfoResponseOutput { return v.Sku }).(AppSkuInfoResponseOutput)
+}
+
+// The current state of the application.
+func (o AppOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The subdomain of the application.
+func (o AppOutput) Subdomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Subdomain }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o AppOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *App) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
+func (o AppOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+func (o AppOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o AppOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppOutput{})
 }

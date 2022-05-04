@@ -148,6 +148,41 @@ func (o ReportConfigByResourceGroupNameOutput) ToReportConfigByResourceGroupName
 	return o
 }
 
+// Has definition for the report config.
+func (o ReportConfigByResourceGroupNameOutput) Definition() ReportConfigDefinitionResponseOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) ReportConfigDefinitionResponseOutput { return v.Definition }).(ReportConfigDefinitionResponseOutput)
+}
+
+// Has delivery information for the report config.
+func (o ReportConfigByResourceGroupNameOutput) DeliveryInfo() ReportConfigDeliveryInfoResponseOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) ReportConfigDeliveryInfoResponseOutput { return v.DeliveryInfo }).(ReportConfigDeliveryInfoResponseOutput)
+}
+
+// The format of the report being delivered.
+func (o ReportConfigByResourceGroupNameOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+// Resource name.
+func (o ReportConfigByResourceGroupNameOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Has schedule information for the report config.
+func (o ReportConfigByResourceGroupNameOutput) Schedule() ReportConfigScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) ReportConfigScheduleResponsePtrOutput { return v.Schedule }).(ReportConfigScheduleResponsePtrOutput)
+}
+
+// Resource tags.
+func (o ReportConfigByResourceGroupNameOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Resource type.
+func (o ReportConfigByResourceGroupNameOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportConfigByResourceGroupName) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReportConfigByResourceGroupNameOutput{})
 }

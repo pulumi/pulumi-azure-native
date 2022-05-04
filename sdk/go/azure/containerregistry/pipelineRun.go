@@ -161,6 +161,41 @@ func (o PipelineRunOutput) ToPipelineRunOutputWithContext(ctx context.Context) P
 	return o
 }
 
+// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+func (o PipelineRunOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineRun) pulumi.StringPtrOutput { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
+// The name of the resource.
+func (o PipelineRunOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineRun) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of a pipeline run.
+func (o PipelineRunOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineRun) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The request parameters for a pipeline run.
+func (o PipelineRunOutput) Request() PipelineRunRequestResponsePtrOutput {
+	return o.ApplyT(func(v *PipelineRun) PipelineRunRequestResponsePtrOutput { return v.Request }).(PipelineRunRequestResponsePtrOutput)
+}
+
+// The response of a pipeline run.
+func (o PipelineRunOutput) Response() PipelineRunResponseResponseOutput {
+	return o.ApplyT(func(v *PipelineRun) PipelineRunResponseResponseOutput { return v.Response }).(PipelineRunResponseResponseOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o PipelineRunOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *PipelineRun) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource.
+func (o PipelineRunOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *PipelineRun) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PipelineRunOutput{})
 }

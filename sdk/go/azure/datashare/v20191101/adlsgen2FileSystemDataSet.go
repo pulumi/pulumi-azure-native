@@ -197,6 +197,47 @@ func (o ADLSGen2FileSystemDataSetOutput) ToADLSGen2FileSystemDataSetOutputWithCo
 	return o
 }
 
+// Unique id for identifying a data set resource
+func (o ADLSGen2FileSystemDataSetOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// The file system name.
+func (o ADLSGen2FileSystemDataSetOutput) FileSystem() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.FileSystem }).(pulumi.StringOutput)
+}
+
+// Kind of data set.
+// Expected value is 'AdlsGen2FileSystem'.
+func (o ADLSGen2FileSystemDataSetOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Name of the azure resource
+func (o ADLSGen2FileSystemDataSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Resource group of storage account
+func (o ADLSGen2FileSystemDataSetOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Storage account name of the source data set
+func (o ADLSGen2FileSystemDataSetOutput) StorageAccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+}
+
+// Subscription id of storage account
+func (o ADLSGen2FileSystemDataSetOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+}
+
+// Type of the azure resource
+func (o ADLSGen2FileSystemDataSetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ADLSGen2FileSystemDataSet) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ADLSGen2FileSystemDataSetOutput{})
 }

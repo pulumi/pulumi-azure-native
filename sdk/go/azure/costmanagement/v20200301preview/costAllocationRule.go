@@ -126,6 +126,21 @@ func (o CostAllocationRuleOutput) ToCostAllocationRuleOutputWithContext(ctx cont
 	return o
 }
 
+// Name of the rule. This is a read only value.
+func (o CostAllocationRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostAllocationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Cost allocation rule properties
+func (o CostAllocationRuleOutput) Properties() CostAllocationRulePropertiesResponseOutput {
+	return o.ApplyT(func(v *CostAllocationRule) CostAllocationRulePropertiesResponseOutput { return v.Properties }).(CostAllocationRulePropertiesResponseOutput)
+}
+
+// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
+func (o CostAllocationRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *CostAllocationRule) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CostAllocationRuleOutput{})
 }

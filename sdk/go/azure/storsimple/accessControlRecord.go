@@ -148,6 +148,31 @@ func (o AccessControlRecordOutput) ToAccessControlRecordOutputWithContext(ctx co
 	return o
 }
 
+// The iSCSI initiator name (IQN).
+func (o AccessControlRecordOutput) InitiatorName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.InitiatorName }).(pulumi.StringOutput)
+}
+
+// The Kind of the object. Currently only Series8000 is supported
+func (o AccessControlRecordOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The name of the object.
+func (o AccessControlRecordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The hierarchical type of the object.
+func (o AccessControlRecordOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The number of volumes using the access control record.
+func (o AccessControlRecordOutput) VolumeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v *AccessControlRecord) pulumi.IntOutput { return v.VolumeCount }).(pulumi.IntOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccessControlRecordOutput{})
 }

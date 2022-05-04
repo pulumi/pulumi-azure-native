@@ -169,6 +169,58 @@ func (o MHSMPrivateEndpointConnectionOutput) ToMHSMPrivateEndpointConnectionOutp
 	return o
 }
 
+// Modified whenever there is a change in the state of private endpoint connection.
+func (o MHSMPrivateEndpointConnectionOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringPtrOutput { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+// The supported Azure location where the managed HSM Pool should be created.
+func (o MHSMPrivateEndpointConnectionOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// The name of the managed HSM Pool.
+func (o MHSMPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Properties of the private endpoint object.
+func (o MHSMPrivateEndpointConnectionOutput) PrivateEndpoint() MHSMPrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) MHSMPrivateEndpointResponsePtrOutput { return v.PrivateEndpoint }).(MHSMPrivateEndpointResponsePtrOutput)
+}
+
+// Approval state of the private link connection.
+func (o MHSMPrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
+		return v.PrivateLinkServiceConnectionState
+	}).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
+}
+
+// Provisioning state of the private endpoint connection.
+func (o MHSMPrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// SKU details
+func (o MHSMPrivateEndpointConnectionOutput) Sku() ManagedHsmSkuResponsePtrOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) ManagedHsmSkuResponsePtrOutput { return v.Sku }).(ManagedHsmSkuResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the key vault resource.
+func (o MHSMPrivateEndpointConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags
+func (o MHSMPrivateEndpointConnectionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The resource type of the managed HSM Pool.
+func (o MHSMPrivateEndpointConnectionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *MHSMPrivateEndpointConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MHSMPrivateEndpointConnectionOutput{})
 }

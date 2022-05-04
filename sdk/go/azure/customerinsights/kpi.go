@@ -240,6 +240,111 @@ func (o KpiOutput) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
 	return o
 }
 
+// The aliases.
+func (o KpiOutput) Aliases() KpiAliasResponseArrayOutput {
+	return o.ApplyT(func(v *Kpi) KpiAliasResponseArrayOutput { return v.Aliases }).(KpiAliasResponseArrayOutput)
+}
+
+// The calculation window.
+func (o KpiOutput) CalculationWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.CalculationWindow }).(pulumi.StringOutput)
+}
+
+// Name of calculation window field.
+func (o KpiOutput) CalculationWindowFieldName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringPtrOutput { return v.CalculationWindowFieldName }).(pulumi.StringPtrOutput)
+}
+
+// Localized description for the KPI.
+func (o KpiOutput) Description() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringMapOutput { return v.Description }).(pulumi.StringMapOutput)
+}
+
+// Localized display name for the KPI.
+func (o KpiOutput) DisplayName() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringMapOutput { return v.DisplayName }).(pulumi.StringMapOutput)
+}
+
+// The mapping entity type.
+func (o KpiOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// The mapping entity name.
+func (o KpiOutput) EntityTypeName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.EntityTypeName }).(pulumi.StringOutput)
+}
+
+// The computation expression for the KPI.
+func (o KpiOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The KPI extracts.
+func (o KpiOutput) Extracts() KpiExtractResponseArrayOutput {
+	return o.ApplyT(func(v *Kpi) KpiExtractResponseArrayOutput { return v.Extracts }).(KpiExtractResponseArrayOutput)
+}
+
+// The filter expression for the KPI.
+func (o KpiOutput) Filter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringPtrOutput { return v.Filter }).(pulumi.StringPtrOutput)
+}
+
+// The computation function for the KPI.
+func (o KpiOutput) Function() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.Function }).(pulumi.StringOutput)
+}
+
+// the group by properties for the KPI.
+func (o KpiOutput) GroupBy() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringArrayOutput { return v.GroupBy }).(pulumi.StringArrayOutput)
+}
+
+// The KPI GroupByMetadata.
+func (o KpiOutput) GroupByMetadata() KpiGroupByMetadataResponseArrayOutput {
+	return o.ApplyT(func(v *Kpi) KpiGroupByMetadataResponseArrayOutput { return v.GroupByMetadata }).(KpiGroupByMetadataResponseArrayOutput)
+}
+
+// The KPI name.
+func (o KpiOutput) KpiName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.KpiName }).(pulumi.StringOutput)
+}
+
+// Resource name.
+func (o KpiOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The participant profiles.
+func (o KpiOutput) ParticipantProfilesMetadata() KpiParticipantProfilesMetadataResponseArrayOutput {
+	return o.ApplyT(func(v *Kpi) KpiParticipantProfilesMetadataResponseArrayOutput { return v.ParticipantProfilesMetadata }).(KpiParticipantProfilesMetadataResponseArrayOutput)
+}
+
+// Provisioning state.
+func (o KpiOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The hub name.
+func (o KpiOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The KPI thresholds.
+func (o KpiOutput) ThresHolds() KpiThresholdsResponsePtrOutput {
+	return o.ApplyT(func(v *Kpi) KpiThresholdsResponsePtrOutput { return v.ThresHolds }).(KpiThresholdsResponsePtrOutput)
+}
+
+// Resource type.
+func (o KpiOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unit of measurement for the KPI.
+func (o KpiOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Kpi) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(KpiOutput{})
 }
