@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
-	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -334,7 +333,7 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
 
-	k.applyDefaults(ctx, req.Urn, int(req.SequenceNumber), res, olds, news)
+	k.applyDefaults(ctx, req.Urn, res, olds, news)
 	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -430,10 +429,7 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 	return result(v)
 }
 
-// Namespace used for deterministic uuid autonames.
-var uuidNamespace uuid.UUID = uuid.MustParse("c2d949a4-6068-4741-9d6a-ddfd2c0f463c")
-
-func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, strategy resources.AutoNameKind, key resource.PropertyKey,
+func (k *azureNativeProvider) getDefaultName(urn string, strategy resources.AutoNameKind, key resource.PropertyKey,
 	olds resource.PropertyMap) (resource.PropertyValue, bool) {
 	if v, ok := olds[key]; ok {
 		if vf, ok := olds[createBeforeDeleteFlag]; ok && vf.IsBool() {
@@ -447,20 +443,12 @@ func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, str
 	switch strategy {
 	case resources.AutoNameRandom:
 		// Resource name is URN name + random suffix.
-		random, err := resource.NewUniqueHexV2(resource.URN(urn), sequenceNumber, name, 8, 0)
+		random, err := resource.NewUniqueHex(name, 8, 0)
 		contract.AssertNoError(err)
 		return resource.NewStringProperty(random), true
 	case resources.AutoNameUuid:
-		// Resource name is a random UUID. We need to do a similar trick as NewUniqueHexV2 so that this is
-		// deterministic by urn and sequence number.
-		buffer := new(bytes.Buffer)
-
-		_, err := buffer.Write([]byte(urn))
-		contract.AssertNoError(err)
-		err = binary.Write(buffer, binary.LittleEndian, uint32(sequenceNumber))
-		contract.AssertNoError(err)
-
-		return resource.NewStringProperty(uuid.NewSHA1(uuidNamespace, buffer.Bytes()).String()), true
+		// Resource name is a random UUID.
+		return resource.NewStringProperty(uuid.New().String()), true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
 		return resource.NewStringProperty(name), false
@@ -470,8 +458,8 @@ func (k *azureNativeProvider) getDefaultName(urn string, sequenceNumber int, str
 }
 
 // Apply default values (e.g., location) to user's inputs.
-func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, sequenceNumber int,
-	res resources.AzureAPIResource, olds, news resource.PropertyMap) {
+func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, res resources.AzureAPIResource,
+	olds, news resource.PropertyMap) {
 	for _, par := range res.PutParameters {
 		sdkName := par.Name
 		if par.Value != nil && par.Value.SdkName != "" {
@@ -481,7 +469,7 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, seq
 		// Auto-naming.
 		key := resource.PropertyKey(sdkName)
 		if !news.HasValue(key) && par.Value != nil && par.Value.AutoName != "" {
-			name, randomlyNamed := k.getDefaultName(urn, sequenceNumber, par.Value.AutoName, key, olds)
+			name, randomlyNamed := k.getDefaultName(urn, par.Value.AutoName, key, olds)
 			news[key] = name
 			if randomlyNamed {
 				news[createBeforeDeleteFlag] = resource.NewBoolProperty(true)
