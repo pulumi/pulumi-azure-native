@@ -16,7 +16,7 @@ const body = "body"
 
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
-func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources.PartialMap[resources.AzureAPIType],
+func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources.MapLike[resources.AzureAPIType],
 	diff *resource.ObjectDiff) map[string]*rpc.PropertyDiff {
 	replaceKeys := codegen.NewStringSet()
 
@@ -38,14 +38,14 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource, types resources
 				// Object types.
 				if prop.Ref != "" {
 					typName := strings.TrimPrefix(prop.Ref, "#/types/")
-					if typ, has, err := types.Get(typName); has && err != nil {
+					if typ, has, err := types.Get(typName); has && err == nil {
 						findForceNew(propName+".", typ.Properties, replaceKeys)
 					}
 				}
 				// Arrays of objects.
 				if prop.Items != nil && prop.Items.Ref != "" {
 					typName := strings.TrimPrefix(prop.Items.Ref, "#/types/")
-					if typ, has, err := types.Get(typName); has && err != nil {
+					if typ, has, err := types.Get(typName); has && err == nil {
 						findForceNew(propName+"[].", typ.Properties, replaceKeys)
 					}
 				}

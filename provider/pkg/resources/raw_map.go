@@ -7,6 +7,17 @@ import (
 	"github.com/segmentio/encoding/json"
 )
 
+type MapLike[T any] interface {
+	Get(key string) (T, bool, error)
+}
+
+type GoMap[T any] map[string]T
+
+func (m GoMap[T]) Get(key string) (T, bool, error) {
+	value, ok := m[key]
+	return value, ok, nil
+}
+
 type PartialMap[T any] struct {
 	partialMap map[string]json.RawMessage
 }
