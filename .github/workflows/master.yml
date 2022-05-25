@@ -50,7 +50,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion: [ 3.1.301 ]
-        goversion: [ 1.17.x ]
+        goversion: [ 1.18.x ]
         language: [ nodejs, python, dotnet, go ]
         nodeversion: [ 14.x ]
         pythonversion: [ 3.7 ]
@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goversion: [1.17.x]
+        goversion: [1.18.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -182,7 +182,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        goversion: [1.17.x]
+        goversion: [1.18.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -227,7 +227,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goversion: [1.17.x]
+        goversion: [1.18.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -303,7 +303,7 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion: [3.1.301]
-        goversion: [1.17.x]
+        goversion: [1.18.x]
         language: [nodejs, python, dotnet, go]
         nodeversion: [14.x]
         pythonversion: [3.7]
