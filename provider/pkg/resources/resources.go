@@ -113,6 +113,13 @@ type AzureAPIInvoke struct {
 }
 
 // AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.
+type PartialAzureAPIMetadata struct {
+	Types     PartialMap[AzureAPIType]     `json:"types"`
+	Resources PartialMap[AzureAPIResource] `json:"resources"`
+	Invokes   PartialMap[AzureAPIInvoke]   `json:"invokes"`
+}
+
+// AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.
 type AzureAPIMetadata struct {
 	Types     map[string]AzureAPIType     `json:"types"`
 	Resources map[string]AzureAPIResource `json:"resources"`

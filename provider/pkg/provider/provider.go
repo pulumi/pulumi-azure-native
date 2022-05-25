@@ -4,9 +4,7 @@ package provider
 
 import (
 	"bytes"
-	"compress/gzip"
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -18,6 +16,8 @@ import (
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/segmentio/encoding/json"
 
 	structpb "github.com/golang/protobuf/ptypes/struct"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
@@ -67,15 +67,19 @@ type azureNativeProvider struct {
 	subscriptionID  string
 	environment     azure.Environment
 	client          autorest.Client
-	resourceMap     *resources.AzureAPIMetadata
+	resourceMap     *resources.PartialAzureAPIMetadata
 	config          map[string]string
 	schemaBytes     []byte
+	metadataBytes   []byte
+	schemaString    string // optimization, this and schemaBytes should have same underlying repr
+	fullPkgSpec     *schema.PackageSpec
+	fullResourceMap *resources.AzureAPIMetadata
 	converter       *resources.SdkShapeConverter
 	customResources map[string]*resources.CustomResource
 	rgLocationMap   map[string]string
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
+func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, schemaString string,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	autorest.Count429AsRetry = false
 	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
@@ -85,10 +89,12 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	// Log responses
 	client.ResponseInspector = byInspecting()
 
-	resourceMap, err := LoadMetadata(azureAPIResourcesBytes)
+	resourceMap, err := LoadMetadataPartial(azureAPIResourcesBytes)
 	if err != nil {
 		return nil, err
 	}
+
+	converter := resources.NewSdkShapeConverterPartial(resourceMap.Types)
 
 	// Return the new provider
 	return &azureNativeProvider{
@@ -99,27 +105,42 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		resourceMap:   resourceMap,
 		config:        map[string]string{},
 		schemaBytes:   schemaBytes,
-		converter:     &resources.SdkShapeConverter{Types: resourceMap.Types},
+		converter:     &converter,
 		rgLocationMap: map[string]string{},
 	}, nil
 }
 
-// LoadMetadata deserializes the provided compressed json byte array into
-// an AzureAPIMetadata in memory
+// LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
+// in memory
+func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.PartialAzureAPIMetadata, error) {
+	var resourceMap resources.PartialAzureAPIMetadata
+
+	if _, err := json.Parse(azureAPIResourcesBytes, &resourceMap, json.ZeroCopy); err != nil {
+		return nil, errors.Wrap(err, "unmarshalling resource map")
+	}
+	return &resourceMap, nil
+}
+
+// LoadMetadata deserializes the provided json byte array into an AzureAPIMetadata in memory
 func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, error) {
 	var resourceMap resources.AzureAPIMetadata
 
-	uncompressed, err := gzip.NewReader(bytes.NewReader(azureAPIResourcesBytes))
-	if err != nil {
-		return nil, errors.Wrap(err, "expand compressed metadata")
-	}
-	if err = json.NewDecoder(uncompressed).Decode(&resourceMap); err != nil {
+	if _, err := json.Parse(azureAPIResourcesBytes, &resourceMap, json.ZeroCopy); err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
-	if err = uncompressed.Close(); err != nil {
-		return nil, errors.Wrap(err, "closing uncompress stream for metadata")
-	}
 	return &resourceMap, nil
+}
+
+func (k *azureNativeProvider) getFullMetadata() (*resources.AzureAPIMetadata, error) {
+	if k.fullResourceMap != nil {
+		return k.fullResourceMap, nil
+	}
+
+	if _, err := json.Parse(k.metadataBytes, k.fullResourceMap, json.ZeroCopy); err != nil {
+		return nil, errors.Wrap(err, "unmarshalling metadata")
+	}
+
+	return k.fullResourceMap, nil
 }
 
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
@@ -225,23 +246,27 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 			return nil, errors.New("missing required field 'text' of type 'string'")
 		}
 
-		uncompressed, err := gzip.NewReader(bytes.NewReader(k.schemaBytes))
+		if k.fullPkgSpec == nil {
+			if _, err := json.Parse(k.schemaBytes, k.fullPkgSpec, json.ZeroCopy); err != nil {
+				return nil, fmt.Errorf("deserializing schema: %w", err)
+			}
+		}
+
+		resourceMap, err := k.getFullMetadata()
 		if err != nil {
-			return nil, errors.Wrap(err, "expand compressed schema")
+			return nil, fmt.Errorf("deserializing ")
 		}
 
-		var pkgSpec schema.PackageSpec
-		if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
-			return nil, fmt.Errorf("deserializing schema: %w", err)
-		}
-
-		res, err := arm2pulumi.DecodeTemplate(&pkgSpec, k.resourceMap, text)
+		res, err := arm2pulumi.DecodeTemplate(k.fullPkgSpec, resourceMap, text)
 		if err != nil {
 			return nil, fmt.Errorf("rendering template: %w", err)
 		}
 		outputs = map[string]interface{}{"result": res}
 	default:
-		res, ok := k.resourceMap.Invokes[req.Tok]
+		res, ok, err := k.resourceMap.Invokes.Get(req.Tok)
+		if err != nil {
+			return nil, errors.Errorf("Decoding invoke spec %s", req.Tok)
+		}
 		if !ok {
 			return nil, errors.Errorf("Invoke type %s not found", req.Tok)
 		}
@@ -328,7 +353,10 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
@@ -556,7 +584,17 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		// Typed object: validate all properties by looking up its type definition.
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ := k.resourceMap.Types[typeName]
+		typ, ok, err := k.resourceMap.Types.Get(typeName)
+		if err != nil {
+			return append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("error decoding type spec '%s': %v", typeName, err),
+			})
+		}
+		if !ok {
+			return append(failures, &rpc.CheckFailure{
+				Reason: fmt.Sprintf("schema type '%s' not found", typeName),
+			})
+		}
 
 		failures = append(failures, k.validateType(ctx, &typ, value)...)
 	case []interface{}:
@@ -638,22 +676,7 @@ func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaReq
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
 
-	uncompressed, err := gzip.NewReader(bytes.NewReader(k.schemaBytes))
-	if err != nil {
-		return nil, errors.Wrap(err, "expand compressed bytes for schema")
-	}
-
-	buf := new(strings.Builder)
-	_, err = io.Copy(buf, uncompressed)
-	if err != nil {
-		return nil, errors.Wrap(err, "closing read stream for schema")
-	}
-
-	if err = uncompressed.Close(); err != nil {
-		return nil, errors.Wrap(err, "closing uncompress stream for schema")
-	}
-
-	return &rpc.GetSchemaResponse{Schema: buf.String()}, nil
+	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
 }
 
 // CheckConfig validates the configuration for this provider.
@@ -720,7 +743,10 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
@@ -793,7 +819,10 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
@@ -937,7 +966,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
@@ -1045,7 +1077,10 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}
 
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}
@@ -1151,7 +1186,10 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 	logging.V(9).Infof("%s executing", label)
 	id := req.GetId()
 	resourceKey := string(urn.Type())
-	res, ok := k.resourceMap.Resources[resourceKey]
+	res, ok, err := k.resourceMap.Resources.Get(resourceKey)
+	if err != nil {
+		return nil, errors.Errorf("Decoding resource spec %s", resourceKey)
+	}
 	if !ok {
 		return nil, errors.Errorf("Resource type '%s' not found", resourceKey)
 	}

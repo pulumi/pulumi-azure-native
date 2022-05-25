@@ -3,8 +3,8 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/segmentio/encoding/json"
 	"log"
 	"os"
 	"strings"
@@ -370,7 +370,7 @@ func renderImportToSchema(pkgSpec *schema.PackageSpec, resourceName string,
 An existing resource can be imported using its type token, name, and identifier, e.g.
 
 ` + "```" + `sh
-$ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }} 
+$ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }}
 ` + "```\n"
 	res, ok := pkgSpec.Resources[resourceName]
 	if !ok {

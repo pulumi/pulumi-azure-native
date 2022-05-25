@@ -3,7 +3,6 @@
 package openapi
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -12,6 +11,7 @@ import (
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/segmentio/encoding/json"
 )
 
 // versioner checks whether the given combination of a provider, a resource path, and a versions

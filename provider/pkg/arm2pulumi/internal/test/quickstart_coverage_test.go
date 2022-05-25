@@ -1,16 +1,17 @@
 // Copyright 2021, Pulumi Corporation.  All rights reserved.
 
+//go:build coverage
 // +build coverage
 
 package test
 
 import (
 	"database/sql"
-	"encoding/json"
 	"flag"
 	"fmt"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/segmentio/encoding/json"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"os"

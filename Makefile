@@ -140,7 +140,7 @@ build_dotnet::
 
 generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}
-	
+
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
 	cd sdk/ && \
