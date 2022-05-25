@@ -332,7 +332,10 @@
     "Commerce": {},
     "Communication": {
         "CommunicationService": "2020-08-20",
-        "listCommunicationServiceKeys": "2020-08-20"
+        "Domain": "2021-10-01-preview",
+        "EmailService": "2021-10-01-preview",
+        "listCommunicationServiceKeys": "2020-08-20",
+        "listEmailServiceVerifiedExchangeOnlineDomains": "2021-10-01-preview"
     },
     "Compute": {
         "AvailabilitySet": "2020-12-01",
@@ -429,6 +432,7 @@
         "OpenShiftManagedCluster": "2019-04-30",
         "PrivateEndpointConnection": "2021-03-01",
         "Snapshot": "2021-08-01",
+        "TrustedAccessRoleBinding": "2022-04-02-preview",
         "listManagedClusterAccessProfile": "2020-03-01",
         "listManagedClusterAdminCredentials": "2021-03-01",
         "listManagedClusterMonitoringUserCredentials": "2021-03-01",
@@ -532,6 +536,7 @@
         "DataFlow": "2018-06-01",
         "Dataset": "2018-06-01",
         "Factory": "2018-06-01",
+        "GlobalParameter": "2018-06-01",
         "IntegrationRuntime": "2018-06-01",
         "LinkedService": "2018-06-01",
         "ManagedPrivateEndpoint": "2018-06-01",
@@ -662,10 +667,10 @@
         "listVirtualMachineApplicableSchedules": "2018-09-15"
     },
     "DeviceUpdate": {
-        "Account": "2020-03-01-preview",
-        "Instance": "2020-03-01-preview",
-        "PrivateEndpointConnection": "2020-03-01-preview",
-        "PrivateEndpointConnectionProxy": "2020-03-01-preview"
+        "Account": "2022-04-01-preview",
+        "Instance": "2022-04-01-preview",
+        "PrivateEndpointConnection": "2022-04-01-preview",
+        "PrivateEndpointConnectionProxy": "2022-04-01-preview"
     },
     "Devices": {
         "Certificate": "2020-08-31",
@@ -733,8 +738,8 @@
     },
     "EdgeOrderPartner": {},
     "Education": {
-        "GetLab": "2021-12-01-preview",
-        "GetStudent": "2021-12-01-preview"
+        "Lab": "2021-12-01-preview",
+        "Student": "2021-12-01-preview"
     },
     "Elastic": {
         "Monitor": "2020-07-01",
@@ -795,6 +800,7 @@
         "listTopicSharedAccessKeys": "2020-06-01"
     },
     "EventHub": {
+        "ApplicationGroup": "2022-01-01-preview",
         "Cluster": "2018-01-01-preview",
         "ConsumerGroup": "2017-04-01",
         "DisasterRecoveryConfig": "2017-04-01",
@@ -806,7 +812,7 @@
         "NamespaceNetworkRuleSet": "2017-04-01",
         "NamespaceVirtualNetworkRule": "2018-01-01-preview",
         "PrivateEndpointConnection": "2018-01-01-preview",
-        "SchemaRegistry": "2021-11-01",
+        "SchemaRegistry": "2022-01-01-preview",
         "listDisasterRecoveryConfigKeys": "2017-04-01",
         "listEventHubKeys": "2017-04-01",
         "listNamespaceKeys": "2017-04-01"
@@ -820,11 +826,12 @@
     },
     "FluidRelay": {
         "FluidRelayServer": "2021-03-12-preview",
-        "getFluidRelayServerKeys": "2021-03-12-preview"
+        "getFluidRelayServerKeys": "2021-03-12-preview",
+        "listFluidRelayServerKeys": "2022-04-21"
     },
     "GuestConfiguration": {
-        "GuestConfigurationAssignment": "2020-06-25",
-        "GuestConfigurationHCRPAssignment": "2020-06-25"
+        "GuestConfigurationAssignment": "2022-01-25",
+        "GuestConfigurationHCRPAssignment": "2022-01-25"
     },
     "HDInsight": {
         "Application": "2018-06-01-preview",
@@ -848,14 +855,14 @@
         "Bot": "2020-12-08"
     },
     "HealthcareApis": {
-        "DicomService": "2021-11-01",
-        "FhirService": "2021-11-01",
-        "IotConnector": "2021-11-01",
-        "IotConnectorFhirDestination": "2021-11-01",
-        "PrivateEndpointConnection": "2021-11-01",
-        "Service": "2021-11-01",
-        "Workspace": "2021-11-01",
-        "WorkspacePrivateEndpointConnection": "2021-11-01"
+        "DicomService": "2022-05-15",
+        "FhirService": "2022-05-15",
+        "IotConnector": "2022-05-15",
+        "IotConnectorFhirDestination": "2022-05-15",
+        "PrivateEndpointConnection": "2022-05-15",
+        "Service": "2022-05-15",
+        "Workspace": "2022-05-15",
+        "WorkspacePrivateEndpointConnection": "2022-05-15"
     },
     "HybridCompute": {
         "Machine": "2020-08-02",
@@ -865,8 +872,8 @@
         "PrivateLinkScopedResource": "2020-08-15-preview"
     },
     "HybridConnectivity": {
-        "Endpoint": "2021-10-06-preview",
-        "listEndpointCredentials": "2021-10-06-preview",
+        "Endpoint": "2022-05-01-preview",
+        "listEndpointCredentials": "2022-05-01-preview",
         "listEndpointManagedProxyDetails": "2022-05-01-preview"
     },
     "HybridData": {
@@ -948,7 +955,7 @@
     },
     "Kubernetes": {
         "ConnectedCluster": "2021-03-01",
-        "listConnectedClusterUserCredential": "2021-10-01",
+        "listConnectedClusterUserCredential": "2022-05-01-preview",
         "listConnectedClusterUserCredentials": "2021-04-01-preview"
     },
     "KubernetesConfiguration": {
@@ -991,7 +998,7 @@
         "listGlobalUserLabs": "2018-10-15"
     },
     "LoadTestService": {
-        "LoadTest": "2021-12-01-preview"
+        "LoadTest": "2022-04-15-preview"
     },
     "Logic": {
         "IntegrationAccount": "2019-05-01",
@@ -1070,6 +1077,8 @@
         "BatchEndpoint": "2021-03-01-preview",
         "CodeContainer": "2021-03-01-preview",
         "CodeVersion": "2021-03-01-preview",
+        "ComponentContainer": "2022-02-01-preview",
+        "ComponentVersion": "2022-02-01-preview",
         "DataContainer": "2021-03-01-preview",
         "DataVersion": "2021-03-01-preview",
         "EnvironmentContainer": "2021-03-01-preview",
@@ -1301,16 +1310,16 @@
         "RouteTable": "2020-11-01",
         "RoutingIntent": "2021-08-01",
         "RulesEngine": "2020-05-01",
-        "ScopeConnection": "2022-02-01-preview",
+        "ScopeConnection": "2022-04-01-preview",
         "SecurityAdminConfiguration": "2021-02-01-preview",
         "SecurityPartnerProvider": "2020-11-01",
         "SecurityRule": "2020-11-01",
         "SecurityUserConfiguration": "2021-02-01-preview",
         "ServiceEndpointPolicy": "2020-11-01",
         "ServiceEndpointPolicyDefinition": "2020-11-01",
-        "StaticMember": "2022-02-01-preview",
+        "StaticMember": "2022-04-01-preview",
         "Subnet": "2020-11-01",
-        "SubscriptionNetworkManagerConnection": "2022-02-01-preview",
+        "SubscriptionNetworkManagerConnection": "2022-04-01-preview",
         "TrafficManagerUserMetricsKey": "2018-08-01",
         "UserRule": "2021-02-01-preview",
         "UserRuleCollection": "2021-02-01-preview",
@@ -1362,6 +1371,10 @@
         "listNetworkManagerDeploymentStatus": "2021-02-01-preview",
         "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview"
     },
+    "NetworkFunction": {
+        "AzureTrafficCollector": "2022-05-01",
+        "CollectorPolicy": "2022-05-01"
+    },
     "NotificationHubs": {
         "Namespace": "2017-04-01",
         "NamespaceAuthorizationRule": "2017-04-01",
@@ -1379,7 +1392,8 @@
         "VCenter": "2020-01-01"
     },
     "OpenEnergyPlatform": {
-        "EnergyService": "2021-06-01-preview"
+        "EnergyService": "2021-06-01-preview",
+        "listEnergyServicePartitions": "2022-04-04-preview"
     },
     "OperationalInsights": {
         "Cluster": "2020-10-01",
@@ -1402,10 +1416,10 @@
         "Solution": "2015-11-01-preview"
     },
     "Orbital": {
-        "Contact": "2021-04-04-preview",
-        "ContactProfile": "2021-04-04-preview",
-        "Spacecraft": "2021-04-04-preview",
-        "listSpacecraftAvailableContacts": "2021-04-04-preview"
+        "Contact": "2022-03-01",
+        "ContactProfile": "2022-03-01",
+        "Spacecraft": "2022-03-01",
+        "listSpacecraftAvailableContacts": "2022-03-01"
     },
     "Peering": {
         "ConnectionMonitorTest": "2021-06-01",
@@ -1499,21 +1513,21 @@
         "getRecoveryPointAccessToken": "2018-12-20"
     },
     "RedHatOpenShift": {
-        "OpenShiftCluster": "2020-04-30",
-        "listOpenShiftClusterAdminCredentials": "2021-09-01-preview",
-        "listOpenShiftClusterCredentials": "2020-04-30"
+        "OpenShiftCluster": "2022-04-01",
+        "listOpenShiftClusterAdminCredentials": "2022-04-01",
+        "listOpenShiftClusterCredentials": "2022-04-01"
     },
     "Relay": {
-        "HybridConnection": "2017-04-01",
-        "HybridConnectionAuthorizationRule": "2017-04-01",
-        "Namespace": "2017-04-01",
-        "NamespaceAuthorizationRule": "2017-04-01",
-        "PrivateEndpointConnection": "2018-01-01-preview",
-        "WCFRelay": "2017-04-01",
-        "WCFRelayAuthorizationRule": "2017-04-01",
-        "listHybridConnectionKeys": "2017-04-01",
-        "listNamespaceKeys": "2017-04-01",
-        "listWCFRelayKeys": "2017-04-01"
+        "HybridConnection": "2021-11-01",
+        "HybridConnectionAuthorizationRule": "2021-11-01",
+        "Namespace": "2021-11-01",
+        "NamespaceAuthorizationRule": "2021-11-01",
+        "PrivateEndpointConnection": "2021-11-01",
+        "WCFRelay": "2021-11-01",
+        "WCFRelayAuthorizationRule": "2021-11-01",
+        "listHybridConnectionKeys": "2021-11-01",
+        "listNamespaceKeys": "2021-11-01",
+        "listWCFRelayKeys": "2021-11-01"
     },
     "ResourceConnector": {
         "Appliance": "2021-10-31-preview",
@@ -1612,6 +1626,7 @@
         "IncidentRelation": "2021-03-01-preview",
         "Metadata": "2021-03-01-preview",
         "ProductSetting": "2021-03-01-preview",
+        "SecurityMLAnalyticsSetting": "2022-05-01-preview",
         "SentinelOnboardingState": "2021-03-01-preview",
         "SourceControl": "2021-03-01-preview",
         "ThreatIntelligenceIndicator": "2019-01-01-preview",
@@ -2015,5 +2030,9 @@
     "WindowsIoT": {
         "Service": "2019-06-01"
     },
-    "WorkloadMonitor": {}
+    "WorkloadMonitor": {},
+    "Workloads": {
+        "ProviderInstance": "2021-12-01-preview",
+        "monitor": "2021-12-01-preview"
+    }
 }
