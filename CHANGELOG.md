@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+
 ## 1.62.0 (2022-04-04)
 
 - Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
