@@ -111,7 +111,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 			"p3": {V: true},
 		},
 	}
-	actual := calculateDetailedDiff(&res, resources.NewPartialMap[resources.AzureAPIType](), &diff)
+	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":          {Kind: rpc.PropertyDiff_ADD},
@@ -173,7 +174,8 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, resources.NewPartialMap[resources.AzureAPIType](), &diff)
+	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"Prop2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -281,7 +283,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, types, &diff)
+	actual := calculateDetailedDiff(&res, resources.GoMap[resources.AzureAPIType](fullTypes), &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
