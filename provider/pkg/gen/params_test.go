@@ -3,8 +3,8 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/segmentio/encoding/json"
 	"os"
 	"strings"
 	"testing"

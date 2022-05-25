@@ -4,11 +4,12 @@ package resources
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"reflect"
 	"regexp"
 	"strings"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 const body = "body"
@@ -18,7 +19,34 @@ const TypeAny = "pulumi.json#/Any"
 // SdkShapeConverter providers functions to convert between HTTP request/response shapes and
 // Pulumi SDK shapes (with flattening, renaming, etc.).
 type SdkShapeConverter struct {
-	Types map[string]AzureAPIType
+	Types        map[string]AzureAPIType
+	PartialTypes PartialMap[AzureAPIType]
+}
+
+func NewSdkShapeConverterPartial(ptypes PartialMap[AzureAPIType]) SdkShapeConverter {
+	return SdkShapeConverter{
+		Types:        nil,
+		PartialTypes: ptypes,
+	}
+}
+
+func NewSdkShapeConverterFull(types map[string]AzureAPIType) SdkShapeConverter {
+	return SdkShapeConverter{
+		Types:        types,
+		PartialTypes: NewPartialMap[AzureAPIType](),
+	}
+}
+
+func (k *SdkShapeConverter) GetType(name string) (AzureAPIType, bool, error) {
+	if k.Types != nil {
+		typ, ok := k.Types[name]
+		if ok {
+			return typ, true, nil
+		}
+		return AzureAPIType{}, false, nil
+	}
+
+	return k.PartialTypes.Get(name)
 }
 
 type convertPropValues func(props map[string]AzureAPIProperty, values map[string]interface{}) map[string]interface{}
@@ -33,8 +61,8 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 		// For union types, iterate through types and find the first one that matches the shape.
 		for _, t := range prop.OneOf {
 			typeName := strings.TrimPrefix(t, "#/types/")
-			typ, ok := k.Types[typeName]
-			if !ok {
+			typ, ok, err := k.GetType(typeName)
+			if !ok || err != nil {
 				continue
 			}
 
@@ -51,8 +79,8 @@ func (k *SdkShapeConverter) convertPropValue(prop *AzureAPIProperty, value inter
 
 		if strings.HasPrefix(prop.Ref, "#/types/") {
 			typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-			typ, ok := k.Types[typeName]
-			if !ok {
+			typ, ok, err := k.GetType(typeName)
+			if !ok || err != nil {
 				return value
 			}
 			return convertMap(typ.Properties, valueMap)
@@ -304,7 +332,7 @@ func (k *SdkShapeConverter) previewOutputValue(inputValue resource.PropertyValue
 		return resource.NewArrayProperty(items)
 	case strings.HasPrefix(prop.Ref, "#/types/") && inputValue.IsObject():
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ := k.Types[typeName]
+		typ, _, _ := k.GetType(typeName)
 		v := k.PreviewOutputs(inputValue.ObjectValue(), typ.Properties)
 		return resource.NewObjectProperty(v)
 	default:

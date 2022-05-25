@@ -4,12 +4,12 @@ package main
 
 import (
 	"bytes"
-	"compress/gzip"
-	"encoding/json"
 	"fmt"
 	"os"
 	"path"
 	"strings"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/pkg/errors"
 
@@ -60,7 +60,7 @@ func main() {
 				fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
 			}
 			// Also, emit the resource metadata for the provider.
-			if err = emitMetadata(meta, outdir, "main", true); err != nil {
+			if err = emitMetadata(meta, outdir, "main"); err != nil {
 				break
 			}
 
@@ -70,7 +70,7 @@ func main() {
 				break
 			}
 			// Also, emit the resource metadata for the provider.
-			if err = emitMetadata(meta, arm2pulumiDir, "main", false); err != nil {
+			if err = emitMetadata(meta, arm2pulumiDir, "main"); err != nil {
 				break
 			}
 			err = emitDefaultVersions(azureProviders, path.Join(".", "azure-provider-versions"))
@@ -111,36 +111,16 @@ func main() {
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
 func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJSON bool) error {
-	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
+	pkgSpec.Version = version
+	schemaJSON, err := json.Marshal(pkgSpec)
 	if err != nil {
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	// Ensure the spec is stamped with a version.
-	pkgSpec.Version = version
-
-	compressedSchema := bytes.Buffer{}
-	compressedWriter := gzip.NewWriter(&compressedSchema)
-	err = json.NewEncoder(compressedWriter).Encode(pkgSpec)
-	if err != nil {
-		return errors.Wrap(err, "marshaling metadata")
-	}
-	if err = compressedWriter.Close(); err != nil {
+	if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
 		return err
 	}
 
-	err = emitFile(outDir, "schema.go", []byte(fmt.Sprintf(`package %s
-var pulumiSchema = %#v
-`, goPackageName, compressedSchema.Bytes())))
-	if err != nil {
-		return errors.Wrap(err, "saving metadata")
-	}
-
-	if emitJSON {
-		if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
-			return err
-		}
-	}
 	return nil
 }
 
@@ -154,37 +134,18 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
-func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
-	compressedMeta := bytes.Buffer{}
-	compressedWriter := gzip.NewWriter(&compressedMeta)
-	err := json.NewEncoder(compressedWriter).Encode(metadata)
+func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackageName string) error {
+	meta := bytes.Buffer{}
+	err := json.NewEncoder(&meta).Encode(metadata)
 	if err != nil {
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	if err = compressedWriter.Close(); err != nil {
-		return err
-	}
-
-	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
-var azureApiResources = %#v
-`, goPackageName, compressedMeta.Bytes())))
+	err = emitFile(outDir, "metadata-compact.json", meta.Bytes())
 	if err != nil {
 		return err
 	}
 
-	if emitJSON {
-		// To reduce the size, blank out
-		formatted, err := json.MarshalIndent(metadata, "", "  ")
-		if err != nil {
-			return errors.Wrap(err, "marshaling metadata")
-		}
-
-		err = emitFile(outDir, "metadata.json", formatted)
-		if err != nil {
-			return err
-		}
-	}
 	return nil
 }
 

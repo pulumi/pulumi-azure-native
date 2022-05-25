@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-azure-native/provider
 
-go 1.17
+go 1.18
 
 require (
 	github.com/Azure/azure-sdk-for-go v57.0.0+incompatible
@@ -23,6 +23,7 @@ require (
 	github.com/pulumi/pulumi/pkg/v3 v3.34.0
 	github.com/pulumi/pulumi/sdk/v3 v3.34.0
 	github.com/schollz/progressbar/v3 v3.5.0
+	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.7.1
 	github.com/tombuildsstuff/giovanni v0.15.1
@@ -133,7 +134,6 @@ require (
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
 	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/segmentio/asm v1.1.3 // indirect
-	github.com/segmentio/encoding v0.3.5 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/cobra v1.4.0 // indirect

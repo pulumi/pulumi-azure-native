@@ -14,10 +14,12 @@ package-lock.json
 
 provider/cmd/**/metadata.go
 provider/cmd/**/schema.go
+provider/cmd/**/schema-full.json
+provider/cmd/**/metadata-compact.json
+provider/cmd/**/*.gz
 **/version.txt
 **/nuget
 **/dist
 **/*.tar.gz
 
 ci-scripts/
-provider/cmd/pulumi-resource-azure-native/schema-full.json

@@ -3,7 +3,6 @@
 package openapi
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 	"io/ioutil"
@@ -13,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/segmentio/encoding/json"
 )
 
 func ReadV1Version() (CuratedVersion, error) {
