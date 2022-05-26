@@ -484,6 +484,7 @@ New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
 - `azure-native:scvmm:getVirtualMachineTemplate`
 - `azure-native:scvmm:getVirtualNetwork`
 - `azure-native:scvmm:getVmmServer`
+
 ## 1.62.0 (2022-04-04)
 
 - Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
